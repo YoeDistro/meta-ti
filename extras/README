@@ -1,0 +1,17 @@
+An "extras" (AKA best-effort) layer for meta-ti
+
+This layer depends on:
+
+URI: git://git.openembedded.org/openembedded-core
+layers: meta
+branch: master
+
+URI: git://git.yoctoproject.org/meta-ti
+layers: meta
+branch: master
+
+
+Send pull requests, patches, comments or questions to meta-ti@yoctoproject.org
+
+Maintainers: Denys Dmytriyenko <denys@ti.com>
+             Koen Kooi <koen@dominion.thruhere.net>
