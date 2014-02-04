@@ -13,6 +13,8 @@ SRCREV = "c34a43ec74168b892a948b45695486f1a3d700af"
 
 SRC_URI = "git://dev.omapzoom.org/pub/scm/integration/kernel-ubuntu.git;protocol=git;branch=ti-ubuntu-3.4-1487 \
            file://defconfig \
+           file://0003-ARM-7668-1-fix-memset-related-crashes-caused-by-rece.patch \
+           file://0004-ARM-7670-1-fix-the-memset-fix.patch \
            "
 
 S = "${WORKDIR}/git"
