@@ -1,10 +1,10 @@
 DESCRIPTION = "Cortex-M3 binary blob for suspend-resume"
 
 LICENSE = "TI-BSD"
-LIC_FILES_CHKSUM = "file://License.txt;md5=858099c817e47ea63559fc6b67ae8d91"
+LIC_FILES_CHKSUM = "file://License.txt;md5=7bdc54a749ab7a7dea999d25d99a41b8"
 
 PV = "05.00.00.02"
-PR = "r1"
+PR = "r2"
 
 # Make package machine specific due to different init scripts
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -36,7 +36,7 @@ SCRIPT_ti43x = "init-am43x-cm3"
 S = "${WORKDIR}/git"
 
 do_compile() {
-	make CC="${TARGET_CC}" CROSS_COMPILE="${TARGET_PREFIX}"
+	make CROSS_COMPILE="${TARGET_PREFIX}"
 }
 
 do_install() {
