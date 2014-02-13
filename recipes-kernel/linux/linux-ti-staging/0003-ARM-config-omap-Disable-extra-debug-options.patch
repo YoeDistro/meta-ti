@@ -1,0 +1,47 @@
+From 2d7b208a86b15d2c35336783efa4b604d96ee31e Mon Sep 17 00:00:00 2001
+From: Santosh Shilimkar <santosh.shilimkar@ti.com>
+Date: Thu, 13 Feb 2014 08:33:49 -0500
+Subject: [PATCH 3/6] ARM: config: omap: Disable extra debug options
+
+LOCK debug, SCHED debug, PREEMPT debug are very expensive operations and
+always in fast path of kernel operations. These are typical kernel development
+options and should be disabled in production kernel builds.
+
+Also enable JUMP_LABEL to take advantage of compiler optimisations.
+
+Created using typical 'savedefconfig' method. Hence you see some crypto
+option noise which unrelated and no impact on the end config.
+
+Signed-off-by: Santosh Shilimkar <santosh.shilimkar@ti.com>
+---
+ arch/arm/configs/omap2plus_defconfig |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
+index 4c96d0c..4106761 100644
+--- a/arch/arm/configs/omap2plus_defconfig
++++ b/arch/arm/configs/omap2plus_defconfig
+@@ -12,6 +12,7 @@ CONFIG_SLAB=y
+ CONFIG_PROFILING=y
+ CONFIG_OPROFILE=y
+ CONFIG_KPROBES=y
++CONFIG_JUMP_LABEL=y
+ CONFIG_MODULES=y
+ CONFIG_MODULE_FORCE_LOAD=y
+ CONFIG_MODULE_UNLOAD=y
+@@ -376,10 +377,9 @@ CONFIG_NLS_ISO8859_1=y
+ CONFIG_PRINTK_TIME=y
+ CONFIG_DEBUG_INFO=y
+ CONFIG_MAGIC_SYSRQ=y
+-CONFIG_SCHEDSTATS=y
+-CONFIG_TIMER_STATS=y
+-CONFIG_PROVE_LOCKING=y
++# CONFIG_SCHED_DEBUG is not set
+ # CONFIG_DEBUG_BUGVERBOSE is not set
++# CONFIG_FTRACE is not set
+ CONFIG_SECURITY=y
+ CONFIG_CRYPTO_TEST=m
+ CONFIG_CRYPTO_ECB=y
+-- 
+1.7.9.5
+
