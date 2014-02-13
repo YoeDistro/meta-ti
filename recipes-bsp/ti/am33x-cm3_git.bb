@@ -3,14 +3,14 @@ DESCRIPTION = "Cortex-M3 binary blob for suspend-resume"
 LICENSE = "TI-BSD"
 LIC_FILES_CHKSUM = "file://License.txt;md5=7bdc54a749ab7a7dea999d25d99a41b8"
 
-PV = "05.00.00.02"
-PR = "r2"
+PV = "05.00.00.03"
+PR = "r0"
 
 # Make package machine specific due to different init scripts
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-# SRCREV corresponds to tag v05.00.00.02
-SRCREV = "11107db2f1e9e58ee75d4fe9cc38423c9a6e4365"
+# SRCREV corresponds to tag v05.00.00.03
+SRCREV = "a0ddffb63147e2079a08944c0e399c75538201a9"
 BRANCH ?= "master"
 
 # This init script is only used for older kernels that do not support
