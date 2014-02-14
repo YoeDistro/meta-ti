@@ -1,32 +1,35 @@
-From 52502d8e52ecd82cd802ee6900942d041f9a79ef Mon Sep 17 00:00:00 2001
+Subject: [v2,3/3] ARM: OMAP2+: am43xx: Add context offset for dss hwmod
+Date: Sat, 15 Feb 2014 02:07:35 -0000
 From: Dave Gerlach <d-gerlach@ti.com>
-Date: Wed, 12 Feb 2014 16:06:46 -0600
-Subject: [PATCH 1/2] ARM: OMAP2+: am43xx: Add context offset for dss hwmod
 
 Add context_offs to the DSS hwmod for am43xx as the driver uses the
 context loss count to determine whether or not to restore context to the
-module. Without this the display does not return after a suspend cycle.
+module. Also add prcm flag indicating this bit is valid. Without this the
+display does not return after a suspend cycle.
 
 Signed-off-by: Dave Gerlach <d-gerlach@ti.com>
+
 ---
- arch/arm/mach-omap2/omap_hwmod_33xx_data.c |    1 +
+arch/arm/mach-omap2/omap_hwmod_33xx_data.c |    2 ++
  arch/arm/mach-omap2/prcm43xx.h             |    3 +++
- 2 files changed, 4 insertions(+)
+ 2 files changed, 5 insertions(+)
 
 diff --git a/arch/arm/mach-omap2/omap_hwmod_33xx_data.c b/arch/arm/mach-omap2/omap_hwmod_33xx_data.c
-index 978356d..4dcdcef 100644
+index 978356d..b298d6d 100644
 --- a/arch/arm/mach-omap2/omap_hwmod_33xx_data.c
 +++ b/arch/arm/mach-omap2/omap_hwmod_33xx_data.c
-@@ -1921,6 +1921,7 @@ static struct omap_hwmod am43xx_dss_core_hwmod = {
+@@ -1921,7 +1921,9 @@ static struct omap_hwmod am43xx_dss_core_hwmod = {
  	.prcm = {
  		.omap4 = {
  			.clkctrl_offs = AM43XX_CM_PER_DSS_CLKCTRL_OFFSET,
 +			.context_offs = AM43XX_PRM_RM_PER_DSS_CONTEXT,
  			.modulemode   = MODULEMODE_SWCTRL,
++			.flags = HWMOD_AM437X_HAS_CONTEXT_LOSS_BIT,
  		},
  	},
+ };
 diff --git a/arch/arm/mach-omap2/prcm43xx.h b/arch/arm/mach-omap2/prcm43xx.h
-index f5344ab..d804228 100644
+index f5344ab..55c41bb 100644
 --- a/arch/arm/mach-omap2/prcm43xx.h
 +++ b/arch/arm/mach-omap2/prcm43xx.h
 @@ -25,6 +25,9 @@
@@ -34,11 +37,8 @@ index f5344ab..d804228 100644
  #define AM43XX_PRM_DEVICE_INST				0x4000
  
 +/* PRM.PRM_PER offsets */
-+#define AM43XX_PRM_RM_PER_DSS_CONTEXT			0x1224
++#define AM43XX_PRM_RM_PER_DSS_CONTEXT			0x0A24
 +
  /* RM RSTCTRL offsets */
  #define AM43XX_RM_PER_RSTCTRL_OFFSET			0x0010
  #define AM43XX_RM_GFX_RSTCTRL_OFFSET			0x0010
--- 
-1.7.9.5
-
