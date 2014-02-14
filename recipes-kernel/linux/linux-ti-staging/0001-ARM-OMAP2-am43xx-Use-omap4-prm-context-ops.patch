@@ -1,0 +1,42 @@
+Subject: [v2,1/3] ARM: OMAP2+: am43xx: Use omap4 prm context ops
+Date: Sat, 15 Feb 2014 02:07:33 -0000
+From: Dave Gerlach <d-gerlach@ti.com>
+
+Context loss counting relies on several prm function pointers that
+serve as a "mapping" into the context loss registers and actually
+allow reading and clearing of the registers. Use the same
+from omap4 for am43xx as the layout of the prcm is similar.
+
+Signed-off-by: Dave Gerlach <d-gerlach@ti.com>
+
+---
+arch/arm/mach-omap2/io.c      |    1 +
+ arch/arm/mach-omap2/prm44xx.c |    3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/mach-omap2/io.c b/arch/arm/mach-omap2/io.c
+index 295e3e6..3eb9ae5 100644
+--- a/arch/arm/mach-omap2/io.c
++++ b/arch/arm/mach-omap2/io.c
+@@ -619,6 +619,7 @@ void __init am43xx_init_early(void)
+ 	omap_prm_base_init();
+ 	omap_cm_base_init();
+ 	omap3xxx_check_revision();
++	omap44xx_prm_init();
+ 	am33xx_check_features();
+ 	am43xx_powerdomains_init();
+ 	am43xx_clockdomains_init();
+diff --git a/arch/arm/mach-omap2/prm44xx.c b/arch/arm/mach-omap2/prm44xx.c
+index 03a6034..2c97e53 100644
+--- a/arch/arm/mach-omap2/prm44xx.c
++++ b/arch/arm/mach-omap2/prm44xx.c
+@@ -660,7 +660,8 @@ static struct prm_ll_data omap44xx_prm_ll_data = {
+ 
+ int __init omap44xx_prm_init(void)
+ {
+-	if (!cpu_is_omap44xx() && !soc_is_omap54xx() && !soc_is_dra7xx())
++	if (!soc_is_am43xx() && !cpu_is_omap44xx() &&
++				!soc_is_omap54xx() && !soc_is_dra7xx())
+ 		return 0;
+ 
+ 	return prm_register(&omap44xx_prm_ll_data);
