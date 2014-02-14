@@ -36,11 +36,11 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-linux-3.12.y"
 
-SRCREV = "c883f50c5bbf1bf5bfaeb550991caf5fc77a1c4d"
+SRCREV = "9d5b470605a6e5df5c46444c2b2c108d21f9a24a"
 PV = "3.12.10"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "d+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "e+gitr${SRCPV}"
 PR = "${MACHINE_KERNEL_PR}"
 
 SRC_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git;protocol=git;branch=${BRANCH} \
@@ -57,8 +57,8 @@ SRC_URI_append_ti33x = "file://0004-Not-for-merge-ARM-config-omap-Disable-SMP-fo
 SRC_URI_append_ti43x = "file://0004-Not-for-merge-ARM-config-omap-Disable-SMP-for-AM335x.patch"
 
 # LCD resume fixes
-SRC_URI += "0001-ARM-OMAP2-am43xx-Use-omap4-prm-context-ops.patch \
-            0002-ARM-OMAP2-omap_hwmod-Add-context-ops-to-am43xx-soc_ops.patch \
-            0003-ARM-OMAP2-am43xx-Add-context-offset-for-dss-hwmod.patch \
-            0004-ARM-OMAP2-omap_hwmod-Maintain-legacy-context-loss-count.patch \
+SRC_URI += "file://0001-ARM-OMAP2-am43xx-Use-omap4-prm-context-ops.patch \
+            file://0002-ARM-OMAP2-omap_hwmod-Add-context-ops-to-am43xx-soc_ops.patch \
+            file://0003-ARM-OMAP2-am43xx-Add-context-offset-for-dss-hwmod.patch \
+            file://0004-ARM-OMAP2-omap_hwmod-Maintain-legacy-context-loss-count.patch \
             "
