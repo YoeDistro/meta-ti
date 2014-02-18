@@ -36,25 +36,13 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-linux-3.12.y"
 
-SRCREV = "9d5b470605a6e5df5c46444c2b2c108d21f9a24a"
+SRCREV = "d5e4bfd196e114c885c5c42cf0a7b3edc7e54829"
 PV = "3.12.10"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "f+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "g+gitr${SRCPV}"
 PR = "${MACHINE_KERNEL_PR}"
 
 SRC_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
           "
-
-# Performance fixes
-SRC_URI += "file://0001-ARM-config-omap-Sync-up-omap2plus-defconfig-with-sav.patch \
-            file://0002-ARM-config-omap-Make-advanced-networking-features-as.patch \
-            file://0003-ARM-config-omap-Disable-extra-debug-options.patch \
-            "
-# LCD resume fixes
-SRC_URI += "file://0001-ARM-OMAP2-am43xx-Use-omap4-prm-context-ops.patch \
-            file://0002-ARM-OMAP2-omap_hwmod-Add-context-ops-to-am43xx-soc_ops.patch \
-            file://0003-ARM-OMAP2-am43xx-Add-context-offset-for-dss-hwmod.patch \
-            file://0004-ARM-OMAP2-omap_hwmod-Maintain-legacy-context-loss-count.patch \
-            "
