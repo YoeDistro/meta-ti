@@ -8,12 +8,14 @@ COMPATIBLE_MACHINE = "omap3"
 # SRCREV corresponds to tag v2.6.37_OMAPPSP_04.02.00.07
 SRCREV= "adcd067326836777c049e3cb32a5b7d9d401fc31"
 
+BRANCH = "OMAPPSP_04.02.00.07"
+
 # The main PR is now using MACHINE_KERNEL_PR, for omap3 devices
 # see conf/machine/include/omap3.inc
 MACHINE_KERNEL_PR_append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 
-SRC_URI = "git://arago-project.org/git/projects/linux-omap3.git;protocol=git \
+SRC_URI = "git://arago-project.org/git/projects/linux-omap3.git;protocol=git;branch=${BRANCH} \
            file://defconfig"
 
 # The following patches below have been upstreamed to linux kernel 2.6.39 tree
