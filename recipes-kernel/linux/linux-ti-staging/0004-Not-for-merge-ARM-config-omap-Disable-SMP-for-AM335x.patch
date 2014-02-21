@@ -1,0 +1,43 @@
+From 89783143b64210e8f159fd875b23aa9af1fd51b0 Mon Sep 17 00:00:00 2001
+From: Santosh Shilimkar <santosh.shilimkar@ti.com>
+Date: Thu, 13 Feb 2014 08:52:41 -0500
+Subject: [PATCH 4/4] Not-for-merge: ARM: config: omap: Disable SMP for AM335x build
+
+SMP and SMP_ON_UP introduces some extra barriers and code many fast paths
+including kernel lock functions.
+
+Performance sensitive usecases like networking gets impacted because of this.
+In typical production kernel which is targeted for single core device
+like AM335x family, you don't want to take this hit.
+
+Ideally one should just create a device specific config feed as done by all
+typical distro's. Other option is to apply this specifically during build
+time using recipe.
+
+Whichever option, one definitely don't want this overhead for performance
+critical usecases.
+
+Disabling SMP in the build introduces one warining in cpuidle44xx.c driver
+and fix is included in the series
+
+Signed-off-by: Santosh Shilimkar <santosh.shilimkar@ti.com>
+---
+ arch/arm/configs/omap2plus_defconfig |    2 --
+ 1 files changed, 0 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
+index 3975b08..cfbc2d0 100644
+--- a/arch/arm/configs/omap2plus_defconfig
++++ b/arch/arm/configs/omap2plus_defconfig
+@@ -36,8 +36,6 @@ CONFIG_OMAP4_ERRATA_I688=y
+ CONFIG_ARM_THUMBEE=y
+ CONFIG_ARM_ERRATA_411920=y
+ CONFIG_PCIE_DRA7XX=y
+-CONFIG_SMP=y
+-CONFIG_NR_CPUS=2
+ CONFIG_PREEMPT=y
+ CONFIG_CMA=y
+ CONFIG_ZBOOT_ROM_TEXT=0x0
+-- 
+1.7.0.4
+
