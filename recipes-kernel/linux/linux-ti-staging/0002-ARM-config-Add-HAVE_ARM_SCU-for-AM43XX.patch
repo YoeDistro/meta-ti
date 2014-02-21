@@ -1,0 +1,37 @@
+From 5b2aa64ccdeef659a9688730753199ba5b8e60b1 Mon Sep 17 00:00:00 2001
+From: Dave Gerlach <d-gerlach@ti.com>
+Date: Fri, 21 Feb 2014 10:25:33 +0000
+Subject: [PATCH 2/4] ARM: config: Add HAVE_ARM_SCU for AM43XX
+
+CONFIG_HAVE_ARM_SCU only gets selected if CONFIG_SMP is selected in an OMAP
+system however AM43XX needs this option regardless of CONFIG_SMP as it is
+important for controlling power in the SoC. Without this suspend will
+not work as scu_power_mode becomes an empty function.
+
+AM43XX requires SCU CPU Power Status bits for A9 core to be set to off mode
+in order for the MSTANDBY signal to be asserted from the MPU during WFI.
+This signal is used by the PRCM to determine when it is appropriate to
+clock gate the MPU clock domain and also trigger M3_IRQ2 to tell the wkup_m3
+firmware to put the part into the desired sleep more.
+
+Signed-off-by: Dave Gerlach <d-gerlach@ti.com>
+Tested-by: Sekhar Nori <nsekhar@ti.com>
+---
+ arch/arm/mach-omap2/Kconfig |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+diff --git a/arch/arm/mach-omap2/Kconfig b/arch/arm/mach-omap2/Kconfig
+index 959f6fc..373d576 100644
+--- a/arch/arm/mach-omap2/Kconfig
++++ b/arch/arm/mach-omap2/Kconfig
+@@ -85,6 +85,7 @@ config SOC_AM43XX
+ 	depends on ARCH_MULTI_V7
+ 	select CPU_V7
+ 	select ARCH_OMAP2PLUS
++	select HAVE_ARM_SCU
+ 	select MULTI_IRQ_HANDLER
+ 	select ARM_GIC
+ 	select COMMON_CLK
+-- 
+1.7.0.4
+
