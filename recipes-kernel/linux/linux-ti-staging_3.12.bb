@@ -36,11 +36,11 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-linux-3.12.y"
 
-SRCREV = "d5e4bfd196e114c885c5c42cf0a7b3edc7e54829"
+SRCREV = "c559824b17bfc194cc072dac0720ac8e23373871"
 PV = "3.12.10"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "h+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "i+gitr${SRCPV}"
 PR = "${MACHINE_KERNEL_PR}"
 
 SRC_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git;protocol=git;branch=${BRANCH} \
@@ -49,9 +49,9 @@ SRC_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git;protocol=git;bra
 
 # Latest critical fixes
 SRC_URI += "file://0001-Revert-usb-musb-musb_cppi41-Revert-the-Advisory-1.0..patch \
-            file://0002-ARM-config-Add-HAVE_ARM_SCU-for-AM43XX.patch \
             file://0003-ARM-OMAP-Kill-warning-in-CPUIDLE-code-with-CONFIG_SM.patch \
+            file://0004-ARM-config-omap-Change-PREEMPTion-to-voluntary.patch \
             "
 
-SRC_URI_append_ti33x = "file://0004-Not-for-merge-ARM-config-omap-Disable-SMP-for-AM335x.patch"
-SRC_URI_append_ti43x = "file://0004-Not-for-merge-ARM-config-omap-Disable-SMP-for-AM335x.patch"
+SRC_URI_append_ti33x = "file://0005-Not-for-merge-ARM-config-omap-Disable-SMP-for-AM335x.patch"
+SRC_URI_append_ti43x = "file://0005-Not-for-merge-ARM-config-omap-Disable-SMP-for-AM335x.patch"

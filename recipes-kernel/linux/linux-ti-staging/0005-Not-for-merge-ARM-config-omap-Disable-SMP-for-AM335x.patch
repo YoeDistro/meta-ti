@@ -1,7 +1,8 @@
-From 89783143b64210e8f159fd875b23aa9af1fd51b0 Mon Sep 17 00:00:00 2001
+From 2f6cbe000b1d31c91eee0248f24b0c306aadeb63 Mon Sep 17 00:00:00 2001
 From: Santosh Shilimkar <santosh.shilimkar@ti.com>
 Date: Thu, 13 Feb 2014 08:52:41 -0500
-Subject: [PATCH 4/4] Not-for-merge: ARM: config: omap: Disable SMP for AM335x build
+Subject: [PATCH 2/2] Not-for-merge: ARM: config: omap: Disable SMP for AM335x
+ build
 
 SMP and SMP_ON_UP introduces some extra barriers and code many fast paths
 including kernel lock functions.
@@ -21,12 +22,13 @@ Disabling SMP in the build introduces one warining in cpuidle44xx.c driver
 and fix is included in the series
 
 Signed-off-by: Santosh Shilimkar <santosh.shilimkar@ti.com>
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
 ---
- arch/arm/configs/omap2plus_defconfig |    2 --
- 1 files changed, 0 insertions(+), 2 deletions(-)
+ arch/arm/configs/omap2plus_defconfig | 2 --
+ 1 file changed, 2 deletions(-)
 
 diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
-index 3975b08..cfbc2d0 100644
+index a34b45a..bb6beb2 100644
 --- a/arch/arm/configs/omap2plus_defconfig
 +++ b/arch/arm/configs/omap2plus_defconfig
 @@ -36,8 +36,6 @@ CONFIG_OMAP4_ERRATA_I688=y
@@ -35,9 +37,9 @@ index 3975b08..cfbc2d0 100644
  CONFIG_PCIE_DRA7XX=y
 -CONFIG_SMP=y
 -CONFIG_NR_CPUS=2
- CONFIG_PREEMPT=y
+ CONFIG_PREEMPT_VOLUNTARY=y
  CONFIG_CMA=y
  CONFIG_ZBOOT_ROM_TEXT=0x0
 -- 
-1.7.0.4
+1.8.3.2
 
