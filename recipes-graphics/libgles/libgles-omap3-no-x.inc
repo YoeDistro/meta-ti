@@ -158,24 +158,14 @@ do_install () {
 
 	#Create different folders for ease of installing into different platforms with different display drivers/ SGX core
 
-	install -d ${D}${libdir}/ES9.0
-	install -d ${D}${libdir}/ES8.0
-	install -d ${D}${libdir}/ES6.0
-	install -d ${D}${libdir}/ES5.0
-	install -d ${D}${libdir}/ES3.0
-
-	install -d ${D}${bindir}/ES9.0
-	install -d ${D}${bindir}/ES8.0
-	install -d ${D}${bindir}/ES6.0
-	install -d ${D}${bindir}/ES5.0
-	install -d ${D}${bindir}/ES3.0
-
 	shared_prog="eglinfo pvr2d_test ${PVR_INIT} services_test sgx_blit_test sgx_clipblit_test sgx_flip_test sgx_init_test sgx_render_flip_test"
 	raw_prog="gles1test1 gles2test1"
 
 	for esrev in 3 5 6 8 9 ; do
 		ESLOCATION=$(eval echo $(echo \$\{ES${esrev}LOCATION\}))
 		if [ -e ${ESLOCATION} ] ; then
+			install -d ${D}${libdir}/ES${esrev}.0
+			install -d ${D}${bindir}/ES${esrev}.0
 			cp -pPR ${ESLOCATION}/lib*${IMGPV} ${ESLOCATION}/pvr_drv.so ${ESLOCATION}/*.a ${D}${libdir}/ES${esrev}.0/
 			for esprog in $shared_prog $raw_prog ; do
 				install -m 0755 ${ESLOCATION}/$esprog ${D}${bindir}/ES${esrev}.0/ 2>/dev/null || true
