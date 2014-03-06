@@ -36,11 +36,12 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-linux-3.12.y"
 
-SRCREV = "83f0643caa2e8dabd42024bebfa4565eff347be7"
+# Corresponds to tag ti2013.12.01
+SRCREV = "2325bb5680986b6914d8fd0b5d0bdc20081fe8d3"
 PV = "3.12.10"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "j+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "k+gitr${SRCPV}"
 PR = "${MACHINE_KERNEL_PR}"
 
 SRC_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git;protocol=git;branch=${BRANCH} \
