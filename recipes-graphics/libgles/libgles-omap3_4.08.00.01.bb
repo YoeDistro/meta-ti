@@ -1,6 +1,6 @@
 require libgles-omap3.inc
 
-LICENSE = "TSPA"
+LICENSE = "TI-TSPA"
 
 BINLOCATION_omap3  = "${S}/gfx_rel_es3.x"
 BINLOCATION_ti816x = "${S}/gfx_rel_es6.x"
