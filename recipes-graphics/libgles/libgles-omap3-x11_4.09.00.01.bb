@@ -1,8 +1,8 @@
 require libgles-omap3-x11.inc
 
-LICENSE = "TSPA"
+LICENSE = "TI-TSPA"
 
-PR = "${INC_PR}.2"
+PR = "${INC_PR}.3"
 
 DEFAULT_PREFERENCE = "-1"
 
