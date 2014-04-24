@@ -1,6 +1,6 @@
 DESCRIPTION = "eZ430 Chronos Tools - MSP430 Development Kit/Watch"
 HOMEPAGE = "http://processors.wiki.ti.com/index.php/EZ430-Chronos"
-LICENSE = "TI-BSD"
+LICENSE = "BSD-3-Clause"
 # We can't use the actualy source file, since it has space in its name :(
 LIC_FILES_CHKSUM = "file://eZ430-Chronos_CC_1_1.tcl;md5=59ba6ee0a26650ec660a4e65a9462806"
 
