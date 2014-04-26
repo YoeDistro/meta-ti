@@ -40,11 +40,17 @@ SRCREV = "f0d4672333685697320f4907d5b4d3919121c299"
 PV = "3.12.17"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "a+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "b+gitr${SRCPV}"
 PR = "${MACHINE_KERNEL_PR}"
+
+KERNEL_CONFIG_FRAGMENTS = "baseport.cfg connectivity.cfg ipc.cfg"
 
 SRC_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
+           file://baseport.cfg \
+           file://connectivity.cfg \
+           file://ipc.cfg \
+           file://systest.cfg \
           "
 
 # Disable SMP in defconfig on single-core platforms to reduce overhead
