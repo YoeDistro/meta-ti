@@ -1,0 +1,38 @@
+From 26d09063063593aec760151393226b96bc7ab9f8 Mon Sep 17 00:00:00 2001
+From: Mrinmayee Hingolikar <mrinmayee@ti.com>
+Date: Thu, 5 Sep 2013 17:01:15 +0530
+Subject: [PATCH] ipc: Added installation prefix feature to products.mak
+
+Signed-off-by: Mrinmayee Hingolikar <mrinmayee@ti.com>
+---
+ ipc-linux.mak |    1 +
+ products.mak  |    1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/ipc-linux.mak b/ipc-linux.mak
+index 788a5a2..01579e4 100644
+--- a/ipc-linux.mak
++++ b/ipc-linux.mak
+@@ -38,6 +38,7 @@ include products.mak
+ config:
+ 	@echo "Configuring Linux Ipc ..."
+ 	./configure --host=$(TOOLCHAIN_LONGNAME) \
++            --prefix=$(PREFIX) \
+             CC=$(TOOLCHAIN_PREFIX)gcc \
+             PLATFORM=$(PLATFORM) \
+             CMEM_INSTALL_DIR=$(CMEM_INSTALL_DIR) \
+diff --git a/products.mak b/products.mak
+index e418d2f..4578a1e 100644
+--- a/products.mak
++++ b/products.mak
+@@ -55,6 +55,7 @@ PLATFORM ?=
+ TOOLCHAIN_LONGNAME = arm-none-linux-gnueabi
+ TOOLCHAIN_INSTALL_DIR = $(DEPOT)/_your_arm_code_gen_install_
+ TOOLCHAIN_PREFIX = $(TOOLCHAIN_INSTALL_DIR)/bin/$(TOOLCHAIN_LONGNAME)-
++PREFIX = /usr/local
+ 
+ # Optional: Path to Linux Kernel - needed to build the MmRpc user libraries
+ # (for devices that support it)
+-- 
+1.7.9.5
+
