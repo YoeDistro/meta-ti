@@ -1,6 +1,6 @@
 #! /bin/sh
 
-tiipclad_daemon=/usr/bin/lad_tci6638
+tiipclad_daemon=/usr/bin/__LAD_DAEMON__
 tiipclad_params=lad.txt
 
 test -x "$tiipclad_daemon" || exit 0
