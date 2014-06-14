@@ -205,4 +205,4 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PACKAGES += "ti-codecs-omap3530-server"
 FILES_ti-codecs-omap3530-server = "${installdir}/ti-codecs-server/*"
 
-
+INSANE_SKIP_${PN} = "installed-vs-shipped"

@@ -36,3 +36,4 @@ SRC_URI_append = " file://omap3530-r642-remove-include-videodev.diff;striplevel=
                    file://r642-fix-config-bld.diff;striplevel=3 \
                  "
 
+INSANE_SKIP_${PN} = "installed-vs-shipped"
