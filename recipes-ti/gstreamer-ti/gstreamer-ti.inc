@@ -9,7 +9,7 @@ LICENSE = "LGPL"
 # TODO :: Check if CPPFLAGS_append is still required
 # TODO :: Remove ENCODE/DECODE combo exports - these are not used anymore (check?)
 
-inherit autotools
+inherit autotools-brokensep
 inherit update-rc.d
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
