@@ -1,6 +1,7 @@
 SOC_FAMILY = "omap3"
 require conf/machine/include/soc-family.inc
 
+DEFAULTTUNE ?= "cortexa8thf-neon"
 require conf/machine/include/tune-cortexa8.inc
 
 PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
@@ -16,7 +17,7 @@ XSERVER = "xserver-xorg \
 GUI_MACHINE_CLASS = "bigscreen"
 
 # Increase this everytime you change something in the kernel
-MACHINE_KERNEL_PR = "r125"
+MACHINE_KERNEL_PR = "r126"
 
 KERNEL_IMAGETYPE = "uImage"
 
