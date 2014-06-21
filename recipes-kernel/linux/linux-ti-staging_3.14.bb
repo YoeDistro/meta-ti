@@ -3,15 +3,13 @@ DESCRIPTION = "Linux kernel for TI devices"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit kernel
 
 require recipes-kernel/linux/linux-dtb.inc
 require recipes-kernel/linux/setup-defconfig.inc
 
 # Look in the generic major.minor directory for files
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-3.15:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-3.14:"
 
 # Pull in the devicetree files into the rootfs
 RDEPENDS_kernel-base += "kernel-devicetree"
@@ -39,13 +37,13 @@ COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15"
 
 S = "${WORKDIR}/git"
 
-BRANCH = "ti-linux-3.15.y"
+BRANCH = "ti-linux-3.14.y"
 
-SRCREV = "3fd9aad17d3b4d1d7ee50ae788c0a096921e7216"
-PV = "3.14+3.15-rc6"
+SRCREV = "9d00dd1187099b0841125220c7432a3507e5b5fa"
+PV = "3.14.8"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "b+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "a+gitr${SRCPV}"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_DIR = "ti_config_fragments"
