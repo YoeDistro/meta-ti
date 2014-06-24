@@ -30,7 +30,7 @@ COMPATIBLE_MACHINE = "ti33x|omap3"
 
 S = "${WORKDIR}/git"
 
-BRANCH = "master"
+BRANCH = "linux-3.14.y"
 
 # Corresponds to tag v3.14.8
 SRCREV = "0c5b3b80f7aeba9b8d25e12f7b321d148a1b1cb9"
