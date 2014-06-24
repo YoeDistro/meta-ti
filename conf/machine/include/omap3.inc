@@ -22,7 +22,7 @@ MACHINE_KERNEL_PR = "r126"
 KERNEL_IMAGETYPE = "uImage"
 
 # Default providers, may need to override for specific machines
-PREFERRED_PROVIDER_virtual/kernel = "linux-omap"
+PREFERRED_PROVIDER_virtual/kernel = "linux-mainline"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot"
 
 UBOOT_ARCH = "arm"
