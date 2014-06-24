@@ -3,6 +3,8 @@ DESCRIPTION = "Linux kernel for TI devices"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
+DEFAULT_PREFERENCE = "-1"
+
 inherit kernel
 
 require recipes-kernel/linux/linux-dtb.inc
