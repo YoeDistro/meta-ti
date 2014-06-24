@@ -5,7 +5,7 @@ MACHINE_KERNEL_PR = "r53"
 
 KERNEL_IMAGETYPE = "uImage"
 
-PREFERRED_PROVIDER_virtual/kernel = "linux-davinci"
+PREFERRED_PROVIDER_virtual/kernel = "linux-mainline"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot"
 
 UBOOT_MACHINE = "davinci_dvevm_config"
