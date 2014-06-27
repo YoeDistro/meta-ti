@@ -1,3 +1,5 @@
+UBOOT_SUFFIX ?= "img"
+
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/u-boot:"
@@ -13,8 +15,6 @@ PKG_${PN}-dev = "u-boot-dev"
 PKG_${PN}-dbg = "u-boot-dbg"
 
 S = "${WORKDIR}/git"
-
-UBOOT_SUFFIX = "img"
 
 # SPL (Second Program Loader) to be loaded over UART
 SPL_UART_BINARY ?= ""
