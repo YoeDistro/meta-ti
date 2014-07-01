@@ -5,7 +5,7 @@ DEPENDS += "virtual/kernel"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://COPYING;md5=74d2f71d8898c54e3d1c9d0058c484aa"
 
-COMPATIBLE_MACHINE = "dra7xx-evm"
+COMPATIBLE_MACHINE = "dra7xx"
 
 PV = "1b8"
 PR = "r1"
