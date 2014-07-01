@@ -12,12 +12,12 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PLATFORM = "UNKNOWN"
 PLATFORM_omap5-evm = "OMAP54XX"
-PLATFORM_dra7xx-evm = "DRA7XX"
+PLATFORM_dra7xx = "DRA7XX"
 PLATFORM_keystone = "TCI6638"
 
 DAEMON = "UNKNOWN"
 DAEMON_omap5-evm = "lad_omap54xx_smp"
-DAEMON_dra7xx-evm = "lad_dra7xx"
+DAEMON_dra7xx = "lad_dra7xx"
 DAEMON_keystone = "lad_tci6638"
 
 inherit autotools pkgconfig update-rc.d
