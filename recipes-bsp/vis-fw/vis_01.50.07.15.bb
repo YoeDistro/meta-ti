@@ -5,6 +5,8 @@ LIC_FILES_CHKSUM = "file://${S}/J6_VIS_DEMO_LINUX_BINARY_01.50.07.15-Manifest.ht
 COMPATIBLE_MACHINE = "dra7xx-evm"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
+PR = "r1"
+
 SRC_URI = "http://downloads.ti.com/dsps/dsps_public_sw/glsdk/vis/01_50_07_15/exports/vis-${MACHINE}-01.50.07.15.tar.gz;protocol=http"
 
 SRC_URI[md5sum] = "fe8b00e398fb3b7ada0c15b601867acb"
@@ -28,4 +30,5 @@ RDEPENDS_${PN} += "${PN}-fw"
 FILES_${PN}-fw += "${base_libdir}/firmware/${DSPAPP}"
 
 INSANE_SKIP_${PN}-fw = "arch"
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1" 
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+INHIBIT_PACKAGE_STRIP = "1"
