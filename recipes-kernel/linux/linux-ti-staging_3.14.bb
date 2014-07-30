@@ -3,8 +3,6 @@ DESCRIPTION = "Linux kernel for TI devices"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit kernel
 
 require recipes-kernel/linux/linux-dtb.inc
@@ -49,7 +47,7 @@ SRCREV = "b0fa4f08d72c8723219b5174b5749151b5acaee0"
 PV = "3.14.14"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "a+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "b+gitr${SRCPV}"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_DIR = "${S}/ti_config_fragments"
@@ -57,10 +55,22 @@ KERNEL_CONFIG_FRAGMENTS = "${KERNEL_CONFIG_DIR}/audio_display.cfg ${KERNEL_CONFI
                            ${KERNEL_CONFIG_DIR}/connectivity.cfg ${KERNEL_CONFIG_DIR}/ipc.cfg \
                            ${KERNEL_CONFIG_DIR}/power.cfg"
 
-KERNEL_CONFIG_FRAGMENTS_append_ti33x = " ${WORKDIR}/non-smp.cfg"
-KERNEL_CONFIG_FRAGMENTS_append_ti43x = " ${WORKDIR}/non-smp.cfg"
+KERNEL_CONFIG_FRAGMENTS_append_ti33x = " ${WORKDIR}/non-smp.cfg ${WORKDIR}/sgx.cfg"
+KERNEL_CONFIG_FRAGMENTS_append_ti43x = " ${WORKDIR}/non-smp.cfg ${WORKDIR}/sgx.cfg"
+
+# Patches necessary to make SGX graphics work with this kernel version
+SGX_PATCHES = "file://sgx/0001-HACK-drm-fb_helper-enable-panning-support.patch \
+               file://sgx/0002-HACK-drm-tilcdc-add-vsync-callback-for-use-in-omaplf.patch \
+               file://sgx/0003-drm-tilcdc-fix-the-ping-pong-dma-tearing-issue-seen-.patch \
+               file://sgx/0004-ARM-OMAP2-Use-pdata-quirks-for-sgx-deassert_hardrese.patch \
+               file://sgx/0005-ARM-dts-am437x-add-SGX-node.patch \
+               file://sgx/0006-ARM-dts-am33xx-add-DT-node-for-gpu.patch"
 
 SRC_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
            file://non-smp.cfg \
+           file://sgx.cfg \
           "
+
+SRC_URI_append_ti33x = " ${SGX_PATCHES}"
+SRC_URI_append_ti43x = " ${SGX_PATCHES}"

@@ -1,0 +1,41 @@
+From c921fe043facef3bd6649170fb6130f18e9367b7 Mon Sep 17 00:00:00 2001
+From: Darren Etheridge <detheridge@ti.com>
+Date: Tue, 29 Jul 2014 16:27:59 -0500
+Subject: [PATCH 5/6] ARM: dts: am437x: add SGX node
+
+Add dt node to enable SGX PowerVR driver.
+
+Signed-off-by: Darren Etheridge <detheridge@ti.com>
+---
+ arch/arm/boot/dts/am4372.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/arm/boot/dts/am4372.dtsi b/arch/arm/boot/dts/am4372.dtsi
+index d36af42..d963a60 100644
+--- a/arch/arm/boot/dts/am4372.dtsi
++++ b/arch/arm/boot/dts/am4372.dtsi
+@@ -707,6 +707,13 @@
+ 			dma-names = "tx", "rx";
+ 		};
+ 
++		sgx@0x56000000 {
++			compatible = "ti,sgx";
++			ti,hwmods = "gfx";
++			reg = <0x56000000 0x1000000>;
++			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
++		};
++
+ 		mcasp1: mcasp@4803C000 {
+ 			compatible = "ti,am33xx-mcasp-audio";
+ 			ti,hwmods = "mcasp1";
+@@ -891,6 +898,7 @@
+ 				clocks = <&disp_clk>;
+ 				clock-names = "fck";
+ 			};
++
+ 		};
+ 	};
+ };
+-- 
+1.9.1
+
