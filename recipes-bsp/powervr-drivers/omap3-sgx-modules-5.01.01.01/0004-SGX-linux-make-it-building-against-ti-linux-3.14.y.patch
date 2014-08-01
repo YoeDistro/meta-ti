@@ -1,0 +1,45 @@
+From c9258e090aec91e70efa814e5a38048b0c45754a Mon Sep 17 00:00:00 2001
+From: Darren Etheridge <detheridge@ti.com>
+Date: Tue, 29 Jul 2014 15:54:14 -0500
+Subject: [PATCH 4/4] SGX: linux: make it building against ti-linux-3.14.y
+
+The fbdev drivers moved into their own directory under drivers/video.
+All of the omap2 dss stuff moved there as well so update the Makefile
+to point to the right place.
+
+Keep the old directory around to not break builds against older kernel.
+
+Signed-off-by: Darren Etheridge <detheridge@ti.com>
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/Kbuild | 1 +
+ GFX_Linux_KM/services4/3rdparty/dc_ti43xx_linux/Kbuild | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/Kbuild b/GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/Kbuild
+index 1ae2359..9e0c843 100755
+--- a/GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/Kbuild
++++ b/GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/Kbuild
+@@ -15,6 +15,7 @@ EXTRA_CFLAGS =	-DLINUX \
+ 		-I$(PVR_BUILD_DIR)/services4/include \
+ 		-I$(PVR_BUILD_DIR)/services4/system/$(PVR_SYSTEM) \
+ 		-I$(KERNELDIR)/drivers/video/omap2 \
++		-I$(KERNELDIR)/drivers/video/fbdev/omap2 \
+ 		-I$(PVR_BUILD_DIR)/services4/system/include \
+ 		$(SYS_CFLAGS.1) \
+ 
+diff --git a/GFX_Linux_KM/services4/3rdparty/dc_ti43xx_linux/Kbuild b/GFX_Linux_KM/services4/3rdparty/dc_ti43xx_linux/Kbuild
+index 1ae2359..9e0c843 100755
+--- a/GFX_Linux_KM/services4/3rdparty/dc_ti43xx_linux/Kbuild
++++ b/GFX_Linux_KM/services4/3rdparty/dc_ti43xx_linux/Kbuild
+@@ -15,6 +15,7 @@ EXTRA_CFLAGS =	-DLINUX \
+ 		-I$(PVR_BUILD_DIR)/services4/include \
+ 		-I$(PVR_BUILD_DIR)/services4/system/$(PVR_SYSTEM) \
+ 		-I$(KERNELDIR)/drivers/video/omap2 \
++		-I$(KERNELDIR)/drivers/video/fbdev/omap2 \
+ 		-I$(PVR_BUILD_DIR)/services4/system/include \
+ 		$(SYS_CFLAGS.1) \
+ 
+-- 
+2.0.2
+

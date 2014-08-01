@@ -10,7 +10,7 @@ IMGPV = "1.10.2359475"
 
 inherit module
 
-MACHINE_KERNEL_PR_append = "a"
+MACHINE_KERNEL_PR_append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 
 BINFILE_HARDFP = "Graphics_SDK_setuplinux_hardfp_${SGXPV}.bin"
@@ -32,6 +32,11 @@ python __anonymous() {
 BINFILE := "${BINFILE_HARDFP}"
 
 SRC_URI = "http://software-dl.ti.com/dsps/dsps_public_sw/gfxsdk/${SGXPV}/exports/${BINFILE}"
+
+SRC_URI += "file://0001-PoC-GFX-SDK-Make-5_01_01_01-work-against-3.14-LTS.patch;striplevel=2 \
+            file://0002-SGX-linux-use-platform-data-to-provide-reset-info.patch;striplevel=2 \
+            file://0003-SGX-displayclass-am335x-am437x-fix-mutex-deadlock-wa.patch;striplevel=2 \
+            file://0004-SGX-linux-make-it-building-against-ti-linux-3.14.y.patch;striplevel=2"
 
 SRC_URI[md5sum] := "${MD5SUM_HARDFP}"
 SRC_URI[sha256sum] := "${SHA256SUM_HARDFP}"
