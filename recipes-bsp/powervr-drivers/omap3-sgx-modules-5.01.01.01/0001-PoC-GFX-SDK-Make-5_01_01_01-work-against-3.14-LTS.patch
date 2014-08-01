@@ -1,0 +1,52 @@
+From e2db38959a70d1be604a297276a0b0c2ac219bf5 Mon Sep 17 00:00:00 2001
+From: Darren Etheridge <detheridge@ti.com>
+Date: Tue, 29 Jul 2014 16:06:17 -0500
+Subject: [PATCH 1/4] PoC: GFX: SDK: Make 5_01_01_01 work against 3.14 LTS
+
+An API rename is the main change.  Also hacked in some function prototypes
+for enabling use of the tilcdc DRM driver instead of the fbdev driver on
+AM335x.  However this all really needs a good cleanup as it is hacky at
+the moment.
+
+Signed-off-by: Darren Etheridge <detheridge@ti.com>
+---
+ GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/omaplfb_linux.c | 5 +++++
+ GFX_Linux_KM/services4/srvkm/env/linux/mutils.h                 | 6 +++++-
+ 2 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/omaplfb_linux.c b/GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/omaplfb_linux.c
+index 5c3fc48..3857b95 100644
+--- a/GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/omaplfb_linux.c
++++ b/GFX_Linux_KM/services4/3rdparty/dc_ti335x_linux/omaplfb_linux.c
+@@ -93,6 +93,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ #include <linux/mutex.h>
+ 
+ #include <video/da8xx-fb.h>
++/* used by SGX OMAPLFB drvier */
++typedef void (*vsync_callback_t)(void *arg);
++int register_vsync_cb(vsync_callback_t handler, void *arg, int idx);
++int unregister_vsync_cb(vsync_callback_t handler, void *arg, int idx);
++
+ #if defined(PVR_OMAPLFB_DRM_FB)
+ #if (LINUX_VERSION_CODE < KERNEL_VERSION(3,0,0))
+ #include <plat/display.h>
+diff --git a/GFX_Linux_KM/services4/srvkm/env/linux/mutils.h b/GFX_Linux_KM/services4/srvkm/env/linux/mutils.h
+index 31e0dac..90ec41c 100644
+--- a/GFX_Linux_KM/services4/srvkm/env/linux/mutils.h
++++ b/GFX_Linux_KM/services4/srvkm/env/linux/mutils.h
+@@ -79,7 +79,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 	#define	IOREMAP(pa, bytes)	ioremap_cache(pa, bytes)
+ #else	
+ 	#if defined(__arm__) && (LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,0))
+-		#define	IOREMAP(pa, bytes)	ioremap_cached(pa, bytes)
++		#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3,13,0))
++			#define	IOREMAP(pa, bytes)	ioremap_cache(pa, bytes)
++		#else
++			#define	IOREMAP(pa, bytes)	ioremap_cached(pa, bytes)
++		#endif
+ 	#else
+ 		#define IOREMAP(pa, bytes)	ioremap(pa, bytes)
+ 	#endif
+-- 
+1.9.1
+
