@@ -1,7 +1,7 @@
-From 30a695502496302f804e14eeca90568f067b2db2 Mon Sep 17 00:00:00 2001
+From 7886ef77e4b48a7edd14acbcbe48f6a898251e78 Mon Sep 17 00:00:00 2001
 From: Darren Etheridge <detheridge@ti.com>
 Date: Fri, 25 Jul 2014 16:03:14 -0500
-Subject: [PATCH 2/4] SGX: linux: use platform data to provide reset info
+Subject: [PATCH 2/5] SGX: linux: use platform data to provide reset info
 
 In ti-linux-3.14.y we will not have a reset driver unlike ti-linux-3.12.y
 so this commit removes the dependency on the reset driver and instead
@@ -14,7 +14,7 @@ Signed-off-by: Darren Etheridge <detheridge@ti.com>
  1 file changed, 28 insertions(+), 6 deletions(-)
 
 diff --git a/GFX_Linux_KM/services4/srvkm/env/linux/module.c b/GFX_Linux_KM/services4/srvkm/env/linux/module.c
-index e03dc00..82d07f4 100644
+index e03dc00..90e16ce 100644
 --- a/GFX_Linux_KM/services4/srvkm/env/linux/module.c
 +++ b/GFX_Linux_KM/services4/srvkm/env/linux/module.c
 @@ -47,6 +47,10 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -22,7 +22,7 @@ index e03dc00..82d07f4 100644
  #endif
  
 +#ifndef CONFIG_RESET_CONTROLLER
-+#include <linux/platform_data/gfx-sgx.h>
++#include <linux/platform_data/sgx-omap.h>
 +#endif
 +
  #if defined(SUPPORT_DRI_DRM) && !defined(SUPPORT_DRI_DRM_PLUGIN)
