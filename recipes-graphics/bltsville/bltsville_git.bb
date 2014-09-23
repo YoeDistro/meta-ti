@@ -4,9 +4,9 @@ LICENSE = "BSD-3-Clause & TI-TSPA"
 LIC_FILES_CHKSUM = "file://COPYING;md5=10a9abb9c5bb19edd83a8cf66eef7148 \
                     file://ticpu/license;md5=0bb831850a0de80e32a63772d89c6562"
 
-PR = "r2"
+PR = "r3"
 
-SRCREV = "016586280ecdae201fd6e340ec8c4f8a9605cc94"
+SRCREV = "a759bde8a5a6e518dfb8a6e633736a360005498e"
 
 inherit autotools pkgconfig
 
