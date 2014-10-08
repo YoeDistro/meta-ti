@@ -12,7 +12,7 @@ LIC_FILES_CHKSUM = "file://dmai_${PV}_License.html;md5=3302f728a5a42f97cabc26a54
 
 # This package has high dependence on kernel, use kernel PR as base and append a local version
 PR = "${MACHINE_KERNEL_PR}"
-PR_append = "o"
+PR_append = "p"
 
 DMAIBRANCH_dm6446     = "trunk"
 DMAIBRANCH_dm6467     = "branches/GITPSP_INT_101009"
@@ -34,6 +34,7 @@ SRCREV               ?= "UNDEFINED_SRCREV"
 
 SRC_URI_append = " file://omap3530-r642-remove-include-videodev.diff;striplevel=3 \
                    file://r642-fix-config-bld.diff;striplevel=3 \
+                   file://remove-unneeded-includes.patch \
                  "
 
 INSANE_SKIP_${PN} = "installed-vs-shipped"
