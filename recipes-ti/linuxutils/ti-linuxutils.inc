@@ -15,7 +15,7 @@ require recipes-ti/includes/ti-staging.inc
 PR = "${MACHINE_KERNEL_PR}"
 
 #This is a kernel module, don't set PR directly
-MACHINE_KERNEL_PR_append = "e"
+MACHINE_KERNEL_PR_append = "f"
 
 inherit module
 

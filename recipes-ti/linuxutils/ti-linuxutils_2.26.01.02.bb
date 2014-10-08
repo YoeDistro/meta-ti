@@ -1,6 +1,9 @@
 require ti-linuxutils.inc
 
-SRC_URI += "file://linuxutils-BKL-fix-2.patch"
+SRC_URI += "file://linuxutils-BKL-fix-2.patch \
+			file://linuxutils_2_26-cmemk-fixes.patch \
+			file://linuxutils_2_26-sdmak-fixes.patch \
+	"
 
 PE = "1"
 PV = "2_26_01_02"

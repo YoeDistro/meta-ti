@@ -1,0 +1,59 @@
+Index: linuxutils_2_26_01_02/packages/ti/sdo/linuxutils/cmem/src/module/cmemk.c
+===================================================================
+--- linuxutils_2_26_01_02.orig/packages/ti/sdo/linuxutils/cmem/src/module/cmemk.c
++++ linuxutils_2_26_01_02/packages/ti/sdo/linuxutils/cmem/src/module/cmemk.c
+@@ -31,6 +31,7 @@
+ #include <linux/seq_file.h>
+ #include <linux/vmalloc.h>
+ #include <linux/sched.h>
++#include <linux/slab.h>
+ #include <asm/cacheflush.h>
+ #include <asm/uaccess.h>
+ #include <asm/pgtable.h>
+@@ -1072,7 +1073,7 @@ static int set_noncached(struct vm_area_
+ {
+     vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
+ 
+-    vma->vm_flags |= VM_RESERVED | VM_IO;
++    vma->vm_flags |= VM_DONTEXPAND | VM_DONTDUMP | VM_IO;
+ 
+     if (remap_pfn_range(vma, vma->vm_start, vma->vm_pgoff,
+                         vma->vm_end - vma->vm_start, vma->vm_page_prot)) {
+@@ -1095,7 +1096,7 @@ static int set_cached(struct vm_area_str
+                                 );
+ #endif
+ 
+-    vma->vm_flags |= VM_RESERVED | VM_IO;
++    vma->vm_flags |= VM_DONTEXPAND | VM_DONTDUMP | VM_IO;
+ 
+     if (remap_pfn_range(vma, vma->vm_start, vma->vm_pgoff,
+                         vma->vm_end - vma->vm_start, vma->vm_page_prot)) {
+@@ -2062,8 +2063,13 @@ int __init cmem_init(void)
+         block_avail_size[bi] = length;
+ 
+         /* attempt to determine the end of Linux kernel memory */
++#if LINUX_VERSION_CODE < KERNEL_VERSION(3, 11, 0)
+         phys_end_kernel = virt_to_phys((void *)PAGE_OFFSET) +
+                    (num_physpages << PAGE_SHIFT);
++#else
++        phys_end_kernel = virt_to_phys((void *)PAGE_OFFSET) +
++                   (get_num_physpages() << PAGE_SHIFT);
++#endif
+ 
+         if (phys_end_kernel > block_start[bi]) {
+             if (allowOverlap == 0) {
+@@ -2186,10 +2192,14 @@ int __init cmem_init(void)
+     }
+ 
+     /* Create the /proc entry */
++#if LINUX_VERSION_CODE < KERNEL_VERSION(3, 10, 0)
+     cmem_proc_entry = create_proc_entry("cmem", 0, NULL);
+     if (cmem_proc_entry) {
+         cmem_proc_entry->proc_fops = &cmem_proc_ops;
+     }
++#else
++    cmem_proc_entry = proc_create_data("cmem", 0, NULL, &cmem_proc_ops, NULL);
++#endif
+ 
+     mutex_init(&cmem_mutex);
+ 
