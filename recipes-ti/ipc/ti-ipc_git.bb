@@ -2,11 +2,22 @@ DESCRIPTION = "TI Inter Process Communication (IPC) Mechanisms (for Uni- and Mul
 HOMEPAGE="http://processors.wiki.ti.com/index.php/Category:IPC"
 
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=f2518e421e230f06fe6d449718d02edc"
+LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=abd112f156e5eb9b0f3e202e48747f9a"
 
 DEPENDS += "virtual/kernel"
 
-PR = "r1"
+PV = "3.30.00.09"
+
+# This is the first version of the 3.30.00.09 
+# PR = "r0"
+
+BRANCH = "master"
+SRC_URI = "git://git.ti.com/ipc/ipcdev.git;protocol=git;branch=${BRANCH} \
+           file://tiipclad-daemon.sh \
+           "
+SRCREV = "595bc3e3bbb2e7ec12a8287145d8e3929291e59d"
+
+S = "${WORKDIR}/git"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -22,20 +33,13 @@ DAEMON_keystone = "lad_tci6638"
 
 inherit autotools pkgconfig update-rc.d
 
-SRC_URI = "git://git.ti.com/ipc/ipcdev.git;protocol=git \
-           file://0002-ipc-Added-installation-prefix-feature-to-products.ma.patch \
-           file://tiipclad-daemon.sh \
-           "
-
-S = "${WORKDIR}/git"
-
 INITSCRIPT_NAME = "tiipclad-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"
 
-EXTRA_OEMAKE += "KERNEL_INSTALL_DIR=${STAGING_KERNEL_DIR} TOOLCHAIN_INSTALL_DIR=${TOOLCHAIN_PATH} TOOLCHAIN_LONGNAME=${TOOLCHAIN_SYS} PLATFORM=${PLATFORM} PREFIX=${prefix}"
+EXTRA_OECONF += "PLATFORM=${PLATFORM} KERNEL_INSTALL_DIR=${STAGING_KERNEL_DIR}"
 
 do_configure() {
-    oe_runmake -f ${S}/ipc-linux.mak config
+    oe_runconf
 }
 
 do_install_append() {
