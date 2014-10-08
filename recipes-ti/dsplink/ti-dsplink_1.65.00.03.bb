@@ -9,6 +9,7 @@ PV_DL_PATH = "DSPLink/${PV_major}/${PV}/${PV_dot}"
 
 SRC_URI += "file://dsplink-BKL-fix.patch \
             file://0001-remove-check-for-make-version-3.85-works-fine.patch \
+            file://dsplink_1_65_kernel_3_7_0_fix-irq-mismatch.patch \
            "
 
 SRC_URI[dsplinktarball.md5sum] = "1bda596b631bd2f517edc70f6be4f2ca"

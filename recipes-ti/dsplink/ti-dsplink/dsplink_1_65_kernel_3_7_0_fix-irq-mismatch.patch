@@ -1,0 +1,16 @@
+Index: dsplink_linux_1_65_00_03/dsplink/gpp/src/osal/Linux/2.6.18/isr.c
+===================================================================
+--- dsplink_linux_1_65_00_03.orig/dsplink/gpp/src/osal/Linux/2.6.18/isr.c
++++ dsplink_linux_1_65_00_03/dsplink/gpp/src/osal/Linux/2.6.18/isr.c
+@@ -286,7 +286,11 @@ ISR_Create (IN  IsrProc             fnIS
+ 
+         if (DSP_SUCCEEDED (status)) {
+             (*isrObj)->signature = SIGN_ISR       ;
++#if LINUX_VERSION_CODE < KERNEL_VERSION(3,7,0)
+             (*isrObj)->irq       = intObj->intId  ;
++#else
++            (*isrObj)->irq       = intObj->intId + NR_IRQS ;
++#endif
+             (*isrObj)->enabled   = FALSE          ;
+             (*isrObj)->dspId     = intObj->dspId  ;
+             (*isrObj)->checkFunc = intObj->checkFunc  ;
