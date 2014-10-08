@@ -1,11 +1,5 @@
 DESCRIPTION = "Boot Monitor - TI ARM Boot monitor code"
-EXTRA_OEMAKE = "CROSS_COMPILE=${TARGET_PREFIX}"
-
 LICENSE = "BSD"
-
-BOOT_MONITOR_BINARY ?= "skern.bin"
-BOOT_MONITOR_IMAGE  ?= "skern-${MACHINE}.bin"
-
 LIC_FILES_CHKSUM = "file://COPYING;md5=25fe219a6febf6e5bb45beda1b2eb315"
 
 COMPATIBLE_MACHINE = "keystone"
@@ -21,6 +15,13 @@ S = "${WORKDIR}/git"
 
 #Tag "K2_BM_14.05"
 SRCREV = "0e3ffe1ea4a0cee38ae2406901b7cf4d5324b5e9"
+
+BOOT_MONITOR_BINARY ?= "skern.bin"
+BOOT_MONITOR_IMAGE  ?= "skern-${MACHINE}.bin"
+
+FLOATABI = "${@base_contains("TUNE_FEATURES", "vfp", base_contains("TUNE_FEATURES", "callconvention-hard", " -mfloat-abi=hard", " -mfloat-abi=softfp", d), "" ,d)}"
+
+EXTRA_OEMAKE = "CROSS_COMPILE=${TARGET_PREFIX} CC="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS} ${FLOATABI}""
 
 do_compile () {
 	unset LDFLAGS
