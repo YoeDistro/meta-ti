@@ -19,8 +19,8 @@ KERNEL_DEVICETREE_k2l-evm = "k2l-evm.dtb"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
-# This commit corresponds to "K2_RT_LINUX_03.10.10_14.03_03"
-SRCREV = "6b482abe6a18d004230ca54da866f4627f02125b"
+#This commit corresponds to "K2_RT_LINUX_03.10.10_14.09_01"
+SRCREV = "2b53a7b58e95c2cf3426fe95203e7fc082bc56e9"
 PV = "3.10.10"
 
 BRANCH = "master-rt"
