@@ -6,8 +6,8 @@ COMPATIBLE_MACHINE = "keystone"
 
 PR = "r5+gitr${SRCPV}"
 
-# Tag "K2_UBOOT_2013_01_14.05_16"
-SRCREV = "fee500417b989fc9906d86e377b4d3d96033d54e"
+# Tag "K2_UBOOT_2013_01_14.09"
+SRCREV = "f9bc365551ff8c685bf6134d795576713fec0917"
 BRANCH = "master"
 
 SRC_URI = "git://git.ti.com/keystone-linux/u-boot.git;protocol=git;branch=${BRANCH}"
