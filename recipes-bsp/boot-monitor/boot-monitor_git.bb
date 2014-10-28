@@ -13,8 +13,8 @@ BRANCH = "master"
 
 S = "${WORKDIR}/git"
 
-#Tag "K2_BM_14.05"
-SRCREV = "0e3ffe1ea4a0cee38ae2406901b7cf4d5324b5e9"
+#Tag "K2_BM_14.09"
+SRCREV = "4b0287a3fa9c7a25c75bbe3a54f4ac2a92dc0aaa"
 
 BOOT_MONITOR_BINARY ?= "skern.bin"
 BOOT_MONITOR_IMAGE  ?= "skern-${MACHINE}.bin"
