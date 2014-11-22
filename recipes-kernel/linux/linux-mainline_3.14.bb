@@ -32,9 +32,9 @@ S = "${WORKDIR}/git"
 
 BRANCH = "linux-3.14.y"
 
-# Corresponds to tag v3.14.20
-SRCREV = "2023c00d650dfa409e58539596aca7d9deded824"
-PV = "3.14.20"
+# Corresponds to tag v3.14.25
+SRCREV = "2dc2565902d3c24108c4b7101e91957fd068a242"
+PV = "3.14.25"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=git;branch=${BRANCH} \
            file://defconfig \
