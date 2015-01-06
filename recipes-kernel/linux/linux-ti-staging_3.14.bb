@@ -44,18 +44,14 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-linux-3.14.y"
 
-SRCREV = "f93aba31cfc224ed7ea414d1b7ab988808d764ba"
+SRCREV = "4311f726041145161621593e5d67f106913c0f28"
 PV = "3.14.26"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "b+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "c+gitr${SRCPV}"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_DIR = "${S}/ti_config_fragments"
-KERNEL_CONFIG_FRAGMENTS = "${KERNEL_CONFIG_DIR}/baseport.cfg ${KERNEL_CONFIG_DIR}/all_valid_socs.cfg \
-                           ${KERNEL_CONFIG_DIR}/power.cfg ${KERNEL_CONFIG_DIR}/connectivity.cfg \
-                           ${KERNEL_CONFIG_DIR}/ipc.cfg ${KERNEL_CONFIG_DIR}/audio_display.cfg \
-                           ${KERNEL_CONFIG_DIR}/wlan.cfg"
 
 KERNEL_CONFIG_FRAGMENTS_append_ti33x = " ${KERNEL_CONFIG_DIR}/am33xx_only.cfg"
 KERNEL_CONFIG_FRAGMENTS_append_ti43x = " ${KERNEL_CONFIG_DIR}/am43xx_only.cfg"
