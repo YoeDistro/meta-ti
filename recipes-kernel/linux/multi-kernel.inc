@@ -10,17 +10,11 @@
 # sound, 20x2 character LCD, etc. To be able to easily test all of those you can
 # use this .inc
 #
-# To make it easier finding the original defconfig from a running kernel, this
-# also forcefully turns on CONFIG_IKCONFIG_PROC so people can do
-# 'zcat /proc/config.gz' on the target.
-#
 # The function get_kernelversion uses generated header files to extract the
 # version number. But those files are not available until do_compile, and
 # do_compileconfigs is injected before that, hence the version becomes None
 # and breaks in several places. Introduce a task do_preparekernel that calls
 # "make prepare" in the kernel tree to generate all the necessary files.
-
-require linux.inc
 
 SRC_URI += " \
            file://configs "
@@ -28,95 +22,98 @@ SRC_URI += " \
 MULTI_CONFIG_BASE_SUFFIX = "multi-config-"
 MODULE_IMAGE_BASE_NAME ?= "modules-${PE}-${PV}-${PR}-${MACHINE}-${DATETIME}"
 
+EXTRA_OEMAKE = "${PARALLEL_MAKE} "
+
 do_preparekernel () {
-	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS MACHINE
-	oe_runmake prepare CC="${KERNEL_CC}" LD="${KERNEL_LD}"
+    unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS MACHINE
+    oe_runmake prepare CC="${KERNEL_CC}" LD="${KERNEL_LD}"
 }
 
 addtask preparekernel after do_configure before do_compile
 
 do_compileconfigs () {
-
-  # fixup for fetcher change
-  if [ -e ${WORKDIR}/configs/configs ] ; then
-      if [ -e ${WORKDIR}/configs/configs/empty ] ; then
-          mv ${WORKDIR}/configs/configs/empty ${WORKDIR}/configs/
-      fi
-      mv ${WORKDIR}/configs/configs/* ${WORKDIR}/configs/
-      rm -rf ${WORKDIR}/configs/configs
-  fi
-
-  # Compile and Install additional kernel configs if found
-  if [ -e ${WORKDIR}/configs/empty ] ; then
-       echo "No configs found in configs/ directory, skipping to regular build"
-  else
-      echo "Multiple configs found, building those first"
-
-      # Context Save the regular 'defconfig'
-      cp ${WORKDIR}/defconfig ${WORKDIR}/defconfig.save
-
-      for config in ${WORKDIR}/configs/* ; do
-
-        # Copy in alternative config
-        cd ${S}
-        cp $config ${WORKDIR}/defconfig
-
-        # Enable config to be viewed on the target
-        echo "CONFIG_IKCONFIG=y" >> ${WORKDIR}/defconfig
-        echo "CONFIG_IKCONFIG_PROC=y" >> ${WORKDIR}/defconfig
-	
-        # Build and Install this alternative kernel
-        do_configure
-        kernel_do_compile
-        do_compile_kernelmodules
-        kernel_do_install
-
-        # Drop the resulting images in the deploy dir
-        install -d ${DEPLOY_DIR_IMAGE}
-        install -m 0644 ${KERNEL_OUTPUT} ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).bin
-
-        if [ -d "${D}/lib" ]; then
-            tar --owner=root --group=root -cvzf ${DEPLOY_DIR_IMAGE}/${MODULE_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).tgz -C ${D} lib
+    # fixup for fetcher change
+    if [ -e ${WORKDIR}/configs/configs ] ; then
+        if [ -e ${WORKDIR}/configs/configs/empty ] ; then
+            mv ${WORKDIR}/configs/configs/empty ${WORKDIR}/configs/
         fi
- 
-        # Install the final config alongside the images
-        cp .config ${DEPLOY_DIR_IMAGE}/config-${PV}-${PR}-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).config
+        mv ${WORKDIR}/configs/configs/* ${WORKDIR}/configs/
+        rm -rf ${WORKDIR}/configs/configs
+    fi
 
-        # Create symlinks
-        cd ${DEPLOY_DIR_IMAGE}
-        rm -f ${KERNEL_IMAGE_SYMLINK_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).bin
-        ln -sf ${KERNEL_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).bin ${KERNEL_IMAGE_SYMLINK_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).bin
-        rm -f modules-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).tgz
-        ln -sf ${MODULE_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).tgz modules-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).tgz
-        rm -f config-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).config
-        ln -sf config-${PV}-${PR}-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).config config-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $config).config
+    # Compile and Install additional kernel configs if found
+    if [ -e ${WORKDIR}/configs/empty ] ; then
+        echo "No configs found in configs/ directory, skipping to regular build"
+    else
+        echo "Multiple configs found, building those first"
 
-      done
+        # Context Save the regular 'defconfig'
+        cp ${WORKDIR}/defconfig ${WORKDIR}/defconfig.save
 
-      # Restore the regular 'defconfig'
-      cp ${WORKDIR}/defconfig.save ${WORKDIR}/defconfig
-      cd ${S}
-      do_configure
+        for configname in ${WORKDIR}/configs/* ; do
+            # Copy in alternative config
+            cd ${S}
+            cp $configname ${WORKDIR}/defconfig
+
+            # Build and Install this alternative kernel
+            do_configure
+            echo ${KERNEL_LOCALVERSION}-$(basename $configname) > ${B}/.scmversion
+            echo ${KERNEL_LOCALVERSION}-$(basename $configname) > ${S}/.scmversion
+            kernel_do_compile
+            do_compile_kernelmodules
+            install -d "${D}/lib/modules/${KERNEL_VERSION}"
+            touch "${D}/lib/modules/${KERNEL_VERSION}/build"
+            touch "${D}/lib/modules/${KERNEL_VERSION}/source"
+            install -d "${D}/lib/modules/${KERNEL_VERSION}/kernel"
+            kernel_do_install
+            rm "${D}/lib/modules/${KERNEL_VERSION}-$(basename $configname)/build"
+            rm "${D}/lib/modules/${KERNEL_VERSION}-$(basename $configname)/source"
+            rmdir --ignore-fail-on-non-empty "${D}/lib/modules/${KERNEL_VERSION}-$(basename $configname)/kernel"
+            rmdir --ignore-fail-on-non-empty "${D}/lib/modules/${KERNEL_VERSION}"
+
+            # Drop the resulting images in the deploy dir
+            install -d ${DEPLOY_DIR_IMAGE}
+            install -m 0644 ${KERNEL_OUTPUT} ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin
+
+            if [ -d "${D}/lib" ]; then
+                tar --owner=root --group=root -cvzf ${DEPLOY_DIR_IMAGE}/${MODULE_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz -C ${D} lib
+            fi
+
+            # Install the final config alongside the images
+            cp .config ${DEPLOY_DIR_IMAGE}/config-${PV}-${PR}-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
+
+            # Create symlinks
+            cd ${DEPLOY_DIR_IMAGE}
+            rm -f ${KERNEL_IMAGE_SYMLINK_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin
+            ln -sf ${KERNEL_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin ${KERNEL_IMAGE_SYMLINK_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin
+            rm -f modules-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz
+            ln -sf ${MODULE_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz modules-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz
+            rm -f config-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
+            ln -sf config-${PV}-${PR}-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config config-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
+        done
+
+        # Restore the regular 'defconfig'
+        cp ${WORKDIR}/defconfig.save ${WORKDIR}/defconfig
+        cd ${S}
+        do_configure
     fi
 }
 
 # For reference, copy .config to deploy image
 do_deploy_append () {
-
-	install -d ${DEPLOY_DIR_IMAGE}
+    install -d ${DEPLOY_DIR_IMAGE}
 
     # Drop the regular defconfig along side the others for consistency
     cd ${S}
     cp .config ${DEPLOY_DIR_IMAGE}/config-${PV}-${PR}-${MACHINE}.config
 
     # add symlink
-    cd ${DEPLOY_DIR_IMAGE}    
+    cd ${DEPLOY_DIR_IMAGE}
     rm -f config-${MACHINE}.config
     ln -s config-${PV}-${PR}-${MACHINE}.config config-${MACHINE}.config
 
     rm -f modules-${MACHINE}.tgz
     ln -sf ${MODULE_IMAGE_BASE_NAME}.tgz modules-${MACHINE}.tgz
-
 }
 
 do_compileconfigs[depends] += "u-boot-mkimage-native:do_populate_sysroot virtual/${TARGET_PREFIX}gcc:do_populate_sysroot"
