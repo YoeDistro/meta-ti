@@ -37,7 +37,7 @@ do_configure() {
                 exit 1
             else
                 # Sanitize config fragment files to be relative to sources
-                configfrags+=" ${S}/$f"
+                configfrags="$configfrags ${S}/$f"
             fi
         done
     fi
