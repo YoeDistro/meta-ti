@@ -14,6 +14,12 @@ PV = "2.1.0.4"
 
 S = "${WORKDIR}/git/ti/runtime/pktlib"
 
-EXTRA_OEMAKE += "-f make=file_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR} INSTALL_INC_BASE_DIR=${D}${includedir} INSTALL_LIB_BASE_DIR=${D}${libdir}"
+EXTRA_OEMAKE += "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR} INSTALL_INC_BASE_DIR=${D}${includedir} INSTALL_LIB_BASE_DIR=${D}${libdir}"
 
-MAKE_TARGETS = "lib"
+do_compile () {
+	oe_runmake lib
+}
+
+do_install () {
+	oe_runmake install
+}
