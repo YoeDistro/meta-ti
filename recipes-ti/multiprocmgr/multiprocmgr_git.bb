@@ -1,20 +1,32 @@
 DESCRIPTION = "TI Multiproc Manager for KeyStone II"
-HOMEPAGE = "http://gtgit01.gt.design.ti.com/git/?p=projects/multiprocmgr.git;a=summary"
-LICENSE = "BSD & MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=fce208c498eb9669223724dc9c1d8fe4"
-SECTION = "console"
-COMPATIBLE_MACHINE = "keystone"
+SUMMARY = "Provides download, debug and other utilities for other cores in the SOC like DSP"
 
-PR = "r1"
+include multiprocmgr.inc
 
-BRANCH ?= "master"
-SRCREV = "8a97fb5c2c06d5f02d30106629f27fe0ca8a4f95"
+DEPENDS = "mpm-transport libdaemon"
+RDEPENDS_${PN} = "syslog-ng"
 
-SRC_URI = "git://gtgit01.gt.design.ti.com/git/projects/multiprocmgr.git;protocol=git;branch=${BRANCH}"
 
-S = "${WORKDIR}/git"
+CC += "-I${STAGING_KERNEL_DIR}/include"
+
+INITSCRIPT_NAME = "mpmsrv-daemon.sh"
+INITSCRIPT_PARAMS = "defaults 10"
+
+inherit update-rc.d
 
 do_install() {
 	install -d ${D}${bindir}/
-	install -c -m 755 ${S}/mpmsrv ${D}${bindir}/mpmsrv
+	install -c -m 755 ${S}/bin/mpmsrv ${D}${bindir}/mpmsrv
+	install -c -m 755 ${S}/bin/mpmcl ${D}${bindir}/mpmcl
+
+	install -d ${D}${sysconfdir}/init.d/
+	install -c -m 755 ${S}/scripts/mpmsrv-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
+	install -d ${D}${sysconfdir}/mpm/
+	install -c -m 755 ${S}/scripts/crash_callback.sh ${D}${sysconfdir}/mpm/crash_callback.sh
+
+	install -d ${D}${includedir}/
+	install -c -m 755 ${S}/include/* ${D}${includedir}/
+
+	install -d ${D}${libdir}/
+	cp -a ${S}/lib/* ${D}${libdir}/
 }
