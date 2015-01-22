@@ -1,14 +1,9 @@
-DESCRIPTION = "VPE VPDMA firmware and test program"
-
-DEPENDS += "virtual/kernel"
+DESCRIPTION = "VPE test program"
 
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://COPYING;md5=74d2f71d8898c54e3d1c9d0058c484aa"
 
 COMPATIBLE_MACHINE = "dra7xx"
-
-PV = "1b8"
-PR = "r2"
 
 SRCREV = "e3d8db1aa935775f9d196ad7428e0cd9864a36ca"
 BRANCH ?= "master"
@@ -26,6 +21,3 @@ do_install() {
     oe_runmake DESTDIR="${D}" install
 }
 
-# Separate the firmware into it's own package.
-PACKAGES =+ "${PN}-fw"
-FILES_${PN}-fw += "${base_libdir}/firmware"
