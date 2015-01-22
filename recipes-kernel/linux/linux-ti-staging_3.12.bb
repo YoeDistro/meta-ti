@@ -21,7 +21,7 @@ RDEPENDS_kernel-base_append_ti43x = " am33x-cm3"
 
 # Add a run-time dependency for the VPE VPDMA firmware to be installed
 # on the target file system.
-RDEPENDS_kernel-base_append_dra7xx = " vpe-vpdma-fw"
+RDEPENDS_kernel-base_append_dra7xx = " vpdma-fw"
 
 # Default is to package all dtb files for ti33x devices unless building
 # for the specific beaglebone machine.
