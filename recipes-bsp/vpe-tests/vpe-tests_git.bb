@@ -3,6 +3,10 @@ DESCRIPTION = "VPE test program"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://COPYING;md5=74d2f71d8898c54e3d1c9d0058c484aa"
 
+DEPENDS = "virtual/kernel"
+
+PR="r1"
+
 COMPATIBLE_MACHINE = "dra7xx"
 
 SRCREV = "e3d8db1aa935775f9d196ad7428e0cd9864a36ca"
