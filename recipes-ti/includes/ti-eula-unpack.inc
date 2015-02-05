@@ -9,70 +9,7 @@
 #  TI_BIN_UNPK_WDEXT  - This variable extends workdir path, if user wants to put
 #                       the output in some internal directory
 
-python do_unpack () {
-    bb.build.exec_func('base_do_unpack', d)
-    bb.build.exec_func('ti_bin_do_unpack', d)
-}
+require ../includes/ti-unpack.inc
 
-TI_BIN_UNPK_WDEXT ?= ""
-python ti_bin_do_unpack() {
-
-    import os
-
-    # InstallJammer requires 32bit version of glibc
-    lib32path = '/lib'
-    if os.path.exists('/lib64') and (os.path.islink('/lib64') or os.path.islink('/lib') or os.path.exists('/lib32')):
-        lib32path = '/lib32'
-    if not os.path.exists('%s/libc.so.6' % lib32path):
-        bb.warn("TI installer requires 32bit glibc libraries for proper operation\nrun 'yum install glibc.i686' on Fedora or 'apt-get install ia32-libs' on Ubuntu/Debian")
-
-    localdata = bb.data.createCopy(d)
-    bb.data.update_data(localdata)
-
-    binfile  = bb.data.getVar('BINFILE', localdata)
-    binfile  = bb.data.expand(binfile, localdata)
-
-    # Change to the working directory
-    save_cwd = os.getcwd()
-    workdir  = bb.data.getVar('WORKDIR', localdata)
-    workdir  = bb.data.expand(workdir, localdata)
-    os.chdir(workdir)
-
-    # Get unpack commands
-    cmd_string = bb.data.getVar('TI_BIN_UNPK_CMDS', localdata)
-    cmd_list = cmd_string.split( ":" )
-
-    # Make the InstallJammer binary executable so we can run it
-    os.chmod(binfile, 0755)
-
-    # Run the InstallJammer binary and accept the EULA
-    filename = "HOME=%s ./%s --mode console" % (workdir, binfile)
-    
-    # Test executable by printing installer version or help screen (--version currently broken for some installers) 
-    # - this is currently broken in some IJ installers - comment out for now
-    #if os.system(filename + " --version") != 0:
-    #   print "ERROR: ti-eula-unpack: failed to execute binary installer"
-    #   raise bb.build.FuncFailed()
- 
-    f = os.popen(filename,'w')
-    for cmd in cmd_list:
-        if cmd == "workdir":
-            wdext = bb.data.getVar('TI_BIN_UNPK_WDEXT', localdata)
-            wdext = bb.data.expand(wdext, localdata)
-            cmd = workdir+wdext
-        f.write(cmd+'\n');
-    f.close()
-
-    # Expand the tarball that was created if required
-    tarfile  = bb.data.getVar('TARFILE', localdata)    
-    if bool(tarfile) == True:
-        tarfile  = bb.data.expand(tarfile, localdata)
-        tcmd = 'tar x --no-same-owner -f %s -C %s' % (tarfile, workdir)
-        if os.system(tcmd) != 0:
-            print "ERROR: ti-eula-unpack: failed to extract tarfile"
-            raise bb.build.FuncFailed()
-
-    # Return to the previous directory
-    os.chdir(save_cwd)
-}
+TI_BIN_UNPK_ARGS = "--mode console"
 
