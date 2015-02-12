@@ -16,6 +16,8 @@
 # and breaks in several places. Introduce a task do_preparekernel that calls
 # "make prepare" in the kernel tree to generate all the necessary files.
 
+inherit deploy
+
 SRC_URI += " \
            file://configs "
 
@@ -72,18 +74,18 @@ do_compileconfigs () {
             rmdir --ignore-fail-on-non-empty "${D}/lib/modules/${KERNEL_VERSION}"
 
             # Drop the resulting images in the deploy dir
-            install -d ${DEPLOY_DIR_IMAGE}
-            install -m 0644 ${KERNEL_OUTPUT} ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin
+            install -d ${DEPLOYDIR}
+            install -m 0644 ${KERNEL_OUTPUT} ${DEPLOYDIR}/${KERNEL_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin
 
             if [ -d "${D}/lib" ]; then
-                tar --owner=root --group=root -cvzf ${DEPLOY_DIR_IMAGE}/${MODULE_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz -C ${D} lib
+                tar --owner=root --group=root -cvzf ${DEPLOYDIR}/${MODULE_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz -C ${D} lib
             fi
 
             # Install the final config alongside the images
-            cp .config ${DEPLOY_DIR_IMAGE}/config-${PV}-${PR}-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
+            cp .config ${DEPLOYDIR}/config-${PV}-${PR}-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
 
             # Create symlinks
-            cd ${DEPLOY_DIR_IMAGE}
+            cd ${DEPLOYDIR}
             rm -f ${KERNEL_IMAGE_SYMLINK_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin
             ln -sf ${KERNEL_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin ${KERNEL_IMAGE_SYMLINK_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).bin
             rm -f modules-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz
@@ -101,14 +103,14 @@ do_compileconfigs () {
 
 # For reference, copy .config to deploy image
 do_deploy_append () {
-    install -d ${DEPLOY_DIR_IMAGE}
+    install -d ${DEPLOYDIR}
 
     # Drop the regular defconfig along side the others for consistency
     cd ${S}
-    cp .config ${DEPLOY_DIR_IMAGE}/config-${PV}-${PR}-${MACHINE}.config
+    cp .config ${DEPLOYDIR}/config-${PV}-${PR}-${MACHINE}.config
 
     # add symlink
-    cd ${DEPLOY_DIR_IMAGE}
+    cd ${DEPLOYDIR}
     rm -f config-${MACHINE}.config
     ln -s config-${PV}-${PR}-${MACHINE}.config config-${MACHINE}.config
 
