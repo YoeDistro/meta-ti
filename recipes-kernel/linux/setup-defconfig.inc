@@ -11,27 +11,27 @@ do_configure() {
     # Always copy the defconfig file to .config to keep consistency
     # between the case where there is a real config and the in kernel
     # tree config
-    cp ${WORKDIR}/defconfig ${S}/.config
+    cp ${WORKDIR}/defconfig ${B}/.config
 
     echo ${KERNEL_LOCALVERSION} > ${B}/.scmversion
     echo ${KERNEL_LOCALVERSION} > ${S}/.scmversion
 
     # First, check if pointing to a combined config with config fragments
-    config=`cat ${S}/.config | grep use-combined-config | cut -d= -f2`
+    config=`cat ${B}/.config | grep use-combined-config | cut -d= -f2`
     if [ -n "$config" ]
     then
-        cp $config ${S}/.config
+        cp ${S}/$config ${B}/.config
     fi
 
     # Second, extract any config fragments listed in the defconfig
-    config=`cat ${S}/.config | grep config-fragment | cut -d= -f2`
+    config=`cat ${B}/.config | grep config-fragment | cut -d= -f2`
     if [ -n "$config" ]
     then
         configfrags=""
         for f in $config
         do
             # Check if the config fragment is available
-            if [ ! -e "$f" ]
+            if [ ! -e "${S}/$f" ]
             then
                 echo "Could not find kernel config fragment $f"
                 exit 1
@@ -43,12 +43,12 @@ do_configure() {
     fi
 
     # Third, check if pointing to a known in kernel defconfig
-    config=`cat ${S}/.config | grep use-kernel-config | cut -d= -f2`
+    config=`cat ${B}/.config | grep use-kernel-config | cut -d= -f2`
     if [ -n "$config" ]
     then
-        oe_runmake $config
+        oe_runmake -C ${S} O=${B} $config
     else
-        yes '' | oe_runmake oldconfig
+        yes '' | oe_runmake -C ${S} O=${B} oldconfig
     fi
 
     # Fourth, handle config fragments specified in the recipe
@@ -70,7 +70,7 @@ do_configure() {
     # Now that all the fragments are located merge them
     if [ -n "${KERNEL_CONFIG_FRAGMENTS}" -o -n "$configfrags" ]
     then
-        ( cd ${WORKDIR} && ${S}/scripts/kconfig/merge_config.sh -m -r -O ${S} ${S}/.config $configfrags ${KERNEL_CONFIG_FRAGMENTS} 1>&2 )
-        yes '' | oe_runmake oldconfig
+        ( cd ${WORKDIR} && ${S}/scripts/kconfig/merge_config.sh -m -r -O ${B} ${B}/.config $configfrags ${KERNEL_CONFIG_FRAGMENTS} 1>&2 )
+        yes '' | oe_runmake -C ${S} O=${B} oldconfig
     fi
 }
