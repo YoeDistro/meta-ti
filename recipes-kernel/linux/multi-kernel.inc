@@ -54,7 +54,7 @@ do_compileconfigs () {
 
         for configname in ${WORKDIR}/configs/* ; do
             # Copy in alternative config
-            cd ${S}
+            cd ${B}
             cp $configname ${WORKDIR}/defconfig
 
             # Build and Install this alternative kernel
@@ -96,7 +96,7 @@ do_compileconfigs () {
 
         # Restore the regular 'defconfig'
         cp ${WORKDIR}/defconfig.save ${WORKDIR}/defconfig
-        cd ${S}
+        cd ${B}
         do_configure
     fi
 }
@@ -106,8 +106,7 @@ do_deploy_append () {
     install -d ${DEPLOYDIR}
 
     # Drop the regular defconfig along side the others for consistency
-    cd ${S}
-    cp .config ${DEPLOYDIR}/config-${PV}-${PR}-${MACHINE}.config
+    cp ${B}/.config ${DEPLOYDIR}/config-${PV}-${PR}-${MACHINE}.config
 
     # add symlink
     cd ${DEPLOYDIR}
