@@ -2,17 +2,18 @@ DESCRIPTION = "TI Inter Process Communication (IPC) Mechanisms (for Uni- and Mul
 HOMEPAGE="http://processors.wiki.ti.com/index.php/Category:IPC"
 
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=abd112f156e5eb9b0f3e202e48747f9a"
+LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=7b327f9b710fd7c95e545b91cec79255"
 
 DEPENDS += "virtual/kernel"
 
-PV = "3.30.03.14"
+PV = "3.35.00.05"
 
-BRANCH = "3.30"
+BRANCH = "master"
 SRC_URI = "git://git.ti.com/ipc/ipcdev.git;protocol=git;branch=${BRANCH} \
            file://tiipclad-daemon.sh \
            "
-SRCREV = "ff0ca0e3943ab67be47673bfc77f40c53daac078"
+# Commit corresponds to 3.35.00.05
+SRCREV = "ce35c999f5c3368e387740a38aef3358290579b3"
 
 S = "${WORKDIR}/git"
 
@@ -21,12 +22,16 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PLATFORM = "UNKNOWN"
 PLATFORM_omap5-evm = "OMAP54XX"
 PLATFORM_dra7xx = "DRA7XX"
-PLATFORM_keystone = "TCI6638"
+PLATFORM_k2hk-evm = "TCI6638"
+PLATFORM_k2l-evm = "TCI6630"
+PLATFORM_k2e-evm = "66AK2E"
 
 DAEMON = "UNKNOWN"
 DAEMON_omap5-evm = "lad_omap54xx_smp"
 DAEMON_dra7xx = "lad_dra7xx"
-DAEMON_keystone = "lad_tci6638"
+DAEMON_k2hk-evm = "lad_tci6638"
+DAEMON_k2l-evm = "lad_tci6630"
+DAEMON_k2e-evm = "lad_66ak2e"
 
 inherit autotools pkgconfig update-rc.d
 
@@ -56,4 +61,3 @@ FILES_${PN}-test = " \
     ${bindir}/MessageQApp \
     ${bindir}/MessageQMulti \
     ${bindir}/ping_rpmsg"
-
