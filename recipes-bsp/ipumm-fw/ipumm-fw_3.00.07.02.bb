@@ -14,12 +14,12 @@ LIC_FILES_CHKSUM = "file://MMIP-${PV}-Manifest.doc;md5=caa45d993ac010abe2fd319f6
 COMPATIBLE_MACHINE = "dra7xx"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRC_URI = "http://downloads.ti.com/dsps/dsps_public_sw/glsdk/ipumm/3_00_07_02/exports/ipumm-${MACHINE}-${PV}.tar.gz;protocol=http"
+SRC_URI = "http://downloads.ti.com/dsps/dsps_public_sw/glsdk/ipumm/3_00_07_02/exports/ipumm-dra7xx-evm-${PV}.tar.gz;protocol=http"
 
 SRC_URI[md5sum] = "06aaf4f144d48ca16054e67e40cc7bc3"
 SRC_URI[sha256sum] = "0f07176e313a692a05fa6bfe9f7920b677b0924287121945c6e22b3f4408670c"
 
-S = "${WORKDIR}/ipumm-${MACHINE}-${PV}"
+S = "${WORKDIR}/ipumm-dra7xx-evm-${PV}"
 
 TARGET = "dra7-ipu2-fw.xem4"
 
@@ -30,4 +30,4 @@ do_install() {
 
 FILES_${PN} += "${base_libdir}/firmware/${TARGET}"
 
-PR = "r3"
+PR = "r4"
