@@ -10,7 +10,7 @@ IMGPV = "1.9.2188537"
 
 inherit module
 
-MACHINE_KERNEL_PR_append = "c"
+MACHINE_KERNEL_PR_append = "d"
 PR = "${MACHINE_KERNEL_PR}"
 
 DEFAULT_PREFERENCE = "-1"
@@ -44,19 +44,10 @@ TI_PLATFORM_ti814x = "ti81xx"
 TI_PLATFORM_ti816x = "ti81xx"
 TI_PLATFORM_ti33x = "ti335x"
 
-MODULESLOCATION_omap3 = "dc_omapfb3_linux"
-MODULESLOCATION_ti814x = "dc_ti81xx_linux"
-MODULESLOCATION_ti816x = "dc_ti81xx_linux"
-MODULESLOCATION_ti33x = "dc_ti335x_linux"
-
 MAKE_TARGETS = " BUILD=${PVRBUILD} TI_PLATFORM=${TI_PLATFORM} SUPPORT_XORG=0"
 
 MAKE_TARGETS_append_ti33x = " PM_RUNTIME=1"
 
 do_install() {
-    mkdir -p ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers/gpu/pvr
-    cp  ${S}/pvrsrvkm.ko \
-        ${S}/services4/3rdparty/${MODULESLOCATION}/omaplfb.ko  \
-        ${S}/services4/3rdparty/bufferclass_ti/bufferclass_ti.ko \
-        ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers/gpu/pvr
+    make -C ${STAGING_KERNEL_DIR} SUBDIRS=${B} INSTALL_MOD_PATH=${D} PREFIX=${STAGING_DIR_HOST} modules_install
 }

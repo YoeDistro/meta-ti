@@ -10,7 +10,7 @@ IMGPV = "1.10.2359475"
 
 inherit module
 
-MACHINE_KERNEL_PR_append = "c"
+MACHINE_KERNEL_PR_append = "d"
 PR = "${MACHINE_KERNEL_PR}"
 
 BINFILE_HARDFP = "Graphics_SDK_setuplinux_hardfp_${SGXPV}.bin"
@@ -55,18 +55,8 @@ TI_PLATFORM_ti816x = "ti81xx"
 TI_PLATFORM_ti33x = "ti335x"
 TI_PLATFORM_ti43x = "ti43xx"
 
-MODULESLOCATION_omap3 = "dc_omapfb3_linux"
-MODULESLOCATION_ti814x = "dc_ti81xx_linux"
-MODULESLOCATION_ti816x = "dc_ti81xx_linux"
-MODULESLOCATION_ti33x = "dc_ti335x_linux"
-MODULESLOCATION_ti43x = "dc_ti43xx_linux"
-
 MAKE_TARGETS = " BUILD=${PVRBUILD} TI_PLATFORM=${TI_PLATFORM} SUPPORT_XORG=${SUPPORT_XORG}"
 
 do_install() {
-    mkdir -p ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers/gpu/pvr
-    cp  ${S}/pvrsrvkm.ko \
-        ${S}/services4/3rdparty/${MODULESLOCATION}/omaplfb.ko  \
-        ${S}/services4/3rdparty/bufferclass_ti/bufferclass_ti.ko \
-        ${D}/lib/modules/${KERNEL_VERSION}/kernel/drivers/gpu/pvr
+    make -C ${STAGING_KERNEL_DIR} SUBDIRS=${B} INSTALL_MOD_PATH=${D} PREFIX=${STAGING_DIR_HOST} modules_install
 }
