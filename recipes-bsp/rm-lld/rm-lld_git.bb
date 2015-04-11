@@ -4,10 +4,10 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/drv/rm/COPYING.txt;md5=dc61631b6536
 
 BRANCH="master"
 SRC_URI = "git://git.ti.com/keystone-rtos/rm-lld.git;destsuffix=git/ti/drv/rm;protocol=git;branch=${BRANCH}"
-# Below commit ID corresponds to DEV.RM_LLD.02.01.00.06
-SRCREV = "dc0dba4a6b0358efcb861d50b3dae21beb5281a8"
-PV = "02.01.00.06"
-PR = "r0"
+# Below commit ID corresponds to DEV.RM_LLD.02.01.00.08
+SRCREV = "7873d22076b4cb865365bbce20a244121414bb44"
+PV = "02.01.00.08"
+PR = "r1"
 
 COMPATIBLE_MACHINE = "keystone"
 
@@ -15,8 +15,9 @@ DEPENDS = "ti-ipc libdaemon"
 
 PACKAGES =+ "${PN}-test"
 
-FILES_${PN}-test = "${bindir}/rmDspClientTest_*.out \
-                    ${bindir}/rmLinuxClientTest_*.out \
+FILES_${PN}-test = "${bindir}/rmDspClientTest.out \
+                    ${bindir}/rmLinuxClientTest.out \
+                    ${bindir}/rmLinuxMtClientTest.out \
                     ${bindir}/ti/drv/rm/test/dts_files/*.dtb"
 
 CHOICELIST = "yes no"
