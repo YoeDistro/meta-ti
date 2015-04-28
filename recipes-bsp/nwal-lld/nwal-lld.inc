@@ -6,9 +6,9 @@ COMPATIBLE_MACHINE = "keystone"
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/keystone-rtos/nwal-lld.git;protocol=git;branch=${BRANCH}"
 
-# Below commit ID corresponds to "DEV.NWAL.02.01.00.05A"
-SRCREV = "05c0222714791ad95672293196a33fffab041fc9"
-PV = "02.01.00.05"
+# Below commit ID corresponds to "DEV.NWAL.02.01.00.06"
+SRCREV = "a3494c9aaa2808f438d26b2c3b8b091448ffc445"
+PV = "02.01.00.06"
 
 BASEDIR = "${WORKDIR}/git"
 S = "${BASEDIR}/ti/drv/nwal"
