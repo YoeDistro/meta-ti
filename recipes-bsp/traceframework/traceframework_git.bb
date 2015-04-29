@@ -5,9 +5,10 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/instrumentation/traceframework/COPY
 BRANCH="master"
 SRC_URI = "git://git.ti.com/keystone-rtos/traceframework.git;destsuffix=git/ti/instrumentation/traceframework;protocol=git;branch=${BRANCH}"
 
-# Below commit ID corresponds to DEV.TFWK-01.01.01.06A
-SRCREV = "bd87f53f4d12dc802bcc5609afb7994643e40cb9"
+# Below commit ID corresponds to DEV.TFWK-01.01.01.06B
+SRCREV = "6d29bc0d1ab6bb0658876552197dcdc757a25082"
 PV = "01.01.01.06"
+PR = "r1"
 
 COMPATIBLE_MACHINE = "(tci6614-evm|keystone)"
 DEPENDS = "cuia"
