@@ -39,7 +39,7 @@ KERNEL_DEVICETREE_beagleboard = "omap3-beagle.dtb omap3-beagle-xm.dtb"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
-COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|omap3"
+COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|omap3|omap4"
 
 S = "${WORKDIR}/git"
 

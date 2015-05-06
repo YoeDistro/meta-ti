@@ -4,8 +4,8 @@ require conf/machine/include/soc-family.inc
 DEFAULTTUNE ?= "cortexa9thf-neon"
 require conf/machine/include/tune-cortexa9.inc
 
-PREFERRED_PROVIDER_virtual/kernel = "linux-omap4"
-PREFERRED_PROVIDER_virtual/bootloader = "u-boot"
+PREFERRED_PROVIDER_virtual/kernel = "linux-ti-staging"
+PREFERRED_PROVIDER_virtual/bootloader = "u-boot-ti-staging"
 
 PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
 XSERVER = "xserver-xorg \
@@ -14,9 +14,9 @@ XSERVER = "xserver-xorg \
            xf86-video-omap"
 
 # Increase this everytime you change something in the kernel
-MACHINE_KERNEL_PR = "r2"
+MACHINE_KERNEL_PR = "r3"
 
-KERNEL_IMAGETYPE = "uImage"
+KERNEL_IMAGETYPE = "zImage"
 
 UBOOT_MACHINE = "omap4_panda_config"
 
