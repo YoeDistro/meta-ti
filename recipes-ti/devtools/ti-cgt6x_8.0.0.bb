@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://ti-cgt-c6000_${PV}/LICENSE.txt;md5=b6311962635a4f1563
 LIC_FILES_CHKSUM_class-target = "file://usr/share/doc/ti/cgt-c6x/LICENSE.txt;md5=b6311962635a4f15630e36ec2d875eca"
 
 PE = "1"
+PR = "r1"
 
 require ../includes/ti-unpack.inc
 
@@ -47,6 +48,11 @@ do_install() {
     install -d ${D}${bindir}
     for binfile in ${S}/ti-cgt-c6000_${PV}/bin/*; do
         install -m 755 ${binfile} ${D}${bindir}
+    done
+
+    install -d ${D}${datadir}/ti/cgt-c6x/bin
+    for binfile in ${S}/ti-cgt-c6000_${PV}/bin/*; do
+        install -m 755 ${binfile} ${D}${datadir}/ti/cgt-c6x/bin
     done
 
     install -d ${D}${datadir}/ti/cgt-c6x/include
@@ -101,5 +107,7 @@ do_install_class-target() {
 }
 
 FILES_${PN} += "${datadir}/ti/*"
+
+FILES_${PN}-dbg += "${datadir}/ti/cgt-c6x/bin/.debug"
 
 BBCLASSEXTEND = "native nativesdk"
