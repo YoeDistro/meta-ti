@@ -1,0 +1,48 @@
+#!/bin/bash
+
+GDB_DEVICE_NAME='/dev/gdbtty$i'
+DSP_FIRMWARE_NAME='/lib/firmware/dra7-dsp$[$i+1]-fw.xe66'
+
+DSP_L2_GLOBAL_OFFSET="40000000"
+DSP_L2_GLOBAL_SHIFT="00800000"
+
+case "$1" in
+  start)
+
+    dsp_core_l2_offset=$DSP_L2_GLOBAL_OFFSET
+
+    i=0
+    while [ -c "`eval echo $GDB_DEVICE_NAME`" ]
+    do
+      dsp_firmware=`eval echo $DSP_FIRMWARE_NAME`
+
+      if [ -f "`eval echo $DSP_FIRMWARE_NAME`" ]
+      then 
+        eval echo "Initializing $GDB_DEVICE_NAME based on $DSP_FIRMWARE_NAME ..."
+
+        gdb_data_local=`eval readelf -s "$DSP_FIRMWARE_NAME" | \
+                        grep 'gdb_globalData' | \
+                        awk '{print $2}'`
+
+        echo "gdb_globalData (local)  = $gdb_data_local"
+        printf "gdb_globalData (global) = %X\n" \
+          $[0x$gdb_data_local + 0x$dsp_core_l2_offset]
+
+
+        printf "%X\n" $[0x$gdb_data_local + 0x$dsp_core_l2_offset] \
+          >> `eval echo $GDB_DEVICE_NAME`
+      fi
+      i=$[$i + 1]
+      dsp_core_l2_offset=`printf "%X" $[0x$dsp_core_l2_offset + 0x$DSP_L2_GLOBAL_SHIFT]`
+    done
+  ;;
+  stop)
+    # Nothing to be done.
+  ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+  ;;
+esac
+
+
