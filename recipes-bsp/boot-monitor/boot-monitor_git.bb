@@ -6,8 +6,8 @@ COMPATIBLE_MACHINE = "keystone"
 
 SRC_URI = "git://git.ti.com/keystone-linux/boot-monitor.git;protocol=git;branch=${BRANCH}"
 
-PV = "2.0"
-PR = "r2+gitr${SRCPV}"
+PV = "2.0+git${SRCPV}"
+PR = "r2"
 
 BRANCH = "master"
 

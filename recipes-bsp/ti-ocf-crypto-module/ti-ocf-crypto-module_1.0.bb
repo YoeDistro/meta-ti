@@ -19,8 +19,9 @@ S = "${WORKDIR}/trunk"
 
 inherit module
 
-MACHINE_KERNEL_PR_append = "b+svnr${SRCPV}"
+MACHINE_KERNEL_PR_append = "b"
 PR = "${MACHINE_KERNEL_PR}"
+PV_append = "+svn${SRCPV}"
 
 EXTRA_OEMAKE += "KERNEL_DIR=${STAGING_KERNEL_DIR}"
 
