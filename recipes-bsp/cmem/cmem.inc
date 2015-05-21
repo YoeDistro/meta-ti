@@ -7,6 +7,8 @@ BRANCH ?= "master"
 # This corresponds to version 4.10.00.01
 SRCREV = "0d2fac7187ca1f6af62a98dee5b3621908cf5831"
 
+PV = "4.10.00.01+git${SRCPV}"
+
 SRC_URI = "git://git.ti.com/ipc/ludev.git;protocol=git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"

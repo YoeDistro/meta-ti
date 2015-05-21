@@ -7,7 +7,7 @@ DEPENDS = "hplib"
 include hplib.inc
 
 # This package builds a kernel module, use kernel PR as base and append a local
-MACHINE_KERNEL_PR_append = "a+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "a"
 PR = "${MACHINE_KERNEL_PR}"
 
 S ="${WORKDIR}/git/ti/runtime/hplib/module"

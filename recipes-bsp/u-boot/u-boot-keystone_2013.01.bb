@@ -4,7 +4,8 @@ DESCRIPTION = "u-boot bootloader for Multi-Core BU devices"
 
 COMPATIBLE_MACHINE = "keystone"
 
-PR = "r5+gitr${SRCPV}"
+PR = "r5"
+PV_append = "+git${SRCPV}"
 
 # Tag "K2_UBOOT_2013_01_14.09"
 SRCREV = "f9bc365551ff8c685bf6134d795576713fec0917"

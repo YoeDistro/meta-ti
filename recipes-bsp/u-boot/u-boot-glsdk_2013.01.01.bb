@@ -2,7 +2,8 @@ require u-boot-ti.inc
 
 DESCRIPTION = "u-boot bootloader for TI devices supported by the GLSDK product"
 
-PR = "r1+gitr${SRCPV}"
+PR = "r1"
+PV_append = "+git${SRCPV}"
 
 DEFAULT_PREFERENCE = "-1"
 

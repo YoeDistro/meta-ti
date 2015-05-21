@@ -21,10 +21,10 @@ S = "${WORKDIR}/git"
 BRANCH ?= "p-ti-glsdk-3.8.y"
 
 SRCREV ?= "cc16f99176bf083829c028f9af5b8eb560debcc1"
-PV = "3.8.13"
+PV = "3.8.13+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "d+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "d"
 PR = "${MACHINE_KERNEL_PR}"
 
 SRC_URI = "git://git.omapzoom.org/kernel/omap.git;protocol=git;branch=${BRANCH} \

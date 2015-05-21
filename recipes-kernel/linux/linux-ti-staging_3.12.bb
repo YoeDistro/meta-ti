@@ -40,10 +40,10 @@ S = "${WORKDIR}/git"
 BRANCH = "ti-linux-3.12.y"
 
 SRCREV = "68f449afccf6d1fb6b38bddfc3a40d9e97b53bdf"
-PV = "3.12.30"
+PV = "3.12.30+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "a+gitr${SRCPV}"
+MACHINE_KERNEL_PR_append = "a"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_FRAGMENTS = "${WORKDIR}/baseport.cfg ${WORKDIR}/connectivity.cfg \
