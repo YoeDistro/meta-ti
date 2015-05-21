@@ -25,4 +25,4 @@ FILES_${PN} +=  "${includedir}/* /usr/share/sgx-lib/"
 
 INHIBIT_PACKAGE_STRIP = "1"
 
-INSANE_SKIP_${PN} += "dev-so"
+INSANE_SKIP_${PN} += "dev-so ldflags useless-rpaths"
