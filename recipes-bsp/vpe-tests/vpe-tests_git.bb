@@ -5,9 +5,11 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=74d2f71d8898c54e3d1c9d0058c484aa"
 
 DEPENDS = "virtual/kernel"
 
-PR="r1"
+PR = "r2"
 
 COMPATIBLE_MACHINE = "dra7xx"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SRCREV = "e3d8db1aa935775f9d196ad7428e0cd9864a36ca"
 BRANCH ?= "master"
@@ -24,4 +26,3 @@ EXTRA_OEMAKE = 'CROSS_COMPILE="${TARGET_PREFIX}" CC="${TARGET_PREFIX}gcc ${FLOAT
 do_install() {
     oe_runmake DESTDIR="${D}" install
 }
-
