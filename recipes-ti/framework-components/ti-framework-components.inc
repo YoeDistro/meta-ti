@@ -15,3 +15,6 @@ do_install() {
     cp -pPrf ${S}/* ${D}${FC_INSTALL_DIR_RECIPE}
 }
 
+INSANE_SKIP_${PN} = "ldflags"
+
+FILES_${PN} += "${FC_INSTALL_DIR_RECIPE}"
