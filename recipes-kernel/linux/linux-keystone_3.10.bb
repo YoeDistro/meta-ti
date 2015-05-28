@@ -19,11 +19,11 @@ KERNEL_DEVICETREE_k2l-evm = "k2l-evm.dtb"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
-#This commit corresponds to "K2_LINUX_03.10.61_15.02"
-SRCREV = "a17b4c3fd6c93f908daf032786f90c0321296957"
-PV = "3.10.61+git${SRCPV}"
+#This commit corresponds to "K2_LINUX_03.10.72_15.##"
+SRCREV = "b9bad8fccc5f9c6bcd78363982b3249a15f193fb"
+PV = "3.10.72+git${SRCPV}"
 
-BRANCH = "v3.10.61/master"
+BRANCH = "v3.10.72/master"
 SRC_URI = "git://git.ti.com/keystone-linux/linux.git;protocol=git;branch=${BRANCH}\
            file://defconfig\
            "
