@@ -6,14 +6,14 @@ LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=7b327f9
 
 DEPENDS += "virtual/kernel"
 
-PV = "3.35.01.07"
+PV = "3.36.01.11"
 
-BRANCH = "master"
+BRANCH = "3.36"
 SRC_URI = "git://git.ti.com/ipc/ipcdev.git;protocol=git;branch=${BRANCH} \
            file://tiipclad-daemon.sh \
            "
-# Commit corresponds to 3.35.01.07
-SRCREV = "358d966c9f5973faf9ab71fb1d7dfe5d3e08a8dc"
+# Commit corresponds to 3.36.01.11
+SRCREV = "2a4256289d462d93a7e00a6ffb10bd46081a9500"
 
 S = "${WORKDIR}/git"
 
