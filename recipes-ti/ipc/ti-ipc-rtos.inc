@@ -15,4 +15,5 @@ do_install() {
     cp -pPrf ${S}/* ${D}${IPC_INSTALL_DIR_RECIPE}
 }
 
-FILES_${PN} += "${IPC_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY_${PN} = "1"
+FILES_${PN}-dev += "${IPC_INSTALL_DIR_RECIPE}"

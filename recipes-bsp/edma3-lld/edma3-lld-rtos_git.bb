@@ -2,7 +2,7 @@ require edma3-lld.inc
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
-PR = "r0"
+PR = "r1"
 
 DEPENDS = "ti-cgt6x-native ti-sysbios ti-xdctools"
 
@@ -70,6 +70,7 @@ do_install () {
     cp -pPrf ${S}/* ${D}${EDMA3_LLD_INSTALL_DIR_RECIPE}
 }
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP_${PN}-dev = "arch"
 
-FILES_${PN} += "${EDMA3_LLD_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY_${PN} = "1"
+FILES_${PN}-dev += "${EDMA3_LLD_INSTALL_DIR_RECIPE}"
