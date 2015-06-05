@@ -14,3 +14,8 @@ do_install() {
     install -d ${D}${XDAIS_INSTALL_DIR_RECIPE}
     cp -pPrf ${S}/* ${D}${XDAIS_INSTALL_DIR_RECIPE}
 }
+
+INSANE_SKIP_${PN}-dev = "arch"
+
+ALLOW_EMPTY_${PN} = "1"
+FILES_${PN}-dev += "${XDAIS_INSTALL_DIR_RECIPE}"

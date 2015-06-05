@@ -17,4 +17,5 @@ do_install() {
 
 INSANE_SKIP_${PN} = "ldflags"
 
-FILES_${PN} += "${FC_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY_${PN} = "1"
+FILES_${PN}-dev += "${FC_INSTALL_DIR_RECIPE}"

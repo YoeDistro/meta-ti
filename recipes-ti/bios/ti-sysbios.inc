@@ -19,3 +19,7 @@ do_install() {
     cp -pPrf ${S}/* ${D}${SYSBIOS_INSTALL_DIR_RECIPE}
 }
 
+ALLOW_EMPTY_${PN} = "1"
+FILES_${PN}-dev += "${SYSBIOS_INSTALL_DIR_RECIPE}"
+
+INSANE_SKIP_${PN}-dev = "arch ldflags staticdev"
