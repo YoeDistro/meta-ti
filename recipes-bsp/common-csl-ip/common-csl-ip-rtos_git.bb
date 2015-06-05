@@ -3,6 +3,8 @@ require common-csl-ip.inc
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
+PR = "r1"
+
 DEPENDS = "ti-xdctools ti-cgt6x-native ti-sysbios"
 
 S = "${WORKDIR}/ti/csl"
@@ -30,4 +32,5 @@ do_install () {
     find -name "*.tar" -exec tar xf {} -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages \;
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
+ALLOW_EMPTY_${PN} = "1"
+FILES_${PN}-dev += "${PDK_INSTALL_DIR_RECIPE}/packages"

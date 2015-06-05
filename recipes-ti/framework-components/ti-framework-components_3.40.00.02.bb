@@ -1,7 +1,7 @@
 require ti-framework-components.inc
 
 PV = "3_40_00_02"
-PR = "r0"
+PR = "r1"
 
 LIC_FILES_CHKSUM = "file://framework_components_${PV}_Manifest.html;md5=e3ce0b3e17175b7200f346d0c6dbbcc6"
 
