@@ -28,10 +28,6 @@ case "$compatible" in
 		device=k2hk
 		ln -sf libhyplnk_k2h.so.1.0.0 libhyplnk_device.so.1
 	;;
-	*k2l*)
-		device=k2l
-		ln -sf libhyplnk_k2l.so.1.0.0 libhyplnk_device.so.1
-	;;
 	*k2e*)
 		device=k2e
 		ln -sf libhyplnk_k2e.so.1.0.0 libhyplnk_device.so.1
