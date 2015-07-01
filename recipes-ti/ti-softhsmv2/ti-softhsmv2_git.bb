@@ -7,7 +7,7 @@ mntdir = "/mnt"
 
 inherit autotools pkgconfig
 
-DEPENDS = "openssl libdaemon"
+DEPENDS = "openssl libdaemon zlib"
 COMPATIBLE_MACHINE = "(tci6614-evm|keystone)"
 
 BRANCH="master"
@@ -15,11 +15,14 @@ SRC_URI = "git://git.ti.com/keystone-linux/ti-softhsmv2.git;protocol=git;branch=
 #Following commit corresponds to tag DEV.SOFTHSM-01.03.00.01
 SRCREV = "c79d93ac2a326567a7245dda1b903ef340b5650c"
 PV = "1.3.0.1"
+PR = "r1"
 
 S = "${WORKDIR}/git"
 
 CFLAGS += " -mno-unaligned-access"
 CPPFLAGS += " -mno-unaligned-access"
+
+EXTRA_OECONF += "--with-zlib=${STAGING_DIR_HOST}/usr"
 
 INITSCRIPT_NAME = "softhsm-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"
