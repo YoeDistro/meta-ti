@@ -8,12 +8,12 @@ inherit module
 MACHINE_KERNEL_PR_append = "f"
 PR = "${MACHINE_KERNEL_PR}"
 
-BRANCH = "next"
+BRANCH = "omap5/next"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH}"
 S = "${WORKDIR}/git"
 
-SRCREV = "430673f78b79eccdf308a6bbfb524209b485d2cc"
+SRCREV = "285ce496cecfedcc1c1acc653e3ee4be32995281"
 
 EXTRA_OEMAKE += 'KERNELDIR="${STAGING_KERNEL_DIR}"'
 
