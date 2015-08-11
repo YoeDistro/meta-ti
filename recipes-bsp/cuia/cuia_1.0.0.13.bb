@@ -13,7 +13,6 @@ S = "${WORKDIR}/cuia_${CUIA_PV}${CUIA_PVExtra}"
 
 do_compile () {
 	cd ${S}
-	oe_runmake clean
 	oe_runmake all
 }
 
