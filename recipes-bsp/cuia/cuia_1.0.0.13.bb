@@ -11,8 +11,11 @@ SRC_URI[cuia.sha256sum] = "f16d138a9146fdc7d52cba77bd30596da65835f6ffe4092baf2b3
 
 S = "${WORKDIR}/cuia_${CUIA_PV}${CUIA_PVExtra}"
 
+CLEANBROKEN = "1"
+
 do_compile () {
 	cd ${S}
+	oe_runmake clean
 	oe_runmake all
 }
 
