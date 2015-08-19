@@ -1,7 +1,7 @@
 #! /bin/sh
 
 tiipclad_daemon=/usr/bin/__LAD_DAEMON__
-tiipclad_params="-l lad.txt"
+tiipclad_params="-g -l lad.txt"
 
 test -x "$tiipclad_daemon" || exit 0
 
