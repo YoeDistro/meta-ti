@@ -50,11 +50,11 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-lsk-linux-4.1.y"
 
-SRCREV = "e8f07af182399ef8f7fc331918163e11ee9a5870"
+SRCREV = "77889ef34c567c94faf6ba7b39aa7c65a6f3e841"
 PV = "4.1.6+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "b"
+MACHINE_KERNEL_PR_append = "c"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_DIR = "${S}/ti_config_fragments"
@@ -70,3 +70,11 @@ KERNEL_GIT_PROTOCOL = "git"
 SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
             file://defconfig \
            "
+
+GFX_PATCHES = "file://0001-DT-gpu-add-binding-for-TI-SGX-driver.patch \
+            file://0002-ARM-dts-DRA7xx-add-gpu-interface-clock.patch \
+            file://0003-ARM-dts-DRA7xx-add-device-tree-entry-for-SGX.patch \
+            file://0004-arm-dra7xx-Add-gpu-hwmod-data.patch \
+            file://0005-drm-omap-Add-omapdrm-plugin-API.patch"
+
+SRC_URI_append_dra7xx = " ${GFX_PATCHES}"
