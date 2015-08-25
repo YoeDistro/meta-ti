@@ -8,14 +8,14 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 SRC_URI = "git://git.ti.com/keystone-linux/boot-monitor.git;protocol=git;branch=${BRANCH}"
 
 PV = "2.0+git${SRCPV}"
-PR = "r3"
+PR = "r4"
 
 BRANCH = "master"
 
 S = "${WORKDIR}/git"
 
-#Tag "K2_BM_14.09"
-SRCREV = "4b0287a3fa9c7a25c75bbe3a54f4ac2a92dc0aaa"
+#Tag "K2_BM_15.07"
+SRCREV = "62d198687a34a9df375c1686d75ad4f85515dcf9"
 
 BOOT_MONITOR_BINARY ?= "skern.bin"
 BOOT_MONITOR_IMAGE  ?= "skern-${MACHINE}.bin"
