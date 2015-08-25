@@ -4,11 +4,11 @@ DESCRIPTION = "u-boot bootloader for Multi-Core BU devices"
 
 COMPATIBLE_MACHINE = "keystone"
 
-PR = "r5"
+PR = "r6"
 PV_append = "+git${SRCPV}"
 
-# Tag "K2_UBOOT_2013_01_14.09"
-SRCREV = "f9bc365551ff8c685bf6134d795576713fec0917"
+# Tag "K2_UBOOT_2013_01_15.07_01"
+SRCREV = "5eaedcc4c2bca0ed971ee46694df7edc0cfa36cf"
 BRANCH = "master"
 
 SRC_URI = "git://git.ti.com/keystone-linux/u-boot.git;protocol=git;branch=${BRANCH}"
