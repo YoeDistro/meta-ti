@@ -10,7 +10,7 @@ inherit kernel
 require recipes-kernel/linux/linux-dtb.inc
 require recipes-kernel/linux/setup-defconfig.inc
 
-MACHINE_KERNEL_PR_append = "d"
+MACHINE_KERNEL_PR_append = "e"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_DEVICETREE_k2hk-evm = "k2hk-evm.dtb"
@@ -19,8 +19,8 @@ KERNEL_DEVICETREE_k2l-evm = "k2l-evm.dtb"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
-#This commit corresponds to "K2_LINUX_03.10.72_15.##"
-SRCREV = "b9bad8fccc5f9c6bcd78363982b3249a15f193fb"
+#This commit corresponds to "K2_LINUX_03.10.72_15.08"
+SRCREV = "ca334dedb5c234b1602d991d9b330360a5bc97ad"
 PV = "3.10.72+git${SRCPV}"
 
 BRANCH = "v3.10.72/master"
