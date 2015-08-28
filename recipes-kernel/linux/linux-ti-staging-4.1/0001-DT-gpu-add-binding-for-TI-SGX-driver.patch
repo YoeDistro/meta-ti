@@ -1,22 +1,22 @@
-From cab4b45daa65a79d24a4ae1345e2591986c7c73e Mon Sep 17 00:00:00 2001
+From 4b4e3b2f13798a581171abb09b400c033ece9211 Mon Sep 17 00:00:00 2001
 From: Anand Balagopalakrishnan <anandb@ti.com>
-Date: Sat, 15 Aug 2015 22:37:38 +0000
-Subject: [PATCH 1/5] DT: gpu: add binding for TI SGX driver
+Date: Wed, 26 Aug 2015 09:34:49 +0000
+Subject: [PATCH 1/4] DT: gpu: add binding for TI SGX driver
 
 This patch adds the devicetree binding for TI SGX device driver.
 
 Signed-off-by: Anand Balagopalakrishnan <anandb@ti.com>
 ---
- Documentation/devicetree/bindings/gpu/ti-sgx.txt | 27 ++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
+ Documentation/devicetree/bindings/gpu/ti-sgx.txt | 30 ++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/gpu/ti-sgx.txt
 
 diff --git a/Documentation/devicetree/bindings/gpu/ti-sgx.txt b/Documentation/devicetree/bindings/gpu/ti-sgx.txt
 new file mode 100644
-index 0000000..a13e105
+index 0000000..6b7886a
 --- /dev/null
 +++ b/Documentation/devicetree/bindings/gpu/ti-sgx.txt
-@@ -0,0 +1,27 @@
+@@ -0,0 +1,30 @@
 +TI SGX 3D Graphics Accelerator
 +
 +Required properties:
@@ -30,19 +30,22 @@ index 0000000..a13e105
 + - reg: base address and length of the SGX registers
 + - interrupts : SGX interrupt number
 +
-+Recommended properties:
++Optional properties:
 + - ti,hwmods: Name of the hwmod associated with the SGX
 + - clocks : from SoC clock binding
 + - clock-names : names of clocks listed in clocks property in the same order
++ - reg-names : names of registers listed in reg property in same order
 +
 +Example:
 +	sgx@0x56000000 {
 +		compatible = "ti,dra7-sgx544", "img,sgx544";
-+		reg = <0x56000000 0x100000>;
++		reg = <0x5600fe00 0x200>;
++		reg-names = "gpu_wrapper";
 +		interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
 +		ti,hwmods = "gpu";
-+		clocks = <&gpu_l3_iclk>, <&gpu_core_gclk_mux>, <&gpu_hyd_gclk_mux>;
-+		clock-names = "sys", "core", "hyd";
++		clocks = <&l3_iclk_div>, <&gpu_core_gclk_mux>,
++			 <&gpu_hyd_gclk_mux>;
++		clock-names = "gpu_iclk", "gpu_fclk1", "gpu_fclk2";
 +	};
 -- 
 2.2.0
