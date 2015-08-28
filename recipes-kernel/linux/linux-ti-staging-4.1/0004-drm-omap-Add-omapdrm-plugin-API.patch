@@ -1,10 +1,9 @@
-From 7635957dc5dde6de6753fcadb1b4f6044f1d16fa Mon Sep 17 00:00:00 2001
+From a5ddaecfdf950bd47560ac0a9b1ca9e57afc0c2e Mon Sep 17 00:00:00 2001
 From: Rob Clark <rob@ti.com>
-Date: Sat, 15 Aug 2015 22:37:42 +0000
-Subject: [PATCH 5/5] drm/omap: Add omapdrm plugin API
+Date: Wed, 26 Aug 2015 09:34:52 +0000
+Subject: [PATCH 4/4] drm/omap: Add omapdrm plugin API
 
-This patch enables SGX driver to be added as a plugin to omapdrm. Plugins can
-be loaded/unloaded at runtime. Currently, only SGX registers as a plugin.
+This patch enables SGX driver to be added as a plugin to omapdrm.
 
 Main changes involved:
 
@@ -37,12 +36,12 @@ Signed-off-by: Anand Balagopalakrishnan <anandb@ti.com>
 ---
  drivers/gpu/drm/omapdrm/omap_drv.c | 125 +++++++++++++++++++++++++++++++++++--
  drivers/gpu/drm/omapdrm/omap_drv.h |  60 ++++++++++++++++--
- drivers/gpu/drm/omapdrm/omap_gem.c |  89 ++++++++++++++++++++++++++
+ drivers/gpu/drm/omapdrm/omap_gem.c |  90 ++++++++++++++++++++++++++
  include/uapi/drm/omap_drm.h        |  10 +--
- 4 files changed, 269 insertions(+), 15 deletions(-)
+ 4 files changed, 270 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/gpu/drm/omapdrm/omap_drv.c b/drivers/gpu/drm/omapdrm/omap_drv.c
-index ea537a5..1b0fb19 100644
+index ea537a5..00876c7 100644
 --- a/drivers/gpu/drm/omapdrm/omap_drv.c
 +++ b/drivers/gpu/drm/omapdrm/omap_drv.c
 @@ -34,11 +34,20 @@
@@ -61,7 +60,7 @@ index ea537a5..1b0fb19 100644
 +/* keep track of whether we are already loaded.. we may need to call
 + * plugin's load() if they register after we are already loaded
 + */
-+static bool loaded = false;
++static bool loaded;
 +
  /*
   * mode config funcs
@@ -338,7 +337,7 @@ index 1f13c96..502d7b9 100644
 +
  #endif /* __OMAP_DRV_H__ */
 diff --git a/drivers/gpu/drm/omapdrm/omap_gem.c b/drivers/gpu/drm/omapdrm/omap_gem.c
-index f9ddbf5..49f5222 100644
+index f9ddbf5..8634fc6 100644
 --- a/drivers/gpu/drm/omapdrm/omap_gem.c
 +++ b/drivers/gpu/drm/omapdrm/omap_gem.c
 @@ -117,6 +117,14 @@ struct omap_gem_object {
@@ -475,7 +474,7 @@ index f9ddbf5..49f5222 100644
  
  /* don't call directly.. called from GEM core when it is time to actually
   * free the object..
-@@ -1485,3 +1510,67 @@ void omap_gem_deinit(struct drm_device *dev)
+@@ -1485,3 +1510,68 @@ void omap_gem_deinit(struct drm_device *dev)
  	 */
  	kfree(usergart);
  }
@@ -500,6 +499,7 @@ index f9ddbf5..49f5222 100644
 +	obj = omap_gem_new(dev, gsize, flags | OMAP_BO_EXT_MEM);
 +	if (obj) {
 +		struct omap_gem_object *omap_obj = to_omap_bo(obj);
++
 +		omap_obj->paddr = paddr;
 +		omap_obj->pages = pages;
 +		omap_obj->ops = ops;

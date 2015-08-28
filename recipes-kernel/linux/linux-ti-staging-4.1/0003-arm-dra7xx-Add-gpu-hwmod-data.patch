@@ -1,18 +1,19 @@
-From 738de270894a7a2296c612ced981634df641f093 Mon Sep 17 00:00:00 2001
+From cbfdfed432347a3c52cf1c62cba5141b540d8d09 Mon Sep 17 00:00:00 2001
 From: Hemant Hariyani <hemanthariyani@ti.com>
-Date: Sat, 15 Aug 2015 22:37:41 +0000
-Subject: [PATCH 4/5] arm:dra7xx: Add gpu hwmod data
+Date: Wed, 26 Aug 2015 09:34:51 +0000
+Subject: [PATCH 3/4] arm:dra7xx: Add gpu hwmod data
 
 GPU hwmod data for DRA7xx
 
 Signed-off-by: Hemant Hariyani <hemanthariyani@ti.com>
 Signed-off-by: Gowtham Tammana <g-tammana@ti.com>
+Signed-off-by: Anand Balagopalakrishnan <anandb@ti.com>
 ---
- arch/arm/mach-omap2/omap_hwmod_7xx_data.c | 74 +++++++++++++++++++++++++++++++
- 1 file changed, 74 insertions(+)
+ arch/arm/mach-omap2/omap_hwmod_7xx_data.c | 43 +++++++++++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
 diff --git a/arch/arm/mach-omap2/omap_hwmod_7xx_data.c b/arch/arm/mach-omap2/omap_hwmod_7xx_data.c
-index 0641f03..e1cc927 100644
+index 0641f03..03982b7 100644
 --- a/arch/arm/mach-omap2/omap_hwmod_7xx_data.c
 +++ b/arch/arm/mach-omap2/omap_hwmod_7xx_data.c
 @@ -1318,6 +1318,40 @@ static struct omap_hwmod dra7xx_gpmc_hwmod = {
@@ -56,53 +57,22 @@ index 0641f03..e1cc927 100644
   * 'hdq1w' class
   *
   */
-@@ -3686,6 +3720,45 @@ static struct omap_hwmod_ocp_if dra7xx_l3_main_1__gpmc = {
+@@ -3686,6 +3720,14 @@ static struct omap_hwmod_ocp_if dra7xx_l3_main_1__gpmc = {
  	.user		= OCP_USER_MPU | OCP_USER_SDMA,
  };
  
-+static struct omap_hwmod_addr_space dra7xx_gpu_addrs[] = {
-+	{
-+		.name           = "klio",
-+		.pa_start       = 0x56000000,
-+		.pa_end         = 0x56001fff,
-+	},
-+	{
-+		.name           = "hydra2",
-+		.pa_start       = 0x56004000,
-+		.pa_end         = 0x56004fff,
-+	},
-+	{
-+		.name           = "klio_0",
-+		.pa_start       = 0x56008000,
-+		.pa_end         = 0x56009fff,
-+	},
-+	{
-+		.name           = "klio_1",
-+		.pa_start       = 0x5600c000,
-+		.pa_end         = 0x5600dfff,
-+	},
-+	{
-+		.name           = "klio_hl",
-+		.pa_start       = 0x5600fe00,
-+		.pa_end         = 0x5600ffff,
-+		.flags          = ADDR_TYPE_RT
-+	},
-+	{ }
-+};
-+
 +/* l3_main_1 -> gpu */
 +static struct omap_hwmod_ocp_if dra7xx_l3_main_1__gpu = {
 +	.master         = &dra7xx_l3_main_1_hwmod,
 +	.slave          = &dra7xx_gpu_hwmod,
 +	.clk            = "l3_iclk_div",
-+	.addr           = dra7xx_gpu_addrs,
 +	.user           = OCP_USER_MPU | OCP_USER_SDMA,
 +};
 +
  static struct omap_hwmod_addr_space dra7xx_hdq1w_addrs[] = {
  	{
  		.pa_start	= 0x480b2000,
-@@ -4461,6 +4534,7 @@ static struct omap_hwmod_ocp_if *dra7xx_hwmod_ocp_ifs[] __initdata = {
+@@ -4461,6 +4503,7 @@ static struct omap_hwmod_ocp_if *dra7xx_hwmod_ocp_ifs[] __initdata = {
  	&dra7xx_l4_per1__gpio7,
  	&dra7xx_l4_per1__gpio8,
  	&dra7xx_l3_main_1__gpmc,
