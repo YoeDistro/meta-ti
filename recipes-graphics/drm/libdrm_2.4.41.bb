@@ -2,7 +2,7 @@ require recipes-graphics/drm/libdrm.inc
 
 FILESEXTRAPATHS_append := ":${COREBASE}/meta/recipes-graphics/drm/libdrm"
 
-COMPATIBLE_MACHINE = "omap-a15"
+COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15"
 
 DEFAULT_PREFERENCE = "-1"
 
@@ -15,6 +15,6 @@ SRC_URI += "file://installtests-ti.patch \
             file://GNU_SOURCE_definition.patch \
            "
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 S = "${WORKDIR}/git"
