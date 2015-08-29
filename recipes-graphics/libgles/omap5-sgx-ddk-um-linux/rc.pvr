@@ -1,0 +1,17 @@
+#!/bin/bash
+
+case "$1" in
+  start)
+
+  echo "Initializing the graphics driver ..."
+  pvrsrvinit
+
+  ;;
+  stop)
+    # Nothing to be done.
+  ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+  ;;
+esac
