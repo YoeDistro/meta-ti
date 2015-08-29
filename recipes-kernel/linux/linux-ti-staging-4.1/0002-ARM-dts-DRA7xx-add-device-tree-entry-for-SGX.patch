@@ -1,7 +1,7 @@
-From 20d10ea071c2b9eebb740f94f1fd0a7e4c9f7c03 Mon Sep 17 00:00:00 2001
+From f3a4651fef3c51a0ec30f321352dc26273eb56d4 Mon Sep 17 00:00:00 2001
 From: Anand Balagopalakrishnan <anandb@ti.com>
 Date: Wed, 26 Aug 2015 09:34:50 +0000
-Subject: [PATCH 2/4] ARM: dts: DRA7xx: add device tree entry for SGX
+Subject: [PATCH 2/8] ARM: dts: DRA7xx: add device tree entry for SGX
 
 Addition of SGX to DRA7xx DTS to enable graphics support.
 
