@@ -1,7 +1,7 @@
-From a5ddaecfdf950bd47560ac0a9b1ca9e57afc0c2e Mon Sep 17 00:00:00 2001
+From 931f19bb07833a342e1d87785e989f4609825927 Mon Sep 17 00:00:00 2001
 From: Rob Clark <rob@ti.com>
 Date: Wed, 26 Aug 2015 09:34:52 +0000
-Subject: [PATCH 4/4] drm/omap: Add omapdrm plugin API
+Subject: [PATCH 4/8] drm/omap: Add omapdrm plugin API
 
 This patch enables SGX driver to be added as a plugin to omapdrm.
 

@@ -1,7 +1,7 @@
-From cbfdfed432347a3c52cf1c62cba5141b540d8d09 Mon Sep 17 00:00:00 2001
+From 7d96508055ba60029f6fc7a3f8603f2f2630a667 Mon Sep 17 00:00:00 2001
 From: Hemant Hariyani <hemanthariyani@ti.com>
 Date: Wed, 26 Aug 2015 09:34:51 +0000
-Subject: [PATCH 3/4] arm:dra7xx: Add gpu hwmod data
+Subject: [PATCH 3/8] arm:dra7xx: Add gpu hwmod data
 
 GPU hwmod data for DRA7xx
 

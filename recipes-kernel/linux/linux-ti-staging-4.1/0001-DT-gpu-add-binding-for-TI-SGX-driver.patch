@@ -1,7 +1,7 @@
-From 4b4e3b2f13798a581171abb09b400c033ece9211 Mon Sep 17 00:00:00 2001
+From 4b375ae644830ea38d8bfc1c78da6d83628527ea Mon Sep 17 00:00:00 2001
 From: Anand Balagopalakrishnan <anandb@ti.com>
 Date: Wed, 26 Aug 2015 09:34:49 +0000
-Subject: [PATCH 1/4] DT: gpu: add binding for TI SGX driver
+Subject: [PATCH 1/8] DT: gpu: add binding for TI SGX driver
 
 This patch adds the devicetree binding for TI SGX device driver.
 
