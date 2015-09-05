@@ -50,11 +50,11 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-lsk-linux-4.1.y"
 
-SRCREV = "1d476946dc0c881868ffd78cd2be30740ce0dea1"
+SRCREV = "3adfb503c87468c448ee30191511184fb0c65dd0"
 PV = "4.1.6+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "g"
+MACHINE_KERNEL_PR_append = "h"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_DIR = "${S}/ti_config_fragments"
@@ -70,16 +70,3 @@ KERNEL_GIT_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git"
 KERNEL_GIT_PROTOCOL = "git"
 SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
             file://defconfig"
-
-GFX_PATCHES =  "file://0005-arm-Export-cache-flush-management-symbols-when-MULTI.patch \
-                file://0006-ARM-dts-am33xx-add-DT-node-for-gpu.patch \
-                file://0007-ARM-dts-am437x-add-DT-node-for-gpu.patch \
-                file://0008-ARM-OMAP2-Use-pdata-quirks-for-sgx-deassert_hardrese.patch"
-
-SRC_URI_append_omap-a15 = " ${GFX_PATCHES} file://sgx.cfg"
-SRC_URI_append_ti33x = " ${GFX_PATCHES} file://sgx.cfg"
-SRC_URI_append_ti43x = " ${GFX_PATCHES} file://sgx.cfg"
-
-KERNEL_CONFIG_FRAGMENTS_append_omap-a15 = " ${WORKDIR}/sgx.cfg"
-KERNEL_CONFIG_FRAGMENTS_append_ti33x = " ${WORKDIR}/sgx.cfg"
-KERNEL_CONFIG_FRAGMENTS_append_ti43x = " ${WORKDIR}/sgx.cfg"
