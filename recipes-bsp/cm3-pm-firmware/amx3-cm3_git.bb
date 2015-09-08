@@ -4,10 +4,10 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://License.txt;md5=7bdc54a749ab7a7dea999d25d99a41b8"
 
 PV = "1.9.1"
-PR = "r0"
+PR = "r1"
 
-SRCREV = "277eef8611e260a5d73a9e3773fff8f767fe2b01"
-BRANCH ?= "next-upstream"
+SRCREV = "730f0695ca2dda65abcff5763e8f108517bc0d43"
+BRANCH ?= "ti-v4.1.y"
 
 SRC_URI = "git://git.ti.com/ti-cm3-pm-firmware/amx3-cm3.git;protocol=git;branch=${BRANCH}"
 
