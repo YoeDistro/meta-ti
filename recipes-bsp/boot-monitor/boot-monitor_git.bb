@@ -8,7 +8,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 SRC_URI = "git://git.ti.com/keystone-linux/boot-monitor.git;protocol=git;branch=${BRANCH}"
 
 PV = "2.0+git${SRCPV}"
-PR = "r4"
+PR = "r5"
 
 BRANCH = "master"
 
@@ -24,6 +24,10 @@ FLOATABI = "${@base_contains("TUNE_FEATURES", "vfp", base_contains("TUNE_FEATURE
 
 EXTRA_OEMAKE = "CROSS_COMPILE=${TARGET_PREFIX} CC="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS} ${FLOATABI}" LD="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS} ${FLOATABI}""
 
+FILES_${PN} = "/boot"
+
+inherit deploy
+
 do_compile () {
 	unset LDFLAGS
 	unset CFLAGS
@@ -31,11 +35,14 @@ do_compile () {
 	oe_runmake ${BOOT_MONITOR_MAKE_TARGET}
 }
 
-inherit deploy
-
-addtask deploy before do_build after do_compile
+do_install () {
+	install -d ${D}/boot
+	install -m 0644 ${S}/${BOOT_MONITOR_BINARY} ${D}/boot/${BOOT_MONITOR_IMAGE}
+}
 
 do_deploy () {
 	install -d ${DEPLOYDIR}
-	install ${S}/${BOOT_MONITOR_BINARY} ${DEPLOYDIR}/${BOOT_MONITOR_IMAGE}
+	install -m 0644 ${S}/${BOOT_MONITOR_BINARY} ${DEPLOYDIR}/${BOOT_MONITOR_IMAGE}
 }
+
+addtask deploy before do_build after do_compile
