@@ -22,6 +22,8 @@ inherit update-rc.d
 PR = "r11"
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2"
 
+RDEPENDS_${PN} += "libdrm"
+
 RREPLACES_${PN} = "libegl libgles1 libgles2"
 RREPLACES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev"
 RREPLACES_${PN}-dbg = "libegl-dbg"
