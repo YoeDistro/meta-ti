@@ -3,9 +3,9 @@ DESCRIPTION = "VPE test program"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://COPYING;md5=74d2f71d8898c54e3d1c9d0058c484aa"
 
-DEPENDS = "virtual/kernel"
+DEPENDS = "virtual/kernel vpdma-fw"
 
-PR = "r2"
+PR = "r3"
 
 COMPATIBLE_MACHINE = "dra7xx"
 
@@ -25,4 +25,6 @@ EXTRA_OEMAKE = 'CROSS_COMPILE="${TARGET_PREFIX}" CC="${TARGET_PREFIX}gcc ${FLOAT
 
 do_install() {
     oe_runmake DESTDIR="${D}" install
+    rm -rf ${D}${base_libdir}/firmware/vpdma-*.bin
+    rmdir -p ${D}${base_libdir}/firmware || true
 }
