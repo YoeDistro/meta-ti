@@ -188,6 +188,9 @@ do_install () {
 	install -d ${D}${sysconfdir}/udev/rules.d
 	install -m 0644 ${WORKDIR}/99-bufferclass.rules ${D}${sysconfdir}/udev/rules.d/
 
+	touch ${D}${libdir}/ES5.0/ld-linux.so.3
+	touch ${D}${libdir}/ES5.0/ld-linux.so.3\(GLIBC_2.4\)
+	cp -pPR ${S}/gfx_rel_es5.x/libews.so ${D}${libdir}/ES5.0/
 }
 
 PACKAGES =+ "${PN}-rawdemos ${PN}-rawtrainingcourses ${PN}-tests"
@@ -209,6 +212,7 @@ PRIVATE_LIBS_${PN}-es9 = "libGLESv2.so libIMGegl.so libsrv_um.so libpvr2d.so lib
 
 
 RPROVIDES_${PN} += "libGLESv2.so libEGL.so libGLES_CM.so libpvr2d.so libIMGegl.so libsrv_init.so libsrv_um.so libsrv_um_dri.so libglslcompiler.so"
+RPROVIDES_${PN}-es5 += "ld-linux.so.3 ld-linux.so.3(GLIBC_2.4) libews.so"
 
 PACKAGES =+ "${PN}-blitwsegl ${PN}-flipwsegl ${PN}-frontwsegl ${PN}-linuxfbwsegl"
 FILES_${PN}-blitwsegl = "${libdir}/libpvrPVR2D_BLITWSEGL.so.*"
@@ -329,4 +333,9 @@ rm -f $D${sysconfdir}/powervr-esrev
 }
 pkg_postinst_${PN}-linuxfbwsegl() {
 rm -f $D${sysconfdir}/powervr-esrev
+}
+
+pkg_postinst_${PN}-es5() {
+rm -f $D${libdir}/ES5.0/ld-linux.so.3*
+rm -f $D${libdir}/ES5.0/libews.so
 }
