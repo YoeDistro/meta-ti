@@ -3,10 +3,10 @@ LICENSE = "BSD-3-Clause"
 
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/keystone-rtos/iqn2-lld.git;destsuffix=git/ti/drv/iqn2;protocol=git;branch=${BRANCH}"
-# Following commit corresponds to DEV.IQN_LLD.01.00.00.07A
-SRCREV = "94017e30c87853e48f6e947186c5075289b190c6"
+# Following commit corresponds to DEV.IQN_LLD.01.00.00.08F
+SRCREV = "29d5358b944f1447c024263f86e8c71784440b99"
 
-PV = "1.0.0.7"
+PV = "1.0.0.8"
 
 COMPATIBLE_MACHINE = "k2l-evm"
 
