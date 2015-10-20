@@ -8,9 +8,9 @@ COMPATIBLE_MACHINE = "keystone"
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/keystone-rtos/pktlib.git;protocol=git;branch=${BRANCH}"
 
-# Corresponds to DEV.PKTLIB.2.1.0.4
-SRCREV = "a9aa56afed54b0a04f36d2fdb248cad5dcac6ff6"
-PV = "2.1.0.4"
+# Corresponds to DEV.PKTLIB.2.1.0.5
+SRCREV = "d757026f3d6a837711f4b44b5ffdefed761fc186"
+PV = "2.1.0.5"
 
 S = "${WORKDIR}/git/ti/runtime/pktlib"
 
