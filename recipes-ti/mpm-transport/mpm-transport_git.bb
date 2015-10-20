@@ -8,10 +8,10 @@ DEPENDS = "common-csl-ip hyplnk-lld edma3-lld mmap-lld cmem rm-lld qmss-lld cppi
 SRC_URI = "git://git.ti.com/keystone-linux/mpm-transport.git;protocol=git;branch=${BRANCH}"
 
 BRANCH = "master"
-# This commit corresponds to tag DEV.MPM-TRANSPORT-01.00.07.00A
-SRCREV = "267db40a9c551bd91dbed470d57cd1ed0d9e9141"
+# This commit corresponds to tag DEV.MPM-TRANSPORT-01.00.08.03
+SRCREV = "f6c5426d68c2be832903b6d215370c94e134167f"
 
-PV = "1.0.7.0"
+PV = "1.0.8.3"
 PR = "r1"
 
 S = "${WORKDIR}/git"
