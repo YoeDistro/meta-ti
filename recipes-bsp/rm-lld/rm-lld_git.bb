@@ -4,9 +4,9 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/drv/rm/COPYING.txt;md5=dc61631b6536
 
 BRANCH="master"
 SRC_URI = "git://git.ti.com/keystone-rtos/rm-lld.git;destsuffix=git/ti/drv/rm;protocol=git;branch=${BRANCH}"
-# Below commit ID corresponds to DEV.RM_LLD.02.01.00.08
-SRCREV = "7873d22076b4cb865365bbce20a244121414bb44"
-PV = "02.01.00.08"
+# Below commit ID corresponds to DEV.RM_LLD.02.01.02.00
+SRCREV = "b3d711203c6b4cf99fb2f95dc2f4728dfd1b2639"
+PV = "02.01.02.00"
 PR = "r1"
 
 COMPATIBLE_MACHINE = "keystone"
