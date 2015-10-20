@@ -5,9 +5,9 @@ SECTION = "console"
 COMPATIBLE_MACHINE = "keystone"
 
 BRANCH = "master"
-# The following commits correspond to DEV.MPM-2.00.01.08
-SRCREV = "ae3d5630b7c7ce5a795d56bd58957175402a0d17"
-PV = "2.0.1.8"
+# The following commits correspond to DEV.MPM-2.00.01.10D
+SRCREV = "4cb6009d6a3c94cea41ae6155a974e9ca44d982f"
+PV = "2.0.1.10"
 
 SRC_URI = "git://git.ti.com/keystone-linux/multi-proc-manager.git;protocol=git;branch=${BRANCH}"
 
