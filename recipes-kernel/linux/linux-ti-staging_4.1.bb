@@ -53,11 +53,11 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-lsk-linux-4.1.y"
 
-SRCREV = "6d77561dd0c6b18bd5e9abf45dc215b84ebe338f"
-PV = "4.1.6+git${SRCPV}"
+SRCREV = "780c47e7ec4e024e9f7224b51234e545697896a5"
+PV = "4.1.10+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "m"
+MACHINE_KERNEL_PR_append = "a"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_DIR = "${S}/ti_config_fragments"
