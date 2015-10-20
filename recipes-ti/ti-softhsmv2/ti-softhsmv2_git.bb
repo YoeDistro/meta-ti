@@ -1,6 +1,6 @@
 DESCRIPTION = "TI softhsmv2 package"
 LICENSE = "BSD-2-Clause | BSD-3-Clause | ISC | IBM-License | FSFULLR | Zlib"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=55144a048ba54f211a1aaa38c7fd2424"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=664f3daf042b19d634189e709d5d558e"
 SECTION = "libs"
 
 mntdir = "/mnt"
@@ -12,10 +12,9 @@ COMPATIBLE_MACHINE = "(tci6614-evm|keystone)"
 
 BRANCH="master"
 SRC_URI = "git://git.ti.com/keystone-linux/ti-softhsmv2.git;protocol=git;branch=${BRANCH}"
-#Following commit corresponds to tag DEV.SOFTHSM-01.03.00.01
-SRCREV = "c79d93ac2a326567a7245dda1b903ef340b5650c"
-PV = "1.3.0.1"
-PR = "r1"
+#Following commit corresponds to tag DEV.SOFTHSM-01.03.00.04
+SRCREV = "c2688afb9373309751e640088705cb739997665d"
+PV = "1.3.0.4"
 
 S = "${WORKDIR}/git"
 
