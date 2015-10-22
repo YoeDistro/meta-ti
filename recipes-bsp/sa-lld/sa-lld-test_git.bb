@@ -15,7 +15,7 @@ do_compile () {
 		make -f makefile_armv7 clean PDK_INSTALL_PATH=${STAGING_INCDIR} DEVICE="$device" SA_SRC_DIR=${S}
 		for choice in ${CHOICELIST}
 		do
-			make -f makefile_armv7 examples PDK_INSTALL_PATH=${STAGING_INCDIR} DEVICE="$device" SA_SRC_DIR=${S} USEDYNAMIC_LIB="$choice"
+			make -f makefile_armv7 examples utils PDK_INSTALL_PATH=${STAGING_INCDIR} DEVICE="$device" SA_SRC_DIR=${S} USEDYNAMIC_LIB="$choice"
 		done
 	done
 }

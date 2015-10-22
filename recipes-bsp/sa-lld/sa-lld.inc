@@ -5,10 +5,9 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/drv/sa/COPYING.txt;md5=4709d353574a
 
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/keystone-rtos/sa-lld.git;destsuffix=git/ti/drv/sa;protocol=git;branch=${BRANCH}"
-# Following commit DEV.SA_LLD.03.00.00.10
-SRCREV = "533aec7ef0e28c3faff4ee64a861c8935262dc33"
-PV = "03.00.00.10"
-PR = "r1"
+# Following commit DEV.SA_LLD.03.00.00.11A
+SRCREV = "bf5b097e868b20d23d386abc34a1902903d7d9ea"
+PV = "03.00.00.11"
 
 BASEDIR = "${WORKDIR}/git"
 S = "${BASEDIR}/ti/drv/sa"
