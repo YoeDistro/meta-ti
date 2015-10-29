@@ -1,24 +1,38 @@
+/*
+ * This is a placeholder for CMEM reserved memory declarations. This
+ * is simply an example and does not actually reserve any memory for
+ * CMEM.
+ *
+ * The commented sections below provide an example for how to provide
+ * a reserved memory region for CMEM to use as a buffer pool.
+ */
 / {
-        reserved-memory {
-                cmem_block_mem_0: cmem_block_mem@__CMEM_BASE__ {
-                        reg = <0x__CMEM_BASE__ 0x__CMEM_SIZE__>;
-                        no-map;
-                        status = "okay";
-                };
-        };
+/*
+	reserved-memory {
+		cmem_block_mem_0: cmem_block_mem@a0000000 {
+			reg = <0x0 0xa0000000 0x0 0x0a000000>;
+			no-map;
+			status = "okay";
+		};
+	};
+*/
 
-        cmem {
-                compatible = "ti,cmem";
-                #address-cells = <1>;
-                #size-cells = <0>;
+	cmem {
+		compatible = "ti,cmem";
+		#address-cells = <1>;
+		#size-cells = <0>;
 
-                status = "okay";
+		#pool-size-cells = <2>;
+
+		status = "disabled";
+/*
+		status = "okay";
 
                 cmem_block_0: cmem_block@0 {
                         reg = <0>;
                         memory-region = <&cmem_block_mem_0>;
-                        cmem-buf-pools = <1 0x__CMEM_SIZE__>;
+                        cmem-buf-pools = <1 0x0 0x0a000000>;
                 };
+*/
         };
-
 };
