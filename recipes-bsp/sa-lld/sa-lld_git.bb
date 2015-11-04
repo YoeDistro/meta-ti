@@ -4,6 +4,8 @@ DEPENDS = "common-csl-ip"
 
 include sa-lld.inc
 
+PR = "${INC_PR}.0"
+
 do_compile () {
 #   Now build the lld in the updated directory
 	make -f makefile_armv7 clean lib PDK_INSTALL_PATH=${STAGING_INCDIR}

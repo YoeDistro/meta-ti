@@ -4,6 +4,8 @@ DEPENDS = "common-csl-ip cppi-lld qmss-lld pa-lld sa-lld"
 
 include sa-lld.inc
 
+PR = "${INC_PR}.0"
+
 DEVICELIST = "k2h k2k k2l k2e"
 
 CHOICELIST = "no yes"
