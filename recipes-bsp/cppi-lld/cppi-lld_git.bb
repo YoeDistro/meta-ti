@@ -5,6 +5,8 @@ DEPENDS = "common-csl-ip rm-lld qmss-lld"
 
 include cppi-lld.inc
 
+PR = "${INC_PR}.0"
+
 SRC_URI += "file://init_cppi.sh"
 
 inherit update-rc.d
