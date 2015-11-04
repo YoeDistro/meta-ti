@@ -1,18 +1,10 @@
 DESCRIPTION = "TI CPPI Module low level driver"
-COMPATIBLE_MACHINE = "keystone"
 
 DEPENDS = "common-csl-ip rm-lld qmss-lld"
 
 include cppi-lld.inc
 
-PR = "${INC_PR}.0"
-
-SRC_URI += "file://init_cppi.sh"
-
-inherit update-rc.d
-
-INITSCRIPT_NAME = "init_cppi.sh"
-INITSCRIPT_PARAMS = "defaults 10"
+PR = "${INC_PR}.1"
 
 do_compile () {
 #   Now build the lld in the updated directory
@@ -25,11 +17,15 @@ do_compile () {
 
 do_install () {
 	make -f makefile_armv7 install PDK_INSTALL_PATH=${STAGING_INCDIR} INSTALL_INC_BASE_DIR=${D}/${includedir} INSTALL_LIB_BASE_DIR=${D}${libdir}
+
 #   Set the generic device library symbolic link to default k2h
     cd ${D}${libdir}
-    ln -sf libcppi_k2h.so.1.0.0 libcppi_device.so.1
+
+    # Link only the first device in the list
+    for device in ${DEVICELIST}
+    do
+        ln -sf libcppi_${device}.so.1.0.0 libcppi_device.so.1
+        break
+    done
     ln -sf libcppi_device.so.1 libcppi_device.so
-#   Copy init scripts
-    install -d ${D}${sysconfdir}/init.d/
-    install -c -m 755 ${WORKDIR}/init_cppi.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
 }
