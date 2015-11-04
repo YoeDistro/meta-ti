@@ -1,11 +1,10 @@
 DESCRIPTION = "TI QMSS low level driver unit test and example binaries"
-COMPATIBLE_MACHINE = "keystone"
 
 DEPENDS="common-csl-ip rm-lld cppi-lld qmss-lld"
 
 include qmss-lld.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 CHOICELIST = "yes no"
 
