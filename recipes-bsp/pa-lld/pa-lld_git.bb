@@ -4,6 +4,8 @@ DEPENDS = "common-csl-ip rm-lld"
 
 include pa-lld.inc
 
+PR = "${INC_PR}.0"
+
 SRC_URI += "file://init_pa.sh"
 
 inherit update-rc.d
