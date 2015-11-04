@@ -1,5 +1,4 @@
 DESCRIPTION = "TI CPPI low level driver unit test and example binaries"
-COMPATIBLE_MACHINE = "keystone"
 DEPENDS = "common-csl-ip rm-lld cppi-lld qmss-lld"
 
 include cppi-lld.inc
