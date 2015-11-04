@@ -2,7 +2,7 @@ require edma3-lld.inc
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
-PR = "r1"
+PR = "${INC_PR}.0"
 
 DEPENDS = "ti-cgt6x-native ti-sysbios ti-xdctools"
 
