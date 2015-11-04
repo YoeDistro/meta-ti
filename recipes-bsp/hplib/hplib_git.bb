@@ -7,6 +7,8 @@ RDEPENDS_${PN} = "hplib-mod"
 
 include hplib.inc
 
+PR = "${INC_PR}.0"
+
 CHOICELIST = "yes no"
 
 S = "${WORKDIR}/git/ti/runtime/hplib"
