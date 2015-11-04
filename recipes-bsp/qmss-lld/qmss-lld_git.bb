@@ -5,6 +5,7 @@ DEPENDS="common-csl-ip rm-lld"
 
 include qmss-lld.inc
 
+PR = "${INC_PR}.0"
 
 SRC_URI += "file://init_qmss.sh"
 
