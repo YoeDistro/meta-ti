@@ -1,6 +1,8 @@
 DESCRIPTION = "TI KEYSTONE mmap driver using Keystone MPAX Programming"
 include mmap-lld.inc
 
+PR = "${INC_PR}.0"
+
 DEPENDS="common-csl-ip"
 
 do_compile () {
