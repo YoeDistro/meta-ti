@@ -21,8 +21,21 @@ inherit deploy
 SRC_URI += " \
            file://configs "
 
+def get_git_revision(p):
+    import subprocess
+
+    try:
+        return subprocess.Popen("git rev-parse HEAD 2>/dev/null ", cwd=p, shell=True, stdout=subprocess.PIPE).communicate()[0].rstrip()
+    except OSError:
+        return None
+
+KERNEL_LOCALVERSION = "-g${@get_git_revision('${S}').__str__()[:10]}"
+
 MULTI_CONFIG_BASE_SUFFIX = "multi-config-"
-MODULE_IMAGE_BASE_NAME ?= "modules-${PE}-${PV}-${PR}-${MACHINE}-${DATETIME}"
+
+KERNEL_IMAGE_BASE_NAME = "${KERNEL_IMAGETYPE}-${KERNEL_VERSION}-${PKGR}-${MACHINE}-${DATETIME}"
+MODULE_IMAGE_BASE_NAME = "modules-${KERNEL_VERSION}-${PKGR}-${MACHINE}-${DATETIME}"
+CONFIG_IMAGE_BASE_NAME = "config-${KERNEL_VERSION}-${PKGR}-${MACHINE}-${DATETIME}"
 
 EXTRA_OEMAKE = "${PARALLEL_MAKE} "
 
@@ -61,16 +74,22 @@ do_compileconfigs () {
             do_configure
             echo ${KERNEL_LOCALVERSION}-$(basename $configname) > ${B}/.scmversion
             echo ${KERNEL_LOCALVERSION}-$(basename $configname) > ${S}/.scmversion
-            kernel_do_compile
+            do_compile
             do_compile_kernelmodules
+            # Below lines are needed to satisfy do_install and it's cleanup code, which doesn't know about configname
             install -d "${D}/lib/modules/${KERNEL_VERSION}"
             touch "${D}/lib/modules/${KERNEL_VERSION}/build"
             touch "${D}/lib/modules/${KERNEL_VERSION}/source"
             install -d "${D}/lib/modules/${KERNEL_VERSION}/kernel"
-            kernel_do_install
-            rm "${D}/lib/modules/${KERNEL_VERSION}-$(basename $configname)/build"
-            rm "${D}/lib/modules/${KERNEL_VERSION}-$(basename $configname)/source"
-            rmdir --ignore-fail-on-non-empty "${D}/lib/modules/${KERNEL_VERSION}-$(basename $configname)/kernel"
+            do_install
+
+            # Remove unused symlinks specific to configname
+            rm "${D}/lib/modules/$(cut -d\" -f2 ${B}/include/generated/utsrelease.h)/build"
+            rm "${D}/lib/modules/$(cut -d\" -f2 ${B}/include/generated/utsrelease.h)/source"
+            # In case no modules were installed, remove empty dirs
+            rmdir --ignore-fail-on-non-empty "${D}/lib/modules/$(cut -d\" -f2 ${B}/include/generated/utsrelease.h)/kernel"
+            rmdir --ignore-fail-on-non-empty "${D}/lib/modules/$(cut -d\" -f2 ${B}/include/generated/utsrelease.h)"
+            # Also remove default location for modules used by do_install if empty
             rmdir --ignore-fail-on-non-empty "${D}/lib/modules/${KERNEL_VERSION}"
 
             # Drop the resulting images in the deploy dir
@@ -82,7 +101,7 @@ do_compileconfigs () {
             fi
 
             # Install the final config alongside the images
-            cp .config ${DEPLOYDIR}/config-${PV}-${PR}-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
+            cp .config ${DEPLOYDIR}/${CONFIG_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
 
             # Create symlinks
             cd ${DEPLOYDIR}
@@ -91,7 +110,7 @@ do_compileconfigs () {
             rm -f modules-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz
             ln -sf ${MODULE_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz modules-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).tgz
             rm -f config-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
-            ln -sf config-${PV}-${PR}-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config config-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
+            ln -sf ${CONFIG_IMAGE_BASE_NAME}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config config-${MACHINE}.${MULTI_CONFIG_BASE_SUFFIX}$(basename $configname).config
         done
 
         # Restore the regular 'defconfig'
@@ -106,12 +125,12 @@ do_deploy_append () {
     install -d ${DEPLOYDIR}
 
     # Drop the regular defconfig along side the others for consistency
-    cp ${B}/.config ${DEPLOYDIR}/config-${PV}-${PR}-${MACHINE}.config
+    cp ${B}/.config ${DEPLOYDIR}/${CONFIG_IMAGE_BASE_NAME}.config
 
     # add symlink
     cd ${DEPLOYDIR}
     rm -f config-${MACHINE}.config
-    ln -s config-${PV}-${PR}-${MACHINE}.config config-${MACHINE}.config
+    ln -s ${CONFIG_IMAGE_BASE_NAME}.config config-${MACHINE}.config
 
     rm -f modules-${MACHINE}.tgz
     ln -sf ${MODULE_IMAGE_BASE_NAME}.tgz modules-${MACHINE}.tgz
