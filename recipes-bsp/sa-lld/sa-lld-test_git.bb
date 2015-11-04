@@ -4,9 +4,13 @@ DEPENDS = "common-csl-ip cppi-lld qmss-lld pa-lld sa-lld"
 
 include sa-lld.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
-DEVICELIST = "k2h k2k k2l k2e"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+DEVICELIST_k2hk-evm = "k2h k2k"
+DEVICELIST_k2l-evm  = "k2l"
+DEVICELIST_k2e-evm  = "k2e"
 
 CHOICELIST = "no yes"
 
