@@ -6,6 +6,8 @@ DEPENDS = "common-csl-ip qmss-lld sa-lld pktlib hplib"
 
 include hplib.inc
 
+PR = "${INC_PR}.0"
+
 CHOICELIST = "yes no"
 
 S = "${WORKDIR}/git/ti/runtime/hplib"
