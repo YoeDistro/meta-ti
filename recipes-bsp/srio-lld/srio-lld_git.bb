@@ -1,5 +1,4 @@
 DESCRIPTION = "TI SRIO peripheral low level driver"
-COMPATIBLE_MACHINE = "keystone"
 
 DEPENDS="common-csl-ip rm-lld cppi-lld"
 
