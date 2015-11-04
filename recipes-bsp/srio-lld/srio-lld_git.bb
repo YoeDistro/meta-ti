@@ -5,6 +5,8 @@ DEPENDS="common-csl-ip rm-lld cppi-lld"
 
 include srio-lld.inc
 
+PR = "${INC_PR}.0"
+
 do_compile () {
 #   Now build the lld
 	oe_runmake clean
