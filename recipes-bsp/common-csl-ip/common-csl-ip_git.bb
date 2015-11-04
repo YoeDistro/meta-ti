@@ -1,10 +1,8 @@
 require common-csl-ip.inc
 
-PR = "r3"
+PR = "${INC_PR}.0"
 
 ALLOW_EMPTY_${PN} = "1"
-
-S = "${WORKDIR}/git"
 
 do_install () {
     install -d ${D}${includedir}/ti/csl
