@@ -1,6 +1,6 @@
 require edma3-lld.inc
 
-PR = "r0"
+PR = "${INC_PR}.0"
 
 COMPATIBLE_MACHINE = "keystone"
 
