@@ -4,6 +4,8 @@ DEPENDS = "common-csl-ip dfe-lld iqn2-lld"
 
 include dfe-lld.inc
 
+PR = "${INC_PR}.0"
+
 EXTRA_OEMAKE = "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR} DFE_SRC_DIR=${S}"
 
 do_compile () {
