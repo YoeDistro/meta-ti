@@ -4,6 +4,8 @@ DEPENDS="common-csl-ip rm-lld cppi-lld qmss-lld srio-lld cmem"
 
 include srio-lld.inc
 
+PR = "${INC_PR}.0"
+
 CHOICELIST = "yes no"
 
 do_compile () {
