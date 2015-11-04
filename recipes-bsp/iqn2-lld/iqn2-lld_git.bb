@@ -4,6 +4,8 @@ DEPENDS = "common-csl-ip"
 
 include iqn2-lld.inc
 
+PR = "${INC_PR}.0"
+
 EXTRA_OEMAKE = "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR}"
 
 do_compile () {
