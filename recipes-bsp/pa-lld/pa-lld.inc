@@ -2,6 +2,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/drv/pa/COPYING.txt;md5=e8f6789acdcda76d02ed9203fc2e603d"
 
 COMPATIBLE_MACHINE = "keystone"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PA_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/pa-lld.git"
 PA_LLD_GIT_PROTOCOL = "git"
@@ -19,3 +20,11 @@ PV = "03.00.01.05"
 INC_PR = "r2"
 
 S = "${WORKDIR}/${PA_LLD_GIT_DESTSUFFIX}"
+
+DEVICELIST_k2hk-evm = "k2h k2k"
+DEVICELIST_k2l-evm = "k2l"
+DEVICELIST_k2e-evm = "k2e"
+
+LIBPA_k2hk-evm = "libpa"
+LIBPA_k2e-evm = "libpa2"
+LIBPA_k2l-evm = "libpa2"
