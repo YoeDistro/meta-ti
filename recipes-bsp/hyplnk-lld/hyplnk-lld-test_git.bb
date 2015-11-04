@@ -1,5 +1,7 @@
 include hyplnk-lld.inc
 
+PR = "${INC_PR}.0"
+
 DEPENDS = "common-csl-ip hyplnk-lld"
 
 do_compile () {
