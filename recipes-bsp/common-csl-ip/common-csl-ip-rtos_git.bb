@@ -1,13 +1,13 @@
 require common-csl-ip.inc
 
+PR = "${INC_PR}.0"
+
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
-PR = "r1"
-
 DEPENDS = "ti-xdctools ti-cgt6x-native ti-sysbios"
 
-S = "${WORKDIR}/ti/csl"
+CSL_GIT_DESTSUFFIX = "git/ti/csl"
 
 export C6X_GEN_INSTALL_PATH="${STAGING_DIR_NATIVE}/usr"
 export XDCCGROOT="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x"
