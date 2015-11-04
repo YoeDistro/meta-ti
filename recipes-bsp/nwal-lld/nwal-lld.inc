@@ -3,12 +3,19 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/COPYING.txt;md5=b7982a377c680ad71ca2fb
 
 COMPATIBLE_MACHINE = "keystone"
 
-BRANCH = "master"
-SRC_URI = "git://git.ti.com/keystone-rtos/nwal-lld.git;protocol=git;branch=${BRANCH}"
+NWAL_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/nwal-lld.git"
+NWAL_LLD_GIT_PROTOCOL = "git"
+NWAL_LLD_GIT_BRANCH = "master"
 
 # Below commit ID corresponds to "DEV.NWAL.02.01.00.08"
-SRCREV = "e6df99e59a848c7afffe90fc9710b7dcb8067c31"
+NWAL_LLD_SRCREV = "e6df99e59a848c7afffe90fc9710b7dcb8067c31"
+
+BRANCH = "${NWAL_LLD_GIT_BRANCH}"
+SRC_URI = "${NWAL_LLD_GIT_URI};protocol=${NWAL_LLD_GIT_PROTOCOL};branch=${BRANCH}"
+SRCREV = "${NWAL_LLD_SRCREV}"
+
 PV = "02.01.00.08"
+INC_PR = "r1"
 
 BASEDIR = "${WORKDIR}/git"
 S = "${BASEDIR}/ti/drv/nwal"

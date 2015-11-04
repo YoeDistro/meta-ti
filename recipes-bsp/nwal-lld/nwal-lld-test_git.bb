@@ -4,6 +4,8 @@ DEPENDS = "common-csl-ip rm-lld qmss-lld hplib pa-lld sa-lld pktlib nwal-lld"
 
 include nwal-lld.inc
 
+PR = "${INC_PR}.0"
+
 EXTRA_OEMAKE += "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR}"
 
 do_compile () {
