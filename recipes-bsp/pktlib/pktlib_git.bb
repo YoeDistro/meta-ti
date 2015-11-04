@@ -5,12 +5,19 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/COPYING.txt;md5=b7982a377c680ad71ca2fb
 DEPENDS = "common-csl-ip rm-lld qmss-lld cppi-lld"
 COMPATIBLE_MACHINE = "keystone"
 
-BRANCH = "master"
-SRC_URI = "git://git.ti.com/keystone-rtos/pktlib.git;protocol=git;branch=${BRANCH}"
+PKTLIB_GIT_URI = "git://git.ti.com/keystone-rtos/pktlib.git"
+PKTLIB_GIT_PROTOCOL = "git"
+PKTLIB_GIT_BRANCH = "master"
 
 # Corresponds to DEV.PKTLIB.2.1.0.5
-SRCREV = "d757026f3d6a837711f4b44b5ffdefed761fc186"
+PKTLIB_SRCREV = "d757026f3d6a837711f4b44b5ffdefed761fc186"
+
+BRANCH = "${PKTLIB_GIT_BRANCH}"
+SRC_URI = "${PKTLIB_GIT_URI};protocol=${PKTLIB_GIT_PROTOCOL};branch=${BRANCH}"
+SRCREV = "${PKTLIB_SRCREV}"
+
 PV = "2.1.0.5"
+PR = "r1"
 
 S = "${WORKDIR}/git/ti/runtime/pktlib"
 
