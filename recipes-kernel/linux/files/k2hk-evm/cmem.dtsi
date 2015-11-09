@@ -7,7 +7,7 @@
                 };
 
                 cmem_block_mem_0: cmem_block_mem@829000000 {
-                        reg = <0x00000008 0x29000000 0x00000000 0x57000000>;
+                        reg = <0x00000008 0x29000000 0x00000000 0x17000000>;
                         no-map;
                         status = "okay";
                 };
@@ -37,7 +37,7 @@
                 cmem_block_0: cmem_block@0 {
                         reg = <0>;
                         memory-region = <&cmem_block_mem_0>;
-                        cmem-buf-pools = <1 0x00000000 0x57000000>;
+                        cmem-buf-pools = <1 0x00000000 0x17000000>;
                 };
 
                 cmem_block_1: cmem_block@1 {
