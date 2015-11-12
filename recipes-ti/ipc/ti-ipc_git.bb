@@ -6,15 +6,15 @@ LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=7b327f9
 
 DEPENDS += "virtual/kernel"
 
-PV = "3.40.01.08"
+PV = "3.41.00.02"
 
-BRANCH = "3.40"
+BRANCH = "ipc-next"
 SRC_URI = "git://git.ti.com/ipc/ipcdev.git;protocol=git;branch=${BRANCH} \
            file://tiipclad-daemon.sh \
            file://0001-Add-kernel-build-dir.patch \
            "
-# Commit corresponds to 3.40.01.08
-SRCREV = "239354b731b77e30a70230ebb54a31a83fc8b12f"
+# Commit corresponds to 3.41.00.02-eng
+SRCREV = "b34c8ada4ed243cd52e504bf2c6fb3451dc730f8"
 
 S = "${WORKDIR}/git"
 
