@@ -9,6 +9,8 @@ SRC_URI[sha256sum] = "caf51f085aac1e1cea4d00dbbf3093ead07b551fc07b31b2a989c05f8e
 
 S = "${WORKDIR}/linux-${PV}"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 DEPENDS = "virtual/kernel popt"
 
 inherit kernel-arch
