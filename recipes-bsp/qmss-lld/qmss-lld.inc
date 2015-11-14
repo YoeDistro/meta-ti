@@ -17,8 +17,9 @@ SRC_URI = "${QMSS_LLD_GIT_URI};destsuffix=${QMSS_LLD_GIT_DESTSUFFIX};protocol=${
 SRCREV = "${QMSS_LLD_SRCREV}"
 
 PV = "02.01.00.11"
-INC_PR = "r1"
+INC_PR = "r2"
 
+DEVICELIST = "k2h k2k k2l k2e"
 DEVICELIST_k2hk-evm = "k2h k2k"
 DEVICELIST_k2l-evm = "k2l"
 DEVICELIST_k2e-evm = "k2e"
