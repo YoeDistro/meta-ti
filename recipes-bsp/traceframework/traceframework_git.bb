@@ -15,17 +15,17 @@ SRC_URI = "${TRACEFRAMEWORK_GIT_URI};destsuffix=${TRACEFRAMEWORK_GIT_DESTSUFFIX}
 SRCREV = "${TRACEFRAMEWORK_SRCREV}"
 
 PV = "01.01.01.07"
-PR = "r3"
+PR = "r4"
 
 COMPATIBLE_MACHINE = "(tci6614-evm|keystone)"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 DEPENDS = "cuia"
 
 DEVICELIST = "k2k k2h k2e k2l"
-DEVICELIST_append_tci6614-evm = "c6614"
-DEVICELIST_append_k2hk-evm    = "k2k k2h"
-DEVICELIST_append_k2e-evm     = "k2e"
-DEVICELIST_append_k2l-evm     = "k2l"
+DEVICELIST_tci6614-evm = "c6614"
+DEVICELIST_k2hk-evm    = "k2k k2h"
+DEVICELIST_k2e-evm     = "k2e"
+DEVICELIST_k2l-evm     = "k2l"
 
 PACKAGES =+ "${PN}-test"
 
