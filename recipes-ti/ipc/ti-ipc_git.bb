@@ -1,32 +1,15 @@
 DESCRIPTION = "TI Inter Process Communication (IPC) Mechanisms (for Uni- and Multi- Processor Configurations)"
 HOMEPAGE="http://processors.wiki.ti.com/index.php/Category:IPC"
 
-LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=7b327f9b710fd7c95e545b91cec79255"
+require ti-ipc.inc
+
+PR = "${INC_PR}.0"
 
 DEPENDS += "virtual/kernel"
 
-PV = "3.41.00.02"
-
-BRANCH = "ipc-next"
-SRC_URI = "git://git.ti.com/ipc/ipcdev.git;protocol=git;branch=${BRANCH} \
-           file://tiipclad-daemon.sh \
-           file://0001-Add-kernel-build-dir.patch \
+SRC_URI += "file://tiipclad-daemon.sh \
+            file://0001-Add-kernel-build-dir.patch \
            "
-# Commit corresponds to 3.41.00.02-eng
-SRCREV = "b34c8ada4ed243cd52e504bf2c6fb3451dc730f8"
-
-S = "${WORKDIR}/git"
-
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-PLATFORM = "UNKNOWN"
-PLATFORM_omap5-evm = "OMAP54XX"
-PLATFORM_dra7xx = "DRA7XX"
-PLATFORM_k2hk-evm = "TCI6638"
-PLATFORM_k2l-evm = "TCI6630"
-PLATFORM_k2e-evm = "66AK2E"
-PLATFORM_k2g-evm = "66AK2E"
 
 DAEMON = "UNKNOWN"
 DAEMON_omap5-evm = "lad_omap54xx_smp"
@@ -34,7 +17,7 @@ DAEMON_dra7xx = "lad_dra7xx"
 DAEMON_k2hk-evm = "lad_tci6638"
 DAEMON_k2l-evm = "lad_tci6630"
 DAEMON_k2e-evm = "lad_66ak2e"
-DAEMON_k2g-evm = "lad_66ak2e"
+DAEMON_k2g-evm = "lad_66ak2g"
 
 inherit autotools-brokensep pkgconfig update-rc.d
 
