@@ -2,11 +2,16 @@ require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 require ti-ipc.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 DEPENDS = "ti-xdctools ti-sysbios"
-DEPENDS_append_keystone += "ti-cgt6x-native gcc-arm-none-eabi-native"
-DEPENDS_append_omap-15 += "ti-cgt6x-native ti-ccsv6-native gcc-arm-none-eabi-native"
+DEPENDS_append_keystone = " ti-cgt6x-native \
+                            gcc-arm-none-eabi-native \
+"
+DEPENDS_append_omap-a15 = " ti-cgt6x-native \
+                            ti-ccsv6-native \
+                            gcc-arm-none-eabi-native \
+"
 
 PACKAGES =+ "${PN}-fw"
 FILES_${PN}-fw = "${libdir}/firmware/*"
