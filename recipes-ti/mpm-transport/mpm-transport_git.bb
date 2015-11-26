@@ -3,16 +3,27 @@ HOMEPAGE = "http://git.ti.com/cgit/cgit.cgi/keystone-linux/mpm-transport.git"
 LICENSE = "BSD-3-Clause & MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=122b7757f366f3f6fe11988715258fc9"
 COMPATIBLE_MACHINE = "keystone"
-DEPENDS = "common-csl-ip hyplnk-lld edma3-lld mmap-lld cmem rm-lld qmss-lld cppi-lld srio-lld"
+
+DEPENDS = "common-csl-ip edma3-lld mmap-lld cmem rm-lld qmss-lld cppi-lld uio-module-drv syslog-ng"
+DEPENDS_append_k2hk-evm += "hyplnk-lld srio-lld"
+DEPENDS_append_k2e-evm += "hyplnk-lld"
+
+RDEPENDS_${PN} = "syslog-ng"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SRC_URI = "git://git.ti.com/keystone-linux/mpm-transport.git;protocol=git;branch=${BRANCH}"
 
-BRANCH = "master"
-# This commit corresponds to tag DEV.MPM-TRANSPORT-01.00.08.03
-SRCREV = "f6c5426d68c2be832903b6d215370c94e134167f"
+BRANCH = "linux41"
+# This commit corresponds to tag DEV.MPM-TRANSPORT-02.00.00.00_ENG
+SRCREV = "892e93238b7f9f480ddceb7ade042026a4d178bd"
 
-PV = "1.0.8.3"
-PR = "r1"
+PV = "2.0.0.0"
+PR = "r0"
+
+EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
+EXTRA_OEMAKE_append_k2hk-evm += "HYPLNK_TRANSPORT=true SRIO_TRANSPORT=true"
+EXTRA_OEMAKE_append_k2e-evm += "HYPLNK_TRANSPORT=true"
 
 S = "${WORKDIR}/git"
 
@@ -25,13 +36,8 @@ FILES_${PN}-test = "${bindir}/mpm_transport_test.out \
 					${bindir}/mpm_transport_qmss_arm_mt.out \
 					${bindir}/mpm_transport_srio_arm_mt.out"
 
-do_compile () {
-	cd ${S}
-	make PDK_INSTALL_PATH=${STAGING_INCDIR}
-}
-
 do_install() {
-	make installbin BASE_DIR=${S} INSTALL_BIN_BASE_DIR=${D}/${bindir}
+	oe_runmake installbin BASE_DIR=${S} INSTALL_BIN_BASE_DIR=${D}/${bindir}
 
 	install -d ${D}${includedir}/
 	install -c -m 755 ${S}/include/* ${D}${includedir}/
