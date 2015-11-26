@@ -4,10 +4,10 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=fce208c498eb9669223724dc9c1d8fe4"
 SECTION = "console"
 COMPATIBLE_MACHINE = "keystone"
 
-BRANCH = "master"
-# The following commits correspond to DEV.MPM-2.00.01.10D
-SRCREV = "4cb6009d6a3c94cea41ae6155a974e9ca44d982f"
-PV = "2.0.1.10"
+BRANCH = "linux41"
+# The following commits correspond to DEV.MPM-3.00.00.00_ENG
+SRCREV = "158e7d419662b482a089fb66ecdfced1104654ae"
+PV = "3.0.0.0"
 
 SRC_URI = "git://git.ti.com/keystone-linux/multi-proc-manager.git;protocol=git;branch=${BRANCH}"
 
