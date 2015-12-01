@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=122b7757f366f3f6fe11988715258fc9"
 COMPATIBLE_MACHINE = "keystone"
 
 DEPENDS = "common-csl-ip edma3-lld mmap-lld cmem rm-lld qmss-lld cppi-lld uio-module-drv syslog-ng"
-DEPENDS_append_k2hk-evm += "hyplnk-lld srio-lld"
-DEPENDS_append_k2e-evm += "hyplnk-lld"
+DEPENDS_append_k2hk-evm = " hyplnk-lld srio-lld"
+DEPENDS_append_k2e-evm = " hyplnk-lld"
 
 RDEPENDS_${PN} = "syslog-ng"
 
@@ -19,7 +19,7 @@ BRANCH = "linux41"
 SRCREV = "892e93238b7f9f480ddceb7ade042026a4d178bd"
 
 PV = "2.0.0.0"
-PR = "r0"
+PR = "r1"
 
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
 EXTRA_OEMAKE_append_k2hk-evm += "HYPLNK_TRANSPORT=true SRIO_TRANSPORT=true"
