@@ -13,18 +13,21 @@ PA_LLD_GIT_DESTSUFFIX = "git/ti/drv/pa"
 PA_LLD_SRCREV = "ae3aa3e80ecf64fe5a16515d134a6bc217220e2e"
 
 BRANCH = "${PA_LLD_GIT_BRANCH}"
-SRC_URI = "${PA_LLD_GIT_URI};destsuffix=${PA_LLD_GIT_DESTSUFFIX};protocol=${PA_LLD_GIT_PROTOCOL};branch=${BRANCH}"
+SRC_URI = "${PA_LLD_GIT_URI};destsuffix=${PA_LLD_GIT_DESTSUFFIX};protocol=${PA_LLD_GIT_PROTOCOL};branch=${BRANCH} \
+            file://0001-makefile_armv7-fix-missing-separator-error.patch"
 SRCREV = "${PA_LLD_SRCREV}"
 
 PV = "03.00.01.05"
-INC_PR = "r2"
+INC_PR = "r3"
 
 S = "${WORKDIR}/${PA_LLD_GIT_DESTSUFFIX}"
 
+DEVICELIST = "k2h k2k k2l k2e"
 DEVICELIST_k2hk-evm = "k2h k2k"
 DEVICELIST_k2l-evm = "k2l"
 DEVICELIST_k2e-evm = "k2e"
 
+LIBPA = "libpa"
 LIBPA_k2hk-evm = "libpa"
 LIBPA_k2e-evm = "libpa2"
 LIBPA_k2l-evm = "libpa2"

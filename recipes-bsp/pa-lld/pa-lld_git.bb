@@ -10,7 +10,7 @@ do_compile () {
 #   Now build the lld in the updated directory
     for device in ${DEVICELIST}
     do
-        make -f makefile_armv7 DEVICE=$device lib PDK_INSTALL_PATH=${STAGING_INCDIR}
+        make -f makefile_armv7 lib PDK_INSTALL_PATH=${STAGING_INCDIR} DEVICE="$device"
     done
 }
 

@@ -1,0 +1,30 @@
+From 60a938e6902c7cb8bec34abbc5a3723c8094d728 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Tue, 1 Dec 2015 00:00:00 -0500
+Subject: [PATCH] makefile_armv7: fix missing separator error
+
+Doesn't seem to work in all versions of Make, fails like this:
+makefile_armv7:27: *** missing separator.  Stop.
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ makefile_armv7 | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/makefile_armv7 b/makefile_armv7
+index a2bc4f6..1ae6e0a 100644
+--- a/makefile_armv7
++++ b/makefile_armv7
+@@ -24,9 +24,6 @@ else
+     export LLD_NAME=pa
+ endif        
+ 
+-echo DEVICE=$(DEVICE)
+-echo LLD_NAME=$(LLD_NAME)
+-
+ # Output for prebuilt generated libraries
+ export ARMV7LIBDIR ?= ./lib
+ export ARMV7OBJDIR ?= ./obj/$(DEVICE)
+-- 
+2.2.0
+
