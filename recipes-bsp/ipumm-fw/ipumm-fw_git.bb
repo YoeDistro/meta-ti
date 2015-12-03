@@ -17,7 +17,7 @@ RDEPENDS_${PN} = " libdce"
 
 SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
-SRCREV = "7f15373c21a9a98b8881d81c3681c09e858a9d2c"
+SRCREV = "486aa14f700783dbee63a0d81fb2e57d27a286e6"
 
 S = "${WORKDIR}/git"
 
@@ -59,4 +59,4 @@ do_install() {
 
 FILES_${PN} += "${base_libdir}/firmware/${TARGET}"
 
-PR = "r1"
+PR = "r2"
