@@ -20,8 +20,8 @@ SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch
 S = "${WORKDIR}/git"
 
 SRCREV_omap-a15 = "e06c0a4e11401534b938b9a7b1c3f27a65db871f"
-SRCREV_ti33x = "2b7523d07a13ab704a24a7664749551f4a13ed32"
-SRCREV_ti43x = "2b7523d07a13ab704a24a7664749551f4a13ed32"
+SRCREV_ti33x = "f7ae3f68dd6a05f67b15702b823ed15d2c03105d"
+SRCREV_ti43x = "f7ae3f68dd6a05f67b15702b823ed15d2c03105d"
 
 PVR_NULLDRM_ti33x = "1"
 PVR_NULLDRM_ti43x = "0"
