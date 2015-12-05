@@ -28,8 +28,8 @@ RDEPENDS_kernel-base_append_dra7xx = " vpdma-fw"
 # Install boot-monitor skern file into /boot dir of rootfs
 RDEPENDS_kernel-base_append_keystone = " boot-monitor"
 
-# Install pmmc-fw into /boot dir of rootfs
-RDEPENDS_kernel-base_append_k2g-evm = " pmmc-fw"
+# Install ti-sci-fw into /boot dir of rootfs
+RDEPENDS_kernel-base_append_k2g-evm = " ti-sci-fw"
 
 # Default is to package all dtb files for ti33x devices unless building
 # for the specific beaglebone machine.
@@ -57,11 +57,11 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-lsk-linux-4.1.y"
 
-SRCREV = "e7ce6b9cdee62083862c3d86853819d871f853de"
+SRCREV = "f0f52afb60f57f31c099dc849c6757fea5664e89"
 PV = "4.1.13+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "b"
+MACHINE_KERNEL_PR_append = "c"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_DIR = "${S}/ti_config_fragments"
