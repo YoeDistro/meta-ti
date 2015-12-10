@@ -8,11 +8,11 @@ BRANCH = "ipc-next"
 
 SRC_URI = "git://git.ti.com/ipc/ipcdev.git;protocol=git;branch=${BRANCH}"
 
-#Corresponds to 3.41.00.06_eng
-SRCREV = "795af8b9cec28bd6cdd1f00df1b9084b2a285cce"
+#Corresponds to 3.41.00.07_eng
+SRCREV = "7370abce2e3f2a09fd4b057fbbf9e7d3d029c0df"
 
 S = "${WORKDIR}/git"
-PV = "3.41.00.06"
+PV = "3.41.00.07"
 INC_PR = "r0"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
