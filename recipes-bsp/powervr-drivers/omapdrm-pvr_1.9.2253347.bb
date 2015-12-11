@@ -19,7 +19,7 @@ BRANCH_ti43x = "am4/k4.1"
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH}"
 S = "${WORKDIR}/git"
 
-SRCREV_omap-a15 = "e06c0a4e11401534b938b9a7b1c3f27a65db871f"
+SRCREV_omap-a15 = "c53a5dfb9f4d5612c372ec8e252cb13a731c9c10"
 SRCREV_ti33x = "f7ae3f68dd6a05f67b15702b823ed15d2c03105d"
 SRCREV_ti43x = "f7ae3f68dd6a05f67b15702b823ed15d2c03105d"
 
