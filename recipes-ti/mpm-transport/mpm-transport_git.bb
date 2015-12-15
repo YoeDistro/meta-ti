@@ -14,12 +14,12 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SRC_URI = "git://git.ti.com/keystone-linux/mpm-transport.git;protocol=git;branch=${BRANCH}"
 
-BRANCH = "linux41"
-# This commit corresponds to tag DEV.MPM-TRANSPORT-02.00.00.00_ENG
-SRCREV = "892e93238b7f9f480ddceb7ade042026a4d178bd"
+BRANCH = "master"
+# This commit corresponds to tag DEV.MPM-TRANSPORT-02.00.00.01
+SRCREV = "7220df9263a57629a564afb3f99f6f7fb33e40d6"
 
-PV = "2.0.0.0"
-PR = "r1"
+PV = "2.0.0.1"
+PR = "r0"
 
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
 EXTRA_OEMAKE_append_k2hk-evm += "HYPLNK_TRANSPORT=true SRIO_TRANSPORT=true"
