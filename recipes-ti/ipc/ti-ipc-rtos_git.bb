@@ -2,7 +2,7 @@ require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 require ti-ipc.inc
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 DEPENDS = "ti-xdctools ti-sysbios"
 DEPENDS_append_keystone = " ti-cgt6x-native \
@@ -14,7 +14,7 @@ DEPENDS_append_omap-a15 = " ti-cgt6x-native \
 "
 
 PACKAGES =+ "${PN}-fw"
-FILES_${PN}-fw = "${libdir}/firmware/*"
+FILES_${PN}-fw = "${base_libdir}/firmware/*"
 FILES_${PN}-dev += "${IPC_INSTALL_DIR_RECIPE}"
 
 INSANE_SKIP_${PN}-fw += "arch"
@@ -55,6 +55,6 @@ do_install() {
     install -d ${D}${IPC_INSTALL_DIR_RECIPE}
     cp -pPrf ${S}/* ${D}${IPC_INSTALL_DIR_RECIPE}
 
-    install -d ${D}${libdir}/firmware
-    find . -name "*.xe66" -type f | xargs -I {} install -m 0644 {} ${D}${libdir}/firmware/
+    install -d ${D}${base_libdir}/firmware
+    find . -name "*.xe66" -type f | xargs -I {} install -m 0644 {} ${D}${base_libdir}/firmware/
 }
