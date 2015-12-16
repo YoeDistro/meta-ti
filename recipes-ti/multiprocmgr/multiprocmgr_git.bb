@@ -3,9 +3,12 @@ SUMMARY = "Provides download, debug and other utilities for other cores in the S
 
 include multiprocmgr.inc
 
+PR = "r1"
+
 DEPENDS = "mpm-transport libdaemon virtual/kernel"
 RDEPENDS_${PN} = "syslog-ng"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 CC += "-I${STAGING_KERNEL_DIR}/include"
 
