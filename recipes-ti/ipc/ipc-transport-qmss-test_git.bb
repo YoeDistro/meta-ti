@@ -1,12 +1,16 @@
 include ipc-transport-qmss.inc
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 DEPENDS = "ipc-transport-qmss ti-ipc"
 
 #FILES_${PN}-test = "${bindir}/multiProcessTest_*.out"
 
 CHOICELIST = "yes no"
 
-DEVICELIST = "k2h k2k k2e k2l"
+DEVICELIST_k2hk-evm = "k2h k2k"
+DEVICELIST_k2e-evm  = "k2e"
+DEVICELIST_k2l-evm  = "k2l"
 
 do_compile () {
 #   Now build the test code
