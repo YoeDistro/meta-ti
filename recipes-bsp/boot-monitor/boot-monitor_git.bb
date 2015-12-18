@@ -8,13 +8,13 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 SRC_URI = "git://git.ti.com/processor-firmware/ks2-boot-monitor.git;protocol=git;branch=${BRANCH}"
 
 PV = "3.0+git${SRCPV}"
-PR = "r0"
+PR = "r1"
 
 BRANCH = "master"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "28e4fba48f49cc6223d01bffc912fd9f8d1b54e7"
+SRCREV = "035329caed63abe7193c855ad5d561ae783b19d7"
 
 BOOT_MONITOR_IMAGE  ?= "skern-${BOOT_MONITOR_MAKE_TARGET}.bin"
 
