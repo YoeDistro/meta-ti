@@ -31,6 +31,9 @@ RDEPENDS_kernel-base_append_keystone = " boot-monitor"
 # Install ti-sci-fw into /boot dir of rootfs
 RDEPENDS_kernel-base_append_k2g-evm = " ti-sci-fw"
 
+# Add run-time dependency for SerDes firmware to the rootfs
+RDEPENDS_kernel-base_append_keystone = " serdes-fw"
+
 # Default is to package all dtb files for ti33x devices unless building
 # for the specific beaglebone machine.
 KERNEL_DEVICETREE_ti33x = "am335x-evm.dtb am335x-evmsk.dtb am335x-bone.dtb am335x-boneblack.dtb"
@@ -57,11 +60,11 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-lsk-linux-4.1.y"
 
-SRCREV = "f0f52afb60f57f31c099dc849c6757fea5664e89"
+SRCREV = "0f37ee50e2b263eb5941d91ef6da7d4ca51f7488"
 PV = "4.1.13+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "d"
+MACHINE_KERNEL_PR_append = "e"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_CONFIG_DIR = "${S}/ti_config_fragments"
