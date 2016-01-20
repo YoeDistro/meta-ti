@@ -21,7 +21,10 @@ S = "${WORKDIR}/git"
 CFLAGS += " -mno-unaligned-access"
 CPPFLAGS += " -mno-unaligned-access"
 
-EXTRA_OECONF += "--with-zlib=${STAGING_DIR_HOST}/usr"
+EXTRA_OECONF += " \
+    --with-zlib=${STAGING_EXECPREFIXDIR} \
+    --with-openssl=${STAGING_EXECPREFIXDIR} \
+    "
 
 INITSCRIPT_NAME = "softhsm-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"
