@@ -7,7 +7,6 @@ inherit kernel
 
 require recipes-kernel/linux/linux-dtb.inc
 require recipes-kernel/linux/setup-defconfig.inc
-require recipes-kernel/linux/multi-kernel.inc
 require recipes-kernel/linux/cmem.inc
 
 # Look in the generic major.minor directory for files
