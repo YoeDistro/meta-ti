@@ -7,15 +7,15 @@ RM_LLD_GIT_PROTOCOL = "git"
 RM_LLD_GIT_BRANCH = "master"
 RM_LLD_GIT_DESTSUFFIX = "git/ti/drv/rm"
 
-# Below commit ID corresponds to DEV.RM_LLD.02.01.02.00
-RM_LLD_SRCREV = "b3d711203c6b4cf99fb2f95dc2f4728dfd1b2639"
+# Below commit ID corresponds to DEV.RM_LLD.02.02.00.00
+RM_LLD_SRCREV = "48fc05bf1835f76760da4341a4c551398aeeb7cd"
 
 BRANCH = "${RM_LLD_GIT_BRANCH}"
 SRC_URI = "${RM_LLD_GIT_URI};destsuffix=${RM_LLD_GIT_DESTSUFFIX};protocol=${RM_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${RM_LLD_SRCREV}"
 
-PV = "02.01.02.00"
-INC_PR = "r3"
+PV = "02.02.00.00"
+INC_PR = "r0"
 
 COMPATIBLE_MACHINE = "keystone"
 
