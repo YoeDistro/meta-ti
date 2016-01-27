@@ -1,36 +1,23 @@
 require common-csl-ip.inc
-
 PR = "${INC_PR}.0"
 
-require recipes-ti/includes/ti-paths.inc
-require recipes-ti/includes/ti-staging.inc
+inherit ti-pdk
 
-DEPENDS = "ti-xdctools ti-cgt6x-native ti-sysbios"
+DEPENDS_remove = "${PN}"
 
-CSL_GIT_DESTSUFFIX = "git/ti/csl"
+XDCARGS_ti33x = "am335x"
+XDCARGS_ti43x = "am437x"
+XDCARGS_omap-a15 = "am571x am572x"
+XDCARGS_k2hk-evm = "k2h k2k"
+XDCARGS_k2l-evm = "k2l"
+XDCARGS_k2e-evm = "k2e"
 
-export C6X_GEN_INSTALL_PATH="${STAGING_DIR_NATIVE}/usr"
-export XDCCGROOT="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x"
-export XDCPATH="${XDCCGROOT}/include;${XDC_INSTALL_DIR}/packages;${SYSBIOS_INSTALL_DIR}/packages"
+do_configure_append() {
+    # Create empty makefile
+    # If libraries are supported for this device, then this will be overwritten
+    cat > ${BUILD_DIR}/makefile << __EOF__
+# Nothing to do
+all:
 
-do_configure() {
-    sed -i "s/\ \"\.\\\\\\\\\"\ +//" src/Module.xs
-    find -name "*.xs" -exec sed -i "s/ofd6x\.exe/ofd6x/" {} \;
-    find -name "*.xs" -exec sed -i "s/sectti\.exe/sectti/" {} \;
-    find -name "*.xs" -exec sed -i "/\.chm/d" {} \;
-    find -name "*.xs" -exec sed -i "s/pasm\_dos/pasm\_linux/" {} \;
+__EOF__
 }
-
-do_compile() {
-    ${XDC_INSTALL_DIR}/xdc .make
-    ${XDC_INSTALL_DIR}/xdc clean
-    ${XDC_INSTALL_DIR}/xdc release
-}
-
-do_install () {
-    install -d ${D}${PDK_INSTALL_DIR_RECIPE}/packages
-    find -name "*.tar" -exec tar xf {} -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages \;
-}
-
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${PDK_INSTALL_DIR_RECIPE}/packages"
