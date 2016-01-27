@@ -1,10 +1,10 @@
 DESCRIPTION = "TI QMSS low level driver unit test and example binaries"
 
-DEPENDS="common-csl-ip rm-lld cppi-lld qmss-lld"
+DEPENDS="common-csl-ip rm-lld cppi-lld qmss-lld cmem"
 
 include qmss-lld.inc
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 CHOICELIST = "yes no"
 
