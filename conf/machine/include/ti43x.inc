@@ -14,7 +14,7 @@ XSERVER = "xserver-xorg \
            xf86-input-keyboard"
 
 # Default to external video, change to smallscreen for built-in LCD
-GUI_MACHINE_CLASS = "bigscreen"
+MACHINE_GUI_CLASS = "bigscreen"
 
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r3"
