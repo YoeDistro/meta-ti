@@ -24,7 +24,7 @@ XSERVER = "xserver-xorg \
            xf86-input-evdev \
            xf86-video-fbdev"
 
-GUI_MACHINE_CLASS = "smallscreen"
+MACHINE_GUI_CLASS = "smallscreen"
 
 # Use the expected value of the ubifs filesystem's volume name in the kernel
 # and u-boot.
