@@ -9,15 +9,15 @@ PKTLIB_GIT_URI = "git://git.ti.com/keystone-rtos/pktlib.git"
 PKTLIB_GIT_PROTOCOL = "git"
 PKTLIB_GIT_BRANCH = "master"
 
-# Corresponds to DEV.PKTLIB.2.1.0.5
-PKTLIB_SRCREV = "d757026f3d6a837711f4b44b5ffdefed761fc186"
+# Corresponds to DEV.PKTLIB.2.1.0.6
+PKTLIB_SRCREV = "2aa4843d79c344c2d76d0d5d32ecda3d7213d514"
 
 BRANCH = "${PKTLIB_GIT_BRANCH}"
 SRC_URI = "${PKTLIB_GIT_URI};protocol=${PKTLIB_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${PKTLIB_SRCREV}"
 
-PV = "2.1.0.5"
-PR = "r1"
+PV = "2.1.0.6"
+PR = "r0"
 
 S = "${WORKDIR}/git/ti/runtime/pktlib"
 
