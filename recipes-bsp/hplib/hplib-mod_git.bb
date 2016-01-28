@@ -7,7 +7,7 @@ DEPENDS = "hplib"
 include hplib.inc
 
 # This package builds a kernel module, use kernel PR as base and append a local
-MACHINE_KERNEL_PR_append = "a"
+MACHINE_KERNEL_PR_append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 
 S ="${WORKDIR}/git/ti/runtime/hplib/module"
@@ -18,3 +18,5 @@ inherit module
 do_install () {
 	oe_runmake install INSTALL_MOD_PATH="${D}"
 }
+
+KERNEL_MODULE_AUTOLOAD += "hplibmod"
