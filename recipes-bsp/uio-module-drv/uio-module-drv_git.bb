@@ -4,7 +4,7 @@ include uio-module-drv.inc
 PV = "2.0.0.0+git${SRCPV}"
 
 # This package builds a kernel module, use kernel PR as base and append a local
-MACHINE_KERNEL_PR_append = "c"
+MACHINE_KERNEL_PR_append = "d"
 PR = "${MACHINE_KERNEL_PR}"
 
 do_configure[depends] += "virtual/kernel:do_compile_kernelmodules"
@@ -17,3 +17,5 @@ do_install_append () {
     install -d ${D}${includedir}
     cp *.h ${D}${includedir}
 }
+
+KERNEL_MODULE_AUTOLOAD += "uio_module_drv"
