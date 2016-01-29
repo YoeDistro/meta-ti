@@ -1,0 +1,42 @@
+/ {
+	reserved-memory {
+		mpm_block_mem_0: mpm_block_mem@820000000 {
+			reg = <0x00000008 0x20000000 0x00000000 0x02000000>;
+			no-map;
+			status = "okay";
+		};
+
+		cmem_block_mem_0: cmem_block_mem@829000000 {
+			reg = <0x00000008 0x22000000 0x00000000 0x1E000000>;
+			no-map;
+			status = "okay";
+		};
+
+		cmem_block_mem_1: cmem_block_mem@00c100000 {
+			reg = <0x00000000 0x0c000000 0x00000000 0x00180000>;
+			no-map;
+			status = "okay";
+		};
+	};
+
+	cmem {
+		compatible = "ti,cmem";
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		#pool-size-cells = <2>;
+
+		status = "okay";
+
+		cmem_block_0: cmem_block@0 {
+			reg = <0>;
+			memory-region = <&cmem_block_mem_0>;
+			cmem-buf-pools = <1 0x00000000 0x1E000000>;
+		};
+
+		cmem_block_1: cmem_block@1 {
+			reg = <1>;
+			memory-region = <&cmem_block_mem_1>;
+		};
+	};
+};
