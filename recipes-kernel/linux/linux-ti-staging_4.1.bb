@@ -84,3 +84,7 @@ KERNEL_GIT_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git"
 KERNEL_GIT_PROTOCOL = "git"
 SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
             file://defconfig"
+
+do_compile_kernelmodules_append() {
+	cp Module.symvers ${STAGING_KERNEL_BUILDDIR}/
+}
