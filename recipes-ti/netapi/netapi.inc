@@ -7,7 +7,7 @@ SRC_URI = "git://git.ti.com/keystone-rtos/netapi.git;protocol=git;branch=${BRANC
 # Below Commit ID corresponds to "DEV.NETAPI.01.01.00.06"
 SRCREV = "8180b61615965954eaaedc26053f9a8939d9a273"
 PV = "01.01.00.06"
-PR = "r1"
+INC_PR = "r2"
 
 DEVICELIST = "k2h k2k k2l k2e"
 
