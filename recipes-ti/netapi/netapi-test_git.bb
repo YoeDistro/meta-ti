@@ -1,10 +1,10 @@
 DESCRIPTION = "Provides test and application binaries using NETAPI module"
-COMPATIBLE_MACHINE = "keystone"
+
 DEPENDS = "netapi ipsecmgr"
 
 include netapi.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
 
