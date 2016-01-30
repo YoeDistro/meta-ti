@@ -1,12 +1,10 @@
 DESCRIPTION = "Provides NETAPI module: TI user space network library"
 
-COMPATIBLE_MACHINE = "keystone"
-
 DEPENDS = "common-csl-ip rm-lld qmss-lld cppi-lld sa-lld hplib pktlib nwal-lld"
 
 include netapi.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 EXTRA_OEMAKE = "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR}"
 
