@@ -4,6 +4,8 @@ DEPENDS = "netapi ipsecmgr"
 
 include netapi.inc
 
+PR = "${INC_PR}.0"
+
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
 
 do_compile () {
