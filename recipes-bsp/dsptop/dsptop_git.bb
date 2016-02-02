@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://debian/copyright;md5=309825aa8f5edfcf2c44912ac094b979
 
 DEPENDS = "libulm ncurses"
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 S = "${WORKDIR}/git/dsptop"
 
@@ -22,6 +22,7 @@ COMPATIBLE_MACHINE = "dra7xx|keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RDEPENDS_${PN} = "debugss-module-drv"
+RDEPENDS_${PN}_append_keystone = " temperature-module-drv"
 
 include dsptop.inc
 
