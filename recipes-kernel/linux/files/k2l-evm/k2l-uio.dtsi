@@ -1,0 +1,10 @@
+/ {
+	soc {
+		uio_srss: srss {
+			compatible = "ti,uio-ti-pdrv";
+			mem  = <0x02330000 0x0000400>;
+			clocks=<&clksr>;
+			interrupts = <0 0x173 0xf01>;
+		};
+	};
+};
