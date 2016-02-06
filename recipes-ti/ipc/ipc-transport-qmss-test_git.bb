@@ -1,5 +1,7 @@
 include ipc-transport-qmss.inc
 
+PR = "${INC_PR}.0"
+
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "ipc-transport-qmss ti-ipc"

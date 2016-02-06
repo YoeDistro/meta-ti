@@ -1,5 +1,7 @@
 include ipc-transport-srio.inc
 
+PR = "${INC_PR}.0"
+
 DEPENDS = "ipc-transport-srio ipc-transport-qmss ti-ipc"
 
 DEVICELIST = "k2h k2k"
