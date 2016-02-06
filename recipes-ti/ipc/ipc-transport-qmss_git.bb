@@ -1,5 +1,7 @@
 include ipc-transport-qmss.inc
 
+PR = "${INC_PR}.0"
+
 DEPENDS = "ti-ipc mpm-transport"
 
 do_compile () {

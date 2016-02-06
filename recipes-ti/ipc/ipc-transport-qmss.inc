@@ -1,13 +1,9 @@
 DESCRIPTION = "TI QMSS-Based IPC MessageQ Transport"
 LICENSE = "BSD-3-Clause"
 
-LIC_FILES_CHKSUM = "file://COPYING.txt;md5=27bb0deb260c60120a8d7b91da7c3b02"
+require ipc-transport.inc
 
-BRANCH="master"
-SRC_URI = "git://git.ti.com/keystone-linux/ipc-transport.git;protocol=git;branch=${BRANCH}"
-# Below commit ID corresponds to DEV.IPC-TRANSPORT.02.00.00.01
-SRCREV = "88ea336c584ccec4b2c281cd7f75df9dff6d4edf"
-PV = "02.00.00.01"
+INC_PR_append = ".0"
 
 COMPATIBLE_MACHINE = "keystone"
 
