@@ -3,10 +3,9 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=5857833e20836213677fac33f9aded21"
 
 COMPATIBLE_MACHINE = "keystone|dra7xx"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PV = "3.3.0.1B"
-INC_PR = "r0"
+INC_PR = "r1"
 
 CSL_GIT_URI = "git://git.ti.com/keystone-rtos/common-csl-ip.git"
 CSL_GIT_PROTOCOL ="git"
