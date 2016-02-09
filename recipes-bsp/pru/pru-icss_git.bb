@@ -8,7 +8,7 @@ inherit update-alternatives
 
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/pru-software-support-package/pru-software-support-package.git;protocol=git;branch=${BRANCH}"
-SRCREV = "c21ff82cf0a8864a66505be88be1d579a66a983a"
+SRCREV = "6f42b6006ba7a98c7ad9075424b8f77e8d531ab0"
 
 PV = "4.0.1"
 PR = "r2"
