@@ -1,5 +1,7 @@
 require common-csl-ip.inc
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit ti-pdk
 
