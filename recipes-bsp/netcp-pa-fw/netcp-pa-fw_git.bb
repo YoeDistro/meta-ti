@@ -3,7 +3,7 @@ DESCRIPTION = "NETCP PA firmware for Keystone"
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENCE.ti-keystone;md5=3a86335d32864b0bef996bee26cc0f2c"
 
-PV = "1.0.0"
+PV = "3.0.1.8"
 PR = "r0"
 
 CLEANBROKEN = "1"
@@ -12,7 +12,7 @@ COMPATIBLE_MACHINE = "k2hk-evm|k2l-evm|k2e-evm"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRCREV = "55c708e391c5663a9ef0bb13970f2153f82fba36"
+SRCREV = "dd8db49ed57f8ac448451cc5e54973c71a99faea"
 BRANCH ?= "ti-linux-firmware-4.1.y"
 
 SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
@@ -49,7 +49,7 @@ ks2_pa_pdsp5_pam \
 do_install() {
 	install -d ${D}${base_libdir}/firmware
 	for f in ${FWBASENAME}; do
-		install -m 0644 ${S}/ti-keystone/$f-${PV}.bin ${D}${base_libdir}/firmware/$f.bin
+		install -m 0644 ${S}/ti-keystone/$f.bin ${D}${base_libdir}/firmware/$f.bin
 	done
 }
 
