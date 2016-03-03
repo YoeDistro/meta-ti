@@ -6,18 +6,18 @@ LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=7b327f9
 
 TI_IPC_GIT_URI = "git://git.ti.com/ipc/ipcdev.git"
 TI_IPC_GIT_PROTOCOL = "git"
-TI_IPC_GIT_BRANCH = "ipc-next"
+TI_IPC_GIT_BRANCH = "3.42"
 
-#Corresponds to 3.42.00.00_eng
-TI_IPC_SRCREV = "2b47e35ed72170e4e56906fb9ab93dd9ef385a38"
+#Corresponds to 3.42.00.02
+TI_IPC_SRCREV = "a520969994378fb2629d7dfc25f306c3a711b5bc"
 
 BRANCH = "${TI_IPC_GIT_BRANCH}"
 SRC_URI = "${TI_IPC_GIT_URI};protocol=${TI_IPC_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${TI_IPC_SRCREV}"
 
 S = "${WORKDIR}/git"
-PV = "3.42.00.00"
-INC_PR = "r1"
+PV = "3.42.00.02"
+INC_PR = "r0"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -28,3 +28,5 @@ PLATFORM_k2hk-evm = "TCI6638"
 PLATFORM_k2l-evm = "TCI6630"
 PLATFORM_k2e-evm = "66AK2E"
 PLATFORM_k2g-evm = "66AK2G"
+
+ALT_PLATFORM_k2hk-evm = "TCI6636"
