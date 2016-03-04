@@ -4,7 +4,7 @@ LICENSE = "BSD"
 
 require recipes-ti/includes/ti-paths.inc
 
-PV = "2_02_00_02"
+PV = "2_02_01_00"
 PR = "r0"
 
 OPENMP_RTOS_GIT_URI = "git://git.ti.com/openmp/ti-openmp-dsp-runtime.git"
@@ -15,12 +15,14 @@ BRANCH = "${OPENMP_RTOS_GIT_BRANCH}"
 SRC_URI = "${OPENMP_RTOS_GIT_URI};protocol=${OPENMP_RTOS_GIT_PROTOCOL};branch=${BRANCH} \
 "
 
-SRCREV = "5599f2218be68274c58110a12c85a97c6ed1a2d9"
+SRCREV = "f0fe1ce874734b83dacadfe33dacc862afc8ed00"
 
 LIC_FILES_CHKSUM = "file://docs/license/omp_manifest_template.html;md5=61a6972303c0447b7c056195d7ebafee"
 
 DEPENDS = "common-csl-ip-rtos ti-xdctools ti-ipc-rtos ti-sysbios ti-cgt6x-native libulm"
-DEPENDS_append_keystone = " qmss-lld-rtos cppi-lld-rtos"
+DEPENDS_append_k2hk-evm = " qmss-lld-rtos cppi-lld-rtos"
+DEPENDS_append_k2e-evm = " qmss-lld-rtos cppi-lld-rtos"
+DEPENDS_append_k2l-evm = " qmss-lld-rtos cppi-lld-rtos"
 
 COMPATIBLE_MACHINE = "keystone|omap-a15"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -32,17 +34,22 @@ export BIOS_DIR = "${SYSBIOS_INSTALL_DIR}"
 export ULM_DIR ="${STAGING_DIR_TARGET}/usr/share/ti/ulm"
 export C6636_PDK_DIR ="${PDK_INSTALL_DIR}"
 export AM572_PDK_DIR ="${PDK_INSTALL_DIR}"
+export K2G_PDK_DIR ="${PDK_INSTALL_DIR}"
 export XDCCGROOT = "${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x"
 
 export BUILD_K2H = "0"
 export BUILD_AM572 = "0"
+export BUILD_K2G = "0"
 
 BUILD_K2H_keystone = "1"
 BUILD_AM572_omap-a15 = "1"
+BUILD_K2H_k2g-evm = "0"
+BUILD_K2G_k2g-evm = "1"
 
 RELEASE_TARGET = ""
 RELEASE_TARGET_keystone = "k2x"
 RELEASE_TARGET_omap-a15 = "am57xx"
+RELEASE_TARGET_k2g-evm = "k2g"
 
 do_compile() {
     make -f utils/product/Makefile .zipfile
@@ -50,7 +57,7 @@ do_compile() {
 
 do_install() {
     install -d ${D}${OMP_INSTALL_DIR_RECIPE}
-    cp -r ${S}/exports/openmp_dsp_${RELEASE_TARGET}_${PV}/. -d  ${D}${OMP_INSTALL_DIR_RECIPE}
+    cp -r ${S}/exports/openmp_dsp_${RELEASE_TARGET}_*/. -d  ${D}${OMP_INSTALL_DIR_RECIPE}
 }
 
 ALLOW_EMPTY_${PN} = "1"
