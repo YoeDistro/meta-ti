@@ -1,5 +1,5 @@
 require common-csl-ip.inc
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -13,6 +13,7 @@ XDCARGS_omap-a15 = "am571x am572x"
 XDCARGS_k2hk-evm = "k2h k2k"
 XDCARGS_k2l-evm = "k2l"
 XDCARGS_k2e-evm = "k2e"
+XDCARGS_k2g-evm = "k2g"
 
 do_configure_append() {
     # Create empty makefile
