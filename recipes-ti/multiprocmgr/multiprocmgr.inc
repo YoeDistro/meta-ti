@@ -9,7 +9,7 @@ MULTIPROCMGR_GIT_PROTOCOL = "git"
 MULTIPROCMGR_GIT_BRANCH = "master"
 
 # The following commits correspond to DEV.MPM-3.00.01.00
-MULTIPROCMGR_SRCREV = ""
+MULTIPROCMGR_SRCREV = "6c2c0f7d14d34eb9074c6d6a6bd112da3751fb7e"
 
 PV = "3.0.1.0"
 INC_PR = "r0"
