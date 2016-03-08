@@ -2,7 +2,7 @@ require edma3-lld.inc
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 DEPENDS = "ti-sysbios ti-xdctools"
 
@@ -67,7 +67,7 @@ export CGTOOLS = "${XDCCGROOT}"
 export CGTOOLS_ELF = "${XDCCGROOT}"
 export CODEGEN_PATH_DSP = "${XDCCGROOT}"
 export CODEGEN_PATH_DSPELF = "${XDCCGROOT}"
-export TMS470_CGTOOLS = "${XDCCGROOT}"
+export TMS470_CGTOOLS = "${M4_TOOLCHAIN_INSTALL_DIR}"
 export UTILS_INSTALL_DIR = "${XDC_INSTALL_DIR}"
 export XDCPATH = "${XDCCGROOT}/include;${XDC_INSTALL_DIR}/packages;${SYSBIOS_INSTALL_DIR}/packages"
 export PATH := "${XDC_INSTALL_DIR}:${PATH}"
