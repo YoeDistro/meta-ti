@@ -2,12 +2,15 @@ DESCRIPTION = "TI Multiproc Manager test code"
 
 include multiprocmgr.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 DEPENDS = "multiprocmgr cmem"
 RDEPENDS_${PN} = "multiprocmgr mpm-transport cmem"
 
 CC += "-I${STAGING_KERNEL_DIR}/include"
+
+# Assuming the multiprocmgr kernel API is safe
+CC[vardepsexclude] = "STAGING_KERNEL_DIR"
 
 do_compile() {
 	make -C ${S} test
