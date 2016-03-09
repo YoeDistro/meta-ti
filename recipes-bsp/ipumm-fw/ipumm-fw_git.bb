@@ -26,6 +26,8 @@ PV = "3.00.10.00"
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
+inherit update-alternatives
+
 DEPENDS = "ti-xdctools ti-sysbios ti-codec-engine ti-framework-components ti-xdais ti-ccsv6-native ti-ipc-rtos"
 
 export HWVERSION="ES10"
@@ -53,10 +55,15 @@ do_compile() {
 TARGET = "dra7-ipu2-fw.xem4"
 
 do_install() {
-        mkdir -p ${D}${base_libdir}/firmware
-        cp ${S}/${TARGET} ${D}${base_libdir}/firmware/${TARGET}
+    install -d ${D}${base_libdir}/firmware
+    install -m 0644 ${S}/${TARGET} ${D}${base_libdir}/firmware/${TARGET}.${BPN}
 }
 
-FILES_${PN} += "${base_libdir}/firmware/${TARGET}"
+ALTERNATIVE_${PN} = "dra7-ipu2-fw.xem4"
+ALTERNATIVE_LINK_NAME[dra7-ipu2-fw.xem4] = "${base_libdir}/firmware/${TARGET}"
+ALTERNATIVE_TARGET[dra7-ipu2-fw.xem4] = "${base_libdir}/firmware/${TARGET}.${BPN}"
+ALTERNATIVE_PRIORITY = "20"
 
-PR = "r0"
+FILES_${PN} += "${base_libdir}/firmware/*"
+
+PR = "r1"
