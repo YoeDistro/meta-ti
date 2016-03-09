@@ -48,8 +48,8 @@ do_compile() {
 TARGET = "dra7-dsp1-fw.xe66"
 
 do_install() {
-        mkdir -p ${D}${base_libdir}/firmware
-        cp ${S}/dra7xx-c66x-dsp.xe66 ${D}${base_libdir}/firmware/${TARGET}.${BPN}
+    install -d ${D}${base_libdir}/firmware
+    install -m 0644 ${S}/dra7xx-c66x-dsp.xe66 ${D}${base_libdir}/firmware/${TARGET}.${BPN}
 }
 
 ALTERNATIVE_${PN} = "dra7-dsp1-fw.xe66"
