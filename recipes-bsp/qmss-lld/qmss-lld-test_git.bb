@@ -1,6 +1,6 @@
 DESCRIPTION = "TI QMSS low level driver unit test and example binaries"
 
-DEPENDS="common-csl-ip rm-lld cppi-lld qmss-lld cmem"
+DEPENDS="common-csl-ip rm-lld cppi-lld qmss-lld cmem uio-module-drv"
 
 include qmss-lld.inc
 
