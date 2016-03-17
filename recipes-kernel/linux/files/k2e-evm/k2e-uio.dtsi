@@ -1,7 +1,7 @@
 / {
 	soc {
 		uio_hyperlink0: hyperlink0 {
-			compatible = "ti,uio-ti-pdrv";
+			compatible = "ti,uio-module-drv";
 			mem  = <0x21400000 0x00001000
 				0x40000000 0x10000000
 				0x0231a000 0x00002000>;
@@ -23,7 +23,7 @@
 			};
 		};
 		uio_srss: srss {
-			compatible = "ti,uio-ti-pdrv";
+			compatible = "ti,uio-module-drv";
 			mem  = <0x02330000 0x0000400>;
 			clocks=<&clksr>;
 			interrupts = <0 0x173 0xf01>;
