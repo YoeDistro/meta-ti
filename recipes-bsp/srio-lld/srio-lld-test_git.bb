@@ -1,5 +1,5 @@
 DESCRIPTION = "TI SRIO peripheral low level driver unit test and example binaries"
-DEPENDS="common-csl-ip rm-lld cppi-lld qmss-lld srio-lld cmem"
+DEPENDS="common-csl-ip rm-lld cppi-lld qmss-lld srio-lld cmem uio-module-drv"
 
 include srio-lld.inc
 
