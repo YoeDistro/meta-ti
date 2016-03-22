@@ -2,7 +2,7 @@ require edma3-lld.inc
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
-PR = "${INC_PR}.2"
+PR = "${INC_PR}.0"
 
 DEPENDS = "ti-sysbios ti-xdctools gcc-arm-none-eabi-native ti-ccsv6-native ti-cgt6x-native"
 
@@ -43,6 +43,7 @@ PLATFORMLIST_keystone = " \
         tci6638k2k-evm \
         tci6630k2l-evm \
         c66ak2e-evm \
+        tci66ak2g02-evm \
 "
 
 TARGETLIST_keystone = " \

@@ -7,9 +7,11 @@ COMPATIBLE_MACHINE = "keystone"
 DEPENDS = "common-csl-ip"
 
 PLATFORMLIST = "tci6636k2h-evm \
+	tci6636k2h-evm \
 	tci6638k2k-evm \
 	tci6630k2l-evm \
 	c66ak2e-evm \
+	tci66ak2g02-evm \
 	"
 
 PACKAGES =+ "${PN}-test"
