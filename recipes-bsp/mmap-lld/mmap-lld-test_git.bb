@@ -1,7 +1,7 @@
 DESCRIPTION = "TI KEYSTONE MMAP driver test binaries "
 include mmap-lld.inc
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.0"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -10,6 +10,8 @@ RDEPENDS_${PN}="uio-module-drv"
 
 DEVICELIST_k2hk-evm = "k2h k2k"
 DEVICELIST_k2e-evm  = "k2e"
+DEVICELIST_k2l-evm  = "k2l"
+DEVICELIST_k2g-evm  = "k2g"
 
 CHOICELIST = " yes \
                no \
