@@ -1,5 +1,3 @@
-INHIBIT_PACKAGE_STRIP = "1"
-
 require recipes-ti/devtools/ti-xdctools-core.inc
 
 PV = "3_32_00_06"

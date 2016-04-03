@@ -1,5 +1,3 @@
-INHIBIT_PACKAGE_STRIP = "1"
-
 require ti-xdais.inc
 
 PV = "7_24_00_04"

@@ -11,6 +11,9 @@ do_install() {
     cp -pPrf ${S}/* ${D}${XDC_INSTALL_DIR_RECIPE}
 }
 
+INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_SYSROOT_STRIP = "1"
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 INSANE_SKIP_${PN} = "installed-vs-shipped"
 
 # Prevent internal libs from getting picked up
