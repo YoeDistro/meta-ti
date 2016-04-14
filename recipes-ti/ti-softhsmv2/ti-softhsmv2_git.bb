@@ -39,6 +39,8 @@ FILES_${PN}-dbg += "${libdir}/softhsm/.debug"
 FILES_${PN}-staticdev += "${libdir}/softhsm/*.a "
 FILES_${PN}-dev += "${libdir}/softhsm/*.la ${libdir}/softhsm/lib*.so"
 
+INSANE_SKIP_${PN}-dev = "dev-elf"
+
 do_install_append() {
 	install -d ${D}${mntdir}/securedbv0
 	install -d ${D}${mntdir}/securedbv1
