@@ -15,6 +15,7 @@ SRC_URI = "git://git.ti.com/keystone-linux/ti-softhsmv2.git;protocol=git;branch=
 #Following commit corresponds to tag DEV.SOFTHSM-01.03.00.04
 SRCREV = "c2688afb9373309751e640088705cb739997665d"
 PV = "1.3.0.4"
+PR = "r1"
 
 S = "${WORKDIR}/git"
 
@@ -30,9 +31,6 @@ INITSCRIPT_NAME = "softhsm-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"
 
 inherit update-rc.d
-
-SELECTED_OPTIMIZATION := "${@d.getVar("SELECTED_OPTIMIZATION", True).replace("-O2", "-O3")}"
-SELECTED_OPTIMIZATION := "${@d.getVar("SELECTED_OPTIMIZATION", True).replace("-ggdb2", "")}"
 
 FILES_${PN} += "${libdir}/softhsm/lib*.so.* ${mntdir}/*"
 FILES_${PN}-dbg += "${libdir}/softhsm/.debug"
