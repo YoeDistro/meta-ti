@@ -9,13 +9,19 @@ DEBIAN_NOAUTONAME_${PN}-dev = "1"
 DEBIAN_NOAUTONAME_${PN}-dbg = "1"
 DEBIAN_NOAUTONAME_${PN}-staticdev = "1"
 
-BRANCH = "master"
-SRC_URI = "git://git.ti.com/keystone-rtos/netapi.git;protocol=git;branch=${BRANCH}"
+NETAPI_GIT_URI = "git://git.ti.com/keystone-rtos/netapi.git"
+NETAPI_GIT_PROTOCOL = "git"
+NETAPI_GIT_BRANCH = "master"
 
 # Below Commit ID corresponds to "DEV.NETAPI.01.01.00.06"
-SRCREV = "8180b61615965954eaaedc26053f9a8939d9a273"
+NETAPI_SRCREV = "8180b61615965954eaaedc26053f9a8939d9a273"
+
+BRANCH = "${NETAPI_GIT_BRANCH}"
+SRC_URI = "${NETAPI_GIT_URI};protocol=${NETAPI_GIT_PROTOCOL};branch=${BRANCH}"
+SRCREV = "${NETAPI_SRCREV}"
+
 PV = "01.01.00.06"
-INC_PR = "r4"
+INC_PR = "r5"
 
 DEVICELIST_k2hk-evm = "k2h k2k"
 DEVICELIST_k2l-evm  = "k2l"
