@@ -1,3 +1,15 @@
+# UBOOT_LOCALVERSION can be set to add a tag to the end of the
+# U-boot version string.  such as the commit id
+def get_git_revision(p):
+    import subprocess
+
+    try:
+        return subprocess.Popen("git rev-parse HEAD 2>/dev/null ", cwd=p, shell=True, stdout=subprocess.PIPE).communicate()[0].rstrip()
+    except OSError:
+        return None
+
+UBOOT_LOCALVERSION = "-g${@get_git_revision('${S}').__str__()[:10]}"
+
 UBOOT_SUFFIX ?= "img"
 
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
