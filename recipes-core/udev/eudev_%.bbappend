@@ -1,8 +1,11 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI_append = " file://omap-tty.rules"
+SRC_URI_append = " \
+    file://omap-tty.rules \
+    file://firmware.rules \
+"
 
-PR_append = ".1"
+PR_append = ".2"
 
 install_omap_rules() {
     install -m 0644 ${WORKDIR}/omap-tty.rules ${D}${sysconfdir}/udev/rules.d/
