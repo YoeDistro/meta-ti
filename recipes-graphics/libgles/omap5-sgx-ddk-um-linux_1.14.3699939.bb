@@ -19,9 +19,10 @@ INITSCRIPT_PARAMS = "defaults 8"
 
 inherit update-rc.d
 
-PR = "r8"
+PR = "r9"
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2"
 
+DEPENDS += "libdrm udev libgbm wayland libffi"
 RDEPENDS_${PN} += "libdrm libudev libgbm wayland libffi libdrm-omap"
 
 RREPLACES_${PN} = "libegl libgles1 libgles2"
