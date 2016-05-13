@@ -1,6 +1,6 @@
 DESCRIPTION = "TI softhsmv2 package"
 LICENSE = "BSD-2-Clause | BSD-3-Clause | ISC | IBM-License | FSFULLR | Zlib"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=664f3daf042b19d634189e709d5d558e"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=700a883962ccff663f888f3f7221ce8f"
 SECTION = "libs"
 
 mntdir = "/mnt"
@@ -10,12 +10,12 @@ inherit autotools pkgconfig
 DEPENDS = "openssl libdaemon zlib"
 COMPATIBLE_MACHINE = "(tci6614-evm|keystone)"
 
-BRANCH="master"
+BRANCH="ti-softhsm-rebase"
 SRC_URI = "git://git.ti.com/keystone-linux/ti-softhsmv2.git;protocol=git;branch=${BRANCH}"
-#Following commit corresponds to tag DEV.SOFTHSM-01.03.00.04
-SRCREV = "c2688afb9373309751e640088705cb739997665d"
-PV = "1.3.0.4"
-PR = "r1"
+#Following commit corresponds to tag DEV.SOFTHSM-02.00.00.00
+SRCREV = "b0eef602c03583e59c289ba113b64eaa4f5cac13"
+PV = "2.0.0.0"
+PR = "r0"
 
 S = "${WORKDIR}/git"
 
