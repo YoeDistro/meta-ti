@@ -1,7 +1,8 @@
 DESCRIPTION = "Test code for user space IO (UIO) driver"
 
 include uio-module-drv.inc
-PV = "1.0.2.3"
+
+PR = "r1"
 
 COMPATIBLE_MACHINE = "keystone"
 RDEPENDS_${PN} = "uio-module-drv"
