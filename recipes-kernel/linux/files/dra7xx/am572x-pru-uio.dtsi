@@ -11,10 +11,12 @@
 			      <0x4b210000 0x8000>,
 			      <0x4b220000 0x2000>,
 			      <0x4b226000 0x2000>,
+			      <0x4b228000 0x38>,
 			      <0x4b22e000 0x31c>,
+			      <0x4b230000 0x60>,
 			      <0x4b232000 0x58>;
 			mem-names = "dram0", "dram1", "shrdram2", "intc", "cfg",
-				    "iep", "mii_rt";
+				    "ecap", "iep", "uart", "mii_rt";
 			status = "okay";
 		};
 		uio_pruss1_evt0: uio_pruss1_evt0 {
@@ -90,10 +92,12 @@
 			      <0x4b290000 0x8000>,
 			      <0x4b2a0000 0x2000>,
 			      <0x4b2a6000 0x2000>,
+			      <0x4b2a8000 0x38>,
 			      <0x4b2ae000 0x31c>,
+			      <0x4b2b0000 0x60>,
 			      <0x4b2b2000 0x58>;
 			mem-names = "dram0", "dram1", "shrdram2", "intc", "cfg",
-				    "iep", "mii_rt";
+				    "ecap", "iep", "uart", "mii_rt";
 			status = "okay";
 		};
 		uio_pruss2_evt0: uio_pruss2_evt0 {
