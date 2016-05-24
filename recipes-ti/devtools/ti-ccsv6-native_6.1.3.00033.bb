@@ -10,7 +10,7 @@ require recipes-ti/includes/ti-unpack.inc
 require recipes-ti/includes/ti-staging.inc
 require recipes-ti/includes/ti-paths.inc
 
-TI_CGT_ARM_VERSION = "5.2.5"
+TI_CGT_ARM_VERSION = "15.12.1.LTS"
 
 SRC_URI = "http://install.source.dir.local/CCS${PV}_linux.tar.gz;name=ccsv6"
 
@@ -20,8 +20,8 @@ BINFILE = "CCS${PV}_linux/ccs_setup_${PV}.bin"
 TI_BIN_UNPK_ARGS = "--mode unattended --prefix ${WORKDIR}"
 TI_BIN_UNPK_CMDS = ""
 
-SRC_URI[ccsv6.md5sum] = "cfe5a759068809df5b5926dfc9889683"
-SRC_URI[ccsv6.sha256sum] = "6c25c046898812dcc72f08af512321bb4c9833ab932e4792560e14c13fbc7dc5"
+SRC_URI[ccsv6.md5sum] = "d95121970f8bcee944bf8b8e576bf3ec"
+SRC_URI[ccsv6.sha256sum] = "b785f040de8cccbc571923e34303fea92484677845df64a65abee2d3c248fa5b"
 
 do_install() {
     install -d ${D}${CCSV6_INSTALL_DIR_RECIPE}
