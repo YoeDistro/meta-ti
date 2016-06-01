@@ -11,12 +11,18 @@
 			      <0x4b210000 0x8000>,
 			      <0x4b220000 0x2000>,
 			      <0x4b226000 0x2000>,
-			      <0x4b228000 0x38>,
 			      <0x4b22e000 0x31c>,
-			      <0x4b230000 0x60>,
 			      <0x4b232000 0x58>;
 			mem-names = "dram0", "dram1", "shrdram2", "intc", "cfg",
-				    "ecap", "iep", "uart", "mii_rt";
+				    "iep", "mii_rt";
+			status = "okay";
+		};
+		uio_pruss1_mem2: uio_pruss1_mem2 {
+			compatible = "ti,uio-module-drv";
+			mem = <0x4b228000 0x38>,
+			      <0x4b230000 0x60>,
+			      <0x4b232400 0x90>;
+			mem-names = "uart", "ecap", "mdio";
 			status = "okay";
 		};
 		uio_pruss1_evt0: uio_pruss1_evt0 {
@@ -78,12 +84,6 @@
 			status = "okay";
 		};
 
-		uio_pruss1_mdio: uio_pruss1_mdio {
-			compatible = "ti,uio-module-drv";
-			mem = <0x4b232400 0x90>;
-			status = "okay";
-		};
-
 		uio_pruss2_mem: uio_pruss2_mem {
 			compatible = "ti,uio-module-drv";
 			ti,hwmods = "pruss2";
@@ -92,12 +92,18 @@
 			      <0x4b290000 0x8000>,
 			      <0x4b2a0000 0x2000>,
 			      <0x4b2a6000 0x2000>,
-			      <0x4b2a8000 0x38>,
 			      <0x4b2ae000 0x31c>,
-			      <0x4b2b0000 0x60>,
 			      <0x4b2b2000 0x58>;
 			mem-names = "dram0", "dram1", "shrdram2", "intc", "cfg",
-				    "ecap", "iep", "uart", "mii_rt";
+				    "iep", "mii_rt";
+			status = "okay";
+		};
+		uio_pruss2_mem2: uio_pruss2_mem2 {
+			compatible = "ti,uio-module-drv";
+			mem = <0x4b2a8000 0x38>,
+			      <0x4b2b0000 0x60>,
+			      <0x4b2b2400 0x90>;
+			mem-names = "uart", "ecap", "mdio";
 			status = "okay";
 		};
 		uio_pruss2_evt0: uio_pruss2_evt0 {
@@ -155,12 +161,6 @@
 			      <0x4b2a4000 0x400>,
 			      <0x4b2a4400 0x100>;
 			mem-names = "iram", "control", "debug";
-			status = "okay";
-		};
-		uio_pruss2_mdio: uio_pruss2_mdio {
-			compatible = "ti,uio-module-drv";
-			mem = <0x4b2b2400 0x90>;
-			mem-names = "mdio";
 			status = "okay";
 		};
 	};
