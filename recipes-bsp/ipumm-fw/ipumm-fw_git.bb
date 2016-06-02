@@ -17,11 +17,11 @@ RDEPENDS_${PN} = " libdce"
 
 SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
-SRCREV = "c579a48d3b201fe276e406add64512eb5e90e75f"
+SRCREV = "a55e6e7b3a8b6917155f3f7ed6c10ed6170df3e7"
 
 S = "${WORKDIR}/git"
 
-PV = "3.00.10.00"
+PV = "3.00.10.01"
 
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
@@ -66,4 +66,4 @@ ALTERNATIVE_PRIORITY = "20"
 
 FILES_${PN} += "${base_libdir}/firmware/*"
 
-PR = "r1"
+PR = "r0"
