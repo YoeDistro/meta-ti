@@ -8,7 +8,7 @@ This layer depends on:
 
 URI: git://git.openembedded.org/openembedded-core
 layers: meta
-branch: master
+branch: krogoth
 
 
 The base BSP part of meta-ti should work with different OpenEmbedded/Yocto
