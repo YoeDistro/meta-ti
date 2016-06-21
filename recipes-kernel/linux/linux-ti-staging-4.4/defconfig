@@ -1,1 +1,1 @@
-use-combined-config=ti_config_fragments/defconfig_fragment
+use-tisdk-config=ti_sdk_omap2_release

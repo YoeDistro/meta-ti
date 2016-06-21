@@ -1,1 +1,1 @@
-use-combined-config=ti_config_fragments/multi_core_defconfig_fragment
+use-tisdk-config=ti_sdk_keystone_release
