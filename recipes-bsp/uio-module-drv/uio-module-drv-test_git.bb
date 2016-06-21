@@ -2,12 +2,13 @@ DESCRIPTION = "Test code for user space IO (UIO) driver"
 
 include uio-module-drv.inc
 
-PR = "r0"
+PR = "r1"
 
 COMPATIBLE_MACHINE = "keystone|am57xx-evm"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEVICE_NAME_am57xx-evm = "am57xx"
-DEVICE_NAME_keystone-evm = "keystone"
+DEVICE_NAME_keystone = "keystone"
 RDEPENDS_${PN} = "uio-module-drv"
 
 do_compile() {
