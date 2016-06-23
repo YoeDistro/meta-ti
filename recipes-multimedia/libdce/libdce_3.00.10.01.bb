@@ -7,7 +7,9 @@ inherit autotools pkgconfig
 DEPENDS = "libdrm ti-ipc"
 
 SRC_URI = "git://git.omapzoom.org/repo/libdce.git;protocol=git"
-SRCREV = "4e9b02508ac3847df0af5c496a1be7b4ae082ad5"
+SRCREV = "f83e785d2b98404fed9e3a6264bf4945c65abd12"
 
 S = "${WORKDIR}/git"
 EXTRA_OECONF += "IPC_HEADERS=${STAGING_INCDIR}/ti/ipc/mm"
+
+PR = "r1"
