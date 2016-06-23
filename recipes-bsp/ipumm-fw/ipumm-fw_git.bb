@@ -17,7 +17,7 @@ RDEPENDS_${PN} = " libdce"
 
 SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
-SRCREV = "a55e6e7b3a8b6917155f3f7ed6c10ed6170df3e7"
+SRCREV = "1627fec802da688fe44c6b0cac43ff811b08f064"
 
 S = "${WORKDIR}/git"
 
@@ -66,4 +66,4 @@ ALTERNATIVE_PRIORITY = "20"
 
 FILES_${PN} += "${base_libdir}/firmware/*"
 
-PR = "r0"
+PR = "r1"
