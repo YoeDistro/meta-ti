@@ -8,15 +8,15 @@ SRIO_LLD_GIT_PROTOCOL = "git"
 SRIO_LLD_GIT_BRANCH = "master"
 SRIO_LLD_GIT_DESTSUFFIX = "git/ti/drv/srio"
 
-# commit ID corresponding to DEV.SRIO_LLD.02.00.00.15
-SRIO_LLD_SRCREV = "b773a7d08225c30737abc45ebc92a186bac08797"
+# commit ID corresponding to "DEV.SRIO_LLD.02.00.00.16"
+SRIO_LLD_SRCREV = "70664382b7baf0fc52b3504cc58d6d0d720cc639"
 
 BRANCH = "${SRIO_LLD_GIT_BRANCH}"
 SRC_URI = "${SRIO_LLD_GIT_URI};destsuffix=${SRIO_LLD_GIT_DESTSUFFIX};protocol=${SRIO_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${SRIO_LLD_SRCREV}"
 
-PV = "02.00.00.15"
-INC_PR = "r0"
+PV = "02.00.00.16"
+INC_PR = "r1"
 
 DEVICELIST = "k2h k2k"
 
