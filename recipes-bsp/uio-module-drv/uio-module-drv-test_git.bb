@@ -4,7 +4,7 @@ include uio-module-drv.inc
 
 PR = "r1"
 
-COMPATIBLE_MACHINE = "keystone|am57xx-evm"
+COMPATIBLE_MACHINE = "keystone|omap-a15"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEVICE_NAME_am57xx-evm = "am57xx"
