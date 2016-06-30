@@ -14,7 +14,7 @@ LIC_FILES_CHKSUM = "file://Makefile;startline=1;endline=31;md5=0ee4f2c42eb6b04e3
 # Corresponds to version 01.00.00.00
 SRCREV = "f04b91b84331c9a12c897e4eb2836a0a3e3a5fae"
 
-COMPATIBLE_MACHINE = "am57xx"
+COMPATIBLE_MACHINE = "omap-a15"
 EXTRA_OEMAKE = "CGT_PRU=${TI_CGT_PRU_INSTALL_DIR}"
 
 do_install() {
