@@ -26,11 +26,11 @@ protocol=${TI_IPC_METADATA_GIT_PROTOCOL};\
 branch=${TI_IPC_METADATA_GIT_BRANCH};\
 name=${TI_IPC_METADATA_NAME}"
 
-# Corresponds to tag: 3.43.01.02
-SRCREV_ipc-examples = "c2324cdcda4f6641cade25f95fa30996fb94bca0"
+# Corresponds to tag: 3.43.01.03
+SRCREV_ipc-examples = "e003640aa2ae8f5d433f6cda2172ecadffb5ac92"
 
-# Corresponds to tag: 3.43.01.02
-SRCREV_ipc-metadata = "c3fc63be358c8c9a429366ebf54fe03812671129"
+# Corresponds to tag: 3.43.01.03
+SRCREV_ipc-metadata = "b6dd82a450d75b9483a7cc9b619a30cf3cc25ae6"
 
 S_ipc-examples = "${WORKDIR}/git/ipc-examples"
 S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
