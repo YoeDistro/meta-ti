@@ -53,10 +53,12 @@ do_compile() {
 }
 
 TARGET = "dra7-ipu2-fw.xem4"
+TARGET_MAP = "platform/ti/dce/baseimage/package/cfg/out/ipu/release/ipu.xem4.map"
 
 do_install() {
     install -d ${D}${base_libdir}/firmware
     install -m 0644 ${S}/${TARGET} ${D}${base_libdir}/firmware/${TARGET}.${BPN}
+    install -m 0644 ${S}/${TARGET_MAP} ${D}${base_libdir}/firmware/${TARGET}.map
 }
 
 ALTERNATIVE_${PN} = "dra7-ipu2-fw.xem4"
@@ -66,4 +68,4 @@ ALTERNATIVE_PRIORITY = "20"
 
 FILES_${PN} += "${base_libdir}/firmware/*"
 
-PR = "r1"
+PR = "r2"
