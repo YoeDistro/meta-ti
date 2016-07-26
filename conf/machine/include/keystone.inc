@@ -1,7 +1,7 @@
 SOC_FAMILY = "keystone"
 require conf/machine/include/soc-family.inc
 
-DEFAULTTUNE ?= "cortexa15thf-neon"
+DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/tune-cortexa15.inc
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-ti-staging"

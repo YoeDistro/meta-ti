@@ -1,7 +1,7 @@
 SOC_FAMILY = "ti33x"
 require conf/machine/include/soc-family.inc
 
-DEFAULTTUNE ?= "cortexa8thf-neon"
+DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/tune-cortexa8.inc
 
 PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
