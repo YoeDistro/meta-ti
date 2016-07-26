@@ -1,7 +1,7 @@
 SOC_FAMILY = "omap4"
 require conf/machine/include/soc-family.inc
 
-DEFAULTTUNE ?= "cortexa9thf-neon"
+DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/tune-cortexa9.inc
 
 PREFERRED_PROVIDER_virtual/kernel = "linux-ti-staging"

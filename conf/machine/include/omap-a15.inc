@@ -1,7 +1,7 @@
 SOC_FAMILY = "omap-a15"
 require conf/machine/include/soc-family.inc
 
-DEFAULTTUNE ?= "cortexa15thf-neon"
+DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/tune-cortexa15.inc
 
 # Increase this everytime you change something in the kernel
