@@ -103,7 +103,6 @@ do_compile () {
             make PLATFORM=${p} TARGET=${t} FORMAT=${FORMAT}
         done
     done
-    sourceipk_do_create_srcipk
 }
 
 do_install () {
