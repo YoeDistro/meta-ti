@@ -14,7 +14,6 @@ export C6X_GEN_INSTALL_PATH="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x"
 do_compile() {
     make c66x
     make test_c66x
-    sourceipk_do_create_srcipk
 }
 
 do_install() {

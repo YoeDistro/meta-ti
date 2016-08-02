@@ -123,10 +123,6 @@ do_compile() {
   fi
 }
 
-do_compile_append() {
-  sourceipk_do_create_srcipk
-}
-
 do_install() {
   IPC_VERSION=`echo ${PV}${RELEASE_SUFFIX} | sed -e 's|\.|_|g'`
   # Copy docs and other meta files
