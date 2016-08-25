@@ -19,5 +19,7 @@ Please follow the recommended setup procedures of your OE distribution.
 
 
 Send pull requests, patches, comments or questions to meta-ti@yoctoproject.org
+Please note - meta-ti mailing list requires subscription for posting:
+https://lists.yoctoproject.org/listinfo/meta-ti
 
 Maintainers: Denys Dmytriyenko <denys@ti.com>
