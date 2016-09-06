@@ -1,1 +1,1 @@
-use-tisdk-config=ti_sdk_dbg_dra7x_release
+use-tisdk-config=ti_sdk_dra7x_debug
