@@ -34,6 +34,9 @@ RDEPENDS_kernel-base_append_k2g-evm = " ti-sci-fw"
 # Add run-time dependency for SerDes firmware to the rootfs
 RDEPENDS_kernel-base_append_keystone = " serdes-fw"
 
+# Add run-time dependency for QMSS PDSP firmware to the rootfs
+RDEPENDS_kernel-base_append_keystone = " qmss-pdsp-fw"
+
 # Add run-time dependency for NETCP PA firmware to the rootfs
 RDEPENDS_kernel-base_append_k2hk-evm = " netcp-pa-fw"
 RDEPENDS_kernel-base_append_k2e-evm = " netcp-pa-fw"
@@ -77,7 +80,7 @@ SRCREV = "20272d4fd5fd81c551d8a31a3daddc18923b71bb"
 PV = "4.4.19+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "b"
+MACHINE_KERNEL_PR_append = "c"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_GIT_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git"
