@@ -2,16 +2,16 @@ DESCRIPTION = "Programmable Real-time Unit Software Package"
 HOMEPAGE = "http://processors.wiki.ti.com/index.php/PRU-ICSS"
 LICENSE = "BSD-3-Clause & GPL-2.0 & PD"
 
-LIC_FILES_CHKSUM = "file://PRU-Package-v5.0-Manifest.html;md5=eec933459cb42544706e35289de38e03"
+LIC_FILES_CHKSUM = "file://PRU-Package-v5.0-Manifest.html;md5=a86a37c8b6396ad0ad6ae752f1aa8fcc"
 
 inherit update-alternatives
 
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/pru-software-support-package/pru-software-support-package.git;protocol=git;branch=${BRANCH}"
-SRCREV = "913cf232ebe655603d3385de2b9cde4af7af5308"
+SRCREV = "5e08c1f7c1f1d642b508e8b9cea246d9d8ef54c8"
 
-PV = "5.0.0"
-PR = "r0"
+PV = "5.0.1"
+PR = "r1"
 
 require recipes-ti/includes/ti-paths.inc
 
