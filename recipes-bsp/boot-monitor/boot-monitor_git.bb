@@ -5,16 +5,17 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=25fe219a6febf6e5bb45beda1b2eb315"
 COMPATIBLE_MACHINE = "keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
+DEPENDS = "u-boot-mkimage-native"
+
 SRC_URI = "git://git.ti.com/processor-firmware/ks2-boot-monitor.git;protocol=git;branch=${BRANCH}"
 
-PV = "3.0+git${SRCPV}"
-PR = "r1"
+PV = "4.0+git${SRCPV}"
 
 BRANCH = "master"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "035329caed63abe7193c855ad5d561ae783b19d7"
+SRCREV = "cf8b431e8b3b2ee4a4aa08964d56d3ce1b11da24"
 
 BOOT_MONITOR_IMAGE  ?= "skern-${BOOT_MONITOR_MAKE_TARGET}.bin"
 
