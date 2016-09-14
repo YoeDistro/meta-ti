@@ -8,14 +8,14 @@ SA_LLD_GIT_PROTOCOL = "git"
 SA_LLD_GIT_BRANCH = "master"
 SA_LLD_GIT_DESTSUFFIX = "git/ti/drv/sa"
 
-# Below commit ID corresponds to "DEV.SA_LLD.03.00.00.14"
-SA_LLD_SRCREV = "e0448f5172f9a4d945f9ad1b2a583574c378b5c7"
+# Below commit ID corresponds to "DEV.SA_LLD.03.00.00.15"
+SA_LLD_SRCREV = "59dbcc8b1ed05d81161bc4c472bed8916a004728"
 
 BRANCH = "${SA_LLD_GIT_BRANCH}"
 SRC_URI = "${SA_LLD_GIT_URI};destsuffix=${SA_LLD_GIT_DESTSUFFIX};protocol=${SA_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${SA_LLD_SRCREV}"
 
-PV = "03.00.00.14"
-INC_PR = "r2"
+PV = "03.00.00.15"
+INC_PR = "r0"
 
 S = "${WORKDIR}/${SA_LLD_GIT_DESTSUFFIX}"
