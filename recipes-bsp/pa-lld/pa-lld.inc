@@ -9,16 +9,15 @@ PA_LLD_GIT_PROTOCOL = "git"
 PA_LLD_GIT_BRANCH = "master"
 PA_LLD_GIT_DESTSUFFIX = "git/ti/drv/pa"
 
-# Below Commit ID corresponds to "DEV.PA_LLD.03.00.01.12"
-PA_LLD_SRCREV = "d3f3f5d93d3febc24099974bbc77e67c80a83b1e"
+# Below Commit ID corresponds to "DEV.PA_LLD.03.00.02.00"
+PA_LLD_SRCREV = "dca2a281c0c57f3b3018a93fae5485825a33042c"
 
 BRANCH = "${PA_LLD_GIT_BRANCH}"
-SRC_URI = "${PA_LLD_GIT_URI};destsuffix=${PA_LLD_GIT_DESTSUFFIX};protocol=${PA_LLD_GIT_PROTOCOL};branch=${BRANCH} \
-            file://0001-makefile_armv7-fix-missing-separator-error.patch"
+SRC_URI = "${PA_LLD_GIT_URI};destsuffix=${PA_LLD_GIT_DESTSUFFIX};protocol=${PA_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${PA_LLD_SRCREV}"
 
-PV = "03.00.01.12"
-INC_PR = "r2"
+PV = "03.00.02.00"
+INC_PR = "r0"
 
 S = "${WORKDIR}/${PA_LLD_GIT_DESTSUFFIX}"
 
