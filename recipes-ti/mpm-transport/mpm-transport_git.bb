@@ -15,10 +15,10 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 SRC_URI = "git://git.ti.com/keystone-linux/mpm-transport.git;protocol=git;branch=${BRANCH}"
 
 BRANCH = "master"
-# This commit corresponds to tag DEV.MPM-TRANSPORT-02.00.01.02
-SRCREV = "5c1f177b8d5802227dfe7e86fc026620e1e10189"
+# This commit corresponds to tag DEV.MPM-TRANSPORT-02.00.02.00
+SRCREV = "696a9ec37559b671860ef393194c6032b7b6d9ef"
 
-PV = "2.0.1.2"
+PV = "2.0.2.0"
 PR = "r0"
 
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
