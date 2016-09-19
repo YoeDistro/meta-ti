@@ -53,6 +53,13 @@ do_compile_append_am437x-hs-evm () {
 	fi
 }
 
+do_compile_append_am335x-hs-evm () {
+	if [ -f ${S}/u-boot-spl_HS_ISSW ]; then
+		rm -rf ${S}/MLO
+		cp ${S}/u-boot-spl_HS_ISSW ${S}/MLO
+	fi
+}
+
 do_install_append () {
 	if [ -f ${S}/${UBOOT_HS_XLD_BINARY} ]; then
 		install ${S}/${UBOOT_HS_XLD_BINARY} ${D}/boot/${UBOOT_HS_XLD_IMAGE}
