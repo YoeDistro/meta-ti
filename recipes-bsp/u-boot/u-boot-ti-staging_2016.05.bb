@@ -21,6 +21,7 @@ TI_SECURE_DEV_PKG ?= ""
 export TI_SECURE_DEV_PKG
 
 SPL_BINARY = "MLO"
+SPL_BINARY_k2e-hs-evm = ""
 SPL_UART_BINARY = "u-boot-spl.bin"
 
 # Keystone specifics
