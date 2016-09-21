@@ -6,7 +6,7 @@ COMPATIBLE_MACHINE = "keystone"
 
 DEPENDS = "common-csl-ip edma3-lld mmap-lld cmem rm-lld qmss-lld cppi-lld uio-module-drv syslog-ng"
 DEPENDS_append_k2hk-evm = " hyplnk-lld srio-lld"
-DEPENDS_append_k2e-evm = " hyplnk-lld"
+DEPENDS_append_k2e = " hyplnk-lld"
 
 RDEPENDS_${PN} = "syslog-ng"
 
@@ -23,7 +23,7 @@ PR = "r0"
 
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
 EXTRA_OEMAKE_append_k2hk-evm += "HYPLNK_TRANSPORT=true SRIO_TRANSPORT=true"
-EXTRA_OEMAKE_append_k2e-evm += "HYPLNK_TRANSPORT=true"
+EXTRA_OEMAKE_append_k2e += "HYPLNK_TRANSPORT=true"
 
 S = "${WORKDIR}/git"
 

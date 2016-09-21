@@ -23,6 +23,6 @@ S = "${BASEDIR}/ti/drv/nwal"
 
 DEVICELIST_k2hk-evm = "k2h k2k"
 DEVICELIST_k2l-evm  = "k2l"
-DEVICELIST_k2e-evm  = "k2e"
+DEVICELIST_k2e  = "k2e"
 
 CHOICELIST = "yes no"

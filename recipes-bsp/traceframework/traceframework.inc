@@ -22,7 +22,7 @@ INC_PR = "r1"
 DEVICELIST = "k2k k2h k2e k2l"
 DEVICELIST_tci6614-evm = "c6614"
 DEVICELIST_k2hk-evm    = "k2k k2h"
-DEVICELIST_k2e-evm     = "k2e"
+DEVICELIST_k2e     = "k2e"
 DEVICELIST_k2l-evm     = "k2l"
 
 S = "${WORKDIR}/${TRACEFRAMEWORK_GIT_DESTSUFFIX}"

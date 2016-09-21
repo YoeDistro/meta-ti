@@ -8,7 +8,7 @@ PR = "r0"
 
 CLEANBROKEN = "1"
 
-COMPATIBLE_MACHINE = "k2hk-evm|k2l-evm|k2e-evm"
+COMPATIBLE_MACHINE = "k2hk-evm|k2l-evm|k2e"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
