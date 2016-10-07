@@ -1,6 +1,6 @@
-# This corresponds to version 1.3.0
-SRCREV = "4d92879b632ba70402b61fa65cc58f5373eb5217"
-PV = "1.3.0"
+# This corresponds to version 1.4.0
+SRCREV = "0aedcabdbbcbfc7558f70fc50afc95583302a087"
+PV = "1.4.0"
 INC_PR = "r0"
 
 SRC_URI = "git://git.ti.com/sdo-emu/dsptop.git;protocol=git;branch=${BRANCH}"
