@@ -12,8 +12,8 @@
 			status = "okay";
 		};
 
-		cmem_block_mem_1: cmem_block_mem@00c100000 {
-			reg = <0x00000000 0x0c000000 0x00000000 0x00180000>;
+		cmem_block_mem_1: cmem_block_mem@00c080000 {
+			reg = <0x00000000 0x0c080000 0x00000000 0x000c0000>;
 			no-map;
 			status = "okay";
 		};
