@@ -17,7 +17,6 @@ python do_unpack () {
 
 TI_BIN_UNPK_WDEXT ?= ""
 python ti_bin_do_unpack() {
-
     import os
 
     # InstallJammer requires 32bit version of glibc
@@ -48,11 +47,11 @@ python ti_bin_do_unpack() {
     cmd_list = cmd_string.split( ":" )
 
     # Make the InstallJammer binary executable so we can run it
-    os.chmod(binfile, 0755)
+    os.chmod(binfile, 0o755)
 
     # Run the InstallJammer binary and accept the EULA
     filename = "HOME=%s ./%s %s" % (workdir, binfile, arg_string)
-    
+
     # Test executable by printing installer version or help screen (--version currently broken for some installers) 
     # - this is currently broken in some IJ installers - comment out for now
     #if os.system(filename + " --version") != 0:
@@ -74,10 +73,9 @@ python ti_bin_do_unpack() {
         tarfile  = bb.data.expand(tarfile, localdata)
         tcmd = 'tar x --no-same-owner -f %s -C %s' % (tarfile, workdir)
         if os.system(tcmd) != 0:
-            print "ERROR: ti-eula-unpack: failed to extract tarfile"
+            print("ERROR: ti-eula-unpack: failed to extract tarfile")
             raise bb.build.FuncFailed()
 
     # Return to the previous directory
     os.chdir(save_cwd)
 }
-
