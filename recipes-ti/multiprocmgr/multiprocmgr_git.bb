@@ -3,7 +3,9 @@ SUMMARY = "Provides download, debug and other utilities for other cores in the S
 
 include multiprocmgr.inc
 
-PR = "${INC_PR}.0"
+SRC_URI_append = " file://mpmsrv-daemon.service"
+
+PR = "${INC_PR}.1"
 
 DEPENDS = "mpm-transport libdaemon virtual/kernel"
 RDEPENDS_${PN} = "syslog-ng"
@@ -15,15 +17,24 @@ CC += "-I${STAGING_KERNEL_DIR}/include"
 INITSCRIPT_NAME = "mpmsrv-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"
 
-inherit update-rc.d
+SYSTEMD_SERVICE_${PN} = "mpmsrv-daemon.service"
+
+inherit update-rc.d systemd
 
 do_install() {
 	install -d ${D}${bindir}/
 	install -c -m 755 ${S}/bin/mpmsrv ${D}${bindir}/mpmsrv
 	install -c -m 755 ${S}/bin/mpmcl ${D}${bindir}/mpmcl
 
-	install -d ${D}${sysconfdir}/init.d/
-	install -c -m 755 ${S}/scripts/mpmsrv-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
+	systemd_enabled=${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '1', '0', d)}
+	if [ ${systemd_enabled} -eq 1 ]
+	then
+		install -d ${D}${systemd_system_unitdir}
+		install -m 0644 ${WORKDIR}/mpmsrv-daemon.service ${D}${systemd_system_unitdir}
+	else
+		install -d ${D}${sysconfdir}/init.d/
+		install -c -m 755 ${S}/scripts/mpmsrv-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
+	fi
 	install -d ${D}${sysconfdir}/mpm/
 	install -c -m 755 ${S}/scripts/crash_callback.sh ${D}${sysconfdir}/mpm/crash_callback.sh
 

@@ -1,0 +1,14 @@
+[Unit]
+Description=TI Multiproc Manager
+
+[Service]
+ExecStartPre=/sbin/modprobe keystone_remoteproc
+ExecStartPre=/sbin/modprobe keystone_dsp_mem
+ExecStartPre=/sbin/modprobe uio_module_drv
+
+Type=forking
+PIDFile=/var/run/mpm/pid
+ExecStart=/usr/bin/mpmsrv
+
+[Install]
+WantedBy=basic.target
