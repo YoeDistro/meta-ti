@@ -16,7 +16,7 @@ LIMSOCS_omap-a15 = "am571x am572x"
 LIMSOCS_k2hk-evm = "k2h k2k"
 LIMSOCS_k2l-evm = "k2l"
 LIMSOCS_k2e = "k2e"
-LIMSOCS_k2g-evm = "k2g"
+LIMSOCS_k2g = "k2g"
 
 export PDK_CSL_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"

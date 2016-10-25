@@ -43,13 +43,13 @@ export BUILD_K2G = "0"
 
 BUILD_K2H_keystone = "1"
 BUILD_AM572_omap-a15 = "1"
-BUILD_K2H_k2g-evm = "0"
-BUILD_K2G_k2g-evm = "1"
+BUILD_K2H_k2g = "0"
+BUILD_K2G_k2g = "1"
 
 RELEASE_TARGET = ""
 RELEASE_TARGET_keystone = "k2x"
 RELEASE_TARGET_omap-a15 = "am57xx"
-RELEASE_TARGET_k2g-evm = "k2g"
+RELEASE_TARGET_k2g = "k2g"
 
 do_compile() {
     make -f utils/product/Makefile .zipfile

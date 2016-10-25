@@ -29,7 +29,7 @@ RDEPENDS_kernel-base_append_dra7xx = " vpdma-fw"
 RDEPENDS_kernel-base_append_keystone = " boot-monitor"
 
 # Install ti-sci-fw into /boot dir of rootfs
-RDEPENDS_kernel-base_append_k2g-evm = " ti-sci-fw"
+RDEPENDS_kernel-base_append_k2g = " ti-sci-fw"
 
 # Add run-time dependency for SerDes firmware to the rootfs
 RDEPENDS_kernel-base_append_keystone = " serdes-fw"
@@ -67,7 +67,7 @@ KERNEL_DEVICETREE_beagleboard = "omap3-beagle.dtb omap3-beagle-xm.dtb omap3-beag
 KERNEL_DEVICETREE_pandaboard = "omap4-panda.dtb omap4-panda-a4.dtb omap4-panda-es.dtb"
 KERNEL_DEVICETREE_k2hk-evm = "keystone-k2hk-evm.dtb"
 KERNEL_DEVICETREE_k2e = "keystone-k2e-evm.dtb"
-KERNEL_DEVICETREE_k2g-evm = "keystone-k2g-evm.dtb"
+KERNEL_DEVICETREE_k2g = "keystone-k2g-evm.dtb"
 KERNEL_DEVICETREE_k2l-evm = "keystone-k2l-evm.dtb"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|omap3|omap4|keystone"
