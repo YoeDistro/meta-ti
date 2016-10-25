@@ -17,7 +17,7 @@ DAEMON_dra7xx = "lad_dra7xx"
 DAEMON_k2hk-evm = "lad_tci6638"
 DAEMON_k2l-evm = "lad_tci6630"
 DAEMON_k2e = "lad_66ak2e"
-DAEMON_k2g-evm = "lad_66ak2g"
+DAEMON_k2g = "lad_66ak2g"
 
 inherit autotools-brokensep pkgconfig update-rc.d
 
