@@ -17,12 +17,12 @@ RDEPENDS_${PN} = " libdce"
 
 SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
-SRCREV = "7c283ebc252223a728cb542dbc10c3ca0ab53e59"
+SRCREV = "cd93550ed32c7849de91288e7d90cba3bd89614b"
 
 S = "${WORKDIR}/git"
 
-PV = "3.00.11.00"
-PR = "r4"
+PV = "3.00.12.00"
+PR = "r0"
 
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
@@ -68,5 +68,3 @@ ALTERNATIVE_TARGET[dra7-ipu2-fw.xem4] = "${base_libdir}/firmware/${TARGET}.${BPN
 ALTERNATIVE_PRIORITY = "20"
 
 FILES_${PN} += "${base_libdir}/firmware/*"
-
-PR = "r2"
