@@ -12,8 +12,6 @@ SRC_URI = "git://git.ti.com/ti-bt/uim.git"
 
 S = "${WORKDIR}/git"
 
-EXTRA_OEMAKE = "CC=${TARGET_PREFIX}gcc"
-
 do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 uim ${D}${bindir}
