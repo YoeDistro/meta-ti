@@ -14,7 +14,7 @@ DEVICE_keystone = "C66AK2Hxx"
 EXTRA_OEMAKE = "release DEVICE=${DEVICE} CROSS_COMPILE=${TARGET_PREFIX}"
 
 do_compile() {
-    oe_runmake arm XPORT_ONLY
+    oe_runmake arm XPORT_ONLY CC="${CC}"
     oe_runmake dsp C6X_C_DIR=${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x/include
 }
 
