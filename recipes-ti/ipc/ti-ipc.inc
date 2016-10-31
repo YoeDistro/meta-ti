@@ -6,17 +6,17 @@ LIC_FILES_CHKSUM = "file://${S}/ipc-linux.mak;beginline=1;endline=30;md5=7b327f9
 
 TI_IPC_GIT_URI = "git://git.ti.com/ipc/ipcdev.git"
 TI_IPC_GIT_PROTOCOL = "git"
-TI_IPC_GIT_BRANCH = "ipc-next"
+TI_IPC_GIT_BRANCH = "3.43"
 
-#Corresponds to 3.44.00.00
-TI_IPC_SRCREV = "e6f64d4b04f1c929366c922a2e5a4728fbb4d919"
+#Corresponds to 3.43.03.05
+TI_IPC_SRCREV = "6c2b64342cbd0317527a0924140566b2446488f5"
 
 BRANCH = "${TI_IPC_GIT_BRANCH}"
 SRC_URI = "${TI_IPC_GIT_URI};protocol=${TI_IPC_GIT_PROTOCOL};branch=${BRANCH};name=ipcdev"
 SRCREV = "${TI_IPC_SRCREV}"
 
 S = "${WORKDIR}/git"
-PV = "3.44.00.00"
+PV = "3.43.03.05"
 INC_PR = "r0"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
