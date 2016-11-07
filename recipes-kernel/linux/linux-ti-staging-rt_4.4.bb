@@ -6,4 +6,4 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-4.4:"
 
 BRANCH = "ti-rt-linux-4.4.y"
 
-SRCREV = "1a7c6a55f909c9c44acfa701108fbb6707e53f85"
+SRCREV = "372c734ee1c752372c0a69279bd73bda5a908066"
