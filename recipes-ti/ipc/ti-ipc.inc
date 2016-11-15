@@ -9,7 +9,7 @@ TI_IPC_GIT_PROTOCOL = "git"
 TI_IPC_GIT_BRANCH = "ipc-next"
 
 #Corresponds to 3.44.00.00
-TI_IPC_SRCREV = "e6f64d4b04f1c929366c922a2e5a4728fbb4d919"
+TI_IPC_SRCREV = "a1852fc8b254ed207bd1c1c88f5b362c9b6cc454"
 
 BRANCH = "${TI_IPC_GIT_BRANCH}"
 SRC_URI = "${TI_IPC_GIT_URI};protocol=${TI_IPC_GIT_PROTOCOL};branch=${BRANCH};name=ipcdev"
@@ -17,7 +17,7 @@ SRCREV = "${TI_IPC_SRCREV}"
 
 S = "${WORKDIR}/git"
 PV = "3.44.00.00"
-INC_PR = "r0"
+INC_PR = "r1"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
