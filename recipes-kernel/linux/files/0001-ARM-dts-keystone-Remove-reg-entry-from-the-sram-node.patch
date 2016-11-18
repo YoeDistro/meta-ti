@@ -1,0 +1,79 @@
+From c7e576590e45f9fb86a9d74fa66b4fd4f8eca803 Mon Sep 17 00:00:00 2001
+From: Sam Nelson <sam.nelson@ti.com>
+Date: Fri, 11 Nov 2016 10:32:48 -0500
+Subject: [PATCH] ARM: dts: keystone: Remove reg entry from the sram node
+
+Currently the reg entry reserves the whole MSMC ram range to be used
+only through the mmio-sram driver. (See LCPD-7801)
+
+Given that other modules (like CMEM) also currently reserve memory from
+MSMC, the reg entry which takes over the whole memory breaks those
+functionality. So currently recommending to remove this for now.
+Still the ranges entry will capture the total memory available.
+
+This will allow module like CMEM to reserve and use a non-overlapping
+section of memory not marked reserved by the sub nodes here.
+
+Resolves current issue with CMEM module reporting error allocating MSMC
+memory.
+
+Signed-off-by: Sam Nelson <sam.nelson@ti.com>
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ arch/arm/boot/dts/keystone-k2e.dtsi  | 1 -
+ arch/arm/boot/dts/keystone-k2g.dtsi  | 1 -
+ arch/arm/boot/dts/keystone-k2hk.dtsi | 1 -
+ arch/arm/boot/dts/keystone-k2l.dtsi  | 1 -
+ 4 files changed, 4 deletions(-)
+
+diff --git a/arch/arm/boot/dts/keystone-k2e.dtsi b/arch/arm/boot/dts/keystone-k2e.dtsi
+index 553c423..5b9252a 100644
+--- a/arch/arm/boot/dts/keystone-k2e.dtsi
++++ b/arch/arm/boot/dts/keystone-k2e.dtsi
+@@ -98,7 +98,6 @@
+ 
+ 		msm_ram: msmram@0c000000 {
+ 			compatible = "mmio-sram";
+-			reg = <0x0c000000 0x200000>;
+ 			ranges = <0x0 0x0c000000 0x200000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+diff --git a/arch/arm/boot/dts/keystone-k2g.dtsi b/arch/arm/boot/dts/keystone-k2g.dtsi
+index 45faf40..e953d82 100644
+--- a/arch/arm/boot/dts/keystone-k2g.dtsi
++++ b/arch/arm/boot/dts/keystone-k2g.dtsi
+@@ -99,7 +99,6 @@
+ 
+ 		msm_ram: msmram@0c000000 {
+ 			compatible = "mmio-sram";
+-			reg = <0x0c000000 0x100000>;
+ 			ranges = <0x0 0x0c000000 0x100000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+diff --git a/arch/arm/boot/dts/keystone-k2hk.dtsi b/arch/arm/boot/dts/keystone-k2hk.dtsi
+index edca6aa..f3f1932 100644
+--- a/arch/arm/boot/dts/keystone-k2hk.dtsi
++++ b/arch/arm/boot/dts/keystone-k2hk.dtsi
+@@ -111,7 +111,6 @@
+ 
+ 		msm_ram: msmram@0c000000 {
+ 			compatible = "mmio-sram";
+-			reg = <0x0c000000 0x600000>;
+ 			ranges = <0x0 0x0c000000 0x600000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+diff --git a/arch/arm/boot/dts/keystone-k2l.dtsi b/arch/arm/boot/dts/keystone-k2l.dtsi
+index 76caff6..4ee7439 100644
+--- a/arch/arm/boot/dts/keystone-k2l.dtsi
++++ b/arch/arm/boot/dts/keystone-k2l.dtsi
+@@ -284,7 +284,6 @@
+ 
+ 		msm_ram: msmram@0c000000 {
+ 			compatible = "mmio-sram";
+-			reg = <0x0c000000 0x200000>;
+ 			ranges = <0x0 0x0c000000 0x200000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
+-- 
+2.7.4
+
