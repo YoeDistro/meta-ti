@@ -7,8 +7,6 @@ SRC_URI = "git://github.com/tomba/rwmem.git"
 
 S = "${WORKDIR}/git"
 
-EXTRA_OEMAKE = "CC=${TARGET_PREFIX}gcc"
-
 do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 rwmem ${D}${bindir}
