@@ -2,6 +2,7 @@ DESCRIPTION = "TI Inter Process Communication (IPC) Mechanisms (for Uni- and Mul
 HOMEPAGE="http://processors.wiki.ti.com/index.php/Category:IPC"
 
 require ti-ipc.inc
+require ti-ipc-common.inc
 
 PR = "${INC_PR}.0"
 
