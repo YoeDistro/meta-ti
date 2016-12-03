@@ -1,54 +1,55 @@
 / {
-        reserved-memory {
-                mpm_block_mem_0: mpm_block_mem@820000000 {
-                        reg = <0x00000008 0x20000000 0x00000000 0x02000000>;
-                        no-map;
-                        status = "okay";
-                };
+	reserved-memory {
 
-                cmem_block_mem_0: cmem_block_mem@829000000 {
-                        reg = <0x00000008 0x29000000 0x00000000 0x17000000>;
-                        no-map;
-                        status = "okay";
-                };
+		cmem_block_mem_0: cmem_block_mem@829000000 {
+			reg = <0x00000008 0x29000000 0x00000000 0x17000000>;
+			no-map;
+			status = "okay";
+		};
 
-                cmem_block_mem_1: cmem_block_mem@00c000000 {
-                        reg = <0x00000000 0x0c000000 0x00000000 0x00100000>;
-                        no-map;
-                        status = "okay";
-                };
+		cmem_block_mem_2: cmem_block_mem@822000000 {
+			reg = <0x00000008 0x22000000 0x00000000 0x07000000>;
+			no-map;
+			status = "okay";
+		};
+	};
 
-                cmem_block_mem_2: cmem_block_mem@822000000 {
-                        reg = <0x00000008 0x22000000 0x00000000 0x07000000>;
-                        no-map;
-                        status = "okay";
-                };
-        };
-
-        cmem {
-                compatible = "ti,cmem";
-                #address-cells = <1>;
-                #size-cells = <0>;
+	cmem {
+		compatible = "ti,cmem";
+		#address-cells = <1>;
+		#size-cells = <0>;
 
 		#pool-size-cells = <2>;
 
-                status = "okay";
+		status = "okay";
 
-                cmem_block_0: cmem_block@0 {
-                        reg = <0>;
-                        memory-region = <&cmem_block_mem_0>;
-                        cmem-buf-pools = <1 0x00000000 0x17000000>;
-                };
+		cmem_block_0: cmem_block@0 {
+			reg = <0>;
+			memory-region = <&cmem_block_mem_0>;
+			cmem-buf-pools = <1 0x00000000 0x17000000>;
+		};
 
-                cmem_block_1: cmem_block@1 {
-                        reg = <1>;
-                        memory-region = <&cmem_block_mem_1>;
-                };
+		cmem_block_1: cmem_block@1 {
+			reg = <1>;
+			sram = <&sram_cmem>;
+		};
 
-                cmem_block_2: cmem_block@2 {
-                        reg = <2>;
-                        memory-region = <&cmem_block_mem_2>;
-                };
-        };
+		cmem_block_2: cmem_block@2 {
+			reg = <2>;
+			memory-region = <&cmem_block_mem_2>;
+		 };
+	};
+};
 
+&dsp_common_mpm_area {
+	reg = <0x00000008 0x20000000 0x00000000 0x02000000>;
+};
+&mpm_mem {
+	reg = <0xa0000000 0x02000000>;
+};
+
+&msm_ram {
+	sram_cmem: sram-cmem@a0000 {
+		reg = <0xa0000 0x57000>;
+	};
 };
