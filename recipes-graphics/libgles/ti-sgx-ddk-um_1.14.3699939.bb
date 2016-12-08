@@ -12,11 +12,11 @@ SRCREV = "3c0537748dd283b2de9c5369570aa2aade5a9979"
 
 # There's only hardfp version available
 python __anonymous() {
-    tunes = bb.data.getVar("TUNE_FEATURES", d, 1)
+    tunes = d.getVar("TUNE_FEATURES", d, 1)
     if not tunes:
         return
-    pkgn = bb.data.getVar("PN", d, 1)
-    pkgv = bb.data.getVar("PV", d, 1)
+    pkgn = d.getVar("PN", d, 1)
+    pkgv = d.getVar("PV", d, 1)
     if "callconvention-hard" not in tunes:
         bb.warn("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
         raise bb.parse.SkipPackage("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
