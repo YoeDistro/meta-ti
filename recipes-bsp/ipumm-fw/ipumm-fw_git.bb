@@ -9,7 +9,7 @@ python __anonymous() {
 DESCRIPTION = "Firmware for IPU for supporting Accelerated MM decode and encode"
 LICENSE = "TI-TSPA"
 
-LIC_FILES_CHKSUM = "file://Texas_Instruments_ipumm_Manifest.pdf;md5=e3e7d6efc7aca87789775198c4ca9f8e"
+LIC_FILES_CHKSUM = "file://Texas_Instruments_ipumm_Manifest.pdf;md5=5cc572579f07af266ab57fc17d762c7f"
 
 COMPATIBLE_MACHINE = "dra7xx"
 
@@ -17,12 +17,12 @@ RDEPENDS_${PN} = " libdce"
 
 SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
-SRCREV = "cd93550ed32c7849de91288e7d90cba3bd89614b"
+SRCREV = "42fd71596b161e79e017e00741433e84705a28a6"
 
 S = "${WORKDIR}/git"
 
 PV = "3.00.12.00"
-PR = "r0"
+PR = "r1"
 
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
