@@ -7,7 +7,7 @@ SRC_URI_append = " file://mpmsrv-daemon.service"
 
 PR = "${INC_PR}.1"
 
-DEPENDS = "mpm-transport libdaemon virtual/kernel"
+DEPENDS = "mpm-transport libdaemon virtual/kernel cmem"
 RDEPENDS_${PN} = "syslog-ng"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
