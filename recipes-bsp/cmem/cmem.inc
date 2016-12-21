@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://include/ti/cmem.h;beginline=1;endline=30;md5=9b745e27
 
 BRANCH = "lu-next"
 # This corresponds to version 4.13.00.00_eng
-SRCREV = "d6d3e84c84d0e84a9b96c3f6f789ac642d03afcb"
+SRCREV = "1b1e19754049446c20fba7c22b39b325eb0154ec"
 
 PV = "4.13.00.00+git${SRCPV}"
 

@@ -4,7 +4,7 @@ include cmem.inc
 
 RDEPENDS_${PN} = "cmem-mod"
 
-PR = "r0"
+PR = "r1"
 
 PACKAGES =+ "${PN}-test"
 
