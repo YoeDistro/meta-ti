@@ -29,21 +29,21 @@ python ti_bin_do_unpack() {
     localdata = bb.data.createCopy(d)
     bb.data.update_data(localdata)
 
-    binfile  = bb.data.getVar('BINFILE', localdata)
+    binfile  = d.getVar('BINFILE', localdata)
     binfile  = bb.data.expand(binfile, localdata)
 
     # Change to the working directory
     save_cwd = os.getcwd()
-    workdir  = bb.data.getVar('WORKDIR', localdata)
+    workdir  = d.getVar('WORKDIR', localdata)
     workdir  = bb.data.expand(workdir, localdata)
     os.chdir(workdir)
 
     # Get unpack args
-    arg_string = bb.data.getVar('TI_BIN_UNPK_ARGS', localdata)
+    arg_string = d.getVar('TI_BIN_UNPK_ARGS', localdata)
     arg_string = bb.data.expand(arg_string, localdata)
 
     # Get unpack commands
-    cmd_string = bb.data.getVar('TI_BIN_UNPK_CMDS', localdata)
+    cmd_string = d.getVar('TI_BIN_UNPK_CMDS', localdata)
     cmd_list = cmd_string.split( ":" )
 
     # Make the InstallJammer binary executable so we can run it
@@ -61,14 +61,14 @@ python ti_bin_do_unpack() {
     f = os.popen(filename,'w')
     for cmd in cmd_list:
         if cmd == "workdir":
-            wdext = bb.data.getVar('TI_BIN_UNPK_WDEXT', localdata)
+            wdext = d.getVar('TI_BIN_UNPK_WDEXT', localdata)
             wdext = bb.data.expand(wdext, localdata)
             cmd = workdir+wdext
         f.write(cmd+'\n');
     f.close()
 
     # Expand the tarball that was created if required
-    tarfile  = bb.data.getVar('TARFILE', localdata)    
+    tarfile  = d.getVar('TARFILE', localdata)
     if bool(tarfile) == True:
         tarfile  = bb.data.expand(tarfile, localdata)
         tcmd = 'tar x --no-same-owner -f %s -C %s' % (tarfile, workdir)
