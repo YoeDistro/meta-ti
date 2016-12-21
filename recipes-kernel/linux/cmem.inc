@@ -27,7 +27,7 @@ CMEM_DEVICETREE_dra74x = "dra7-evm.dtb dra7-evm-lcd-lg.dtb dra7-evm-lcd-osd.dtb 
 RESERVE_CMEM ?= "0"
 
 # Add correct cmem.dtsi to SRC_URI for each variant for a given machine
-python() {
+python do_unpack() {
     old_overrides = d.getVar('OVERRIDES', False)
 
     # Initialize with empty string to simplify logic to append to SRC_URI
@@ -42,6 +42,7 @@ python() {
         cmem_dtsi.add(localdata.getVar('CMEM_DTSI', True))
 
     d.appendVar('SRC_URI', ' file://'.join(cmem_dtsi))
+    bb.build.exec_func('base_do_unpack', d)
 }
 
 python do_setup_cmem() {
