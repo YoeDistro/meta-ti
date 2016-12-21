@@ -4,16 +4,18 @@ DEPENDS="common-csl-ip pruss-lld osal"
 
 include pruss-lld.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 S = "${WORKDIR}/${PRUSS_LLD_GIT_DESTSUFFIX}"
 
+EXTRA_OEMAKE += "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR} PRUSS_SRC_DIR=${S}"
+
 do_compile () {
 #   Build the tests
-    make -f makefile_armv7 tests PDK_INSTALL_PATH=${STAGING_INCDIR} PRUSS_SRC_DIR=${S}
+    oe_runmake tests
 }
 
 do_install () {
 #   Install the binary
-    make -f makefile_armv7 installbin PDK_INSTALL_PATH=${STAGING_INCDIR} INSTALL_BIN_BASE_DIR=${D}${bindir} PRUSS_SRC_DIR=${S}
+    oe_runmake installbin INSTALL_BIN_BASE_DIR=${D}${bindir}
 }
