@@ -11,7 +11,7 @@ PR = "${MACHINE_KERNEL_PR}"
 # Need to branch out with ${PV} var
 BRANCH = "ti-${PV}-k4.4"
 
-SRCREV = "65887c911db495fb66c6847c8b6eadc76c7470f4"
+SRCREV = "7c0f4dc755dc2ecb95195ed42ef24fea16ef2667"
 
 SRC_URI = "git://git.ti.com/graphics/ti-gc320-driver.git;protocol=git;branch=${BRANCH}"
 S = "${WORKDIR}/git/src"
