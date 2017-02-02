@@ -26,6 +26,8 @@ PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
 
 KERNEL_IMAGETYPE = "zImage"
 
+KERNEL_DEVICETREE = "am335x-evm.dtb am335x-evmsk.dtb am335x-bone.dtb am335x-boneblack.dtb am335x-bonegreen.dtb am335x-icev2.dtb"
+
 UBOOT_ARCH = "arm"
 UBOOT_MACHINE = "am335x_evm_config"
 
