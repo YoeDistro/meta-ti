@@ -1,4 +1,4 @@
-PV = "3.44.01.01"
+PV = "3.45.00.00"
 INC_PR = "r0"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"

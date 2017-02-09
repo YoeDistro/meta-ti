@@ -13,9 +13,6 @@ INSANE_SKIP_${PN}-dev += "arch"
 
 ALLOW_EMPTY_${PN} = "1"
 
-RELEASE_TYPE = "GA"
-RELEASE_SUFFIX = ""
-
 IPC_PACKAGE_DIR = "${S}/ipc-package"
 
 do_compile() {
