@@ -49,6 +49,7 @@ SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
 
 SPL_BINARY = "MLO"
 SPL_BINARY_k2e-hs-evm = ""
+SPL_BINARY_omapl138 = ""
 SPL_UART_BINARY = "u-boot-spl.bin"
 
 # Keystone specifics
