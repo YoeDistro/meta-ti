@@ -42,19 +42,21 @@ S = "${WORKDIR}/git"
 TI_SECURE_DEV_PKG ?= ""
 export TI_SECURE_DEV_PKG
 
-# SPL (Second Program Loader) to be loaded over UART
-SPL_UART_BINARY ?= ""
-SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${PV}-${PR}"
-SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
-
+# SPL (Second Program Loader)
 SPL_BINARY = "MLO"
 SPL_BINARY_k2e-hs-evm = ""
 SPL_BINARY_omapl138 = ""
+
+# SPL (Second Program Loader) to be loaded over UART
 SPL_UART_BINARY = "u-boot-spl.bin"
+SPL_UART_BINARY_k2e-hs-evm = ""
+SPL_UART_BINARY_keystone = ""
+
+SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${PV}-${PR}"
+SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
 
 # Keystone specifics
 UBOOT_SUFFIX_keystone = "bin"
-SPL_UART_BINARY_keystone = ""
 
 # SPI NOR Flash binaries
 UBOOT_SPI_SPL_BINARY = "u-boot-spl.bin"
