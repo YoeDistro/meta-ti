@@ -34,7 +34,10 @@ SRCREV_ipc-metadata = "30b83f09be1877f86b22c971d978cb478fc7dd6e"
 S_ipc-examples = "${WORKDIR}/git/ipc-examples"
 S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
 
-PR = "${INC_PR}.1"
+RELEASE_TYPE = "GA"
+RELEASE_SUFFIX = ""
+
+PR = "${INC_PR}.2"
 
 DEPENDS_append_keystone = " ti-cgt6x-native \
                             gcc-arm-none-eabi-native \
