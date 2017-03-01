@@ -27,6 +27,8 @@ INITSCRIPT_PARAMS = "defaults 10"
 
 EXTRA_OECONF += "PLATFORM=${PLATFORM} KERNEL_INSTALL_DIR=${STAGING_KERNEL_DIR} KERNEL_BUILD_DIR=${STAGING_KERNEL_BUILDDIR}"
 
+do_compile[depends] += "virtual/kernel:do_shared_workdir"
+
 do_configure() {
     ( cd ${S}; autoreconf -f -i -s )
     oe_runconf
