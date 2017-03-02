@@ -23,5 +23,5 @@ UBI_VOLNAME = "rootfs"
 EXTRA_IMAGEDEPENDS += "u-boot"
 EXTRA_IMAGEDEPENDS += "boot-monitor"
 
-MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat pci"
+MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat pci dsp"
 MACHINE_FEATURES_BACKFILL_CONSIDERED = "rtc"
