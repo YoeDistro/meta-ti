@@ -1,5 +1,5 @@
 python () {
-    layers = bb.data.getVar("BBFILE_COLLECTIONS", d, 1)
+    layers = d.getVar("BBFILE_COLLECTIONS", True)
     if not layers:
         return
     if "yoctobsp" in layers:
