@@ -49,6 +49,8 @@ RDEPENDS_kernel-base_append_am437x-evm = " prueth-fw"
 RDEPENDS_kernel-base_append_am335x-evm = " prueth-fw"
 RDEPENDS_kernel-base_append_k2g = " prueth-fw"
 
+KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
+
 S = "${WORKDIR}/git"
 
 BRANCH = "ti-lsk-linux-4.9.y"
