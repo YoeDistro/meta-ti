@@ -62,13 +62,14 @@ do_compile() {
 }
 
 do_install() {
+  CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
   IPC_VERSION=`echo ${PV}${RELEASE_SUFFIX} | sed -e 's|\.|_|g'`
   # Copy docs and other meta files
   install -d ${D}${IPC_INSTALL_DIR_RECIPE}
-  cp -pPrf  ${IPC_PACKAGE_DIR}/* -d ${D}${IPC_INSTALL_DIR_RECIPE}
+  cp ${CP_ARGS} ${IPC_PACKAGE_DIR}/* -d ${D}${IPC_INSTALL_DIR_RECIPE}
 
   install -d ${D}${base_libdir}/firmware/ipc
-  cp -pPrf ${S}/packages/ti/ipc/tests/bin/* ${D}${base_libdir}/firmware/ipc || true
+  cp ${CP_ARGS} ${S}/packages/ti/ipc/tests/bin/* ${D}${base_libdir}/firmware/ipc || true
 }
 
 ALTERNATIVE_PRIORITY = "5"
