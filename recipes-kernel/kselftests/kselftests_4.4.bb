@@ -11,7 +11,7 @@ S = "${WORKDIR}/linux-${PV}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "popt"
+DEPENDS = "popt rsync-native"
 
 inherit kernel-arch
 
