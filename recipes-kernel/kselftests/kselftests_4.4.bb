@@ -42,6 +42,7 @@ do_compile () {
 
 do_install () {
 	oe_runmake install
+	chown -R root:root ${D}
 }
 
 PACKAGE_BEFORE_PN = "${PN}-breakpoints ${PN}-cpu-hotplug ${PN}-efivarfs ${PN}-exec ${PN}-firmware ${PN}-ftrace \
