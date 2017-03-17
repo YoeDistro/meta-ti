@@ -27,7 +27,7 @@ SRC_URI = "git://git.ti.com/ti-u-boot/ti-u-boot.git;protocol=git;branch=${BRANCH
 PV_append = "+git${SRCPV}"
 
 # u-boot needs devtree compiler to parse dts files
-DEPENDS += "dtc-native"
+DEPENDS += "dtc-native bc-native"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
