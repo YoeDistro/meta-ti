@@ -11,7 +11,7 @@ S = "${WORKDIR}/linux-${PV}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEPENDS = "libcap popt rsync-native"
+DEPENDS = "libcap libcap-ng popt rsync-native"
 
 inherit kernel-arch
 
