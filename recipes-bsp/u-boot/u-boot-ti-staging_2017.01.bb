@@ -2,4 +2,4 @@ require u-boot-ti.inc
 
 BRANCH = "ti-u-boot-2017.01"
 
-SRCREV = "8369eec4f36f4eb8c30e769b3b0ad35d5148f636"
+SRCREV = "734f6d49ae509f72bbd97893f2a98dea20c7bdc0"
