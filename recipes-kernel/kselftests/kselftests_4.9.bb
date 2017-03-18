@@ -142,6 +142,7 @@ FILES_${PN}-dbg += "${bindir}/kselftests/*/.debug"
 
 RDEPENDS_${PN}-cpu-hotplug += "bash"
 RDEPENDS_${PN}-efivarfs += "bash"
+RDEPENDS_${PN}-futex += "bash ncurses"
 RDEPENDS_${PN}-memory-hotplug += "bash"
 RDEPENDS_${PN}-net += "bash"
 RDEPENDS_${PN}-vm += "bash"
