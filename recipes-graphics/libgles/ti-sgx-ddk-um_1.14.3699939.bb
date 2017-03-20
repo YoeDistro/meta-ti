@@ -31,7 +31,7 @@ INITSCRIPT_PARAMS = "defaults 8"
 
 inherit update-rc.d
 
-PR = "r23"
+PR = "r24"
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 omap5-sgx-ddk-um-linux"
 
 DEPENDS += "libdrm udev libgbm wayland libffi"
@@ -73,5 +73,6 @@ INHIBIT_SYSROOT_STRIP = "1"
 
 INSANE_SKIP_${PN} += "dev-so ldflags useless-rpaths"
 INSANE_SKIP_${PN}-plugins = "dev-so"
+INSANE_SKIP_${PN} += "already-stripped"
 
 CLEANBROKEN = "1"
