@@ -72,6 +72,8 @@ do_compile () {
 do_install () {
 	oe_runmake install
 	chown -R root:root ${D}
+	# fixup run_kselftest.sh due to spurious lines starting by "make[1]:"
+	sed -i '/^make/d' ${D}${bindir}/kselftests/run_kselftest.sh
 }
 
 PACKAGE_BEFORE_PN = " \
