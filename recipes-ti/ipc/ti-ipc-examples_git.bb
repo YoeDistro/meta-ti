@@ -12,6 +12,11 @@ INSANE_SKIP_${PN} += "arch"
 
 ALLOW_EMPTY_${PN} = "1"
 
+PACKAGES =+ "${PN}-linux"
+
+INSANE_SKIP_${PN}-linux += "arch"
+ALLOW_EMPTY_${PN}-linux  = "1"
+
 IPC_INSTALL_DIR="${STAGING_DIR_TARGET}/usr/share/ti/ti-ipc-tree"
 
 do_compile() {
@@ -56,31 +61,35 @@ do_install() {
   cd ${S_ipc-examples}/src
   IPC_VERSION=`echo ${PV}${RELEASE_SUFFIX} | sed -e 's|\.|_|g'`
 
-  install -d ${D}/ipc_${IPC_VERSION}/examples
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
+    # Install directory for bios examples
+    install -d ${D}/ipc_${IPC_VERSION}/examples/bios
+    # Install directory for linux examples
+    install -d ${D}${bindir}/ipc/examples
     oe_runmake -C examples install IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
-      HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples"
+      HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/bios"
     oe_runmake -C examples install_rov IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
-      HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples"
+      HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/bios"
 
     oe_runmake -C examples install IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
       LINUX_SYSROOT_DIR="${STAGING_INCDIR}" \
-      HOSTOS="linux" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples"
+      HOSTOS="linux" EXEC_DIR="${D}/${bindir}/ipc/examples"
 
     if [ ! -z ${ALT_PLATFORM} ]; then
-      oe_runmake -C examples install IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \ 
-        HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples" \
+      oe_runmake -C examples install IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
+        HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/bios" \
         PLATFORM="${ALT_PLATFORM}"
       oe_runmake -C examples install_rov IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
-        HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples" \
+        HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/bios" \
         PLATFORM="${ALT_PLATFORM}"
 
       oe_runmake -C examples install IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
         LINUX_SYSROOT_DIR="${STAGING_INCDIR}" \
-        HOSTOS="linux" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples" \
+        HOSTOS="linux" EXEC_DIR="${D}/${bindir}/ipc/examples" \
         PLATFORM="${ALT_PLATFORM}"
     fi
   fi
 }
 
 FILES_${PN} += "ipc_*"
+FILES_${PN}-linux += "${bindir}/*"
