@@ -9,6 +9,7 @@ PR = "${INC_PR}.0"
 DEPENDS += "virtual/kernel"
 
 SRC_URI += "file://tiipclad-daemon.sh \
+            file://omap_remoteproc.conf \
             file://0001-Add-kernel-build-dir.patch \
            "
 
@@ -41,6 +42,11 @@ do_install_append() {
     # lad daemon executable.
     sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${WORKDIR}/tiipclad-daemon.sh
     install -c -m 755 ${WORKDIR}/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
+}
+
+do_install_append_dra7xx() {
+    install -d ${D}${sysconfdir}/modprobe.d/
+    install -c -m 644 ${WORKDIR}/omap_remoteproc.conf ${D}${sysconfdir}/modprobe.d/
 }
 
 PACKAGES =+ "${PN}-test"
