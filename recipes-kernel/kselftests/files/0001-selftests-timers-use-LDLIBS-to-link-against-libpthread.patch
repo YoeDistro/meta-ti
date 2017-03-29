@@ -1,0 +1,23 @@
+From b0448d7816ca561b6470dc50fc1621aec2620f57 Mon Sep 17 00:00:00 2001
+From: Fathi Boudra <fathi.boudra@linaro.org>
+Date: Wed, 22 Mar 2017 17:40:11 +0200
+Subject: [PATCH] selftests: timers: use LDLIBS to link against libpthread
+
+use LDLIBS to properly link against libpthread.
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ tools/testing/selftests/timers/Makefile |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+--- a/tools/testing/selftests/timers/Makefile
++++ b/tools/testing/selftests/timers/Makefile
+@@ -1,7 +1,7 @@
+ CC = $(CROSS_COMPILE)gcc
+ BUILD_FLAGS = -DKTEST
+ CFLAGS += -O3 -Wl,-no-as-needed -Wall $(BUILD_FLAGS)
+-LDFLAGS += -lrt -lpthread
++LDLIBS += -lrt -lpthread
+ 
+ # these are all "safe" tests that don't modify
+ # system time or require escalated privledges
