@@ -133,7 +133,7 @@ RDEPENDS_${PN}-futex += "bash ncurses"
 RDEPENDS_${PN}-memory-hotplug += "bash"
 RDEPENDS_${PN}-net += "bash"
 RDEPENDS_${PN}-vm += "bash sudo"
-RDEPENDS_${PN}-zram += "bash"
+RDEPENDS_${PN}-zram += "bash bc"
 RDEPENDS_${PN} += "bash \
 	${PN}-bpf \
 	${PN}-capabilities \
