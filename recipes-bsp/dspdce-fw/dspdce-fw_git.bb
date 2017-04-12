@@ -6,16 +6,16 @@ COMPATIBLE_MACHINE = "dra7xx"
 
 SRC_URI = "git://git.ti.com/glsdk/dspdce.git;protocol=git"
 
-SRCREV = "3b9cea492f23d7dabb9ffa0e69631b858ba8e90a"
+SRCREV = "de6e599f067b25c46cc0c8f74a22cc3b8aafbae8"
 
-PV = "1.00.00.06"
+PV = "1.00.00.07"
 
 S = "${WORKDIR}/git"
 
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
-PR = "r3"
+PR = "r4"
 inherit update-alternatives
 
 DEPENDS = "ti-xdctools ti-sysbios ti-codec-engine ti-framework-components ti-xdais ti-ipc-rtos ti-osal ti-cgt6x-native"
