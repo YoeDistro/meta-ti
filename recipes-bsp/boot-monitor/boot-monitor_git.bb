@@ -15,7 +15,7 @@ BRANCH = "master"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "cf8b431e8b3b2ee4a4aa08964d56d3ce1b11da24"
+SRCREV = "d7b2bbd419400228da621f445526e519b56aef93"
 
 BOOT_MONITOR_IMAGE  ?= "skern-${BOOT_MONITOR_MAKE_TARGET}.bin"
 
