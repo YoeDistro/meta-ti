@@ -15,15 +15,16 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 SRC_URI = "git://git.ti.com/keystone-linux/mpm-transport.git;protocol=git;branch=${BRANCH}"
 
 BRANCH = "master"
-# This commit corresponds to tag DEV.MPM-TRANSPORT-02.00.03.00
-SRCREV = "ba53217c5db1a6f9d21a0c8f50e9e30a6efa8be8"
+# This commit corresponds to tag DEV.MPM-TRANSPORT-02.00.04.00
+SRCREV = "e0e44fe55bef7ddf89f7ff3574f07fa906e72a37"
 
-PV = "2.0.3.0"
+PV = "2.0.4.0"
 PR = "r0"
 
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
 EXTRA_OEMAKE_append_k2hk-evm += "HYPLNK_TRANSPORT=true SRIO_TRANSPORT=true"
 EXTRA_OEMAKE_append_k2e += "HYPLNK_TRANSPORT=true"
+INSANE_SKIP_${PN} += "ldflags"
 
 S = "${WORKDIR}/git"
 
@@ -43,7 +44,7 @@ do_install() {
 	install -c -m 644 ${S}/include/* ${D}${includedir}/
 
 	install -d ${D}${libdir}/
-	cp  -a ${S}/lib/* ${D}${libdir}/
+	cp  -a --preserve=mode,timestamps --no-preserve=ownership ${S}/lib/* ${D}${libdir}/
 
 	install -d ${D}${sysconfdir}/mpm/
 	install -c -m 644 ${S}/scripts/mpm_config.json ${D}${sysconfdir}/mpm/mpm_config.json
