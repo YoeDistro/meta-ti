@@ -1,0 +1,42 @@
+From f22f18d426c8f5b70c0bce9ac6015c067c46f5ad Mon Sep 17 00:00:00 2001
+From: Dan Murphy <dmurphy@ti.com>
+Date: Mon, 24 Apr 2017 17:02:56 -0500
+Subject: [PATCH] makedefs: Fix issue with setting CHECK and VERBOSE
+
+Within the ifndef tabs are not allowed.  These need
+to be converted to spaces.  Without this CHECK is always
+set and sparse is expected to be installed.
+
+Fixes: aba308b9868d ("Makefile: Use OBJROOT for build output to enable out-of-tree builds")
+Reported-by: Denys Dmytriyenko <denys@ti.com>
+Signed-off-by: Dan Murphy <dmurphy@ti.com>
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ makedefs | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/makedefs b/makedefs
+index 1c4e2a5..ab710c3 100644
+--- a/makedefs
++++ b/makedefs
+@@ -58,7 +58,7 @@ ifeq ("$(origin C)", "command line")
+ endif
+ 
+ ifndef VERBOSE
+-	export VERBOSE=0
++        export VERBOSE=0
+ endif
+ 
+ ifeq ($(VERBOSE),1)
+@@ -69,7 +69,7 @@ else
+ endif
+ 
+ ifndef CHECK
+-	export CHECK=0
++        export CHECK=0
+ endif
+ 
+ Q_CC=$(Q:@=@echo	'     CC	'$@;)$(CC)
+-- 
+2.7.4
+
