@@ -7,7 +7,7 @@ INC_PR_append = ".1"
 
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=27bb0deb260c60120a8d7b91da7c3b02"
 
-COMPATIBLE_MACHINE = "k2hk-evm"
+COMPATIBLE_MACHINE = "k2hk"
 
 S = "${WORKDIR}/git/linux/srio"
 

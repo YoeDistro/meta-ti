@@ -1,7 +1,7 @@
 DESCRIPTION = "TI Hyperlink Low Level Driver"
 LICENSE = "BSD-3-Clause"
 
-COMPATIBLE_MACHINE = "k2hk-evm|k2e"
+COMPATIBLE_MACHINE = "k2hk|k2e"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 LLDNAME="hyplnk"
@@ -23,7 +23,7 @@ SRCREV = "${HYPLNK_SRCREV}"
 PV = "2.1.0.6"
 INC_PR = "r0"
 
-DEVICELIST_k2hk-evm = "k2h k2k"
+DEVICELIST_k2hk = "k2h k2k"
 DEVICELIST_k2e  = "k2e"
 
 S = "${WORKDIR}/${HYPLNK_GIT_DESTSUFFIX}"

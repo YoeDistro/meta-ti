@@ -8,7 +8,7 @@ PR = "r0"
 
 CLEANBROKEN = "1"
 
-COMPATIBLE_MACHINE = "k2hk-evm|k2l-evm|k2e"
+COMPATIBLE_MACHINE = "k2hk|k2l-evm|k2e"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -37,7 +37,7 @@ ks2_pa_post_pdsp0 \
 ks2_pa_post_pdsp1 \
 "
 
-FWBASENAME_k2hk-evm = " \
+FWBASENAME_k2hk = " \
 ks2_pa_pdsp0_classify1 \
 ks2_pa_pdsp1_classify1 \
 ks2_pa_pdsp2_classify1 \
