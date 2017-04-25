@@ -43,7 +43,7 @@ DEPENDS_append_keystone = " ti-cgt6x-native \
                             gcc-arm-none-eabi-native \
 "
 DEPENDS_append_omap-a15 = " ti-cgt6x-native \
-                            ti-ccsv6-native \
+                            ti-cgt-arm-native \
                             gcc-arm-none-eabi-native \
 "
 DEPENDS_append_omapl138 = " ti-cgt6x-native \
