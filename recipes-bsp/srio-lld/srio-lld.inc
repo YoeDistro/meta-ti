@@ -1,7 +1,7 @@
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/drv/srio/srio_drv.h;beginline=1;endline=41;md5=469096088e072d883ff7eef301b34093"
 
-COMPATIBLE_MACHINE = "k2hk-evm"
+COMPATIBLE_MACHINE = "k2hk"
 
 SRIO_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/srio-lld.git"
 SRIO_LLD_GIT_PROTOCOL = "git"

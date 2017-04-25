@@ -39,7 +39,7 @@ RDEPENDS_kernel-base_append_keystone = " serdes-fw"
 RDEPENDS_kernel-base_append_keystone = " qmss-pdsp-fw"
 
 # Add run-time dependency for NETCP PA firmware to the rootfs
-RDEPENDS_kernel-base_append_k2hk-evm = " netcp-pa-fw"
+RDEPENDS_kernel-base_append_k2hk = " netcp-pa-fw"
 RDEPENDS_kernel-base_append_k2e = " netcp-pa-fw"
 RDEPENDS_kernel-base_append_k2l-evm = " netcp-pa-fw"
 
