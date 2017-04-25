@@ -45,6 +45,8 @@ export TI_SECURE_DEV_PKG
 # SPL (Second Program Loader)
 SPL_BINARY = "MLO"
 SPL_BINARY_k2e-hs-evm = ""
+SPL_BINARY_k2hk-hs-evm = ""
+SPL_BINARY_k2g-hs-evm = ""
 SPL_BINARY_omapl138 = ""
 
 # SPL (Second Program Loader) to be loaded over UART
@@ -60,9 +62,13 @@ UBOOT_SUFFIX_keystone = "bin"
 # SPI NOR Flash binaries
 UBOOT_SPI_SPL_BINARY = "u-boot-spl.bin"
 UBOOT_SPI_SPL_BINARY_k2e-hs-evm = ""
+UBOOT_SPI_SPL_BINARY_k2hk-hs-evm = ""
+UBOOT_SPI_SPL_BINARY_k2g-hs-evm = ""
 UBOOT_SPI_BINARY = "u-boot.img"
 UBOOT_SPI_GPH_BINARY = "u-boot-spi.gph"
 UBOOT_SPI_GPH_BINARY_k2e-hs-evm = ""
+UBOOT_SPI_GPH_BINARY_k2hk-hs-evm = ""
+UBOOT_SPI_GPH_BINARY_k2g-hs-evm = ""
 
 # SPI NOR Flash deployed images
 UBOOT_SPI_SPL_IMAGE = "u-boot-spl-${MACHINE}-${PV}-${PR}.bin"
