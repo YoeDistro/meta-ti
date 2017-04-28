@@ -28,8 +28,8 @@ name=${TI_IPC_METADATA_NAME}"
 # Corresponds to tag: 3.45.00.00
 SRCREV_ipc-examples = "3a8ee1841ec36117a9bcd3d45bb2781bbd53ecf8"
 
-# Corresponds to tag: 3.46.00.01_eng
-SRCREV_ipc-metadata = "a04b677e9c55bbffd4bd7071ab7dfb6dde3eb97f"
+# Corresponds to tag: 3.46.00.02_eng
+SRCREV_ipc-metadata = "ec51206ff37707ca0c5eb1e13f24fff722f96d7d"
 
 S_ipc-examples = "${WORKDIR}/git/ipc-examples"
 S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
