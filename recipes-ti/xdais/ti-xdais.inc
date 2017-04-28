@@ -11,8 +11,9 @@ S = "${WORKDIR}/xdais_${PV}"
 SRC_URI = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/xdais/${PV}/exports/xdais_${PV}.tar.gz;name=xdaistarball"
 
 do_install() {
+    CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
     install -d ${D}${XDAIS_INSTALL_DIR_RECIPE}
-    cp -pPrf ${S}/* ${D}${XDAIS_INSTALL_DIR_RECIPE}
+    cp ${CP_ARGS} ${S}/* ${D}${XDAIS_INSTALL_DIR_RECIPE}
 }
 
 INHIBIT_PACKAGE_STRIP = "1"

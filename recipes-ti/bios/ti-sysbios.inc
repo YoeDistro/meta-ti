@@ -15,8 +15,9 @@ BINFILE="bios_setuplinux_${PV}.bin"
 TI_BIN_UNPK_CMDS="Y: q:workdir:Y"
 
 do_install() {
+    CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
     install -d ${D}${SYSBIOS_INSTALL_DIR_RECIPE}
-    cp -pPrf ${S}/* ${D}${SYSBIOS_INSTALL_DIR_RECIPE}
+    cp ${CP_ARGS} ${S}/* ${D}${SYSBIOS_INSTALL_DIR_RECIPE}
 }
 
 ALLOW_EMPTY_${PN} = "1"
