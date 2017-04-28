@@ -25,8 +25,9 @@ TI_BIN_UNPK_CMDS=""
 TI_BIN_UNPK_ARGS="--prefix ${S} --mode silent"
 
 do_install() {
+    CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
     install -d ${D}${CG_XML_INSTALL_DIR_RECIPE}
-    cp -pPrf ${S}/* ${D}${CG_XML_INSTALL_DIR_RECIPE}
+    cp ${CP_ARGS} ${S}/* ${D}${CG_XML_INSTALL_DIR_RECIPE}
 }
 
 FILES_${PN} += "${CG_XML_INSTALL_DIR_RECIPE}"

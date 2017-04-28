@@ -89,7 +89,7 @@ do_compile() {
 
 do_install () {
     install -d ${D}${PDK_INSTALL_DIR_RECIPE}/packages
-    find -name "*.tar" -exec tar xf {} -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages \;
+    find -name "*.tar" -exec tar xf {} --no-same-owner -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages \;
     
     if [ "${PDK_COMP_LINK_TEXT}" != "" ]
     then
