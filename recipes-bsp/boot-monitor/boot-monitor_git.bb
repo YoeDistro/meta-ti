@@ -8,7 +8,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 DEPENDS = "u-boot-mkimage-native"
 
 SRC_URI = "git://git.ti.com/processor-firmware/ks2-boot-monitor.git;protocol=git;branch=${BRANCH}"
-SRC_URI += "file://0001-makedefs-Fix-issue-with-setting-CHECK-and-VERBOSE.patch"
 
 PV = "4.0+git${SRCPV}"
 
@@ -16,7 +15,7 @@ BRANCH = "master"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "d7b2bbd419400228da621f445526e519b56aef93"
+SRCREV = "e1f885ab6dc544884728e333cc6e396f7eb08286"
 
 BOOT_MONITOR_IMAGE  ?= "skern-${BOOT_MONITOR_MAKE_TARGET}.bin"
 
