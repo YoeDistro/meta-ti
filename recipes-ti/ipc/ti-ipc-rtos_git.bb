@@ -87,3 +87,11 @@ pkg_postrm_${PN}-fw_omap-a15 () {
   update-alternatives --remove dra7-ipu1-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu1/test_omx_ipu1_vayu.xem4
   update-alternatives --remove dra7-ipu2-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu2/test_omx_ipu2_vayu.xem4
 }
+
+pkg_postinst_${PN}-fw_omapl138 () {
+  update-alternatives --install /lib/firmware/rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674 ${ALTERNATIVE_PRIORITY}
+}
+
+pkg_postrm_${PN}-fw_omapl138 () {
+  update-alternatives --remove rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674
+}
