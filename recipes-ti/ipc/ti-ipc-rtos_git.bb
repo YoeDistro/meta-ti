@@ -89,7 +89,7 @@ pkg_postrm_${PN}-fw_omap-a15 () {
 }
 
 pkg_postinst_${PN}-fw_omapl138 () {
-  update-alternatives --install /lib/firmware/rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674 ${ALTERNATIVE_PRIORITY}
+  update-alternatives --install /lib/firmware/rproc-dsp-fw rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674 ${ALTERNATIVE_PRIORITY}
 }
 
 pkg_postrm_${PN}-fw_omapl138 () {
