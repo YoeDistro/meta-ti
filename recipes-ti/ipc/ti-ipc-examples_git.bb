@@ -6,7 +6,7 @@ require ti-ipc-rtos.inc
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${S_ipc-examples}/src/makefile;beginline=1;endline=30;md5=fb83580b16bce88e8ed568a6005c8f02"
 
-DEPENDS = "ti-ipc ti-xdctools ti-sysbios ti-ipc-rtos"
+DEPENDS = "ti-ipc ti-xdctools ti-sysbios ti-ipc-rtos zip-native"
 
 INSANE_SKIP_${PN} += "arch"
 
