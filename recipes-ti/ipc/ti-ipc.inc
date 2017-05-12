@@ -8,7 +8,7 @@ TI_IPC_GIT_URI = "git://git.ti.com/ipc/ipcdev.git"
 TI_IPC_GIT_PROTOCOL = "git"
 TI_IPC_GIT_BRANCH = "3.46"
 
-#Corresponds to 3.46.00.02_eng
+#Corresponds to 3.46.00.02
 TI_IPC_SRCREV = "997ef62671476be051cd4f9f94907e61573dffae"
 
 BRANCH = "${TI_IPC_GIT_BRANCH}"
