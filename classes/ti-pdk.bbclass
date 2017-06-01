@@ -49,8 +49,13 @@ export XDCPATH = "${XDC_INSTALL_DIR}/packages;${SYSBIOS_INSTALL_DIR}/packages;${
 export SECTTI="perl ${CG_XML_INSTALL_DIR}/ofd/sectti.pl"
 
 TI_PDK_XDCMAKE ?= "1"
+
+# By default, only build the cores with available toolchains
+TI_PDK_LIMIT_CORES ?= "a15_0 ipu1_0 ipu1_1 ipu2_0 ipu2_1 c66x c66xdsp_1 c66xdsp_2 arm9_0 c674x"
 TI_PDK_LIMIT_SOCS ?= ""
 TI_PDK_LIMIT_BOARDS ?= ""
+TI_PDK_MAKE_TARGET ?= "release"
+TI_PDK_EXTRA_MAKE ?= ""
 
 TI_PDK_XDC_ARGS ?= "${TI_PDK_LIMIT_SOCS}"
 
@@ -85,7 +90,11 @@ do_compile() {
         BUILD_DIR=${B}/`get_build_dir_bash`
         cd ${BUILD_DIR}
 
-        make release LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}"
+        make ${TI_PDK_MAKE_TARGET} \
+             LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" \
+             LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}" \
+             LIMIT_CORES="${TI_PDK_LIMIT_CORES}" \
+             ${TI_PDK_EXTRA_MAKE}
     fi
 }
 
