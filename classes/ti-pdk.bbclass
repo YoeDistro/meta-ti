@@ -48,9 +48,11 @@ export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
 export XDCPATH = "${XDC_INSTALL_DIR}/packages;${SYSBIOS_INSTALL_DIR}/packages;${PDK_INSTALL_DIR}/packages"
 export SECTTI="perl ${CG_XML_INSTALL_DIR}/ofd/sectti.pl"
 
-XDCMAKE ?= "1"
-LIMSOCS ?= ""
-LIMBOARDS ?= ""
+TI_PDK_XDCMAKE ?= "1"
+TI_PDK_LIMIT_SOCS ?= ""
+TI_PDK_LIMIT_BOARDS ?= ""
+
+TI_PDK_XDC_ARGS ?= "${TI_PDK_LIMIT_SOCS}"
 
 PARALLEL_XDC = "--jobs=${BB_NUMBER_THREADS}"
 
@@ -60,7 +62,7 @@ do_configure() {
     mkdir -p ${BUILD_DIR}
     cp -r ${S}/* ${BUILD_DIR}
 
-    if [ "${XDCMAKE}" == "1" ]
+    if [ "${TI_PDK_XDCMAKE}" == "1" ]
     then
         cd ${BUILD_DIR}
 
@@ -74,16 +76,16 @@ do_configure() {
 
 do_compile() {
 
-    if [ "${XDCMAKE}" == "1" ]
+    if [ "${TI_PDK_XDCMAKE}" == "1" ]
     then
         ${XDC_INSTALL_DIR}/xdc clean ${PARALLEL_XDC} -PR .
-        ${XDC_INSTALL_DIR}/xdc all ${PARALLEL_XDC} XDCARGS="${XDCARGS}" ROOTDIR="${ROOTDIR}" -PR .
-        ${XDC_INSTALL_DIR}/xdc release XDCARGS="${XDCARGS}" -PR .
+        ${XDC_INSTALL_DIR}/xdc all ${PARALLEL_XDC} XDCARGS="${TI_PDK_XDC_ARGS}" ROOTDIR="${ROOTDIR}" -PR .
+        ${XDC_INSTALL_DIR}/xdc release XDCARGS="${TI_PDK_XDC_ARGS}" -PR .
     else
         BUILD_DIR=${B}/`get_build_dir_bash`
         cd ${BUILD_DIR}
 
-        make release LIMIT_SOCS="${LIMSOCS}" LIMIT_BOARDS="${LIMBOARDS}"
+        make release LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}"
     fi
 }
 

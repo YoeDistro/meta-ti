@@ -17,9 +17,9 @@ IPC_TRANSPORT_QMSS_DESTSUFFIX = "git/c66/qmss"
 
 S = "${WORKDIR}/${IPC_TRANSPORT_QMSS_DESTSUFFIX}"
 
-XDCARGS_k2hk = "k2h k2k"
-XDCARGS_k2e = "k2e"
-XDCARGS_k2l-evm = "k2l"
+TI_PDK_LIMIT_SOCS_k2hk = "k2h k2k"
+TI_PDK_LIMIT_SOCS_k2e = "k2e"
+TI_PDK_LIMIT_SOCS_k2l-evm = "k2l"
 
 export IPC_INSTALL_PATH = "${IPC_INSTALL_DIR}"
 XDCPATH_append = ";${IPC_INSTALL_DIR}/packages"
