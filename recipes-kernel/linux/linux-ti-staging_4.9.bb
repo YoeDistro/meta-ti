@@ -55,8 +55,8 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-lsk-linux-4.9.y"
 
-SRCREV = "fd352255bbd9df6e31fc4d41e236a9e6a8f5423b"
-PV = "4.9.28+git${SRCPV}"
+SRCREV = "c1b1411312453efdcd9cec3d49b8f02bea4db540"
+PV = "4.9.30+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
 MACHINE_KERNEL_PR_append = "c"
