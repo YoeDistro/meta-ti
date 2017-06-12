@@ -18,6 +18,9 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/u-boot:"
 
 SUMMARY = "u-boot bootloader for TI devices"
 
+LICENSE = "GPLv2+"
+LIC_FILES_CHKSUM = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
+
 BRANCH ?= "master"
 SRC_URI = "git://git.ti.com/ti-u-boot/ti-u-boot.git;protocol=git;branch=${BRANCH}"
 
