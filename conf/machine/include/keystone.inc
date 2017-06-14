@@ -1,5 +1,5 @@
-SOC_FAMILY = "keystone"
-require conf/machine/include/soc-family.inc
+require conf/machine/include/ti-soc.inc
+SOC_FAMILY_append = ":keystone"
 
 DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/tune-cortexa15.inc

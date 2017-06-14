@@ -1,2 +1,2 @@
-SOC_FAMILY = "omapl1"
-require conf/machine/include/soc-family.inc
+require conf/machine/include/ti-soc.inc
+SOC_FAMILY_append = ":omapl1"
