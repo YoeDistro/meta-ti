@@ -2,8 +2,8 @@ DESCRIPTION = "TI DSP Code Generation Tools"
 HOMEPAGE = "https://www-a.ti.com/downloads/sds_support/TICodegenerationTools/download.htm"
 LICENSE = "(TI-TSPA & Thai-Open-Source-Software-Center) & BSD-3-Clause & BSL-1.0 & Hewlett-Packard & AFL-3.0 & MIT & BSD-2-Clause & PD"
 
-LIC_FILES_CHKSUM = "file://ti-cgt-c6000_${PV}/C6000_8.1.x_CodeGenerationTools_Manifest.htm;md5=458bf5fa55a865372515aeba0dfa9b72"
-LIC_FILES_CHKSUM_class-target = "file://usr/share/doc/ti/cgt-c6x/C6000_8.1.x_CodeGenerationTools_Manifest.htm;md5=458bf5fa55a865372515aeba0dfa9b72"
+LIC_FILES_CHKSUM = "file://ti-cgt-c6000_${PV}/C6000_8.0.x_CodeGenerationTools_Manifest.htm;md5=0d1c662c65c3526fc0f4784a4e114ef4"
+LIC_FILES_CHKSUM_class-target = "file://usr/share/doc/ti/cgt-c6x/C6000_8.0.x_CodeGenerationTools_Manifest.htm;md5=0d1c662c65c3526fc0f4784a4e114ef4"
 
 PE = "1"
 
@@ -37,11 +37,11 @@ BINFILE_NAME_class-target = "cgt6x_arm_installer"
 
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C6000/${PV}/${BINFILE};name=${BINFILE_NAME}"
 
-SRC_URI[cgt6x_x86_installer.md5sum] = "43d9a9a6307c7ba0933050e4ba1b0e56"
-SRC_URI[cgt6x_x86_installer.sha256sum] = "0ce82e2d338b8aab3c3d1eb52217d025bd07952ac40c8f5a9319652d0c8882ad"
+SRC_URI[cgt6x_x86_installer.md5sum] = "8f6d1cdb8c120e408fa6b4e1bb7b00d7"
+SRC_URI[cgt6x_x86_installer.sha256sum] = "36a05c453daa3261ada9e7681d008bf2bd844e84699c7a8445af80c629b5497b"
 
-SRC_URI[cgt6x_arm_installer.md5sum] = "52433a9ffdc6fbbb539a3c8e3e1c9ec0"
-SRC_URI[cgt6x_arm_installer.sha256sum] = "286a96e3082086c37129cbbc6c3665c76028b68975d02fc30375a6aaba00532a"
+SRC_URI[cgt6x_arm_installer.md5sum] = "6780b000adc4fd168f45a1776bb4dcf4"
+SRC_URI[cgt6x_arm_installer.sha256sum] = "13b84434e88a91316809c0377552ae2396499344ed1c5eb77f42cce1d6e2b0a8"
 
 do_install() {
     install -d ${D}${bindir}
