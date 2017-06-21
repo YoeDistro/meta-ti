@@ -6,7 +6,7 @@ require recipes-ti/multiprocmgr/multiprocmgr.inc
 
 DEPENDS = "ti-cgt6x-native"
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 PACKAGES =+ "${PN}-test"
 FILES_${PN}-test = "${datadir}/ti/examples/mpm/test/filetestdemo/c66x/demo_loopback/build/bin/*.out \
@@ -22,8 +22,9 @@ do_compile() {
 }
 
 do_install() {
+    CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
     install -d ${D}${MPM_INSTALL_DIR_RECIPE}
-    cp -pPrf ${S}/* ${D}${MPM_INSTALL_DIR_RECIPE}
+    cp ${CP_ARGS} ${S}/* ${D}${MPM_INSTALL_DIR_RECIPE}
 
     # Copy C66x binaries
     install -d ${D}${datadir}/ti/examples/mpm/test/filetestdemo/c66x/demo_loopback/build/bin
