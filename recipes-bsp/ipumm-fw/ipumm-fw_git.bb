@@ -25,7 +25,6 @@ PV = "3.00.13.00"
 PR = "r5"
 
 require recipes-ti/includes/ti-paths.inc
-require recipes-ti/includes/ti-staging.inc
 
 inherit update-alternatives
 
