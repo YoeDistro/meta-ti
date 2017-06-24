@@ -1,6 +1,5 @@
 require edma3-lld.inc
 require recipes-ti/includes/ti-paths.inc
-require recipes-ti/includes/ti-staging.inc
 
 PR = "${INC_PR}.1"
 
@@ -111,7 +110,7 @@ do_install () {
     cp ${CP_ARGS} ${S}/* ${D}${EDMA3_LLD_INSTALL_DIR_RECIPE}
 }
 
-INSANE_SKIP_${PN}-dev = "arch ldflags"
+INSANE_SKIP_${PN}-dev = "arch ldflags file-rdeps"
 
 ALLOW_EMPTY_${PN} = "1"
 FILES_${PN}-dev += "${EDMA3_LLD_INSTALL_DIR_RECIPE}"
