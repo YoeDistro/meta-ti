@@ -4,7 +4,6 @@ SECTION = "devel"
 LICENSE = "BSD"
 
 require recipes-ti/includes/ti-paths.inc
-require recipes-ti/includes/ti-staging.inc
 
 S = "${WORKDIR}/framework_components_${PV}"
 
