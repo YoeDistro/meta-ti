@@ -13,7 +13,6 @@ PV = "1.00.00.07"
 S = "${WORKDIR}/git"
 
 require recipes-ti/includes/ti-paths.inc
-require recipes-ti/includes/ti-staging.inc
 
 PR = "r4"
 inherit update-alternatives
