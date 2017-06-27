@@ -1,6 +1,6 @@
 DESCRIPTION = "Provides test pruss firmware for uio based tests"
 LICENSE = "BSD-3-Clause"
-PV = "1.0.0.0"
+PV = "1.0.1.0"
 require recipes-ti/includes/ti-paths.inc
 
 S = "${WORKDIR}/git"
@@ -8,20 +8,27 @@ S = "${WORKDIR}/git"
 DEPENDS = "ti-cgt-pru-native"
 
 BRANCH = "master"
-SRC_URI = "git://git.ti.com/processor-sdk/uio-test-pruss.git;protocol=git;branch=${BRANCH}"
 LIC_FILES_CHKSUM = "file://Makefile;startline=1;endline=31;md5=0ee4f2c42eb6b04e37859bb55a18b144"
 
-# Corresponds to version 01.00.00.00A
-SRCREV = "88e78564ff9094ecb13b53d627fa6bfb25d9ac03"
+UIO_TEST_PRUSS_GIT_URI = "git://git.ti.com/processor-sdk/uio-test-pruss.git"
+UIO_TEST_PRUSS_GIT_PROTOCOL = "git"
+SRC_URI = "${UIO_TEST_PRUSS_GIT_URI};protocol=${UIO_TEST_PRUSS_GIT_PROTOCOL};branch=${BRANCH}"
 
-PR = "r1"
+# Corresponds to version 01.00.01.00
+UIO_TEST_PRUSS_SRCREV = "72f7454c2460bd7d52dab70631b38bf5d3585542"
 
-COMPATIBLE_MACHINE = "omap-a15"
+SRCREV = "${UIO_TEST_PRUSS_SRCREV}"
+
+PR = "r2"
+
+COMPATIBLE_MACHINE = "omap-a15|ti33x|ti43x"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEVICE_NAME = ""
 DEVICE_NAME_append_am57xx-evm = "am57xx"
+DEVICE_NAME_append_ti33x = "am33xx"
+DEVICE_NAME_append_ti43x = "am43xx"
 
 EXTRA_OEMAKE = "CGT_PRU=${TI_CGT_PRU_INSTALL_DIR} DEVICE=${DEVICE_NAME}"
 
