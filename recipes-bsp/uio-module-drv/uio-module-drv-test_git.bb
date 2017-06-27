@@ -2,12 +2,14 @@ DESCRIPTION = "Test code for user space IO (UIO) driver"
 
 include uio-module-drv.inc
 
-PR = "r2"
+PR = "r3"
 
-COMPATIBLE_MACHINE = "keystone|omap-a15"
+COMPATIBLE_MACHINE = "keystone|omap-a15|ti33x|ti43x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEVICE_NAME_omap-a15 = "am57xx"
+DEVICE_NAME_ti33x = "am33xx"
+DEVICE_NAME_ti43x = "am43xx"
 DEVICE_NAME_keystone = "keystone"
 RDEPENDS_${PN} = "uio-module-drv"
 
@@ -27,4 +29,12 @@ do_install_append_keystone () {
 
 do_install_append_omap-a15 () {
 	install -c -m 755 ${S}/test/prussdrv_test/test/pruss_uio_test ${D}${bindir}/.
+}
+
+do_install_append_ti33x () {
+        install -c -m 755 ${S}/test/prussdrv_test/test/pruss_uio_test ${D}${bindir}/.
+}
+
+do_install_append_ti43x () {
+        install -c -m 755 ${S}/test/prussdrv_test/test/pruss_uio_test ${D}${bindir}/.
 }
