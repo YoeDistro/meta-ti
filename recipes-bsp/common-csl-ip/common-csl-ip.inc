@@ -2,9 +2,9 @@ DESCRIPTION = "Chip support library low level interface"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=5857833e20836213677fac33f9aded21"
 
-COMPATIBLE_MACHINE = "keystone|dra7xx"
+COMPATIBLE_MACHINE = "keystone|dra7xx|ti33x|ti43x|omapl1"
 
-PV = "03.03.00.06C"
+PV = "03.03.00.07B"
 INC_PR = "r0"
 
 CSL_GIT_URI = "git://git.ti.com/keystone-rtos/common-csl-ip.git"
@@ -12,8 +12,8 @@ CSL_GIT_PROTOCOL ="git"
 CSL_GIT_BRANCH = "master"
 CSL_GIT_DESTSUFFIX = "git"
 
-# Below commit ID corresponding to "DEV.CSL_PROCESSOR-SDK.03.03.00.06C"
-CSL_SRCREV = "ce2bbf96b08fa69eda7bfc92aa7760b7ca70dddf"
+# Below commit ID corresponding to "DEV.CSL_PROCESSOR-SDK.03.03.00.07B"
+CSL_SRCREV = "28dbc2f4b0b06b29ac4e962a9494987d242b48b5"
 
 BRANCH="${CSL_GIT_BRANCH}"
 SRC_URI = "${CSL_GIT_URI};protocol=${CSL_GIT_PROTOCOL};branch=${BRANCH};destsuffix=${CSL_GIT_DESTSUFFIX}"
