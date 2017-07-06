@@ -1,7 +1,8 @@
 require common-csl-ip.inc
-PR = "${INC_PR}.4"
+PR = "${INC_PR}.5"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+COMPATIBLE_MACHINE_append = "|c66x"
 
 inherit ti-pdk
 
