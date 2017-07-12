@@ -1,0 +1,22 @@
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://icss_emacDrv.h;beginline=1;endline=40;md5=88d270788c1d8516511304f11a28586d"
+
+COMPATIBLE_MACHINE = "ti33x|ti43x|am57xx-evm|k2g-evm"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+ICSS_EMAC_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/icss-emac.git"
+ICSS_EMAC_LLD_GIT_PROTOCOL = "git"
+ICSS_EMAC_LLD_GIT_BRANCH = "master"
+ICSS_EMAC_LLD_GIT_DESTSUFFIX = "git/ti/drv/icss_emac"
+
+# Below commit ID corresponds to "DEV.ICSS_EMAC_LLD.01.00.00.07C"
+ICSS_EMAC_LLD_SRCREV = "08cb0540eeab7721fe82b603cb6285393f314117"
+
+BRANCH = "${ICSS_EMAC_LLD_GIT_BRANCH}"
+SRC_URI = "${ICSS_EMAC_LLD_GIT_URI};destsuffix=${ICSS_EMAC_LLD_GIT_DESTSUFFIX};protocol=${ICSS_EMAC_LLD_GIT_PROTOCOL};branch=${BRANCH}"
+
+SRCREV = "${ICSS_EMAC_LLD_SRCREV}"
+PV = "01.00.00.07C"
+INC_PR = "r0"
+
+S = "${WORKDIR}/${ICSS_EMAC_LLD_GIT_DESTSUFFIX}"
