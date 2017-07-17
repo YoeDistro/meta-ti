@@ -24,17 +24,17 @@ protocol=${TI_IPC_METADATA_GIT_PROTOCOL};\
 branch=${TI_IPC_METADATA_GIT_BRANCH};\
 name=${TI_IPC_METADATA_NAME}"
 
-# Corresponds to tag: 3.46.01.03
-SRCREV_ipc-examples = "3a8ee1841ec36117a9bcd3d45bb2781bbd53ecf8"
+# Corresponds to tag: 3.46.02.04_eng
+SRCREV_ipc-examples = "b833c759d620b4218ece6d64fae91e4777ef823a"
 
-# Corresponds to tag: 3.46.01.03
-SRCREV_ipc-metadata = "0d80fea7f79fb40109879d061b849b68bbab1124"
+# Corresponds to tag: 3.46.02.04_eng
+SRCREV_ipc-metadata = "bb07d3e00dcaf1074589e805be0a4ed2ada2d17c"
 
 S_ipc-examples = "${WORKDIR}/git/ipc-examples"
 S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
 
-RELEASE_TYPE = "GA"
-RELEASE_SUFFIX = ""
+RELEASE_TYPE = "ENG"
+RELEASE_SUFFIX = "_eng"
 
 PR = "${INC_PR}.r0"
 
@@ -46,7 +46,6 @@ DEPENDS_append_omap-a15 = " ti-cgt6x-native \
                             gcc-arm-none-eabi-native \
 "
 DEPENDS_append_omapl138 = " ti-cgt6x-native \
-                            gcc-arm-none-eabi-native \
 "
 
 IPC_TARGETS = ""
@@ -59,7 +58,6 @@ IPC_TARGETS_omap-a15 = "\
 "
 
 IPC_TARGETS_omapl138 = "\
-    gnu.targets.arm.A15F="${GCC_ARM_NONE_TOOLCHAIN}" \
     ti.targets.elf.C674="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
 "
 
