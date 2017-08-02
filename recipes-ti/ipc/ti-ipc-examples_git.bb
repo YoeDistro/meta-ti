@@ -1,5 +1,5 @@
 DESCRIPTION = "TI Inter Process Communication (IPC) examples"
-HOMEPAGE="http://processors.wiki.ti.com/index.php/Category:IPC"
+HOMEPAGE = "http://processors.wiki.ti.com/index.php/Category:IPC"
 require ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
@@ -15,9 +15,9 @@ ALLOW_EMPTY_${PN} = "1"
 PACKAGES =+ "${PN}-linux"
 
 INSANE_SKIP_${PN}-linux += "arch"
-ALLOW_EMPTY_${PN}-linux  = "1"
+ALLOW_EMPTY_${PN}-linux = "1"
 
-IPC_INSTALL_DIR="${STAGING_DIR_TARGET}/usr/share/ti/ti-ipc-tree"
+IPC_INSTALL_DIR = "${STAGING_DIR_TARGET}/usr/share/ti/ti-ipc-tree"
 
 do_compile() {
 
@@ -93,3 +93,4 @@ do_install() {
 
 FILES_${PN} += "ipc_*"
 FILES_${PN}-linux += "${bindir}/*"
+INHIBIT_PACKAGE_STRIP = "1"
