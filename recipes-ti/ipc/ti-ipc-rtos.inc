@@ -33,10 +33,10 @@ SRCREV_ipc-metadata = "afdcf6855f05c97d2bb77867f4f150aed29c1b12"
 S_ipc-examples = "${WORKDIR}/git/ipc-examples"
 S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
 
-RELEASE_TYPE = "ENG"
-RELEASE_SUFFIX = "_eng"
+RELEASE_TYPE = "GA"
+RELEASE_SUFFIX = ""
 
-PR = "${INC_PR}.r1"
+PR = "${INC_PR}.r2"
 
 DEPENDS_append_keystone = " ti-cgt6x-native \
                             gcc-arm-none-eabi-native \
@@ -79,4 +79,5 @@ EXTRA_OEMAKE = "\
     BIOS_INSTALL_DIR="${SYSBIOS_INSTALL_DIR}" \
     ${IPC_TARGETS} \
     JOBS="--jobs=${BB_NUMBER_THREADS}" \
+    JAVA_TOOL_OPTIONS=-Xss2560k \
 "
