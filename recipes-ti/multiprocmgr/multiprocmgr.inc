@@ -8,10 +8,10 @@ MULTIPROCMGR_GIT_URI = "git://git.ti.com/keystone-linux/multi-proc-manager.git"
 MULTIPROCMGR_GIT_PROTOCOL = "git"
 MULTIPROCMGR_GIT_BRANCH = "master"
 
-# The following commits correspond to DEV.MPM-3.00.03.00
-MULTIPROCMGR_SRCREV = "c18c02bb655bae5c88d357b5810ccc69e6f1e128"
+# The following commits correspond to DEV.MPM-3.00.04.00
+MULTIPROCMGR_SRCREV = "21579a066b469ff4620e7cff12803ae152880bb5"
 
-PV = "3.0.3.0"
+PV = "3.0.4.0"
 INC_PR = "r0"
 
 BRANCH = "${MULTIPROCMGR_GIT_BRANCH}"
