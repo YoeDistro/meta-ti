@@ -37,6 +37,7 @@ TARGETS = " \
 	nsfs \
 	${@bb.utils.contains_any("TARGET_ARCH", [ "powerpc", "powerpc64" ], "powerpc", "", d)} \
 	pstore \
+	ptp \
 	ptrace \
 	seccomp \
 	sigaltstack \
@@ -97,6 +98,7 @@ PACKAGE_BEFORE_PN = " \
 	${PN}-nsfs \
 	${PN}-powerpc \
 	${PN}-pstore \
+	${PN}-ptp \
 	${PN}-ptrace \
 	${PN}-seccomp \
 	${PN}-sigaltstack \
@@ -130,6 +132,7 @@ FILES_${PN}-net = "${bindir}/kselftests/net"
 FILES_${PN}-nsfs = "${bindir}/kselftests/nsfs"
 FILES_${PN}-powerpc = "${bindir}/kselftests/powerpc"
 FILES_${PN}-pstore = "${bindir}/kselftests/pstore"
+FILES_${PN}-ptp = "${bindir}/kselftests/ptp"
 FILES_${PN}-ptrace = "${bindir}/kselftests/ptrace"
 FILES_${PN}-seccomp = "${bindir}/kselftests/seccomp"
 FILES_${PN}-sigaltstack = "${bindir}/kselftests/sigaltstack"
@@ -168,6 +171,7 @@ RDEPENDS_${PN} += "bash \
 	${PN}-net \
 	${PN}-nsfs \
 	${PN}-pstore \
+	${PN}-ptp \
 	${PN}-ptrace \
 	${PN}-seccomp \
 	${PN}-sigaltstack \
