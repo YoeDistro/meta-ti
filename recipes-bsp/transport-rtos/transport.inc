@@ -1,0 +1,17 @@
+LICENSE = "BSD-3-Clause"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+TRANSPORT_GIT_URI = "git://git.ti.com/keystone-rtos/transport.git"
+TRANSPORT_GIT_PROTOCOL = "git"
+TRANSPORT_GIT_BRANCH = "master"
+
+# Below commit ID corresponds to "DEV.TRANSPORT.01.00.00.07A"
+TRANSPORT_SRCREV = "099dbf371cea3b2d883f5c97a4b0e7ef40e84c6a"
+
+BRANCH = "${TRANSPORT_GIT_BRANCH}"
+SRC_URI = "${TRANSPORT_GIT_URI};protocol=${TRANSPORT_GIT_PROTOCOL};branch=${BRANCH}"
+
+SRCREV = "${TRANSPORT_SRCREV}"
+PV = "01.00.00.07A"
+INC_PR = "r0"
