@@ -1,6 +1,6 @@
 DESCRIPTION = "Provides test pruss firmware for uio based tests"
 LICENSE = "BSD-3-Clause"
-PV = "1.0.1.0"
+PV = "1.0.2.0"
 require recipes-ti/includes/ti-paths.inc
 
 S = "${WORKDIR}/git"
@@ -14,12 +14,12 @@ UIO_TEST_PRUSS_GIT_URI = "git://git.ti.com/processor-sdk/uio-test-pruss.git"
 UIO_TEST_PRUSS_GIT_PROTOCOL = "git"
 SRC_URI = "${UIO_TEST_PRUSS_GIT_URI};protocol=${UIO_TEST_PRUSS_GIT_PROTOCOL};branch=${BRANCH}"
 
-# Corresponds to version 01.00.01.00
-UIO_TEST_PRUSS_SRCREV = "72f7454c2460bd7d52dab70631b38bf5d3585542"
+# Corresponds to version 01.00.02.00
+UIO_TEST_PRUSS_SRCREV = "e52a7b099d7203ca52519650df51419e9fef7e0c"
 
 SRCREV = "${UIO_TEST_PRUSS_SRCREV}"
 
-PR = "r2"
+PR = "r0"
 
 COMPATIBLE_MACHINE = "omap-a15|ti33x|ti43x"
 
