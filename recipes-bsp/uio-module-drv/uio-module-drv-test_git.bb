@@ -2,7 +2,7 @@ DESCRIPTION = "Test code for user space IO (UIO) driver"
 
 include uio-module-drv.inc
 
-PR = "r3"
+PR = "r0"
 
 COMPATIBLE_MACHINE = "keystone|omap-a15|ti33x|ti43x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
