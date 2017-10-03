@@ -1,5 +1,5 @@
 SUMMARY = "TI RTOS software supporting circular microphone array board"
-require recipes-ti/includes/ti-paths.inc
+
 inherit ti-pdk
 
 LICENSE = "BSD-3-Clause"

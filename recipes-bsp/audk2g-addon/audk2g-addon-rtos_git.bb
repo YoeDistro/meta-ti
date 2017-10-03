@@ -1,6 +1,5 @@
 SUMMARY = "TI RTOS Audio add-on software for k2g"
 
-require recipes-ti/includes/ti-paths.inc
 inherit ti-pdk
 
 LICENSE = "BSD-3-Clause"
