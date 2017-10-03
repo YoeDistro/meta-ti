@@ -1,6 +1,5 @@
 SUMMARY = "TI RTOS Low level driver for Video Processing Subsystem (VPS) "
 
-require recipes-ti/includes/ti-paths.inc
 inherit ti-pdk
 
 LICENSE = "BSD-3-Clause"

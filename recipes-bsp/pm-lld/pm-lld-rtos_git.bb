@@ -1,6 +1,5 @@
 SUMMARY = "TI RTOS driver for Power Management module (PM)"
 
-require recipes-ti/includes/ti-paths.inc
 inherit ti-pdk
 
 LICENSE = "BSD-3-Clause"
