@@ -3,8 +3,8 @@ SRC_URI_append_k2hk = " file://k2hk-uio.dtsi"
 SRC_URI_append_k2l-evm = " file://k2l-uio.dtsi"
 SRC_URI_append_k2e = " file://k2e-uio.dtsi"
 SRC_URI_append_k2g = " file://keystone-k2g-pru-uio.dtsi"
-SRC_URI_append_am57xx-evm = " file://am572x-pru-uio.dtsi \
-                              file://am571x-pru-uio.dtsi \
+SRC_URI_append_dra7xx = " file://am572x-pru-uio.dtsi \
+                          file://am571x-pru-uio.dtsi \
 "
 SRC_URI_append_ti33x = " file://am335x-pru-uio.dtsi"
 SRC_URI_append_ti43x = " file://am437x-pru-uio.dtsi"
@@ -14,11 +14,6 @@ DTSI_LIST_append_keystone = " keystone-uio.dtsi"
 DTSI_LIST_append_k2hk = " k2hk-uio.dtsi"
 DTSI_LIST_append_k2l-evm = " k2l-uio.dtsi"
 DTSI_LIST_append_k2e = " k2e-uio.dtsi"
-
-KERNEL_DEVICETREE_append_am57xx-evm = "${@base_conditional("ENABLE_TI_UIO_DEVICES", "1", " am572x-idk-pru-excl-uio.dtb am571x-idk-pru-excl-uio.dtb", "", d)}"
-KERNEL_DEVICETREE_append_ti33x = "${@base_conditional("ENABLE_TI_UIO_DEVICES", "1", " am335x-icev2-pru-excl-uio.dtb", "", d)}"
-KERNEL_DEVICETREE_append_ti43x = "${@base_conditional("ENABLE_TI_UIO_DEVICES", "1", " am437x-idk-pru-excl-uio.dtb", "", d)}"
-KERNEL_DEVICETREE_append_k2g = "${@base_conditional("ENABLE_TI_UIO_DEVICES", "1", " keystone-k2g-ice-pru-excl-uio.dtb", "", d)}"
 
 do_setup_uio() {
     if [ "${ENABLE_TI_UIO_DEVICES}" == "1" ]
@@ -35,7 +30,7 @@ do_setup_uio() {
     fi
 }
 
-do_setup_uio_append_am57xx-evm() {
+do_setup_uio_append_dra7xx() {
 
     if [ "${ENABLE_TI_UIO_DEVICES}" == "1" ]
     then
