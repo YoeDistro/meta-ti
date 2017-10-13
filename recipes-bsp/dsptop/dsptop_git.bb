@@ -21,7 +21,7 @@ do_install() {
 COMPATIBLE_MACHINE = "dra7xx|keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RDEPENDS_${PN} = "debugss-module-drv"
+RDEPENDS_${PN} = "debugss-module-drv bash"
 RDEPENDS_${PN}_append_keystone = " temperature-module-drv"
 
 include dsptop.inc
