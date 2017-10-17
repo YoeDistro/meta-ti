@@ -1,5 +1,5 @@
-PV = "3.46.02.04"
-INC_PR = "r1"
+PV = "3.47.00.00"
+INC_PR = "r0"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
