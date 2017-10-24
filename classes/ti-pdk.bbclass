@@ -63,6 +63,14 @@ TI_PDK_EXTRA_MAKE ?= ""
 TI_PDK_XDC_ARGS ?= "${TI_PDK_LIMIT_SOCS}"
 
 PARALLEL_XDC = "--jobs=${BB_NUMBER_THREADS}"
+PARALLEL_MAKE = ""
+
+EXTRA_OEMAKE = " \
+    LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" \
+    LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}" \
+    LIMIT_CORES="${TI_PDK_LIMIT_CORES}" \
+    ${TI_PDK_EXTRA_MAKE} \
+"
 
 do_configure() {
     BUILD_DIR=${B}/`get_build_dir_bash`
@@ -79,25 +87,31 @@ do_configure() {
         find -name "*.xs" -exec sed -i "s/sectti\.exe/sectti/" {} \;
         find -name "*.xs" -exec sed -i "/\.chm/d" {} \;
         find -name "*.xs" -exec sed -i "s/pasm\_dos/pasm\_linux/" {} \;
+
+        cd ${B}
+        ${XDC_INSTALL_DIR}/xdc clean ${PARALLEL_XDC} -PR .
+    else
+        if [ "${CLEANBROKEN}" != "1" ]
+        then
+            cd ${BUILD_DIR}
+            oe_runmake clean
+            cd "${B}"
+        fi
     fi
+
 }
 
 do_compile() {
 
     if [ "${TI_PDK_XDCMAKE}" == "1" ]
     then
-        ${XDC_INSTALL_DIR}/xdc clean ${PARALLEL_XDC} -PR .
         ${XDC_INSTALL_DIR}/xdc all ${PARALLEL_XDC} XDCARGS="${TI_PDK_XDC_ARGS}" ROOTDIR="${ROOTDIR}" -PR .
         ${XDC_INSTALL_DIR}/xdc release XDCARGS="${TI_PDK_XDC_ARGS}" -PR .
     else
         BUILD_DIR=${B}/`get_build_dir_bash`
         cd ${BUILD_DIR}
 
-        make ${TI_PDK_MAKE_TARGET} \
-             LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" \
-             LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}" \
-             LIMIT_CORES="${TI_PDK_LIMIT_CORES}" \
-             ${TI_PDK_EXTRA_MAKE}
+        oe_runmake ${TI_PDK_MAKE_TARGET}
     fi
 }
 
