@@ -1,0 +1,26 @@
+From 621e02869be9958400fd045e1bb0f4f1d81a6918 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Fri, 10 Nov 2017 18:55:26 -0500
+Subject: [PATCH] srvkm/common/devicemem.c: suppress implicit fallthrough error
+ in gcc7
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ eurasia_km/services4/srvkm/common/devicemem.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/eurasia_km/services4/srvkm/common/devicemem.c b/eurasia_km/services4/srvkm/common/devicemem.c
+index baf7c41..c083c63 100644
+--- a/eurasia_km/services4/srvkm/common/devicemem.c
++++ b/eurasia_km/services4/srvkm/common/devicemem.c
+@@ -1071,6 +1071,7 @@ PVRSRV_ERROR FreeMemCallBackCommon(PVRSRV_KERNEL_MEM_INFO *psMemInfo,
+ 			case PVRSRV_MEMTYPE_ION:
+ 			case PVRSRV_MEMTYPE_DMABUF:
+ 				freeExternal(psMemInfo);
++				/* FALLTHRU */
+ 			case PVRSRV_MEMTYPE_DEVICE:
+ 			case PVRSRV_MEMTYPE_DEVICECLASS:
+ #if defined(SUPPORT_ION)
+-- 
+2.7.4
+

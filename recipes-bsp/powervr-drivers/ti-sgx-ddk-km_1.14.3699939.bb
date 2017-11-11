@@ -7,7 +7,7 @@ inherit module
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15"
 
-MACHINE_KERNEL_PR_append = "m"
+MACHINE_KERNEL_PR_append = "o"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -22,7 +22,10 @@ RCONFLICTS_${PN} = "omapdrm-pvr"
 
 BRANCH = "ti-img-sgx/${PV}/k4.9"
 
-SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH} \
+file://0001-srvkm-common-devicemem.c-suppress-implicit-fallthrou.patch \
+"
+
 S = "${WORKDIR}/git"
 
 SRCREV = "0086977380d3320d70a3abc78b95fa0641427073"
