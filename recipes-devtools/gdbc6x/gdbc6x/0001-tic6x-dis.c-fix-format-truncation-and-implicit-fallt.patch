@@ -1,0 +1,35 @@
+From b14e8814c467e8cea03725d2e7c937f352449ab6 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Fri, 10 Nov 2017 20:33:26 -0500
+Subject: [PATCH] tic6x-dis.c: fix format truncation and implicit fallthrough
+ errors in gcc7
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ gdbc6x/opcodes/tic6x-dis.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/gdbc6x/opcodes/tic6x-dis.c b/gdbc6x/opcodes/tic6x-dis.c
+index d926d09..69ba999 100644
+--- a/gdbc6x/opcodes/tic6x-dis.c
++++ b/gdbc6x/opcodes/tic6x-dis.c
+@@ -691,7 +691,7 @@ print_insn_tic6x (bfd_vma addr, struct disassemble_info *info)
+ 	  if (opc->flags & TIC6X_FLAG_INSN16_BSIDE && func_unit_side == 1)
+ 	      func_unit_cross = 1;
+ 
+-	  snprintf (func_unit_buf, 7, " .%c%u%s%s", func_unit_char,
++	  snprintf (func_unit_buf, 8, " .%c%u%s%s", func_unit_char,
+ 		    func_unit_side, (func_unit_cross ? "X" : ""), data_str);
+ 	  func_unit = func_unit_buf;
+ 	}
+@@ -1085,6 +1085,7 @@ print_insn_tic6x (bfd_vma addr, struct disassemble_info *info)
+ 		case tic6x_coding_mem_offset_minus_one_noscale:
+ 		case tic6x_coding_mem_offset_minus_one:
+ 		  fld_val += 1;
++		  /* FALLTHRU */
+ 		case tic6x_coding_mem_offset_noscale:
+ 		case tic6x_coding_mem_offset:
+ 		  mem_offset = fld_val;
+-- 
+2.7.4
+

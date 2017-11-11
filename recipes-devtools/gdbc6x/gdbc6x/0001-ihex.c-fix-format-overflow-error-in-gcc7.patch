@@ -1,0 +1,26 @@
+From daca80121b92504c4a21e7420765a91d9625f2a4 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Fri, 10 Nov 2017 20:11:45 -0500
+Subject: [PATCH] ihex.c: fix format overflow error in gcc7
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ gdbc6x/bfd/ihex.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gdbc6x/bfd/ihex.c b/gdbc6x/bfd/ihex.c
+index 09f756a..abe7398 100644
+--- a/gdbc6x/bfd/ihex.c
++++ b/gdbc6x/bfd/ihex.c
+@@ -217,7 +217,7 @@ ihex_bad_byte (bfd *abfd, unsigned int lineno, int c, bfd_boolean error)
+     }
+   else
+     {
+-      char buf[10];
++      char buf[13];
+ 
+       if (! ISPRINT (c))
+ 	sprintf (buf, "\\%03o", (unsigned int) c);
+-- 
+2.7.4
+

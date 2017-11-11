@@ -1,0 +1,35 @@
+From 043a40fdc396118e099180b0ce0578ead24cf312 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Fri, 10 Nov 2017 19:12:28 -0500
+Subject: [PATCH] coffgen.c: adjust fall through comment to work with gcc7
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ gdbc6x/bfd/coffgen.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/gdbc6x/bfd/coffgen.c b/gdbc6x/bfd/coffgen.c
+index 07a527d..665df95 100644
+--- a/gdbc6x/bfd/coffgen.c
++++ b/gdbc6x/bfd/coffgen.c
+@@ -2116,7 +2116,7 @@ coff_print_symbol (bfd *abfd,
+ 				 auxp->u.auxent.x_scn.x_comdat);
+ 		      break;
+ 		    }
+-		    /* Otherwise fall through.  */
++		    /* Else fall through.  */
+ 		case C_EXT:
+ 		case C_AIX_WEAKEXT:
+ 		  if (ISFCN (combined->u.syment.n_type))
+@@ -2136,7 +2136,7 @@ coff_print_symbol (bfd *abfd,
+ 			       llnos, next);
+ 		      break;
+ 		    }
+-		  /* Otherwise fall through.  */
++		  /* Else fall through.  */
+ 		default:
+ 		  fprintf (file, "AUX lnno %d size 0x%x tagndx %ld",
+ 			   auxp->u.auxent.x_sym.x_misc.x_lnsz.x_lnno,
+-- 
+2.7.4
+

@@ -1,0 +1,40 @@
+From 36293cf669de453207ce38cd8ac296df4a34e6b5 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Fri, 10 Nov 2017 19:40:41 -0500
+Subject: [PATCH] srec.c: fix implicit fallthrough and format overflow errors
+ in gcc7
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ gdbc6x/bfd/srec.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/gdbc6x/bfd/srec.c b/gdbc6x/bfd/srec.c
+index ded9e76..076e152 100644
+--- a/gdbc6x/bfd/srec.c
++++ b/gdbc6x/bfd/srec.c
+@@ -248,7 +248,7 @@ srec_bad_byte (bfd *abfd,
+     }
+   else
+     {
+-      char buf[10];
++      char buf[13];
+ 
+       if (! ISPRINT (c))
+ 	sprintf (buf, "\\%03o", (unsigned int) c);
+@@ -961,10 +961,12 @@ srec_write_record (bfd *abfd,
+     case 7:
+       TOHEX (dst, (address >> 24), check_sum);
+       dst += 2;
++      /* FALLTHRU */
+     case 8:
+     case 2:
+       TOHEX (dst, (address >> 16), check_sum);
+       dst += 2;
++      /* FALLTHRU */
+     case 9:
+     case 1:
+     case 0:
+-- 
+2.7.4
+
