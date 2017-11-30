@@ -3,7 +3,7 @@ SRC_URI_append_k2hk = " file://k2hk-uio.dtsi"
 SRC_URI_append_k2l-evm = " file://k2l-uio.dtsi"
 SRC_URI_append_k2e = " file://k2e-uio.dtsi"
 SRC_URI_append_k2g = " file://keystone-k2g-pru-uio.dtsi"
-SRC_URI_append_dra7xx = " file://am572x-pru-uio.dtsi \
+SRC_URI_append_dra7xx = " file://am57xx-pru-uio.dtsi \
                           file://am571x-pru-uio.dtsi \
 "
 SRC_URI_append_ti33x = " file://am335x-pru-uio.dtsi"
@@ -34,10 +34,15 @@ do_setup_uio_append_dra7xx() {
 
     if [ "${ENABLE_TI_UIO_DEVICES}" == "1" ]
     then
-        dts="am572x-idk-pru-excl-uio.dts"
-        dtsi="am572x-pru-uio.dtsi"
-        cp ${S}/arch/arm/boot/dts/am572x-idk.dts ${S}/arch/arm/boot/dts/$dts
+        dtsi="am57xx-pru-uio.dtsi"
         cp ${WORKDIR}/${dtsi} ${S}/arch/arm/boot/dts/
+
+        dts="am572x-idk-pru-excl-uio.dts"
+        cp ${S}/arch/arm/boot/dts/am572x-idk.dts ${S}/arch/arm/boot/dts/$dts
+        echo "#include \"${dtsi}\"" >> ${S}/arch/arm/boot/dts/$dts
+
+        dts="am574x-idk-pru-excl-uio.dts"
+        cp ${S}/arch/arm/boot/dts/am574x-idk.dts ${S}/arch/arm/boot/dts/$dts
         echo "#include \"${dtsi}\"" >> ${S}/arch/arm/boot/dts/$dts
 
         dts="am571x-idk-pru-excl-uio.dts"
