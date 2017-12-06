@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=4725015cb0be7be389cf06deeae3683d"
 DEPENDS = "libnl"
 RDEPENDS_${PN} = "wl18xx-fw"
 
-#Tag: R8.7_SP1 (8.7.1)
-SRCREV = "39542357111d1f24e866c2857d561a348c04cce4"
+#Tag: R8.7_SP3 (8.7.3)
+SRCREV = "5048b59a444ac59ba7171d6e122d5a84581aebf2"
 SRC_URI = "git://git.ti.com/wilink8-wlan/18xx-ti-utils.git"
 
 S = "${WORKDIR}/git"
