@@ -7,8 +7,8 @@ SRC_URI = " \
 	file://0001-Add-Makefile-to-install-firmware-files.patch \
 "
 
-# Tag: R8.7-SP1 (8.7.1)
-SRCREV = "fe3909e93d15a4b17e43699dde2bba0e9a3c0abc"
+# Tag: R8.7-SP3 (8.7.3)
+SRCREV = "f659be25473e4bde8dc790bff703ecacde6e21da"
 BRANCH = "master"
 
 S = "${WORKDIR}/git"
