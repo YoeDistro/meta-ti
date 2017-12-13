@@ -59,6 +59,7 @@ do_install () {
     mkdir -p ${D}${libdir}/gbm
     ln -sf ../libpvrGBMWSEGL.so.${PV} ${D}${libdir}/gbm/gbm_pvr.so
     ln -sf libGLESv2.so.${PV} ${D}${libdir}/libGLESv2.so.1
+    chown -R root:root ${D}
 }
 
 FILES_${PN} =  "${bindir}/*"
