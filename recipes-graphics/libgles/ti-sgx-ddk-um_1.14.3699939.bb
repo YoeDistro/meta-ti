@@ -31,7 +31,7 @@ INITSCRIPT_PARAMS = "defaults 8"
 
 inherit update-rc.d
 
-PR = "r27"
+PR = "r28"
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 omap5-sgx-ddk-um-linux"
 
 DEPENDS += "libdrm udev libgbm wayland libffi"
@@ -55,7 +55,7 @@ do_install () {
     oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT}
     mkdir -p ${D}${libdir}/gbm
     ln -sf ../libpvrGBMWSEGL.so.${PV} ${D}${libdir}/gbm/gbm_pvr.so
-    ln -sf ../libGLESv2.so.${PV} ${D}${libdir}/libGLESv2.so.1
+    ln -sf libGLESv2.so.${PV} ${D}${libdir}/libGLESv2.so.1
 }
 
 FILES_${PN} =  "${bindir}/*"
