@@ -13,3 +13,6 @@ TI_PDK_XDCMAKE = "0"
 
 export PDK_CSL_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
+
+# HTML doc link params
+PDK_COMP_LINK_TEXT = "CSL-Chip Support Library"
