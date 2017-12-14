@@ -39,4 +39,6 @@ FILES_${PN}-dev += "${MPM_INSTALL_DIR_RECIPE}"
 INSANE_SKIP_${PN}-dev = "arch"
 INSANE_SKIP_${PN}-test = "arch"
 
+RDEPENDS_${PN}-dev = "bash"
+
 ALLOW_EMPTY_${PN} = "1"
