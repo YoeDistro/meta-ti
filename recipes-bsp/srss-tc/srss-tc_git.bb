@@ -20,6 +20,9 @@ INITSCRIPT_PARAMS = "defaults 10"
 
 inherit update-rc.d
 LDFLAGS += "-lrt"
+CFLAGS += "${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS}"
+
+EXTRA_OEMAKE = "CROSS_COMPILE=${TARGET_PREFIX}"
 
 do_install() {
 	install -d ${D}${bindir}/
