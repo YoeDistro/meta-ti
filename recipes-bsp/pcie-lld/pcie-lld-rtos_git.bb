@@ -13,14 +13,14 @@ PCIE_LLD_GIT_PROTOCOL = "git"
 PCIE_LLD_GIT_BRANCH = "master"
 PCIE_LLD_GIT_DESTSUFFIX = "git/ti/drv/pcie"
 
-# Below commit ID corresponds to "DEV.PCIE_LLD.02.02.00.09"
-PCIE_LLD_SRCREV = "93f302f6f3dd3a83ac0dd0e24b3965f98f46eac7"
+# Below commit ID corresponds to "DEV.PCIE_LLD.02.02.00.11"
+PCIE_LLD_SRCREV = "07ad9c62da03bb8b6aa65e2507deab92e56ef83a"
 
 BRANCH = "${PCIE_LLD_GIT_BRANCH}"
 SRC_URI = "${PCIE_LLD_GIT_URI};destsuffix=${PCIE_LLD_GIT_DESTSUFFIX};protocol=${PCIE_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${PCIE_LLD_SRCREV}"
-PV = "02.02.00.09"
+PV = "02.02.00.11"
 PR = "r0"
 
 S = "${WORKDIR}/${PCIE_LLD_GIT_DESTSUFFIX}"
