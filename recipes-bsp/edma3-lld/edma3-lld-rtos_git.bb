@@ -50,6 +50,33 @@ TARGETLIST_keystone = " \
         a15 \
 "
 
+PLATFORMLIST_append_dra7xx-evm = " \
+        tda3xx-evm \
+"
+
+TARGETLIST_c66x = " \
+        66 \
+"
+
+PLATFORMLIST_c665x-evm = " \
+        c6657-evm \
+"
+
+PLATFORMLIST_c667x-evm = " \
+        c6678-evm \
+"
+
+PLATFORMLIST_omapl1 = " \
+        omapl137-evm \
+        omapl138-evm \
+"
+
+TARGETLIST_omapl1 = " \
+        arm9 \
+        674 \
+"
+
+EXTRA_OEMAKE_remove = "TARGET=66"
 FORMAT="ELF"
 
 S = "${WORKDIR}/git"
@@ -73,6 +100,8 @@ export CROSSAR="${TARGET_PREFIX}ar"
 export CROSSLNK="${TARGET_PREFIX}gcc"
 
 do_configure () {
+    rm -rf ${S}/examples/edma3_driver/evmTCI6614
+    rm -rf ${S}/examples/edma3_driver/evmTCI6614BE
     sed -i -e "s|_config.bld|config.bld|g" ${S}/makerules/env.mk
     sed -i -e "s|^edma3_lld_PATH =.*$|edma3_lld_PATH = ${S}|g" ${S}/makerules/env.mk
     sed -i -e "s|^CODEGEN_PATH_M3 =.*$|CODEGEN_PATH_M3 = ${M4_TOOLCHAIN_INSTALL_DIR}|g" ${S}/makerules/env.mk
