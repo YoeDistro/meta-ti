@@ -68,7 +68,7 @@ TI_BIN_UNPK_CMDS = "Y:workdir"
 
 S = "${CODEC_SUITE_NAME}"
 
-DEPENDS = "ti-cgt6x ti-xdctools ti-dspbios ti-codec-engine ti-linuxutils"
+DEPENDS = "ti-cgt6x ti-xdctools-native ti-dspbios ti-codec-engine ti-linuxutils"
 
 #generic codec
 DSPSUFFIX_omap3530 = "x64P"

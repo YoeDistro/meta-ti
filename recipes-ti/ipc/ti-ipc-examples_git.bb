@@ -1,7 +1,7 @@
 DESCRIPTION = "TI Inter Process Communication (IPC) examples with Host running linux"
 require ti-ipc-examples.inc
 
-DEPENDS = "ti-xdctools ti-sysbios ti-ipc-rtos"
+DEPENDS = "ti-xdctools-native ti-sysbios ti-ipc-rtos"
 
 do_compile_append() {
 

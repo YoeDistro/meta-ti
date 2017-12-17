@@ -21,7 +21,7 @@ S = "${WORKDIR}/local_power_manager_linux_${PV}"
 
 SRC_URI = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/lpm/${PV}/exports/local_power_manager_linux_${PV}.tar.gz;name=lpmtarball"
 
-DEPENDS = "ti-dsplink ti-xdctools"
+DEPENDS = "ti-dsplink ti-xdctools-native"
 DEPENDS += "virtual/kernel"
 
 # SOC_FAMILY configuration

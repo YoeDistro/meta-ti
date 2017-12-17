@@ -3,7 +3,7 @@ require recipes-ti/includes/ti-paths.inc
 
 PR = "${INC_PR}.1"
 
-DEPENDS = "ti-sysbios ti-xdctools gcc-arm-none-eabi-native ti-cgt-arm-native ti-cgt6x-native"
+DEPENDS = "ti-sysbios ti-xdctools-native gcc-arm-none-eabi-native ti-cgt-arm-native ti-cgt6x-native"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|c66x|omapl1"
 PACKAGE_ARCH = "${MACHINE_ARCH}"

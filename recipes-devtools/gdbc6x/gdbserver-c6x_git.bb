@@ -2,7 +2,7 @@ DESCRIPTION = "TI gdb-server to be used with c6xgdb."
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://../debian/copyright;md5=82c616b6c8f9c11c46feaaf8f9a11495"
 
-DEPENDS = "ti-xdais ti-framework-components ti-cgt6x-native ti-sysbios ti-xdctools"
+DEPENDS = "ti-xdais ti-framework-components ti-cgt6x-native ti-sysbios ti-xdctools-native"
 
 PR = "${INC_PR}.0"
 

@@ -17,7 +17,7 @@ require recipes-ti/includes/ti-paths.inc
 PR = "r4"
 inherit update-alternatives
 
-DEPENDS = "ti-xdctools ti-sysbios ti-codec-engine ti-framework-components ti-xdais ti-ipc-rtos ti-osal ti-cgt6x-native"
+DEPENDS = "ti-xdctools-native ti-sysbios ti-codec-engine ti-framework-components ti-xdais ti-ipc-rtos ti-osal ti-cgt6x-native"
 
 export HWVERSION = "ES10"
 export BIOSTOOLSROOT = "${STAGING_DIR_TARGET}/usr/share/ti"
