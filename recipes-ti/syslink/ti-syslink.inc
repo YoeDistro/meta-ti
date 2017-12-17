@@ -31,7 +31,7 @@ SRC_URI = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/sy
            file://syslink.pc \
           "
 
-DEPENDS = "ti-sysbios ti-xdctools ti-cgt6x ti-ipc ti-cgt470"
+DEPENDS = "ti-sysbios ti-xdctools-native ti-cgt6x ti-ipc ti-cgt470"
 DEPENDS += "virtual/kernel" 
 
 #common frameq gateMP heapBufMP heapMemMP knlNotify listMP messageQ notify ringIO ringIO_gpp sharedRegion slaveLoader tilerDaemon

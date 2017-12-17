@@ -28,7 +28,7 @@ require recipes-ti/includes/ti-paths.inc
 
 inherit update-alternatives
 
-DEPENDS = "ti-xdctools ti-sysbios ti-codec-engine ti-framework-components ti-xdais ti-cgt-arm-native ti-ipc-rtos"
+DEPENDS = "ti-xdctools-native ti-sysbios ti-codec-engine ti-framework-components ti-xdais ti-cgt-arm-native ti-ipc-rtos"
 
 export HWVERSION="ES10"
 export BIOSTOOLSROOT="${STAGING_DIR_TARGET}/usr/share/ti"
@@ -42,6 +42,8 @@ export XDAISVERSION="ti-xdais-tree"
 
 export TMS470CGTOOLPATH="${M4_TOOLCHAIN_INSTALL_DIR}"
 export IPCSRC="${STAGING_DIR_TARGET}/usr/share/ti/ti-ipc-tree"
+
+EXTRA_OEMAKE += "XDCDIST_TREE=${STAGING_DIR_NATIVE}/usr/share/ti/${XDCVERSION}"
 
 do_configure() {
     oe_runmake unconfig

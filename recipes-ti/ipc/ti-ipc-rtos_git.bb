@@ -2,7 +2,7 @@ require ti-ipc.inc
 require ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
-DEPENDS = "ti-xdctools ti-sysbios zip-native"
+DEPENDS = "ti-xdctools-native ti-sysbios doxygen-native zip-native"
 
 PACKAGES =+ "${PN}-fw"
 FILES_${PN}-fw = "${base_libdir}/firmware/*"

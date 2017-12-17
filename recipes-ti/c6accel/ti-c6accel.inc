@@ -29,7 +29,7 @@ BINFILE="c6accel_${PV}_Linux-x86_Setup.bin"
 TI_BIN_UNPK_CMDS="Y:workdir"
 
 DEPENDS = "ti-codec-engine ti-xdais ti-dsplink ti-dspbios" 
-DEPENDS += "ti-edma3lld ti-cgt6x ti-xdctools ti-framework-components" 
+DEPENDS += "ti-edma3lld ti-cgt6x ti-xdctools-native ti-framework-components"
 DEPENDS += "ti-biosutils" 
 
 TIARGS = ' \
