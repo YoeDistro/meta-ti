@@ -3,6 +3,8 @@ require recipes-bsp/osal/osal.inc
 
 PR = "${INC_PR}.0"
 
+COMPATIBLE_MACHINE_append = "|c66x"
+
 S = "${WORKDIR}/${OSAL_GIT_DESTSUFFIX}"
 
 DEPENDS_append_ti33x = " starterware-rtos"
