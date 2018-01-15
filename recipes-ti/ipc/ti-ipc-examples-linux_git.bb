@@ -27,7 +27,6 @@ do_compile_append() {
 
 do_install_append() {
   cd ${S_ipc-examples}/src
-  IPC_VERSION=`echo ${PV}${RELEASE_SUFFIX} | sed -e 's|\.|_|g'`
 
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
     # Install directory for linux examples
