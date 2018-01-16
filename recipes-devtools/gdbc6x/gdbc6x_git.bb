@@ -3,7 +3,7 @@ SECTION = "devel"
 LICENSE = "GPLv3+"
 LIC_FILES_CHKSUM = "file://debian/copyright;md5=bf0fe2872eb3dfeebb2cbe38206fe81f"
 
-DEPENDS = "ncurses bison texinfo flex gettext"
+DEPENDS = "ncurses bison-native texinfo flex-native gettext"
 
 PR = "${INC_PR}.1"
 
