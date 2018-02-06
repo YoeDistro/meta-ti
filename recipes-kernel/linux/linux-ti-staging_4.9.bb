@@ -13,40 +13,40 @@ require recipes-kernel/linux/ti-uio.inc
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-4.9:"
 
 # Pull in the devicetree files into the rootfs
-RDEPENDS_kernel-base += "kernel-devicetree"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base += "kernel-devicetree"
 
 # Add run-time dependency for PM firmware to the rootfs
-RDEPENDS_kernel-base_append_ti33x = " amx3-cm3"
-RDEPENDS_kernel-base_append_ti43x = " amx3-cm3"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_ti33x = " amx3-cm3"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_ti43x = " amx3-cm3"
 
 # Add run-time dependency for VPE VPDMA firmware to the rootfs
-RDEPENDS_kernel-base_append_dra7xx = " vpdma-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_dra7xx = " vpdma-fw"
 
 # Add run-time dependency for Goodix firmware to the rootfs
-RDEPENDS_kernel-base_append_dra7xx = " goodix-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_dra7xx = " goodix-fw"
 
 # Install boot-monitor skern file into /boot dir of rootfs
-RDEPENDS_kernel-base_append_keystone = " boot-monitor"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_keystone = " boot-monitor"
 
 # Install ti-sci-fw into /boot dir of rootfs
-RDEPENDS_kernel-base_append_k2g = " ti-sci-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_k2g = " ti-sci-fw"
 
 # Add run-time dependency for SerDes firmware to the rootfs
-RDEPENDS_kernel-base_append_keystone = " serdes-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_keystone = " serdes-fw"
 
 # Add run-time dependency for QMSS PDSP firmware to the rootfs
-RDEPENDS_kernel-base_append_keystone = " qmss-pdsp-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_keystone = " qmss-pdsp-fw"
 
 # Add run-time dependency for NETCP PA firmware to the rootfs
-RDEPENDS_kernel-base_append_k2hk = " netcp-pa-fw"
-RDEPENDS_kernel-base_append_k2e = " netcp-pa-fw"
-RDEPENDS_kernel-base_append_k2l-evm = " netcp-pa-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_k2hk = " netcp-pa-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_k2e = " netcp-pa-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_k2l-evm = " netcp-pa-fw"
 
 # Add run-time dependency for PRU Ethernet firmware to the rootfs
-RDEPENDS_kernel-base_append_am57xx-evm = " prueth-fw"
-RDEPENDS_kernel-base_append_am437x-evm = " prueth-fw"
-RDEPENDS_kernel-base_append_am335x-evm = " prueth-fw"
-RDEPENDS_kernel-base_append_k2g = " prueth-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_am57xx-evm = " prueth-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_am437x-evm = " prueth-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_am335x-evm = " prueth-fw"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base_append_k2g = " prueth-fw"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
