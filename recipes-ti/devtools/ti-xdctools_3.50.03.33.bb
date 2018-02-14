@@ -7,7 +7,3 @@ LIC_FILES_CHKSUM = "file://docs/license/xdc/shelf/package.html;beginline=1;endli
 
 SRC_URI[xdczip.md5sum] = "21310b647275a7c7dd5b37dcb96c0b1b"
 SRC_URI[xdczip.sha256sum] = "afe8616773e63b01e79e8cfacaf4d2c8d3b92c798c7f8cf5d1c7b5fe2060bbe4"
-
-FILES_${PN} += "${XDC_INSTALL_DIR_RECIPE}"
-
-BBCLASSEXTEND = "native nativesdk"
