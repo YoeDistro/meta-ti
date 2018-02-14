@@ -7,9 +7,13 @@ require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-staging.inc
 
 do_install() {
+    CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
+
     install -d ${D}${XDC_INSTALL_DIR_RECIPE}
-    cp -pPrf ${S}/* ${D}${XDC_INSTALL_DIR_RECIPE}
+    cp ${CP_ARGS}  ${S}/* ${D}${XDC_INSTALL_DIR_RECIPE}
 }
+
+BBCLASSEXTEND = "native nativesdk"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
