@@ -10,7 +10,7 @@ require recipes-kernel/linux/cmem.inc
 require recipes-kernel/linux/ti-uio.inc
 
 # Look in the generic major.minor directory for files
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-4.9:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-4.14:"
 
 # Pull in the devicetree files into the rootfs
 RDEPENDS_${KERNEL_PACKAGE_NAME}-base += "kernel-devicetree"
@@ -52,10 +52,10 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${WORKDIR}/git"
 
-BRANCH = "ti-lsk-linux-4.9.y"
+BRANCH = "ti-lsk-linux-4.14.y"
 
-SRCREV = "89d085d1a407961d43d2492803facb6a8e678fda"
-PV = "4.9.69+git${SRCPV}"
+SRCREV = "36a950c35adcec9c55c20ef1deb5e33c87ae0a3f"
+PV = "4.14.19+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
 MACHINE_KERNEL_PR_append = "a"
