@@ -54,8 +54,8 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-lsk-linux-4.14.y"
 
-SRCREV = "36a950c35adcec9c55c20ef1deb5e33c87ae0a3f"
-PV = "4.14.19+git${SRCPV}"
+SRCREV = "ceefd552693f88d40d447fdb5ac5c42104cd2632"
+PV = "4.14.20+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
 MACHINE_KERNEL_PR_append = "a"
@@ -65,3 +65,5 @@ KERNEL_GIT_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git"
 KERNEL_GIT_PROTOCOL = "git"
 SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
             file://defconfig"
+
+FILES_kernel-devicetree += "/${KERNEL_IMAGEDEST}/*.itb"
