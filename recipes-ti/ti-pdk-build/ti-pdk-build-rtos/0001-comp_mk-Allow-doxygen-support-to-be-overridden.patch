@@ -1,0 +1,50 @@
+From e5dfce58161aaee80ca45c3e992a059efac459d7 Mon Sep 17 00:00:00 2001
+From: Joshua Watt <JPEWhacker@gmail.com>
+Date: Wed, 21 Feb 2018 13:38:35 -0600
+Subject: [PATCH] comp_mk: Allow doxygen support to be overridden
+
+Support for Doxygen can be globally disabled by setting the
+DOXYGEN_SUPPORT environment variable to "no"
+
+Signed-off-by: Joshua Watt <JPEWhacker@gmail.com>
+---
+ comp_top.mk | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/comp_top.mk b/comp_top.mk
+index 28700ba..e331132 100644
+--- a/comp_top.mk
++++ b/comp_top.mk
+@@ -114,6 +114,11 @@ comp_FIRM_LIST_CLEAN = $(addsuffix _clean, $($(COMP)_FIRM_LIST))
+ comp_PKG_LIST_ALL_CLEAN = $(addsuffix _clean, $(comp_PKG_LIST_ALL))
+ comp_PKG_LIST_PACKAGE = $(addsuffix _package, $(comp_PKG_LIST_ALL))
+ 
++# If the component enables doxygen, this will evaluate to "yesyes" and doxygen
++# will be built. If this value is overridden by the user to any other value, or
++# $(COMP)_DOXYGEN_SUPPORT is not "yes", doxygen is not built.
++DOXYGEN_SUPPORT ?= yes$($(COMP)_DOXYGEN_SUPPORT)
++
+ .PHONY : apps appcores app_clean clean_appcores \
+          lib libcores lib_allendians lib_clean clean_libcores clean_lib_allendians  \
+          all comp_libs comp_libs_clean examples examples_clean clean package $(comp_PKG_LIST_ALL) \
+@@ -230,7 +235,7 @@ xdc_meta_clean:
+ 	$(XDC) clean XDCBUILDCFG=config_mk.bld
+ 
+ doxygen:
+-ifeq ($($(COMP)_DOXYGEN_SUPPORT),yes)
++ifeq ($(DOXYGEN_SUPPORT),yesyes)
+ 	$(ECHO) Creating Doxygen API guide ...
+ 	@doxygen docs/Doxyfile
+ else
+@@ -238,7 +243,7 @@ else
+ endif
+ 
+ clean_doxygen:
+-ifeq ($($(COMP)_DOXYGEN_SUPPORT),yes)
++ifeq ($(DOXYGEN_SUPPORT),yesyes)
+ 	$(ECHO) cleaned Doxygen API guide ...
+ 	$(RM) -rf docs/doxygen
+ else
+-- 
+2.14.3
+

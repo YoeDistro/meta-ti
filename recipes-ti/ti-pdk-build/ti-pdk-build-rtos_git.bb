@@ -15,7 +15,10 @@ PDK_BUILD_GIT_BRANCH = "master"
 PDK_BUILD_SRCREV = "cbac264f08aa9cdc2cd533d1433ef57b922cccb5"
 
 BRANCH = "${PDK_BUILD_GIT_BRANCH}"
-SRC_URI = "${PDK_BUILD_GIT_URI};protocol=${PDK_BUILD_GIT_PROTOCOL};branch=${BRANCH}"
+SRC_URI = "\
+    ${PDK_BUILD_GIT_URI};protocol=${PDK_BUILD_GIT_PROTOCOL};branch=${BRANCH} \
+    file://0001-comp_mk-Allow-doxygen-support-to-be-overridden.patch \
+    "
 
 SRCREV = "${PDK_BUILD_SRCREV}"
 
