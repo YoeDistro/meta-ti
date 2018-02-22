@@ -59,17 +59,24 @@ TI_PDK_LIMIT_SOCS ?= ""
 TI_PDK_LIMIT_BOARDS ?= ""
 TI_PDK_MAKE_TARGET ?= "release"
 TI_PDK_EXTRA_MAKE ?= ""
+TI_PDK_DOXYGEN_SUPPORT ?= "1"
 
 TI_PDK_XDC_ARGS ?= "${TI_PDK_LIMIT_SOCS}"
 
 PARALLEL_XDC = "--jobs=${BB_NUMBER_THREADS}"
 PARALLEL_MAKE = ""
 
+def get_doxygen_support(d):
+    if d.getVar('TI_PDK_DOXYGEN_SUPPORT', True) == '1':
+        return ''
+    return 'DOXYGEN_SUPPORT=no'
+
 EXTRA_OEMAKE = " \
     LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" \
     LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}" \
     LIMIT_CORES="${TI_PDK_LIMIT_CORES}" \
     ${TI_PDK_EXTRA_MAKE} \
+    ${@get_doxygen_support(d)} \
 "
 
 do_configure() {
