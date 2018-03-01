@@ -7,6 +7,8 @@ inherit autotools pkgconfig
 
 DEPENDS = "openssl libtool libp11"
 
+COMPATIBLE_MACHINE = "keystone"
+
 BRANCH="master"
 
 PV = "1.3.0.1"
