@@ -8,7 +8,7 @@ mntdir = "/mnt"
 inherit autotools pkgconfig
 
 DEPENDS = "openssl libdaemon zlib"
-COMPATIBLE_MACHINE = "(tci6614-evm|keystone)"
+COMPATIBLE_MACHINE = "keystone"
 
 BRANCH="ti-softhsm-rebase"
 SRC_URI = "git://git.ti.com/keystone-linux/ti-softhsmv2.git;protocol=git;branch=${BRANCH}"
