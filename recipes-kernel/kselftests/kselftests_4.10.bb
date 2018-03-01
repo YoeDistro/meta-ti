@@ -21,7 +21,6 @@ S = "${WORKDIR}/linux-${PV}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "libcap libcap-ng popt rsync-native util-linux pkgconfig-native \
-    ${@bb.utils.contains("TARGET_ARCH", "arm", "", "numactl", d)} \
 "
 
 inherit kernel-arch
