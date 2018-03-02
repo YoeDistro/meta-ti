@@ -13,6 +13,8 @@ SRC_URI = "git://git.mansr.com/omapfbplay;protocol=git \
 
 S = "${WORKDIR}/git"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 # We want a kernel header for armv7a, but we don't want to make mplayer machine specific for that
 STAGING_KERNEL_DIR = "${STAGING_DIR}/${MACHINE_ARCH}${TARGET_VENDOR}-${TARGET_OS}/kernel"
 CFLAGS += " -I. -I${STAGING_KERNEL_DIR}/include "
