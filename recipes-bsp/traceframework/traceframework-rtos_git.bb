@@ -4,9 +4,6 @@ require traceframework.inc
 
 PR = "${INC_PR}.2"
 
-DEPENDS_append = " uia \
-"
-
 XDCPATH_append = ";${UIA_INSTALL_DIR}/packages"
 
 # HTML doc link params
