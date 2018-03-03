@@ -7,6 +7,8 @@ LIC_FILES_CHKSUM = "file://TransportQmss.xdc;beginline=1;endline=35;md5=ad783760
 
 COMPATIBLE_MACHINE = "k2hk|k2l-evm|k2e"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 DEPENDS_append = " qmss-lld-rtos \
                    cppi-lld-rtos \
                    ti-ipc-rtos \
