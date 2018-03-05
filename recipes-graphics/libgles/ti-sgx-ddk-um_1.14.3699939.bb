@@ -5,10 +5,10 @@ LIC_FILES_CHKSUM = "file://TI-Linux-Graphics-DDK-UM-Manifest.doc;md5=550702a0318
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-BRANCH = "ti-img-sgx/${PV}"
+BRANCH = "ti-img-sgx/${PV}_k4.4"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-um-linux.git;protocol=git;branch=${BRANCH}"
-SRCREV = "d184140aa5c17e13e1bf21151f1a7bc068bdf8bf"
+SRCREV = "2736a396f9c801fc0818d830f8a3215aeb8b6534"
 
 # There's only hardfp version available
 python __anonymous() {
@@ -31,7 +31,7 @@ INITSCRIPT_PARAMS = "defaults 8"
 
 inherit update-rc.d
 
-PR = "r23"
+PR = "r24"
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 omap5-sgx-ddk-um-linux"
 
 DEPENDS += "libdrm udev libgbm wayland libffi"
