@@ -20,7 +20,7 @@ SRC_URI = "${BOARD_GIT_URI};protocol=${BOARD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${BOARD_SRCREV}"
 PV = "01.00.09.00A"
-PR = "r0"
+PR = "r1"
 
 DEPENDS_append = " i2c-lld-rtos \
                    spi-lld-rtos \
@@ -29,14 +29,15 @@ DEPENDS_append = " i2c-lld-rtos \
 
 DEPENDS_append_omap-a15 = " osal-rtos \
                             ti-ndk \
+                            mmcsd-lld-rtos \
+                            pm-lld-rtos \
 "
 
 DEPENDS_append_am57xx-evm = " gpio-lld-rtos \
                               icss-emac-lld-rtos \
-                              mmcsd-lld-rtos \
                               pruss-lld-rtos \
-                              pm-lld-rtos \
 "
+
 
 DEPENDS_append_ti33x = " gpio-lld-rtos \
                          gpmc-lld-rtos \
