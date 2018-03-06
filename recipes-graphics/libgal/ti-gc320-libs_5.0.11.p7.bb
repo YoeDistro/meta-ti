@@ -1,7 +1,7 @@
 DESCRIPTION = "Userspace libraries for GC320 chipset on TI SoCs"
 HOMEPAGE = "https://git.ti.com/graphics/ti-gc320-libs"
 LICENSE = "TI-TSPA"
-LIC_FILES_CHKSUM = "file://Manifest.html;md5=4d759c4e533af6aaeff2af7f405697c2"
+LIC_FILES_CHKSUM = "file://Manifest.html;md5=a9121e8936ace09820d23f7626daaca5"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -10,7 +10,7 @@ CLEANBROKEN = "1"
 BRANCH = "ti-${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/ti-gc320-libs.git;protocol=git;branch=${BRANCH}"
-SRCREV = "ab0ca5bff345f6c13807fea3c4acabf5f2b9b10a"
+SRCREV = "c0afab259de59909cfe74c01f3f7fbaa147f94b5"
 
 # There's only hardfp version available
 python __anonymous() {
@@ -26,7 +26,7 @@ python __anonymous() {
 
 TARGET_PRODUCT_omap-a15 = "jacinto6evm"
 
-PR = "r1"
+PR = "r2"
 
 S = "${WORKDIR}/git"
 
