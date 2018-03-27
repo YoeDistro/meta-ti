@@ -19,10 +19,10 @@ S = "${WORKDIR}/codec_engine_${PV}"
 SRC_URI = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/ce/${PV}/exports/codec_engine_${PV},lite.tar.gz;name=cetarball "
 
 do_install() {
-
+        CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
         # Install/Stage the Source Tree
         install -d ${D}${CE_INSTALL_DIR_RECIPE}
-        cp -pPrf ${S}/* ${D}${CE_INSTALL_DIR_RECIPE}
+        cp ${CP_ARGS} ${S}/* ${D}${CE_INSTALL_DIR_RECIPE}
 }
 
 ALLOW_EMPTY_${PN} = "1"
