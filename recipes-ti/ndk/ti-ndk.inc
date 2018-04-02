@@ -18,4 +18,4 @@ do_install() {
 ALLOW_EMPTY_${PN} = "1"
 FILES_${PN}-dev += "${NDK_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN}-dev = "arch ldflags staticdev"
+INSANE_SKIP_${PN}-dev = "arch ldflags staticdev file-rdeps"
