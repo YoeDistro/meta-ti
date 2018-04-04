@@ -22,14 +22,11 @@ RCONFLICTS_${PN} = "omapdrm-pvr"
 
 BRANCH = "ti-img-sgx/${PV}/k4.14"
 
-SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH} \
-file://0001-srvkm-common-devicemem.c-suppress-implicit-fallthrou.patch \
-file://0001-pvr_drm.c-fix-undeclared-identifier-error-for-AM3-4-.patch \
-"
+SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "855889f437250b6572c75d12696ec4a998b9aef9"
+SRCREV = "d2b3959738cfcc6209e8e882d1989de790866c8f"
 
 TARGET_PRODUCT_omap-a15 = "jacinto6evm"
 TARGET_PRODUCT_ti33x = "ti335x"
