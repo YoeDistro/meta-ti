@@ -177,3 +177,7 @@ RDEPENDS_${PN}_append_powerpc = " ${PN}-powerpc"
 RDEPENDS_${PN}_append_powerpc64 = " ${PN}-powerpc"
 
 INSANE_SKIP_${PN} = "already-stripped"
+INSANE_SKIP_${PN}-exec = "ldflags"
+INSANE_SKIP_${PN}-ipc = "ldflags"
+INSANE_SKIP_${PN}-mount = "ldflags"
+INSANE_SKIP_${PN}-vm = "ldflags"
