@@ -32,7 +32,7 @@ do_install() {
 
 FILES_${PN} += "${CG_XML_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN} = "arch ldflags"
+INSANE_SKIP_${PN} = "arch ldflags file-rdeps"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
