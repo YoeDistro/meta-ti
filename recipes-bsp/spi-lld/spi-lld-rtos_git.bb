@@ -12,14 +12,14 @@ SPI_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/spi-lld.git"
 SPI_LLD_GIT_PROTOCOL = "git"
 SPI_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.SPI_LLD.01.00.00.09"
-SPI_LLD_SRCREV = "85ae103a18df777512a8485a4ed7f84189ee0ff6"
+# Below commit ID corresponds to "DEV.SPI_LLD.01.00.00.10A"
+SPI_LLD_SRCREV = "3a62b6d24ba3c70c27442820196a76f98ab6e458"
 
 BRANCH = "${SPI_LLD_GIT_BRANCH}"
 SRC_URI = "${SPI_LLD_GIT_URI};protocol=${SPI_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${SPI_LLD_SRCREV}"
-PV = "01.00.00.09"
+PV = "01.00.00.10A"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
