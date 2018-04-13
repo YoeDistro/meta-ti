@@ -1,6 +1,6 @@
 require starterware.inc
 
-DEPENDS = "gcc-arm-none-eabi-native"
+DEPENDS = "gcc-arm-none-eabi-native ti-pdk-build-rtos"
 
 require recipes-ti/includes/ti-paths.inc
 
@@ -11,6 +11,8 @@ PARTNO_ti43x = "am437x"
 
 export TOOLCHAIN_PATH_A8 = "${GCC_ARM_NONE_TOOLCHAIN}"
 export TOOLCHAIN_PATH_A9 = "${GCC_ARM_NONE_TOOLCHAIN}"
+export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
+export XDC_INSTALL_PATH = "${XDC_INSTALL_DIR}"
 
 do_compile() {
     cd build
@@ -27,4 +29,5 @@ FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INSANE_SKIP_${PN} = "arch staticdev"
+INSANE_SKIP_${PN} = "arch staticdev file-rdeps"
+
