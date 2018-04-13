@@ -13,21 +13,25 @@ I2C_LLD_GIT_PROTOCOL = "git"
 I2C_LLD_GIT_BRANCH = "master"
 I2C_LLD_GIT_DESTSUFFIX = "git/ti/drv/i2c"
 
-# Below commit ID corresponds to "DEV.I2C_LLD.01.00.00.09A"
-I2C_LLD_SRCREV = "1a0e371f1c992b3f28cb160c6e3ada33d382f6a9"
+# Below commit ID corresponds to "DEV.I2C_LLD.01.00.00.10"
+I2C_LLD_SRCREV = "631a38ad7245b68bfac40a417bdc9d3a0b7ca724"
 
 BRANCH = "${I2C_LLD_GIT_BRANCH}"
 SRC_URI = "${I2C_LLD_GIT_URI};destsuffix=${I2C_LLD_GIT_DESTSUFFIX};protocol=${I2C_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${I2C_LLD_SRCREV}"
-PV = "01.00.00.09A"
+PV = "01.00.00.10"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
 "
 DEPENDS_append_ti33x = " starterware-rtos \
+                         pruss-lld-rtos \
 "
 DEPENDS_append_ti43x = " starterware-rtos \
+                         pruss-lld-rtos \
+"
+DEPENDS_append_am57xx-evm = " pruss-lld-rtos \
 "
 
 # Build with make instead of XDC
@@ -37,6 +41,8 @@ S = "${WORKDIR}/${I2C_LLD_GIT_DESTSUFFIX}"
 
 export PDK_I2C_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
+
+INSANE_SKIP_${PN} = "arch"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "I2C LLD"
