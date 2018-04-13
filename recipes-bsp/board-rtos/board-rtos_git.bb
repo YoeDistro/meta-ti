@@ -12,15 +12,15 @@ BOARD_GIT_URI = "git://git.ti.com/keystone-rtos/board.git"
 BOARD_GIT_PROTOCOL = "git"
 BOARD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.BOARD.01.00.09.00A"
-BOARD_SRCREV = "387d77aff6e36af54c239a315cb2d477f1466f4d"
+# Below commit ID corresponds to "DEV.BOARD.01.00.10.00A"
+BOARD_SRCREV = "14636b1363383167abb8d2b8ed6297d0b1c64930"
 
 BRANCH ="${BOARD_GIT_BRANCH}"
 SRC_URI = "${BOARD_GIT_URI};protocol=${BOARD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${BOARD_SRCREV}"
-PV = "01.00.09.00A"
-PR = "r1"
+PV = "01.00.10.00A"
+PR = "r0"
 
 DEPENDS_append = " i2c-lld-rtos \
                    spi-lld-rtos \
@@ -59,6 +59,9 @@ DEPENDS_append_ti43x = " gpio-lld-rtos \
                          ti-ndk \
 "
 
+DEPENDS_append_dra7xx = " pm-lld-rtos \
+                          mmcsd-lld-rtos \
+"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
@@ -70,3 +73,5 @@ export PDK_BOARD_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
 
 XDCPATH_append = ";${PDK_INSTALL_DIR}/packages/ti/csl;${NDK_INSTALL_DIR}/packages"
+
+INSANE_SKIP_${PN} = "arch"
