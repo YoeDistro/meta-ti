@@ -13,14 +13,14 @@ UART_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/uart-lld.git"
 UART_LLD_GIT_PROTOCOL = "git"
 UART_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.UART_LLD.01.00.00.09"
-UART_LLD_SRCREV = "f3670e497186b5ec5258d0e51fb1ebdaa3d60577"
+# Below commit ID corresponds to "DEV.UART_LLD.01.00.00.10A"
+UART_LLD_SRCREV = "4774991ce80627b9f3eb844712e256abaf7462f0"
 
 BRANCH = "${UART_LLD_GIT_BRANCH}"
 SRC_URI = "${UART_LLD_GIT_URI};protocol=${UART_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${UART_LLD_SRCREV}"
-PV = "01.00.00.09"
+PV = "01.00.00.10A"
 PR = "r0"
 
 DEPENDS_append = " edma3-lld-rtos \
