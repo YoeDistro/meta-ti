@@ -23,7 +23,7 @@ DEPENDS_append_k2e-evm = " pa-lld-rtos"
 DEPENDS_append_k2l-evm = " pa-lld-rtos"
 DEPENDS_append_k2g = " emac-lld-rtos"
 DEPENDS_append_c665x-evm = " emac-lld-rtos"
-DEPENDS_append_c667x-evm = " pa-lld-rtos"
+DEPENDS_append_c667x-evm = " pa-lld-rtos cppi-lld-rtos"
 DEPENDS_append_omapl1 = " emac-lld-rtos"
 DEPENDS_append_dra7xx-evm = " emac-lld-rtos"
 
