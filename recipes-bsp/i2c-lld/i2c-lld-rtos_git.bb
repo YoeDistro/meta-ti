@@ -3,7 +3,7 @@ SUMMARY = "TI RTOS low level driver for Inter-IC module (I2C)"
 inherit ti-pdk
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://I2C.h;beginline=1;endline=32;md5=147a6773e962b103cd162ca58535289c"
+LIC_FILES_CHKSUM = "file://I2C.h;beginline=1;endline=32;md5=50084375278c1a2779571be134f98f7c"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|omapl1|c66x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
