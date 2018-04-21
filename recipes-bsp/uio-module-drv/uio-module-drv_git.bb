@@ -1,4 +1,4 @@
-DESCRIPTION="User space IO (UIO) driver for on-chip modules"
+DESCRIPTION = "User space IO (UIO) driver for on-chip modules"
 
 include uio-module-drv.inc
 

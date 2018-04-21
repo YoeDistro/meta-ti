@@ -1,6 +1,6 @@
 DESCRIPTION = "TI PRUSS low level driver library"
 
-DEPENDS="common-csl-ip osal"
+DEPENDS = "common-csl-ip osal"
 
 include pruss-lld.inc
 

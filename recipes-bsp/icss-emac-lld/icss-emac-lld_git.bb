@@ -1,6 +1,6 @@
 DESCRIPTION = "TI ICSS-EMAC low level driver library"
 
-DEPENDS="common-csl-ip pruss-lld osal"
+DEPENDS = "common-csl-ip pruss-lld osal"
 
 include icss-emac-lld.inc
 
