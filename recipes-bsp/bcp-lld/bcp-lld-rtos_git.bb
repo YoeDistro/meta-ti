@@ -5,7 +5,7 @@ inherit ti-pdk
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://bcp.h;beginline=1;endline=40;md5=4f6e6128dd075a89548c0287a39b8896"
 
-COMPATIBLE_MACHINE = "k2hk-evm|k2l-evm|c667x-evm"
+COMPATIBLE_MACHINE = "k2hk|k2l|c667x-evm"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 BCP_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/bcp-lld.git"

@@ -5,7 +5,7 @@ inherit ti-pdk
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://tcp3dver.h;beginline=1;endline=47;md5=3fe46c6320fb9ca4ac6692961402beb7"
 
-COMPATIBLE_MACHINE = "k2hk|k2l-evm|c66x"
+COMPATIBLE_MACHINE = "k2hk|k2l|c66x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 TCP3D_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/tcp3d-lld.git"

@@ -13,7 +13,7 @@ DEPENDS_append = " cppi-lld-rtos \
                    sa-lld-rtos \
 "
 
-COMPATIBLE_MACHINE = "k2hk-evm|k2e-evm|k2l-evm|c667x-evm"
+COMPATIBLE_MACHINE = "k2hk|k2e|k2l|c667x-evm"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "NWAL LLD"

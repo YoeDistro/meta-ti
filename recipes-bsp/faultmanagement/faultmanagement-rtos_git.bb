@@ -5,7 +5,7 @@ inherit ti-pdk
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://fault_mgmt.h;beginline=1;endline=41;md5=4be5df2b9c314da729e9e4f6cc0b2979"
 
-COMPATIBLE_MACHINE = "k2hk-evm|k2e-evm|k2l-evm"
+COMPATIBLE_MACHINE = "k2hk|k2e|k2l"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FAULT_MANAGEMENT_GIT_URI = "git://git.ti.com/keystone-rtos/fault_mgmt.git"
@@ -30,7 +30,7 @@ DEPENDS_append_keystone = " qmss-lld-rtos \
                             pa-lld-rtos \
 "
 
-DEPENDS_append_k2hk-evm = " aif2-lld-rtos \
+DEPENDS_append_k2hk = " aif2-lld-rtos \
 "
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "Fault Management"

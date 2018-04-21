@@ -5,7 +5,7 @@ inherit ti-pdk
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://tsip.h;beginline=1;endline=32;md5=dab2257b0b8a3678c26915f6eb49b71e"
 
-COMPATIBLE_MACHINE = "k2e-evm|c667x-evm"
+COMPATIBLE_MACHINE = "k2e|c667x-evm"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 TSIP_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/tsip-lld.git"

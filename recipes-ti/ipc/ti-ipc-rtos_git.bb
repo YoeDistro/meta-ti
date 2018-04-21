@@ -74,12 +74,12 @@ do_install() {
 
 KFDSPNUM = "0"
 KFDSPNUM_k2hk = "8"
-KFDSPNUM_k2l-evm = "4"
+KFDSPNUM_k2l = "4"
 KFDSPNUM_keystone = "1"
 
 KFPLAT = ""
 KFPLAT_k2hk = "TCI6638K2K"
-KFPLAT_k2l-evm = "TCI6630K2L"
+KFPLAT_k2l = "TCI6630K2L"
 KFPLAT_k2e = "C66AK2E"
 KFPLAT_k2g = "TCI66AK2G02"
 
