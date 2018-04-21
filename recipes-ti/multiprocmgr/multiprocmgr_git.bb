@@ -44,3 +44,5 @@ do_install() {
 	cp -a ${S}/lib/* ${D}${libdir}/
 	chown -R root:root ${D}${libdir}/
 }
+
+INSANE_SKIP_${PN} = "ldflags"

@@ -37,3 +37,5 @@ do_install () {
 		make -f makefile_armv7 installbin PDK_INSTALL_PATH=${STAGING_INCDIR} DEVICE="$device" SA_SRC_DIR=${S} INSTALL_BIN_BASE_DIR=${D}${bindir}
 	done
 }
+
+INSANE_SKIP_${PN} = "ldflags"
