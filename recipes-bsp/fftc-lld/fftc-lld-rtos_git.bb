@@ -5,7 +5,7 @@ inherit ti-pdk
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://fftc.h;beginline=1;endline=39;md5=2f1010c47d364414644caf6d30a2b7df"
 
-COMPATIBLE_MACHINE = "k2hk-evm|k2l-evm"
+COMPATIBLE_MACHINE = "k2hk|k2l"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FFTC_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/fftc-lld.git"

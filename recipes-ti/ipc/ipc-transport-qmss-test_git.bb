@@ -12,7 +12,7 @@ CHOICELIST = "yes no"
 
 DEVICELIST_k2hk = "k2h k2k"
 DEVICELIST_k2e  = "k2e"
-DEVICELIST_k2l-evm  = "k2l"
+DEVICELIST_k2l  = "k2l"
 
 do_compile () {
 #   Now build the test code

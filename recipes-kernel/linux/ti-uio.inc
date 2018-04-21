@@ -1,6 +1,6 @@
 SRC_URI_append_keystone = " file://keystone-uio.dtsi"
 SRC_URI_append_k2hk = " file://k2hk-uio.dtsi"
-SRC_URI_append_k2l-evm = " file://k2l-uio.dtsi"
+SRC_URI_append_k2l = " file://k2l-uio.dtsi"
 SRC_URI_append_k2e = " file://k2e-uio.dtsi"
 SRC_URI_append_k2g = " file://keystone-k2g-pru-uio.dtsi"
 SRC_URI_append_dra7xx = " file://am57xx-pru-uio.dtsi \
@@ -12,7 +12,7 @@ SRC_URI_append_ti43x = " file://am437x-pru-uio.dtsi"
 DTSI_LIST = ""
 DTSI_LIST_append_keystone = " keystone-uio.dtsi"
 DTSI_LIST_append_k2hk = " k2hk-uio.dtsi"
-DTSI_LIST_append_k2l-evm = " k2l-uio.dtsi"
+DTSI_LIST_append_k2l = " k2l-uio.dtsi"
 DTSI_LIST_append_k2e = " k2e-uio.dtsi"
 
 do_setup_uio() {

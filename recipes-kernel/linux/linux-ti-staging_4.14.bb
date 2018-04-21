@@ -40,7 +40,7 @@ RDEPENDS_kernel-base_append_keystone = " qmss-pdsp-fw"
 # Add run-time dependency for NETCP PA firmware to the rootfs
 RDEPENDS_kernel-base_append_k2hk = " netcp-pa-fw"
 RDEPENDS_kernel-base_append_k2e = " netcp-pa-fw"
-RDEPENDS_kernel-base_append_k2l-evm = " netcp-pa-fw"
+RDEPENDS_kernel-base_append_k2l = " netcp-pa-fw"
 
 # Add run-time dependency for PRU Ethernet firmware to the rootfs
 RDEPENDS_kernel-base_append_am57xx-evm = " prueth-fw"

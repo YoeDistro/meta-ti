@@ -23,10 +23,10 @@ S = "${WORKDIR}/${PA_LLD_GIT_DESTSUFFIX}"
 
 DEVICELIST = "k2h k2k k2l k2e"
 DEVICELIST_k2hk = "k2h k2k"
-DEVICELIST_k2l-evm = "k2l"
+DEVICELIST_k2l = "k2l"
 DEVICELIST_k2e = "k2e"
 
 LIBPA = "libpa"
 LIBPA_k2hk = "libpa"
 LIBPA_k2e = "libpa2"
-LIBPA_k2l-evm = "libpa2"
+LIBPA_k2l = "libpa2"

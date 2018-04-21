@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://WatchdogTimer.xdc;beginline=1;endline=31;md5=837fb176
 
 inherit ti-pdk
 
-COMPATIBLE_MACHINE = "k2hk-evm|k2e-evm|k2l-evm"
+COMPATIBLE_MACHINE = "k2hk|k2e|k2l"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 WATCHDOG_TIMER_GIT_URI = "git://git.ti.com/keystone-rtos/wdtimer.git"
