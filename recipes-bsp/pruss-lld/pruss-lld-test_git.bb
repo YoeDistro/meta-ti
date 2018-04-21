@@ -1,6 +1,6 @@
 DESCRIPTION = "TI PRUSS low level driver tests"
 
-DEPENDS="common-csl-ip pruss-lld osal"
+DEPENDS = "common-csl-ip pruss-lld osal"
 
 include pruss-lld.inc
 

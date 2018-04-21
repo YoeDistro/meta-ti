@@ -1,6 +1,6 @@
 DESCRIPTION = "TI QMSS low level driver library"
 
-DEPENDS="common-csl-ip rm-lld"
+DEPENDS = "common-csl-ip rm-lld"
 
 include qmss-lld.inc
 
