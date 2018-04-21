@@ -29,6 +29,7 @@ do_install() {
 	do
 		oe_runmake install DEVICE="$device" TFW_SRC_DIR=${S} TARGET_ROOT_DIR=${D}
 	done
+	chown -R root:root ${D}
 }
 
 PACKAGES =+ "${PN}-test"

@@ -15,4 +15,5 @@ do_compile () {
 
 do_install () {
 	oe_runmake install
+	chown -R root:root ${D}
 }

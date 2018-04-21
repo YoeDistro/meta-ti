@@ -42,4 +42,5 @@ do_install() {
 
 	install -d ${D}${libdir}/
 	cp -a ${S}/lib/* ${D}${libdir}/
+	chown -R root:root ${D}${libdir}/
 }
