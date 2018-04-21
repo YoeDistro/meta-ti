@@ -27,4 +27,5 @@ do_install () {
     install -d ${D}${libdir}
     install -d ${D}${bindir}
     make -f makefile_armv7 install installbin installbin_test INSTALL_INC_BASE_DIR=${D}${includedir} INSTALL_LIB_BASE_DIR=${D}${libdir} INSTALL_BIN_BASE_DIR=${D}${bindir}
+    chown -R root:root ${D}
 }

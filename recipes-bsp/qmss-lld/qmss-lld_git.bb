@@ -13,11 +13,11 @@ do_compile () {
 	do
 		make -f makefile_armv7 lib PDK_INSTALL_PATH=${STAGING_INCDIR}  DEVICE="${device}"
 	done
-
 }
 
 do_install () {
     make -f makefile_armv7 install PDK_INSTALL_PATH=${STAGING_INCDIR} INSTALL_INC_BASE_DIR=${D}${includedir} INSTALL_LIB_BASE_DIR=${D}${libdir}
+    chown -R root:root ${D}
 
     # Set the generic device library symbolic link to default k2h
     cd ${D}${libdir}
