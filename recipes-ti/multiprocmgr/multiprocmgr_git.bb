@@ -3,15 +3,18 @@ SUMMARY = "Provides download, debug and other utilities for other cores in the S
 
 include multiprocmgr.inc
 
-SRC_URI_append = " file://mpmsrv-daemon.service"
+SRC_URI += " \
+	file://mpmsrv-daemon.service \
+	file://0001-mpmdlif.c-don-t-hardcode-kernel-s-uapi-location-keys.patch \
+"
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 DEPENDS = "mpm-transport libdaemon virtual/kernel cmem"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-CC += "-I${STAGING_KERNEL_DIR}/include"
+CC += "-I${STAGING_KERNEL_DIR}/include -I${STAGING_KERNEL_DIR}/include/uapi"
 
 INITSCRIPT_NAME = "mpmsrv-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"

@@ -1,0 +1,27 @@
+From 17c307ff6e67af43f243366baa2ccc01f89cdddd Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Mon, 23 Apr 2018 15:35:44 -0400
+Subject: [PATCH] mpmdlif.c: don't hardcode kernel's "uapi" location
+ keystone_remoteproc.h
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ src/daemon/mpmdlif.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/daemon/mpmdlif.c b/src/daemon/mpmdlif.c
+index 0c31604..d287bbc 100644
+--- a/src/daemon/mpmdlif.c
++++ b/src/daemon/mpmdlif.c
+@@ -47,7 +47,7 @@
+ #include <stdint.h>
+ 
+ #define _LINUX_TYPES_H
+-#include "uapi/linux/keystone_remoteproc.h"
++#include "linux/keystone_remoteproc.h"
+ #include "internal/rsc_types.h"
+ //#include <elf.h>
+ // #define LOADER_DEBUG
+-- 
+2.7.4
+
