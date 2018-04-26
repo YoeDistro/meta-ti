@@ -29,6 +29,11 @@ CMEM_DEVICETREE_dra74x = "dra7-evm.dtb dra7-evm-lcd-lg.dtb dra7-evm-lcd-osd101t2
 # Flag to enable CMEM injection
 RESERVE_CMEM ?= "0"
 
+# Variables which influence setup_cmem
+CMEM_VARS  = "RESERVE_CMEM CMEM_MACHINE"
+CMEM_VARS += "CMEM_DTSI ${@' '.join(map(lambda s: 'CMEM_DTSI_' + s, (d.getVar('CMEM_MACHINE') or '').split()))}"
+CMEM_VARS += "CMEM_DEVICETREE ${@' '.join(map(lambda s: 'CMEM_DEVICETREE_' + s, (d.getVar('CMEM_MACHINE') or '').split()))}"
+
 # Add correct cmem.dtsi to SRC_URI for each variant for a given machine
 python do_unpack() {
     old_overrides = d.getVar('OVERRIDES', False)
@@ -81,3 +86,4 @@ python do_setup_cmem() {
 }
 
 do_patch[postfuncs] += "do_setup_cmem"
+do_patch[vardeps] += "${CMEM_VARS}"
