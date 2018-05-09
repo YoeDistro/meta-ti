@@ -2,7 +2,7 @@
 		uio_pruss1_mdio: uio_mdio@20ab2400 {
 			compatible = "ti,davinci_mdio";
 			reg = <0x20ab2400 0x90>;
-			clocks = <&k2g_clks K2G_DEV_ICSS0 K2G_DEV_ICSS_CORE_CLK>;
+			clocks = <&k2g_clks 0x0014 1>;
 			clock-names = "fck";
 			#address-cells = <1>;
 			#size-cells = <0>;
@@ -98,7 +98,7 @@
 		uio_pruss2_mdio: uio_mdio@20af2400 {
 			compatible = "ti,davinci_mdio";
 			reg = <0x20af2400 0x90>;
-			clocks = <&k2g_clks K2G_DEV_ICSS1 K2G_DEV_ICSS_CORE_CLK>;
+			clocks = <&k2g_clks 0x0015 1>;
 			clock-names = "fck";
 			#address-cells = <1>;
 			#size-cells = <0>;
