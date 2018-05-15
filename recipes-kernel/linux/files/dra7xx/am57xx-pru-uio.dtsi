@@ -113,7 +113,7 @@
                     clocks = <&dpll_gmac_h13x2_ck>;
                     clock-names = "fck";
                     bus_freq = <1000000>;
-                    reg = <0x4b2b2400 0x90>;
+                    reg = <0x32400 0x90>;
                     status = "disabled";
                 };
 
