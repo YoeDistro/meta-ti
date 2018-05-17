@@ -17,10 +17,10 @@ do_compile() {
   oe_runmake .examples \
     IPCTOOLS="${S_ipc-metadata}/src/etc"
 
-  if [ ! -z ${ALT_PLATFORM} ]; then
-    oe_runmake .examples "PLATFORM=${ALT_PLATFORM}" \
+  for alt_platform in ${ALT_PLATFORM}; do
+    oe_runmake .examples "PLATFORM=${alt_platform}" \
       IPCTOOLS="${S_ipc-metadata}/src/etc"
-  fi
+  done
 }
 
 do_install() {

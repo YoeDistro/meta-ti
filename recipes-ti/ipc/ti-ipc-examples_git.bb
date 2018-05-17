@@ -8,16 +8,16 @@ do_compile_append() {
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
     oe_runmake extract HOSTOS="bios" IPC_INSTALL_DIR="${IPC_INSTALL_DIR}"
 
-    if [ ! -z ${ALT_PLATFORM} ]; then
-      oe_runmake extract PLATFORM="${ALT_PLATFORM}" HOSTOS="bios" \
+    for alt_platform in ${ALT_PLATFORM}; do
+      oe_runmake extract PLATFORM="${alt_platform}" HOSTOS="bios" \
          IPC_INSTALL_DIR="${IPC_INSTALL_DIR}"
-    fi
+    done
     oe_runmake -C examples all HOSTOS="bios" \
       IPC_INSTALL_DIR="${IPC_INSTALL_DIR}"
-    if [ ! -z ${ALT_PLATFORM} ]; then
+    for alt_platform in ${ALT_PLATFORM}; do
       oe_runmake -C examples all HOSTOS="bios" \
-        IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" PLATFORM="${ALT_PLATFORM}"
-    fi
+        IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" PLATFORM="${alt_platform}"
+    done
   fi
 }
 
@@ -30,14 +30,14 @@ do_install_append() {
     oe_runmake -C examples install_rov IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
       HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/bios"
 
-    if [ ! -z ${ALT_PLATFORM} ]; then
+    for alt_platform in ${ALT_PLATFORM}; do
       oe_runmake -C examples install IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
-        HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/bios" \
-        PLATFORM="${ALT_PLATFORM}"
+        HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/${alt_platform}/bios" \
+        PLATFORM="${alt_platform}"
       oe_runmake -C examples install_rov IPC_INSTALL_DIR="${IPC_INSTALL_DIR}" \
-        HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/bios" \
-        PLATFORM="${ALT_PLATFORM}"
-    fi
+        HOSTOS="bios" EXEC_DIR="${D}/ipc_${IPC_VERSION}/examples/${alt_platform}/bios" \
+        PLATFORM="${alt_platform}"
+    done
   fi
 }
 

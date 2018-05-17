@@ -27,20 +27,20 @@ do_compile() {
   cd ${S_ipc-examples}/src
   oe_runmake .examples \
     IPCTOOLS="${S_ipc-metadata}/src/etc"
-  if [ ! -z ${ALT_PLATFORM} ]; then
+  for alt_platform in ${ALT_PLATFORM}; do
     oe_runmake .examples \
       IPCTOOLS="${S_ipc-metadata}/src/etc" \
-      PLATFORM=${ALT_PLATFORM}
-  fi
+      PLATFORM=${alt_platform}
+  done
 
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
     oe_runmake extract HOSTOS="bios" IPC_INSTALL_DIR="${S}"
     oe_runmake extract HOSTOS="linux" IPC_INSTALL_DIR="${S}"
 
-    if [ ! -z ${ALT_PLATFORM} ]; then
-      oe_runmake extract PLATFORM=${ALT_PLATFORM} HOSTOS="bios" IPC_INSTALL_DIR="${S}"
-      oe_runmake extract PLATFORM=${ALT_PLATFORM} HOSTOS="linux" IPC_INSTALL_DIR="${S}"
-    fi
+    for alt_platform in ${ALT_PLATFORM}; do
+      oe_runmake extract PLATFORM=${alt_platform} HOSTOS="bios" IPC_INSTALL_DIR="${S}"
+      oe_runmake extract PLATFORM=${alt_platform} HOSTOS="linux" IPC_INSTALL_DIR="${S}"
+    done
   fi
 
   IPC_VERSION=`echo ${PV}${RELEASE_SUFFIX} | sed -e 's|\.|_|g'`
@@ -54,9 +54,9 @@ do_compile() {
     cp -pPf ${S_ipc-examples}/src/examples/*.* ${IPC_PACKAGE_DIR}/examples/
     cp -pPf ${S_ipc-examples}/src/examples/makefile ${IPC_PACKAGE_DIR}/examples/
     cp -pPrf ${S_ipc-examples}/src/examples/${PLATFORM}* ${IPC_PACKAGE_DIR}/examples/
-    if [ ! -z ${ALT_PLATFORM} ]; then
-      cp -pPrf ${S_ipc-examples}/src/examples/${ALT_PLATFORM}* ${IPC_PACKAGE_DIR}/examples/
-    fi
+    for alt_platform in ${ALT_PLATFORM}; do
+      cp -pPrf ${S_ipc-examples}/src/examples/${alt_platform}* ${IPC_PACKAGE_DIR}/examples/
+    done
     find ${IPC_PACKAGE_DIR}/examples/ -name "*zip" -type f | xargs -I {} rm {}
   fi
 }
