@@ -59,7 +59,7 @@ do_setup_uio_append_ti33x() {
     then
         dts="am335x-icev2-pru-excl-uio.dts"
         dtsi="am335x-pru-uio.dtsi"
-        cp ${S}/arch/arm/boot/dts/am335x-icev2.dts ${S}/arch/arm/boot/dts/$dts
+        cp ${S}/arch/arm/boot/dts/am335x-icev2-prueth.dts ${S}/arch/arm/boot/dts/$dts
         cp ${WORKDIR}/${dtsi} ${S}/arch/arm/boot/dts/
         echo "#include \"${dtsi}\"" >> ${S}/arch/arm/boot/dts/$dts
     fi

@@ -182,3 +182,11 @@
 &pruss_mdio {
 	status = "disabled";
 };
+
+&pruss_emac0 {
+        status = "disabled";
+};
+
+&pruss_emac1 {
+        status = "disabled";
+};
