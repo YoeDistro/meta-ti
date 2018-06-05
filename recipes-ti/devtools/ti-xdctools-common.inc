@@ -13,12 +13,14 @@ do_install() {
     cp ${CP_ARGS}  ${S}/* ${D}${XDC_INSTALL_DIR_RECIPE}
 }
 
+FILES_${PN}-dev = "${XDC_INSTALL_DIR_RECIPE}"
+
 BBCLASSEXTEND = "native nativesdk"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INSANE_SKIP_${PN} = "installed-vs-shipped"
+INSANE_SKIP_${PN}-dev = "libdir dev-elf arch file-rdeps"
 
 # Prevent internal libs from getting picked up
 PRIVATE_LIBS = " \
