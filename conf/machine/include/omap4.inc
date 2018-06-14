@@ -10,9 +10,8 @@ PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
 
 PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
 XSERVER = "xserver-xorg \
-           xserver-xorg-module-exa \
            xf86-input-evdev \
-           xf86-video-omap"
+           xf86-video-fbdev"
 
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r4"
