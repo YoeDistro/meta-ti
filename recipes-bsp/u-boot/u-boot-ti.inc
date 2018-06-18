@@ -29,6 +29,12 @@ PV_append = "+git${SRCPV}"
 # u-boot needs devtree compiler to parse dts files
 DEPENDS += "dtc-native bc-native lzop-native"
 
+PACKAGECONFIG[atf] = "ATF=${STAGING_DIR_HOST}/boot/bl31.bin,,arm-trusted-firmware"
+PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}/boot/bl32.bin,,optee-os"
+
+# optee-os is not a direct dependency, do not enable optee by default
+PACKAGECONFIG_append_k3 = " atf"
+
 PROVIDES += "u-boot"
 PKG_${PN} = "u-boot"
 PKG_${PN}-dev = "u-boot-dev"
@@ -47,10 +53,12 @@ SPL_BINARY_k2hk-hs-evm = ""
 SPL_BINARY_k2g-hs-evm = ""
 SPL_BINARY_k2l-hs-evm = ""
 SPL_BINARY_omapl138 = ""
+SPL_BINARY_k3 = "tispl.bin"
 
 # SPL (Second Program Loader) to be loaded over UART
 SPL_UART_BINARY = "u-boot-spl.bin"
 SPL_UART_BINARY_keystone = ""
+SPL_UART_BINARY_k3 = ""
 
 SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${PV}-${PR}"
 SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
@@ -98,6 +106,25 @@ UBOOT_HS_ISSW_SYMLINK = "u-boot-spl_HS_ISSW-${MACHINE}"
 UBOOT_HS_2ND_BINARY = "u-boot-spl_HS_2ND"
 UBOOT_HS_2ND_IMAGE = "u-boot-spl_HS_2ND-${MACHINE}-${PV}-${PR}"
 UBOOT_HS_2ND_SYMLINK = "u-boot-spl_HS_2ND-${MACHINE}"
+
+do_compile_k3 () {
+	if [ "${@bb.utils.filter('DISTRO_FEATURES', 'ld-is-gold', d)}" ]; then
+		sed -i 's/$(CROSS_COMPILE)ld$/$(CROSS_COMPILE)ld.bfd/g' ${S}/config.mk
+	fi
+
+	unset LDFLAGS
+	unset CFLAGS
+	unset CPPFLAGS
+
+	if [ ! -e ${B}/.scmversion -a ! -e ${S}/.scmversion ]
+	then
+		echo ${UBOOT_LOCALVERSION} > ${B}/.scmversion
+		echo ${UBOOT_LOCALVERSION} > ${S}/.scmversion
+	fi
+
+	oe_runmake -C ${S} O=${B} ${UBOOT_MACHINE}
+	oe_runmake -C ${S} O=${B} ${PACKAGECONFIG_CONFARGS} ${UBOOT_MAKE_TARGET}
+}
 
 do_install_append () {
 	if [ -n "${UBOOT_CONFIG}" ]
