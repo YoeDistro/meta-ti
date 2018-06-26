@@ -49,11 +49,13 @@ do_compile() {
 do_install() {
 	install -d ${D}/boot
 	install -m 0644 ${S}/build/${ATFPLATFORM}/${ATFBOARD}/release/bl31.bin ${D}/boot/
+	install -m 0644 ${S}/build/${ATFPLATFORM}/${ATFBOARD}/release/bl31/bl31.elf ${D}/boot/
 }
 
 do_deploy() {
 	install -d ${DEPLOYDIR}
 	install -m 0644 ${S}/build/${ATFPLATFORM}/${ATFBOARD}/release/bl31.bin ${DEPLOYDIR}/
+	install -m 0644 ${S}/build/${ATFPLATFORM}/${ATFBOARD}/release/bl31/bl31.elf ${DEPLOYDIR}/
 }
 addtask deploy before do_build after do_compile
 
