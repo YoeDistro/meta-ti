@@ -47,6 +47,7 @@ RDEPENDS_kernel-base_append_am57xx-evm = " prueth-fw"
 RDEPENDS_kernel-base_append_am437x-evm = " prueth-fw"
 RDEPENDS_kernel-base_append_am335x-evm = " prueth-fw"
 RDEPENDS_kernel-base_append_k2g = " prueth-fw"
+RDEPENDS_kernel-base_append_am65xx-evm = " prueth-fw-bin"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
