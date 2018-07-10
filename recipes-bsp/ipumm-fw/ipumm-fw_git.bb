@@ -1,5 +1,5 @@
 python __anonymous() {
-    features = d.getVar("MACHINE_FEATURES", d, 1)
+    features = d.getVar("MACHINE_FEATURES")
     if not features:
         return
     if "mmip" not in features:

@@ -39,13 +39,13 @@ python do_unpack() {
     # Initialize with empty string to simplify logic to append to SRC_URI
     cmem_dtsi = set([''])
 
-    for cmem_machine in (d.getVar('CMEM_MACHINE', True) or '').split():
+    for cmem_machine in (d.getVar('CMEM_MACHINE') or '').split():
         # Create copy of data for additional override
         localdata = bb.data.createCopy(d)
         localdata.setVar('OVERRIDES', '%s:%s' % (cmem_machine, old_overrides))
         bb.data.update_data(localdata)
 
-        cmem_dtsi.add(localdata.getVar('CMEM_DTSI', True))
+        cmem_dtsi.add(localdata.getVar('CMEM_DTSI'))
 
     d.appendVar('SRC_URI', ' file://'.join(cmem_dtsi))
     bb.build.exec_func('base_do_unpack', d)
@@ -56,27 +56,27 @@ python do_setup_cmem() {
 
     old_overrides = d.getVar('OVERRIDES', False)
 
-    if d.getVar('RESERVE_CMEM', True) is '1':
-        for cmem_machine in (d.getVar('CMEM_MACHINE', True) or '').split():
+    if d.getVar('RESERVE_CMEM') is '1':
+        for cmem_machine in (d.getVar('CMEM_MACHINE') or '').split():
             # Create copy of data for additional override
             localdata = bb.data.createCopy(d)
             localdata.setVar('OVERRIDES', '%s:%s' % (cmem_machine, old_overrides))
             bb.data.update_data(localdata)
 
             # Get source directory and dtsi filename
-            src_dir  = localdata.getVar('WORKDIR', True)
-            src_dtsi = localdata.getVar('CMEM_DTSI', True)
+            src_dir  = localdata.getVar('WORKDIR')
+            src_dtsi = localdata.getVar('CMEM_DTSI')
 
             # Get destination directory and destination dtsi filename which adds
             #   the MACHINE prefix.
-            dst_dir  = os.path.join(localdata.getVar('S', True), 'arch/arm/boot/dts')
+            dst_dir  = os.path.join(localdata.getVar('S'), 'arch/arm/boot/dts')
             dst_dtsi = localdata.expand('${MACHINE}-${CMEM_DTSI}')
 
             # Copy cmem.dtsi into source tree
             shutil.copy(os.path.join(src_dir,src_dtsi), os.path.join(dst_dir,dst_dtsi))
 
             # Inject dtsi into each dts in list
-            for dtb in (localdata.getVar('CMEM_DEVICETREE', True) or '').split():
+            for dtb in (localdata.getVar('CMEM_DEVICETREE') or '').split():
                 dts = dtb[:-4] + '.dts'
 
                 with open(os.path.join(dst_dir,dts), 'a') as dts_file:
