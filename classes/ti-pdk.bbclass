@@ -67,7 +67,7 @@ PARALLEL_XDC = "--jobs=${BB_NUMBER_THREADS}"
 PARALLEL_MAKE = ""
 
 def get_doxygen_support(d):
-    if d.getVar('TI_PDK_DOXYGEN_SUPPORT', True) == '1':
+    if d.getVar('TI_PDK_DOXYGEN_SUPPORT') == '1':
         return ''
     return 'DOXYGEN_SUPPORT=no'
 

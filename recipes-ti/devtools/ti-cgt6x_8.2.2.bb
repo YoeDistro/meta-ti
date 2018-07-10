@@ -13,14 +13,14 @@ COMPATIBLE_HOST_class-target = "arm.*-linux"
 
 # For now we only have hardfp version for target class
 python __anonymous() {
-    c = d.getVar("CLASSOVERRIDE", d, 1)
+    c = d.getVar("CLASSOVERRIDE")
 
     if c == "class-target":
-        tunes = d.getVar("TUNE_FEATURES", d, 1)
+        tunes = d.getVar("TUNE_FEATURES")
         if not tunes:
             return
-        pkgn = d.getVar("PN", d, 1)
-        pkgv = d.getVar("PV", d, 1)
+        pkgn = d.getVar("PN")
+        pkgv = d.getVar("PV")
         if "callconvention-hard" not in tunes:
             bb.warn("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
             raise bb.parse.SkipPackage("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
