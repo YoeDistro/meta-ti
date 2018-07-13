@@ -117,7 +117,7 @@ do_install_append_am65xx-evm() {
 }
 
 FILES_${PN}-halt = "/lib/firmware/pru/PRU_Halt.out"
-FILES_${PN}-rpmsg-echo = "/lib/firmware/pru/PRU_RPMsg_Echo_Interrupt*"
+FILES_${PN}-rpmsg-echo = "/lib/firmware/pru/PRU_RPMsg_Echo_Interrupt* /lib/firmware/pru/RTU_RPMsg_Echo_Interrupt*"
 
 # Set up names for the firmwares
 PRU_ICSS_ALTERNATIVES_ti33x    = "am335x-pru0-fw am335x-pru1-fw"
@@ -160,6 +160,9 @@ ALTERNATIVE_LINK_NAME[am65x-rtu2_1-fw] = "/lib/firmware/am65x-rtu2_1-fw"
 
 # Create the pru-icss-halt firmware alternatives
 ALTERNATIVE_pru-icss-halt = "${PRU_ICSS_ALTERNATIVES}"
+
+# am65xx doesn't have halt FW for now
+ALTERNATIVE_pru-icss-halt_am65xx-evm = ""
 
 ALTERNATIVE_TARGET_pru-icss-halt[am335x-pru0-fw] = "/lib/firmware/pru/PRU_Halt.out"
 ALTERNATIVE_TARGET_pru-icss-halt[am335x-pru1-fw] = "/lib/firmware/pru/PRU_Halt.out"
@@ -216,6 +219,9 @@ ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am65x-rtu2_0-fw] = "/lib/firmware/pru/RTU
 ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am65x-rtu2_1-fw] = "/lib/firmware/pru/RTU_RPMsg_Echo_Interrupt2_1.out"
 
 ALTERNATIVE_PRIORITY_pru-icss-rpmsg-echo = "100"
+
+# am65xx doesn't have halt FW for now
+ALLOW_EMPTY_${PN}-halt = "1"
 
 ALLOW_EMPTY_${PN} = "1"
 
