@@ -9,14 +9,14 @@ MMAP_LLD_GIT_PROTOCOL = "git"
 MMAP_LLD_GIT_BRANCH = "master"
 MMAP_LLD_GIT_DESTSUFFIX = "git/ti/runtime/mmap"
 
-# Commit correspond to DEV.MMAP.02.00.00.07
-MMAP_LLD_SRCREV = "4426949ddfafdc8ea9408dbf5a642c3e840f4997"
+# Commit correspond to DEV.MMAP.02.00.00.08A
+MMAP_LLD_SRCREV = "bbccde8da6c87f59af3b0494e2d75ba52c69df20"
 
 BRANCH="${MMAP_LLD_GIT_BRANCH}"
 SRC_URI = "${MMAP_LLD_GIT_URI};destsuffix=${MMAP_LLD_GIT_DESTSUFFIX};protocol=${MMAP_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${MMAP_LLD_SRCREV}"
 
-PV = "2.0.0.7"
+PV = "2.0.0.8A"
 INC_PR = "r0"
 
 S = "${WORKDIR}/git/ti/runtime/mmap"
