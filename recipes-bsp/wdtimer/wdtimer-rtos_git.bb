@@ -13,14 +13,14 @@ WATCHDOG_TIMER_GIT_PROTOCOL = "git"
 WATCHDOG_TIMER_GIT_BRANCH = "master"
 WATCHDOG_TIMER_GIT_DESTSUFFIX = "git/ti/instrumentation/wdtimer"
 
-# Below commit ID corresponds to "DEV.WDTIMER.01.00.00.03"
-WATCHDOG_TIMER_SRCREV = "db973cf8d71460537e2738af0ff094becc7ac454"
+# Below commit ID corresponds to "DEV.WDTIMER.01.00.00.04"
+WATCHDOG_TIMER_SRCREV = "e25220ea8cb1c1d4bd5f5fb4fba37407d5730ffb"
 
 BRANCH = "${WATCHDOG_TIMER_GIT_BRANCH}"
 SRC_URI = "${WATCHDOG_TIMER_GIT_URI};destsuffix=${WATCHDOG_TIMER_GIT_DESTSUFFIX};protocol=${WATCHDOG_TIMER_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${WATCHDOG_TIMER_SRCREV}"
-PV = "01.00.00.03"
+PV = "01.00.00.04"
 PR = "r0"
 
 S = "${WORKDIR}/git/ti/instrumentation/wdtimer"
