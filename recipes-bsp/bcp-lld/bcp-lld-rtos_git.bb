@@ -13,14 +13,14 @@ BCP_LLD_GIT_PROTOCOL = "git"
 BCP_LLD_GIT_BRANCH = "master"
 BCP_LLD_GIT_DESTSUFFIX = "git/ti/drv/bcp"
 
-# Below commit ID corresponds to "DEV.BCP_LLD.02.01.00.06"
-BCP_LLD_SRCREV = "44e2ffcb6fd236c41f7ea8f9a1684833f5361daa"
+# Below commit ID corresponds to "DEV.BCP_LLD.02.01.00.07"
+BCP_LLD_SRCREV = "84c34a7e79a017c39319daa453cea6ea1b45751c"
 
 BRANCH = "${BCP_LLD_GIT_BRANCH}"
 SRC_URI = "${BCP_LLD_GIT_URI};destsuffix=${BCP_LLD_GIT_DESTSUFFIX};protocol=${BCP_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${BCP_LLD_SRCREV}"
-PV = "02.01.00.06"
+PV = "02.01.00.07"
 PR = "r0"
 
 S = "${WORKDIR}/${BCP_LLD_GIT_DESTSUFFIX}"
