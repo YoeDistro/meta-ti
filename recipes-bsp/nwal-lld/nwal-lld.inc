@@ -8,14 +8,14 @@ NWAL_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/nwal-lld.git"
 NWAL_LLD_GIT_PROTOCOL = "git"
 NWAL_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.NWAL.02.01.00.11A"
-NWAL_LLD_SRCREV = "a93303e3d682d7161030113b72c3e1adf755bf89"
+# Below commit ID corresponds to "DEV.NWAL.02.01.00.12"
+NWAL_LLD_SRCREV = "fef9d609f446c6a229c571473727ee5d1ad49630"
 
 BRANCH = "${NWAL_LLD_GIT_BRANCH}"
 SRC_URI = "${NWAL_LLD_GIT_URI};protocol=${NWAL_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${NWAL_LLD_SRCREV}"
 
-PV = "02.01.00.11A"
+PV = "02.01.00.12"
 INC_PR = "r0"
 
 BASEDIR = "${WORKDIR}/git"
