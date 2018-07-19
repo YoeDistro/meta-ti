@@ -9,14 +9,14 @@ PA_LLD_GIT_PROTOCOL = "git"
 PA_LLD_GIT_BRANCH = "master"
 PA_LLD_GIT_DESTSUFFIX = "git/ti/drv/pa"
 
-# Below commit ID corresponding to "DEV.PA_LLD.03.00.02.05"
-PA_LLD_SRCREV = "5f24617e71670f17ee9adf71d5b30dc8ff9e5ca3"
+# Below commit ID corresponding to "DEV.PA_LLD.03.00.02.06"
+PA_LLD_SRCREV = "88c6fa91f4d2e43a041f759ecc736109290108e2"
 
 BRANCH = "${PA_LLD_GIT_BRANCH}"
 SRC_URI = "${PA_LLD_GIT_URI};destsuffix=${PA_LLD_GIT_DESTSUFFIX};protocol=${PA_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${PA_LLD_SRCREV}"
 
-PV = "03.00.02.05"
+PV = "03.00.02.06"
 INC_PR = "r0"
 
 S = "${WORKDIR}/${PA_LLD_GIT_DESTSUFFIX}"
