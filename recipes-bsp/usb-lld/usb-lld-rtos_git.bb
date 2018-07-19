@@ -12,14 +12,14 @@ USB_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/usb.git"
 USB_LLD_GIT_PROTOCOL = "git"
 USB_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.USB_LLD.01.00.00.13"
-USB_LLD_SRCREV = "bac7156bac2b11c964f67a79752e1d6178fb1e86"
+# Below commit ID corresponds to "DEV.USB_LLD.01.00.00.14"
+USB_LLD_SRCREV = "a12615f56ef5a108a1aa58af0e4f0e7d175e7c49"
 
 BRANCH = "${USB_LLD_GIT_BRANCH}"
 SRC_URI = "${USB_LLD_GIT_URI};protocol=${USB_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${USB_LLD_SRCREV}"
-PV = "01.00.00.13"
+PV = "01.00.00.14"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos"
