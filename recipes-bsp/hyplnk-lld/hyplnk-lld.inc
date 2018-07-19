@@ -13,14 +13,14 @@ HYPLNK_GIT_PROTOCOL = "git"
 HYPLNK_GIT_BRANCH = "master"
 HYPLNK_GIT_DESTSUFFIX = "git/ti/drv/${LLDNAME}"
 
-# Following commit corresponds to tag DEV.HYPLNK_LLD.02.01.00.07
-HYPLNK_SRCREV = "7799dd3b1ef425494bf52534adebb915f6566885"
+# Following commit corresponds to tag DEV.HYPLNK_LLD.02.01.00.08
+HYPLNK_SRCREV = "2f54bb32fbf08bd2e20446497341e29498702931"
 
 BRANCH="${HYPLNK_GIT_BRANCH}"
 SRC_URI = "${HYPLNK_GIT_URI};destsuffix=${HYPLNK_GIT_DESTSUFFIX};protocol=${HYPLNK_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${HYPLNK_SRCREV}"
 
-PV = "2.1.0.7"
+PV = "2.1.0.8"
 INC_PR = "r0"
 
 DEVICELIST_k2hk = "k2h k2k"
