@@ -12,14 +12,14 @@ TSIP_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/tsip-lld.git"
 TSIP_LLD_GIT_PROTOCOL = "git"
 TSIP_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.TSIP_LLD.01.00.00.07A"
-TSIP_LLD_SRCREV = "211d2f1a5c3c7ec80349a18e6e6cae6c9e4df921"
+# Below commit ID corresponds to "DEV.TSIP_LLD.01.00.00.08"
+TSIP_LLD_SRCREV = "f40c0153b711622e67ab4b36da5cf044f7bd9a8e"
 
 BRANCH = "${TSIP_LLD_GIT_BRANCH}"
 SRC_URI = "${TSIP_LLD_GIT_URI};protocol=${TSIP_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${TSIP_LLD_SRCREV}"
-PV = "01.00.00.07"
+PV = "01.00.00.08"
 PR = "r0"
 
 # HTML doc link params
