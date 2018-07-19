@@ -12,14 +12,14 @@ EMAC_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/emac-lld.git"
 EMAC_LLD_GIT_PROTOCOL = "git"
 EMAC_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.EMAC_LLD.01.00.03.10A"
-EMAC_LLD_SRCREV = "a2b663fcdfb485806f5a547336b343e73ebbae86"
+# Below commit ID corresponds to "DEV.EMAC_LLD.01.00.03.11"
+EMAC_LLD_SRCREV = "d541d5a564029b3472e054cd7aa2bae53b40378c"
 
 BRANCH ="${EMAC_LLD_GIT_BRANCH}"
 SRC_URI = "${EMAC_LLD_GIT_URI};protocol=${EMAC_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${EMAC_LLD_SRCREV}"
-PV = "01.00.03.10A"
+PV = "01.00.03.11"
 PR = "r0"
 
 DEPENDS_append = " board-rtos osal-rtos"
