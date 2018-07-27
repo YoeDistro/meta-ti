@@ -35,6 +35,8 @@ PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}/boot/bl32.bin,,optee-os"
 # optee-os is not a direct dependency, do not enable optee by default
 PACKAGECONFIG_append_k3 = " atf"
 
+EXTRA_OEMAKE += "${PACKAGECONFIG_CONFARGS}"
+
 PROVIDES += "u-boot"
 PKG_${PN} = "u-boot"
 PKG_${PN}-dev = "u-boot-dev"
@@ -106,25 +108,6 @@ UBOOT_HS_ISSW_SYMLINK = "u-boot-spl_HS_ISSW-${MACHINE}"
 UBOOT_HS_2ND_BINARY = "u-boot-spl_HS_2ND"
 UBOOT_HS_2ND_IMAGE = "u-boot-spl_HS_2ND-${MACHINE}-${PV}-${PR}"
 UBOOT_HS_2ND_SYMLINK = "u-boot-spl_HS_2ND-${MACHINE}"
-
-do_compile_k3 () {
-	if [ "${@bb.utils.filter('DISTRO_FEATURES', 'ld-is-gold', d)}" ]; then
-		sed -i 's/$(CROSS_COMPILE)ld$/$(CROSS_COMPILE)ld.bfd/g' ${S}/config.mk
-	fi
-
-	unset LDFLAGS
-	unset CFLAGS
-	unset CPPFLAGS
-
-	if [ ! -e ${B}/.scmversion -a ! -e ${S}/.scmversion ]
-	then
-		echo ${UBOOT_LOCALVERSION} > ${B}/.scmversion
-		echo ${UBOOT_LOCALVERSION} > ${S}/.scmversion
-	fi
-
-	oe_runmake -C ${S} O=${B} ${UBOOT_MACHINE}
-	oe_runmake -C ${S} O=${B} ${PACKAGECONFIG_CONFARGS} ${UBOOT_MAKE_TARGET}
-}
 
 do_install_append () {
 	if [ -n "${UBOOT_CONFIG}" ]
