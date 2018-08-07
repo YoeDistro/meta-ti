@@ -10,7 +10,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 BRANCH = "ti-img-sgx/rocko/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-um-linux.git;protocol=git;branch=${BRANCH}"
-SRCREV = "a564d20ec1b6aed55b3e60aa9ff35f3809eca110"
+SRCREV = "fc4b1d658634c3fe2bafe164430e2f312dbdcf14"
 
 TARGET_PRODUCT_k3 = "ti654x"
 
