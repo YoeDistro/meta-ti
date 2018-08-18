@@ -22,7 +22,9 @@ LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
 
 BRANCH ?= "master"
-SRC_URI = "git://git.ti.com/ti-u-boot/ti-u-boot.git;protocol=git;branch=${BRANCH}"
+UBOOT_GIT_URI = "git://git.ti.com/ti-u-boot/ti-u-boot.git"
+UBOOT_GIT_PROTOCOL = "git"
+SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};branch=${BRANCH}"
 
 PV_append = "+git${SRCPV}"
 
