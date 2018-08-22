@@ -11,14 +11,6 @@ PR = "${INC_PR}.1"
 
 SRC_URI_append = " \
     file://init \
-    file://0001-coffgen.c-adjust-fall-through-comment-to-work-with-g.patch;striplevel=2 \
-    file://0001-reloc.c-add-comments-for-implicit-fallthrough-error-.patch;striplevel=2 \
-    file://0001-srec.c-fix-implicit-fallthrough-and-format-overflow-.patch;striplevel=2 \
-    file://0001-ihex.c-fix-format-overflow-error-in-gcc7.patch;striplevel=2 \
-    file://0001-elf32-tic6x.c-fix-implicit-fallthrough-error-in-gcc7.patch;striplevel=2 \
-    file://0001-elf.c-correct-fallthrough-comment-to-recognize-by-gc.patch;striplevel=2 \
-    file://0001-elflink.c-fix-implicit-fallthrough-error-in-gcc7.patch;striplevel=2 \
-    file://0001-tic6x-dis.c-fix-format-truncation-and-implicit-fallt.patch;striplevel=2 \
 "
 
 S = "${WORKDIR}/git/gdbc6x"
