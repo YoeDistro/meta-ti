@@ -122,3 +122,11 @@ pkg_postinst_${PN}-fw_omapl138 () {
 pkg_postrm_${PN}-fw_omapl138 () {
   update-alternatives --remove rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674
 }
+
+pkg_postinst_${PN}-fw_am65xx-evm () {
+  update-alternatives --install /lib/firmware/am65x-mcu-r5f0-fw am65x-mcu-r5f0-fw ipc/ti_platforms_cortexR_AM65X/messageq_single.xer5f ${ALTERNATIVE_PRIORITY}
+}
+
+pkg_postrm_${PN}-fw_am65xx-evm () {
+  update-alternatives --remove am65x-mcu-r5f0-fw ipc/ti_platforms_cortexR_AM65X/messageq_single.xe674
+}

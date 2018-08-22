@@ -3,7 +3,7 @@ require ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://${S_ipc-examples}/src/makefile;beginline=1;endline=30;md5=fb83580b16bce88e8ed568a6005c8f02"
+LIC_FILES_CHKSUM = "file://${S_ipc-examples}/src/makefile;beginline=1;endline=30;md5=a52324bd5033bb49ea07bade1244ac9a"
 
 INSANE_SKIP_${PN} += "arch"
 

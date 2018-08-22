@@ -24,11 +24,11 @@ protocol=${TI_IPC_METADATA_GIT_PROTOCOL};\
 branch=${TI_IPC_METADATA_GIT_BRANCH};\
 name=${TI_IPC_METADATA_NAME}"
 
-# Corresponds to tag: 3.47.02.00
-SRCREV_ipc-metadata = "e8aff83111b8a0d64d7a77413b6f66d3106084d8"
+# Corresponds to tag: 3.50.01.00
+SRCREV_ipc-metadata = "19a8e70cf6ca4fe0984987e25d937c61a62c7658"
 
-# Corresponds to tag: 3.47.02.00
-SRCREV_ipc-examples = "351e9a6d94c68f7ff64b2c002ee6750242ece6d9"
+# Corresponds to tag: 3.50.01.00
+SRCREV_ipc-examples = "1975687076426b587be8d2530df56c24425ca53a"
 
 S_ipc-examples = "${WORKDIR}/git/ipc-examples"
 S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
@@ -49,6 +49,9 @@ DEPENDS_append_omapl138 = " ti-cgt6x-native \
 "
 DEPENDS_append_c66x = " ti-cgt6x-native \
 "
+
+DEPENDS_append_am65xx-evm = " ti-cgt-arm-native \
+                              gcc-linaro-baremetal-aarch64-native"
 
 IPC_TARGETS = ""
 
@@ -71,6 +74,11 @@ IPC_TARGETS_keystone = " \
 IPC_TARGETS_c66x = " \
     ti.targets.elf.C66="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
     ti.targets.elf.C66_big_endian="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
+"
+
+IPC_TARGETS_am65xx-evm = "\
+    gnu.targets.arm.A53F="${GCC_LINARO_BAREMETAL_AARCH64_TOOLCHAIN}" \
+    ti.targets.arm.elf.R5F="${M4_TOOLCHAIN_INSTALL_DIR}" \
 "
 
 EXTRA_OEMAKE = "\
