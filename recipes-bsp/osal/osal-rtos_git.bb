@@ -3,7 +3,7 @@ require recipes-bsp/osal/osal.inc
 
 PR = "${INC_PR}.0"
 
-COMPATIBLE_MACHINE_append = "|c66x"
+COMPATIBLE_MACHINE_append = "|c66x|k3"
 
 S = "${WORKDIR}/${OSAL_GIT_DESTSUFFIX}"
 
