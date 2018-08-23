@@ -1,0 +1,79 @@
+From 19b01da6f9cd02c4869229e46d5cfeefa9d5a5c6 Mon Sep 17 00:00:00 2001
+From: Ramprasad N <x0038811@ti.com>
+Date: Fri, 17 Aug 2018 17:12:14 +0530
+Subject: [ipumm PATCH] Integration with IPC 3.50, BIOS 6.73, XDC 3.50
+
+    Integrating IPUMM with
+    IPC: 3.50.01.00
+    BIOS: 6.73.00.12
+    XDC: 3.50.07.20
+
+Signed-off-by: Ramprasad N <x0038811@ti.com>
+---
+ Makefile                              | 6 +++---
+ build/common.bld                      | 2 +-
+ platform/ti/dce/baseimage/dce_ipu.cfg | 4 ++--
+ src/ti/framework/dce/dce.c            | 2 +-
+ 4 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 929a2a3..87e1b10 100644
+--- a/Makefile
++++ b/Makefile
+@@ -36,9 +36,9 @@ REPO		:= $(BIOSTOOLSROOT)
+ 
+ # Different tool versions can easily be programmed by defining below variables
+ # in your environment.
+-XDCVERSION	?= xdctools_3_50_03_33_core
+-BIOSVERSION	?= bios_6_52_00_12
+-IPCVERSION	?= ipc_3_47_01_00
++XDCVERSION	?= xdctools_3_50_07_20_core
++BIOSVERSION	?= bios_6_73_00_12
++IPCVERSION	?= ipc_3_50_01_00
+ CEVERSION	?= codec_engine_3_24_00_08
+ FCVERSION	?= framework_components_3_40_02_07
+ XDAISVERSION	?= xdais_7_24_00_04
+diff --git a/build/common.bld b/build/common.bld
+index eacc2b7..ecc7de1 100644
+--- a/build/common.bld
++++ b/build/common.bld
+@@ -417,7 +417,7 @@ function GetVersionTag()
+   status = {};
+   var verInfo;
+   var git_cmd = "git ";
+-  var ipc_ver = " IPC 3_47_01_00 ";
++  var ipc_ver = " IPC 3_50_01_00 ";
+   var ipumm_ver = " MMIP 3_00_15_00 ";
+ 
+   var type_cmd = "type ";
+diff --git a/platform/ti/dce/baseimage/dce_ipu.cfg b/platform/ti/dce/baseimage/dce_ipu.cfg
+index 5bc1139..c81af98 100644
+--- a/platform/ti/dce/baseimage/dce_ipu.cfg
++++ b/platform/ti/dce/baseimage/dce_ipu.cfg
+@@ -248,8 +248,8 @@ else
+     BIOS.smpEnabled = false;
+ }
+ 
+-var Settings = xdc.useModule('ti.sysbios.posix.Settings');
+-Settings.supportsMutexPriority = true;
++var Settings = xdc.useModule('ti.posix.tirtos.Settings');
++Settings.enableMutexPriority = true;
+ 
+ var Timer = xdc.useModule('ti.sysbios.timers.dmtimer.Timer');
+ if(Program.global.HwType == hw_OMAP5)
+diff --git a/src/ti/framework/dce/dce.c b/src/ti/framework/dce/dce.c
+index 62bea8c..01dbcce 100644
+--- a/src/ti/framework/dce/dce.c
++++ b/src/ti/framework/dce/dce.c
+@@ -50,7 +50,7 @@
+ #include <ti/sysbios/hal/Cache.h>
+ #include <ti/sysbios/knl/Task.h>
+ #include <ti/sysbios/knl/Semaphore.h>
+-#include <ti/sysbios/posix/pthread.h>
++#include <ti/posix/ccs/pthread.h>
+ #include <xdc/cfg/global.h>
+ #include <xdc/runtime/System.h>
+ #include <xdc/runtime/Diags.h>
+-- 
+1.9.1
+

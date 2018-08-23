@@ -19,10 +19,13 @@ SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
 SRCREV = "035ba2571a273162fde75a31decadc6534d17eca"
 
+SRC_URI += " \
+      file://0001-Integration-with-IPC-3.50-BIOS-6.73-XDC-3.50.patch \
+"
 S = "${WORKDIR}/git"
 
 PV = "3.00.15.00"
-PR = "r1"
+PR = "r2"
 
 require recipes-ti/includes/ti-paths.inc
 
