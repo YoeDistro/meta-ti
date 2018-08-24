@@ -3,6 +3,7 @@ require ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
 DEPENDS = "ti-xdctools-native ti-sysbios doxygen-native zip-native"
+DEPENDS_append_am65xx-evm = " sciclient-rtos"
 
 PACKAGES =+ "${PN}-fw"
 FILES_${PN}-fw = "${base_libdir}/firmware/*"

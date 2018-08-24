@@ -24,11 +24,13 @@ protocol=${TI_IPC_METADATA_GIT_PROTOCOL};\
 branch=${TI_IPC_METADATA_GIT_BRANCH};\
 name=${TI_IPC_METADATA_NAME}"
 
-# Corresponds to tag: 3.50.01.00
-SRCREV_ipc-metadata = "19a8e70cf6ca4fe0984987e25d937c61a62c7658"
+# Corresponds to tag: 3.50.01.01
+TI_IPC_METADATA_SRCREV = "c749d4dd70cc259679dc862a164ad147d51381f6"
+# Corresponds to tag: 3.50.01.01
+TI_IPC_EXAMPLES_SRCREV = "71f6e59a6b2c7e20c2656e5000f318339ded2f3c"
 
-# Corresponds to tag: 3.50.01.00
-SRCREV_ipc-examples = "1975687076426b587be8d2530df56c24425ca53a"
+SRCREV_ipc-metadata = "${TI_IPC_METADATA_SRCREV}"
+SRCREV_ipc-examples = "${TI_IPC_EXAMPLES_SRCREV}"
 
 S_ipc-examples = "${WORKDIR}/git/ipc-examples"
 S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
@@ -89,3 +91,5 @@ EXTRA_OEMAKE = "\
     JOBS="--jobs=${BB_NUMBER_THREADS}" \
     JAVA_TOOL_OPTIONS=-Xss2560k \
 "
+EXTRA_OEMAKE_append_am65xx-evm = " PDK_INSTALL_DIR=${PDK_INSTALL_DIR}"
+
