@@ -1,5 +1,4 @@
 SUMMARY = "TI RTOS low level driver for SCICLIENT"
-DESCRIPTION = "TI RTOS low level driver for SCICLIENT "
 
 inherit ti-pdk
 
@@ -37,13 +36,8 @@ export PDK_SCICLIENT_ROOT_PATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/pac
 #export PDK_SCICLIENT_ROOT_PATH ="${WORKDIR}/build"
 #export DEST_ROOT="${S}"
 
-LIMSOCS = "am65xx"
 LIMSOCS_am65xx-evm = "am65xx"
-
-LIMBOARDS = "am65xx_evm"
 LIMBOARDS_am65xx-evm = "am65xx_evm"
-
-BOARD_PACKAGE = ""
 BOARD_PACKAGE_am65xx-evm = "am65xx_evm"
 
 # HTML doc link params
