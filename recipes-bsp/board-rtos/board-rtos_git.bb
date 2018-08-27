@@ -3,7 +3,7 @@ SUMMARY = "TI RTOS Board Library"
 inherit ti-pdk
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://board.h;beginline=1;endline=32;md5=0e3182ba6a963da159c37eafa9752ade"
+LIC_FILES_CHKSUM = "file://board.h;beginline=1;endline=32;md5=9bed8e4ac2fb37fc627cefe49eb1c919"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|omapl1|c66x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -13,14 +13,14 @@ BOARD_GIT_PROTOCOL = "git"
 BOARD_GIT_BRANCH = "master"
 
 # Below commit ID corresponds to "DEV.BOARD.01.00.10.01"
-BOARD_SRCREV = "47946e3f744054c5e5eecdce136b03191bd4f461"
+BOARD_SRCREV = "983d89de8143645571e7893e95632a8be0fab67e"
 
 BRANCH ="${BOARD_GIT_BRANCH}"
 SRC_URI = "${BOARD_GIT_URI};protocol=${BOARD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${BOARD_SRCREV}"
 PV = "01.00.10.01"
-PR = "r0"
+PR = "r1"
 
 DEPENDS_append = " i2c-lld-rtos \
                    spi-lld-rtos \
