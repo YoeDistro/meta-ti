@@ -47,6 +47,9 @@ do_install () {
     mkdir -p ${D}${libdir}/gbm
     ln -sf ../libpvrGBMWSEGL.so.${PV} ${D}${libdir}/gbm/gbm_pvr.so
     ln -sf libGLESv2.so.${PV} ${D}${libdir}/libGLESv2.so.1
+
+    rm -f ${D}${libdir}/pkgconfig/wayland-egl.pc
+
     chown -R root:root ${D}
 }
 
