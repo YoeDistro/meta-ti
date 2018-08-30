@@ -9,7 +9,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 BRANCH = "ti-img-sgx/rocko/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-um-linux.git;protocol=git;branch=${BRANCH}"
-SRCREV = "9f83f282c7f0a01ff12558689a02b76cd2ebac3d"
+SRCREV = "9ad48144e89d48c7bf2db2a12795985e7a80e4fa"
 
 # There's only hardfp version available
 python __anonymous() {
