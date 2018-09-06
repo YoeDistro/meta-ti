@@ -4,7 +4,7 @@ HOMEPAGE="http://processors.wiki.ti.com/index.php/Category:IPC"
 require ti-ipc.inc
 require ti-ipc-common.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 DEPENDS += "virtual/kernel"
 
@@ -21,6 +21,7 @@ DAEMON_k2l = "lad_tci6630"
 DAEMON_k2e = "lad_66ak2e"
 DAEMON_k2g = "lad_66ak2g"
 DAEMON_omapl138 = "lad_omapl138"
+DAEMON_k3 = "lad_am65xx"
 
 inherit autotools-brokensep pkgconfig update-rc.d
 
