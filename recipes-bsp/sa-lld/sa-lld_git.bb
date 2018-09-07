@@ -4,15 +4,18 @@ DEPENDS = "common-csl-ip"
 
 include sa-lld.inc
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
+
+PARALLEL_MAKE = ""
+EXTRA_OEMAKE = "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR}"
 
 do_compile () {
 #   Now build the lld in the updated directory
-	make -f makefile_armv7 clean lib PDK_INSTALL_PATH=${STAGING_INCDIR}
+	oe_runmake clean lib
 }
 
 do_install () {
-	make -f makefile_armv7 install PDK_INSTALL_PATH=${STAGING_INCDIR} INSTALL_INC_BASE_DIR=${D}/${includedir} INSTALL_LIB_BASE_DIR=${D}${libdir}
+	oe_runmake install INSTALL_INC_BASE_DIR=${D}/${includedir} INSTALL_LIB_BASE_DIR=${D}${libdir}
 	chown -R root:root ${D}
 
 #   Set the generic device library symbolic link
