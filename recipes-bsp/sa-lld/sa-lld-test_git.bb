@@ -14,14 +14,17 @@ DEVICELIST_k2e  = "k2e"
 
 CHOICELIST = "no yes"
 
+PARALLEL_MAKE = ""
+EXTRA_OEMAKE = "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR} SA_SRC_DIR=${S}"
+
 do_compile () {
 #   Now build the lld in the updated directory
 	for device in ${DEVICELIST}
 	do
-		make -f makefile_armv7 clean PDK_INSTALL_PATH=${STAGING_INCDIR} DEVICE="$device" SA_SRC_DIR=${S}
+		oe_runmake clean DEVICE="$device"
 		for choice in ${CHOICELIST}
 		do
-			make -f makefile_armv7 examples utils PDK_INSTALL_PATH=${STAGING_INCDIR} DEVICE="$device" SA_SRC_DIR=${S} USEDYNAMIC_LIB="$choice"
+			oe_runmake examples utils DEVICE="$device" USEDYNAMIC_LIB="$choice"
 		done
 	done
 }
@@ -34,7 +37,7 @@ do_install () {
 
 	for device in ${DEVICELIST}
 	do
-		make -f makefile_armv7 installbin PDK_INSTALL_PATH=${STAGING_INCDIR} DEVICE="$device" SA_SRC_DIR=${S} INSTALL_BIN_BASE_DIR=${D}${bindir}
+		oe_runmake installbin DEVICE="$device" INSTALL_BIN_BASE_DIR=${D}${bindir}
 	done
 }
 
