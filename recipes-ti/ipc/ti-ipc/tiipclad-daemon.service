@@ -1,0 +1,9 @@
+[Unit]
+Description=TI IPC Daemon
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/__LAD_DAEMON__ -g -l lad.txt
+
+[Install]
+WantedBy=basic.target
