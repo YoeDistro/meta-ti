@@ -4,12 +4,13 @@ HOMEPAGE="http://processors.wiki.ti.com/index.php/Category:IPC"
 require ti-ipc.inc
 require ti-ipc-common.inc
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 DEPENDS += "virtual/kernel"
 
 SRC_URI += "file://tiipclad-daemon.sh \
             file://omap_remoteproc.conf \
+            file://tiipclad-daemon.service \
             file://0001-Add-kernel-build-dir.patch \
            "
 
@@ -23,10 +24,12 @@ DAEMON_k2g = "lad_66ak2g"
 DAEMON_omapl138 = "lad_omapl138"
 DAEMON_k3 = "lad_am65xx"
 
-inherit autotools-brokensep pkgconfig update-rc.d
+inherit autotools-brokensep pkgconfig update-rc.d systemd
 
 INITSCRIPT_NAME = "tiipclad-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"
+
+SYSTEMD_SERVICE_${PN} = "tiipclad-daemon.service"
 
 EXTRA_OECONF += "PLATFORM=${PLATFORM} KERNEL_INSTALL_DIR=${STAGING_KERNEL_DIR} KERNEL_BUILD_DIR=${STAGING_KERNEL_BUILDDIR}"
 
@@ -40,10 +43,20 @@ do_configure() {
 do_install_append() {
     install -d ${D}${sysconfdir}/init.d/
 
-    # Modify the tiipclad-daemon.sh script to point to the right
+    # Modify the startup scripts to point to the right
     # lad daemon executable.
     sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${WORKDIR}/tiipclad-daemon.sh
-    install -c -m 755 ${WORKDIR}/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
+    sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${WORKDIR}/tiipclad-daemon.service
+
+    systemd_enabled=${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '1', '0', d)}
+    if [ ${systemd_enabled} -eq 1 ]
+    then
+        install -d ${D}${systemd_system_unitdir}
+        install -m 0644 ${WORKDIR}/tiipclad-daemon.service ${D}${systemd_system_unitdir}
+    else
+        install -d ${D}${sysconfdir}/init.d/
+        install -c -m 755 ${S}/scripts/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
+    fi
 }
 
 do_install_append_dra7xx() {
