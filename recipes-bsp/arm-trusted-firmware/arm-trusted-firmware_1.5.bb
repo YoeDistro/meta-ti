@@ -22,7 +22,7 @@ PV_append = "+git${SRCPV}"
 BRANCH = "ti-atf"
 SRC_URI = "git://git.ti.com/atf/arm-trusted-firmware.git;branch=${BRANCH}"
 
-SRCREV ?= "516abc5fb4826e28be0acdbe6e22fd1b1b476c59"
+SRCREV ?= "d7b4c6e1fdb4553fc23a02776bca111bdcdf6b9f"
 
 # Make ATF "aware" of OPTEE, no build dependency
 PACKAGECONFIG[optee] = "SPD=opteed"
