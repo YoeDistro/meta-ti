@@ -9,11 +9,19 @@ require recipes-ti/includes/ti-paths.inc
 
 S = "${WORKDIR}/ti-cgt-arm-${PV}"
 
+PR = "r1"
+
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/TMS470/${PV}.LTS/${BINFILE};name=${BINFILE_NAME}"
 
 BINFILE = "ti_cgt_tms470_${PV}.LTS_linux_installer_x86.bin"
 TI_BIN_UNPK_ARGS = "--prefix ${S}"
 TI_BIN_UNPK_CMDS = ""
+
+do_compile_append() {
+    cd ${S}/ti-cgt-arm_${PV}.LTS
+    export PATH=${PATH}:${S}/ti-cgt-arm_${PV}.LTS/bin
+    lib/mklib --pattern=rtsv7R4_A_le_v3D16_eabi.lib
+}
 
 do_install() {
     install -d ${D}${M4_TOOLCHAIN_INSTALL_DIR_RECIPE}
