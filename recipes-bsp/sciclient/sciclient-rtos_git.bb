@@ -12,15 +12,15 @@ SCICLIENT_GIT_URI = "git://git.ti.com/keystone-rtos/sciclient.git"
 SCICLIENT_GIT_PROTOCOL = "git"
 SCICLIENT_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.SCICLIENT.01.00.00.00"
-SCICLIENT_SRCREV = "4ac052a70764c5fcf9dd18d521fe3b631bfcd875"
+# Below commit ID corresponds to "DEV.SCICLIENT.01.00.00.00A"
+SCICLIENT_SRCREV = "cf151766d4cef7f93b47e4822a1ce6f17dfb9339"
 
 BRANCH = "${SCICLIENT_GIT_BRANCH}"
 SRC_URI = "${SCICLIENT_GIT_URI};protocol=${SCICLIENT_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${SCICLIENT_SRCREV}"
 PV = "01.00.00.00"
-PR = "r0"
+PR = "r1"
 
 DEPENDS_append = " osal-rtos common-csl-ip-rtos"
 
@@ -81,3 +81,5 @@ do_install() {
 FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 
 INSANE_SKIP_${PN} = "arch ldflags file-rdeps"
+
+INSANE_SKIP_${PN}-dbg = "arch"
