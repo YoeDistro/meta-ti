@@ -3,6 +3,7 @@ SUMMARY = "TI RTOS low level driver library for PRUSS"
 inherit ti-pdk
 require recipes-bsp/pruss-lld/pruss-lld.inc
 
+COMPATIBLE_MACHINE_append = "|k3"
 PR = "${INC_PR}.0"
 
 S = "${WORKDIR}/${PRUSS_LLD_GIT_DESTSUFFIX}"
