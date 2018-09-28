@@ -9,7 +9,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 BRANCH = "ti-img-sgx/rocko/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-um-linux.git;protocol=git;branch=${BRANCH}"
-SRCREV = "9ad48144e89d48c7bf2db2a12795985e7a80e4fa"
+SRCREV = "e4cb91cb9009bdd8c41be0e4767b765b9b0bfdc6"
 
 # There's only hardfp version available
 python __anonymous() {
@@ -32,7 +32,7 @@ INITSCRIPT_PARAMS = "defaults 8"
 
 inherit update-rc.d
 
-PR = "r30"
+PR = "r31"
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 omap5-sgx-ddk-um-linux"
 
 DEPENDS += "libdrm udev libgbm wayland libffi"
