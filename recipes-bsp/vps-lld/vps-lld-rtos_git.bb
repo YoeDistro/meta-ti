@@ -13,14 +13,14 @@ VPS_LLD_GIT_PROTOCOL = "git"
 VPS_LLD_GIT_BRANCH = "master"
 VPS_LLD_GIT_DESTSUFFIX = "git/ti/drv/vps"
 
-# Below commit ID corresponds to "DEV.VPS_LLD.01.00.01.11A"
-VPS_LLD_SRCREV = "a62dab146b2c41259ce334b804e44f49767767da"
+# Below commit ID corresponds to "DEV.VPS_LLD.01.00.01.13
+VPS_LLD_SRCREV = "58020ff07c993e6efe01d78531bc7459b9edeaf2"
 
 BRANCH = "${VPS_LLD_GIT_BRANCH}"
 SRC_URI = "${VPS_LLD_GIT_URI};destsuffix=${VPS_LLD_GIT_DESTSUFFIX};protocol=${VPS_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${VPS_LLD_SRCREV}"
-PV = "01.00.01.11A"
+PV = "01.00.01.13"
 PR = "r0"
 
 S = "${WORKDIR}/${VPS_LLD_GIT_DESTSUFFIX}"
