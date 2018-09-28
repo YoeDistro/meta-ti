@@ -7,7 +7,7 @@ PR = "${INC_PR}.0"
 
 LIC_FILES_CHKSUM = "file://nimu_eth.h;beginline=1;endline=35;md5=ee9c662c39d4584fb2a8b66413d2866d"
 
-COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|c66x|omapl1"
+COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|c66x|omapl1|k3"
 
 NIMU_DESTSUFFIX = "git/ndk/nimu"
 
@@ -25,6 +25,7 @@ DEPENDS_append_k2g = " emac-lld-rtos"
 DEPENDS_append_c665x-evm = " emac-lld-rtos"
 DEPENDS_append_c667x-evm = " pa-lld-rtos cppi-lld-rtos"
 DEPENDS_append_omapl1 = " emac-lld-rtos"
+DEPENDS_append_k3 = " emac-lld-rtos"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
