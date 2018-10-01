@@ -1,6 +1,6 @@
 require u-boot-ti.inc
 
-PR = "r22"
+PR = "r23"
 
 BRANCH = "ti-u-boot-2018.01"
 
