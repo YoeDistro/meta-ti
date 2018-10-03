@@ -9,13 +9,19 @@ require recipes-ti/includes/ti-paths.inc
 
 S = "${WORKDIR}/ti-cgt-arm-${PV}"
 
-PR = "r1"
+PR = "r2"
 
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/TMS470/${PV}.LTS/${BINFILE};name=${BINFILE_NAME}"
 
 BINFILE = "ti_cgt_tms470_${PV}.LTS_linux_installer_x86.bin"
 TI_BIN_UNPK_ARGS = "--prefix ${S}"
 TI_BIN_UNPK_CMDS = ""
+
+do_configure_append() {
+    # Remove the library if it exists to prevent an error when building the
+    # library in do_compile().
+    rm -f ./ti-cgt-arm_${PV}.LTS/lib/rtsv7R4_A_le_v3D16_eabi.lib
+}
 
 do_compile_append() {
     cd ${S}/ti-cgt-arm_${PV}.LTS
