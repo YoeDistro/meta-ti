@@ -14,6 +14,8 @@ SRC_URI[sha256sum] = "d4ab6e28d4d45d8956cad17470aade3fbe2356e8f64b92167e738c1887
 
 EXTRA_OECONF = "--prefix ${prefix}"
 
+DISABLE_STATIC = ""
+
 do_configure () {
 	./configure ${EXTRA_OECONF}
 
