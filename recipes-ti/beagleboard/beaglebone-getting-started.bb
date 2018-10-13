@@ -14,7 +14,7 @@ S = "${WORKDIR}/git"
 
 do_install() {
 	install -d ${D}${datadir}/${PN}
-	cp -a ${S}/* ${D}${datadir}/${PN}
+	cp -R --no-dereference --preserve=mode,links ${S}/* ${D}${datadir}/${PN}
 }
 
 FILES_${PN} += "${datadir}/${PN}"
