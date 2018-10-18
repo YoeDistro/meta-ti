@@ -1,0 +1,26 @@
+From c93a4217425ffebae1fb2d5c6c7fc957eb8aa18c Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Tue, 16 Oct 2018 21:16:48 -0400
+Subject: [PATCH] Kbuild: bypass gcc8 stringop-overflow error
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ src/Kbuild | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/Kbuild b/src/Kbuild
+index 574a107..df4368d 100755
+--- a/src/Kbuild
++++ b/src/Kbuild
+@@ -87,7 +87,7 @@ MODULE_NAME ?= galcore
+ CUSTOMER_ALLOCATOR_OBJS    ?=
+ ALLOCATOR_ARRAY_H_LOCATION ?= $(OS_KERNEL_DIR)/allocator/default/
+ 
+-EXTRA_CFLAGS += -Werror
++EXTRA_CFLAGS += -Werror -Wno-stringop-overflow
+ 
+ OBJS := $(OS_KERNEL_DIR)/gc_hal_kernel_device.o \
+         $(OS_KERNEL_DIR)/gc_hal_kernel_linux.o \
+-- 
+2.7.4
+

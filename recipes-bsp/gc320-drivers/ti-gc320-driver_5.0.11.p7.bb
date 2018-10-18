@@ -13,7 +13,9 @@ BRANCH = "ti-${PV}-k4.14"
 
 SRCREV = "a36799d9329efcfff19e30e690156d5ebf7e0c55"
 
-SRC_URI = "git://git.ti.com/graphics/ti-gc320-driver.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/graphics/ti-gc320-driver.git;protocol=git;branch=${BRANCH} \
+	file://0001-Kbuild-bypass-gcc8-stringop-overflow-error.patch;striplevel=2"
+
 S = "${WORKDIR}/git/src"
 
 EXTRA_OEMAKE += "-f Kbuild AQROOT=${S} KERNEL_DIR=${STAGING_KERNEL_DIR} TOOLCHAIN_PATH=${TOOLCHAIN_PATH} CROSS_COMPILE=${TARGET_PREFIX} ARCH_TYPE=${TARGET_ARCH}"
