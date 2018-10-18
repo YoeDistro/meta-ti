@@ -61,3 +61,8 @@ libhpi.so \
 lib.so \
 libcairo.so.2 \
 "
+
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST_class-native = "(.*)"
+COMPATIBLE_HOST_class-nativesdk = "(.*)"

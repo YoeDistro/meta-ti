@@ -42,3 +42,5 @@ FILES_${PN}-dev += "${SWTOOLS_INSTALL_DIR_RECIPE}"
 
 INSANE_SKIP_${PN}-dev = "arch staticdev"
 ALLOW_EMPTY_${PN} = "1"
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"

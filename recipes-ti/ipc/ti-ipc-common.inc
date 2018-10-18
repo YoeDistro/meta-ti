@@ -2,6 +2,8 @@ PV = "3.50.02.02"
 INC_PR = "r0"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"
 
 PLATFORM = "UNKNOWN"
 PLATFORM_omap5-evm = "OMAP54XX"

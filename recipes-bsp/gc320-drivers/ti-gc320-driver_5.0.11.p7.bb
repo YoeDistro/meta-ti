@@ -22,3 +22,6 @@ do_install() {
     install -d ${D}/${base_libdir}/modules/${KERNEL_VERSION}/extra
     install -m 644 ${S}/galcore.ko ${D}/${base_libdir}/modules/${KERNEL_VERSION}/extra
 }
+
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"

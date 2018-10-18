@@ -69,3 +69,5 @@ ALLOW_EMPTY_${PN} = "1"
 FILES_${PN}-dev += "${DSPLIB_INSTALL_DIR_RECIPE}"
 
 INSANE_SKIP_${PN}-dev = "arch"
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"

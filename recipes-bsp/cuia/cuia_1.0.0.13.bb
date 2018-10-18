@@ -23,3 +23,6 @@ do_install() {
 	cd ${S}
 	oe_runmake DESTDIR=${D} libdir=${libdir} includedir=${includedir} install
 }
+
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"

@@ -12,3 +12,5 @@ PV = "4.15.00.02+git${SRCPV}"
 SRC_URI = "git://git.ti.com/ipc/ludev.git;protocol=git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"

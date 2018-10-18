@@ -37,3 +37,6 @@ do_install() {
 }
 
 INSANE_SKIP_${PN} += "ldflags"
+
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"

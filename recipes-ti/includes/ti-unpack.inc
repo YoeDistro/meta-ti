@@ -79,3 +79,7 @@ python ti_bin_do_unpack() {
     # Return to the previous directory
     os.chdir(save_cwd)
 }
+
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST_class-native = "(.*)"

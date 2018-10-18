@@ -38,3 +38,6 @@ SRC_URI_append = " file://omap3530-r642-remove-include-videodev.diff;striplevel=
                  "
 
 INSANE_SKIP_${PN} = "installed-vs-shipped"
+
+COMPATIBLE_HOST ?= "null"
+COMPATIBLE_HOST_ti-soc = "(.*)"
