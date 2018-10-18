@@ -11,6 +11,7 @@ def get_git_revision(p):
 UBOOT_LOCALVERSION = "-g${@get_git_revision('${S}').__str__()[:10]}"
 
 UBOOT_SUFFIX ?= "img"
+SPL_BINARY ?= "MLO"
 
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
 
@@ -50,15 +51,6 @@ S = "${WORKDIR}/git"
 TI_SECURE_DEV_PKG ?= ""
 export TI_SECURE_DEV_PKG
 
-# SPL (Second Program Loader)
-SPL_BINARY = "MLO"
-SPL_BINARY_k2e-hs-evm = ""
-SPL_BINARY_k2hk-hs-evm = ""
-SPL_BINARY_k2g-hs-evm = ""
-SPL_BINARY_k2l-hs-evm = ""
-SPL_BINARY_omapl138 = ""
-SPL_BINARY_k3 = "tispl.bin"
-
 # SPL (Second Program Loader) to be loaded over UART
 SPL_UART_BINARY = "u-boot-spl.bin"
 SPL_UART_BINARY_keystone = ""
@@ -66,9 +58,6 @@ SPL_UART_BINARY_k3 = ""
 
 SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${PV}-${PR}"
 SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
-
-# Keystone specifics
-UBOOT_SUFFIX_keystone = "bin"
 
 # SPI NOR Flash binaries
 UBOOT_SPI_SPL_BINARY = "u-boot-spl.bin"
