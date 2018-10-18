@@ -19,6 +19,9 @@ UBOOT_ARCH = "arm"
 UBOOT_ENTRYPOINT = "0x80008000"
 UBOOT_LOADADDRESS = "0x80008000"
 
+SPL_BINARY = "MLO"
+UBOOT_SUFFIX = "img"
+
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
 PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"

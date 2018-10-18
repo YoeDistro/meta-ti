@@ -17,9 +17,10 @@ UBOOT_ARCH = "arm"
 UBOOT_ENTRYPOINT = "0x80008000"
 UBOOT_LOADADDRESS = "0x80008000"
 
-EXTRA_IMAGEDEPENDS += " \
-    virtual/bootloader \
-"
+SPL_BINARY = "tispl.bin"
+UBOOT_SUFFIX = "img"
+
+EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
 MACHINE_GUI_CLASS = "smallscreen"
 
