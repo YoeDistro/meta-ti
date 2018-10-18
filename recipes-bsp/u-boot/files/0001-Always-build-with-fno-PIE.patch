@@ -1,0 +1,35 @@
+From ec81bbe3ea7e077512f4b9d2b4aa87e7f1494bcc Mon Sep 17 00:00:00 2001
+From: Khem Raj <raj.khem@gmail.com>
+Date: Wed, 17 Oct 2018 22:32:57 -0700
+Subject: [PATCH] Always build with -fno-PIE
+
+GNU Toolchains can be configured to generate PIE by default
+while PIE could be ok, it is known that u-boot/SPL on ARM starts to
+generate bigger code and starts to overflow the SRAM size, therefore
+disabling PIE explcitly insulates against toolchain intrinsic defaults
+
+Fixes errors like
+| arm-yoe-linux-gnueabi-ld.bfd: u-boot-spl section `.rodata' will not fit in region `.sram'
+| arm-yoe-linux-gnueabi-ld.bfd: region `.sram' overflowed by 5772 bytes
+
+Signed-off-by: Khem Raj <raj.khem@gmail.com>
+Cc: Tom Rini <trini@konsulko.com>
+---
+ Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Makefile b/Makefile
+index 45cd751ba3..9eb8ac564e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -592,6 +592,7 @@ KBUILD_CFLAGS	+= -O2
+ endif
+ 
+ KBUILD_CFLAGS += $(call cc-option,-fno-stack-protector)
++KBUILD_CFLAGS += $(call cc-option,-fno-PIE)
+ KBUILD_CFLAGS += $(call cc-option,-fno-delete-null-pointer-checks)
+ 
+ KBUILD_CFLAGS	+= -g
+-- 
+2.19.1
+
