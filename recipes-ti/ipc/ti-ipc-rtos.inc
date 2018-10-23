@@ -24,10 +24,10 @@ protocol=${TI_IPC_METADATA_GIT_PROTOCOL};\
 branch=${TI_IPC_METADATA_GIT_BRANCH};\
 name=${TI_IPC_METADATA_NAME}"
 
-# Corresponds to tag: 3.50.02.02
-TI_IPC_METADATA_SRCREV = "171ed5b4cfc73fd2ebfeefe42249bec18f475613"
-# Corresponds to tag: 3.50.01.01
-TI_IPC_EXAMPLES_SRCREV = "71f6e59a6b2c7e20c2656e5000f318339ded2f3c"
+# Corresponds to tag: 3.50.03.03
+TI_IPC_METADATA_SRCREV = "88d4c734407f49d2edb8050b0b542e023b8750c8"
+# Corresponds to tag: 3.50.03.03
+TI_IPC_EXAMPLES_SRCREV = "e2b116ab30b79d5dc855febb7dcc07179e8aef50"
 
 SRCREV_ipc-metadata = "${TI_IPC_METADATA_SRCREV}"
 SRCREV_ipc-examples = "${TI_IPC_EXAMPLES_SRCREV}"
