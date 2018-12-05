@@ -4,7 +4,7 @@ LICENSE = "BSD-3-Clause"
 
 require ../includes/ti-paths.inc
 
-PV = "3_4_0_1"
+PV = "3_4_0_2"
 PR = "r0"
 
 DEPENDS = "ti-cgt6x-native \
@@ -17,7 +17,7 @@ DEPENDS = "ti-cgt6x-native \
 S = "${WORKDIR}/git"
 
 SRC_URI = "git://git.ti.com/ep-processor-libraries/dsplib.git;protocol=git;branch=master"
-SRCREV = "bf5a51cba462c5cb03ed20a6a1bb1bd16c0683e1"
+SRCREV = "0eb7e849c4cf0ffbfd67e2a777e655375822792b"
 
 LIC_FILES_CHKSUM = "file://ti/dsplib/src/common/c66/lnk.cmd;beginline=1;endline=37;md5=0f0c9c4d51d8af75419781591ace190b"
 
@@ -48,7 +48,7 @@ do_install() {
 	install -d ${D}${DSPLIB_INSTALL_DIR_RECIPE}
 
 	find -name "${DSPLIB_PACKAGE_NAME}.zip" -exec unzip -o {} -d ${D}${DSPLIB_INSTALL_DIR_RECIPE} \;
-	mv ${D}${DSPLIB_INSTALL_DIR_RECIPE}/dsplib/* ${D}${DSPLIB_INSTALL_DIR_RECIPE}
+	cp -r ${D}${DSPLIB_INSTALL_DIR_RECIPE}/dsplib/. ${D}${DSPLIB_INSTALL_DIR_RECIPE}
 	rm -r ${D}${DSPLIB_INSTALL_DIR_RECIPE}/dsplib
 }
 
@@ -60,7 +60,7 @@ do_deploy() {
 	# zip up files in ${D}${DSPLIB_INSTALL_DIR_RECIPE}
 	# and place the zip file in ${DEPLOYDIR}
 	mkdir ./${DSPLIB_PACKAGE_NAME}
-	cp -r ${D}${DSPLIB_INSTALL_DIR_RECIPE}/* ./${DSPLIB_PACKAGE_NAME}
+	cp -r ${D}${DSPLIB_INSTALL_DIR_RECIPE}/. ./${DSPLIB_PACKAGE_NAME}
 	zip -9 -y -r -q ${DEPLOYDIR}/${DSPLIB_PACKAGE_NAME}.zip ./${DSPLIB_PACKAGE_NAME}
 	rm -r ./${DSPLIB_PACKAGE_NAME}
 }

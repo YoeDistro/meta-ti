@@ -4,7 +4,7 @@ LICENSE = "BSD-3-Clause"
 
 require ../includes/ti-paths.inc
 
-PV = "3_1_2_2"
+PV = "3_1_2_3"
 PR = "r0"
 
 DEPENDS = "ti-cgt6x-native \
@@ -17,7 +17,7 @@ DEPENDS = "ti-cgt6x-native \
 S = "${WORKDIR}/git"
 
 SRC_URI = "git://git.ti.com/ep-processor-libraries/mathlib.git;protocol=git;branch=master"
-SRCREV = "195355db20f53295cfeef0bcfba0a8d8fdb0a753"
+SRCREV = "8ca923210d156aa09f582aaab0dc2d0174a88962"
 
 LIC_FILES_CHKSUM = "file://ti/mathlib/src/acosdp/acosdp.h;beginline=1;endline=35;md5=c133f7e139b46385906c861dd9552250"
 
@@ -47,7 +47,7 @@ do_install() {
 	install -d ${D}${MATHLIB_INSTALL_DIR_RECIPE}
 
 	find -name "${MATHLIB_PACKAGE_NAME}.zip" -exec unzip -o {} -d ${D}${MATHLIB_INSTALL_DIR_RECIPE} \;
-	mv ${D}${MATHLIB_INSTALL_DIR_RECIPE}/mathlib/* ${D}${MATHLIB_INSTALL_DIR_RECIPE}
+	cp -r ${D}${MATHLIB_INSTALL_DIR_RECIPE}/mathlib/. ${D}${MATHLIB_INSTALL_DIR_RECIPE}
 	rm -r ${D}${MATHLIB_INSTALL_DIR_RECIPE}/mathlib
 }
 
@@ -59,7 +59,7 @@ do_deploy() {
 	# zip up files in ${D}${MATHLIB_INSTALL_DIR_RECIPE}
 	# and place the zip file in ${DEPLOYDIR}
 	mkdir ./${MATHLIB_PACKAGE_NAME}
-	cp -r ${D}${MATHLIB_INSTALL_DIR_RECIPE}/* ./${MATHLIB_PACKAGE_NAME}
+	cp -r ${D}${MATHLIB_INSTALL_DIR_RECIPE}/. ./${MATHLIB_PACKAGE_NAME}
 	zip -9 -y -r -q ${DEPLOYDIR}/${MATHLIB_PACKAGE_NAME}.zip ./${MATHLIB_PACKAGE_NAME}
 	rm -r ./${MATHLIB_PACKAGE_NAME}
 }
