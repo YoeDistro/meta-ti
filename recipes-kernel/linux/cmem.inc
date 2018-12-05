@@ -3,7 +3,7 @@
 # Use these for temporary overrides
 CMEM_MACHINE = "${MACHINE}"
 CMEM_MACHINE_am57xx-evm = "am571x am572x am574x"
-CMEM_MACHINE_am57xx-hs-evm = "am571x am572x"
+CMEM_MACHINE_am57xx-hs-evm = "am571x am572x am574x"
 CMEM_MACHINE_dra7xx-evm = "dra71x dra72x dra74x"
 CMEM_MACHINE_dra7xx-hs-evm = "dra71x dra72x dra74x"
 
