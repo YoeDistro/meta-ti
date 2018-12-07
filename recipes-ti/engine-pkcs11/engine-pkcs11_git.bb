@@ -5,11 +5,11 @@ SECTION = "libs"
 
 inherit autotools pkgconfig
 
-DEPENDS = "openssl libtool libp11"
+DEPENDS = "openssl10 libtool libp11"
 
 COMPATIBLE_MACHINE = "keystone"
 
-BRANCH="master"
+BRANCH = "master"
 
 PV = "1.3.0.1"
 # Commit corresponds to DEV.ENGINE_PKCS11-01.03.00.01
