@@ -5,13 +5,13 @@ SECTION = "libs"
 
 inherit autotools pkgconfig
 
-DEPENDS = "openssl libtool"
+DEPENDS = "openssl10 libtool"
 RDEPENDS_${PN} = "ti-softhsmv2"
 
 COMPATIBLE_MACHINE = "keystone"
 
 SRC_URI = "git://git.ti.com/keystone-linux/libp11.git;protocol=git;branch=${BRANCH}"
-BRANCH="master"
+BRANCH = "master"
 # Following commit corresponds to DEV.LIBP11-01.03.00.00
 SRCREV = "43c4f63a8d803fde2bcd8e4f8969e5fe9edf0e33"
 PV = "1.3.0.0"
