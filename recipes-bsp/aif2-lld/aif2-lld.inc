@@ -7,14 +7,14 @@ AIF2_LLD_GIT_PROTOCOL = "git"
 AIF2_LLD_GIT_BRANCH = "master"
 AIF2_LLD_GIT_DESTSUFFIX = "git/ti/drv/aif2"
 
-# The following commit correspond to DEV.AIF2LLD.01.02.00.02
-AIF2_LLD_SRCREV = "e0c978cf1de9007c99a67d4683abaece1fca3617"
+# The following commit correspond to DEV.AIF2LLD.01.02.00.02A
+AIF2_LLD_SRCREV = "3eecba9b3b07b0c8fc39daa79fe4e8204e5d0e0e"
 
 BRANCH = "${AIF2_LLD_GIT_BRANCH}"
 SRC_URI = "${AIF2_LLD_GIT_URI};destsuffix=${AIF2_LLD_GIT_DESTSUFFIX};protocol=${AIF2_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${AIF2_LLD_SRCREV}"
 
-PV = "1.2.0.2"
+PV = "1.2.0.2A"
 INC_PR = "r0"
 
 COMPATIBLE_MACHINE = "k2hk"
