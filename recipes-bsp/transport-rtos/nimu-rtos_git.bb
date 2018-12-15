@@ -25,7 +25,7 @@ DEPENDS_append_k2g = " emac-lld-rtos"
 DEPENDS_append_c665x-evm = " emac-lld-rtos"
 DEPENDS_append_c667x-evm = " pa-lld-rtos cppi-lld-rtos"
 DEPENDS_append_omapl1 = " emac-lld-rtos"
-DEPENDS_append_k3 = " emac-lld-rtos"
+DEPENDS_append_k3 = " emac-lld-rtos pruss-lld-rtos"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
