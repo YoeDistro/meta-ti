@@ -12,21 +12,21 @@ SPI_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/spi-lld.git"
 SPI_LLD_GIT_PROTOCOL = "git"
 SPI_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.SPI_LLD.01.00.00.12A"
-SPI_LLD_SRCREV = "5f591af32a1ff92140cf7d2b40cd131bb308ab73"
+# Below commit ID corresponds to "DEV.SPI_LLD.01.00.00.13"
+SPI_LLD_SRCREV = "ae908342837ca627276d4cee3c4e10d0792fad54"
 
 BRANCH = "${SPI_LLD_GIT_BRANCH}"
 SRC_URI = "${SPI_LLD_GIT_URI};protocol=${SPI_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${SPI_LLD_SRCREV}"
-PV = "01.00.00.12A"
+PV = "01.00.00.13"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
                    edma3-lld-rtos \
 "
-DEPENDS_append_ti33x = " starterware-rtos"
-DEPENDS_append_ti43x = " starterware-rtos"
+DEPENDS_append_ti33x = " starterware-rtos pruss-lld-rtos gpio-lld-rtos"
+DEPENDS_append_ti43x = " starterware-rtos pruss-lld-rtos gpio-lld-rtos"
 
 DEPENDS_remove_k3 = "edma3-lld-rtos "
 DEPENDS_append_k3 = " udma-lld-rtos"
