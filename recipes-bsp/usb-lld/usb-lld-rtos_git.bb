@@ -12,19 +12,20 @@ USB_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/usb.git"
 USB_LLD_GIT_PROTOCOL = "git"
 USB_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.USB_LLD.01.00.00.15A"
-USB_LLD_SRCREV = "ab94ca08198bc87b008d98a3142f62833fa0b40b"
+# Below commit ID corresponds to "DEV.USB_LLD.01.00.00.16B"
+USB_LLD_SRCREV = "79992405d709e8593ef0e488fed336d8c186a07d"
 
 BRANCH = "${USB_LLD_GIT_BRANCH}"
 SRC_URI = "${USB_LLD_GIT_URI};protocol=${USB_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${USB_LLD_SRCREV}"
-PV = "01.00.00.15A"
+PV = "01.00.00.16B"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos"
 DEPENDS_append_ti33x = " starterware-rtos"
 DEPENDS_append_ti43x = " starterware-rtos"
+DEPENDS_append_k3 = " sciclient-rtos"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
