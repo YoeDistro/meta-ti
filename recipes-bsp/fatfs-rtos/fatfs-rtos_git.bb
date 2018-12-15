@@ -12,14 +12,14 @@ FATFS_GIT_URI = "git://git.ti.com/keystone-rtos/fatfs.git"
 FATFS_GIT_PROTOCOL = "git"
 FATFS_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.FATFS_LLD.01.00.00.11"
-FATFS_SRCREV = "8b1bd374ebcb898d209305727106d4bf3f313ab2"
+# Below commit ID corresponds to "DEV.FATFS_LLD.01.00.00.12A"
+FATFS_SRCREV = "0eef7635311646b74b84375e50c7e2dfdb33ed5e"
 
 BRANCH = "${FATFS_GIT_BRANCH}"
 SRC_URI = "${FATFS_GIT_URI};protocol=${FATFS_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${FATFS_SRCREV}"
-PV = "01.00.00.11"
+PV = "01.00.00.12A"
 PR = "r0"
 
 DEPENDS_append = " mmcsd-lld-rtos"
