@@ -13,14 +13,14 @@ MMCSD_LLD_GIT_PROTOCOL = "git"
 MMCSD_LLD_GIT_BRANCH = "master"
 MMCSD_LLD_GIT_DESTSUFFIX = "git/ti/drv/mmcsd"
 
-# Below commit ID corresponds to "DEV.MMCSD_LLD.01.00.00.13"
-MMCSD_LLD_SRCREV = "73e5ce5b0c1ebf05ca440263721f045b09cd0688"
+# Below commit ID corresponds to "DEV.MMCSD_LLD.01.00.00.14"
+MMCSD_LLD_SRCREV = "cdacb10f1f89ed8017172d2470c62997aef3a633"
 
 BRANCH = "${MMCSD_LLD_GIT_BRANCH}"
 SRC_URI = "${MMCSD_LLD_GIT_URI};destsuffix=${MMCSD_LLD_GIT_DESTSUFFIX};protocol=${MMCSD_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${MMCSD_LLD_SRCREV}"
-PV = "01.00.00.13"
+PV = "01.00.00.14"
 PR = "r0"
 
 S = "${WORKDIR}/${MMCSD_LLD_GIT_DESTSUFFIX}"
@@ -33,6 +33,9 @@ DEPENDS_append_ti33x = " starterware-rtos \
 DEPENDS_append_ti43x = " starterware-rtos \
 "
 DEPENDS_remove_k3 = "edma3-lld-rtos "
+
+DEPENDS_append_k3 = " sciclient-rtos \
+"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
