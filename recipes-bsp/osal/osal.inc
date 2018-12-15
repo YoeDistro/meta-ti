@@ -9,12 +9,12 @@ OSAL_GIT_PROTOCOL = "git"
 OSAL_GIT_BRANCH = "master"
 OSAL_GIT_DESTSUFFIX = "git/ti/osal"
 
-# Below commit ID corresponding to "DEV.OSAL.01.00.00.12"
-OSAL_SRCREV = "f9f47ad458a39201d822aa7f7e4774eb145ed451"
+# Below commit ID corresponding to "DEV.OSAL.01.00.00.13"
+OSAL_SRCREV = "ce73d71aacc4c3cbe7f7baf18a45049465c99eee"
 
 BRANCH = "${OSAL_GIT_BRANCH}"
 SRC_URI = "${OSAL_GIT_URI};destsuffix=${OSAL_GIT_DESTSUFFIX};protocol=${OSAL_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${OSAL_SRCREV}"
-PV = "01.00.00.12"
-INC_PR = "r1"
+PV = "01.00.00.13"
+INC_PR = "r0"
