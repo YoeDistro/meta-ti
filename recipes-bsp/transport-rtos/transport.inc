@@ -6,12 +6,12 @@ TRANSPORT_GIT_URI = "git://git.ti.com/keystone-rtos/transport.git"
 TRANSPORT_GIT_PROTOCOL = "git"
 TRANSPORT_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.TRANSPORT.01.00.00.13"
-TRANSPORT_SRCREV = "3129b2ac9b00eb8882252402bc6ff31092e57da2"
+# Below commit ID corresponds to "DEV.TRANSPORT.01.00.00.14"
+TRANSPORT_SRCREV = "61a564533b66ee1f21abb1285b93804ace6b4966"
 
 BRANCH = "${TRANSPORT_GIT_BRANCH}"
 SRC_URI = "${TRANSPORT_GIT_URI};protocol=${TRANSPORT_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${TRANSPORT_SRCREV}"
-PV = "01.00.00.13"
+PV = "01.00.00.14"
 INC_PR = "r0"
