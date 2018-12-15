@@ -13,14 +13,14 @@ GPIO_LLD_GIT_PROTOCOL = "git"
 GPIO_LLD_GIT_BRANCH = "master"
 GPIO_LLD_GIT_DESTSUFFIX = "git/ti/drv/gpio"
 
-# Below commit ID corresponds to "DEV.GPIO_LLD.01.00.00.12"
-GPIO_LLD_SRCREV = "49a25da3341c83bec5e5db586217e534de9e2063"
+# Below commit ID corresponds to "DEV.GPIO_LLD.01.00.00.13A"
+GPIO_LLD_SRCREV = "74c3b87c0cd6e25e3f830c74e20264f5eb776bce"
 
 BRANCH = "${GPIO_LLD_GIT_BRANCH}"
 SRC_URI = "${GPIO_LLD_GIT_URI};destsuffix=${GPIO_LLD_GIT_DESTSUFFIX};protocol=${GPIO_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${GPIO_LLD_SRCREV}"
-PV = "01.00.00.12"
+PV = "01.00.00.13A"
 PR = "r0"
 
 S = "${WORKDIR}/${GPIO_LLD_GIT_DESTSUFFIX}"
@@ -30,6 +30,8 @@ DEPENDS_append = " osal-rtos \
 DEPENDS_append_ti33x = " starterware-rtos \
 "
 DEPENDS_append_ti43x = " starterware-rtos \
+"
+DEPENDS_append_k3 = " sciclient-rtos \
 "
 
 # Build with make instead of XDC
