@@ -4,10 +4,10 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://include/ti/cmem.h;beginline=1;endline=30;md5=26be509e4bb413905bda8309e338e2b1"
 
 BRANCH = "master"
-# This corresponds to version 4.15.00.02
-SRCREV = "0f39ed469f7c327cb0b03139976b511c337c7f6a"
+# This corresponds to version 4.16.00.00
+SRCREV = "4f970f053b42e8d2a6f1a8cd4b14786196468fd3"
 
-PV = "4.15.00.02+git${SRCPV}"
+PV = "4.16.00.00+git${SRCPV}"
 
 SRC_URI = "git://git.ti.com/ipc/ludev.git;protocol=git;branch=${BRANCH}"
 
