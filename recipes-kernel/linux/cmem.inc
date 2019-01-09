@@ -70,11 +70,14 @@ python do_setup_cmem() {
 
             # Get destination directory and destination dtsi filename which adds
             #   the MACHINE prefix.
-            dst_dir  = os.path.join(localdata.getVar('S'), 'arch/arm/boot/dts')
+            dst_dir  = os.path.join(localdata.getVar('S'), localdata.expand('arch/${ARCH}/boot/dts'))
             dst_dtsi = localdata.expand('${MACHINE}-${CMEM_DTSI}')
 
             # Copy cmem.dtsi into source tree
-            shutil.copy(os.path.join(src_dir,src_dtsi), os.path.join(dst_dir,dst_dtsi))
+            if localdata.getVar('ARCH') is 'arm64':
+                shutil.copy(os.path.join(src_dir,src_dtsi), os.path.join(dst_dir,'ti',dst_dtsi))
+            else:
+                shutil.copy(os.path.join(src_dir,src_dtsi), os.path.join(dst_dir,dst_dtsi))
 
             # Inject dtsi into each dts in list
             for dtb in (localdata.getVar('CMEM_DEVICETREE') or '').split():
