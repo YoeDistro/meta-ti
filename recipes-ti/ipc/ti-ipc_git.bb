@@ -48,15 +48,10 @@ do_install_append() {
     sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${WORKDIR}/tiipclad-daemon.sh
     sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${WORKDIR}/tiipclad-daemon.service
 
-    systemd_enabled=${@bb.utils.contains('DISTRO_FEATURES', 'systemd', '1', '0', d)}
-    if [ ${systemd_enabled} -eq 1 ]
-    then
-        install -d ${D}${systemd_system_unitdir}
-        install -m 0644 ${WORKDIR}/tiipclad-daemon.service ${D}${systemd_system_unitdir}
-    else
-        install -d ${D}${sysconfdir}/init.d/
-        install -c -m 755 ${S}/scripts/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
-    fi
+    install -d ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/tiipclad-daemon.service ${D}${systemd_system_unitdir}
+    install -d ${D}${sysconfdir}/init.d/
+    install -c -m 755 ${WORKDIR}/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
 }
 
 do_install_append_dra7xx() {
