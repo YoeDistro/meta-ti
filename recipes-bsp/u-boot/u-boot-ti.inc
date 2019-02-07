@@ -20,7 +20,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/u-boot:"
 SUMMARY = "u-boot bootloader for TI devices"
 
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://Licenses/README;md5=a2c678cfd4a4d97135585cad908541c6"
+LIC_FILES_CHKSUM = "file://Licenses/README;md5=30503fd321432fc713238f582193b78e"
 
 BRANCH ?= "master"
 UBOOT_GIT_URI = "git://git.ti.com/ti-u-boot/ti-u-boot.git"
@@ -30,7 +30,7 @@ SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};branch=${BRANCH}"
 PV_append = "+git${SRCPV}"
 
 # u-boot needs devtree compiler to parse dts files
-DEPENDS += "dtc-native bc-native lzop-native"
+DEPENDS += "dtc-native bc-native lzop-native flex-native bison-native"
 
 PACKAGECONFIG[atf] = "ATF=${STAGING_DIR_HOST}/boot/bl31.bin,,arm-trusted-firmware"
 PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}/boot/bl32.bin,,optee-os"
