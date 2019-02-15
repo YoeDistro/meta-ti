@@ -13,7 +13,7 @@ COMPATIBLE_MACHINE = "keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SRCREV = "588f602a21c62f90b1f4318b881c80a1e711317a"
-BRANCH ?= "ti-linux-firmware-4.1.y"
+BRANCH ?= "ti-linux-firmware"
 
 SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
 

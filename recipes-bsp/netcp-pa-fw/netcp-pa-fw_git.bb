@@ -13,7 +13,7 @@ COMPATIBLE_MACHINE = "k2hk|k2l|k2e"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SRCREV = "953ab647b0b6af411965242ecd919b1cb0e570d6"
-BRANCH ?= "ti-linux-firmware-4.1.y"
+BRANCH ?= "ti-linux-firmware"
 
 SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
 
