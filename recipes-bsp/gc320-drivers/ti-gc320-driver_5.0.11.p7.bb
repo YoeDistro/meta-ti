@@ -9,12 +9,11 @@ MACHINE_KERNEL_PR_append = "e"
 PR = "${MACHINE_KERNEL_PR}"
 
 # Need to branch out with ${PV} var
-BRANCH = "ti-${PV}-k4.14"
+BRANCH = "ti-${PV}-k4.19"
 
-SRCREV = "a36799d9329efcfff19e30e690156d5ebf7e0c55"
+SRCREV = "9b59e596b4adefabbb686ce8845edef8114558fd"
 
-SRC_URI = "git://git.ti.com/graphics/ti-gc320-driver.git;protocol=git;branch=${BRANCH} \
-	file://0001-Kbuild-bypass-gcc8-stringop-overflow-error.patch;striplevel=2"
+SRC_URI = "git://git.ti.com/graphics/ti-gc320-driver.git;protocol=git;branch=${BRANCH}
 
 S = "${WORKDIR}/git/src"
 
