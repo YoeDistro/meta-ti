@@ -67,6 +67,10 @@ UBOOT_SPI_SPL_BINARY_k2hk-hs-evm = ""
 UBOOT_SPI_SPL_BINARY_k2g-hs-evm = ""
 UBOOT_SPI_SPL_BINARY_k2l-hs-evm = ""
 UBOOT_SPI_BINARY = "u-boot.img"
+UBOOT_SPI_BINARY_k2e-hs-evm = ""
+UBOOT_SPI_BINARY_k2hk-hs-evm = ""
+UBOOT_SPI_BINARY_k2g-hs-evm = ""
+UBOOT_SPI_BINARY_k2l-hs-evm = ""
 UBOOT_SPI_GPH_BINARY = "u-boot-spi.gph"
 UBOOT_SPI_GPH_BINARY_k2e-hs-evm = ""
 UBOOT_SPI_GPH_BINARY_k2hk-hs-evm = ""
@@ -269,9 +273,11 @@ do_install_append_keystone () {
 						ln -sf ${UBOOT_SPI_SPL_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_SPL_BINARY}
 					fi
 
-					install ${B}/${config}/${UBOOT_SPI_BINARY} ${D}/boot/${UBOOT_SPI_IMAGE}-${type}
-					ln -sf ${UBOOT_SPI_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_BINARY}-${type}
-					ln -sf ${UBOOT_SPI_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_BINARY}
+					if [ "x${UBOOT_SPI_BINARY}" != "x" ]; then
+						install ${B}/${config}/${UBOOT_SPI_BINARY} ${D}/boot/${UBOOT_SPI_IMAGE}-${type}
+						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_BINARY}-${type}
+						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_BINARY}
+					fi
 
 					if [ "x${UBOOT_SPI_GPH_BINARY}" != "x" ]; then
 						install ${B}/${config}/${UBOOT_SPI_GPH_BINARY} ${D}/boot/${UBOOT_SPI_GPH_IMAGE}-${type}
@@ -289,8 +295,10 @@ do_install_append_keystone () {
 			ln -sf ${UBOOT_SPI_SPL_IMAGE} ${D}/boot/${UBOOT_SPI_SPL_BINARY}
 		fi
 
-		install ${B}/${UBOOT_SPI_BINARY} ${D}/boot/${UBOOT_SPI_IMAGE}
-		ln -sf ${UBOOT_SPI_IMAGE} ${D}/boot/${UBOOT_SPI_BINARY}
+		if [ "x${UBOOT_SPI_BINARY}" != "x" ]; then
+			install ${B}/${UBOOT_SPI_BINARY} ${D}/boot/${UBOOT_SPI_IMAGE}
+			ln -sf ${UBOOT_SPI_IMAGE} ${D}/boot/${UBOOT_SPI_BINARY}
+		fi
 
 		if [ "x${UBOOT_SPI_GPH_BINARY}" != "x" ]; then
 			install ${B}/${UBOOT_SPI_GPH_BINARY} ${D}/boot/${UBOOT_SPI_GPH_IMAGE}
@@ -317,12 +325,14 @@ do_deploy_append_keystone () {
 						ln -sf ${UBOOT_SPI_SPL_IMAGE}-${type} ${UBOOT_SPI_SPL_BINARY}
 					fi
 
-					install ${B}/${config}/${UBOOT_SPI_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_IMAGE}-${type}
-					rm -f ${UBOOT_SPI_BINARY} ${UBOOT_SPI_SYMLINK}
-					ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_SYMLINK}-${type}
-					ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_SYMLINK}
-					ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_BINARY}-${type}
-					ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_BINARY}
+					if [ "x${UBOOT_SPI_BINARY}" != "x" ]; then
+						install ${B}/${config}/${UBOOT_SPI_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_IMAGE}-${type}
+						rm -f ${UBOOT_SPI_BINARY} ${UBOOT_SPI_SYMLINK}
+						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_SYMLINK}-${type}
+						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_SYMLINK}
+						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_BINARY}-${type}
+						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_BINARY}
+					fi
 
 					if [ "x${UBOOT_SPI_GPH_BINARY}" != "x" ]; then
 						install ${B}/${config}/${UBOOT_SPI_GPH_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_GPH_IMAGE}-${type}
@@ -345,10 +355,12 @@ do_deploy_append_keystone () {
 			ln -sf ${UBOOT_SPI_SPL_IMAGE} ${UBOOT_SPI_SPL_BINARY}
 		fi
 
-		install ${B}/${UBOOT_SPI_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_IMAGE}
-		rm -f ${UBOOT_SPI_BINARY} ${UBOOT_SPI_SYMLINK}
-		ln -sf ${UBOOT_SPI_IMAGE} ${UBOOT_SPI_SYMLINK}
-		ln -sf ${UBOOT_SPI_IMAGE} ${UBOOT_SPI_BINARY}
+		if [ "x${UBOOT_SPI_BINARY}" != "x" ]; then
+			install ${B}/${UBOOT_SPI_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_IMAGE}
+			rm -f ${UBOOT_SPI_BINARY} ${UBOOT_SPI_SYMLINK}
+			ln -sf ${UBOOT_SPI_IMAGE} ${UBOOT_SPI_SYMLINK}
+			ln -sf ${UBOOT_SPI_IMAGE} ${UBOOT_SPI_BINARY}
+		fi
 
 		if [ "x${UBOOT_SPI_GPH_BINARY}" != "x" ]; then
 			install ${B}/${UBOOT_SPI_GPH_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_GPH_IMAGE}
