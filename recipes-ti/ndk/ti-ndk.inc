@@ -6,8 +6,7 @@ LICENSE = "BSD"
 require recipes-ti/includes/ti-paths.inc
 
 S = "${WORKDIR}/ndk_${PV}"
-
-SRC_URI = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/ndk/${PV}/exports/ndk_${PV}.zip;name=ndkzip"
+SRC_URI = "http://software-dl.ti.com/targetcontent/ndk/${PV}/exports/ndk_${PV}.zip;name=ndkzip"
 
 do_install() {
     CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
