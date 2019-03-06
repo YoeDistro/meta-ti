@@ -17,12 +17,12 @@ RDEPENDS_${PN} = " libdce"
 
 SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
-SRCREV = "e95e96e6d1e112a18d6935a8ede91fefeae70a8f"
+SRCREV = "e4872a8966a267d537399b1babc54e5f66ae8b3b"
 
 S = "${WORKDIR}/git"
 
 PV = "3.00.15.00"
-PR = "r3"
+PR = "r4"
 
 require recipes-ti/includes/ti-paths.inc
 
