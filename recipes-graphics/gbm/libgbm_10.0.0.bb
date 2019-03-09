@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://gbm.c;beginline=1;endline=26;md5=b871c7f2f477df29ee4c
 
 DEPENDS = "libdrm udev"
 
+PROVIDES += "virtual/libgbm"
+
 inherit autotools pkgconfig
 
 BRANCH = "next"
