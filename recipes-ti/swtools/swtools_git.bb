@@ -15,7 +15,7 @@ PR = "r0"
 S = "${WORKDIR}/git"
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/ep-processor-libraries/swtools.git;protocol=git;branch=${BRANCH}"
-SRCREV = "881267836907de650edadc56b8e57ab45428021d"
+SRCREV = "d0c1022954b489d5f3d8d2f5c81d8c6a392f4af4"
 
 export C64PCODEGENTOOL = "${CGTOOLS_INSTALL_DIR}"
 export C674CODEGENTOOL = "${CGTOOLS_INSTALL_DIR}"
