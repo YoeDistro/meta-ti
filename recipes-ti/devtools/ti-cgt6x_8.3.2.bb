@@ -1,9 +1,9 @@
 DESCRIPTION = "TI DSP Code Generation Tools"
 HOMEPAGE = "https://www-a.ti.com/downloads/sds_support/TICodegenerationTools/download.htm"
-LICENSE = "(TI-TSPA & Thai-Open-Source-Software-Center) & BSD-3-Clause & BSL-1.0 & Hewlett-Packard & AFL-3.0 & MIT & BSD-2-Clause & PD"
+LICENSE = "(TI-TSPA & Thai-Open-Source-Software-Center) & BSD-3-Clause & BSL-1.0 & Patrick-Powell & AFL-3.0 & MIT & BSD-2-Clause & PD"
 
-LIC_FILES_CHKSUM = "file://ti-cgt-c6000_${PV}/C6000_8.2.x_CodeGenerationTools_Manifest.htm;md5=66147c95fc5d3f900b73414f8258c91e"
-LIC_FILES_CHKSUM_class-target = "file://usr/share/doc/ti/cgt-c6x/C6000_8.2.x_CodeGenerationTools_Manifest.htm;md5=66147c95fc5d3f900b73414f8258c91e"
+LIC_FILES_CHKSUM = "file://ti-cgt-c6000_${PV}/C6000CodeGenerationTools_8.3.x_manifest.html;md5=d06c6f9acebf78df4108a8535396e9f1"
+LIC_FILES_CHKSUM_class-target = "file://usr/share/doc/ti/cgt-c6x/C6000CodeGenerationTools_8.3.x_manifest.html;md5=d06c6f9acebf78df4108a8535396e9f1"
 
 PE = "1"
 
@@ -26,7 +26,6 @@ python __anonymous() {
             raise bb.parse.SkipPackage("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
 }
 
-
 BINFILE = "ti_cgt_c6000_${PV}_linux_installer_x86.bin"
 BINFILE_NAME = "cgt6x_x86_installer"
 TI_BIN_UNPK_ARGS = "--prefix ${S}"
@@ -37,11 +36,11 @@ BINFILE_NAME_class-target = "cgt6x_arm_installer"
 
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C6000/${PV}/${BINFILE};name=${BINFILE_NAME}"
 
-SRC_URI[cgt6x_x86_installer.md5sum] = "548c841b231c2fbd954218d4e370c995"
-SRC_URI[cgt6x_x86_installer.sha256sum] = "f269e51eb29de2efd32b3ea93beebd7b00a1a156c923be1a33ba7d785c4c6a24"
+SRC_URI[cgt6x_x86_installer.md5sum] = "f1f534e6a4bdee6df39e8d0cb458d161"
+SRC_URI[cgt6x_x86_installer.sha256sum] = "1fba2a8f5532b33a23677771d686a866171ce7a0e567fed50d900d0ecd2e17e6"
 
-SRC_URI[cgt6x_arm_installer.md5sum] = "56f5e5464ab87af517a6cdd5fed06f3f"
-SRC_URI[cgt6x_arm_installer.sha256sum] = "4b2e605a4afc3d4d0ac74013ee32496541abf093aedd70bc7ef040597933b1ea"
+SRC_URI[cgt6x_arm_installer.md5sum] = "425d82308e71202ad004a36b7ec3cec9"
+SRC_URI[cgt6x_arm_installer.sha256sum] = "70c387ddde379194fed712087be6cb0ca5f4f0e65d7f29bd7462c38ee011928f"
 
 do_install() {
     install -d ${D}${bindir}
@@ -54,10 +53,8 @@ do_install() {
         install -m 755 ${binfile} ${D}${datadir}/ti/cgt-c6x/bin
     done
 
-    install -d ${D}${datadir}/ti/cgt-c6x/include
-    for includefile in ${S}/ti-cgt-c6000_${PV}/include/*; do
-        install -m 644 ${includefile} ${D}${datadir}/ti/cgt-c6x/include
-    done
+    CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
+    cp ${CP_ARGS} ${S}/ti-cgt-c6000_${PV}/include ${D}${datadir}/ti/cgt-c6x/include
 
     install -d ${D}${datadir}/ti/cgt-c6x/lib
     for libfile in ${S}/ti-cgt-c6000_${PV}/lib/*.a; do
@@ -72,11 +69,6 @@ do_install() {
         install -m 644 ${libfile} ${D}${datadir}/ti/cgt-c6x/lib
     done
 
-    install -d ${D}${datadir}/ti/cgt-c6x/lib/src
-    for srcfile in ${S}/ti-cgt-c6000_${PV}/lib/src/*; do
-        install -m 644 ${srcfile} ${D}${datadir}/ti/cgt-c6x/lib/src
-    done
-
     install -d ${D}${datadir}/man/man1
     for manfile in ${S}/ti-cgt-c6000_${PV}/man/man1/*; do
         if [ -e ${manfile} ]; then
@@ -89,15 +81,11 @@ do_install() {
         install -m 644 ${docfile} ${D}${datadir}/doc/ti/cgt-c6x
     done
 
-    for docfile in ${S}/ti-cgt-c6000_${PV}/*.htm; do
+    for docfile in ${S}/ti-cgt-c6000_${PV}/*.html; do
         install -m 644 ${docfile} ${D}${datadir}/doc/ti/cgt-c6x
     done
 
     for docfile in ${S}/ti-cgt-c6000_${PV}/*.spdx; do
-        install -m 644 ${docfile} ${D}${datadir}/doc/ti/cgt-c6x
-    done
-
-    for docfile in ${S}/ti-cgt-c6000_${PV}/doc/*; do
         install -m 644 ${docfile} ${D}${datadir}/doc/ti/cgt-c6x
     done
 
