@@ -23,6 +23,7 @@ do_install() {
 
 FILES_${PN} = "${GCC_ARM_NONE_TOOLCHAIN_RECIPE}/*"
 
-INSANE_SKIP_${PN} = "already-stripped libdir staticdev"
+INSANE_SKIP_${PN} = "already-stripped libdir staticdev build-deps file-rdeps"
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 BBCLASSEXTEND = "native nativesdk"
