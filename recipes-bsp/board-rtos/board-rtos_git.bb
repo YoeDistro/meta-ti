@@ -12,23 +12,23 @@ BOARD_GIT_URI = "git://git.ti.com/keystone-rtos/board.git"
 BOARD_GIT_PROTOCOL = "git"
 BOARD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.BOARD.01.00.10.03A"
-BOARD_SRCREV = "ad6c58a9026e8ae91d438d07883fc07a7e80186d"
+# Below commit ID corresponds to "DEV.BOARD.01.00.10.04"
+BOARD_SRCREV = "ebad99b91a1b6bee0eac29a3bfd9e81b1d05dfdc"
 
 BRANCH ="${BOARD_GIT_BRANCH}"
 SRC_URI = "${BOARD_GIT_URI};protocol=${BOARD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${BOARD_SRCREV}"
-PV = "01.00.10.03A"
+PV = "01.00.10.04"
 PR = "r0"
 
 DEPENDS_append = " i2c-lld-rtos \
                    spi-lld-rtos \
                    uart-lld-rtos \
+                   osal-rtos \
 "
 
-DEPENDS_append_omap-a15 = " osal-rtos \
-                            ti-ndk \
+DEPENDS_append_omap-a15 = " ti-ndk \
                             mmcsd-lld-rtos \
                             pm-lld-rtos \
 "
@@ -43,7 +43,6 @@ DEPENDS_append_ti33x = " gpio-lld-rtos \
                          gpmc-lld-rtos \
                          icss-emac-lld-rtos \
                          mmcsd-lld-rtos \
-                         osal-rtos \
                          pruss-lld-rtos \
                          starterware-rtos \
                          ti-ndk \
@@ -53,7 +52,6 @@ DEPENDS_append_ti43x = " gpio-lld-rtos \
                          gpmc-lld-rtos \
                          icss-emac-lld-rtos \
                          mmcsd-lld-rtos \
-                         osal-rtos \
                          pruss-lld-rtos \
                          starterware-rtos \
                          ti-ndk \
