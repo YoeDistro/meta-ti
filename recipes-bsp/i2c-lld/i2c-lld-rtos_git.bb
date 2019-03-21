@@ -13,14 +13,14 @@ I2C_LLD_GIT_PROTOCOL = "git"
 I2C_LLD_GIT_BRANCH = "master"
 I2C_LLD_GIT_DESTSUFFIX = "git/ti/drv/i2c"
 
-# Below commit ID corresponds to "DEV.I2C_LLD.01.00.00.13"
-I2C_LLD_SRCREV = "b9e3347623b29c8c6709c69a26caf465ffef5b92"
+# Below commit ID corresponds to "DEV.I2C_LLD.01.00.00.14"
+I2C_LLD_SRCREV = "639374a5f9d9cf01f0e922063c13b579f6b1b908"
 
 BRANCH = "${I2C_LLD_GIT_BRANCH}"
 SRC_URI = "${I2C_LLD_GIT_URI};destsuffix=${I2C_LLD_GIT_DESTSUFFIX};protocol=${I2C_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${I2C_LLD_SRCREV}"
-PV = "01.00.00.13"
+PV = "01.00.00.14"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
@@ -32,6 +32,9 @@ DEPENDS_append_ti43x = " starterware-rtos \
                          pruss-lld-rtos \
 "
 DEPENDS_append_am57xx-evm = " pruss-lld-rtos \
+"
+
+DEPENDS_append_k2g = " pruss-lld-rtos \
 "
 
 # Build with make instead of XDC
