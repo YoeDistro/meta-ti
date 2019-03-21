@@ -4,15 +4,15 @@ LIC_FILES_CHKSUM = "file://makerules/env.mk;beginline=1;endline=31;md5=10503e8de
 
 require recipes-ti/includes/ti-paths.inc
 
-PV = "01.00.00.11"
+PV = "01.00.00.12"
 PR = "r0"
 
 PDK_BUILD_GIT_URI = "git://git.ti.com/keystone-rtos/processor-pdk-build.git"
 PDK_BUILD_GIT_PROTOCOL = "git"
 PDK_BUILD_GIT_BRANCH = "master"
 
-# Below Commit ID corresponds to "DEV.PDK_BUILD.01.00.00.11"
-PDK_BUILD_SRCREV = "0643bd171356d11546dc7704e6b9c1f12b3b4b72"
+# Below Commit ID corresponds to "DEV.PDK_BUILD.01.00.00.12"
+PDK_BUILD_SRCREV = "b155bde10bacb0ba8ed7d3100f7a5db0ec88ff0f"
 
 BRANCH = "${PDK_BUILD_GIT_BRANCH}"
 SRC_URI = "\
