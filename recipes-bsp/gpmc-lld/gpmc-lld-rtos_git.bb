@@ -12,14 +12,14 @@ GPMC_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/gpmc-lld.git"
 GPMC_LLD_GIT_PROTOCOL = "git"
 GPMC_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.GPMC_LLD.01.00.00.02"
-GPMC_LLD_SRCREV = "320b18c703f70e01ea1b487c7bf9c4e08e7ae2df"
+# Below commit ID corresponds to "DEV.GPMC_LLD.01.00.00.03A"
+GPMC_LLD_SRCREV = "9169c04d80fae0a50734527e54ec4f4f53c3a1ef"
 
 BRANCH = "${GPMC_LLD_GIT_BRANCH}"
 SRC_URI = "${GPMC_LLD_GIT_URI};protocol=${GPMC_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${GPMC_LLD_SRCREV}"
-PV = "01.00.00.02"
+PV = "01.00.00.03A"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
