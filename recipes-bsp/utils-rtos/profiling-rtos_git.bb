@@ -12,14 +12,14 @@ PROFILING_GIT_URI = "git://git.ti.com/keystone-rtos/utils.git"
 PROFILING_GIT_PROTOCOL = "git"
 PROFILING_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.UTILS.01.00.00.07"
-PROFILING_SRCREV = "1f956c44ea369c9b138859cea619459a312681ea"
+# Below commit ID corresponds to "DEV.UTILS.01.00.00.08"
+PROFILING_SRCREV = "9c30f4df9ece2d5589d5f7e977d54acf1062185c"
 
 BRANCH = "${PROFILING_GIT_BRANCH}"
 SRC_URI = "${PROFILING_GIT_URI};protocol=${PROFILING_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${PROFILING_SRCREV}"
-PV = "01.00.00.07"
+PV = "01.00.00.08"
 PR = "r0"
 
 S = "${WORKDIR}/git/profiling"
