@@ -11,11 +11,17 @@ DEPENDS = "ti-cgt6x-native \
            ti-xdctools-native"
 
 PV = "5_0_8"
-PR = "r0"
+PR = "r2"
 S = "${WORKDIR}/git"
-BRANCH = "master"
-SRC_URI = "git://git.ti.com/ep-processor-libraries/swtools.git;protocol=git;branch=${BRANCH}"
-SRCREV = "d0c1022954b489d5f3d8d2f5c81d8c6a392f4af4"
+
+SWTOOLS_GIT_BRANCH = "master"
+SWTOOLS_GIT_PROTOCOL = "git"
+SWTOOLS_GIT_URI = "git://git.ti.com/ep-processor-libraries/swtools.git"
+SWTOOLS_SRCREV = "d0c1022954b489d5f3d8d2f5c81d8c6a392f4af4"
+
+SRC_URI = "${SWTOOLS_GIT_URI};protocol=${SWTOOLS_GIT_PROTOCOL};branch=${SWTOOLS_GIT_BRANCH}"
+SRCREV = "${SWTOOLS_SRCREV}"
+
 
 export C64PCODEGENTOOL = "${CGTOOLS_INSTALL_DIR}"
 export C674CODEGENTOOL = "${CGTOOLS_INSTALL_DIR}"
