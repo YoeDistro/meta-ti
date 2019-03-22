@@ -5,7 +5,7 @@ LICENSE = "BSD-3-Clause"
 require ../includes/ti-paths.inc
 
 PV = "3_1_2_3"
-PR = "r0"
+PR = "r2"
 
 DEPENDS = "ti-cgt6x-native \
            ti-xdctools-native \
@@ -16,8 +16,13 @@ DEPENDS = "ti-cgt6x-native \
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://git.ti.com/ep-processor-libraries/mathlib.git;protocol=git;branch=master"
-SRCREV = "faedd650c47becb48b2d179242c8310327ef9853"
+MATHLIB_GIT_BRANCH = "master"
+MATHLIB_GIT_PROTOCOL = "git"
+MATHLIB_GIT_URI = "git://git.ti.com/ep-processor-libraries/mathlib.git"
+MATHLIB_SRCREV = "faedd650c47becb48b2d179242c8310327ef9853"
+
+SRC_URI = "${MATHLIB_GIT_URI};protocol=${MATHLIB_GIT_PROTOCOL};branch=${MATHLIB_GIT_BRANCH}"
+SRCREV = "${MATHLIB_SRCREV}"
 
 LIC_FILES_CHKSUM = "file://ti/mathlib/src/acosdp/acosdp.h;beginline=1;endline=35;md5=c133f7e139b46385906c861dd9552250"
 
