@@ -5,7 +5,7 @@ LICENSE = "BSD-3-Clause"
 require ../includes/ti-paths.inc
 
 PV = "3_4_0_3"
-PR = "r0"
+PR = "r2"
 
 DEPENDS = "ti-cgt6x-native \
            ti-xdctools-native \
@@ -16,8 +16,13 @@ DEPENDS = "ti-cgt6x-native \
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://git.ti.com/ep-processor-libraries/dsplib.git;protocol=git;branch=master"
-SRCREV = "2cd21a04913648d040bd63234183cc6f81f5286a"
+DSPLIB_GIT_BRANCH = "master"
+DSPLIB_GIT_PROTOCOL = "git"
+DSPLIB_GIT_URI = "git://git.ti.com/ep-processor-libraries/dsplib.git"
+DSPLIB_SRCREV = "2cd21a04913648d040bd63234183cc6f81f5286a"
+
+SRC_URI = "${DSPLIB_GIT_URI};protocol=${DSPLIB_GIT_PROTOCOL};branch=${DSPLIB_GIT_BRANCH}"
+SRCREV = "${DSPLIB_SRCREV}"
 
 LIC_FILES_CHKSUM = "file://ti/dsplib/src/common/c66/lnk.cmd;beginline=1;endline=37;md5=0f0c9c4d51d8af75419781591ace190b"
 
