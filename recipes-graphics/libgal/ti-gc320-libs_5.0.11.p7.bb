@@ -34,6 +34,7 @@ EXTRA_OEMAKE += "DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT} LIBDIR=${libdir}"
 
 do_install() {
     oe_runmake install
+    chown -R root:root ${D}
 }
 
 INSANE_SKIP_${PN} += "ldflags"
