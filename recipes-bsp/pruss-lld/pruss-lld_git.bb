@@ -19,4 +19,5 @@ do_compile () {
 do_install () {
 #   Install the lib
     oe_runmake install INSTALL_INC_BASE_DIR=${D}${includedir} INSTALL_LIB_BASE_DIR=${D}${libdir}
+    chown -R root:root ${D}
 }
