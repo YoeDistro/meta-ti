@@ -1,24 +1,13 @@
 DESCRIPTION = "PRU Ethernet firmware for AM57xx, AM437x, AM335x and K2G"
 
+require recipes-ti/includes/ti-paths.inc
+require recipes-bsp/icss-emac-lld/icss-emac-lld.inc
+
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://src/firmware_version.h;beginline=6;endline=53;md5=1f0a640a261059cdcbbcf01e6a739ff3"
 
-require recipes-ti/includes/ti-paths.inc
-
-ICSS_EMAC_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/icss-emac.git"
-ICSS_EMAC_LLD_GIT_PROTOCOL = "git"
-ICSS_EMAC_LLD_GIT_BRANCH = "master"
-ICSS_EMAC_LLD_GIT_DESTSUFFIX = "git/ti/drv/icss_emac"
-
-# Below commit ID corresponds to "DEV.ICSS_EMAC_LLD.01.00.00.14"
-ICSS_EMAC_LLD_SRCREV = "7541d801b2f1be93fd02511cdf2143b0a200cc36"
-
-BRANCH = "${ICSS_EMAC_LLD_GIT_BRANCH}"
-SRC_URI = "${ICSS_EMAC_LLD_GIT_URI};destsuffix=${ICSS_EMAC_LLD_GIT_DESTSUFFIX};protocol=${ICSS_EMAC_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${ICSS_EMAC_LLD_SRCREV}"
-PV = "5.2.0"
-PR = "r0"
+PV = "${PV_DUALEMAC_FW}"
+PR = "${INC_PR}.0"
 
 S = "${WORKDIR}/${ICSS_EMAC_LLD_GIT_DESTSUFFIX}/firmware/icss_dualemac"
 
