@@ -1,18 +1,18 @@
 DESCRIPTION = "Package containing PDK makefile infrastructure"
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://makerules/env.mk;beginline=1;endline=31;md5=10503e8de09f5475185f3fd56de1e310"
+LIC_FILES_CHKSUM = "file://COPYING.txt;beginline=1;endline=31;md5=92ab6f5e10f1502081c6080207e57ec1"
 
 require recipes-ti/includes/ti-paths.inc
 
-PV = "01.00.00.12A"
+PV = "01.00.00.12B"
 PR = "r0"
 
 PDK_BUILD_GIT_URI = "git://git.ti.com/keystone-rtos/processor-pdk-build.git"
 PDK_BUILD_GIT_PROTOCOL = "git"
 PDK_BUILD_GIT_BRANCH = "master"
 
-# Below Commit ID corresponds to "DEV.PDK_BUILD.01.00.00.12A"
-PDK_BUILD_SRCREV = "a4f962db3b47610a014a895fd95a281b49c2c567"
+# Below Commit ID corresponds to "DEV.PDK_BUILD.01.00.00.12B"
+PDK_BUILD_SRCREV = "40e09c24dc988ff79f0e4757201d6b87fb84af56"
 
 BRANCH = "${PDK_BUILD_GIT_BRANCH}"
 SRC_URI = "\
