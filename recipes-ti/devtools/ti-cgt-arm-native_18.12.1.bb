@@ -1,0 +1,6 @@
+include ti-cgt-arm.inc
+
+LIC_FILES_CHKSUM = "file://ti-cgt-arm_${PV}.LTS/README.txt;md5=ab7a61241e90fcd144a756d88294cf30"
+
+BINFILE_MD5 = "af2378cf8d5d6f200ef3329f5a065529"
+BINFILE_SHA256 = "d90ae2360cd5b22912715ae7898d99352da1b97fd655f9a55d0d19a2a46bab0e"
