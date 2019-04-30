@@ -3,7 +3,7 @@ SUMMARY = "PRU Ethernet firmware for AM65xx"
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
 
-PV = "5.1.0.7"
+PV = "5.3.0.5"
 
 CLEANBROKEN = "1"
 
@@ -11,7 +11,7 @@ COMPATIBLE_MACHINE = "am65xx-evm"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRCREV = "1e03f08e89bee6d29ffd25782f5ce45b1b4bf1e6"
+SRCREV = "534ba03becfa9b39ccbd42b97e091abd94a207e7"
 BRANCH ?= "ti-linux-firmware"
 
 SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
