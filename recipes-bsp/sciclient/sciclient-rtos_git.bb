@@ -36,9 +36,9 @@ export PDK_SCICLIENT_ROOT_PATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/pac
 #export PDK_SCICLIENT_ROOT_PATH ="${WORKDIR}/build"
 #export DEST_ROOT="${S}"
 
-LIMSOCS_am65xx-evm = "am65xx"
-LIMBOARDS_am65xx-evm = "am65xx_evm"
-BOARD_PACKAGE_am65xx-evm = "am65xx_evm"
+LIMSOCS_am65xx = "am65xx"
+LIMBOARDS_am65xx = "am65xx_evm"
+BOARD_PACKAGE_am65xx = "am65xx_evm"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "SCICLIENT"
