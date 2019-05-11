@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://license.rst;md5=c709b197e22b81ede21109dbffd5f363"
 
 inherit deploy
 
-DEPENDS += "dtc-native"
+DEPENDS += "dtc-native openssl-native"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
