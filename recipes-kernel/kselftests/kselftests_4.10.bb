@@ -11,6 +11,7 @@ SRC_URI = "\
     file://0001-selftests-gpio-use-pkg-config.patch \
     file://0001-selftests-net-use-LDLIBS-to-link-against-libnuma.patch \
     file://0001-selftests-breakpoints-allow-to-cross-compile-for-aar.patch;apply=no \
+    file://0001-selftests-add-ptp-to-TARGETS.patch \
 "
 
 SRC_URI[md5sum] = "b5e7f6b9b2fe1b6cc7bc56a3a0bfc090"
@@ -64,6 +65,7 @@ PACKAGE_BEFORE_PN = " \
 	${PN}-nsfs \
 	${PN}-powerpc \
 	${PN}-pstore \
+	${PN}-ptp \
 	${PN}-ptrace \
 	${PN}-seccomp \
 	${PN}-sigaltstack \
@@ -100,6 +102,7 @@ FILES_${PN}-net = "${bindir}/kselftests/net"
 FILES_${PN}-nsfs = "${bindir}/kselftests/nsfs"
 FILES_${PN}-powerpc = "${bindir}/kselftests/powerpc"
 FILES_${PN}-pstore = "${bindir}/kselftests/pstore"
+FILES_${PN}-ptp = "${bindir}/kselftests/ptp"
 FILES_${PN}-ptrace = "${bindir}/kselftests/ptrace"
 FILES_${PN}-seccomp = "${bindir}/kselftests/seccomp"
 FILES_${PN}-sigaltstack = "${bindir}/kselftests/sigaltstack"
