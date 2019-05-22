@@ -25,7 +25,9 @@ PR = "r0"
 
 S = "${WORKDIR}/${VPS_LLD_GIT_DESTSUFFIX}"
 
-DEPENDS = " ti-sysbios \
+# Add to DEPENDS set in ti-pdk.bbclass
+DEPENDS_append = " \
+            ti-sysbios \
             osal-rtos \
             edma3-lld-rtos \
             board-rtos \
@@ -38,6 +40,9 @@ export DEST_ROOT="${S}"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
+
+# The makefile will push these on the XDCPATH
+export EDMA3LLD_BIOS6_INSTALLDIR = "${EDMA3_LLD_INSTALL_DIR}"
 
 do_compile_append() {
     # Delete archive created by XDC release command since it does not contain all content
