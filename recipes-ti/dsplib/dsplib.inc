@@ -4,8 +4,8 @@ LICENSE = "BSD-3-Clause"
 
 require ../includes/ti-paths.inc
 
-PV = "3_4_0_3"
-PR = "r2"
+PV = "3_4_0_4"
+PR = "r1"
 
 DEPENDS = "ti-cgt6x-native \
            ti-xdctools-native \
@@ -19,7 +19,7 @@ S = "${WORKDIR}/git"
 DSPLIB_GIT_BRANCH = "master"
 DSPLIB_GIT_PROTOCOL = "git"
 DSPLIB_GIT_URI = "git://git.ti.com/ep-processor-libraries/dsplib.git"
-DSPLIB_SRCREV = "2cd21a04913648d040bd63234183cc6f81f5286a"
+DSPLIB_SRCREV = "ec2f933247d5fa59377c801bb23eb3b62b38627b"
 
 SRC_URI = "${DSPLIB_GIT_URI};protocol=${DSPLIB_GIT_PROTOCOL};branch=${DSPLIB_GIT_BRANCH}"
 SRCREV = "${DSPLIB_SRCREV}"
