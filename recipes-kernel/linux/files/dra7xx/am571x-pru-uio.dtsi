@@ -1,14 +1,14 @@
 &pruss_soc_bus1 {
-                uio_pruss1_mdio {
+                uio_pruss1_mdio: uio_mdio@4b232400 {
                         status = "okay";
 
                         compatible = "ti,davinci_mdio";
+                        reg = <0x4b232400 0x90>;
                         #address-cells = <1>;
                         #size-cells = <0>;
                         clocks = <&dpll_gmac_h13x2_ck>;
                         clock-names = "fck";
                         bus_freq = <1000000>;
-                        reg = <0x32400 0x90>;
 
                         reset-gpios = <&gpio5 8 GPIO_ACTIVE_LOW>;
                         reset-delay-us = <2>;   /* PHY datasheet states 1uS min */
@@ -112,14 +112,14 @@
 };
 
 &pruss_soc_bus2 {
-                uio_pruss2_mdio {
+                uio_pruss2_mdio: uio_mdio@4b2b2400 {
                         compatible = "ti,davinci_mdio";
+                        reg = <0x4b2b2400 0x90>;
                         #address-cells = <1>;
                         #size-cells = <0>;
                         clocks = <&dpll_gmac_h13x2_ck>;
                         clock-names = "fck";
                         bus_freq = <1000000>;
-                        reg = <0x32400 0x90>;
                         status = "okay";
 
                         reset-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
@@ -222,18 +222,6 @@
 			status = "okay";
 		};
 	};
-
-&pruss1_eth {
-        status = "disabled";
-};
-
-&pruss1_emac0 {
-        status = "disabled";
-};
-
-&pruss1_emac1 {
-        status = "disabled";
-};
 
 &pruss2_emac0 {
         status = "disabled";
