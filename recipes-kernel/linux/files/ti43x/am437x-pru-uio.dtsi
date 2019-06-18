@@ -1,7 +1,7 @@
 &pruss_soc_bus {
-		uio_pruss2_mdio: uio_mdio@32400 {
+		uio_pruss2_mdio: uio_mdio@54432400 {
 			compatible = "ti,davinci_mdio";
-			reg = <0x32400 0x90>;
+			reg = <0x54432400 0x90>;
 			clocks = <&dpll_core_m4_ck>;
 			clock-names = "fck";
 			bus_freq = <1000000>;
