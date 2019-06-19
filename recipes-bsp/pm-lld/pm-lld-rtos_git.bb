@@ -63,4 +63,8 @@ do_compile_append() {
     tar -cf pm_lld.tar --exclude='*.tar' ./*
 }
 
+
+# Workaround: dra7xx build requires am57xx pm libraries for opencl-monitor
+TI_PDK_LIMIT_SOCS_append_dra7xx = " am571x am572x am574x"
+
 INSANE_SKIP_${PN} = "arch staticdev"
