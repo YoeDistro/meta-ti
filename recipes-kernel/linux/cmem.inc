@@ -4,8 +4,8 @@
 CMEM_MACHINE = "${MACHINE}"
 CMEM_MACHINE_am57xx-evm = "am571x am572x am574x"
 CMEM_MACHINE_am57xx-hs-evm = "am571x am572x am574x"
-CMEM_MACHINE_dra7xx-evm = "dra71x dra72x dra74x"
-CMEM_MACHINE_dra7xx-hs-evm = "dra71x dra72x dra74x"
+CMEM_MACHINE_dra7xx-evm = "dra71x dra72x dra74x dra76x"
+CMEM_MACHINE_dra7xx-hs-evm = "dra71x dra72x dra74x dra76x"
 
 # Set cmem.dtsi per machine or machine variant
 CMEM_DTSI = "cmem.dtsi"
@@ -13,6 +13,7 @@ CMEM_DTSI_am571x = "cmem-am571x.dtsi"
 CMEM_DTSI_am574x = "cmem-am574x.dtsi"
 CMEM_DTSI_dra71x = "cmem-dra71x.dtsi"
 CMEM_DTSI_dra72x = "cmem-dra72x.dtsi"
+CMEM_DTSI_dra76x = "cmem-dra76x.dtsi"
 
 # Split device trees between variants
 CMEM_DEVICETREE = "${KERNEL_DEVICETREE}"
@@ -24,6 +25,7 @@ CMEM_DEVICETREE_dra71x = "dra71-evm.dtb"
 CMEM_DEVICETREE_dra72x = "dra72-evm.dtb dra72-evm-lcd-osd101t2045.dtb dra72-evm-lcd-osd101t2587.dtb \
                           dra72-evm-revc.dtb dra72-evm-revc-lcd-osd101t2045.dtb dra72-evm-revc-lcd-osd101t2587.dtb"
 CMEM_DEVICETREE_dra74x = "dra7-evm.dtb dra7-evm-lcd-osd101t2045.dtb dra7-evm-lcd-osd101t2587.dtb"
+CMEM_DEVICETREE_dra76x = "dra76-evm.dtb dra76-evm-tfp410.dtb"
 
 # Flag to enable CMEM injection
 RESERVE_CMEM ?= "0"
