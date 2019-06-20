@@ -7,18 +7,14 @@ inherit module
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k3"
 
-MACHINE_KERNEL_PR_append = "q"
+MACHINE_KERNEL_PR_append = "r"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "virtual/kernel"
 
-PROVIDES = "omapdrm-pvr"
-
-RPROVIDES_${PN} = "omapdrm-pvr"
-RREPLACES_${PN} = "omapdrm-pvr"
-RCONFLICTS_${PN} = "omapdrm-pvr"
+PROVIDES = "virtual/gpudriver"
 
 BRANCH = "ti-img-sgx/${PV}/k4.19"
 
