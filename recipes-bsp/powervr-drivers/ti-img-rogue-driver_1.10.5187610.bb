@@ -5,13 +5,15 @@ LIC_FILES_CHKSUM = "file://README;beginline=15;endline=20;md5=0403c7dea01a2b8232
 
 inherit module
 
-MACHINE_KERNEL_PR_append = "a"
+MACHINE_KERNEL_PR_append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j7-evm"
 
 DEPENDS = "virtual/kernel"
+
+PROVIDES = "virtual/gpudriver"
 
 BRANCH = "linux/thud/k4.19/${PV}"
 
