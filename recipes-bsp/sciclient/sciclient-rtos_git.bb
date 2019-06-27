@@ -12,14 +12,14 @@ SCICLIENT_GIT_URI = "git://git.ti.com/keystone-rtos/sciclient.git"
 SCICLIENT_GIT_PROTOCOL = "git"
 SCICLIENT_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.SCICLIENT.01.00.00.02B"
-SCICLIENT_SRCREV = "3b88caad398d2eeca7acf4f02c24aaa993c6b545"
+# Below commit ID corresponds to "DEV.SCICLIENT.01.00.00.03"
+SCICLIENT_SRCREV = "c593925c3d9aecf18a8a1834d0eb098851457098"
 
 BRANCH = "${SCICLIENT_GIT_BRANCH}"
 SRC_URI = "${SCICLIENT_GIT_URI};protocol=${SCICLIENT_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${SCICLIENT_SRCREV}"
-PV = "01.00.00.02B"
+PV = "01.00.00.03"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos common-csl-ip-rtos"
