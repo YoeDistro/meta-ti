@@ -13,14 +13,14 @@ I2C_LLD_GIT_PROTOCOL = "git"
 I2C_LLD_GIT_BRANCH = "master"
 I2C_LLD_GIT_DESTSUFFIX = "git/ti/drv/i2c"
 
-# Below commit ID corresponds to "DEV.I2C_LLD.01.00.00.15"
-I2C_LLD_SRCREV = "5fcc5b822d09edf8f7afef276b5b58b6fec4c791"
+# Below commit ID corresponds to "DEV.I2C_LLD.01.00.00.15A"
+I2C_LLD_SRCREV = "9db7ca48637f2980c2d9c3161259ce5472634d09"
 
 BRANCH = "${I2C_LLD_GIT_BRANCH}"
 SRC_URI = "${I2C_LLD_GIT_URI};destsuffix=${I2C_LLD_GIT_DESTSUFFIX};protocol=${I2C_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${I2C_LLD_SRCREV}"
-PV = "01.00.00.15"
+PV = "01.00.00.15A"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
