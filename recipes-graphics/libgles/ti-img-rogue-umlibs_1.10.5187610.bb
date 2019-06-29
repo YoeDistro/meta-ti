@@ -6,16 +6,16 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j7-evm"
 
-PR = "r3"
+PR = "r4"
 
 BRANCH = "linuxws/thud/k4.19/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-umlibs.git;branch=${BRANCH}"
-SRCREV = "3da5ebfde8a41cd38ab935f3e350d5d195fe7309"
+SRCREV = "ba99e1156c794f8618a743a4bb0f075b2ade9db3"
 
 PVR_SOC ?= "j721e_linux"
 PVR_BUILD ?= "release"
-PVR_WS = "nulldrmws"
+PVR_WS = "wayland"
 
 INITSCRIPT_NAME = "rc.pvr"
 INITSCRIPT_PARAMS = "defaults 8"
