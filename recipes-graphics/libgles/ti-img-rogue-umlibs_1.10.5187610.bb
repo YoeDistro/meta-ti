@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j7-evm"
 
-PR = "r4"
+PR = "r5"
 
 BRANCH = "linuxws/thud/k4.19/${PV}"
 
@@ -22,23 +22,23 @@ INITSCRIPT_PARAMS = "defaults 8"
 
 inherit update-rc.d
 
-PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2"
+PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm"
 
 DEPENDS += "libdrm"
 RDEPENDS_${PN} += "bash"
 RDEPENDS_${PN} += "python-core"
 RDEPENDS_${PN} += "ti-img-rogue-driver"
 
-RPROVIDES_${PN} = "libegl libgles1 libgles2"
-RPROVIDES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev"
+RPROVIDES_${PN} = "libegl libgles1 libgles2 libgbm"
+RPROVIDES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
 RPROVIDES_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
 
-RREPLACES_${PN} = "libegl libgles1 liblges2"
-RREPLACES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev"
+RREPLACES_${PN} = "libegl libgles1 liblges2 libgbm"
+RREPLACES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
 RREPLACES_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
 
-RCONFLICTS_${PN} = "libegl libgles1 libgles2"
-RCONFLICTS_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev"
+RCONFLICTS_${PN} = "libegl libgles1 libgles2 libgbm"
+RCONFLICTS_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
 RCONFLICTS_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
 
 S = "${WORKDIR}/git"
