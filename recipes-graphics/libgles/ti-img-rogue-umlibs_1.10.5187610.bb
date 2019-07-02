@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j7-evm"
 
-PR = "r6"
+PR = "r7"
 
 BRANCH = "linuxws/thud/k4.19/${PV}"
 
@@ -24,10 +24,10 @@ inherit update-rc.d
 
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm"
 
-DEPENDS += "libdrm"
+DEPENDS += "libdrm wayland expat"
 RDEPENDS_${PN} += "bash"
 RDEPENDS_${PN} += "python-core"
-RDEPENDS_${PN} += "ti-img-rogue-driver"
+RDEPENDS_${PN} += "ti-img-rogue-driver wayland expat"
 
 RPROVIDES_${PN} = "libegl libgles1 libgles2 libgbm"
 RPROVIDES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
