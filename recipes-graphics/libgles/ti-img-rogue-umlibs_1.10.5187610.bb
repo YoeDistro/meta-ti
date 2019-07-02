@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j7-evm"
 
-PR = "r5"
+PR = "r6"
 
 BRANCH = "linuxws/thud/k4.19/${PV}"
 
@@ -51,6 +51,13 @@ do_install () {
 FILES_${PN} += " ${base_libdir}/firmware/"
 FILES_${PN} += " ${datadir}/"
 
+PACKAGES =+ "${PN}-plugins"
+FILES_${PN}-plugins = "${libdir}/libGLESv2.so ${libdir}/libGLESv1_CM.so ${libdir}/libEGL.so"
+RDEPENDS_${PN} += "${PN}-plugins"
+
+ALLOW_EMPTY_${PN}-plugins = "1"
+
 INSANE_SKIP_${PN} += "ldflags arch already-stripped"
+INSANE_SKIP_${PN}-plugins = "dev-so"
 
 CLEANBROKEN = "1"
