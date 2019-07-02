@@ -4,10 +4,12 @@ LIC_FILES_CHKSUM = "file://common/dq.c;beginline=1;endline=16;md5=e015e28ff5e885
 
 inherit module
 
-MACHINE_KERNEL_PR_append = "a"
+MACHINE_KERNEL_PR_append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 
-SRCREV = "306e85edce7969a4e017e12759be7ed763fda95c"
+COMPATIBLE_MACHINE = "j7-evm"
+
+SRCREV = "1f85a7fb3b78c82b44038aaf29bfdb229aeb6bc8"
 
 EXTRA_OEMAKE = "KPATH=${STAGING_KERNEL_DIR} KCONF=${STAGING_KERNEL_BUILDDIR}"
 TARGET_CC_ARCH += "${LDFLAGS}"
