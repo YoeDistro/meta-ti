@@ -26,3 +26,4 @@ do_install() {
 FILES_${PN} += "${base_libdir}/firmware"
 
 COMPATIBLE_MACHINE = "(ti-soc)"
+TOOLCHAIN = "gcc"
