@@ -32,6 +32,7 @@ require jailhouse-arch.inc
 inherit module pythonnative bash-completion deploy
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+COMPATIBLE_MACHINE = "(ti-soc)"
 
 JH_DATADIR ?= "${datadir}/jailhouse"
 JH_EXEC_DIR ?= "${libexecdir}/jailhouse"
