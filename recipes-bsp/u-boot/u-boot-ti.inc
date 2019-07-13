@@ -370,3 +370,5 @@ do_deploy_append_keystone () {
 		fi
 	fi
 }
+
+TOOLCHAIN = "gcc"
