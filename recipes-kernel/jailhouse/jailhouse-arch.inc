@@ -18,3 +18,5 @@ def map_jh_arch(a, d):
         bb.error("cannot map '%s' to a jailhouse supported architecture" % a)
 
 export JH_ARCH = "${@map_jh_arch(d.getVar('TARGET_ARCH', True), d)}"
+
+COMPATIBLE_HOST = "(i.86|x86_64|arm|aarch64).*-linux"
