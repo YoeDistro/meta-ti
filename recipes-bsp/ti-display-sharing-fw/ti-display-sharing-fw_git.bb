@@ -36,6 +36,8 @@ ALTERNATIVE_PRIORITY = "9"
 
 # This is used to prevent the build system to strip the executables
 INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_SYSROOT_STRIP = "1"
+
 # This is used to prevent the build system to split the debug info in a separate file
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 # As it likely to be a different arch from the Yocto build, disable checking by adding "arch" to INSANE_SKIP
