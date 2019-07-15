@@ -81,13 +81,6 @@ do_compile() {
 	oe_runmake V=1 ARCH=${JH_ARCH} CROSS_COMPILE=${TARGET_PREFIX} KDIR=${STAGING_KERNEL_BUILDDIR}
 }
 
-python __anonymous () {
-	d.appendVarFlag('do_install', 'depends', ' virtual/kernel:do_deploy')
-	initrd = d.getVar('INITRAMFS_IMAGE', True)
-	if initrd:
-		d.appendVarFlag('do_install', 'depends', ' ${INITRAMFS_IMAGE}:do_image_complete')
-}
-
 do_install() {
 	oe_runmake ARCH=${JH_ARCH} CROSS_COMPILE=${TARGET_PREFIX} KDIR=${STAGING_KERNEL_BUILDDIR} DESTDIR=${D} install
 
@@ -121,7 +114,6 @@ do_install() {
 	fi
 }
 
-
 PACKAGE_BEFORE_PN = "kernel-module-jailhouse"
 FILES_${PN} = "${base_libdir}/firmware ${libexecdir} ${sbindir} ${JH_DATADIR} /boot"
 
@@ -133,7 +125,12 @@ KERNEL_MODULE_AUTOLOAD += "jailhouse"
 CELLS = ""
 
 python __anonymous () {
-    # Setup DEPENDS and RDEPENDS to included cells"
+    d.appendVarFlag('do_install', 'depends', ' virtual/kernel:do_deploy')
+    initrd = d.getVar('INITRAMFS_IMAGE', True)
+    if initrd:
+        d.appendVarFlag('do_install', 'depends', ' ${INITRAMFS_IMAGE}:do_image_complete')
+
+    # Setup DEPENDS and RDEPENDS to included cells
     cells = d.getVar('CELLS', True) or ""
     for cell in cells.split():
         d.appendVar('DEPENDS', ' ' + cell)
