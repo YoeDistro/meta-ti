@@ -1,7 +1,7 @@
 SUMMARY = "Cadence MHDP DP bridge firmware"
 
-LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENCE.Spectrum-GT9271;md5=2a6de6be7af1fe46370c684daf27c852"
+LICENSE = "BSD-3-Clause | Apache-2.0"
+LIC_FILES_CHKSUM = "file://LICENCE.cadence;md5=009f46816f6956cfb75ede13d3e1cee0"
 
 PV = "1.2.15"
 PR = "r0"
