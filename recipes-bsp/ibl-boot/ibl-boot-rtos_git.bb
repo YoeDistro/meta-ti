@@ -9,15 +9,20 @@ LIC_FILES_CHKSUM = "file://src/ibl.h;beginline=1;endline=34;md5=ee7d7a3305d1e524
 
 require recipes-ti/includes/ti-paths.inc
 
-DEPENDS = "ti-cgt6x-7-native"
+DEPENDS = " ti-cgt6x-7-native \
+            bison-native \
+            flex-native \
+"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "c66x"
 
+CLEANBROKEN = "1"
+
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/keystone-rtos/ibl.git;protocol=git;branch=${BRANCH}"
-SRCREV = "f7ed32cc8911e3353dd01080da9b725b44a12285"
-PR = "r0"
+SRCREV = "8a3c14da3f0808854367cae38afe9d47ab80dce6"
+PR = "r1"
 
 S = "${WORKDIR}/git"
 
