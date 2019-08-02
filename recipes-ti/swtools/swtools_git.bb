@@ -41,7 +41,7 @@ do_compile() {
 do_install() {
 	CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
 	install -d ${D}${SWTOOLS_INSTALL_DIR_RECIPE}
-	cp -pPrf ${S}/* ${D}${SWTOOLS_INSTALL_DIR_RECIPE}
+	cp ${CP_ARGS} ${S}/* ${D}${SWTOOLS_INSTALL_DIR_RECIPE}
 }
 
 FILES_${PN}-dev += "${SWTOOLS_INSTALL_DIR_RECIPE}"
