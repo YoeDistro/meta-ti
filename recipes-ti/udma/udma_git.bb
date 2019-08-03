@@ -10,11 +10,13 @@ S = "${WORKDIR}/git"
 # Commit corresponds to UDMA.01.00.00.00
 SRCREV = "53d09fb0bc98c41c5eb43623097e363c497d6fd8"
 
+PV = "01.00.00.00"
+
 PACKAGES =+ "${PN}-test"
 
 FILES_${PN}-test = "${bindir}/udma_test"
 
-do_install_append() {
+do_install() {
 	install -d ${D}${bindir}/
 	install -d ${D}${libdir}/
 	install -d ${D}${includedir}/
@@ -26,3 +28,5 @@ do_install_append() {
 	ln -sf libudma.so.1.0.0 libudma.so
 	install -c -m 755 ${S}/include/* ${D}${includedir}/
 }
+
+INSANE_SKIP_${PN} += "textrel"
