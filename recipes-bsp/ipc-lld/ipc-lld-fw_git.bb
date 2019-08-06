@@ -13,7 +13,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PROTOCOL = "git"
 BRANCH = "master"
-SRCREV = "81392da08fab2b5cfc23d63dbe71b7244a6af477"
+SRCREV = "c9f7cfe61b67998a053fe145344ce0c9b5bb22aa"
 
 SRC_URI = "git://git.ti.com/keystone-rtos/ipc-lld.git;protocol=${PROTOCOL};branch=${BRANCH}"
 
