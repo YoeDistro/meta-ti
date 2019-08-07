@@ -74,11 +74,11 @@ do_install_append_j7-evm() {
 }
 
 # Set up names for the firmwares
-ALTERNATIVE_am65xx = "\
+ALTERNATIVE_${PN}_am65xx = "\
                     am65x-mcu-r5f0_0-fw \
                     am65x-mcu-r5f0_1-fw \
                     "
-ALTERNATIVE_j7-evm = "\
+ALTERNATIVE_${PN}_j7-evm = "\
                     j7-mcu-r5f0_0-fw \
                     j7-mcu-r5f0_1-fw \
                     j7-main-r5f0_0-fw \
