@@ -9,14 +9,14 @@ QMSS_LLD_GIT_PROTOCOL = "git"
 QMSS_LLD_GIT_BRANCH = "master"
 QMSS_LLD_GIT_DESTSUFFIX = "git/ti/drv/qmss"
 
-# Below commit ID corresponding to "DEV.QMSS_LLD.02.01.00.16"
-QMSS_LLD_SRCREV = "7934ae59f545b302ede96482e61a1f79ff3518ce"
+# Below commit ID corresponding to "DEV.QMSS_LLD.02.01.00.16A"
+QMSS_LLD_SRCREV = "7ca6e92b2081bd2eb64fa3dc9ca33df78b3ce292"
 
 BRANCH ="${QMSS_LLD_GIT_BRANCH}"
 SRC_URI = "${QMSS_LLD_GIT_URI};destsuffix=${QMSS_LLD_GIT_DESTSUFFIX};protocol=${QMSS_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 SRCREV = "${QMSS_LLD_SRCREV}"
 
-PV = "02.01.00.16"
+PV = "02.01.00.16A"
 INC_PR = "r0"
 
 DEVICELIST = "k2h k2k k2l k2e"
