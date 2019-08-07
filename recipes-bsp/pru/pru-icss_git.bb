@@ -50,8 +50,16 @@ do_compile() {
 }
 
 do_install() {
+    CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
     install -d ${D}/lib/firmware/pru
+    install -d ${D}${includedir}
+    cp ${CP_ARGS} ${S}/include/* ${D}${includedir}
+    install -d ${D}${libdir}
+    install -m 0644 ${S}/lib/rpmsg_lib.lib ${D}${libdir}
 }
+
+FILES_${PN}-staticdev = "${libdir}"
+FILES_${PN}-dev = "${includedir}"
 
 do_install_append_ti33x() {
     install -m 644 ${S}/examples/${PLATFORM}/PRU_Halt/gen/PRU_Halt.out \
