@@ -11,13 +11,13 @@ DEPENDS = "ti-cgt6x-native \
            ti-xdctools-native"
 
 PV = "5_0_8"
-PR = "r2"
+PR = "r3"
 S = "${WORKDIR}/git"
 
 SWTOOLS_GIT_BRANCH = "master"
 SWTOOLS_GIT_PROTOCOL = "git"
 SWTOOLS_GIT_URI = "git://git.ti.com/ep-processor-libraries/swtools.git"
-SWTOOLS_SRCREV = "0ef96a3bb9fd8694ae75c4c3f85ad4ab2278f655"
+SWTOOLS_SRCREV = "7d1c85e686b1466cd2d535fc9cac5baf1aae24a4"
 
 SRC_URI = "${SWTOOLS_GIT_URI};protocol=${SWTOOLS_GIT_PROTOCOL};branch=${SWTOOLS_GIT_BRANCH}"
 SRCREV = "${SWTOOLS_SRCREV}"
