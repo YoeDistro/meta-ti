@@ -1,0 +1,54 @@
+From 1b853cfd6194d3855310f47d43cb8c9f498b6182 Mon Sep 17 00:00:00 2001
+From: Bin Liu <b-liu@ti.com>
+Date: Wed, 27 Feb 2019 14:38:43 -0600
+Subject: [PATCH] icss_uart: remove dependency on PDK/CSL
+
+Signed-off-by: Bin Liu <b-liu@ti.com>
+---
+ firmware/icss_uart/src/icss_ctrl_regs.h | 32 ++++----------------------------
+ 1 file changed, 4 insertions(+), 28 deletions(-)
+
+diff --git a/firmware/icss_uart/src/icss_ctrl_regs.h b/firmware/icss_uart/src/icss_ctrl_regs.h
+index ce640f5..99ec90d 100644
+--- a/firmware/icss_uart/src/icss_ctrl_regs.h
++++ b/firmware/icss_uart/src/icss_ctrl_regs.h
+@@ -39,32 +39,8 @@
+     .if    !$isdefed("__icss_ctrl_regs_h")
+ __icss_ctrl_regs_h    .set 1
+ 
+-    .cdecls C,NOLIST
+-%{
+-#include "cslr_icss.h"
+-%}
+-
+-    .if $defined("ICSS_REV1")
+-ICSS_PRU_CTRL_CONTROL       .set    (CSL_ICSSM_PRU_CTRL_CONTROL)
+-ICSS_PRU_CTRL_STATUS        .set    (CSL_ICSSM_PRU_CTRL_STATUS)
+-ICSS_PRU_CTRL_WAKEUP_EN     .set    (CSL_ICSSM_PRU_CTRL_WAKEUP_EN)
+-ICSS_PRU_CTRL_CYCLE         .set    (CSL_ICSSM_PRU_CTRL_CYCLE)
+-ICSS_PRU_CTRL_STALL         .set    (CSL_ICSSM_PRU_CTRL_STALL)
+-ICSS_PRU_CTRL_CTBIR0        .set    (CSL_ICSSM_PRU_CTRL_CTBIR0)
+-ICSS_PRU_CTRL_CTBIR1        .set    (CSL_ICSSM_PRU_CTRL_CTBIR1)
+-ICSS_PRU_CTRL_CTPPR0        .set    (CSL_ICSSM_PRU_CTRL_CTPPR0)
+-ICSS_PRU_CTRL_CTPPR1        .set    (CSL_ICSSM_PRU_CTRL_CTPPR1)
+-    .endif  ;ICSS_REV1
+-
+-    .if $defined("ICSS_REV2")
+-ICSS_PRU_CTRL_CONTROL       .set    (CSL_ICSSPRUCTRL_CONTROL)
+-ICSS_PRU_CTRL_STATUS        .set    (CSL_ICSSPRUCTRL_STATUS)
+-ICSS_PRU_CTRL_WAKEUP_EN     .set    (CSL_ICSSPRUCTRL_WAKEUP_EN)
+-ICSS_PRU_CTRL_CYCLE         .set    (CSL_ICSSPRUCTRL_CYCLE)
+-ICSS_PRU_CTRL_STALL         .set    (CSL_ICSSPRUCTRL_STALL)
+-ICSS_PRU_CTRL_CTBIR0        .set    (CSL_ICSSPRUCTRL_CTBIR0)
+-ICSS_PRU_CTRL_CTBIR1        .set    (CSL_ICSSPRUCTRL_CTBIR1)
+-ICSS_PRU_CTRL_CTPPR0        .set    (CSL_ICSSPRUCTRL_CTPPR0)
+-ICSS_PRU_CTRL_CTPPR1        .set    (CSL_ICSSPRUCTRL_CTPPR1)
+-    .endif  ;ICSS_REV2
++ICSS_PRU_CTRL_CONTROL       .set    (0x0U)
++ICSS_PRU_CTRL_STATUS        .set    (0x4U)
++ICSS_PRU_CTRL_WAKEUP_EN     .set    (0x8U)
++ICSS_PRU_CTRL_CYCLE         .set    (0xcU)
+     .endif
+-- 
+2.7.4
+
