@@ -61,10 +61,13 @@ DEPENDS_append_dra7xx = " pm-lld-rtos \
                           mmcsd-lld-rtos \
 "
 
-DEPENDS_append_k3 = " sciclient-rtos \
+DEPENDS_append_am65xx = " sciclient-rtos \
                               pm-lld-rtos \
 "
-
+DEPENDS_append_j7-evm = " udma-lld-rtos \
+                          sciclient-rtos \
+                          mmcsd-lld-rtos \
+"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
