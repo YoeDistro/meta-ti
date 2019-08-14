@@ -33,12 +33,6 @@ SCICLIENT_ROOTPATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/packages/ti/drv
 export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
 export PDK_SCICLIENT_ROOT_PATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/packages"
 
-#export PDK_SCICLIENT_ROOT_PATH ="${WORKDIR}/build"
-#export DEST_ROOT="${S}"
-
-LIMSOCS_am65xx = "am65xx"
-LIMBOARDS_am65xx = "am65xx_evm"
-BOARD_PACKAGE_am65xx = "am65xx_evm"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "SCICLIENT"
@@ -52,7 +46,7 @@ do_configure() {
     rm -f ${SCICLIENT_PACKAGE_BASE}
 
     # make the release package before building it
-    make package BOARD=${BOARD_PACKAGE} DEST_ROOT=${SCICLIENT_PACKAGE_BASE} PDK_SCICLIENT_COMP_PATH=${S}
+    make package BOARD="${TI_PDK_LIMIT_BOARDS}" DEST_ROOT=${SCICLIENT_PACKAGE_BASE} PDK_SCICLIENT_COMP_PATH=${S}
 
    # This is to ensure the make package completed successfully
     cat  ${SCICLIENT_ROOTPATH}/makefile
@@ -66,7 +60,7 @@ do_compile() {
     # make clean LIMIT_SOCS="${LIMSOCS}" LIMIT_BOARDS="${LIMBOARDS}"
 
     # Build am65xx libraries
-    make lib xdc_meta doxygen LIMIT_SOCS="${LIMSOCS}" LIMIT_BOARDS="${LIMBOARDS}"
+    make lib xdc_meta doxygen LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}" LIMIT_CORES="${TI_PDK_LIMIT_CORES}"
 
     #archive
     tar -cf sciclient.tar --exclude='*.tar' ./*
