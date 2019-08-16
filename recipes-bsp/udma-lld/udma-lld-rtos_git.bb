@@ -36,14 +36,14 @@ UDMA_LLD_ROOTPATH = "${UDMA_PACKAGE_BASE}/package/all/pdk_/packages/ti/drv/udma"
 export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
 export PDK_UDMA_ROOT_PATH = "${UDMA_PACKAGE_BASE}/package/all/pdk_/packages"
 
-TI_PDK_LIMIT_BOARDS_k3 = "am65xx_evm"
+TI_PDK_LIMIT_BOARDS_am65xx = "am65xx_evm"
+
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "UDMA LLD"
 
 do_configure() {
-    
-   # remove any previous package
+    # remove any previous package
     rm -rf ${UDMA_PACKAGE_BASE}
 
     cd ${S}
@@ -53,11 +53,10 @@ do_configure() {
 }
 
 do_compile() {
-
     cd ${UDMA_LLD_ROOTPATH}
-    
+
     # Build am65xx libraries
-    make clean lib xdc_meta doxygen LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}"
+    make clean lib xdc_meta doxygen LIMIT_SOCS="${TI_PDK_LIMIT_SOCS}" LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}" LIMIT_CORES="${TI_PDK_LIMIT_CORES}"
 
     #archive
     tar -cf udma_lld.tar --exclude='*.tar' ./*
