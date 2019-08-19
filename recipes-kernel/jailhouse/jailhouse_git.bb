@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = " \
 "
 
 PV = "0.10+git${SRCPV}"
-SRCREV = "e71fd2dc7e8494a44cc3c762a24824532a412807"
+SRCREV = "96329f098e655cd42d7d0dbb3cd2cc7c3492d633"
 BRANCH = "ti-jailhouse-0.10"
 
 SRC_URI = " \
@@ -47,19 +47,20 @@ JH_CELL_FILES ?= "*.cell"
 JH_CELL_FILES_k3 ?= "k3-*.cell"
 
 JH_INMATE_DTB ?= ""
-JH_INMATE_DTB_am65xx-evm ?= "inmate-k3-am654.dtb"
+JH_INMATE_DTB_am65xx ?= "inmate-k3-am654-idk.dtb"
 JH_INMATE_DTB_j7-evm ?= "inmate-k3-j721e-evm.dtb"
 
 JH_LINUX_DEMO_CELL ?= ""
-JH_LINUX_DEMO_CELL_am65xx-evm ?= "k3-am654-linux-demo.cell"
+JH_LINUX_DEMO_CELL_am65xx ?= "k3-am654-idk-linux-demo.cell"
 JH_LINUX_DEMO_CELL_j7-evm ?= "k3-j721e-evm-linux-demo.cell"
 
 JH_SYSCONFIG_CELL ?= ""
-JH_SYSCONFIG_CELL_am65xx-evm ?= "k3-am654.cell"
+JH_SYSCONFIG_CELL_am65xx ?= "k3-am654-idk.cell"
 JH_SYSCONFIG_CELL_j7-evm ?= "k3-j721e-evm.cell"
 
 JH_CMDLINE ?= ""
-JH_CMDLINE_k3 ?= "console=ttyS1,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait earlycon=ns16550a,mmio32,0x2810000"
+JH_CMDLINE_k3 ?= "console=ttyS1,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait"
+JH_CMDLINE_j7-evm ?= "console=ttyS1,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait earlycon=ns16550a,mmio32,0x2810000"
 
 do_configure() {
 	if [ -d ${STAGING_DIR_HOST}/${CELLCONF_DIR} ]; 
