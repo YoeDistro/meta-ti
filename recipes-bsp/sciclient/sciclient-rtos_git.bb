@@ -20,7 +20,7 @@ SRC_URI = "${SCICLIENT_GIT_URI};protocol=${SCICLIENT_GIT_PROTOCOL};branch=${BRAN
 
 SRCREV = "${SCICLIENT_SRCREV}"
 PV = "01.00.00.03"
-PR = "r0"
+PR = "r1"
 
 DEPENDS_append = " osal-rtos common-csl-ip-rtos"
 
@@ -33,6 +33,8 @@ SCICLIENT_ROOTPATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/packages/ti/drv
 export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
 export PDK_SCICLIENT_ROOT_PATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/packages"
 
+# Sciclient for am65x supports mcu1_1 in addition to the default cores in TI_PDK_LIMIT_CORES
+TI_PDK_LIMIT_CORES_append_am65xx = " mcu1_1"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "SCICLIENT"
