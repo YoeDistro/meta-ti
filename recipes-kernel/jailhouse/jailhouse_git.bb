@@ -58,8 +58,10 @@ JH_SYSCONFIG_CELL ?= ""
 JH_SYSCONFIG_CELL_am65xx ?= "k3-am654-idk.cell"
 JH_SYSCONFIG_CELL_j7-evm ?= "k3-j721e-evm.cell"
 
+JH_RAMFS_IMAGE ?= "${INITRAMFS_IMAGE}"
+
 JH_CMDLINE ?= ""
-JH_CMDLINE_k3 ?= "console=ttyS1,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait"
+JH_CMDLINE_k3 ?= "console=ttyS1,115200n8"
 
 do_configure() {
 	if [ -d ${STAGING_DIR_HOST}/${CELLCONF_DIR} ]; 
@@ -101,6 +103,16 @@ do_install() {
 	install -m 0644 ${B}/inmates/demos/${JH_ARCH}/*.bin ${D}${INMATES_DIR}
 
 	install -d ${D}/boot
+	if [ -n "${JH_RAMFS_IMAGE}" ]
+	then
+		if [ -f ${DEPLOY_DIR_IMAGE}/${JH_RAMFS_IMAGE}-${MACHINE}.cpio ]
+		then
+			install -m 0644 ${DEPLOY_DIR_IMAGE}/${JH_RAMFS_IMAGE}-${MACHINE}.cpio ${D}/boot
+		else
+			bberror "Could not find JH_RAMFS_IMAGE (${JH_RAMFS_IMAGE}-${MACHINE}.cpio)!"
+			bberror "Please make sure that \"cpio\" is in IMAGE_FSTYPES."
+		fi
+	fi
 
 	if [ -n "${JH_INMATE_DTB}" -a -n "${JH_LINUX_DEMO_CELL}" ]; then
 		cd ${TOOLS_SRC_DIR}
@@ -110,6 +122,7 @@ do_install() {
 		./jailhouse-cell-linux -w ${D}${JH_DATADIR}/${JH_INMATE_DTB} \
 			-a ${JH_ARCH} -c "${JH_CMDLINE}" \
 			-d ../configs/${JH_ARCH}/dts/${JH_INMATE_DTB} \
+			-i ${D}/boot/${JH_RAMFS_IMAGE}-${MACHINE}.cpio \
 			${D}${CELL_DIR}/${JH_LINUX_DEMO_CELL} \
 			${DEPLOY_DIR_IMAGE}/Image \
 			| tr -cd '\11\12\15\40-\176' \
@@ -143,9 +156,9 @@ CELLS = ""
 
 python __anonymous () {
     d.appendVarFlag('do_install', 'depends', ' virtual/kernel:do_deploy')
-    initrd = d.getVar('INITRAMFS_IMAGE', True)
-    if initrd:
-        d.appendVarFlag('do_install', 'depends', ' ${INITRAMFS_IMAGE}:do_image_complete')
+    ramfs = d.getVar('JH_RAMFS_IMAGE', True)
+    if ramfs:
+        d.appendVarFlag('do_install', 'depends', ' ${JH_RAMFS_IMAGE}:do_image_complete')
 
     # Setup DEPENDS and RDEPENDS to included cells
     cells = d.getVar('CELLS', True) or ""
