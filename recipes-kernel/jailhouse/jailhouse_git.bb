@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = " \
 "
 
 PV = "0.10+git${SRCPV}"
-SRCREV = "96329f098e655cd42d7d0dbb3cd2cc7c3492d633"
+SRCREV = "6dce20f902f73fe9ce53ba0c41262a4defa8d328"
 BRANCH = "ti-jailhouse-0.10"
 
 SRC_URI = " \
@@ -60,7 +60,6 @@ JH_SYSCONFIG_CELL_j7-evm ?= "k3-j721e-evm.cell"
 
 JH_CMDLINE ?= ""
 JH_CMDLINE_k3 ?= "console=ttyS1,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait"
-JH_CMDLINE_j7-evm ?= "console=ttyS1,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait earlycon=ns16550a,mmio32,0x2810000"
 
 do_configure() {
 	if [ -d ${STAGING_DIR_HOST}/${CELLCONF_DIR} ]; 
