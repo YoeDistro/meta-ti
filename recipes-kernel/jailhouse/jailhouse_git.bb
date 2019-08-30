@@ -29,7 +29,7 @@ RDEPENDS_${PN} += "\
 S = "${WORKDIR}/git"
 
 require jailhouse-arch.inc
-inherit module pythonnative bash-completion deploy
+inherit module pythonnative bash-completion deploy setuptools
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "(ti-soc)"
@@ -78,12 +78,21 @@ USER_SPACE_CFLAGS = '${CFLAGS} -DLIBEXECDIR=\\\"${libexecdir}\\\" \
 TOOLS_SRC_DIR = "${S}/tools"
 TOOLS_OBJ_DIR = "${S}/tools"
 
+EXTRA_OEMAKE = "ARCH=${JH_ARCH} CROSS_COMPILE=${TARGET_PREFIX} KDIR=${STAGING_KERNEL_BUILDDIR}"
+
+
 do_compile() {
-	oe_runmake V=1 ARCH=${JH_ARCH} CROSS_COMPILE=${TARGET_PREFIX} KDIR=${STAGING_KERNEL_BUILDDIR}
+	oe_runmake V=1
 }
 
 do_install() {
-	oe_runmake ARCH=${JH_ARCH} CROSS_COMPILE=${TARGET_PREFIX} KDIR=${STAGING_KERNEL_BUILDDIR} DESTDIR=${D} install
+	# Install pyjailhouse python modules needed by the tools
+	distutils_do_install
+
+	# We want to install the python tools, but we do not want to use pip...
+	# At least with v0.10, we can work around this with
+	# 'PIP=":" PYTHON_PIP_USEABLE=yes'
+	oe_runmake PIP=: PYTHON_PIP_USEABLE=yes DESTDIR=${D} install
 
 	install -d ${D}${CELL_DIR}
 	install -m 0644 ${B}/configs/${JH_ARCH}/${JH_CELL_FILES} ${D}${CELL_DIR}/
@@ -115,8 +124,15 @@ do_install() {
 	fi
 }
 
-PACKAGE_BEFORE_PN = "kernel-module-jailhouse"
+PACKAGE_BEFORE_PN = "kernel-module-jailhouse pyjailhouse ${PN}-tools"
 FILES_${PN} = "${base_libdir}/firmware ${libexecdir} ${sbindir} ${JH_DATADIR} /boot"
+FILES_pyjailhouse = "${PYTHON_SITEPACKAGES_DIR}"
+FILES_${PN}-tools = "${libexecdir}/${BPN}/${BPN}-*"
+
+RDEPENDS_${PN}-tools = "pyjailhouse python-mmap python-math python-argparse python-datetime python-curses python-compression"
+RDEPENDS_pyjailhouse = "python-core python-ctypes python-fcntl python-shell"
+
+RRECOMMENDS_${PN} = "${PN}-tools"
 
 INSANE_SKIP_${PN} = "ldflags"
 
