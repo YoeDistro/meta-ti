@@ -3,7 +3,7 @@ SUMMARY = "Cadence MHDP DP bridge firmware"
 LICENSE = "BSD-3-Clause | Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENCE.cadence;md5=009f46816f6956cfb75ede13d3e1cee0"
 
-PV = "1.2.15"
+PV = "1.2.17"
 PR = "r0"
 
 CLEANBROKEN = "1"
@@ -12,7 +12,7 @@ COMPATIBLE_MACHINE = "j7-evm"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRCREV = "3930363562b35a5f3d495a61ea7e51739462b14a"
+SRCREV = "7bad9a69a343e01056ece5ce6da4d4060c42f6bc"
 BRANCH ?= "ti-linux-firmware"
 
 SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
