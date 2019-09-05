@@ -25,8 +25,8 @@ inherit update-rc.d
 
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm omap5-sgx-ddk-um-linux"
 
-DEPENDS += "libdrm udev wayland libffi expat"
-RDEPENDS_${PN} += "libdrm libdrm-omap udev wayland libffi expat"
+DEPENDS += "libdrm udev wayland wayland-protocols libffi expat"
+RDEPENDS_${PN} += "libdrm libdrm-omap udev wayland wayland-protocols libffi expat"
 
 RPROVIDES_${PN} = "libegl libgles1 libgles2 libgbm omap5-sgx-ddk-um-linux"
 RPROVIDES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev omap5-sgx-ddk-um-linux-dev"
