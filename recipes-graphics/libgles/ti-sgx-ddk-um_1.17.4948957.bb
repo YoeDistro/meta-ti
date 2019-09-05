@@ -3,9 +3,10 @@ HOMEPAGE = "https://git.ti.com/graphics/omap5-sgx-ddk-um-linux"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://TI-Linux-Graphics-DDK-UM-Manifest.doc;md5=b17390502bc89535c86cfbbae961a2a8"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k3"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
+PR = "r34"
 
 BRANCH = "ti-img-sgx/thud/${PV}"
 
@@ -22,11 +23,10 @@ INITSCRIPT_PARAMS = "defaults 8"
 
 inherit update-rc.d
 
-PR = "r34"
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm omap5-sgx-ddk-um-linux"
 
-DEPENDS += "libdrm udev wayland libffi"
-RDEPENDS_${PN} += "libdrm libudev wayland libffi libdrm-omap"
+DEPENDS += "libdrm udev wayland libffi expat"
+RDEPENDS_${PN} += "libdrm libdrm-omap udev wayland libffi expat"
 
 RPROVIDES_${PN} = "libegl libgles1 libgles2 libgbm omap5-sgx-ddk-um-linux"
 RPROVIDES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev omap5-sgx-ddk-um-linux-dev"
