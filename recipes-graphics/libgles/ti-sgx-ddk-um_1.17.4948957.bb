@@ -49,8 +49,6 @@ do_install () {
     oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT}
     ln -sf libGLESv2.so.${PV} ${D}${libdir}/libGLESv2.so.1
 
-    rm -f ${D}${libdir}/pkgconfig/wayland-egl.pc
-
     chown -R root:root ${D}
 }
 
