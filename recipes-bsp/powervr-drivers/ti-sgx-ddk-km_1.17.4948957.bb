@@ -18,7 +18,9 @@ PROVIDES = "virtual/gpudriver"
 
 BRANCH = "ti-img-sgx/${PV}/k4.19"
 
-SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH} \
+    file://0001-km-support-OpenEmbedded-hardfp-toolchain-w-o-gnueabi.patch \
+"
 
 S = "${WORKDIR}/git"
 
