@@ -17,7 +17,9 @@ PROVIDES = "virtual/gpudriver"
 
 BRANCH = "linuxws/thud/k4.19/${PV}"
 
-SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH} \
+    file://0001-km-support-general-toolchain.patch \
+"
 S = "${WORKDIR}/git"
 
 SRCREV = "12594852f8a46ead75b5ce3309372e4a1054be05"
