@@ -1,0 +1,56 @@
+From dbdbd9309a58ee723fc827ef5fd45c28347cf61f Mon Sep 17 00:00:00 2001
+From: Eric Ruei <e-ruei1@ti.com>
+Date: Tue, 7 May 2019 17:06:09 -0400
+Subject: [PATCH] km: support general toolchain
+
+This is a patch from IMG to support general toolchains such as
+aarch64-oe-linux-gnu, aarch64-poky-linux-gnu, arm-none-linux-gnueabi
+per IMG ticket 122059
+
+Signed-off-by: Eric Ruei <e-ruei1@ti.com>
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ build/linux/config/compiler.mk        | 12 +++++++++++-
+ .../build/linux/config/compilers/arm-linux-gnueabi.mk       |  6 ++++++
+ 2 files changed, 17 insertions(+), 1 deletion(-)
+ create mode 100644 build/linux/config/compilers/arm-linux-gnueabi.mk
+
+diff --git a/build/linux/config/compiler.mk b/build/linux/config/compiler.mk
+index 82c9d44..dead2f9 100644
+--- a/build/linux/config/compiler.mk
++++ b/build/linux/config/compiler.mk
+@@ -48,13 +48,14 @@ define calculate-compiler-preferred-target
+  ifeq ($(2),qcc)
+   $(1)_compiler_preferred_target := qcc
+  else
+-  $(1)_compiler_preferred_target := $$(subst --,-,$$(shell $(2) -dumpmachine))
++  $(1)_compiler_preferred_target := $$(subst --,-,$$(subst unknown,,$$(shell $(2) -dumpmachine)))
+   ifeq ($$($(1)_compiler_preferred_target),)
+    $$(warning No output from '$(2) -dumpmachine')
+    $$(warning Check that the compiler is in your PATH and CROSS_COMPILE is)
+    $$(warning set correctly.)
+    $$(error Unable to run compiler '$(2)')
+   endif
++  $$(warning $(1) $(2))
+   ifneq ($$(filter %-w64-mingw32,$$($(1)_compiler_preferred_target)),)
+    # Use the compiler target name.
+   else
+@@ -64,6 +65,15 @@ define calculate-compiler-preferred-target
+    ifneq ($$(filter arm-linux-android,$$($(1)_compiler_preferred_target)),)
+     $(1)_compiler_preferred_target := arm-linux-androideabi
+    endif
++  ifneq ($$(filter aarch64-%,$$($(1)_compiler_preferred_target)),)
++   $(1)_compiler_preferred_target := aarch64-linux-gnu
++  endif
++  ifneq ($$(filter arm-%-gnueabi armv7a-cros-linux-gnueabi armv7hl-redhat-linux-gnueabi,$$($(1)_compiler_preferred_target)),)
++   $(1)_compiler_preferred_target := arm-linux-gnueabi
++  endif
++  ifneq ($$(filter arm-%-gnueabihf,$$($(1)_compiler_preferred_target)),)
++   $(1)_compiler_preferred_target := arm-linux-gnueabihf
++  endif
+    ifneq ($$(filter clang%,$(2)),)
+     ifeq ($(1),target)
+      ifeq (arm-linux-gnueabihf,$$(CROSS_TRIPLE))
+-- 
+2.7.4
+
