@@ -3,7 +3,7 @@ HOMEPAGE = "https://git.ti.com/graphics/ti-gc320-libs"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://Manifest.html;md5=a9121e8936ace09820d23f7626daaca5"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
+COMPATIBLE_MACHINE = "dra7xx"
 
 CLEANBROKEN = "1"
 
@@ -24,9 +24,9 @@ python __anonymous() {
         raise bb.parse.SkipPackage("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
 }
 
-TARGET_PRODUCT_omap-a15 = "jacinto6evm"
+TARGET_PRODUCT = "jacinto6evm"
 
-PR = "r2"
+PR = "r3"
 
 S = "${WORKDIR}/git"
 
@@ -38,6 +38,3 @@ do_install() {
 }
 
 INSANE_SKIP_${PN} += "ldflags"
-
-COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
