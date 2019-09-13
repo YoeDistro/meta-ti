@@ -1,0 +1,34 @@
+From 85264fc72a261d20107a50ea2fad0258900a132b Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Sat, 20 Apr 2019 16:54:03 +0000
+Subject: [PATCH] CMakeLists.txt: disable phys-addr for now
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ CMakeLists.txt | 13 -------------
+ 1 file changed, 13 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1d60003..eca6ba7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -54,16 +54,3 @@ target_link_libraries(ion-print-heaps
+ target_include_directories(ion-print-heaps PUBLIC ${LIBION_INCLUDE_DIRS})
+ 
+ install(TARGETS ion-print-heaps RUNTIME DESTINATION bin)
+-
+-# phys-addr
+-
+-add_executable(phys-addr
+-	src/phys-addr.c
+-)
+-
+-target_link_libraries(phys-addr
+-	${LIBION_LIBRARIES}
+-)
+-target_include_directories(phys-addr PUBLIC ${LIBION_INCLUDE_DIRS})
+-
+-install(TARGETS phys-addr RUNTIME DESTINATION bin)
+-- 
+2.17.1
+
