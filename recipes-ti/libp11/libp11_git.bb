@@ -5,7 +5,7 @@ SECTION = "libs"
 
 inherit autotools pkgconfig
 
-DEPENDS = "openssl10 libtool"
+DEPENDS = "openssl libtool"
 RDEPENDS_${PN} = "ti-softhsmv2"
 
 COMPATIBLE_MACHINE = "keystone"

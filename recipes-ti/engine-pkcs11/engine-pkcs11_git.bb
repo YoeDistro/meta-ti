@@ -5,7 +5,7 @@ SECTION = "libs"
 
 inherit autotools pkgconfig
 
-DEPENDS = "openssl10 libtool libp11"
+DEPENDS = "openssl libtool libp11"
 
 COMPATIBLE_MACHINE = "keystone"
 

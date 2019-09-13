@@ -7,7 +7,7 @@ mntdir = "/mnt"
 
 inherit autotools pkgconfig
 
-DEPENDS = "openssl10 libdaemon zlib"
+DEPENDS = "openssl libdaemon zlib"
 COMPATIBLE_MACHINE = "keystone"
 
 BRANCH = "ti-softhsm-rebase"
