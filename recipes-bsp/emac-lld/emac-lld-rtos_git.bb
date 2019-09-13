@@ -18,7 +18,7 @@ DEPENDS_append_ti43x = " starterware-rtos"
 DEPENDS_append_k2g  = " cppi-lld-rtos qmss-lld-rtos"
 
 DEPENDS_remove_k3 = "board-rtos "
-DEPENDS_append_k3 = " udma-lld-rtos "
+DEPENDS_append_k3 = " udma-lld-rtos trace-rtos"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
