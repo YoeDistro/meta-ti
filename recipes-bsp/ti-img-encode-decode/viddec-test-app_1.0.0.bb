@@ -6,8 +6,8 @@ DEPENDS = "libdrm ffmpeg"
 
 inherit autotools pkgconfig
 
-PR = "r0"
-SRCREV = "9d5b3c11ac24dbed9284e849c0db9daeb47704e7"
+PR = "r1"
+SRCREV = "94a80c8c090dbfdc7fafd4e5bb78c2091e715af2"
 
 EXTRA_OEMAKE = "CC="${CC}""
 TARGET_CC_ARCH += "${LDFLAGS}"
