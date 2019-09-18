@@ -7,7 +7,7 @@ PV = "1.0.0"
 
 BRANCH = "master"
 SRC_URI = "git://github.com/glneo/libion.git;protocol=git;branch=${BRANCH}"
-SRCREV = "11dad7977ec3ecba37c013da7ec0408c01413000"
+SRCREV = "813bd63e2f2118e17cb1c5d38505a1e572a2381c"
 
 S = "${WORKDIR}/git"
 
