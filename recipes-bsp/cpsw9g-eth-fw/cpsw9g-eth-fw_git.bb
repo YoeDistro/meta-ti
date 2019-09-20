@@ -11,14 +11,14 @@ inherit update-alternatives
 
 PROTOCOL = "git"
 BRANCH = "master"
-SRCREV = "df7f399319ee401dfbda9317878128a0f718507f"
+SRCREV = "7f3af9b0b4c04edcb68c49cb64fcf0d65a860457"
 
 SRC_URI = "git://git.ti.com/glsdk/ti-eth-fw.git;protocol=${PROTOCOL};branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 
 CPSW9G_FW_DIR = "${S}/ethfw"
-CPSW9G_FW_FILENAME = "app_remoteswitchcfg_server.xer5f"
+CPSW9G_FW_FILENAME = "app_remoteswitchcfg_server_pdk_mem_map_strip.xer5f"
 
 # make sure that lib/firmware, and all its contents are part of the package
 FILES_${PN} += "${base_libdir}/firmware"
