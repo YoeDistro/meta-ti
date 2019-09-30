@@ -6,12 +6,12 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j7-evm"
 
-PR = "r3"
+PR = "r4"
 
 BRANCH = "linuxws/thud/k4.19/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-umlibs.git;branch=${BRANCH}"
-SRCREV = "237d3736114d0e8c6c0fe00845949f51bb78544f"
+SRCREV = "98762e37e8f26e8cd979576817b695ec3c0e069f"
 
 PVR_SOC ?= "j721e_linux"
 PVR_BUILD ?= "release"
