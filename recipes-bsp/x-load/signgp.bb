@@ -1,4 +1,4 @@
-LICENSE = "NewBSD"
+LICENSE = "BSD-3-Clause"
 DESCRIPTION = "Tool to sign omap3 x-loader images"
 LIC_FILES_CHKSUM = "file://signGP.c;md5=960f484fea13941ca88821366f9dade0"
 
