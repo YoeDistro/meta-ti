@@ -17,6 +17,8 @@ S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += 'KDIR="${STAGING_KERNEL_DIR}"'
 
+COMPATIBLE_MACHINE = "(ti-soc)"
+
 do_compile_prepend() {
     cd ${S}/kernel_module/uio
 }
