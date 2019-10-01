@@ -1,13 +1,13 @@
-DESCRIPTION = "BeagleBone Getting Started Guide"
+SUMMARY = "BeagleBone Getting Started Guide"
 
-PR = "r21"
+PR = "r22"
 
 inherit allarch
 
-LICENSE = "GPLv2+ & MIT & PD & others"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=603591dea023c3c75b48e07cb47ce639"
+LICENSE = "CC-BY-SA-3.0 & GPLv3+ & MIT & PD"
+LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f6f02761e31334c48f7021fb94c89aaa"
 
-SRCREV = "6c548a307c948b28a99d48fd17d9790b56182196"
+SRCREV = "05bedba192646152b7bc80b0accaea75aef864e5"
 SRC_URI = "git://github.com/jadonk/beaglebone-getting-started.git"
 
 S = "${WORKDIR}/git"
@@ -18,3 +18,4 @@ do_install() {
 }
 
 FILES_${PN} += "${datadir}/${PN}"
+INSANE_SKIP_${PN} = "file-rdeps"
