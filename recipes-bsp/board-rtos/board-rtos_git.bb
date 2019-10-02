@@ -12,14 +12,14 @@ BOARD_GIT_URI = "git://git.ti.com/keystone-rtos/board.git"
 BOARD_GIT_PROTOCOL = "git"
 BOARD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.BOARD.01.00.10.05D"
-BOARD_SRCREV = "fd707da2811df612ae91a3ee33d9ef3864723d61"
+# Below commit ID corresponds to "DEV.BOARD.01.00.10.06C"
+BOARD_SRCREV = "047b16dfe9880b466a74c1c4c2abe67c28ace994"
 
 BRANCH ="${BOARD_GIT_BRANCH}"
 SRC_URI = "${BOARD_GIT_URI};protocol=${BOARD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${BOARD_SRCREV}"
-PV = "01.00.10.05D"
+PV = "01.00.10.06C"
 PR = "r0"
 
 DEPENDS_append = " i2c-lld-rtos \
