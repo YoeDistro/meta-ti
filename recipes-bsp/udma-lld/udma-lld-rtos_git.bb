@@ -13,14 +13,14 @@ UDMA_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/udma-lld.git"
 UDMA_LLD_GIT_PROTOCOL = "git"
 UDMA_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.UDMA_LLD.01.00.00.03"
-UDMA_LLD_SRCREV = "8b5a762310d1cf9a94a4a6a8e5c1254eb483b2e7"
+# Below commit ID corresponds to "DEV.UDMA_LLD.01.00.00.04"
+UDMA_LLD_SRCREV = "67edfa436beb3362051a097b456ba07c95faa4a6"
 
 BRANCH = "${UDMA_LLD_GIT_BRANCH}"
 SRC_URI = "${UDMA_LLD_GIT_URI};protocol=${UDMA_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${UDMA_LLD_SRCREV}"
-PV = "01.00.00.03"
+PV = "01.00.00.04"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
