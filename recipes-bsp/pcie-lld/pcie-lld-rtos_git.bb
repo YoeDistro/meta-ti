@@ -13,14 +13,14 @@ PCIE_LLD_GIT_PROTOCOL = "git"
 PCIE_LLD_GIT_BRANCH = "master"
 PCIE_LLD_GIT_DESTSUFFIX = "git/ti/drv/pcie"
 
-# Below commit ID corresponds to "DEV.PCIE_LLD.02.03.00.04"
-PCIE_LLD_SRCREV = "6a5868f7ab46052b51644bbc1765b742528e90e0"
+# Below commit ID corresponds to "DEV.PCIE_LLD.02.03.00.05"
+PCIE_LLD_SRCREV = "3cdbb5e4e4ccced496a4ca91b203965fafffc3e9"
 
 BRANCH = "${PCIE_LLD_GIT_BRANCH}"
 SRC_URI = "${PCIE_LLD_GIT_URI};destsuffix=${PCIE_LLD_GIT_DESTSUFFIX};protocol=${PCIE_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${PCIE_LLD_SRCREV}"
-PV = "02.03.00.04"
+PV = "02.03.00.05"
 PR = "r0"
 
 DEPENDS_append_k3 = " udma-lld-rtos \
