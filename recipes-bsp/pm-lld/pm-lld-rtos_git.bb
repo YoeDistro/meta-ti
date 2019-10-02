@@ -20,8 +20,8 @@ PM_LLD_GIT_BRANCH_k2g = "int_pm_am335x"
 
 PM_LLD_GIT_DESTSUFFIX = "git/ti/drv/pm"
 
-# Below commit ID corresponds to "DEV.PM_LLD.01.08.00.22"
-PM_LLD_SRCREV = "091ab8a3b96911ed2cb7a19d4cac4005c171fafb"
+# Below commit ID corresponds to "DEV.PM_LLD.01.08.00.23"
+PM_LLD_SRCREV = "7c064b93a0ae648441991abb5c71b99d2c209eeb"
 
 # Below commit ID corresponds to "DEV.PM_LLD.01.04.00.05C"
 PM_LLD_SRCREV_ti33x = "dd1f8486e7738956631b7f4829c8238be2e49dd6"
@@ -32,7 +32,7 @@ BRANCH = "${PM_LLD_GIT_BRANCH}"
 SRC_URI = "${PM_LLD_GIT_URI};destsuffix=${PM_LLD_GIT_DESTSUFFIX};protocol=${PM_LLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${PM_LLD_SRCREV}"
-PV = "01.08.00.22"
+PV = "01.08.00.23"
 PR = "r0"
 
 S = "${WORKDIR}/${PM_LLD_GIT_DESTSUFFIX}"
