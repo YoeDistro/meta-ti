@@ -18,7 +18,7 @@ SRC_URI = "${IPCLLD_GIT_URI};protocol=${IPCLLD_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${IPCLLD_SRCREV}"
 PV = "01.00.00.00"
-PR = "r0"
+PR = "r1"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
@@ -33,3 +33,5 @@ export PDK_IPC_ROOT_PATH = "${IPCLLD_PACKAGE_BASE}/package/all/pdk_/packages"
 PDK_COMP_LINK_TEXT = "IPCLLD"
 
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${PDK_INSTALL_PATH} "
+
+TI_PDK_LIMIT_CORES_append_am65xx-evm = " mcu1_1 "
