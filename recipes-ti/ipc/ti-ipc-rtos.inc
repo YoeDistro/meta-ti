@@ -26,8 +26,8 @@ name=${TI_IPC_METADATA_NAME}"
 
 # Corresponds to tag: 3.50.04.07
 TI_IPC_METADATA_SRCREV = "37e85ff1966f7d093fe2bde2dd9d4546f29d0d80"
-# Corresponds to tag: 3.50.04.07A
-TI_IPC_EXAMPLES_SRCREV = "0ebf5e642a8ca567bcaa7653875d15f6e7178405"
+# Corresponds to tag: 3.50.04.07B
+TI_IPC_EXAMPLES_SRCREV = "ad3d694e30367a5c04525aef7c6ee9a33896fd59"
 
 SRCREV_FORMAT = "default"
 SRCREV_ipc-metadata = "${TI_IPC_METADATA_SRCREV}"
@@ -39,7 +39,7 @@ S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
 RELEASE_TYPE = "GA"
 RELEASE_SUFFIX = ""
 
-PR = "${INC_PR}.r0"
+PR = "${INC_PR}.r1"
 
 DEPENDS_append_keystone = " ti-cgt6x-native \
                             gcc-arm-none-eabi-native \
