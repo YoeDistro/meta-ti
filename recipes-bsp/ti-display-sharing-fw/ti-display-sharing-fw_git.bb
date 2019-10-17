@@ -3,7 +3,7 @@ SUMMARY = "TI Display Sharing Firmware"
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
 
-PV = "00.09.00.00-git${SRCPV}"
+PV = "06.01.00.00+git${SRCPV}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit deploy
@@ -11,7 +11,7 @@ inherit update-alternatives
 
 PROTOCOL = "git"
 BRANCH = "ti-linux-firmware"
-SRCREV = "4a86f16df9b44798851e51fa465825710cda76cf"
+SRCREV = "e7be1ab85266c47236330e2909997d20fc62e312"
 
 SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=${PROTOCOL};branch=${BRANCH}"
 
