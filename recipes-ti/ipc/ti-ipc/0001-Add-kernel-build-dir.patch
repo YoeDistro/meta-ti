@@ -1,4 +1,4 @@
-From 7d9f57983c6d14ac14f26987eddc555ea5c75d61 Mon Sep 17 00:00:00 2001
+From c3ada6bf49e6fcf7bc49e5bf09754f384838ca6a Mon Sep 17 00:00:00 2001
 From: Denys Dmytriyenko <denys@ti.com>
 Date: Mon, 27 Jul 2015 11:51:52 -0400
 Subject: [PATCH] Add kernel build dir
@@ -17,18 +17,18 @@ Signed-off-by: Denys Dmytriyenko <denys@ti.com>
  4 files changed, 14 insertions(+), 1 deletion(-)
 
 diff --git a/configure.ac b/configure.ac
-index f0b4b61..9b5d07c 100644
+index 4d4a559..84ac78b 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -71,6 +71,7 @@ AC_SUBST([AM_LDFLAGS])
- AC_ARG_VAR(PLATFORM, Platform to build. Options are: 'OMAPL138' 'OMAP54XX' '66AK2E' 'TCI6630' 'TCI6636' 'TCI6638' '66AK2G' and 'DRA7XX'. If not defined all platforms will be built.)
+ AC_ARG_VAR(PLATFORM, Platform to build. Options are: 'OMAPL138' 'OMAP54XX' '66AK2E' 'TCI6630' 'TCI6636' 'TCI6638' '66AK2G' 'DRA7XX' and 'AM65XX'. If not defined all platforms will be built.)
  AC_ARG_VAR(CMEM_INSTALL_DIR, Installation path directory to the CMEM libraries)
  AC_ARG_VAR(KERNEL_INSTALL_DIR, Installation path to the Linux kernel.)
 +AC_ARG_VAR(KERNEL_BUILD_DIR, Path to the Linux kernel build artifacts.)
  AC_ARG_VAR(AF_RPMSG, Address Family used by the RPMSG driver)
  AC_ARG_VAR(DRM_PREFIX, Installation location to the DRM library.)
  
-@@ -111,6 +112,7 @@ AS_IF([test "x$PLATFORM" = "x"], [CMEM_INSTALL_DIR=])
+@@ -113,6 +114,7 @@ AS_IF([test "x$PLATFORM" = "x"], [CMEM_INSTALL_DIR=])
  AC_SUBST([PLATFORM])
  AC_SUBST([CMEM_INSTALL_DIR])
  AC_SUBST([KERNEL_INSTALL_DIR])
@@ -36,7 +36,7 @@ index f0b4b61..9b5d07c 100644
  AC_SUBST([AF_RPMSG])
  AC_SUBST([DRM_PREFIX])
  
-@@ -127,6 +129,7 @@ AM_CONDITIONAL([DRA7XX], [test "x$PLATFORM" = "xDRA7XX"])
+@@ -130,6 +132,7 @@ AM_CONDITIONAL([AM65XX], [test "x$PLATFORM" = "xAM65XX"])
  AM_CONDITIONAL([CMEM], [test "x$CMEM_INSTALL_DIR" != "x"])
  AM_CONDITIONAL([KDIR], [test "x$KERNEL_INSTALL_DIR" != "x"])
  AM_CONDITIONAL([KERNEL_INSTALL_DIR], [test -n "$KERNEL_INSTALL_DIR"])
@@ -44,7 +44,7 @@ index f0b4b61..9b5d07c 100644
  AM_CONDITIONAL([DRM], [test "x$DRM_PREFIX" != "x"])
  AM_CONDITIONAL([AF_RPMSG], [test -n "$AF_RPMSG"])
  
-@@ -157,6 +160,9 @@ You have configured to build for the '${PLATFORM}' platform
+@@ -160,6 +163,9 @@ You have configured to build for the '${PLATFORM}' platform
  Your KERNEL installation directory is set to:
      '${KERNEL_INSTALL_DIR}'
  
