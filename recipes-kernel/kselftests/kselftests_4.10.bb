@@ -160,6 +160,7 @@ RDEPENDS_${PN} += "bash \
 	${PN}-net \
 	${PN}-nsfs \
 	${PN}-pstore \
+	${PN}-ptp \
 	${PN}-ptrace \
 	${PN}-seccomp \
 	${PN}-sigaltstack \
