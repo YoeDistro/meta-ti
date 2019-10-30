@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://README;beginline=15;endline=20;md5=0403c7dea01a2b8232
 
 inherit module
 
-MACHINE_KERNEL_PR_append = "d"
+MACHINE_KERNEL_PR_append = "e"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -22,7 +22,7 @@ SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH} \
 "
 S = "${WORKDIR}/git"
 
-SRCREV = "f718a8251eb02c2493a2361c509a29ce634beadc"
+SRCREV = "fe40a51f33987c59aca300f8a976a9a9c8112703"
 
 PVR_SOC = "j721e_linux"
 PVR_BVNC = "22.104.208.318"
