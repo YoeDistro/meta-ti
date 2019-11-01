@@ -7,7 +7,7 @@ Power State Coordination Interface (PSCI), Trusted Board Boot Requirements \
 HOMEPAGE = "http://infocenter.arm.com/help/topic/com.arm.doc.dui0928e/CJHIDGJF.html"
 
 LICENSE = "BSD"
-LIC_FILES_CHKSUM = "file://license.rst;md5=90153916317c204fade8b8df15739cde"
+LIC_FILES_CHKSUM = "file://docs/license.rst;md5=189505435dbcdcc8caa63c46fe93fa89"
 
 inherit deploy
 
@@ -22,7 +22,7 @@ PV_append = "+git${SRCPV}"
 BRANCH = "ti-atf"
 SRC_URI = "git://git.ti.com/atf/arm-trusted-firmware.git;branch=${BRANCH}"
 
-SRCREV ?= "ce3f1512bfc3f346900178c5ef870fbef3ab205e"
+SRCREV ?= "e516a389ac12fbe1597f61fea80ed3f230b9c5fd"
 
 # Make ATF "aware" of OPTEE, no build dependency
 PACKAGECONFIG[optee] = "SPD=opteed"
