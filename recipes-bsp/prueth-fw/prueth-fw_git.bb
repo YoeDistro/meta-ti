@@ -4,12 +4,13 @@ require recipes-ti/includes/ti-paths.inc
 require recipes-bsp/icss-emac-lld/icss-emac-lld.inc
 
 LICENSE = "TI-TFL"
-LIC_FILES_CHKSUM = "file://src/firmware_version.h;beginline=6;endline=53;md5=1f0a640a261059cdcbbcf01e6a739ff3"
+LIC_FILES_CHKSUM = "file://icss_dualemac/src/firmware_version.h;beginline=6;endline=53;md5=1f0a640a261059cdcbbcf01e6a739ff3"
 
-PV = "${PV_DUALEMAC_FW}"
 PR = "${INC_PR}.0"
 
-S = "${WORKDIR}/${ICSS_EMAC_LLD_GIT_DESTSUFFIX}/firmware/icss_dualemac"
+TI_PDK_COMP = "ti.drv.icss_emac.firmware"
+
+B = "${S}/icss_dualemac"
 
 COMPATIBLE_MACHINE = "am57xx-evm|am437x-evm|am335x-evm|k2g"
 
