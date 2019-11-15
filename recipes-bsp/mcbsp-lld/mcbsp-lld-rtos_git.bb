@@ -1,6 +1,10 @@
 SUMMARY = "TI RTOS low level driver for Multi-channel Buffered Serial Port (McBSP)"
 
-inherit ti-pdk
+inherit ti-pdk ti-pdk-fetch
+
+TI_PDK_COMP = "ti.drv.mcbsp"
+
+PE = "1"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://mcbspver.h;beginline=1;endline=47;md5=a8a39efd13fa6fe66da5461b898d620e"
@@ -8,22 +12,8 @@ LIC_FILES_CHKSUM = "file://mcbspver.h;beginline=1;endline=47;md5=a8a39efd13fa6fe
 COMPATIBLE_MACHINE = "k2g|c665x-evm|omapl1"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-MCBSP_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/mcbsp-lld.git"
-MCBSP_LLD_GIT_PROTOCOL = "git"
-MCBSP_LLD_GIT_BRANCH = "master"
-MCBSP_LLD_GIT_DESTSUFFIX = "git/ti/drv/mcbsp"
-
-# Below commit ID corresponds to "DEV.MCBSP_LLD.01.00.00.12"
-MCBSP_LLD_SRCREV = "cd201419a8b4e4aefee6b9323d9a84f4ea467d6a"
-
-BRANCH = "${MCBSP_LLD_GIT_BRANCH}"
-SRC_URI = "${MCBSP_LLD_GIT_URI};destsuffix=${MCBSP_LLD_GIT_DESTSUFFIX};protocol=${MCBSP_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${MCBSP_LLD_SRCREV}"
-PV = "01.00.00.12"
 PR = "r0"
 
-S = "${WORKDIR}/${MCBSP_LLD_GIT_DESTSUFFIX}"
 
 DEPENDS_append = " edma3-lld-rtos \
 "
