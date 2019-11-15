@@ -1,6 +1,10 @@
 SUMMARY = "TI RTOS low level driver for Multi channel Audio Serial port (McASP)"
 
-inherit ti-pdk
+inherit ti-pdk ti-pdk-fetch
+
+TI_PDK_COMP = "ti.drv.mcasp"
+
+PE = "1"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://mcaspver.h;beginline=19;endline=47;md5=75a9adc782a6df0d3a5419743e9a9f18"
@@ -8,22 +12,9 @@ LIC_FILES_CHKSUM = "file://mcaspver.h;beginline=19;endline=47;md5=75a9adc782a6df
 COMPATIBLE_MACHINE = "ti43x|omap-a15|k2g|ti33x|omapl1|k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-MCASP_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/mcasp-lld.git"
-MCASP_LLD_GIT_PROTOCOL = "git"
-MCASP_LLD_GIT_BRANCH = "master"
-MCASP_LLD_GIT_DESTSUFFIX = "git/ti/drv/mcasp"
 
-# Below commit ID corresponds to "DEV.MCASP_LLD.01.01.00.15C"
-MCASP_LLD_SRCREV = "3b206c0081cc3e78122982948b40a16e2e24522c"
-
-BRANCH = "${MCASP_LLD_GIT_BRANCH}"
-SRC_URI = "${MCASP_LLD_GIT_URI};destsuffix=${MCASP_LLD_GIT_DESTSUFFIX};protocol=${MCASP_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${MCASP_LLD_SRCREV}"
-PV = "01.01.00.15C"
 PR = "r0"
 
-S = "${WORKDIR}/${MCASP_LLD_GIT_DESTSUFFIX}"
 
 DEPENDS_append = " edma3-lld-rtos \
                    osal-rtos \
