@@ -4,22 +4,14 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/drv/pa/COPYING.txt;md5=cd04fb087063
 COMPATIBLE_MACHINE = "keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PA_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/pa-lld.git"
-PA_LLD_GIT_PROTOCOL = "git"
-PA_LLD_GIT_BRANCH = "master"
-PA_LLD_GIT_DESTSUFFIX = "git/ti/drv/pa"
+inherit ti-pdk-fetch
 
-# Below commit ID corresponding to "DEV.PA_LLD.03.00.02.08A"
-PA_LLD_SRCREV = "02e790bdeba574c0bcca9c0bfe2c071c180c53c8"
+TI_PDK_COMP = "ti.drv.pa"
 
-BRANCH = "${PA_LLD_GIT_BRANCH}"
-SRC_URI = "${PA_LLD_GIT_URI};destsuffix=${PA_LLD_GIT_DESTSUFFIX};protocol=${PA_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-SRCREV = "${PA_LLD_SRCREV}"
+PE = "1"
 
-PV = "03.00.02.08A"
 INC_PR = "r0"
 
-S = "${WORKDIR}/${PA_LLD_GIT_DESTSUFFIX}"
 
 DEVICELIST = "k2h k2k k2l k2e"
 DEVICELIST_k2hk = "k2h k2k"
