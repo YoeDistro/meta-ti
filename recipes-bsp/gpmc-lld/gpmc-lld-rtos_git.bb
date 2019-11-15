@@ -1,6 +1,10 @@
 SUMMARY = "TI RTOS low level driver for General Purpose Memory Controller (GPMC)"
 
-inherit ti-pdk
+inherit ti-pdk ti-pdk-fetch
+
+TI_PDK_COMP = "ti.drv.gpmc"
+
+PE = "1"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://GPMC.h;beginline=1;endline=31;md5=485ec97c36f809bf92323fde3e988c72"
@@ -8,18 +12,7 @@ LIC_FILES_CHKSUM = "file://GPMC.h;beginline=1;endline=31;md5=485ec97c36f809bf923
 COMPATIBLE_MACHINE = "ti33x|ti43x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-GPMC_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/gpmc-lld.git"
-GPMC_LLD_GIT_PROTOCOL = "git"
-GPMC_LLD_GIT_BRANCH = "master"
 
-# Below commit ID corresponds to "DEV.GPMC_LLD.01.00.00.03A"
-GPMC_LLD_SRCREV = "9169c04d80fae0a50734527e54ec4f4f53c3a1ef"
-
-BRANCH = "${GPMC_LLD_GIT_BRANCH}"
-SRC_URI = "${GPMC_LLD_GIT_URI};protocol=${GPMC_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${GPMC_LLD_SRCREV}"
-PV = "01.00.00.03A"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
