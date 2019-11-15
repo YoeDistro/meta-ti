@@ -1,7 +1,11 @@
 SUMMARY = "TI RTOS low level driver for UDMA"
 DESCRIPTION = "TI RTOS low level driver for Universal DMA module "
 
-inherit ti-pdk
+inherit ti-pdk ti-pdk-fetch
+
+TI_PDK_COMP = "ti.drv.udma"
+
+PE = "1"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://udma.h;beginline=1;endline=31;md5=83d177cf3df55c16b27ae4102b6ade9a"
@@ -9,18 +13,6 @@ LIC_FILES_CHKSUM = "file://udma.h;beginline=1;endline=31;md5=83d177cf3df55c16b27
 COMPATIBLE_MACHINE = "k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-UDMA_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/udma-lld.git"
-UDMA_LLD_GIT_PROTOCOL = "git"
-UDMA_LLD_GIT_BRANCH = "master"
-
-# Below commit ID corresponds to "DEV.UDMA_LLD.01.00.00.04"
-UDMA_LLD_SRCREV = "67edfa436beb3362051a097b456ba07c95faa4a6"
-
-BRANCH = "${UDMA_LLD_GIT_BRANCH}"
-SRC_URI = "${UDMA_LLD_GIT_URI};protocol=${UDMA_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${UDMA_LLD_SRCREV}"
-PV = "01.00.00.04"
 PR = "r0"
 
 DEPENDS_append = " osal-rtos \
@@ -30,7 +22,7 @@ DEPENDS_append = " osal-rtos \
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
 
-UDMA_PACKAGE_BASE   = "${S}/../udma_base"
+UDMA_PACKAGE_BASE   = "${WORKDIR}/udma_base"
 UDMA_LLD_ROOTPATH = "${UDMA_PACKAGE_BASE}/package/all/pdk_/packages/ti/drv/udma"
 
 export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
