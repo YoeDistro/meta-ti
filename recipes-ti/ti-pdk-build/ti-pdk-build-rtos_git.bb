@@ -4,27 +4,16 @@ LIC_FILES_CHKSUM = "file://COPYING.txt;beginline=1;endline=31;md5=92ab6f5e10f150
 
 require recipes-ti/includes/ti-paths.inc
 
-PV = "01.00.00.14B"
 PR = "r0"
 
-PDK_BUILD_GIT_URI = "git://git.ti.com/keystone-rtos/processor-pdk-build.git"
-PDK_BUILD_GIT_PROTOCOL = "git"
-PDK_BUILD_GIT_BRANCH = "master"
+inherit ti-pdk-fetch
 
-# Below Commit ID corresponds to "DEV.PDK_BUILD.01.00.00.14B"
-PDK_BUILD_SRCREV = "ace03765311d61234e86f6ba04912ab808d37d30"
+TI_PDK_COMP = "ti.build"
 
-BRANCH = "${PDK_BUILD_GIT_BRANCH}"
-SRC_URI = "\
-    ${PDK_BUILD_GIT_URI};protocol=${PDK_BUILD_GIT_PROTOCOL};branch=${BRANCH} \
-    "
-
-SRCREV = "${PDK_BUILD_SRCREV}"
+PE = "1"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|omapl1|c66x|k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-S = "${WORKDIR}/git/"
 
 PARALLEL_MAKE = ""
 CLEANBROKEN = "1"
