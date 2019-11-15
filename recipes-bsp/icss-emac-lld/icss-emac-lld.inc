@@ -4,25 +4,11 @@ LIC_FILES_CHKSUM = "file://COPYING.txt;md5=76cafd87d8495b42c2355f7681de15a2"
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k2g"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-ICSS_EMAC_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/icss-emac.git"
-ICSS_EMAC_LLD_GIT_PROTOCOL = "git"
-ICSS_EMAC_LLD_GIT_BRANCH = "master"
-ICSS_EMAC_LLD_GIT_DESTSUFFIX = "git/ti/drv/icss_emac"
+inherit ti-pdk-fetch
 
-# Below commit ID corresponds to "DEV.ICSS_EMAC_LLD.01.00.00.17"
-ICSS_EMAC_LLD_SRCREV = "5978212c59468eab68e232a538ee005162b6902f"
+TI_PDK_COMP = "ti.drv.icss_emac"
 
-BRANCH = "${ICSS_EMAC_LLD_GIT_BRANCH}"
-SRC_URI = "${ICSS_EMAC_LLD_GIT_URI};destsuffix=${ICSS_EMAC_LLD_GIT_DESTSUFFIX};protocol=${ICSS_EMAC_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${ICSS_EMAC_LLD_SRCREV}"
-
-# The LLD version
-PV = "01.00.00.17"
-
-# The FW version(s)
-PV_DUALEMAC_FW = "5.2.7"
+PE = "1"
 
 INC_PR = "r0"
 
-S = "${WORKDIR}/${ICSS_EMAC_LLD_GIT_DESTSUFFIX}"
