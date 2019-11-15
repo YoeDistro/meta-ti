@@ -5,8 +5,6 @@ PR = "${INC_PR}.0"
 
 COMPATIBLE_MACHINE_append = "|c66x|k3"
 
-S = "${WORKDIR}/${OSAL_GIT_DESTSUFFIX}"
-
 DEPENDS_append_ti33x = " starterware-rtos"
 DEPENDS_append_ti43x = " starterware-rtos"
 

@@ -6,8 +6,6 @@ include osal.inc
 
 PR = "${INC_PR}.1"
 
-S = "${WORKDIR}/${OSAL_GIT_DESTSUFFIX}"
-
 EXTRA_OEMAKE = "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR} OSAL_SRC_DIR=${S}"
 
 do_compile () {
