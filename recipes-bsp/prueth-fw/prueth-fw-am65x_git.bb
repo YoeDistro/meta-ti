@@ -4,11 +4,13 @@ require recipes-ti/includes/ti-paths.inc
 require recipes-bsp/emac-lld/emac-lld.inc
 
 LICENSE = "TI-TFL"
-LIC_FILES_CHKSUM = "file://src/makefile;beginline=6;endline=53;md5=3f9129d208f240940749757214bdc191"
+LIC_FILES_CHKSUM = "file://icss_dualmac/src/makefile;beginline=6;endline=53;md5=3f9129d208f240940749757214bdc191"
 
 PR = "r0"
 
-S = "${WORKDIR}/git/firmware/icss_dualmac"
+TI_PDK_COMP = "ti.drv.emac.firmware"
+
+B = "${S}/icss_dualmac"
 
 COMPATIBLE_MACHINE = "am65xx"
 
