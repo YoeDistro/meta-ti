@@ -1,6 +1,10 @@
 SUMMARY = "TI RTOS driver for General Purpose IO (GPIO)"
 
-inherit ti-pdk
+inherit ti-pdk ti-pdk-fetch
+
+TI_PDK_COMP = "ti.drv.gpio"
+
+PE = "1"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://GPIO.h;beginline=1;endline=31;md5=8580f9c5c0de8d5d13518cf18a0122b8"
@@ -8,22 +12,8 @@ LIC_FILES_CHKSUM = "file://GPIO.h;beginline=1;endline=31;md5=8580f9c5c0de8d5d135
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|omapl1|c667x-evm|c665x-evm|k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-GPIO_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/gpio-lld.git"
-GPIO_LLD_GIT_PROTOCOL = "git"
-GPIO_LLD_GIT_BRANCH = "master"
-GPIO_LLD_GIT_DESTSUFFIX = "git/ti/drv/gpio"
-
-# Below commit ID corresponds to "DEV.GPIO_LLD.01.00.00.16B"
-GPIO_LLD_SRCREV = "14e59e948fb949e244edcc3161f21ec4228fb15c"
-
-BRANCH = "${GPIO_LLD_GIT_BRANCH}"
-SRC_URI = "${GPIO_LLD_GIT_URI};destsuffix=${GPIO_LLD_GIT_DESTSUFFIX};protocol=${GPIO_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${GPIO_LLD_SRCREV}"
-PV = "01.00.00.16B"
 PR = "r0"
 
-S = "${WORKDIR}/${GPIO_LLD_GIT_DESTSUFFIX}"
 
 DEPENDS_append = " osal-rtos \
 "
