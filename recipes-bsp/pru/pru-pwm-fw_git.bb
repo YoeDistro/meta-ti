@@ -8,17 +8,16 @@ require recipes-ti/includes/ti-paths.inc
 COMPATIBLE_MACHINE = "am65xx"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-# Below commit ID corresponds to "DEV.PRUSS_LLD.01.00.00.15B"
-SRCREV = "989f802266d52f50a6db8f2be6967eacd9d2b409"
 
-PV = "01.00.00.15B"
 
-BRANCH = "master"
-SRC_URI = "git://git.ti.com/keystone-rtos/pruss-lld.git;protocol=git;branch=${BRANCH}"
+inherit ti-pdk-fetch
+
+TI_PDK_COMP = "ti.drv.pruss.example.apps.icssg_pwm.firmware.src"
+
+PE = "1"
 
 DEPENDS = "ti-cgt-pru-native pru-icss common-csl-ip-rtos"
 
-S = "${WORKDIR}/git/example/apps/icssg_pwm/firmware/src"
 
 EXTRA_OEMAKE += " \
     PRU_CGT="${TI_CGT_PRU_INSTALL_DIR}" \

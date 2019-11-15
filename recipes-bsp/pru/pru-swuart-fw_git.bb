@@ -8,20 +8,20 @@ require recipes-ti/includes/ti-paths.inc
 COMPATIBLE_MACHINE = "ti33x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-# Below commit ID corresponds to "DEV.UART_LLD.01.00.00.15"
-SRCREV = "4493f456549c85749a05b1f46bf0b75d23976db1"
 
-PV = "01.00.00.15"
+inherit ti-pdk-fetch
 
-BRANCH = "master"
-SRC_URI = "git://git.ti.com/keystone-rtos/uart-lld.git;protocol=git;branch=${BRANCH} \
+TI_PDK_COMP = "ti.drv.uart"
+
+PE = "1"
+
+SRC_URI_append = " \
 	file://0001-icss_uart-add-Makefile-for-building-firmware.patch \
 	file://0001-icss_uart-remove-dependency-on-PDK-CSL.patch \
 "
 
 DEPENDS = "ti-cgt-pru-native pru-icss"
 
-S = "${WORKDIR}/git"
 
 export PRU_CGT = "${TI_CGT_PRU_INSTALL_DIR}"
 export PRU_SSP = "${STAGING_DIR_TARGET}/usr"
