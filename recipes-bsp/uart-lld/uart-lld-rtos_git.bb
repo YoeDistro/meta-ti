@@ -1,7 +1,11 @@
 SUMMARY = "TI RTOS low level driver for UART"
 DESCRIPTION = "TI RTOS low level driver for Universal Asynchronous Receiver/Transmitter (UART) module "
 
-inherit ti-pdk
+inherit ti-pdk ti-pdk-fetch
+
+TI_PDK_COMP = "ti.drv.uart"
+
+PE = "1"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING.txt;beginline=1;endline=31;md5=94b6a199da1caf777f6756cb70aca4a7"
@@ -9,18 +13,6 @@ LIC_FILES_CHKSUM = "file://COPYING.txt;beginline=1;endline=31;md5=94b6a199da1caf
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|omapl1|c66x|k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-UART_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/uart-lld.git"
-UART_LLD_GIT_PROTOCOL = "git"
-UART_LLD_GIT_BRANCH = "master"
-
-# Below commit ID corresponds to "DEV.UART_LLD.01.00.00.16B"
-UART_LLD_SRCREV = "227feb6e1da72bf0a785d95b7aaffd3216885f95"
-
-BRANCH = "${UART_LLD_GIT_BRANCH}"
-SRC_URI = "${UART_LLD_GIT_URI};protocol=${UART_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${UART_LLD_SRCREV}"
-PV = "01.00.00.16B"
 PR = "r0"
 
 DEPENDS_append = " edma3-lld-rtos \
