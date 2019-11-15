@@ -1,6 +1,10 @@
 SUMMARY = "TI third generation Turbo Coprocessor (TCP3) low level driver"
 
-inherit ti-pdk
+inherit ti-pdk ti-pdk-fetch
+
+TI_PDK_COMP = "ti.drv.tcp3d"
+
+PE = "1"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://tcp3dver.h;beginline=1;endline=47;md5=3fe46c6320fb9ca4ac6692961402beb7"
@@ -8,22 +12,7 @@ LIC_FILES_CHKSUM = "file://tcp3dver.h;beginline=1;endline=47;md5=3fe46c6320fb9ca
 COMPATIBLE_MACHINE = "k2hk|k2l|c66x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-TCP3D_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/tcp3d-lld.git"
-TCP3D_LLD_GIT_PROTOCOL = "git"
-TCP3D_LLD_GIT_BRANCH = "master"
-TCP3D_LLD_GIT_DESTSUFFIX = "git/ti/drv/bcp"
-
-# Below commit ID corresponds to "DEV.TCP3D_LLD.02.01.00.06B"
-TCP3D_LLD_SRCREV = "a8b3791044edf632e8348cdbd287d48a754d11ac"
-
-BRANCH = "${TCP3D_LLD_GIT_BRANCH}"
-SRC_URI = "${TCP3D_LLD_GIT_URI};destsuffix=${TCP3D_LLD_GIT_DESTSUFFIX};protocol=${TCP3D_LLD_GIT_PROTOCOL};branch=${BRANCH}"
-
-SRCREV = "${TCP3D_LLD_SRCREV}"
-PV = "02.01.00.06B"
 PR = "r0"
-
-S = "${WORKDIR}/${TCP3D_LLD_GIT_DESTSUFFIX}"
 
 DEPENDS_append = " edma3-lld-rtos"
 
