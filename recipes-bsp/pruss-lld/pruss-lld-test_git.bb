@@ -6,8 +6,6 @@ include pruss-lld.inc
 
 PR = "${INC_PR}.2"
 
-S = "${WORKDIR}/${PRUSS_LLD_GIT_DESTSUFFIX}"
-
 EXTRA_OEMAKE += "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR} PRUSS_SRC_DIR=${S}"
 
 DEVICE_LIST ?= "${TI_PDK_LIMIT_SOCS}"

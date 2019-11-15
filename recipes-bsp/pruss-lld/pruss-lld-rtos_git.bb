@@ -6,8 +6,6 @@ require recipes-bsp/pruss-lld/pruss-lld.inc
 COMPATIBLE_MACHINE_append = "|k3"
 PR = "${INC_PR}.0"
 
-S = "${WORKDIR}/${PRUSS_LLD_GIT_DESTSUFFIX}"
-
 DEPENDS_append = " osal-rtos"
 DEPENDS_append_ti33x = " starterware-rtos"
 DEPENDS_append_ti43x = " starterware-rtos"
