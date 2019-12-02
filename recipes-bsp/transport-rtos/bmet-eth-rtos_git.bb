@@ -13,9 +13,7 @@ DEPENDS_append = " qmss-lld-rtos \
                    cppi-lld-rtos \
 "
 
-BMET_ETH_DESTSUFFIX = "git/bmet_eth"
-
-S = "${WORKDIR}/${BMET_ETH_DESTSUFFIX}"
+TI_PDK_COMP = "ti.transport.bmet_eth"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "Baremetal Ethernet Transport"

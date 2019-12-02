@@ -17,12 +17,10 @@ DEPENDS_append_c665x-evm = " emac-lld-rtos"
 DEPENDS_append_c667x-evm = " pa-lld-rtos"
 DEPENDS_append_omapl1 = " emac-lld-rtos"
 
-NIMU_ICSS_DESTSUFFIX = "git/ndk/nimu_icss"
+TI_PDK_COMP = "ti.transport.ndk.nimu_icss"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
-
-S = "${WORKDIR}/${NIMU_ICSS_DESTSUFFIX}"
 
 export PDK_NIMU_ICSS_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
