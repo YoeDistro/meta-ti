@@ -9,9 +9,7 @@ LIC_FILES_CHKSUM = "file://nimu_eth.h;beginline=1;endline=35;md5=ee9c662c39d4584
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|keystone|c66x|omapl1|k3"
 
-NIMU_DESTSUFFIX = "git/ndk/nimu"
-
-S = "${WORKDIR}/${NIMU_DESTSUFFIX}"
+TI_PDK_COMP = "ti.transport.ndk.nimu"
 
 DEPENDS_append = " ti-ndk osal-rtos"
 DEPENDS_append_ti33x = " starterware-rtos emac-lld-rtos"
