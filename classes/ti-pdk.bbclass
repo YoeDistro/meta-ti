@@ -71,7 +71,7 @@ TI_PDK_DOXYGEN_SUPPORT ?= "1"
 
 TI_PDK_XDC_ARGS ?= "${TI_PDK_LIMIT_SOCS}"
 
-PARALLEL_XDC = "--jobs=${BB_NUMBER_THREADS}"
+PARALLEL_XDC = "${@oe.utils.parallel_make_argument(d, '--jobs=%d')}"
 PARALLEL_MAKE = ""
 
 def get_doxygen_support(d):

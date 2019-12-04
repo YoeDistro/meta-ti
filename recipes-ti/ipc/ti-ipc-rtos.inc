@@ -84,12 +84,13 @@ IPC_TARGETS_am65xx = "\
     ti.targets.arm.elf.R5F="${M4_TOOLCHAIN_INSTALL_DIR}" \
 "
 
+PARALLEL_XDC = "${@oe.utils.parallel_make_argument(d, '--jobs=%d')}"
 EXTRA_OEMAKE = "\
     PLATFORM=${PLATFORM} \
     XDC_INSTALL_DIR="${XDC_INSTALL_DIR}" \
     BIOS_INSTALL_DIR="${SYSBIOS_INSTALL_DIR}" \
     ${IPC_TARGETS} \
-    JOBS="--jobs=${BB_NUMBER_THREADS}" \
+    ${PARALLEL_XDC} \
     JAVA_TOOL_OPTIONS=-Xss2560k \
 "
 EXTRA_OEMAKE_append_am65xx = " PDK_INSTALL_DIR=${PDK_INSTALL_DIR}"
