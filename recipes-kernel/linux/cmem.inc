@@ -2,14 +2,15 @@
 #
 # Use these for temporary overrides
 CMEM_MACHINE = "${MACHINE}"
-CMEM_MACHINE_am57xx-evm = "am571x am572x am574x"
-CMEM_MACHINE_am57xx-hs-evm = "am571x am572x am574x"
+CMEM_MACHINE_am57xx-evm = "am571x am572x am572idk am574x"
+CMEM_MACHINE_am57xx-hs-evm = "am571x am572x am572idk am574x"
 CMEM_MACHINE_dra7xx-evm = "dra71x dra72x dra74x dra76x"
 CMEM_MACHINE_dra7xx-hs-evm = "dra71x dra72x dra74x dra76x"
 
 # Set cmem.dtsi per machine or machine variant
 CMEM_DTSI = "cmem.dtsi"
 CMEM_DTSI_am571x = "cmem-am571x.dtsi"
+CMEM_DTSI_am572idk = "cmem-am572idk.dtsi"
 CMEM_DTSI_am574x = "cmem-am574x.dtsi"
 CMEM_DTSI_dra71x = "cmem-dra71x.dtsi"
 CMEM_DTSI_dra72x = "cmem-dra72x.dtsi"
@@ -18,8 +19,8 @@ CMEM_DTSI_dra76x = "cmem-dra76x.dtsi"
 # Split device trees between variants
 CMEM_DEVICETREE = "${KERNEL_DEVICETREE}"
 CMEM_DEVICETREE_am571x = "am571x-idk.dtb am571x-idk-lcd-osd101t2045.dtb am571x-idk-lcd-osd101t2587.dtb"
-CMEM_DEVICETREE_am572x = "am57xx-beagle-x15.dtb am57xx-beagle-x15-revc.dtb \
-                          am572x-idk.dtb am572x-idk-lcd-osd101t2045.dtb am572x-idk-lcd-osd101t2587.dtb"
+CMEM_DEVICETREE_am572x = "am57xx-beagle-x15.dtb am57xx-beagle-x15-revc.dtb"
+CMEM_DEVICETREE_am572idk = "am572x-idk.dtb am572x-idk-lcd-osd101t2045.dtb am572x-idk-lcd-osd101t2587.dtb"
 CMEM_DEVICETREE_am574x = "am574x-idk.dtb am574x-idk-lcd-osd101t2587.dtb"
 CMEM_DEVICETREE_dra71x = "dra71-evm.dtb"
 CMEM_DEVICETREE_dra72x = "dra72-evm.dtb dra72-evm-lcd-osd101t2045.dtb dra72-evm-lcd-osd101t2587.dtb \
