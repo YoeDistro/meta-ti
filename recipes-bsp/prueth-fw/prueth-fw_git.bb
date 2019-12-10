@@ -12,24 +12,25 @@ TI_PDK_COMP = "ti.drv.icss_emac.firmware"
 
 B = "${S}/icss_dualemac"
 
-COMPATIBLE_MACHINE = "am57xx-evm|am437x-evm|am335x-evm|k2g"
+COMPATIBLE_MACHINE = "am57xx-evm|am57xx-hs-evm|ti43x|ti33x|k2g"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "ti-cgt-pru-native"
 
 PRU_VERSION = ""
-PRU_VERSION_am335x-evm = "REV1"
-PRU_VERSION_am437x-evm = "REV1"
+PRU_VERSION_ti33x = "REV1"
+PRU_VERSION_ti43x = "REV1"
 PRU_VERSION_am57xx-evm = "REV2"
+PRU_VERSION_am57xx-hs-evm = "REV2"
 PRU_VERSION_k2g = "REV2"
 
 FW_PREFIX = ""
-FW_PREFIX_am335x-evm = "am335x"
-FW_PREFIX_am437x-evm = "am437x"
+FW_PREFIX_ti33x = "am335x"
+FW_PREFIX_ti43x = "am437x"
 FW_PREFIX_am57xx-evm = "am57xx"
+FW_PREFIX_am57xx-hs-evm = "am57xx"
 FW_PREFIX_k2g = "k2g"
-
 
 EXTRA_OEMAKE += "CL_PRU_INSTALL_PATH="${TI_CGT_PRU_INSTALL_DIR}" PRU_VERSION_LIST="${PRU_VERSION}""
 
