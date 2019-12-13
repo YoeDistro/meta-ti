@@ -13,7 +13,7 @@ LIC_FILES_CHKSUM = "file://udma.h;beginline=1;endline=31;md5=83d177cf3df55c16b27
 COMPATIBLE_MACHINE = "k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PR = "r0"
+PR = "r1"
 
 DEPENDS_append = " osal-rtos \
                    sciclient-rtos \
@@ -41,7 +41,7 @@ do_configure() {
     cd ${S}
 
     # make the release package before building it
-    make package BOARD=${TI_PDK_LIMIT_BOARDS} DEST_ROOT=${UDMA_PACKAGE_BASE} PDK_UDMA_COMP_PATH=${S}
+    make package BOARD="${TI_PDK_LIMIT_BOARDS}" DEST_ROOT=${UDMA_PACKAGE_BASE} PDK_UDMA_COMP_PATH=${S}
 }
 
 do_compile() {
