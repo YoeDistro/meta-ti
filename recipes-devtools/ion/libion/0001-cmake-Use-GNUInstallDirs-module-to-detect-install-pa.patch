@@ -1,0 +1,48 @@
+From 51eece2c291e121f9ae67c9b812617b885e76a64 Mon Sep 17 00:00:00 2001
+From: Khem Raj <raj.khem@gmail.com>
+Date: Wed, 18 Dec 2019 20:31:52 -0800
+Subject: [PATCH] cmake: Use GNUInstallDirs module to detect install paths
+
+This helps it to calculate directories as per platform instead of
+hardcoding them, helps compile it for arches which use /lib64 and
+/usr/lib64 for libpaths
+
+Upstream-Status: Submitted [https://github.com/glneo/libion/pull/2]
+Signed-off-by: Khem Raj <raj.khem@gmail.com>
+---
+ CMakeLists.txt | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6e5928c..5b7c0de 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -3,6 +3,8 @@ PROJECT(ion)
+ set(PROJECT_DESCRIPTION "ION Userspace Memory Allocator Library")
+ set(PROJECT_VERSION 1.0.0)
+ 
++INCLUDE(GNUInstallDirs)
++
+ add_library(ion
+ 	SHARED
+ 		src/libion.c
+@@ -23,12 +25,12 @@ target_include_directories(ion
+ configure_file(libion.pc.in libion.pc @ONLY)
+ 
+ install(TARGETS ion
+-	LIBRARY DESTINATION lib
+-	PUBLIC_HEADER DESTINATION include/ion)
++	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
++	PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/ion)
+ 
+ install(DIRECTORY include/kernel-headers/4.19/
+-	DESTINATION include
++	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+ 	FILES_MATCHING PATTERN "*.h")
+ 
+ install(FILES ${CMAKE_BINARY_DIR}/libion.pc
+-	DESTINATION lib/pkgconfig)
++	DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+-- 
+2.24.1
+
