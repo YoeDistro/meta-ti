@@ -7,12 +7,12 @@ TI_PDK_COMP = "ti.drv.pcie"
 PE = "1"
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://pcie.h;beginline=1;endline=34;md5=566a784d78790a716d641764d5d60b74"
+LIC_FILES_CHKSUM = "file://pcie.h;beginline=1;endline=34;md5=232c0b07bdf7ab934b23c09e6c5279b0"
 
 COMPATIBLE_MACHINE = "omap-a15|keystone|c66x|k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PR = "r0"
+PR = "r1"
 
 DEPENDS_append_k3 = " udma-lld-rtos \
 "
