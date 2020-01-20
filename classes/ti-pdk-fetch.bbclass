@@ -3,7 +3,7 @@ TI_PDK_GIT_BRANCH ?= "release/PROCESSOR-SDK_06.02.00"
 TI_PDK_GIT_PROTOCOL ?= "git"
 TI_PDK_SRCREV ?= "2357d1436f1b2c3b5f1d0c9c94e045d33b63f3fe"
 
-TI_PDK_VERSION ?= "2019.12.2"
+TI_PDK_VERSION ?= "2019.12.3"
 
 PV = "${TI_PDK_VERSION}"
 
@@ -32,6 +32,9 @@ python do_unpack_append() {
 
         # Recursively hard-link the sources
         shutil.copytree(src, s, copy_function=os.link)
+
+        # Recursively hard-link the git directory
+        shutil.copytree(os.path.join(d.getVar('TI_PDK_SOURCE'),'.git'), os.path.join(s,'.git'), copy_function=os.link)
 }
 
 # Make sure that ti-pdk-source is unpacked before we set up the hardlinks.
