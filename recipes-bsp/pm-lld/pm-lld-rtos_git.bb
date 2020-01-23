@@ -66,5 +66,6 @@ do_compile_append() {
 
 # Workaround: dra7xx build requires am57xx pm libraries for opencl-monitor
 TI_PDK_LIMIT_SOCS_append_dra7xx = " am571x am572x am574x"
+TI_PDK_LIMIT_BOARDS_append_dra7xx = " evmAM571x evmAM572x idkAM574x"
 
 INSANE_SKIP_${PN} = "arch staticdev"
