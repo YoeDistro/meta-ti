@@ -19,3 +19,4 @@ PDK_COMP_LINK_TEXT = "CSL-Chip Support Library"
 
 # Workaround: dra7xx build requires am57xx CSL libraries for opencl-monitor
 TI_PDK_LIMIT_SOCS_append_dra7xx = " am571x am572x am574x"
+TI_PDK_LIMIT_BOARDS_append_dra7xx = " evmAM571x evmAM572x idkAM574x"
