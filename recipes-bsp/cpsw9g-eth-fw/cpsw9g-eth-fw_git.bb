@@ -3,7 +3,7 @@ SUMMARY = "R5 PSDK CPSW9G Ethernet Switch Firmware"
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=04ad0a015d4bb63c2b9e7b112debf3db"
 
-PV = "1.0+git${SRCPV}"
+PV = "6.2+git${SRCPV}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 inherit deploy
@@ -11,7 +11,7 @@ inherit update-alternatives
 
 PROTOCOL = "git"
 BRANCH = "master"
-SRCREV = "792c06d9a0f2b9d4b150bce4651bdaae2413b28d"
+SRCREV = "4da71504488450f34d65459c1de949da1f984471"
 
 SRC_URI = "git://git.ti.com/glsdk/ti-eth-fw.git;protocol=${PROTOCOL};branch=${BRANCH}"
 
