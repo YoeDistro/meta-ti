@@ -18,18 +18,18 @@ SRC_URI = " \
     git://git.ti.com/jailhouse/ti-jailhouse.git;protocol=git;branch=${BRANCH} \
 "
 
-DEPENDS = "virtual/kernel dtc-native python-mako-native python-mako make-native"
+DEPENDS = "virtual/kernel dtc-native python3-mako-native python3-mako make-native"
 RDEPENDS_${PN} += "\
-	python-curses\
-	python-datetime\
-	python-argparse\
-	python-mmap\
+	python3-curses\
+	python3-datetime\
+	python3-mmap\
 "
 
-S = "${WORKDIR}/git"
-
 require jailhouse-arch.inc
-inherit module pythonnative bash-completion deploy setuptools
+inherit module python3native bash-completion deploy setuptools3
+
+S = "${WORKDIR}/git"
+B = "${S}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "(ti-soc)"
@@ -88,7 +88,7 @@ do_compile() {
 
 do_install() {
 	# Install pyjailhouse python modules needed by the tools
-	distutils_do_install
+	distutils3_do_install
 
 	# We want to install the python tools, but we do not want to use pip...
 	# At least with v0.10, we can work around this with
@@ -141,8 +141,8 @@ FILES_${PN} = "${base_libdir}/firmware ${libexecdir} ${sbindir} ${JH_DATADIR} /b
 FILES_pyjailhouse = "${PYTHON_SITEPACKAGES_DIR}"
 FILES_${PN}-tools = "${libexecdir}/${BPN}/${BPN}-*"
 
-RDEPENDS_${PN}-tools = "pyjailhouse python-mmap python-math python-argparse python-datetime python-curses python-compression"
-RDEPENDS_pyjailhouse = "python-core python-ctypes python-fcntl python-shell"
+RDEPENDS_${PN}-tools = "pyjailhouse python3-mmap python3-math python3-datetime python3-curses python3-compression"
+RDEPENDS_pyjailhouse = "python3-core python3-ctypes python3-fcntl python3-shell"
 
 RRECOMMENDS_${PN} = "${PN}-tools"
 
