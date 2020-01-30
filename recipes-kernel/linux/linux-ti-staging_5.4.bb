@@ -11,7 +11,7 @@ require recipes-kernel/linux/ti-uio.inc
 require recipes-kernel/linux/bundle-devicetree.inc
 
 # Look in the generic major.minor directory for files
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-4.19:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-5.4:"
 
 # Pull in the devicetree files into the rootfs
 RDEPENDS_${KERNEL_PACKAGE_NAME}-base += "kernel-devicetree"
@@ -58,10 +58,10 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${WORKDIR}/git"
 
-BRANCH = "ti-linux-4.19.y"
+BRANCH = "ti-linux-5.4.y"
 
-SRCREV = "5a23bc00e08d26bb83952953d909c95b42fab70c"
-PV = "4.19.94+git${SRCPV}"
+SRCREV = "c65c87b98f8d1b647c13b5bb36e5ffbad5805ff1"
+PV = "5.4.13+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
 MACHINE_KERNEL_PR_append = "a"
