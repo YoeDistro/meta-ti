@@ -15,6 +15,8 @@ LINUX_2_CORES_BIN_DIR = "${REMOTE_FW_DIR}/ex03_linux_bios_2core_echo_test/bin"
 
 DST_BIN_PATH = "${base_libdir}/firmware/pdk-ipc"
 
+TI_PDK_LIMIT_BOARDS_j7-evm = "j721e_evm"
+
 do_configure[noexec] = "1"
 
 do_compile() {
