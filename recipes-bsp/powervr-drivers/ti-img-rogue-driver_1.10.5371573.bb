@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://README;beginline=15;endline=20;md5=0403c7dea01a2b8232
 
 inherit module
 
-MACHINE_KERNEL_PR_append = "e"
+MACHINE_KERNEL_PR_append = "f"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -15,14 +15,14 @@ DEPENDS = "virtual/kernel"
 
 PROVIDES = "virtual/gpudriver"
 
-BRANCH = "linuxws/thud/k4.19/${PV}"
+BRANCH = "linuxws/zeus/k5.4/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH} \
     file://0001-km-support-general-toolchain.patch \
 "
 S = "${WORKDIR}/git"
 
-SRCREV = "fe40a51f33987c59aca300f8a976a9a9c8112703"
+SRCREV = "e0bc128ee5098e30c9fb096634ba6bec01b5fc17"
 
 PVR_SOC = "j721e_linux"
 PVR_BVNC = "22.104.208.318"
