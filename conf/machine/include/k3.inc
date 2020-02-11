@@ -31,3 +31,13 @@ UBI_VOLNAME = "rootfs"
 # List common SoC features, may need to add touchscreen for specific machines
 MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat ext2 screen alsa ethernet pci gpu"
 # Not ready yet - dsp mmip
+
+IMAGE_FSTYPES += "tar.xz wic.xz"
+
+# Please note that booting K3 platform also requires
+# tiboot3.bin and sysfw.itb, which are provided by meta-arago
+# u-boot-k3-r5 and ti-sci-fw recipes
+IMAGE_BOOT_FILES ?= "${SPL_BINARY} u-boot.${UBOOT_SUFFIX}"
+WKS_FILE ?= "sdimage-bootpart.wks"
+
+do_image_wic[depends] += "u-boot:do_deploy"
