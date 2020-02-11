@@ -7,7 +7,7 @@ inherit module
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k3"
 
-MACHINE_KERNEL_PR_append = "s"
+MACHINE_KERNEL_PR_append = "t"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -16,7 +16,7 @@ DEPENDS = "virtual/kernel"
 
 PROVIDES = "virtual/gpudriver"
 
-BRANCH = "ti-img-sgx/${PV}/k4.19"
+BRANCH = "ti-img-sgx/${PV}/k5.4"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH} \
     file://0001-km-support-OpenEmbedded-hardfp-toolchain-w-o-gnueabi.patch \
@@ -24,7 +24,7 @@ SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch
 
 S = "${WORKDIR}/git"
 
-SRCREV = "4519ed3b83d1d72207ddc2874c7eb5e5a7f20d8d"
+SRCREV = "1cc2eded30f83bfce58c8ccc8cd61005addf9c0b"
 
 TARGET_PRODUCT_omap-a15 = "jacinto6evm"
 TARGET_PRODUCT_ti33x = "ti335x"
