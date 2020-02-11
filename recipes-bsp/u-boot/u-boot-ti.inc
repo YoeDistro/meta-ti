@@ -15,6 +15,8 @@ SPL_BINARY ?= "MLO"
 
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
 
+inherit python3native
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/u-boot:"
 
 SUMMARY = "u-boot bootloader for TI devices"
@@ -31,6 +33,7 @@ PV_append = "+git${SRCPV}"
 
 # u-boot needs devtree compiler to parse dts files
 DEPENDS += "dtc-native bc-native lzop-native flex-native bison-native"
+DEPENDS_remove = "python-native"
 
 PACKAGECONFIG[atf] = "ATF=${STAGING_DIR_HOST}/boot/bl31.bin,,arm-trusted-firmware"
 PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}/boot/bl32.bin,,optee-os"
