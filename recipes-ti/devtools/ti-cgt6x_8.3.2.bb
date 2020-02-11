@@ -102,3 +102,5 @@ FILES_${PN}-dbg += "${datadir}/ti/cgt-c6x/bin/.debug"
 INSANE_SKIP_${PN} += "staticdev"
 
 BBCLASSEXTEND = "native nativesdk"
+
+COMPATIBLE_MACHINE_class-target = "(ti-soc)"
