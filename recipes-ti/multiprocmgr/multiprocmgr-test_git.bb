@@ -1,17 +1,19 @@
-DESCRIPTION = "TI Multiproc Manager test code"
+FILESEXTRAPATHS_prepend := "${THISDIR}/multiprocmgr:"
+
+SUMMARY = "TI Multiproc Manager test code"
 
 include multiprocmgr.inc
+
+SRC_URI += " \
+	file://0001-mpmdlif.c-don-t-hardcode-kernel-s-uapi-location-keys.patch \
+	file://0001-mpmdlif.c-don-t-suppress-kernel-linux-types.h-inclus.patch \
+"
 
 PR = "${INC_PR}.2"
 
 DEPENDS = "multiprocmgr cmem"
 RDEPENDS_${PN} = "multiprocmgr mpm-transport cmem"
 RDEPENDS_${PN} += "multiprocmgr-rtos-test bash"
-
-CC += "-I${STAGING_KERNEL_DIR}/include"
-
-# Assuming the multiprocmgr kernel API is safe
-CC[vardepsexclude] = "STAGING_KERNEL_DIR"
 
 FILES_${PN} += "\
     ${datadir}/ti/examples/mpm \
