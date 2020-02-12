@@ -1,5 +1,5 @@
-DESCRIPTION = "TI Multiproc Manager for KeyStone II"
-SUMMARY = "Provides download, debug and other utilities for other cores in the SOC like DSP"
+SUMMARY = "TI Multiproc Manager for KeyStone II"
+DESCRIPTION = "Provides download, debug and other utilities for other cores in the SOC like DSP"
 
 include multiprocmgr.inc
 
