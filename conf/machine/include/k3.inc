@@ -39,5 +39,4 @@ IMAGE_FSTYPES += "tar.xz wic.xz"
 # u-boot-k3-r5 and ti-sci-fw recipes
 IMAGE_BOOT_FILES ?= "${SPL_BINARY} u-boot.${UBOOT_SUFFIX}"
 WKS_FILE ?= "sdimage-bootpart.wks"
-
 do_image_wic[depends] += "u-boot:do_deploy"
