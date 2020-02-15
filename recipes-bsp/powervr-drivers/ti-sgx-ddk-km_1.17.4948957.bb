@@ -7,7 +7,7 @@ inherit module
 
 COMPATIBLE_MACHINE = "pandaboard|beagleboard|ti33x|ti43x|omap-a15|k3"
 
-MACHINE_KERNEL_PR_append = "u"
+MACHINE_KERNEL_PR_append = "v"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -24,7 +24,7 @@ SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch
 
 S = "${WORKDIR}/git"
 
-SRCREV = "76f305295daf9a77d9f8a563ce81bcf9b94e8eac"
+SRCREV = "50c1ec2308b9f64488d252ac55d65b51a0dfe287"
 
 TARGET_PRODUCT_omap-a15 = "jacinto6evm"
 TARGET_PRODUCT_ti33x = "ti335x"
