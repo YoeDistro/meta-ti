@@ -11,6 +11,7 @@ PR = "${INC_PR}.1"
 
 SRC_URI_append = " \
     file://init \
+    file://0001-libbfd.h-suppress-GCC9-Wstringop-truncation.patch;striplevel=2 \
 "
 
 S = "${WORKDIR}/git/gdbc6x"
