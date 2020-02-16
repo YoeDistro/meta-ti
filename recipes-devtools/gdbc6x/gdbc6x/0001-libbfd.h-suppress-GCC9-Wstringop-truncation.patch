@@ -1,0 +1,28 @@
+From 0aa294e2bbd37a42266e59cb67687e57bfba4a88 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@ti.com>
+Date: Sat, 15 Feb 2020 15:59:37 -0500
+Subject: [PATCH] libbfd.h: suppress GCC9 -Wstringop-truncation
+
+Signed-off-by: Denys Dmytriyenko <denys@ti.com>
+---
+ gdbc6x/bfd/libbfd.h | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/gdbc6x/bfd/libbfd.h b/gdbc6x/bfd/libbfd.h
+index 72d3c50..3465f89 100644
+--- a/gdbc6x/bfd/libbfd.h
++++ b/gdbc6x/bfd/libbfd.h
+@@ -34,6 +34,10 @@
+ #pragma GCC diagnostic ignored "-Wcast-function-type"
+ #endif
+ 
++#if __GNUC__ >= 9
++#pragma GCC diagnostic ignored "-Wstringop-truncation"
++#endif
++
+ #include "hashtab.h"
+ 
+ /* Align an address upward to a boundary, expressed as a number of bytes.
+-- 
+2.7.4
+
