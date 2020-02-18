@@ -22,13 +22,7 @@ do_configure[noexec] = "1"
 do_compile() {
     cd ${S}
 
-    for board in ${TI_PDK_LIMIT_BOARDS}
-    do
-        for core in ${TI_PDK_LIMIT_CORES}
-        do
-            oe_runmake examples BOARD="$board" CORE="$core" DEST_ROOT=${REMOTE_FW_DIR}
-        done
-    done
+    oe_runmake apps LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}" LIMIT_CORES="${TI_PDK_LIMIT_CORES}" DEST_ROOT=${REMOTE_FW_DIR}
 }
 
 do_install() {
