@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7eae093f2b09fd39307f30028a068b91"
 COMPATIBLE_MACHINE = "k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PR = "r2"
+PR = "r3"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
