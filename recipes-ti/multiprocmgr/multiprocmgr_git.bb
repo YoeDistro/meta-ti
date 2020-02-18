@@ -5,8 +5,6 @@ include multiprocmgr.inc
 
 SRC_URI += " \
 	file://mpmsrv-daemon.service \
-	file://0001-mpmdlif.c-don-t-hardcode-kernel-s-uapi-location-keys.patch \
-	file://0001-mpmdlif.c-don-t-suppress-kernel-linux-types.h-inclus.patch \
 "
 
 PR = "${INC_PR}.2"
