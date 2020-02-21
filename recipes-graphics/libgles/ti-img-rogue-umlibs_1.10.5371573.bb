@@ -27,7 +27,7 @@ PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm"
 DEPENDS += "libdrm wayland expat"
 RDEPENDS_${PN} += "bash"
 RDEPENDS_${PN} += "python-core"
-RDEPENDS_${PN} += "ti-img-rogue-driver wayland expat"
+RDEPENDS_${PN} += "wayland expat"
 
 RPROVIDES_${PN} = "libegl libgles1 libgles2 libgbm"
 RPROVIDES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
@@ -40,6 +40,8 @@ RREPLACES_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
 RCONFLICTS_${PN} = "libegl libgles1 libgles2 libgbm"
 RCONFLICTS_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
 RCONFLICTS_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
+
+RRECOMMENDS_${PN} += "ti-img-rogue-driver"
 
 S = "${WORKDIR}/git"
 
