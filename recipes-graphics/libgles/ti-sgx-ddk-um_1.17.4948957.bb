@@ -45,6 +45,8 @@ RCONFLICTS_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg libgbm-dbg"
 # The actual SONAME is libGLESv2.so.2, so need to explicitly specify RPROVIDES for .so.1 here
 RPROVIDES_${PN} += "libGLESv2.so.1"
 
+RRECOMMENDS_${PN} += "ti-sgx-ddk-km"
+
 S = "${WORKDIR}/git"
 
 do_install () {
