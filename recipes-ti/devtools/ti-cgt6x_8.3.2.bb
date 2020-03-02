@@ -100,6 +100,7 @@ FILES_${PN} += "${datadir}/ti/*"
 FILES_${PN}-dbg += "${datadir}/ti/cgt-c6x/bin/.debug"
 
 INSANE_SKIP_${PN} += "staticdev"
+INHIBIT_PACKAGE_STRIP_FILES = "${PKGD}${datadir}/ti/cgt-c6x/lib/libc.a"
 
 BBCLASSEXTEND = "native nativesdk"
 
