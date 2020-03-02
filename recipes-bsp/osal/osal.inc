@@ -12,3 +12,4 @@ PE = "1"
 
 INC_PR = "r0"
 
+INHIBIT_PACKAGE_STRIP_FILES = "${PKGD}${libdir}/libosal.a"
