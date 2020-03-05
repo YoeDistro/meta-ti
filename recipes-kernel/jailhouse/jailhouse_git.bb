@@ -59,7 +59,8 @@ INITRAMFS_IMAGE ?= ""
 JH_RAMFS_IMAGE ?= "${INITRAMFS_IMAGE}"
 
 JH_CMDLINE ?= ""
-JH_CMDLINE_k3 ?= "console=ttyS1,115200n8"
+JH_CMDLINE_am65xx ?= "console=ttyS1,115200n8"
+JH_CMDLINE_j7-evm ?= "console=ttyS3,115200n8"
 
 do_configure() {
 	if [ -d ${STAGING_DIR_HOST}/${CELLCONF_DIR} ]; 
