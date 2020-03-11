@@ -14,7 +14,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r0"
 
-DEPENDS_append = " osal-rtos common-csl-ip-rtos"
+DEPENDS_append = " osal-rtos common-csl-ip-rtos openssl-native"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
@@ -58,6 +58,41 @@ do_compile() {
 
     #archive
     tar -cf sciclient.tar --exclude='*.tar' ./*
+}
+
+
+do_compile_prepend_am65xx-hs-evm() {
+
+    cd ${SCICLIENT_ROOTPATH}
+
+    # Saving the GP firmware to a different GP name
+    cp ${CP_ARGS} ./soc/V0/sysfw.bin ./soc/V0/sysfw-gp.bin
+    
+    cd ${SCICLIENT_ROOTPATH}/tools
+    # Create the .bin file for HS
+    ${SCICLIENT_ROOTPATH}/tools/firmwareHeaderGen.sh am65x-hs ${PDK_INSTALL_DIR}/packages
+    cd -
+}
+
+do_compile_prepend_am65xx-evm() {
+
+    cd ${SCICLIENT_ROOTPATH}/tools
+
+    # Create the .bin file for GP, PG1
+    ${SCICLIENT_ROOTPATH}/tools/firmwareHeaderGen.sh am65x ${PDK_INSTALL_DIR}/packages
+    # Create the .bin file for GP, PG2
+    ${SCICLIENT_ROOTPATH}/tools/firmwareHeaderGen.sh am65x_pg2 ${PDK_INSTALL_DIR}/packages
+    
+    cd -
+}
+
+
+do_compile_prepend_j7-evm() {
+
+    cd ${SCICLIENT_ROOTPATH}/tools
+    # Create the .bin file for GP
+    ${SCICLIENT_ROOTPATH}/tools/firmwareHeaderGen.sh j721e ${PDK_INSTALL_DIR}/packages
+    cd -
 }
 
 do_install() {
