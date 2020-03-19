@@ -106,3 +106,6 @@ FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 INSANE_SKIP_${PN} = "arch ldflags file-rdeps"
 
 INSANE_SKIP_${PN}-dbg = "arch"
+INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_SYSROOT_STRIP = "1"
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
