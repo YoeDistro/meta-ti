@@ -38,5 +38,5 @@ IMAGE_FSTYPES += "tar.xz wic.xz"
 # tiboot3.bin and sysfw.itb, which are provided by meta-arago
 # u-boot-k3-r5 and ti-sci-fw recipes
 IMAGE_BOOT_FILES ?= "${SPL_BINARY} u-boot.${UBOOT_SUFFIX}"
-WKS_FILE ?= "sdimage-bootpart.wks"
+WKS_FILE ?= "sdimage-3part.wks"
 do_image_wic[depends] += "u-boot:do_deploy"
