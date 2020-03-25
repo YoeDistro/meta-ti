@@ -18,7 +18,9 @@ distro-less (only with OE-Core), with Yocto/Poky, with Angstrom or Arago.
 Please follow the recommended setup procedures of your OE distribution.
 
 
-Send pull requests, patches, comments or questions to meta-ti@yoctoproject.org
+Send pull requests, patches, comments or questions to:
+meta-ti@lists.yoctoproject.org
+
 Please note - meta-ti mailing list requires subscription for posting:
 https://lists.yoctoproject.org/g/meta-ti
 
