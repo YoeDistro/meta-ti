@@ -25,6 +25,10 @@ SCICLIENT_ROOTPATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/packages/ti/drv
 export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
 export PDK_SCICLIENT_ROOT_PATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/packages"
 
+BUILD_HS = ""
+BUILD_HS_am65xx-hs-evm = "yes"
+export BUILD_HS
+
 # Sciclient for am65x supports mcu1_1 in addition to the default cores in TI_PDK_LIMIT_CORES
 TI_PDK_LIMIT_CORES_append_am65xx = " mcu1_1"
 
