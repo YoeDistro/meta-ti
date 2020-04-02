@@ -16,6 +16,7 @@ BRANCH = "ti-jailhouse-0.12"
 
 SRC_URI = " \
     git://git.ti.com/jailhouse/ti-jailhouse.git;protocol=git;branch=${BRANCH} \
+    file://0001-tools-update-shebang-in-helper-scripts-for-python3.patch \
 "
 
 DEPENDS = "virtual/kernel dtc-native python3-mako-native python3-mako make-native"
@@ -89,7 +90,7 @@ do_install() {
 	# We want to install the python tools, but we do not want to use pip...
 	# At least with v0.10, we can work around this with
 	# 'PIP=":" PYTHON_PIP_USEABLE=yes'
-	oe_runmake PIP=: PYTHON_PIP_USEABLE=yes DESTDIR=${D} install
+	oe_runmake PIP=: PYTHON=python3 PYTHON_PIP_USEABLE=yes DESTDIR=${D} install
 
 	install -d ${D}${CELL_DIR}
 	install -m 0644 ${B}/configs/${JH_ARCH}/${JH_CELL_FILES} ${D}${CELL_DIR}/
