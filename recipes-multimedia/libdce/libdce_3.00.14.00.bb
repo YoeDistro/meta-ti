@@ -1,4 +1,4 @@
-DESCRIPTION = "Library used for remotely invoking the hw accelerated codec on IVA-HD"
+SUMMARY = "Library for remotely invoking HW accelerated codecs on IVA-HD"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://libdce.h;beginline=1;endline=31;md5=0a398cf815b8b5f31f552266cd453dae"
 
