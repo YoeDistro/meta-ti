@@ -3,6 +3,10 @@ HOMEPAGE = "https://git.ti.com/graphics/ti-gc320-libs"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://Manifest.html;md5=a9121e8936ace09820d23f7626daaca5"
 
+inherit features_check
+
+REQUIRED_MACHINE_FEATURES = "gc320"
+
 COMPATIBLE_MACHINE = "omap-a15"
 
 CLEANBROKEN = "1"
