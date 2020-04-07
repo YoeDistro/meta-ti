@@ -1,19 +1,15 @@
-python __anonymous() {
-    features = d.getVar("MACHINE_FEATURES")
-    if not features:
-        return
-    if "mmip" not in features:
-        raise bb.parse.SkipPackage('ipumm-fw does not apply to systems without the "mmip" flag in MACHINE_FEATURES')
-}
-
-DESCRIPTION = "Firmware for IPU for supporting Accelerated MM decode and encode"
+SUMMARY = "Firmware for IPU to suppor Accelerated MM decode and encode"
 LICENSE = "TI-TSPA"
 
 LIC_FILES_CHKSUM = "file://Texas_Instruments_ipumm_Manifest.pdf;md5=5cc572579f07af266ab57fc17d762c7f"
 
 COMPATIBLE_MACHINE = "dra7xx"
 
-RDEPENDS_${PN} = " libdce"
+inherit features_check
+
+REQUIRED_MACHINE_FEATURES = "mmip"
+
+RDEPENDS_${PN} = "libdce"
 
 SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
