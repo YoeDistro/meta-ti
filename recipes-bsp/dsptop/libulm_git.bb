@@ -1,6 +1,10 @@
-DESCRIPTION = "TI dsptop utility."
+SUMMARY = "TI Usage & Load Monitor Implementation"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://../debian/copyright;md5=309825aa8f5edfcf2c44912ac094b979"
+
+inherit features_check
+
+REQUIRED_MACHINE_FEATURES = "dsp"
 
 DEPENDS = "ti-cgt6x-native"
 PR = "${INC_PR}.0"
