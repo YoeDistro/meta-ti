@@ -21,7 +21,7 @@ PM_LLD_GIT_BRANCH_k2g = "int_pm_am335x"
 PM_LLD_GIT_DESTSUFFIX = "git/ti/drv/pm"
 
 # Below commit ID corresponds to "DEV.PM_LLD.01.08.00.23A"
-PM_LLD_SRCREV = "759abc6ffb890d24b82de0248d204ad10c1bfc2a"
+PM_LLD_SRCREV = "59abc6ffb890d24b82de0248d204ad10c1bfc2af"
 
 # Below commit ID corresponds to "DEV.PM_LLD.01.04.00.05C"
 PM_LLD_SRCREV_ti33x = "dd1f8486e7738956631b7f4829c8238be2e49dd6"
