@@ -1,8 +1,12 @@
-DESCRIPTION = "Firmware for DSP for an example application called copycodectest"
+SUMMARY = "Firmware for DSP for an example application called copycodectest"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://src/ti/framework/dce/dce.c;startline=1;endline=31;md5=2c6e9aba6ed75f22b1a2b7544b1c809d"
 
 COMPATIBLE_MACHINE = "dra7xx"
+
+inherit features_check
+
+REQUIRED_MACHINE_FEATURES = "dsp"
 
 SRC_URI = "git://git.ti.com/glsdk/dspdce.git;protocol=git"
 
