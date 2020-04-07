@@ -26,7 +26,6 @@ PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm"
 
 DEPENDS += "libdrm wayland expat"
 RDEPENDS_${PN} += "bash"
-RDEPENDS_${PN} += "python-core"
 RDEPENDS_${PN} += "wayland expat"
 
 RPROVIDES_${PN} = "libegl libgles1 libgles2 libgbm"
