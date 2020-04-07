@@ -3,7 +3,9 @@ HOMEPAGE = "https://git.ti.com/graphics/ti-gc320-driver"
 LICENSE = "MIT | GPLv2"
 LIC_FILES_CHKSUM = "file://../LICENSE;md5=78d9818a51b9a8e9bb89dea418bac297"
 
-inherit module
+inherit module features_check
+
+REQUIRED_MACHINE_FEATURES = "gc320"
 
 MACHINE_KERNEL_PR_append = "h"
 PR = "${MACHINE_KERNEL_PR}"
