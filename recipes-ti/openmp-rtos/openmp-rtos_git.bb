@@ -4,6 +4,11 @@ LICENSE = "BSD"
 
 require recipes-ti/includes/ti-paths.inc
 
+inherit features_check
+
+REQUIRED_MACHINE_FEATURES = "dsp"
+REQUIRED_DISTRO_FEATURES = "openmp"
+
 PV = "2_06_03_00"
 PR = "r0"
 
