@@ -257,6 +257,10 @@ do_deploy_append () {
 			ln -sf ${UBOOT_HS_2ND_IMAGE} ${UBOOT_HS_2ND_BINARY}
 		fi
 	fi
+
+	mv ${DEPLOYDIR}/u-boot-initial-env ${DEPLOYDIR}/${PN}-initial-env || true
+	mv ${DEPLOYDIR}/u-boot-initial-env-${MACHINE} ${DEPLOYDIR}/${PN}-initial-env-${MACHINE} || true
+	mv ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${PV}-${PR} ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${PV}-${PR} || true
 }
 
 do_install_append_keystone () {
