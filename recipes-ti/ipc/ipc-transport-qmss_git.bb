@@ -15,3 +15,5 @@ do_install () {
 		INSTALL_LIB_BASE_DIR=${D}${libdir}
 	chown -R root:root ${D}
 }
+
+INHIBIT_PACKAGE_STRIP_FILES = "${PKGD}${libdir}/libTransportQmss.a"
