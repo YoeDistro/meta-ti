@@ -34,4 +34,5 @@ do_install () {
 INHIBIT_PACKAGE_STRIP_FILES_k2hk = "${PKGD}${libdir}/libcppi_k2h.a ${PKGD}${libdir}/libcppi_k2k.a"
 INHIBIT_PACKAGE_STRIP_FILES_k2e = "${PKGD}${libdir}/libcppi_k2e.a"
 INHIBIT_PACKAGE_STRIP_FILES_k2l = "${PKGD}${libdir}/libcppi_k2l.a"
+INHIBIT_PACKAGE_STRIP_FILES_k2g = "${PKGD}${libdir}/libcppi_k2h.a"
 INHIBIT_PACKAGE_STRIP_FILES_append = " ${PKGD}${libdir}/libcppi.a"
