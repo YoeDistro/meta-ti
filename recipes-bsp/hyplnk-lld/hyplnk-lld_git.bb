@@ -31,3 +31,6 @@ do_install () {
 	done
 	ln -sf libhyplnk_device.so.1 libhyplnk_device.so
 }
+
+INHIBIT_PACKAGE_STRIP_FILES_k2hk = "${PKGD}${libdir}/libhyplnk_k2h.a ${PKGD}${libdir}/libhyplnk_k2k.a"
+INHIBIT_PACKAGE_STRIP_FILES_k2e = "${PKGD}${libdir}/libhyplnk_k2e.a"
