@@ -1,5 +1,5 @@
 LICENSE = "BSD-3-Clause & TI-TFL"
-COMPATIBLE_MACHINE = "keystone"
+COMPATIBLE_MACHINE = "k2hk|k2e|k2l"
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/drv/sa/COPYING.txt;md5=cd04fb087063a2a82c4ce61983836871"
 
