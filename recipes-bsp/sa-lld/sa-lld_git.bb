@@ -22,3 +22,5 @@ do_install () {
 	ln -sf libsa.so.1.0.0 ${D}${libdir}/libsa_device.so.1
 	ln -sf libsa_device.so.1 ${D}${libdir}/libsa_device.so
 }
+
+INHIBIT_PACKAGE_STRIP_FILES = "${PKGD}${libdir}/libsa.a"
