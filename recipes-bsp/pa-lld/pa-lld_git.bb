@@ -22,3 +22,5 @@ do_install () {
     ln -sf ${LIBPA}.so.1.0.0 ${D}${libdir}/libpa_device.so.1
     ln -sf libpa_device.so.1 ${D}${libdir}/libpa_device.so
 }
+
+INHIBIT_PACKAGE_STRIP_FILES = "${PKGD}${libdir}/libpa.a"
