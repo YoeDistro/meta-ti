@@ -1,5 +1,5 @@
 PV = "3.50.04.08"
-INC_PR = "r1"
+INC_PR = "r2"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_HOST ?= "null"
