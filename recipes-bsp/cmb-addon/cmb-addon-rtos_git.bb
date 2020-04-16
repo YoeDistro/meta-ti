@@ -14,11 +14,11 @@ CMB_ADDON_GIT_PROTOCOL = "git"
 CMB_ADDON_GIT_BRANCH = "master"
 CMB_ADDON_GIT_DESTSUFFIX = "git/ti/addon"
 
-# Below commit ID corresponds to "DEV.CMB.01.01.00.03"
-CMB_ADDON_SRCREV = "4b16dd77eb929708a5134714c3194fc5b5bc1808"
+# Below commit ID corresponds to "DEV.CMB.01.01.00.03A"
+CMB_ADDON_SRCREV = "3655aad07f17d3a167ec7dcecb52450c1d2fe8be"
 
 SRCREV = "${CMB_ADDON_SRCREV}"
-PV = "01.01.00.03"
+PV = "01.01.00.03A"
 PR = "r0"
 
 BRANCH = "${CMB_ADDON_GIT_BRANCH}"
