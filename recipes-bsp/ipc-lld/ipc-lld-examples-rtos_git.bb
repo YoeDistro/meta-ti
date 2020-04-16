@@ -12,6 +12,7 @@ REMOTE_FWB_BIN_DIR = "${REMOTE_FW_DIR}/ipc_echo_testb/bin"
 RTOS_ALL_CORES_BIN_DIR = "${REMOTE_FW_DIR}/ex02_bios_multicore_echo_test/bin"
 RTOS_2_CORES_BIN_DIR = "${REMOTE_FW_DIR}/ex01_bios_2core_echo_test/bin"
 LINUX_2_CORES_BIN_DIR = "${REMOTE_FW_DIR}/ex03_linux_bios_2core_echo_test/bin"
+LINUX_2_CORES_BAREMETAL_BIN_DIR = "${REMOTE_FW_DIR}/ex04_linux_baremetal_2core_echo_test/bin"
 
 DST_BIN_PATH = "${base_libdir}/firmware/pdk-ipc"
 
@@ -20,9 +21,21 @@ TI_PDK_LIMIT_BOARDS_j7-evm = "j721e_evm"
 do_configure[noexec] = "1"
 
 do_compile() {
-    cd ${S}
+    cd "${PDK_INSTALL_PATH}/ti/build"
 
-    oe_runmake apps LIMIT_BOARDS="${TI_PDK_LIMIT_BOARDS}" LIMIT_CORES="${TI_PDK_LIMIT_CORES}" DEST_ROOT=${REMOTE_FW_DIR}
+    for board in ${TI_PDK_LIMIT_BOARDS}
+    do
+        for core in ${TI_PDK_LIMIT_CORES}
+        do
+            oe_runmake ipc_echo_test BOARD="$board" CORE="$core" DEST_ROOT=${REMOTE_FW_DIR}
+            oe_runmake ex02_bios_multicore_echo_test BOARD="$board" CORE="$core" DEST_ROOT=${REMOTE_FW_DIR}
+            oe_runmake ex01_bios_2core_echo_test BOARD="$board" CORE="$core" DEST_ROOT=${REMOTE_FW_DIR}
+            oe_runmake ex03_linux_bios_2core_echo_test BOARD="$board" CORE="$core" DEST_ROOT=${REMOTE_FW_DIR}
+            oe_runmake ex04_linux_baremetal_2core_echo_test BOARD="$board" CORE="$core" DEST_ROOT=${REMOTE_FW_DIR}
+            oe_runmake ipc_echo_testb BOARD="$board" CORE="$core" DEST_ROOT=${REMOTE_FW_DIR}
+        done
+
+    done
 }
 
 do_install() {
@@ -66,6 +79,9 @@ do_install_append_j7-evm() {
     install -m 0644 ${REMOTE_FWB_BIN_DIR}/$board/ipc_echo_testb_mcu3_1_release_strip.xer5f ${D}${DST_BIN_PATH}
 }
 
+do_install_append_am65xx-evm() {
+    cp ${CP_ARGS} ${REMOTE_FW_DIR}/ex04_linux_baremetal_2core_echo_test/bin -d ${D}/ex04_linux_baremetal_2core_echo_test
+}
 
 # Set up names for the firmwares
 ALTERNATIVE_${PN}_am65xx = "\
@@ -138,6 +154,7 @@ FILES_${PN} += "${base_libdir}/firmware"
 FILES_${PN}-rtos += "ex02_bios_multicore_echo_test"
 FILES_${PN}-rtos += "ex01_bios_2core_echo_test"
 FILES_${PN}-rtos += "ex03_linux_bios_2core_echo_test"
+FILES_${PN}-rtos += "ex04_linux_baremetal_2core_echo_test"
 
 INSANE_SKIP_${PN} = "arch ldflags file-rdeps"
 INSANE_SKIP_${PN}-rtos = "arch ldflags file-rdeps"
