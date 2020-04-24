@@ -57,7 +57,7 @@ DEPENDS_append_dra7xx = " pm-lld-rtos \
 
 DEPENDS_append_am65xx = " sciclient-rtos \
 "
-DEPENDS_append_j7-evm = " udma-lld-rtos \
+DEPENDS_append_j7 = " udma-lld-rtos \
                           sciclient-rtos \
                           mmcsd-lld-rtos \
 "

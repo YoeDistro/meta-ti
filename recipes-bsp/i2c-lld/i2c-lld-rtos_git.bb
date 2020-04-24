@@ -29,7 +29,7 @@ DEPENDS_append_am57xx-evm = " pruss-lld-rtos \
 DEPENDS_append_k2g = " pruss-lld-rtos \
 "
 
-DEPENDS_append_j7-evm = " sciclient-rtos \
+DEPENDS_append_j7 = " sciclient-rtos \
 "
 
 # Build with make instead of XDC

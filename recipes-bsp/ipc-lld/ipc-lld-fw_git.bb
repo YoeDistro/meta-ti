@@ -23,7 +23,7 @@ AM65X_R5_FW_DIR = "${S}/examples/echo_test/binaries/am65xx"
 J721E_R5_DSP_FW_DIR = "${S}/examples/echo_test/binaries/j721e"
 
 PLATFORM_am65xx = "am65xx"
-PLATFORM_j7-evm = "j7-evm"
+PLATFORM_j7 = "j7-evm"
 
 # make sure that lib/firmware, and all its contents are part of the package
 FILES_${PN} += "${base_libdir}/firmware"
@@ -40,7 +40,7 @@ do_install_append_am65xx() {
     install -m 0644 ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_1_release.strip.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
 }
 
-do_install_append_j7-evm() {
+do_install_append_j7() {
     install -m 0644 ${J721E_R5_DSP_FW_DIR}/ipc_echo_test_mcu1_0_release.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
     install -m 0644 ${J721E_R5_DSP_FW_DIR}/ipc_echo_test_mcu1_0_release.strip.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
     install -m 0644 ${J721E_R5_DSP_FW_DIR}/ipc_echo_testb_mcu1_0_release.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
@@ -78,7 +78,7 @@ ALTERNATIVE_${PN}_am65xx = "\
                     am65x-mcu-r5f0_0-fw \
                     am65x-mcu-r5f0_1-fw \
                     "
-ALTERNATIVE_${PN}_j7-evm = "\
+ALTERNATIVE_${PN}_j7 = "\
                     j7-mcu-r5f0_0-fw \
                     j7-mcu-r5f0_1-fw \
                     j7-main-r5f0_0-fw \
@@ -95,15 +95,15 @@ ALTERNATIVE_${PN}_j7-evm = "\
 TARGET_MCU_R5FSS0_0_am65xx = "am65x-mcu-r5f0_0-fw"
 TARGET_MCU_R5FSS0_1_am65xx = "am65x-mcu-r5f0_1-fw"
 
-TARGET_MCU_R5FSS0_0_j7-evm = "j7-mcu-r5f0_0-fw"
-TARGET_MCU_R5FSS0_1_j7-evm = "j7-mcu-r5f0_1-fw"
-TARGET_MAIN_R5FSS0_0_j7-evm = "j7-main-r5f0_0-fw"
-TARGET_MAIN_R5FSS0_1_j7-evm = "j7-main-r5f0_1-fw"
-TARGET_MAIN_R5FSS1_0_j7-evm = "j7-main-r5f1_0-fw"
-TARGET_MAIN_R5FSS1_1_j7-evm = "j7-main-r5f1_1-fw"
-TARGET_C66_0_j7-evm = "j7-c66_0-fw"
-TARGET_C66_1_j7-evm = "j7-c66_1-fw"
-TARGET_C7X_j7-evm = "j7-c71_0-fw"
+TARGET_MCU_R5FSS0_0_j7 = "j7-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1_j7 = "j7-mcu-r5f0_1-fw"
+TARGET_MAIN_R5FSS0_0_j7 = "j7-main-r5f0_0-fw"
+TARGET_MAIN_R5FSS0_1_j7 = "j7-main-r5f0_1-fw"
+TARGET_MAIN_R5FSS1_0_j7 = "j7-main-r5f1_0-fw"
+TARGET_MAIN_R5FSS1_1_j7 = "j7-main-r5f1_1-fw"
+TARGET_C66_0_j7 = "j7-c66_0-fw"
+TARGET_C66_1_j7 = "j7-c66_1-fw"
+TARGET_C7X_j7 = "j7-c71_0-fw"
 
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_0-fw] = "${base_libdir}/firmware/${TARGET_MCU_R5FSS0_0}"
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_1-fw] = "${base_libdir}/firmware/${TARGET_MCU_R5FSS0_1}"
@@ -148,7 +148,7 @@ do_deploy_am65xx() {
     install ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_1_release.strip.xer5f ${DEPLOYDIR}/
 }
 
-do_deploy_j7-evm() {
+do_deploy_j7() {
     install ${J721E_R5_DSP_FW_DIR}/ipc_echo_test_mcu1_0_release.xer5f ${DEPLOYDIR}/
     install ${J721E_R5_DSP_FW_DIR}/ipc_echo_test_mcu1_0_release.strip.xer5f ${DEPLOYDIR}/
     install ${J721E_R5_DSP_FW_DIR}/ipc_echo_testb_mcu1_0_release.xer5f ${DEPLOYDIR}/

@@ -99,6 +99,14 @@ do_compile_prepend_j7-evm() {
     cd -
 }
 
+do_compile_prepend_j7-hs-evm() {
+
+    cd ${SCICLIENT_ROOTPATH}/tools
+    # Create the .bin file for HS
+    ${SCICLIENT_ROOTPATH}/tools/firmwareHeaderGen.sh j721e-hs ${PDK_INSTALL_DIR}/packages
+    cd -
+}
+
 do_install() {
     cd ${SCICLIENT_ROOTPATH}
     install -d ${D}${PDK_INSTALL_DIR_RECIPE}/packages/ti/drv/sciclient

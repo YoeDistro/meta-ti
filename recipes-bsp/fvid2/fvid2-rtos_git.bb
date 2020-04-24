@@ -28,9 +28,8 @@ export PDK_FVID2_ROOT_PATH = "${FVID2_PACKAGE_BASE}/package/all/pdk_/packages"
 
 
 BOARD_PACKAGE = ""
-BOARD_PACKAGE_am65xx-evm = "am65xx_evm"
-BOARD_PACKAGE_am65xx-hs-evm = "am65xx_evm"
-BOARD_PACKAGE_j7-evm = "j721e_evm"
+BOARD_PACKAGE_am65xx = "am65xx_evm"
+BOARD_PACKAGE_j7 = "j721e_evm"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "FVID2"

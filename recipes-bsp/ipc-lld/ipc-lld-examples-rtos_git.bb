@@ -16,7 +16,7 @@ LINUX_2_CORES_BAREMETAL_BIN_DIR = "${REMOTE_FW_DIR}/ex04_linux_baremetal_2core_e
 
 DST_BIN_PATH = "${base_libdir}/firmware/pdk-ipc"
 
-TI_PDK_LIMIT_BOARDS_j7-evm = "j721e_evm"
+TI_PDK_LIMIT_BOARDS_j7 = "j721e_evm"
 
 do_configure[noexec] = "1"
 
@@ -62,7 +62,7 @@ do_install() {
     done
 }
 
-do_install_append_j7-evm() {
+do_install_append_j7() {
     #copy ipc_echo_testb binaries for J721
     install -m 0644 ${REMOTE_FWB_BIN_DIR}/$board/ipc_echo_testb_mcu1_0_release.xer5f ${D}${DST_BIN_PATH}
     install -m 0644 ${REMOTE_FWB_BIN_DIR}/$board/ipc_echo_testb_mcu1_1_release.xer5f ${D}${DST_BIN_PATH}
@@ -79,7 +79,7 @@ do_install_append_j7-evm() {
     install -m 0644 ${REMOTE_FWB_BIN_DIR}/$board/ipc_echo_testb_mcu3_1_release_strip.xer5f ${D}${DST_BIN_PATH}
 }
 
-do_install_append_am65xx-evm() {
+do_install_append_am65xx() {
     cp ${CP_ARGS} ${REMOTE_FW_DIR}/ex04_linux_baremetal_2core_echo_test/bin -d ${D}/ex04_linux_baremetal_2core_echo_test
 }
 
@@ -88,7 +88,7 @@ ALTERNATIVE_${PN}_am65xx = "\
                     am65x-mcu-r5f0_0-fw \
                     am65x-mcu-r5f0_1-fw \
                     "
-ALTERNATIVE_${PN}_j7-evm = "\
+ALTERNATIVE_${PN}_j7 = "\
                     j7-mcu-r5f0_0-fw \
                     j7-mcu-r5f0_1-fw \
                     j7-main-r5f0_0-fw \
@@ -105,15 +105,15 @@ ALTERNATIVE_${PN}_j7-evm = "\
 TARGET_MCU_R5FSS0_0_am65xx = "am65x-mcu-r5f0_0-fw"
 TARGET_MCU_R5FSS0_1_am65xx = "am65x-mcu-r5f0_1-fw"
 
-TARGET_MCU_R5FSS0_0_j7-evm = "j7-mcu-r5f0_0-fw"
-TARGET_MCU_R5FSS0_1_j7-evm = "j7-mcu-r5f0_1-fw"
-TARGET_MAIN_R5FSS0_0_j7-evm = "j7-main-r5f0_0-fw"
-TARGET_MAIN_R5FSS0_1_j7-evm = "j7-main-r5f0_1-fw"
-TARGET_MAIN_R5FSS1_0_j7-evm = "j7-main-r5f1_0-fw"
-TARGET_MAIN_R5FSS1_1_j7-evm = "j7-main-r5f1_1-fw"
-TARGET_C66_0_j7-evm = "j7-c66_0-fw"
-TARGET_C66_1_j7-evm = "j7-c66_1-fw"
-TARGET_C7X_j7-evm = "j7-c71_0-fw"
+TARGET_MCU_R5FSS0_0_j7 = "j7-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1_j7 = "j7-mcu-r5f0_1-fw"
+TARGET_MAIN_R5FSS0_0_j7 = "j7-main-r5f0_0-fw"
+TARGET_MAIN_R5FSS0_1_j7 = "j7-main-r5f0_1-fw"
+TARGET_MAIN_R5FSS1_0_j7 = "j7-main-r5f1_0-fw"
+TARGET_MAIN_R5FSS1_1_j7 = "j7-main-r5f1_1-fw"
+TARGET_C66_0_j7 = "j7-c66_0-fw"
+TARGET_C66_1_j7 = "j7-c66_1-fw"
+TARGET_C7X_j7 = "j7-c71_0-fw"
 
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_0-fw] = "${base_libdir}/firmware/${TARGET_MCU_R5FSS0_0}"
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_1-fw] = "${base_libdir}/firmware/${TARGET_MCU_R5FSS0_1}"
