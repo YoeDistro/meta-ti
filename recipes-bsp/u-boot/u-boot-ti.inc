@@ -36,8 +36,7 @@ DEPENDS += "dtc-native bc-native lzop-native flex-native bison-native"
 PACKAGECONFIG[atf] = "ATF=${STAGING_DIR_HOST}/boot/bl31.bin,,arm-trusted-firmware"
 PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}/boot/bl32.bin,,optee-os"
 
-# optee-os is not a direct dependency, do not enable optee by default
-PACKAGECONFIG_append_k3 = " atf"
+PACKAGECONFIG_append_aarch64 = " atf optee"
 
 EXTRA_OEMAKE += "${PACKAGECONFIG_CONFARGS}"
 
@@ -258,9 +257,12 @@ do_deploy_append () {
 		fi
 	fi
 
-	mv ${DEPLOYDIR}/u-boot-initial-env ${DEPLOYDIR}/${PN}-initial-env || true
-	mv ${DEPLOYDIR}/u-boot-initial-env-${MACHINE} ${DEPLOYDIR}/${PN}-initial-env-${MACHINE} || true
-	mv ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${PV}-${PR} ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${PV}-${PR} || true
+	rm ${DEPLOYDIR}/u-boot-initial-env || true
+	rm ${DEPLOYDIR}/${PN}-initial-env || true
+	rm ${DEPLOYDIR}/u-boot-initial-env-${MACHINE} || true
+	rm ${DEPLOYDIR}/${PN}-initial-env-${MACHINE} || true
+	rm ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${PV}-${PR} || true
+	rm ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${PV}-${PR} || true
 }
 
 do_install_append_keystone () {
