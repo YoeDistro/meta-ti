@@ -38,6 +38,8 @@ PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}/boot/bl32.bin,,optee-os"
 
 PACKAGECONFIG_append_aarch64 = " atf optee"
 
+COMPATIBLE_MACHINE = "(ti-soc)"
+
 EXTRA_OEMAKE += "${PACKAGECONFIG_CONFARGS}"
 
 PROVIDES += "u-boot"
