@@ -10,12 +10,12 @@ REQUIRED_MACHINE_FEATURES = "gpu"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j7"
 
-PR = "r6"
+PR = "r7"
 
 BRANCH = "linuxws/zeus/k5.4/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-umlibs.git;branch=${BRANCH}"
-SRCREV = "0721cdfc1fc86f40c93745159e3f1bcad5beda17"
+SRCREV = "20748df00f123d56079cab07f83b0133e3378b53"
 
 PVR_SOC ?= "j721e_linux"
 PVR_BUILD ?= "release"
