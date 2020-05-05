@@ -5,7 +5,7 @@ MACHINE_KERNEL_PR = "r54"
 
 KERNEL_IMAGETYPE = "zImage"
 
-PREFERRED_PROVIDER_virtual/kernel = "linux-ti-staging"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-ti-staging"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-ti-staging"
 PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
 

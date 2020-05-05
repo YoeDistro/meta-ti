@@ -10,7 +10,7 @@ BBMULTICONFIG += "k3r5"
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r0"
 
-PREFERRED_PROVIDER_virtual/kernel = "linux-ti-staging"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-ti-staging"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-ti-staging"
 PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
 

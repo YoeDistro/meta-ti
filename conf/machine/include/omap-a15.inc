@@ -7,7 +7,7 @@ require conf/machine/include/tune-cortexa15.inc
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r7"
 
-PREFERRED_PROVIDER_virtual/kernel = "linux-ti-staging"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-ti-staging"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-ti-staging"
 PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
 
