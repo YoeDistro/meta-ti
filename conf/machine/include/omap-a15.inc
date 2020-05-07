@@ -39,6 +39,6 @@ UBI_VOLNAME = "rootfs"
 MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat ext2 screen alsa ethernet gpu mmip dsp gc320"
 
 IMAGE_FSTYPES += "tar.xz wic.xz"
-WKS_FILE ?= "sdimage-3part.wks"
+WKS_FILE ?= "sdimage-2part.wks"
 IMAGE_BOOT_FILES ?= "${SPL_BINARY} u-boot.${UBOOT_SUFFIX}"
 do_image_wic[depends] += "u-boot:do_deploy"
