@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native"
 
 CLEANBROKEN = "1"
-PR = "r0"
+PR = "r1"
 
 # Loaded by R5F core
 COMPATIBLE_MACHINE = "k3r5"
@@ -19,7 +19,7 @@ export TI_SECURE_DEV_PKG
 
 SRCREV = "6b02b1ea07da65a68444e86439ad5b031e9fd5a2"
 BRANCH ?= "ti-linux-firmware"
-SRCREV_imggen = "8cfe64e7ca5729b0fbb4930bc2fed66ddf19049f"
+SRCREV_imggen = "a7d3909ed8ae23a7c90f7ef821713a8b0c3c061d"
 SRCREV_FORMAT = "imggen"
 
 SRC_URI = " \
