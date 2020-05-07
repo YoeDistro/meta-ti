@@ -53,9 +53,6 @@ DEPENDS_append_omapl138 = " ti-cgt6x-native \
 DEPENDS_append_c66x = " ti-cgt6x-native \
 "
 
-DEPENDS_append_am65xx = " ti-cgt-arm-native \
-                              gcc-linaro-baremetal-aarch64-native"
-
 IPC_TARGETS = ""
 
 IPC_TARGETS_omap-a15 = "\
@@ -79,11 +76,6 @@ IPC_TARGETS_c66x = " \
     ti.targets.elf.C66_big_endian="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
 "
 
-IPC_TARGETS_am65xx = "\
-    gnu.targets.arm.A53F="${GCC_LINARO_BAREMETAL_AARCH64_TOOLCHAIN}" \
-    ti.targets.arm.elf.R5F="${M4_TOOLCHAIN_INSTALL_DIR}" \
-"
-
 PARALLEL_XDC = "${@oe.utils.parallel_make_argument(d, '--jobs=%d')}"
 EXTRA_OEMAKE = "\
     PLATFORM=${PLATFORM} \
@@ -93,5 +85,4 @@ EXTRA_OEMAKE = "\
     ${PARALLEL_XDC} \
     JAVA_TOOL_OPTIONS=-Xss2560k \
 "
-EXTRA_OEMAKE_append_am65xx = " PDK_INSTALL_DIR=${PDK_INSTALL_DIR}"
 

@@ -22,7 +22,6 @@ DAEMON_k2l = "lad_tci6630"
 DAEMON_k2e = "lad_66ak2e"
 DAEMON_k2g = "lad_66ak2g"
 DAEMON_omapl138 = "lad_omapl138"
-DAEMON_k3 = "lad_am65xx"
 
 inherit autotools-brokensep pkgconfig update-rc.d systemd
 

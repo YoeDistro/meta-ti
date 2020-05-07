@@ -3,8 +3,6 @@ require ti-ipc-examples.inc
 
 DEPENDS = "ti-ipc ti-xdctools-native ti-sysbios ti-ipc-rtos zip-native"
 
-DEPENDS_append_am65xx = " sciclient-rtos"
-
 do_compile_append() {
 
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
