@@ -60,6 +60,8 @@ libjvm.so \
 libhpi.so \
 lib.so \
 libcairo.so.2 \
+libjli.so \
+libawt_xawt.so \
 "
 
 COMPATIBLE_HOST ?= "null"
