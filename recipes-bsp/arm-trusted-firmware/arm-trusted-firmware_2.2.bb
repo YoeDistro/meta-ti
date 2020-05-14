@@ -54,6 +54,14 @@ do_compile_append_am65xx-hs-evm() {
 	)
 }
 
+do_compile_append_j7-hs-evm() {
+	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
+	( cd ${S}/build/${ATFPLATFORM}/${ATFBOARD}/release/; \
+		mv bl31.bin bl31.bin.unsigned; \
+		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
+	)
+}
+
 do_install() {
 	install -d ${D}/boot
 	install -m 0644 ${S}/build/${ATFPLATFORM}/${ATFBOARD}/release/bl31.bin ${D}/boot/

@@ -27,6 +27,7 @@ export PDK_SCICLIENT_ROOT_PATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/pac
 
 BUILD_HS = ""
 BUILD_HS_am65xx-hs-evm = "yes"
+BUILD_HS_j7-hs-evm = "yes"
 export BUILD_HS
 
 # Sciclient for am65x supports mcu1_1 in addition to the default cores in TI_PDK_LIMIT_CORES
