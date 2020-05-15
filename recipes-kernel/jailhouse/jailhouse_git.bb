@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = " \
 "
 
 PV = "0.12+git${SRCPV}"
-SRCREV = "2c6516ce3d0e0c4e9372e4439562dd660877cb79"
+SRCREV = "8fd88c37ae1a4f7130ef40899c0eadd737c64832"
 BRANCH = "ti-jailhouse-0.12"
 
 SRC_URI = " \
