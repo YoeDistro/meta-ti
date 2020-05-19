@@ -26,6 +26,9 @@ UBOOT_SUFFIX = "img"
 
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
+TFA_PLATFORM = "k3"
+TFA_BOARD = "generic"
+
 MACHINE_GUI_CLASS = "smallscreen"
 
 # Use the expected value of the ubifs filesystem's volume name in the kernel
