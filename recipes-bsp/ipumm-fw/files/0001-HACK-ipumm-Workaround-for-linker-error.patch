@@ -1,0 +1,48 @@
+From 7226700841c62e6a42690eaa8b3e31b2c329b341 Mon Sep 17 00:00:00 2001
+From: Ramprasad N <x0038811@ti.com>
+Date: Thu, 28 May 2020 09:53:59 +0530
+Subject: [PATCH] HACK: ipumm: Workaround for linker error
+
+* HACK: ti_sdo_ce_utils_syscbuf_SysCBuf_Module_startup__E is no longer
+* defined with latest XDC tools. To temporarily get around the issue
+* until the real fix can be made, dummy defination of the missing function
+* is added in ipu_main.c
+
+*IPUMM dependent tool chain components are upgraded to latest version
+* BIOS : 6_82_01_17_eng
+* XDC  : 3_61_00_16_core
+* This issue is seen only with xdc tools upgrade.
+
+Signed-off-by: Angela Stegmaier <angelabaker@ti.com>
+Signed-off-by: Ramprasad N <x0038811@ti.com>
+---
+ platform/ti/dce/baselib/ipumm_main.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/platform/ti/dce/baselib/ipumm_main.c b/platform/ti/dce/baselib/ipumm_main.c
+index 76ccd34..f4ca6e5 100644
+--- a/platform/ti/dce/baselib/ipumm_main.c
++++ b/platform/ti/dce/baselib/ipumm_main.c
+@@ -50,6 +50,19 @@
+ #include <string.h>
+ #include <stdlib.h>
+ 
++/*
++ * HACK: ti_sdo_ce_utils_syscbuf_SysCBuf_Module_startup__E is no longer
++ * defined with latest XDC tools. To temporarily get around the issue
++ * until the real fix can be made, define the missing function
++ * here.
++ */
++extern ti_sdo_ce_utils_syscbuf_SysCBuf_Module_startup__F(xdc_Int state);
++
++/* Module_startup */
++xdc_Int ti_sdo_ce_utils_syscbuf_SysCBuf_Module_startup__E( xdc_Int state )
++{
++    return ti_sdo_ce_utils_syscbuf_SysCBuf_Module_startup__F(state);
++}
+ 
+ /* Legacy function to allow Linux side rpmsg sample tests to work: */
+ extern void start_ping_tasks();
+-- 
+1.9.1
+
