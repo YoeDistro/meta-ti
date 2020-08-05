@@ -1,4 +1,4 @@
-require recipes-bsp/ti-sci-fw/ti-sci-fw_${PV}.inc
+require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
 
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native"
 
