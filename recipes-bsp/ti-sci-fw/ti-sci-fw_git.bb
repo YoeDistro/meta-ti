@@ -2,6 +2,10 @@ require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
 
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native"
 
+UBOOT_DEPENDS = ""
+UBOOT_DEPENDS_j7200-evm-k3r5 = "u-boot-ti-staging:do_deploy"
+do_compile[depends] += "${UBOOT_DEPENDS}"
+
 CLEANBROKEN = "1"
 PR = "r1"
 
@@ -45,6 +49,8 @@ EXTRA_OEMAKE_HS = " \
 "
 EXTRA_OEMAKE_append = "${@['',' ${EXTRA_OEMAKE_HS}']['${SYSFW_SUFFIX}' == 'hs']}"
 
+EXTRA_OEMAKE_append_j7200-evm-k3r5 = " SBL="${DEPLOY_DIR_IMAGE}/u-boot-spl.bin""
+
 do_compile() {
 	cd ${WORKDIR}/imggen/
 	oe_runmake
@@ -74,6 +80,20 @@ do_deploy () {
 	fi
 
 	install -m 644 ${SYSFW_TISCI} ${DEPLOYDIR}/
+}
+
+do_install_j7200-evm-k3r5() {
+	install -d ${D}/boot
+	install -m 644 ${WORKDIR}/imggen/${UBOOT_BINARY} ${D}/boot/${UBOOT_IMAGE}
+	ln -sf ${UBOOT_IMAGE} ${D}/boot/${UBOOT_SYMLINK}
+	ln -sf ${UBOOT_IMAGE} ${D}/boot/${UBOOT_BINARY}
+}
+
+do_deploy_j7200-evm-k3r5() {
+	install -d ${DEPLOYDIR}
+	install -m 644 ${WORKDIR}/imggen/${UBOOT_BINARY} ${DEPLOYDIR}/${UBOOT_IMAGE}
+	ln -sf ${UBOOT_IMAGE} ${DEPLOYDIR}/${UBOOT_SYMLINK}
+	ln -sf ${UBOOT_IMAGE} ${DEPLOYDIR}/${UBOOT_BINARY}
 }
 
 addtask deploy before do_build after do_compile
