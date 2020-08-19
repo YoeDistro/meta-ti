@@ -56,8 +56,8 @@ do_install() {
     install -d ${D}${base_libdir}/firmware/pru
     install -d ${D}${includedir}
     cp ${CP_ARGS} ${S}/include/* ${D}${includedir}
-    install -d ${D}${base_libdir}
-    install -m 0644 ${S}/lib/rpmsg_lib.lib ${D}${base_libdir}
+    install -d ${D}${libdir}
+    install -m 0644 ${S}/lib/rpmsg_lib.lib ${D}${libdir}
 }
 
 FILES_${PN}-staticdev = "${libdir}"
