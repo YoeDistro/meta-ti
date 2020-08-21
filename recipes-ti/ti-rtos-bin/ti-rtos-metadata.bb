@@ -1,7 +1,7 @@
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/BSD-3-Clause;md5=550794465ba0ec5312d6919e203a55f9"
 
-COMPATIBLE_MACHINE = "k3"
+COMPATIBLE_MACHINE = "ti-soc"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -34,6 +34,10 @@ do_compile[noexec] = "1"
 do_install[noexec] = "1"
 
 do_deploy () {
+	:
+}
+
+do_deploy_k3 () {
 	install -d ${DEPLOYDIR}
 	install -m 0644 ${TI_RTOS_METADATA_FILE} ${DEPLOYDIR}/
 }
