@@ -15,14 +15,10 @@ SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
 SRCREV = "df4c50aecc9aad7ab3eb1ca9ebacfe473fcad7c5"
 
-SRC_URI += " \
-	           file://0001-HACK-ipumm-Workaround-for-linker-error.patch \
-	     "
-
 S = "${WORKDIR}/git"
 
 PV = "3.00.15.00"
-PR = "r6"
+PR = "r5"
 
 require recipes-ti/includes/ti-paths.inc
 
