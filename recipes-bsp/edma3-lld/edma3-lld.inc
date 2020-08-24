@@ -6,7 +6,8 @@ EDMA3_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/edma3_lld.git"
 EDMA3_LLD_GIT_PROTOCOL = "git"
 EDMA3_LLD_GIT_BRANCH = "master"
 
-EDMA3_LLD_SRCREV = "1ac9a3ff6632d5f04403d8789c3f95e0b585f7ae"
+# Below commit ID corresponds to version 2.12.05.30E
+EDMA3_LLD_SRCREV = "ce5ced2ac5eb1e0f1515288d279f5690813b5413"
 
 BRANCH = "${EDMA3_LLD_GIT_BRANCH}"
 SRC_URI = "${EDMA3_LLD_GIT_URI};protocol=${EDMA3_LLD_GIT_PROTOCOL};branch=${BRANCH}"
