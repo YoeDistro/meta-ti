@@ -17,6 +17,8 @@ require recipes-ti/includes/ti-paths.inc
 COMPATIBLE_HOST = "x86_64.*-linux"
 COMPATIBLE_HOST_class-target = "null"
 
+PE = "1"
+
 BINFILE = "ti_cgt_c7000_${PV}.STS_linux_installer_x86.bin"
 BINFILE_NAME = "cgt7x_x86_installer"
 

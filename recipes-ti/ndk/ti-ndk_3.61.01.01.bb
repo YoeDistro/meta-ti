@@ -1,5 +1,6 @@
 require ti-ndk.inc
 
+PE = "1"
 PV = "3_61_01_01"
 PR = "r0"
 

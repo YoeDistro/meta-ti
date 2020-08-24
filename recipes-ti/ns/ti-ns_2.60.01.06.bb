@@ -1,5 +1,6 @@
 require ti-ns.inc
 
+PE = "1"
 PV = "2_60_01_06"
 PR = "r0"
 SRC_URI = "http://software-dl.ti.com/targetcontent/ns/${PV}/exports/ns_${PV}.zip;name=nszip"
