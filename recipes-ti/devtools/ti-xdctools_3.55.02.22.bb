@@ -1,5 +1,6 @@
 require recipes-ti/devtools/ti-xdctools-core.inc
 
+PE = "1"
 PV = "3_55_02_22"
 PR = "r0"
 

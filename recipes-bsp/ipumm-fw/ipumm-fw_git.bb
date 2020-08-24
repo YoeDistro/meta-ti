@@ -18,7 +18,7 @@ SRCREV = "df4c50aecc9aad7ab3eb1ca9ebacfe473fcad7c5"
 S = "${WORKDIR}/git"
 
 PV = "3.00.15.00"
-PR = "r5"
+PR = "r7"
 
 require recipes-ti/includes/ti-paths.inc
 

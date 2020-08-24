@@ -1,5 +1,6 @@
 require recipes-ti/bios/ti-sysbios.inc
 
+PE = "1"
 PV = "6_76_03_01"
 PR = "r0"
 

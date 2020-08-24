@@ -6,6 +6,7 @@ TI_PDK_SRCREV ?= "a1ace885998e9adbcbbd0abf8b9ded6ba9ec54ff"
 TI_PDK_VERSION ?= "2020.5.6"
 
 PV = "${TI_PDK_VERSION}"
+PE = "2"
 
 TI_PDK_COMP ?= ""
 TI_PDK_COMP_PATH = "${@'${TI_PDK_COMP}'.replace('.','/')}"
