@@ -1,10 +1,12 @@
 require recipes-ti/bios/ti-sysbios.inc
 
-PV = "6_82_01_19"
+PV = "6_76_03_01"
+PR = "r0"
 
-LIC_FILES_CHKSUM = "file://manifest_bios_${PV}.html;md5=4b72066ed4cb1dd73ff2f585c428105a"
+LIC_FILES_CHKSUM = "file://manifest_bios_${PV}.html;md5=5cf40699c51b26d36fc01647c0b27fb1"
 
-SRC_URI[sysbiosbin.sha256sum] = "4d7c6cac993e6bc601083a41a5c52089d4852544b4c38563e4320310a54882b2"
+SRC_URI[sysbiosbin.md5sum] = "647243209d66d5dd35503b0ec5a84ab9"
+SRC_URI[sysbiosbin.sha256sum] = "b762b7f2343d26d367f952488e529046785128005158cc921c3baef08e97116a"
 
 TI_BIN_UNPK_CMDS = ""
 TI_BIN_UNPK_ARGS = "--mode unattended --prefix ${WORKDIR}"
