@@ -42,11 +42,11 @@ RELEASE_SUFFIX = ""
 PR = "${INC_PR}.r0"
 
 DEPENDS_append_keystone = " ti-cgt6x-native \
-                            gcc-arm-none-eabi-native \
+                            gcc-arm-baremetal-native \
 "
 DEPENDS_append_omap-a15 = " ti-cgt6x-native \
                             ti-cgt-arm-native \
-                            gcc-arm-none-eabi-native \
+                            gcc-arm-baremetal-native \
 "
 DEPENDS_append_omapl138 = " ti-cgt6x-native \
 "

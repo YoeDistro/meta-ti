@@ -1,6 +1,6 @@
 require starterware.inc
 
-DEPENDS = "gcc-arm-none-eabi-native ti-pdk-build-rtos ti-xdctools-native"
+DEPENDS = "gcc-arm-baremetal-native ti-pdk-build-rtos ti-xdctools-native"
 
 require recipes-ti/includes/ti-paths.inc
 

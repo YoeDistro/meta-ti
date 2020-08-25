@@ -3,15 +3,15 @@ require recipes-ti/includes/ti-staging.inc
 
 inherit perlnative
 
-DEPENDS = "ti-xdctools-native ti-cg-xml-native ti-sysbios common-csl-ip-rtos libxml-simple-perl-native gcc-arm-none-eabi-native ti-cgt6x-native ti-cgt-pru-native ti-pdk-build-rtos doxygen-native"
+DEPENDS = "ti-xdctools-native ti-cg-xml-native ti-sysbios common-csl-ip-rtos libxml-simple-perl-native gcc-arm-baremetal-native ti-cgt6x-native ti-cgt-pru-native ti-pdk-build-rtos doxygen-native"
 
 DEPENDS_append_omap-a15 = " ti-cgt-arm-native"
 DEPENDS_remove_ti33x = "ti-cgt6x-native"
 DEPENDS_remove_ti43x = "ti-cgt6x-native"
 DEPENDS_append_omapl1 = " ti-cgt-arm-native"
-DEPENDS_remove_am65xx = "gcc-arm-none-eabi-native ti-cgt6x-native"
+DEPENDS_remove_am65xx = "gcc-arm-baremetal-native ti-cgt6x-native"
 DEPENDS_append_am65xx = " ti-cgt-arm-native gcc-linaro-baremetal-aarch64-native"
-DEPENDS_remove_j7 = "gcc-arm-none-eabi-native"
+DEPENDS_remove_j7 = "gcc-arm-baremetal-native"
 DEPENDS_append_j7 = " ti-cgt-arm-native gcc-linaro-baremetal-aarch64-native ti-cgt7x-native"
 
 S = "${WORKDIR}/git"
