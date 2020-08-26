@@ -1,10 +1,7 @@
 require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
 
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native"
-
-UBOOT_DEPENDS = ""
-UBOOT_DEPENDS_j7200-evm-k3r5 = "u-boot-ti-staging:do_deploy"
-do_compile[depends] += "${UBOOT_DEPENDS}"
+DEPENDS_append_j7200-evm-k3r5 = " u-boot-ti-staging"
 
 CLEANBROKEN = "1"
 PR = "r1"
@@ -49,7 +46,7 @@ EXTRA_OEMAKE_HS = " \
 "
 EXTRA_OEMAKE_append = "${@['',' ${EXTRA_OEMAKE_HS}']['${SYSFW_SUFFIX}' == 'hs']}"
 
-EXTRA_OEMAKE_append_j7200-evm-k3r5 = " SBL="${DEPLOY_DIR_IMAGE}/u-boot-spl.bin""
+EXTRA_OEMAKE_append_j7200-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
 
 do_compile() {
 	cd ${WORKDIR}/imggen/
