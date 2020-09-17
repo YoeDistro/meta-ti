@@ -10,12 +10,12 @@ REQUIRED_MACHINE_FEATURES = "gpu"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "pandaboard|beagleboard|ti33x|ti43x|omap-a15|k3"
 
-PR = "r35"
+PR = "r36"
 
 BRANCH = "ti-img-sgx/zeus/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-um-linux.git;protocol=git;branch=${BRANCH}"
-SRCREV = "ce7b96b88d31da27af5b3a2a890aba180a014fc4"
+SRCREV = "7519eda203308c4356e68fd6af67a0900ed09cb4"
 
 TARGET_PRODUCT_omap-a15 = "jacinto6evm"
 TARGET_PRODUCT_ti33x = "ti335x"
@@ -56,8 +56,6 @@ S = "${WORKDIR}/git"
 do_install () {
     oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT}
     ln -sf libGLESv2.so ${D}${libdir}/libGLESv2.so.1
-
-    rm -rf ${D}${includedir}/GL
 
     chown -R root:root ${D}
 }
