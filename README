@@ -8,11 +8,11 @@ This layer depends on:
 
 URI: git://git.openembedded.org/openembedded-core
 layers: meta
-branch: master
+branch: dunfell
 
 URI: git://git.yoctoproject.org/meta-arm
 layers: meta-arm
-branch: master
+branch: dunfell
 
 
 The base BSP part of meta-ti should work with different OpenEmbedded/Yocto
