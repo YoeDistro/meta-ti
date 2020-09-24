@@ -10,6 +10,10 @@ URI: git://git.openembedded.org/openembedded-core
 layers: meta
 branch: master
 
+URI: git://git.yoctoproject.org/meta-arm
+layers: meta-arm
+branch: master
+
 
 The base BSP part of meta-ti should work with different OpenEmbedded/Yocto
 distributions and layer stacks, such as:
