@@ -7,7 +7,7 @@ PV = "2020.07-rc3"
 
 SRCREV = "f5438e998a7a8d23722fa4dcd1cdb62dec7a41d2"
 BRANCH ?= "ti-linux-firmware"
-SRCREV_imggen = "5b4d37b9bf41d58ff8c2f8dc98e5dac25e69ec56"
+SRCREV_imggen = "09256d5c21e6281d224646c1d4163d4dd0925238"
 SRCREV_FORMAT = "imggen"
 
 SRC_URI = " \
