@@ -1,8 +1,7 @@
 require conf/machine/include/k3.inc
 SOC_FAMILY_append = ":j7"
 
-OPTEEMACHINE = "k3"
-OPTEEFLAVOR = "j7"
+OPTEEMACHINE = "k3-j7"
 OPTEEOUTPUTMACHINE = "k3"
 
 # Set the list of device targets for ti-pdk class recipes
