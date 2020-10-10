@@ -21,8 +21,7 @@ KERNEL_DEVICETREE = " \
     ti/k3-am654-evm-prupwm.dtbo \
 "
 
-OPTEEMACHINE = "k3"
-OPTEEFLAVOR = "am65x"
+OPTEEMACHINE = "k3-am65x"
 OPTEEOUTPUTMACHINE = "k3"
 
 # Set the list of device targets for ti-pdk class recipes
