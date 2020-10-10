@@ -34,7 +34,7 @@ PV_append = "+git${SRCPV}"
 DEPENDS += "dtc-native bc-native lzop-native flex-native bison-native"
 
 PACKAGECONFIG[atf] = "ATF=${STAGING_DIR_HOST}/firmware/bl31.bin,,trusted-firmware-a"
-PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}/boot/bl32.bin,,optee-os"
+PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/bl32.bin,,optee-os"
 
 PACKAGECONFIG_append_aarch64 = " atf optee"
 
