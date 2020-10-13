@@ -28,7 +28,7 @@ do_configure() {
     config=`cat ${B}/.config | grep use-tisdk-config | cut -d= -f2`
     if [ -n "$config" ]
     then
-        ${S}/ti_config_fragments/defconfig_builder.sh -w ${S} -t $config
+        ${DEFCONFIG_BUILDER} -w ${S} -t $config
         oe_runmake -C ${S} O=${B} "$config"_defconfig
     else
         # First, check if pointing to a combined config with config fragments
