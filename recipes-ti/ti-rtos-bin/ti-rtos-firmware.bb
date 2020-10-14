@@ -51,7 +51,7 @@ CORESDK_RTOS_FILE_PREFIX ?= ""
 CORESDK_RTOS_FILE_SUFFIX ?= ""
 
 # Common code below
-S = "${WORKDIR}/lib/"
+S = "${WORKDIR}/lib"
 
 PV = "${CORESDK_RTOS_VERSION_DOT}"
 
