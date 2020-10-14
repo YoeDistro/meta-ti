@@ -15,7 +15,7 @@ TI_PDK_SOURCE_PN = "ti-pdk-source"
 TI_PDK_SOURCE_WORKDIR = "${TMPDIR}/work-shared/ti-pdk-${PV}"
 TI_PDK_SOURCE = "${TI_PDK_SOURCE_WORKDIR}/git"
 
-S = "${WORKDIR}/git/${TI_PDK_COMP_PATH}"
+S = "${@'${WORKDIR}/git/${TI_PDK_COMP_PATH}'.rstrip('/')}"
 
 # Hard-link only required sources from PDK
 python do_unpack_append() {
