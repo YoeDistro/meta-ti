@@ -1,7 +1,7 @@
 require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
 
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native"
-DEPENDS_append_j7200-evm-k3r5 = " u-boot-ti-staging"
+DEPENDS_append_j7200-evm-k3r5 = " virtual/bootloader"
 
 CLEANBROKEN = "1"
 PR = "r1"

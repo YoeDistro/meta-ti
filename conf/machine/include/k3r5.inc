@@ -21,3 +21,4 @@ UBOOT_IMAGE = "tiboot3-${MAINMACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
 UBOOT_SYMLINK = "tiboot3-${MAINMACHINE}.${UBOOT_SUFFIX}"
 
 PACKAGECONFIG_pn-u-boot-ti-staging = ""
+PACKAGECONFIG_pn-u-boot-ti-mainline = ""
