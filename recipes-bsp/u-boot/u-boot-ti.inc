@@ -33,10 +33,14 @@ PV_append = "+git${SRCPV}"
 # u-boot needs devtree compiler to parse dts files
 DEPENDS += "dtc-native bc-native lzop-native flex-native bison-native"
 
+DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
+
 PACKAGECONFIG[atf] = "ATF=${STAGING_DIR_HOST}/firmware/bl31.bin,,trusted-firmware-a"
 PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/bl32.bin,,optee-os"
+PACKAGECONFIG[dm] = "DM=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/pdk-ipc/${DM_FIRMWARE},,ti-rtos-firmware"
 
 PACKAGECONFIG_append_aarch64 = " atf optee"
+PACKAGECONFIG_append_j7 = " dm"
 
 COMPATIBLE_MACHINE = "(ti-soc)"
 
