@@ -3,7 +3,7 @@ do_compile_prepend_ti-soc() {
 }
 
 do_compile_append_k3() {
-    ( cd out/arm-plat-${OPTEEOUTPUTMACHINE}/core/; \
+    ( cd ${B}/core/; \
         cp tee-pager_v2.bin ${B}/bl32.bin; \
         cp tee.elf ${B}/bl32.elf; \
     )
@@ -11,16 +11,16 @@ do_compile_append_k3() {
 
 # Signing procedure for legacy HS devices
 optee_sign_legacyhs() {
-    ( cd out/arm-plat-${OPTEEOUTPUTMACHINE}/core/; \
+    ( cd ${B}/core/; \
         ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh tee.bin tee.bin.signed; \
         normfl=`echo ${OPTEEFLAVOR} | tr "_" "-"`
         mv tee.bin.signed ${B}/$normfl.optee; \
     )
 
     if [ "${OPTEEPAGER}" = "y" ]; then
-        rm -rf out/
+        oe_runmake clean
         oe_runmake all CFG_TEE_TA_LOG_LEVEL=0 CFG_WITH_PAGER=y
-        ( cd out/arm-plat-${OPTEEOUTPUTMACHINE}/core/; \
+        ( cd ${B}/core/; \
             ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh tee.bin tee.bin.signed; \
             normfl=`echo ${OPTEEFLAVOR} | tr "_" "-"`
             mv tee.bin.signed ${B}/$normfl-pager.optee; \
@@ -30,7 +30,7 @@ optee_sign_legacyhs() {
 
 # Signing procedure for K3 HS devices
 optee_sign_k3hs() {
-    ( cd out/arm-plat-${OPTEEOUTPUTMACHINE}/core/; \
+    ( cd ${B}/core/; \
         ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh tee-pager_v2.bin tee-pager.bin.signed; \
         mv tee-pager.bin.signed ${B}/bl32.bin; \
         cp tee.elf ${B}/bl32.elf; \
