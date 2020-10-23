@@ -21,6 +21,12 @@ KERNEL_DEVICETREE = " \
     ti/k3-am654-evm-prupwm.dtbo \
 "
 
+BBMULTICONFIG += "k3r5-sr2"
+
+IMAGE_BOOT_FILES += "sysfw-am65x-evm.itb"
+do_image_wic[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
+do_image_tar[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
+
 OPTEEMACHINE = "k3-am65x"
 OPTEEOUTPUTMACHINE = "k3"
 
