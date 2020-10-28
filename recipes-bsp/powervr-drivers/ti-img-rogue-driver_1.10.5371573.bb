@@ -7,7 +7,7 @@ inherit module features_check
 
 REQUIRED_MACHINE_FEATURES = "gpu"
 
-MACHINE_KERNEL_PR_append = "f"
+MACHINE_KERNEL_PR_append = "g"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -19,12 +19,11 @@ PROVIDES = "virtual/gpudriver"
 
 BRANCH = "linuxws/zeus/k5.4/${PV}"
 
-SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH} \
-    file://0001-km-support-general-toolchain.patch \
-"
+SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH}"
+
 S = "${WORKDIR}/git"
 
-SRCREV = "e0bc128ee5098e30c9fb096634ba6bec01b5fc17"
+SRCREV = "f58bea1084c5004f129943a53b94ee1446e9c3a7"
 
 PVR_SOC = "j721e_linux"
 PVR_BVNC = "22.104.208.318"
