@@ -1,0 +1,38 @@
+From 1a26cb577ba54dd9214eeb94fed0ce3a0f4603b6 Mon Sep 17 00:00:00 2001
+From: Khem Raj <raj.khem@gmail.com>
+Date: Sat, 24 Oct 2020 23:46:39 -0700
+Subject: [PATCH] examples: Remove use of includedir and libdir
+
+These point to standard include and library paths which already are used
+from sysroot relative paths secondly, they use absolute paths which
+means we are asking to add -I/usr/include which might be ok in a native
+build but not in cross build. This helps mitigate QA errors found with
+OE build system since it finds it adding host include and library search
+paths to linker/compiler commandline
+
+Upstream-Status: Pending
+Signed-off-by: Khem Raj <raj.khem@gmail.com>
+---
+ examples/Makefile.am | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/examples/Makefile.am b/examples/Makefile.am
+index 5a9bedb..d547e41 100644
+--- a/examples/Makefile.am
++++ b/examples/Makefile.am
+@@ -1,6 +1,4 @@
+-INCLUDE = -I${includedir}
+-
+-AM_CFLAGS = -Wall -g -O2 $(INCLUDE)
++AM_CFLAGS = -Wall -g -O2
+ 
+ bin_PROGRAMS = rpmsg_char_simple
+ 
+@@ -8,4 +6,3 @@ bin_PROGRAMS = rpmsg_char_simple
+ rpmsg_char_simple_SOURCES = rpmsg_char_simple.c
+ rpmsg_char_simple_CPPFLAGS = $(AM_CFLAGS)
+ rpmsg_char_simple_LDADD = -lpthread -lti_rpmsg_char
+-rpmsg_char_simple_LDFLAGS = -L${libdir}
+-- 
+2.29.1
+
