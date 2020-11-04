@@ -7,10 +7,10 @@ PROTOCOL = "git"
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/rpmsg/ti-rpmsg-char.git;protocol=${PROTOCOL};branch=${BRANCH};"
 
-# Initial 0.1.0 release
-SRCREV = "8ab86e58c97b50fcf977ce8599e38fc8b517e962"
+# Initial 0.2.0 release
+SRCREV = "ecee54d2bd5125d4e78028013433b568a2b72d07"
 
-PV = "0.1.0+git${SRCPV}"
+PV = "0.2.0+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 
