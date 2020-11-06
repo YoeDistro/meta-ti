@@ -19,6 +19,11 @@ SYSFW_SOC ?= "unknown"
 SYSFW_CONFIG ?= "unknown"
 
 SYSFW_PREFIX = "ti-sci-firmware"
+SYSFW_PREFIX_j7-evm-k3r5 = "ti-fs-firmware"
+SYSFW_PREFIX_j7200-evm-k3r5 = "ti-fs-firmware"
+SYSFW_PREFIX_j7-hs-evm-k3r5 = "ti-fs-firmware"
+SYSFW_PREFIX_7200-hs-evm-k3r5 = "ti-fs-firmware"
+
 SYSFW_SUFFIX ?= "unknown"
 
 SYSFW_BASE = "${SYSFW_PREFIX}-${SYSFW_SOC}-${SYSFW_SUFFIX}"
