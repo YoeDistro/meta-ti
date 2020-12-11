@@ -13,11 +13,12 @@ PLAT_SFX = ""
 PLAT_SFX_j7 = "/j721e"
 PLAT_SFX_j7200-evm = "/j7200"
 PLAT_SFX_am65xx = "/am65xx"
+PLAT_SFX_am64xx = "/am64x"
 
 # Use weak assignment to set defaults to TI_RTOS_METADATA_* variables
 TI_RTOS_METADATA_URI ?= "git://git.ti.com/processor-sdk/coresdk_rtos_releases.git"
 TI_RTOS_METADATA_PROTOCOL ?= "git"
-TI_RTOS_METADATA_SRCREV ?= "6da9722a7126a5834799ed6f7661787edb156198"
+TI_RTOS_METADATA_SRCREV ?= "d946278e9a40632d05cd1e953f5f200011be69a9"
 TI_RTOS_METADATA_BRANCH ?= "master"
 TI_RTOS_METADATA_DIR ?= "${PLAT_SFX}"
 TI_RTOS_METADATA_FILE ?= "${S}${TI_RTOS_METADATA_DIR}/metadata.inc"
