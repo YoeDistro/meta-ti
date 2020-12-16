@@ -1,7 +1,7 @@
 require u-boot-ti.inc
 
-PR = "r25"
+PR = "r26"
 
 BRANCH = "ti-u-boot-2020.01"
 
-SRCREV = "10dad9df6a0eb00f45bed48c9df0c9effb4fbae5"
+SRCREV = "c32cf0dd6bc60911927548ad20973c71fce95661"
