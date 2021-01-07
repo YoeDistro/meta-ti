@@ -4,11 +4,11 @@ LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
 
 PV = "2020.08b"
-PV_am64xx-evm-k3r5 = "2020.23"
+PV_am64xx-evm-k3r5 = "2020.12"
 
-SRCREV = "078c1bbf3d0a05b4045d4091c32e91ee1ae15ff8"
+SRCREV = "0c268f292f3b3a71d3bd0b367f492304b45e37b1"
 BRANCH ?= "ti-linux-firmware"
-SRCREV_imggen = "6d023674b0655f1a7bba192d2600c08be314e9ef"
+SRCREV_imggen = "a4796e5f1304fe8197cba54ccea3d18b9998ff02"
 SRCREV_FORMAT = "imggen"
 
 SRC_URI = " \
