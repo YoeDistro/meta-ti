@@ -31,7 +31,7 @@ SRC_URI += " \
     file://defconfig \
 "
 
-SRCREV_ti-upstream-tools = "3f36f66594d7905f7b97bc7870931173fd2466bd"
+SRCREV_ti-upstream-tools = "d59b7471d99b806e3dc22342c8f42d5bb33f8cce"
 SRCREV_FORMAT = "linux"
 
 KERNEL_DEVICETREE = ""
