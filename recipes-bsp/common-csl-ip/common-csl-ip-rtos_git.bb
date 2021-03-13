@@ -7,6 +7,7 @@ COMPATIBLE_MACHINE_append = "|c66x|k3"
 inherit ti-pdk
 
 DEPENDS_remove = "${PN}"
+DEPENDS_remove = "ti-sysbios"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
