@@ -11,17 +11,20 @@ INHIBIT_DEFAULT_DEPS = "1"
 
 inherit deploy
 
+DEFAULT_METADATA_FILE ?= "metadata.inc"
+DEFAULT_METADATA_FILE_am64xx ?= "mcusdk_metadata.inc"
+
 # First, let's try including metadata.inc that could be fetched and deployed
 # by ti-rtos-metadata earlier and provide new set of CORESDK_RTOS_* variables
-include ${DEPLOY_DIR_IMAGE}/metadata.inc
+include ${DEPLOY_DIR_IMAGE}/${DEFAULT_METADATA_FILE}
 
 # Set some defaults for when metadata.inc is not available
 DEFAULT_RTOS_FAMILY = "jacinto"
 DEFAULT_RTOS_VERSION = "07_03_00_21"
 DEFAULT_RTOS_VERSION_DOT = "07.03.00.21"
 
-DEFAULT_RTOS_VERSION_am64xx = "07_03_01_06"
-DEFAULT_RTOS_VERSION_DOT_am64xx = "07.03.01.06"
+DEFAULT_RTOS_VERSION_am64xx = "07_03_00_03"
+DEFAULT_RTOS_VERSION_DOT_am64xx = "07.03.00.03"
 
 DEFAULT_RTOS_VERSION_am65xx = "07_03_00_22"
 DEFAULT_RTOS_VERSION_DOT_am65xx = "07.03.00.22"
@@ -39,6 +42,7 @@ DEFAULT_RTOS_WEBLINK_am65xx = "https://software-dl.ti.com/processor-sdk-rtos/esd
 DEFAULT_RTOS_WEBLINK_am64xx = "https://software-dl.ti.com/processor-sdk-rtos/esd/AM64X/firmware/${CORESDK_RTOS_VERSION}"
 
 DEFAULT_FIRMWARE_FILE = "coresdk_rtos_${CORESDK_RTOS_SOC}_${CORESDK_RTOS_VERSION}_firmware.tar.xz"
+DEFAULT_FIRMWARE_FILE_am64xx = "mcu_plus_sdk_${CORESDK_RTOS_SOC}_${CORESDK_RTOS_VERSION}_firmware.tar.xz"
 
 DEFAULT_FIRMWARE_URL = "file://empty"
 DEFAULT_FIRMWARE_URL_k3 = "${CORESDK_RTOS_WEBLINK}/${DEFAULT_FIRMWARE_FILE}"
@@ -47,7 +51,7 @@ DEFAULT_FIRMWARE_SHA256SUM = "unknown"
 DEFAULT_FIRMWARE_SHA256SUM_j7 = "fc7805ed3d6c1801efb2b85ac9af99a8657aa3a7a9327bc16a1163d566f11c2c"
 DEFAULT_FIRMWARE_SHA256SUM_j7200-evm = "71f282ba6768ad3b603a17d30851cc621986c88311c174960a50196bfc79f85c"
 DEFAULT_FIRMWARE_SHA256SUM_am65xx = "61e0be08bea8ab1055645bd96504a6a29c70318c5b277237dee9981cd94d7f79"
-DEFAULT_FIRMWARE_SHA256SUM_am64xx = "450bf23d659756695d62168fe06eebe4641522293d89692a9eea837426bac0f9"
+DEFAULT_FIRMWARE_SHA256SUM_am64xx = "bc2d3d603ad30006ea3fefa3e777c26c19b95ee6d6f5a630259009f2f5a4996b"
 
 # Use weak assignment for CORESDK_RTOS_* variables to use defaults if not yet set
 CORESDK_RTOS_FAMILY ?= "${DEFAULT_RTOS_FAMILY}"
