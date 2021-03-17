@@ -1,13 +1,13 @@
 DESCRIPTION =  "Kernel drivers for the PowerVR Rogue GPU found in the TI SoCs"
 HOMEPAGE = "http://git.ti.com/graphics/ti-img-rogue-driver"
 LICENSE = "MIT | GPLv2"
-LIC_FILES_CHKSUM = "file://README;beginline=15;endline=20;md5=0403c7dea01a2b8232261e805325fac2"
+LIC_FILES_CHKSUM = "file://README;beginline=14;endline=19;md5=0403c7dea01a2b8232261e805325fac2"
 
 inherit module features_check
 
 REQUIRED_MACHINE_FEATURES = "gpu"
 
-MACHINE_KERNEL_PR_append = "g"
+MACHINE_KERNEL_PR_append = "a"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -17,13 +17,13 @@ DEPENDS = "virtual/kernel"
 
 PROVIDES = "virtual/gpudriver"
 
-BRANCH = "linuxws/zeus/k5.4/${PV}"
+BRANCH = "1.13-5776728/linux-k5.4"
 
 SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "f58bea1084c5004f129943a53b94ee1446e9c3a7"
+SRCREV = "ea77784e89f919bd3343a421862bf90cb65cc26c"
 
 PVR_SOC = "j721e_linux"
 PVR_BVNC = "22.104.208.318"
