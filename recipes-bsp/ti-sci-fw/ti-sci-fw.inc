@@ -3,11 +3,11 @@ SUMMARY = "TI SCI firmware (SYSFW)"
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
 
-PV = "2021.01"
+PV = "2021.01a"
 
-SRCREV = "b7e5d159fd4a5b03a02c8f4b8eb32bad2addf4f5"
+SRCREV = "306e8b92bcce0fe88b494732c0a614079f8ff73a"
 BRANCH ?= "ti-linux-firmware"
-SRCREV_imggen = "3cd998ff043adf70a50f63115ca1888c62802511"
+SRCREV_imggen = "c376cd495b9821b6e3cb296b1bbae10d0f010817"
 SRCREV_FORMAT = "imggen"
 
 SRC_URI = " \
