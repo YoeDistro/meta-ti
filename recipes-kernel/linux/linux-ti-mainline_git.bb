@@ -16,6 +16,7 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 S = "${WORKDIR}/git"
 
 BRANCH = "master"
+TOOLS_BRANCH = "master"
 
 # 5.11 Mainline version
 SRCREV = "f40ddce88593482919761f74910f42f4b84c004b"
@@ -29,7 +30,7 @@ KERNEL_GIT_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.g
 KERNEL_GIT_PROTOCOL = "git"
 SRC_URI += " \
     ${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH};name=linux \
-    git://git.ti.com/ti-linux-kernel/ti-upstream-tools.git;protocol=${KERNEL_GIT_PROTOCOL};name=ti-upstream-tools;destsuffix=ti-upstream-tools \
+    git://git.ti.com/ti-linux-kernel/ti-upstream-tools.git;branch=${TOOLS_BRANCH};protocol=${KERNEL_GIT_PROTOCOL};name=ti-upstream-tools;destsuffix=ti-upstream-tools \
     file://defconfig \
 "
 
