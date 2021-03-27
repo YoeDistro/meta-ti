@@ -74,6 +74,18 @@ SRC_URI[sha256sum] = "${CORESDK_RTOS_FIRMWARE_SHA256SUM}"
 
 FILES_${PN} += "${base_libdir}"
 
+TI_SECURE_DEV_PKG ?= ""
+
+DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
+
+do_install_prepend_j7-hs-evm() {
+	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
+	( cd ${S}/firmware/pdk-ipc/; \
+		mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
+		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
+	)
+}
+
 do_install() {
 	CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
 	install -d ${D}${base_libdir}
