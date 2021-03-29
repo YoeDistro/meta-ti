@@ -72,6 +72,8 @@ PV = "${CORESDK_RTOS_VERSION_DOT}"
 SRC_URI = "${CORESDK_RTOS_FIRMWARE_URL}${CORESDK_RTOS_FILE_SUFFIX}"
 SRC_URI[sha256sum] = "${CORESDK_RTOS_FIRMWARE_SHA256SUM}"
 
+DEPENDS += "openssl-native"
+
 FILES_${PN} += "${base_libdir}"
 
 do_install() {
