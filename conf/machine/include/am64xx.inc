@@ -10,7 +10,9 @@ KERNEL_DEVICETREE = " \
     ti/k3-am642-evm.dtb \
 "
 
-IMAGE_BOOT_FILES = "tispl.bin u-boot.img"
+# AM64 supports multi-certificate images, use the same
+IMAGE_BOOT_FILES = "${IMAGE_BOOT_FILES_MULTI_CERT}"
+
 do_image_wic[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
 do_image_tar[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
 
