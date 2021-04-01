@@ -10,6 +10,10 @@ KERNEL_DEVICETREE = " \
     ti/k3-am642-evm.dtb \
 "
 
+IMAGE_BOOT_FILES = "tispl.bin u-boot.img"
+do_image_wic[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
+do_image_tar[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
+
 TFA_BOARD = "lite"
 OPTEEMACHINE = "k3-am65x"
 OPTEEOUTPUTMACHINE = "k3"
