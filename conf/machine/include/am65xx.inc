@@ -23,6 +23,8 @@ KERNEL_DEVICETREE = " \
 
 BBMULTICONFIG += "k3r5-sr2"
 
+# Use default IMAGE_BOOT_FILES_LEGACY files
+# Since default sysfw.itb on AM65x is for SR2.0, add a version for SR1.0
 IMAGE_BOOT_FILES += "sysfw-am65x-evm.itb"
 do_image_wic[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
 do_image_tar[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
