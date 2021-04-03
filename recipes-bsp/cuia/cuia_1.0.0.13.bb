@@ -27,4 +27,4 @@ do_install() {
 COMPATIBLE_HOST ?= "null"
 COMPATIBLE_HOST_ti-soc = "(.*)"
 
-INSANE_SKIP_${PN} += "textrel"
+INSANE_SKIP_${PN} += "textrel installed-vs-shipped"
