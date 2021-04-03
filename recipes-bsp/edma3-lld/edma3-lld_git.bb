@@ -73,3 +73,6 @@ do_install () {
 	install -c -m 755 ${S}/examples/edma3_user_space_driver/evmC66AK2E/bin/c66ak2e-evm/edma3_drv_c66ak2e_a15_sample_a15host_release.xa15fg \
 		${D}/${bindir}/edma3_drv_c66ak2e_a15_sample_a15host_release.xa15fg
 }
+
+INSANE_SKIP_${PN} += "ldflags"
+INSANE_SKIP_${PN}-test += "ldflags"
