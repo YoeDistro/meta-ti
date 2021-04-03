@@ -27,3 +27,5 @@ do_install() {
 	cp -r ${S}/src/sync ${D}${datadir}/ti/examples/mpm/src
 	cp -r ${S}/test ${D}${datadir}/ti/examples/mpm
 }
+
+INSANE_SKIP_${PN} = "ldflags staticdev"
