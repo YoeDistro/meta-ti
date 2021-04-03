@@ -19,7 +19,9 @@ PROVIDES = "virtual/gpudriver"
 
 BRANCH = "1.13-5776728/linux-k5.4"
 
-SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH} \
+    file://0001-compiler.mk-support-OE-toolchain-alongside-Poky-one.patch \
+"
 
 S = "${WORKDIR}/git"
 
