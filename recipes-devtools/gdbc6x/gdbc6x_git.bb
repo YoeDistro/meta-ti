@@ -19,6 +19,8 @@ S = "${WORKDIR}/git/gdbc6x"
 inherit update-rc.d
 inherit gettext
 
+CFLAGS += "-fcommon"
+
 do_configure () {
     cd ${S}
     ./configure --program-suffix=c6x --target=tic6x-elf-tirtos --host=${HOST_SYS} --prefix=${S}/install_gdb
