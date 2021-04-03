@@ -14,6 +14,8 @@ DEVICELIST_k2e  = "k2e"
 
 CHOICELIST = "no yes"
 
+CFLAGS += "-fcommon"
+
 PARALLEL_MAKE = ""
 EXTRA_OEMAKE = "-f makefile_armv7 PDK_INSTALL_PATH=${STAGING_INCDIR} SA_SRC_DIR=${S}"
 

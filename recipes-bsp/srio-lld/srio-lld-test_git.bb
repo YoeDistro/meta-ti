@@ -7,6 +7,8 @@ PR = "${INC_PR}.0"
 
 CHOICELIST = "yes no"
 
+CFLAGS += "-fcommon"
+
 do_compile () {
 #   Now build the lld in the updated directory
 	for device in ${DEVICELIST}

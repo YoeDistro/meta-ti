@@ -8,6 +8,8 @@ PR = "${INC_PR}.1"
 
 CHOICELIST = "yes no"
 
+CC += "-fcommon"
+
 do_compile () {
 # Now build the lld unit test examples
 	for device in ${DEVICELIST}
