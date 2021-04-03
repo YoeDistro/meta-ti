@@ -1,6 +1,8 @@
 DESCRIPTION = "TI Inter Process Communication (IPC) examples with Host running bios"
 require ti-ipc-examples.inc
 
+SRC_URI += "file://0001-examples-ClusterMgr-sys_errlist-has-been-deprecated-.patch;patchdir=../git/ipc-examples"
+
 DEPENDS = "ti-ipc ti-xdctools-native ti-sysbios ti-ipc-rtos zip-native"
 
 do_compile_append() {

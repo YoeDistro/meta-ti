@@ -1,0 +1,40 @@
+From cca4fd812959a0cd241dd3bbebfd461ece94c9b8 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denis@denix.org>
+Date: Mon, 29 Mar 2021 19:42:00 -0400
+Subject: [PATCH] examples/ClusterMgr: sys_errlist[] has been deprecated in
+ glibc
+
+Use strerror() instead.
+
+Upstream-Status: Pending
+
+Signed-off-by: Denys Dmytriyenko <denis@denix.org>
+---
+ src/examples/templates/ex46_graph/manager/ClusterMgr.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/examples/templates/ex46_graph/manager/ClusterMgr.c b/src/examples/templates/ex46_graph/manager/ClusterMgr.c
+index 19216c9..a1fa679 100644
+--- a/src/examples/templates/ex46_graph/manager/ClusterMgr.c
++++ b/src/examples/templates/ex46_graph/manager/ClusterMgr.c
+@@ -714,7 +714,7 @@ static pid_t ClusterMgr_system(char *cmd, bool wait)
+     pid = fork();
+ 
+     if (pid == -1) {
+-        LOG "CM_system: fork error: %s\n", sys_errlist[errno] LOGF
++        LOG "CM_system: fork error: %s\n", strerror(errno) LOGF
+         status = -1;
+         goto leave;
+     }
+@@ -739,7 +739,7 @@ static pid_t ClusterMgr_system(char *cmd, bool wait)
+     else {
+         /* overlay a new executable */
+         execvp(argv[0], argv);
+-        LOG "CM_system: execvp error: %s\n", sys_errlist[errno] LOGF
++        LOG "CM_system: execvp error: %s\n", strerror(errno) LOGF
+         status = -1;
+     }
+ 
+-- 
+2.7.4
+
