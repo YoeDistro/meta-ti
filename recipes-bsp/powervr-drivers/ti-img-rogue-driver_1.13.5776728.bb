@@ -7,7 +7,7 @@ inherit module features_check
 
 REQUIRED_MACHINE_FEATURES = "gpu"
 
-MACHINE_KERNEL_PR_append = "a"
+MACHINE_KERNEL_PR_append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -17,7 +17,7 @@ DEPENDS = "virtual/kernel"
 
 PROVIDES = "virtual/gpudriver"
 
-BRANCH = "1.13-5776728/linux-k5.4"
+BRANCH = "1.13-5776728/linux-k5.10"
 
 SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH} \
     file://0001-compiler.mk-support-OE-toolchain-alongside-Poky-one.patch \
@@ -25,7 +25,7 @@ SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-driver.git;branch=${BRANCH} \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "ea77784e89f919bd3343a421862bf90cb65cc26c"
+SRCREV = "35a25875ae8738f82c7cabc6b077ef992b0cca84"
 
 PVR_SOC = "j721e_linux"
 PVR_BVNC = "22.104.208.318"
