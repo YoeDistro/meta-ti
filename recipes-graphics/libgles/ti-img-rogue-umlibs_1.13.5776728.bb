@@ -10,9 +10,9 @@ REQUIRED_MACHINE_FEATURES = "gpu"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j7"
 
-PR = "r2"
+PR = "r3"
 
-BRANCH = "linuxws/dunfell/k5.4/${PV}"
+BRANCH = "linuxws/dunfell/k5.10/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-umlibs.git;branch=${BRANCH}"
 
