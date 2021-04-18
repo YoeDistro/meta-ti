@@ -10,12 +10,12 @@ REQUIRED_MACHINE_FEATURES = "gpu"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "pandaboard|beagleboard|ti33x|ti43x|omap-a15|k3"
 
-PR = "r36"
+PR = "r37"
 
-BRANCH = "ti-img-sgx/zeus/${PV}"
+BRANCH = "ti-img-sgx/dunfell/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-um-linux.git;protocol=git;branch=${BRANCH}"
-SRCREV = "7519eda203308c4356e68fd6af67a0900ed09cb4"
+SRCREV = "742cf38aba13e1ba1a910cf1f036a1a212c263b6"
 
 TARGET_PRODUCT_omap-a15 = "jacinto6evm"
 TARGET_PRODUCT_ti33x = "ti335x"
