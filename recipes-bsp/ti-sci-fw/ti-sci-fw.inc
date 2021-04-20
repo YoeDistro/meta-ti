@@ -7,7 +7,7 @@ PV = "2021.01"
 
 SRCREV = "b7e5d159fd4a5b03a02c8f4b8eb32bad2addf4f5"
 BRANCH ?= "ti-linux-firmware"
-SRCREV_imggen = "3cd998ff043adf70a50f63115ca1888c62802511"
+SRCREV_imggen = "a6b09643aa1acbcfa59bd2c1c080e3ad6c9e8074"
 SRCREV_FORMAT = "imggen"
 
 SRC_URI = " \
