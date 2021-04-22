@@ -1,0 +1,35 @@
+From b5c4036dac06817bffd0be21c5fa1b7f75f74e4b Mon Sep 17 00:00:00 2001
+From: Suman Anna <s-anna@ti.com>
+Date: Mon, 19 Apr 2021 13:15:51 -0500
+Subject: [PATCH] uio-module-drv: Replace ioremap_nocache with ioremap
+
+The ioremap_nocache is the same as the regular ioremap and its
+definition has been dropped from the Linux kernel v5.6 onwards in
+commit 4bdc0d676a64 ("remove ioremap_nocache and devm_ioremap_nocache")
+[1]. The uio-module-drv module fails to build against these newer
+kernels, so fix it by simply replacing ioremap_nocache with ioremap.
+
+[1]
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4bdc0d676a643140bdf17dbf7eafedee3d496a3c
+
+Signed-off-by: Suman Anna <s-anna@ti.com>
+---
+ uio_module_drv.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/uio_module_drv.c b/uio_module_drv.c
+index 5a67dd199e21..7cc6005d1f05 100644
+--- a/uio_module_drv.c
++++ b/uio_module_drv.c
+@@ -240,7 +240,7 @@ static ssize_t  uio_module_drv_transfer(struct file *file, char __user *buf,
+ 		return -EINVAL;
+ 	}
+ 
+-	virt_addr_p = ioremap_nocache(phys_addr, count);
++	virt_addr_p = ioremap(phys_addr, count);
+ 	if (!virt_addr_p) {
+ 		dev_err(uio_module_drv->dev, "Mapping of virtual memory failed\n");
+ 		return(-ENOMEM);
+-- 
+2.30.1
+
