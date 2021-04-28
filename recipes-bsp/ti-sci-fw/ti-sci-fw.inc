@@ -5,9 +5,9 @@ LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
 
 PV = "2021.01a"
 
-SRCREV = "306e8b92bcce0fe88b494732c0a614079f8ff73a"
+SRCREV = "34062b5670aac524ce3074b184ef2ef62daafca0"
 BRANCH ?= "ti-linux-firmware"
-SRCREV_imggen = "a6b09643aa1acbcfa59bd2c1c080e3ad6c9e8074"
+SRCREV_imggen = "7b6f3832af6d334d335309d66d206ab829765c0e"
 SRCREV_FORMAT = "imggen"
 
 SRC_URI = " \
