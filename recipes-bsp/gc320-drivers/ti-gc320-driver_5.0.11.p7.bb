@@ -7,13 +7,13 @@ inherit module features_check
 
 REQUIRED_MACHINE_FEATURES = "gc320"
 
-MACHINE_KERNEL_PR_append = "h"
+MACHINE_KERNEL_PR_append = "i"
 PR = "${MACHINE_KERNEL_PR}"
 
 # Need to branch out with ${PV} var
-BRANCH = "ti-${PV}-k5.4"
+BRANCH = "ti-${PV}-k5.10"
 
-SRCREV = "2a4fbe8353fa56011a613aeeaf69e274cd07a825"
+SRCREV = "e2a10f31e255a65ec30a6e10b890e77d7e9cb107"
 
 SRC_URI = "git://git.ti.com/graphics/ti-gc320-driver.git;protocol=git;branch=${BRANCH}"
 
