@@ -18,9 +18,9 @@ S = "${WORKDIR}/git"
 BRANCH = "master"
 TOOLS_BRANCH = "master"
 
-# 5.11 Mainline version
-SRCREV = "f40ddce88593482919761f74910f42f4b84c004b"
-PV = "5.11+git${SRCPV}"
+# 5.12 Mainline version
+SRCREV = "9f4ad9e425a1d3b6a34617b8ea226d56a119a717"
+PV = "5.12+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
 MACHINE_KERNEL_PR_append = "a"
