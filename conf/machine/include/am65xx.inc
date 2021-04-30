@@ -8,8 +8,10 @@ SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
 KERNEL_DEVICETREE = " \
     ti/k3-am654-base-board.dtb \
+    ti/k3-am654-base-board-sr1.dtbo \
     ti/k3-am654-gp.dtbo \
     ti/k3-am654-idk.dtbo \
+    ti/k3-am654-idk-sr1.dtbo \
     ti/k3-am654-sr1.dtbo \
     ti/k3-am654-pcie-usb2.dtbo \
     ti/k3-am654-pcie-usb3.dtbo \
