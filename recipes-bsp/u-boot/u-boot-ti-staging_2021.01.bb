@@ -2,8 +2,8 @@ require u-boot-ti.inc
 
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=5a7450c57ffe5ae63fd732446b988025"
 
-PR = "r3"
+PR = "r4"
 
 BRANCH = "ti-u-boot-2021.01"
 
-SRCREV = "1e70024c7e0f95f57fc1f4f20564baef1c049fb0"
+SRCREV = "51a19c4274ca897cec279d1b2d883957ab4705c5"
