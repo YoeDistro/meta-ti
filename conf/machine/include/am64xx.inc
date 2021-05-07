@@ -8,6 +8,7 @@ SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
 KERNEL_DEVICETREE = " \
     ti/k3-am642-evm.dtb \
+    ti/k3-am642-sk.dtb \
 "
 
 # AM64 supports multi-certificate images, use the same
