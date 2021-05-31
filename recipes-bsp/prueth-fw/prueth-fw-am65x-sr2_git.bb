@@ -7,7 +7,7 @@ PV = "02.02.08.02"
 
 CLEANBROKEN = "1"
 
-COMPATIBLE_MACHINE = "am65xx-evm"
+COMPATIBLE_MACHINE = "am65xx-evm|am64xx-evm"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
