@@ -15,6 +15,8 @@ KERNEL_DEVICETREE = " \
     ti/k3-am654-sr1.dtbo \
     ti/k3-am654-pcie-usb2.dtbo \
     ti/k3-am654-pcie-usb3.dtbo \
+    ti/k3-am654-evm-tc358876.dtbo \
+    ti/k3-am654-evm-oldi-lcd1evm.dtbo \
 "
 
 BBMULTICONFIG += "k3r5-sr2"
