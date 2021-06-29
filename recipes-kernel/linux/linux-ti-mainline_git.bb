@@ -20,9 +20,9 @@ S = "${WORKDIR}/git"
 BRANCH = "master"
 TOOLS_BRANCH = "master"
 
-# 5.12 Mainline version
-SRCREV = "9f4ad9e425a1d3b6a34617b8ea226d56a119a717"
-PV = "5.12+git${SRCPV}"
+# 5.13 Mainline version
+SRCREV = "62fb9874f5da54fdb243003b386128037319b219"
+PV = "5.13+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
 MACHINE_KERNEL_PR_append = "b"
@@ -36,7 +36,7 @@ SRC_URI += " \
     file://defconfig \
 "
 
-SRCREV_ti-upstream-tools = "d59b7471d99b806e3dc22342c8f42d5bb33f8cce"
+SRCREV_ti-upstream-tools = "c9b8150cb00a5beb7b7f3e42d0d817aa9392fabd"
 SRCREV_FORMAT = "linux"
 
 KERNEL_DEVICETREE = ""
