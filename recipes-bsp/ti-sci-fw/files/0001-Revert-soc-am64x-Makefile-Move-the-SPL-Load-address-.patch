@@ -1,0 +1,36 @@
+From 83d29d5e346083254e71fbe483cb14f6657b9965 Mon Sep 17 00:00:00 2001
+From: Nishanth Menon <nm@ti.com>
+Date: Tue, 29 Jun 2021 12:03:29 -0500
+Subject: [PATCH] Revert "soc: am64x: Makefile: Move the SPL Load address to
+ 0x70000000"
+
+This reverts commit e411dc16862b5bb2d8befb12496b03d7b01c87b2.
+
+Mainline is NOT ready for the change yet as of u-boot 2021.07 + v5.13,
+So, this patch reverts the SPL address change.
+
+This patch needs to be dropped once mainline u-boot and kernel have
+migrated over to newer releases.
+
+Upstream-Status: Not applicable
+Signed-off-by: Nishanth Menon <nm@ti.com>
+---
+ soc/am64x/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/soc/am64x/Makefile b/soc/am64x/Makefile
+index 45425428f9c6..e8747376f153 100644
+--- a/soc/am64x/Makefile
++++ b/soc/am64x/Makefile
+@@ -30,7 +30,7 @@
+ #  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ #
+ 
+-SBL_LOADADDDR ?= 0x70000000
++SBL_LOADADDDR ?= 0x70020000
+ COMBINED_SYSFW_BRDCFG_LOADADDR ?= 0x70000
+ LOADADDR  ?= 0x44000
+ SCIFS = sci
+-- 
+2.32.0
+
