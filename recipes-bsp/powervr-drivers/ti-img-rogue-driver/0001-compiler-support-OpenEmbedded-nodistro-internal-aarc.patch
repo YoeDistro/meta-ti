@@ -1,0 +1,29 @@
+From 80d32fee3d768abbd77cce77ea9a7574651460a9 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denis@denix.org>
+Date: Wed, 7 Jul 2021 13:11:56 -0400
+Subject: [PATCH] compiler: support OpenEmbedded "nodistro" internal aarch64
+ toolchain
+
+Upstream-Status: Pending
+
+Signed-off-by: Denys Dmytriyenko <denis@denix.org>
+---
+ build/linux/config/compiler.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/build/linux/config/compiler.mk b/build/linux/config/compiler.mk
+index 53a0bef..d788579 100644
+--- a/build/linux/config/compiler.mk
++++ b/build/linux/config/compiler.mk
+@@ -65,7 +65,7 @@ define calculate-compiler-preferred-target
+    ifneq ($$(filter i386-% i486-% i586-% i686-%,$$($(1)_compiler_preferred_target)),)
+     $(1)_compiler_preferred_target := i386-linux-gnu
+    endif
+-   ifneq ($$(filter aarch64-poky-linux,$$($(1)_compiler_preferred_target)),)
++   ifneq ($$(filter aarch64-oe-linux aarch64-poky-linux,$$($(1)_compiler_preferred_target)),)
+     $(1)_compiler_preferred_target := aarch64-linux-gnu
+    endif
+    ifneq ($$(filter armv7a-cros-linux-gnueabi armv7l-tizen-linux-gnueabi,$$($(1)_compiler_preferred_target)),)
+-- 
+2.7.4
+
