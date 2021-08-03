@@ -18,6 +18,7 @@ PLAT_SFX_j7200-evm = "j7200"
 PLAT_SFX_am65xx = "am65xx"
 PLAT_SFX_am64xx = "am64xx"
 
+FILESEXTRAPATHS_prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
 require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
 
 CORESDK_RTOS_VERSION ?= "08.00.00.26"
