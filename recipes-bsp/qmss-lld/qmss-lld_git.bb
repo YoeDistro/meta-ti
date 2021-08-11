@@ -31,8 +31,8 @@ do_install () {
     ln -sf libqmss_device.so.1 libqmss_device.so
 }
 
-INHIBIT_PACKAGE_STRIP_FILES_k2hk = "${PKGD}${libdir}/libqmss_k2h.a ${PKGD}${libdir}/libqmss_k2k.a"
-INHIBIT_PACKAGE_STRIP_FILES_k2e = "${PKGD}${libdir}/libqmss_k2e.a"
-INHIBIT_PACKAGE_STRIP_FILES_k2l = "${PKGD}${libdir}/libqmss_k2l.a"
-INHIBIT_PACKAGE_STRIP_FILES_k2g = "${PKGD}${libdir}/libqmss_k2h.a"
-INHIBIT_PACKAGE_STRIP_FILES_append = " ${PKGD}${libdir}/libqmss.a"
+INHIBIT_PACKAGE_STRIP_FILES:k2hk = "${PKGD}${libdir}/libqmss_k2h.a ${PKGD}${libdir}/libqmss_k2k.a"
+INHIBIT_PACKAGE_STRIP_FILES:k2e = "${PKGD}${libdir}/libqmss_k2e.a"
+INHIBIT_PACKAGE_STRIP_FILES:k2l = "${PKGD}${libdir}/libqmss_k2l.a"
+INHIBIT_PACKAGE_STRIP_FILES:k2g = "${PKGD}${libdir}/libqmss_k2h.a"
+INHIBIT_PACKAGE_STRIP_FILES:append = " ${PKGD}${libdir}/libqmss.a"

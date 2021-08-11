@@ -38,8 +38,8 @@ do_install() {
     find -name "*.tar" -exec tar xf {} --no-same-owner -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages/ti/drv/ipc \;
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 
-INSANE_SKIP_${PN} = "arch ldflags file-rdeps"
+INSANE_SKIP:${PN} = "arch ldflags file-rdeps"
 
-INSANE_SKIP_${PN}-dbg = "arch"
+INSANE_SKIP:${PN}-dbg = "arch"

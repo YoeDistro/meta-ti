@@ -26,7 +26,7 @@ PR = "r0"
 S = "${WORKDIR}/${VPS_LLD_GIT_DESTSUFFIX}"
 
 # Add to DEPENDS set in ti-pdk.bbclass
-DEPENDS_append = " \
+DEPENDS:append = " \
             ti-sysbios \
             osal-rtos \
             edma3-lld-rtos \
@@ -44,7 +44,7 @@ TI_PDK_XDCMAKE = "0"
 # The makefile will push these on the XDCPATH
 export EDMA3LLD_BIOS6_INSTALLDIR = "${EDMA3_LLD_INSTALL_DIR}"
 
-do_compile_append() {
+do_compile:append() {
     # Delete archive created by XDC release command since it does not contain all content
     find -name "*.tar" -exec rm -f {} \;
 
@@ -53,4 +53,4 @@ do_compile_append() {
     tar -cf pm_lld.tar --exclude='*.tar' ./*
 }
 
-INSANE_SKIP_${PN} = "arch ldflags"
+INSANE_SKIP:${PN} = "arch ldflags"

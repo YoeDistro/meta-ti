@@ -9,8 +9,8 @@ PR = "${INC_PR}.2"
 S = "${WORKDIR}/git/dsptop"
 
 DEVICE = ""
-DEVICE_dra7xx = "DRA7xx"
-DEVICE_keystone = "C66AK2Hxx"
+DEVICE:dra7xx = "DRA7xx"
+DEVICE:keystone = "C66AK2Hxx"
 
 EXTRA_OEMAKE = "release DEVICE=${DEVICE} CROSS_COMPILE=${TARGET_PREFIX} CC="${CC}""
 
@@ -21,8 +21,8 @@ do_install() {
 COMPATIBLE_MACHINE = "dra7xx|keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RDEPENDS_${PN} = "debugss-module-drv bash"
-RDEPENDS_${PN}_append_keystone = " temperature-module-drv"
+RDEPENDS:${PN} = "debugss-module-drv bash"
+RDEPENDS:${PN}:append:keystone = " temperature-module-drv"
 
 include dsptop.inc
 

@@ -14,7 +14,7 @@ PV = "01.00.00.00"
 
 PACKAGES =+ "${PN}-test"
 
-FILES_${PN}-test = "${bindir}/udma_test"
+FILES:${PN}-test = "${bindir}/udma_test"
 
 do_install() {
 	install -d ${D}${bindir}/
@@ -29,4 +29,4 @@ do_install() {
 	install -c -m 755 ${S}/include/* ${D}${includedir}/
 }
 
-INSANE_SKIP_${PN} += "textrel"
+INSANE_SKIP:${PN} += "textrel"

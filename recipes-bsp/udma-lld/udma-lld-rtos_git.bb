@@ -15,7 +15,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r1"
 
-DEPENDS_append = " osal-rtos \
+DEPENDS:append = " osal-rtos \
                    sciclient-rtos \
 "
 
@@ -28,7 +28,7 @@ UDMA_LLD_ROOTPATH = "${UDMA_PACKAGE_BASE}/package/all/pdk_/packages/ti/drv/udma"
 export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
 export PDK_UDMA_ROOT_PATH = "${UDMA_PACKAGE_BASE}/package/all/pdk_/packages"
 
-TI_PDK_LIMIT_BOARDS_am65xx = "am65xx_evm"
+TI_PDK_LIMIT_BOARDS:am65xx = "am65xx_evm"
 
 
 # HTML doc link params
@@ -60,6 +60,6 @@ do_install() {
     find -name "*.tar" -exec tar xf {} --no-same-owner -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages/ti/drv/udma \;
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 
-INSANE_SKIP_${PN} = "arch ldflags"
+INSANE_SKIP:${PN} = "arch ldflags"

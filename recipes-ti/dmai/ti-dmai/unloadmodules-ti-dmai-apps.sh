@@ -1,7 +1,7 @@
 # Unload modules - DMAI - OMAP3530
 
 # remove lpm module
-rmmod lpm_omap3530
+rmmod lpm:omap3530
 
 # remove DSP/BIOS Link driver
 rmmod dsplinkk

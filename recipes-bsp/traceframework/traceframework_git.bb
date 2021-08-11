@@ -34,7 +34,7 @@ do_install() {
 
 PACKAGES =+ "${PN}-test"
 
-FILES_${PN}-test = "${bindir}/tfw*.out \
+FILES:${PN}-test = "${bindir}/tfw*.out \
                     ${bindir}/*.txt"
 
 INHIBIT_PACKAGE_STRIP_FILES = "${PKGD}${libdir}/libtraceframework.a"

@@ -14,7 +14,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r1"
 
-DEPENDS_append_k3 = " udma-lld-rtos \
+DEPENDS:append:k3 = " udma-lld-rtos \
 "
 
 

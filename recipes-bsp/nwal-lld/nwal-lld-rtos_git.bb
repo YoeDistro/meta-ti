@@ -6,7 +6,7 @@ require recipes-bsp/nwal-lld/nwal-lld.inc
 
 PR = "${INC_PR}.0"
 
-DEPENDS_append = " cppi-lld-rtos \
+DEPENDS:append = " cppi-lld-rtos \
                    pa-lld-rtos \
                    pktlib-rtos \
                    qmss-lld-rtos \

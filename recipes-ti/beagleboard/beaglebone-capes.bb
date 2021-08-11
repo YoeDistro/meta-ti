@@ -23,4 +23,4 @@ do_install() {
 	install -m 0755 ${WORKDIR}/cape*.sh ${D}${bindir}
 }
 
-FILES_${PN} += "${base_libdir}/systemd/system"
+FILES:${PN} += "${base_libdir}/systemd/system"

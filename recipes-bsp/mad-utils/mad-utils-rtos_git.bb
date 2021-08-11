@@ -23,7 +23,7 @@ PR = "r0"
 S = "${WORKDIR}/git"
 
 export C6X_BASE_DIR="${TI_CGT6X_7_INSTALL_DIR}"
-PATH_prepend = "${TI_CGT6X_7_INSTALL_DIR}/bin:"
+PATH:prepend = "${TI_CGT6X_7_INSTALL_DIR}/bin:"
 
 DEVICE = ""
 DEVICE_c665x-evm = "C6657"
@@ -52,6 +52,6 @@ do_install() {
     cp -rP --preserve=mode,links,timestamps --no-preserve=ownership * ${D}${PDK_INSTALL_DIR_RECIPE}/packages/ti/boot/mad-utils
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages/ti/boot/mad-utils"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages/ti/boot/mad-utils"
 
-INSANE_SKIP_${PN} += "arch staticdev ldflags file-rdeps"
+INSANE_SKIP:${PN} += "arch staticdev ldflags file-rdeps"

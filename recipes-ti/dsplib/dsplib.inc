@@ -35,7 +35,7 @@ export SWTOOLS_PATH = "${SWTOOLS_INSTALL_DIR}/ti/mas/swtools"
 export XDCBUILDCFG="${SWTOOLS_PATH}/config.bld"
 export INCDIR="${MATHLIB_INSTALL_DIR}/"
 
-PATH_append = ":${XDC_INSTALL_DIR}"
+PATH:append = ":${XDC_INSTALL_DIR}"
 
 XDCPATH.="${XDCCGROOT}/include;${XDC_INSTALL_DIR}/packages;${SYSBIOS_INSTALL_DIR}/packages;"
 XDCPATH.="${SWTOOLS_INSTALL_DIR};${MATHLIB_INSTALL_DIR};${DSPLIB_WORK_DIR};"
@@ -70,9 +70,9 @@ do_deploy() {
 	rm -r ./${DSPLIB_PACKAGE_NAME}
 }
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${DSPLIB_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}-dev += "${DSPLIB_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN}-dev = "arch"
+INSANE_SKIP:${PN}-dev = "arch"
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"

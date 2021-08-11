@@ -27,9 +27,9 @@ S = "${WORKDIR}/${SERDES_DIAG_GIT_DESTSUFFIX}"
 
 
 # Build with make instead of XDC for k3
-TI_PDK_XDCMAKE_k3 = "0"
+TI_PDK_XDCMAKE:k3 = "0"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "SERDES Diagnostics"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

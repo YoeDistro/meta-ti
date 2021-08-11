@@ -33,7 +33,7 @@ PR = "r2"
 
 S = "${WORKDIR}/git"
 
-PATH_prepend = "${TI_CGT6X_7_INSTALL_DIR}/bin:"
+PATH:prepend = "${TI_CGT6X_7_INSTALL_DIR}/bin:"
 
 IBLTARGETS = ""
 IBLTARGETS_c665x-evm = "evm_c6657_i2c"
@@ -66,10 +66,10 @@ do_install() {
     cp -rP --preserve=mode,links,timestamps --no-preserve=ownership * ${D}${PDK_INSTALL_DIR_RECIPE}/packages/ti/boot/ibl
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-INSANE_SKIP_${PN} = "arch file-rdeps"
+INSANE_SKIP:${PN} = "arch file-rdeps"

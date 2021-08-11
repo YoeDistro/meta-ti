@@ -16,6 +16,6 @@ PE = "1"
 
 INC_PR = "r0"
 
-DEVICELIST_k2hk = "k2h k2k"
-DEVICELIST_k2e  = "k2e"
+DEVICELIST:k2hk = "k2h k2k"
+DEVICELIST:k2e  = "k2e"
 

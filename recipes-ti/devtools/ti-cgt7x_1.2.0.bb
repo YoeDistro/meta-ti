@@ -15,12 +15,12 @@ require recipes-ti/includes/ti-paths.inc
 
 # only x86_64 is supported
 COMPATIBLE_HOST = "x86_64.*-linux"
-COMPATIBLE_HOST_class-target = "null"
+COMPATIBLE_HOST:class-target = "null"
 
 PE = "1"
 
 BINFILE = "ti_cgt_c7000_${PV}.STS_linux_installer_x86.bin"
-BINFILE_NAME = "cgt7x_x86_installer"
+BINFILE_NAME = "cgt7x:x86_installer"
 
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C7000/${PV}.STS/${BINFILE};name=${BINFILE_NAME}"
 
@@ -38,9 +38,9 @@ do_install() {
 }
 
 
-FILES_${PN} += "${TI_CGT7X_INSTALL_DIR_RECIPE}"
+FILES:${PN} += "${TI_CGT7X_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN} += "arch staticdev textrel"
+INSANE_SKIP:${PN} += "arch staticdev textrel"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"

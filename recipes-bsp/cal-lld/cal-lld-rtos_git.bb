@@ -15,7 +15,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r0"
 
-DEPENDS_append = " osal-rtos \
+DEPENDS:append = " osal-rtos \
                    fvid2-rtos \
 "
 
@@ -29,16 +29,16 @@ export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
 export PDK_CAL_ROOT_PATH = "${CAL_PACKAGE_BASE}/package/all/pdk_/packages"
 
 LIMSOCS = ""
-LIMSOCS_am65xx-evm = "am65xx"
-LIMSOCS_am65xx-hs-evm = "am65xx"
+LIMSOCS:am65xx-evm = "am65xx"
+LIMSOCS:am65xx-hs-evm = "am65xx"
 
 LIMBOARDS = ""
-LIMBOARDS_am65xx-evm = "am65xx_evm"
-LIMBOARDS_am65xx-hs-evm = "am65xx_evm"
+LIMBOARDS:am65xx-evm = "am65xx_evm"
+LIMBOARDS:am65xx-hs-evm = "am65xx_evm"
 
 BOARD_PACKAGE = ""
-BOARD_PACKAGE_am65xx-evm = "am65xx_evm"
-BOARD_PACKAGE_am65xx-hs-evm = "am65xx_evm"
+BOARD_PACKAGE:am65xx-evm = "am65xx_evm"
+BOARD_PACKAGE:am65xx-hs-evm = "am65xx_evm"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "CAL"
@@ -71,6 +71,6 @@ do_install() {
     find -name "*.tar" -exec tar xf {} --no-same-owner -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages/ti/drv/cal \;
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 
-INSANE_SKIP_${PN} = "arch ldflags"
+INSANE_SKIP:${PN} = "arch ldflags"

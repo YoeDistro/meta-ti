@@ -26,10 +26,10 @@ COMPATIBLE_MACHINE = "omap-a15|ti33x|ti43x|k2g"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEVICE_NAME = ""
-DEVICE_NAME_append_am57xx-evm = "am57xx"
-DEVICE_NAME_append_ti33x = "am33xx"
-DEVICE_NAME_append_ti43x = "am43xx"
-DEVICE_NAME_append_k2g = "k2g"
+DEVICE_NAME:append:am57xx-evm = "am57xx"
+DEVICE_NAME:append:ti33x = "am33xx"
+DEVICE_NAME:append:ti43x = "am43xx"
+DEVICE_NAME:append:k2g = "k2g"
 
 EXTRA_OEMAKE = "CGT_PRU=${TI_CGT_PRU_INSTALL_DIR} DEVICE=${DEVICE_NAME}"
 

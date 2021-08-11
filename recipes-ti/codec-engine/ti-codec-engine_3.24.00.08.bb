@@ -25,5 +25,5 @@ do_install() {
         cp ${CP_ARGS} ${S}/* ${D}${CE_INSTALL_DIR_RECIPE}
 }
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${CE_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}-dev += "${CE_INSTALL_DIR_RECIPE}"

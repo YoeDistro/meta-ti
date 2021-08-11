@@ -15,7 +15,7 @@ do_install() {
     cp ${CP_ARGS} ${S}/* ${D}${NS_INSTALL_DIR_RECIPE}
 }
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${NS_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}-dev += "${NS_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN}-dev = "arch ldflags staticdev file-rdeps"
+INSANE_SKIP:${PN}-dev = "arch ldflags staticdev file-rdeps"

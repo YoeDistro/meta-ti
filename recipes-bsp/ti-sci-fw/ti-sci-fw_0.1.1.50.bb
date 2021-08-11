@@ -25,7 +25,7 @@ do_install() {
 	install -m 0644 ${S}/ti-keystone/${TARGET} ${D}/boot/${TARGET}
 }
 
-FILES_${PN} = "/boot"
+FILES:${PN} = "/boot"
 
 inherit deploy
 

@@ -16,7 +16,7 @@ PLATFORMLIST = "tci6636k2h-evm \
 
 PACKAGES =+ "${PN}-test"
 
-FILES_${PN}-test = "${bindir}/*"
+FILES:${PN}-test = "${bindir}/*"
 
 S = "${WORKDIR}/git"
 
@@ -74,5 +74,5 @@ do_install () {
 		${D}/${bindir}/edma3_drv_c66ak2e_a15_sample_a15host_release.xa15fg
 }
 
-INSANE_SKIP_${PN} += "ldflags"
-INSANE_SKIP_${PN}-test += "ldflags"
+INSANE_SKIP:${PN} += "ldflags"
+INSANE_SKIP:${PN}-test += "ldflags"

@@ -13,14 +13,14 @@ do_install() {
     cp ${CP_ARGS}  ${S}/* ${D}${XDC_INSTALL_DIR_RECIPE}
 }
 
-FILES_${PN}-dev = "${XDC_INSTALL_DIR_RECIPE}"
+FILES:${PN}-dev = "${XDC_INSTALL_DIR_RECIPE}"
 
 BBCLASSEXTEND = "native nativesdk"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INSANE_SKIP_${PN}-dev = "libdir dev-elf arch file-rdeps"
+INSANE_SKIP:${PN}-dev = "libdir dev-elf arch file-rdeps"
 
 # Prevent internal libs from getting picked up
 PRIVATE_LIBS = " \
@@ -65,6 +65,6 @@ libawt_xawt.so \
 "
 
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
-COMPATIBLE_HOST_class-native = "(.*)"
-COMPATIBLE_HOST_class-nativesdk = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"
+COMPATIBLE_HOST:class-native = "(.*)"
+COMPATIBLE_HOST:class-nativesdk = "(.*)"

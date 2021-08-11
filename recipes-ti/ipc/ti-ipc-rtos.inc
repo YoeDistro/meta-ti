@@ -41,37 +41,37 @@ RELEASE_SUFFIX = ""
 
 PR = "${INC_PR}.r0"
 
-DEPENDS_append_keystone = " ti-cgt6x-native \
+DEPENDS:append:keystone = " ti-cgt6x-native \
                             gcc-arm-baremetal-native \
 "
-DEPENDS_append_omap-a15 = " ti-cgt6x-native \
+DEPENDS:append:omap-a15 = " ti-cgt6x-native \
                             ti-cgt-arm-native \
                             gcc-arm-baremetal-native \
 "
-DEPENDS_append_omapl138 = " ti-cgt6x-native \
+DEPENDS:append:omapl138 = " ti-cgt6x-native \
 "
-DEPENDS_append_c66x = " ti-cgt6x-native \
+DEPENDS:append:c66x = " ti-cgt6x-native \
 "
 
 IPC_TARGETS = ""
 
-IPC_TARGETS_omap-a15 = "\
+IPC_TARGETS:omap-a15 = "\
     gnu.targets.arm.A15F="${GCC_ARM_NONE_TOOLCHAIN}" \
     ti.targets.elf.C66="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
     ti.targets.elf.C66_big_endian="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
     ti.targets.arm.elf.M4="${M4_TOOLCHAIN_INSTALL_DIR}" \
 "
 
-IPC_TARGETS_omapl138 = "\
+IPC_TARGETS:omapl138 = "\
     ti.targets.elf.C674="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
 "
 
-IPC_TARGETS_keystone = " \
+IPC_TARGETS:keystone = " \
     gnu.targets.arm.A15F="${GCC_ARM_NONE_TOOLCHAIN}" \
     ti.targets.elf.C66="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
     ti.targets.elf.C66_big_endian="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
 "
-IPC_TARGETS_c66x = " \
+IPC_TARGETS:c66x = " \
     ti.targets.elf.C66="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
     ti.targets.elf.C66_big_endian="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
 "

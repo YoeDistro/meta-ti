@@ -38,5 +38,5 @@ mknod /dev/dsplink c `awk "\\$2==\"dsplink\" {print \\$1}" /proc/devices` 0
 
 # insert Local Power Manager driver
 #
-modprobe lpm_omap3530
+modprobe lpm:omap3530
 

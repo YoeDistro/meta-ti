@@ -11,33 +11,33 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PLATFORMLIST = ""
 TARGETLIST = ""
 
-PLATFORMLIST_ti33x = " \
+PLATFORMLIST:ti33x = " \
         am335x-evm \
 "
 
-TARGETLIST_ti33x = " \
+TARGETLIST:ti33x = " \
         a8 \
 "
 
-PLATFORMLIST_ti43x = " \
+PLATFORMLIST:ti43x = " \
         am437x-evm \
 "
 
-TARGETLIST_ti43x = " \
+TARGETLIST:ti43x = " \
         arm9 \
 "
 
-PLATFORMLIST_omap-a15 = " \
+PLATFORMLIST:omap-a15 = " \
         tda2xx-evm \
 "
 
-TARGETLIST_omap-a15 = " \
+TARGETLIST:omap-a15 = " \
         66 \
         a15 \
         m4 \
 "
 
-PLATFORMLIST_keystone = " \
+PLATFORMLIST:keystone = " \
         tci6636k2h-evm \
         tci6638k2k-evm \
         tci6630k2l-evm \
@@ -45,16 +45,16 @@ PLATFORMLIST_keystone = " \
         tci66ak2g02-evm \
 "
 
-TARGETLIST_keystone = " \
+TARGETLIST:keystone = " \
         66 \
         a15 \
 "
 
-PLATFORMLIST_append_dra7xx-evm = " \
+PLATFORMLIST:append:dra7xx-evm = " \
         tda3xx-evm \
 "
 
-TARGETLIST_c66x = " \
+TARGETLIST:c66x = " \
         66 \
 "
 
@@ -66,17 +66,17 @@ PLATFORMLIST_c667x-evm = " \
         c6678-evm \
 "
 
-PLATFORMLIST_omapl1 = " \
+PLATFORMLIST:omapl1 = " \
         omapl137-evm \
         omapl138-evm \
 "
 
-TARGETLIST_omapl1 = " \
+TARGETLIST:omapl1 = " \
         arm9 \
         674 \
 "
 
-EXTRA_OEMAKE_remove = "TARGET=66"
+EXTRA_OEMAKE:remove = "TARGET=66"
 FORMAT="ELF"
 
 S = "${WORKDIR}/git"
@@ -139,7 +139,7 @@ do_install () {
     cp ${CP_ARGS} ${S}/* ${D}${EDMA3_LLD_INSTALL_DIR_RECIPE}
 }
 
-INSANE_SKIP_${PN}-dev = "arch ldflags file-rdeps"
+INSANE_SKIP:${PN}-dev = "arch ldflags file-rdeps"
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${EDMA3_LLD_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}-dev += "${EDMA3_LLD_INSTALL_DIR_RECIPE}"

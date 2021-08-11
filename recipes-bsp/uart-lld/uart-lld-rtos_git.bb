@@ -15,16 +15,16 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r0"
 
-DEPENDS_append = " edma3-lld-rtos \
+DEPENDS:append = " edma3-lld-rtos \
                    osal-rtos \
 "
-DEPENDS_append_ti33x = " starterware-rtos \
+DEPENDS:append:ti33x = " starterware-rtos \
                          pruss-lld-rtos \
 "
-DEPENDS_append_ti43x = " starterware-rtos"
+DEPENDS:append:ti43x = " starterware-rtos"
 
-DEPENDS_remove_k3 = "edma3-lld-rtos "
-DEPENDS_append_k3 = " udma-lld-rtos "
+DEPENDS:remove:k3 = "edma3-lld-rtos "
+DEPENDS:append:k3 = " udma-lld-rtos "
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
@@ -33,9 +33,9 @@ export PDK_UART_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
 
 export EDMA3LLD_BIOS6_INSTALLDIR = "${EDMA3_LLD_INSTALL_DIR}"
-XDCPATH_append = ";${EDMA3_LLD_INSTALL_DIR}/packages"
+XDCPATH:append = ";${EDMA3_LLD_INSTALL_DIR}/packages"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "UART LLD"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

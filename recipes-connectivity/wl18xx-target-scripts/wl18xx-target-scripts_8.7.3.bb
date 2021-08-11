@@ -13,7 +13,7 @@ PR = "r1"
 
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "${datadir}/wl18xx/"
+FILES:${PN} += "${datadir}/wl18xx/"
 
 do_install() {
 	install -d ${D}${datadir}/wl18xx/

@@ -1,2 +1,2 @@
 require conf/machine/include/ti-soc.inc
-SOC_FAMILY_append = ":omapl1"
+SOC_FAMILY:append = ":omapl1"

@@ -30,22 +30,22 @@ inherit update-rc.d
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm"
 
 DEPENDS += "libdrm wayland expat"
-RDEPENDS_${PN} += "bash"
-RDEPENDS_${PN} += "wayland expat"
+RDEPENDS:${PN} += "bash"
+RDEPENDS:${PN} += "wayland expat"
 
-RPROVIDES_${PN} = "libegl libgles1 libgles2 libgbm"
-RPROVIDES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
-RPROVIDES_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
+RPROVIDES:${PN} = "libegl libgles1 libgles2 libgbm"
+RPROVIDES:${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
+RPROVIDES:${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
 
-RREPLACES_${PN} = "libegl libgles1 liblges2 libgbm"
-RREPLACES_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
-RREPLACES_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
+RREPLACES:${PN} = "libegl libgles1 liblges2 libgbm"
+RREPLACES:${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
+RREPLACES:${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
 
-RCONFLICTS_${PN} = "libegl libgles1 libgles2 libgbm"
-RCONFLICTS_${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
-RCONFLICTS_${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
+RCONFLICTS:${PN} = "libegl libgles1 libgles2 libgbm"
+RCONFLICTS:${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
+RCONFLICTS:${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg"
 
-RRECOMMENDS_${PN} += "ti-img-rogue-driver"
+RRECOMMENDS:${PN} += "ti-img-rogue-driver"
 
 S = "${WORKDIR}/git"
 
@@ -54,16 +54,16 @@ do_install () {
     chown -R root:root ${D}
 }
 
-FILES_${PN} += " ${base_libdir}/firmware/"
-FILES_${PN} += " ${datadir}/"
+FILES:${PN} += " ${base_libdir}/firmware/"
+FILES:${PN} += " ${datadir}/"
 
 PACKAGES =+ "${PN}-plugins"
-FILES_${PN}-plugins = "${libdir}/libGLESv2.so ${libdir}/libGLESv1_CM.so ${libdir}/libEGL.so ${libdir}/dri/pvr_dri.so"
-RDEPENDS_${PN} += "${PN}-plugins"
+FILES:${PN}-plugins = "${libdir}/libGLESv2.so ${libdir}/libGLESv1_CM.so ${libdir}/libEGL.so ${libdir}/dri/pvr_dri.so"
+RDEPENDS:${PN} += "${PN}-plugins"
 
-ALLOW_EMPTY_${PN}-plugins = "1"
+ALLOW_EMPTY:${PN}-plugins = "1"
 
-INSANE_SKIP_${PN} += "ldflags arch already-stripped"
-INSANE_SKIP_${PN}-plugins = "dev-so"
+INSANE_SKIP:${PN} += "ldflags arch already-stripped"
+INSANE_SKIP:${PN}-plugins = "dev-so"
 
 CLEANBROKEN = "1"

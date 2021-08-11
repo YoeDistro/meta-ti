@@ -22,4 +22,4 @@ do_install() {
     oe_runmake 'DEST_DIR=${D}' install
 }
 
-FILES_${PN} = "/lib/firmware/ti-connectivity/*"
+FILES:${PN} = "/lib/firmware/ti-connectivity/*"

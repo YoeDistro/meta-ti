@@ -25,7 +25,7 @@ PR = "r0"
 
 S = "${WORKDIR}/git/ti/addon/audk2g"
 
-DEPENDS_append = " ti-sysbios \
+DEPENDS:append = " ti-sysbios \
             gpio-lld-rtos \
             i2c-lld-rtos \
             board-rtos \

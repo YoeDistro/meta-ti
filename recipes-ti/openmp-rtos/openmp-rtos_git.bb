@@ -24,9 +24,9 @@ SRCREV = "c090eb664d9815a36ead0e14f31e102590680fb8"
 LIC_FILES_CHKSUM = "file://docs/license/omp_manifest_template.html;md5=61a6972303c0447b7c056195d7ebafee"
 
 DEPENDS = "common-csl-ip-rtos doxygen-native libulm ti-xdctools-native ti-ipc-rtos ti-sysbios ti-cgt6x-native zip-native"
-DEPENDS_append_k2hk = " qmss-lld-rtos cppi-lld-rtos"
-DEPENDS_append_k2e = " qmss-lld-rtos cppi-lld-rtos"
-DEPENDS_append_k2l = " qmss-lld-rtos cppi-lld-rtos"
+DEPENDS:append:k2hk = " qmss-lld-rtos cppi-lld-rtos"
+DEPENDS:append:k2e = " qmss-lld-rtos cppi-lld-rtos"
+DEPENDS:append:k2l = " qmss-lld-rtos cppi-lld-rtos"
 
 COMPATIBLE_MACHINE = "keystone|omap-a15"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -45,15 +45,15 @@ export BUILD_K2H = "0"
 export BUILD_AM572 = "0"
 export BUILD_K2G = "0"
 
-BUILD_K2H_keystone = "1"
-BUILD_AM572_omap-a15 = "1"
-BUILD_K2H_k2g = "0"
-BUILD_K2G_k2g = "1"
+BUILD_K2H:keystone = "1"
+BUILD_AM572:omap-a15 = "1"
+BUILD_K2H:k2g = "0"
+BUILD_K2G:k2g = "1"
 
 RELEASE_TARGET = ""
-RELEASE_TARGET_keystone = "k2x"
-RELEASE_TARGET_omap-a15 = "am57xx"
-RELEASE_TARGET_k2g = "k2g"
+RELEASE_TARGET:keystone = "k2x"
+RELEASE_TARGET:omap-a15 = "am57xx"
+RELEASE_TARGET:k2g = "k2g"
 
 do_compile() {
     make -f utils/product/Makefile .zipfile
@@ -64,10 +64,10 @@ do_install() {
     cp -r ${S}/exports/openmp_dsp_${RELEASE_TARGET}_*/. -d  ${D}${OMP_INSTALL_DIR_RECIPE}
 }
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
-FILES_${PN}-dev += " \
+FILES:${PN}-dev += " \
     ${OMP_INSTALL_DIR_RECIPE}/ \
 "
 
-INSANE_SKIP_${PN}-dev = "arch"
+INSANE_SKIP:${PN}-dev = "arch"

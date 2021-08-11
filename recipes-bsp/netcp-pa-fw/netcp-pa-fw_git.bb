@@ -37,7 +37,7 @@ ks2_pa_post_pdsp0 \
 ks2_pa_post_pdsp1 \
 "
 
-FWBASENAME_k2hk = " \
+FWBASENAME:k2hk = " \
 ks2_pa_pdsp0_classify1 \
 ks2_pa_pdsp1_classify1 \
 ks2_pa_pdsp2_classify1 \
@@ -53,4 +53,4 @@ do_install() {
 	done
 }
 
-FILES_${PN} = "${base_libdir}/firmware"
+FILES:${PN} = "${base_libdir}/firmware"

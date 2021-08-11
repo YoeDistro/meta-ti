@@ -19,10 +19,10 @@ do_install() {
     cp ${CP_ARGS} ${S}/* ${D}${SYSBIOS_INSTALL_DIR_RECIPE}
 }
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${SYSBIOS_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}-dev += "${SYSBIOS_INSTALL_DIR_RECIPE}"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INSANE_SKIP_${PN}-dev = "arch ldflags staticdev file-rdeps"
+INSANE_SKIP:${PN}-dev = "arch ldflags staticdev file-rdeps"

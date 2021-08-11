@@ -78,6 +78,6 @@ python ti_bin_do_unpack() {
 }
 
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
-COMPATIBLE_HOST_class-native = "(.*)"
-COMPATIBLE_HOST_class-nativesdk = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"
+COMPATIBLE_HOST:class-native = "(.*)"
+COMPATIBLE_HOST:class-nativesdk = "(.*)"

@@ -15,4 +15,4 @@ S = "${WORKDIR}/git"
 EXTRA_OECONF += "IPC_HEADERS=${STAGING_INCDIR}/ti/ipc/mm"
 
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"

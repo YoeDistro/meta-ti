@@ -5,14 +5,14 @@ include multiprocmgr.inc
 PR = "${INC_PR}.2"
 
 DEPENDS = "multiprocmgr cmem"
-RDEPENDS_${PN} = "multiprocmgr mpm-transport cmem"
-RDEPENDS_${PN} += "multiprocmgr-rtos-test bash"
+RDEPENDS:${PN} = "multiprocmgr mpm-transport cmem"
+RDEPENDS:${PN} += "multiprocmgr-rtos-test bash"
 
-FILES_${PN} += "\
+FILES:${PN} += "\
     ${datadir}/ti/examples/mpm \
 "
 
-FILES_${PN}-dbg += "\
+FILES:${PN}-dbg += "\
     ${datadir}/ti/examples/mpm/*/.debug \
 "
 
@@ -28,4 +28,4 @@ do_install() {
 	cp -r ${S}/test ${D}${datadir}/ti/examples/mpm
 }
 
-INSANE_SKIP_${PN} = "ldflags staticdev"
+INSANE_SKIP:${PN} = "ldflags staticdev"

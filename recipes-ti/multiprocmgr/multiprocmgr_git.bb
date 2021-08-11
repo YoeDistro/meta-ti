@@ -16,7 +16,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 INITSCRIPT_NAME = "mpmsrv-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"
 
-SYSTEMD_SERVICE_${PN} = "mpmsrv-daemon.service"
+SYSTEMD_SERVICE:${PN} = "mpmsrv-daemon.service"
 
 inherit update-rc.d systemd
 
@@ -41,4 +41,4 @@ do_install() {
 	chown -R root:root ${D}${libdir}/
 }
 
-INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP:${PN} = "ldflags"

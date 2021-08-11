@@ -28,5 +28,5 @@ do_install() {
     oe_runmake
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages/*"
-INSANE_SKIP_${PN} += " file-rdeps"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages/*"
+INSANE_SKIP:${PN} += " file-rdeps"

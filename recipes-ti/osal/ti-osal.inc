@@ -15,10 +15,10 @@ do_install() {
     cp -pPrf ${S}/* ${D}${OSAL_INSTALL_DIR_RECIPE}
 }
 
-INSANE_SKIP_${PN}-dev = "staticdev"
+INSANE_SKIP:${PN}-dev = "staticdev"
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${OSAL_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}-dev += "${OSAL_INSTALL_DIR_RECIPE}"
 
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"

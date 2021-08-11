@@ -5,14 +5,14 @@ inherit perlnative
 
 DEPENDS = "ti-xdctools-native ti-cg-xml-native ti-sysbios common-csl-ip-rtos libxml-simple-perl-native gcc-arm-baremetal-native ti-cgt6x-native ti-cgt-pru-native ti-pdk-build-rtos doxygen-native"
 
-DEPENDS_append_omap-a15 = " ti-cgt-arm-native"
-DEPENDS_remove_ti33x = "ti-cgt6x-native"
-DEPENDS_remove_ti43x = "ti-cgt6x-native"
-DEPENDS_append_omapl1 = " ti-cgt-arm-native"
-DEPENDS_remove_am65xx = "gcc-arm-baremetal-native ti-cgt6x-native"
-DEPENDS_append_am65xx = " ti-cgt-arm-native gcc-linaro-baremetal-aarch64-native"
-DEPENDS_remove_j7 = "gcc-arm-baremetal-native"
-DEPENDS_append_j7 = " ti-cgt-arm-native gcc-linaro-baremetal-aarch64-native ti-cgt7x-native"
+DEPENDS:append:omap-a15 = " ti-cgt-arm-native"
+DEPENDS:remove:ti33x = "ti-cgt6x-native"
+DEPENDS:remove:ti43x = "ti-cgt6x-native"
+DEPENDS:append:omapl1 = " ti-cgt-arm-native"
+DEPENDS:remove:am65xx = "gcc-arm-baremetal-native ti-cgt6x-native"
+DEPENDS:append:am65xx = " ti-cgt-arm-native gcc-linaro-baremetal-aarch64-native"
+DEPENDS:remove:j7 = "gcc-arm-baremetal-native"
+DEPENDS:append:j7 = " ti-cgt-arm-native gcc-linaro-baremetal-aarch64-native ti-cgt7x-native"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"
@@ -141,4 +141,4 @@ do_install () {
     fi
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"

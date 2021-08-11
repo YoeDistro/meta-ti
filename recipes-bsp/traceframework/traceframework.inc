@@ -20,8 +20,8 @@ PV = "01.01.01.09A"
 INC_PR = "r0"
 
 DEVICELIST = "k2k k2h k2e k2l"
-DEVICELIST_k2hk = "k2k k2h"
-DEVICELIST_k2e = "k2e"
-DEVICELIST_k2l = "k2l"
+DEVICELIST:k2hk = "k2k k2h"
+DEVICELIST:k2e = "k2e"
+DEVICELIST:k2l = "k2l"
 
 S = "${WORKDIR}/${TRACEFRAMEWORK_GIT_DESTSUFFIX}"

@@ -27,7 +27,7 @@ export C64PCODEGENTOOL = "${CGTOOLS_INSTALL_DIR}"
 export C674CODEGENTOOL = "${CGTOOLS_INSTALL_DIR}"
 export C66CODEGENTOOL  = "${CGTOOLS_INSTALL_DIR}"
 
-PATH_append = ":${XDC_INSTALL_DIR}"
+PATH:append = ":${XDC_INSTALL_DIR}"
 
 XDCPATH .= "${XDCCGROOT}/include;${XDC_INSTALL_DIR}/packages;${SYSBIOS_INSTALL_DIR}/packages;"
 
@@ -44,9 +44,9 @@ do_install() {
 	cp ${CP_ARGS} ${S}/* ${D}${SWTOOLS_INSTALL_DIR_RECIPE}
 }
 
-FILES_${PN}-dev += "${SWTOOLS_INSTALL_DIR_RECIPE}"
+FILES:${PN}-dev += "${SWTOOLS_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN}-dev = "arch staticdev"
-ALLOW_EMPTY_${PN} = "1"
+INSANE_SKIP:${PN}-dev = "arch staticdev"
+ALLOW_EMPTY:${PN} = "1"
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"

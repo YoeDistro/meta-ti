@@ -1,8 +1,8 @@
-do_compile_prepend_ti-soc() {
+do_compile:prepend:ti-soc() {
     export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
 }
 
-do_compile_append_k3() {
+do_compile:append:k3() {
     ( cd ${B}/core/; \
         cp tee-pager_v2.bin ${B}/bl32.bin; \
         cp tee.elf ${B}/bl32.elf; \
@@ -37,23 +37,23 @@ optee_sign_k3hs() {
     )
 }
 
-do_compile_append_ti43x() {
+do_compile:append:ti43x() {
     optee_sign_legacyhs
 }
 
-do_compile_append_dra7xx() {
+do_compile:append:dra7xx() {
     optee_sign_legacyhs
 }
 
-do_compile_append_am65xx-hs-evm() {
+do_compile:append:am65xx-hs-evm() {
     optee_sign_k3hs
 }
 
-do_compile_append_j7-hs-evm() {
+do_compile:append:j7-hs-evm() {
     optee_sign_k3hs
 }
 
-do_install_append_ti-soc() {
+do_install:append:ti-soc() {
     install -m 644 ${B}/*.optee ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.elf ${D}${nonarch_base_libdir}/firmware/ || true
@@ -66,18 +66,18 @@ optee_deploy_legacyhs() {
     done
 }
 
-do_deploy_append_ti43x() {
+do_deploy:append:ti43x() {
     optee_deploy_legacyhs
 }
 
-do_deploy_append_dra7xx() {
+do_deploy:append:dra7xx() {
     optee_deploy_legacyhs
 }
 
-do_deploy_append_k3() {
+do_deploy:append:k3() {
     ln -sf optee/bl32.bin ${DEPLOYDIR}/
     ln -sf optee/bl32.elf ${DEPLOYDIR}/
 }
 
 # This is needed for bl32.elf
-INSANE_SKIP_${PN}_append_k3 = " textrel"
+INSANE_SKIP:${PN}:append:k3 = " textrel"

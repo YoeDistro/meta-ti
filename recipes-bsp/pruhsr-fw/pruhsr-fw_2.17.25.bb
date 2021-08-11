@@ -20,10 +20,10 @@ SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=gi
 S = "${WORKDIR}/git"
 
 TARGET = ""
-TARGET_ti33x = "am335x-pru0-pruhsr-fw.elf am335x-pru1-pruhsr-fw.elf"
-TARGET_ti43x = "am437x-pru0-pruhsr-fw.elf am437x-pru1-pruhsr-fw.elf"
-TARGET_am57xx-evm = "am57xx-pru0-pruhsr-fw.elf am57xx-pru1-pruhsr-fw.elf"
-TARGET_am57xx-hs-evm = "am57xx-pru0-pruhsr-fw.elf am57xx-pru1-pruhsr-fw.elf"
+TARGET:ti33x = "am335x-pru0-pruhsr-fw.elf am335x-pru1-pruhsr-fw.elf"
+TARGET:ti43x = "am437x-pru0-pruhsr-fw.elf am437x-pru1-pruhsr-fw.elf"
+TARGET:am57xx-evm = "am57xx-pru0-pruhsr-fw.elf am57xx-pru1-pruhsr-fw.elf"
+TARGET:am57xx-hs-evm = "am57xx-pru0-pruhsr-fw.elf am57xx-pru1-pruhsr-fw.elf"
 
 do_install() {
 	install -d ${D}${base_libdir}/firmware/ti-pruss
@@ -32,6 +32,6 @@ do_install() {
 	done
 }
 
-FILES_${PN} = "${base_libdir}/firmware"
+FILES:${PN} = "${base_libdir}/firmware"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

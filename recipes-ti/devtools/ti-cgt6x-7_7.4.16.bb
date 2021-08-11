@@ -28,16 +28,16 @@ SRC_URI[cgt6x_7.4.16_x86_installer.sha256sum] = "baa0d1ef20397383f99f45068a6d160
 
 # only x86_64 is supported
 COMPATIBLE_HOST = "x86_64.*-linux"
-COMPATIBLE_HOST_class-target = "null"
+COMPATIBLE_HOST:class-target = "null"
 
 do_install() {
     install -d ${D}/${TI_CGT6X_7_INSTALL_DIR_RECIPE}
     cp -rP --preserve=mode,links,timestamps --no-preserve=ownership ${WORKDIR}/c6000_7.4.16/. ${D}/${TI_CGT6X_7_INSTALL_DIR_RECIPE}
 }
 
-FILES_${PN} += "${TI_CGT6X_7_INSTALL_DIR_RECIPE}"
+FILES:${PN} += "${TI_CGT6X_7_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN} += "arch staticdev textrel"
+INSANE_SKIP:${PN} += "arch staticdev textrel"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"

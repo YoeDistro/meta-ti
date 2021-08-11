@@ -5,9 +5,9 @@ require ti-ipc-rtos.inc
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${S_ipc-examples}/src/makefile;beginline=1;endline=30;md5=a52324bd5033bb49ea07bade1244ac9a"
 
-INSANE_SKIP_${PN} += "arch"
+INSANE_SKIP:${PN} += "arch"
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 IPC_INSTALL_DIR = "${STAGING_DIR_TARGET}/usr/share/ti/ti-ipc-tree"
 

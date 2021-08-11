@@ -20,7 +20,7 @@ do_compile[noexec] = "1"
 
 SRCIPK_SRC_DIR = "${WORKDIR}/imggen"
 SRCIPK_INSTALL_DIR = "board-support/k3-image-gen-${PV}"
-FILES_${PN} = "${SRCIPK_INSTALL_DIR}"
+FILES:${PN} = "${SRCIPK_INSTALL_DIR}"
 
 do_install() {
     # Copy sources for packaging
@@ -42,4 +42,4 @@ do_install() {
 }
 
 # Do not perform any QA checks on source package
-INSANE_SKIP_${PN} += "${ALL_QA}"
+INSANE_SKIP:${PN} += "${ALL_QA}"

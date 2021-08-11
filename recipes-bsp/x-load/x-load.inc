@@ -34,7 +34,7 @@ do_install () {
 	ln -sf ${MLO_IMAGE} ${D}/boot/${MLO_SYMLINK_NOMACHINE} 
 }
 
-FILES_${PN} = "/boot"
+FILES:${PN} = "/boot"
 
 inherit deploy
 

@@ -11,7 +11,7 @@ PR ="r0"
 PE = "1"
 
 # TI PSP v1.46_OMAPPSP_03.00.01.06 (Tag is one commit different)
-SRCREV_pn-${PN} = "fc6d5be15c703d21aef0ae0b8c02177721f0445f"
+SRCREV:pn-${PN} = "fc6d5be15c703d21aef0ae0b8c02177721f0445f"
 SRC_URI = "git://arago-project.org/git/projects/x-load-omap3.git;protocol=git"
 
 S = "${WORKDIR}/git"
@@ -33,6 +33,6 @@ do_install () {
 	ln -sf ${MLO_IMAGE} ${D}/boot/${MLO_SYMLINK_NOMACHINE}
 }
 
-FILES_${PN} = "/boot"
+FILES:${PN} = "/boot"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"

@@ -9,7 +9,7 @@ DEPENDS = "ti-cgt6x-native"
 PR = "${INC_PR}.2"
 
 PACKAGES =+ "${PN}-test"
-FILES_${PN}-test = "${datadir}/ti/examples/mpm/test/filetestdemo/c66x/demo_loopback/build/bin/*.out \
+FILES:${PN}-test = "${datadir}/ti/examples/mpm/test/filetestdemo/c66x/demo_loopback/build/bin/*.out \
                     ${datadir}/ti/examples/mpm/test/sync_test/c66x/bin/*.out"
 
 EXTRA_OEMAKE = "LOCAL_SYSROOT="${STAGING_DIR_TARGET}" \
@@ -35,10 +35,10 @@ do_install() {
         ${D}${datadir}/ti/examples/mpm/test/sync_test/c66x/bin/
 }
 
-FILES_${PN}-dev += "${MPM_INSTALL_DIR_RECIPE}"
-INSANE_SKIP_${PN}-dev = "arch"
-INSANE_SKIP_${PN}-test = "arch"
+FILES:${PN}-dev += "${MPM_INSTALL_DIR_RECIPE}"
+INSANE_SKIP:${PN}-dev = "arch"
+INSANE_SKIP:${PN}-test = "arch"
 
-RDEPENDS_${PN}-dev = "bash"
+RDEPENDS:${PN}-dev = "bash"
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"

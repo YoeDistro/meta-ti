@@ -32,6 +32,6 @@ do_install() {
 	done
 }
 
-FILES_${PN} = "${base_libdir}/firmware"
+FILES:${PN} = "${base_libdir}/firmware"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

@@ -1,5 +1,5 @@
 require conf/machine/include/k3.inc
-SOC_FAMILY_append = ":am64xx"
+SOC_FAMILY:append = ":am64xx"
 
 MACHINE_FEATURES += "screen touchscreen"
 

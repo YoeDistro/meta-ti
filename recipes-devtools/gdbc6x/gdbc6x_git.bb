@@ -9,7 +9,7 @@ COMPATIBLE_MACHINE = "dra7xx|keystone"
 
 PR = "${INC_PR}.1"
 
-SRC_URI_append = " \
+SRC_URI:append = " \
     file://init \
     file://0001-libbfd.h-suppress-GCC9-Wstringop-truncation.patch;striplevel=2 \
 "
@@ -39,7 +39,7 @@ do_install () {
     install -m 0755 ${WORKDIR}/init ${D}${sysconfdir}/init.d/gdbserverproxy
 }
 
-RDEPENDS_${PN} = "gdbserverproxy-module-drv bash"
+RDEPENDS:${PN} = "gdbserverproxy-module-drv bash"
 
 include gdbc6x.inc
 

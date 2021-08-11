@@ -7,9 +7,9 @@ COMPATIBLE_MACHINE = "omapl138"
 
 INHIBIT_PACKAGE_STRIP = "1"
 
-MACHINE_KERNEL_PR_append = "b"
+MACHINE_KERNEL_PR:append = "b"
 PR = "${MACHINE_KERNEL_PR}"
-PV_append = "+svn${SRCPV}"
+PV:append = "+svn${SRCPV}"
 
 SRC_URI = "svn://gforge.ti.com/svn/pru_sw/;module=trunk;protocol=https;user=anonymous;pswd=''"
 
@@ -21,7 +21,7 @@ inherit module
 
 EXTRA_OEMAKE += "KERNEL_DIR='${STAGING_KERNEL_DIR}'"
 
-do_compile_prepend () {
+do_compile:prepend () {
         export CCTOOL_PREFIX="${TOOLCHAIN_PATH}/bin/${TARGET_PREFIX}"
 }
 

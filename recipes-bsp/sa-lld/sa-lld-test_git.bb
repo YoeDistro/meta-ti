@@ -8,9 +8,9 @@ PR = "${INC_PR}.1"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-DEVICELIST_k2hk = "k2h k2k"
-DEVICELIST_k2l  = "k2l"
-DEVICELIST_k2e  = "k2e"
+DEVICELIST:k2hk = "k2h k2k"
+DEVICELIST:k2l  = "k2l"
+DEVICELIST:k2e  = "k2e"
 
 CHOICELIST = "no yes"
 
@@ -43,4 +43,4 @@ do_install () {
 	done
 }
 
-INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP:${PN} = "ldflags"

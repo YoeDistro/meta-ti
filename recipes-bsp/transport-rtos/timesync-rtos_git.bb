@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://timeSync_ver.h;beginline=23;endline=45;md5=4bd873035e
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k2g"
 
-DEPENDS_append = " ti-ndk \
+DEPENDS:append = " ti-ndk \
                    osal-rtos \
                    pruss-lld-rtos \
                    icss-emac-lld-rtos \
@@ -28,4 +28,4 @@ export DEST_ROOT="${S}"
 export NDK_INSTALL_PATH = "${NDK_INSTALL_DIR}"
 export EDMA3LLD_BIOS6_INSTALLDIR = "${EDMA3_LLD_INSTALL_DIR}"
 
-XDCPATH_append = ";${NDK_INSTALL_DIR}/packages"
+XDCPATH:append = ";${NDK_INSTALL_DIR}/packages"

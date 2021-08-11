@@ -6,7 +6,7 @@ DEPENDS = "ti-ipc libdaemon"
 
 PACKAGES =+ "${PN}-test"
 
-FILES_${PN}-test = "${bindir}/rmDspClientTest.out \
+FILES:${PN}-test = "${bindir}/rmDspClientTest.out \
                     ${bindir}/rmLinuxClientTest.out \
                     ${bindir}/rmLinuxMtClientTest.out \
                     ${bindir}/ti/drv/rm/test/dts_files/*.dtb"

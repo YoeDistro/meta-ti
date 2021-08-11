@@ -15,20 +15,20 @@ SRC_URI += "file://tiipclad-daemon.sh \
            "
 
 DAEMON = "UNKNOWN"
-DAEMON_omap5-evm = "lad_omap54xx_smp"
-DAEMON_dra7xx = "lad_dra7xx"
-DAEMON_k2hk = "lad_tci6638"
-DAEMON_k2l = "lad_tci6630"
-DAEMON_k2e = "lad_66ak2e"
-DAEMON_k2g = "lad_66ak2g"
-DAEMON_omapl138 = "lad_omapl138"
+DAEMON:omap5-evm = "lad_omap54xx_smp"
+DAEMON:dra7xx = "lad_dra7xx"
+DAEMON:k2hk = "lad_tci6638"
+DAEMON:k2l = "lad_tci6630"
+DAEMON:k2e = "lad_66ak2e"
+DAEMON:k2g = "lad_66ak2g"
+DAEMON:omapl138 = "lad_omapl138"
 
 inherit autotools-brokensep pkgconfig update-rc.d systemd
 
 INITSCRIPT_NAME = "tiipclad-daemon.sh"
 INITSCRIPT_PARAMS = "defaults 10"
 
-SYSTEMD_SERVICE_${PN} = "tiipclad-daemon.service"
+SYSTEMD_SERVICE:${PN} = "tiipclad-daemon.service"
 
 EXTRA_OECONF += "PLATFORM=${PLATFORM} KERNEL_INSTALL_DIR=${STAGING_KERNEL_DIR} KERNEL_BUILD_DIR=${STAGING_KERNEL_BUILDDIR}"
 
@@ -39,7 +39,7 @@ do_configure() {
     oe_runconf
 }
 
-do_install_append() {
+do_install:append() {
     install -d ${D}${sysconfdir}/init.d/
 
     # Modify the startup scripts to point to the right
@@ -53,15 +53,15 @@ do_install_append() {
     install -c -m 755 ${WORKDIR}/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
 }
 
-do_install_append_dra7xx() {
+do_install:append:dra7xx() {
     install -d ${D}${sysconfdir}/modprobe.d/
     install -c -m 644 ${WORKDIR}/omap_remoteproc.conf ${D}${sysconfdir}/modprobe.d/
 }
 
 PACKAGES =+ "${PN}-test"
-RDEPENDS_${PN}-test += "${PN}"
+RDEPENDS:${PN}-test += "${PN}"
 
-FILES_${PN}-test = " \
+FILES:${PN}-test = " \
     ${bindir}/NameServerApp \
     ${bindir}/MessageQApp \
     ${bindir}/MessageQMulti \

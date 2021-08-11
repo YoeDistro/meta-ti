@@ -9,7 +9,7 @@ inherit features_check
 
 REQUIRED_MACHINE_FEATURES = "mmip"
 
-RDEPENDS_${PN} = "libdce"
+RDEPENDS:${PN} = "libdce"
 
 SRC_URI = "git://git.ti.com/ivimm/ipumm.git;protocol=git"
 
@@ -59,9 +59,9 @@ do_install() {
     install -m 0644 ${S}/${TARGET_MAP} ${D}${base_libdir}/firmware/${TARGET}.map
 }
 
-ALTERNATIVE_${PN} = "dra7-ipu2-fw.xem4"
+ALTERNATIVE:${PN} = "dra7-ipu2-fw.xem4"
 ALTERNATIVE_LINK_NAME[dra7-ipu2-fw.xem4] = "${base_libdir}/firmware/${TARGET}"
 ALTERNATIVE_TARGET[dra7-ipu2-fw.xem4] = "${base_libdir}/firmware/${TARGET}.${BPN}"
 ALTERNATIVE_PRIORITY = "20"
 
-FILES_${PN} += "${base_libdir}/firmware/*"
+FILES:${PN} += "${base_libdir}/firmware/*"

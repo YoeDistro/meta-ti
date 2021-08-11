@@ -15,4 +15,4 @@ PV = "0.3.0+git${SRCPV}"
 S = "${WORKDIR}/git"
 
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"

@@ -5,13 +5,13 @@ require ti-ipc-rtos.inc
 DEPENDS = "ti-xdctools-native ti-sysbios doxygen-native zip-native"
 
 PACKAGES =+ "${PN}-fw"
-FILES_${PN}-fw = "${base_libdir}/firmware/*"
-FILES_${PN}-dev += "${IPC_INSTALL_DIR_RECIPE}"
+FILES:${PN}-fw = "${base_libdir}/firmware/*"
+FILES:${PN}-dev += "${IPC_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN}-fw += "arch"
-INSANE_SKIP_${PN}-dev += "arch"
+INSANE_SKIP:${PN}-fw += "arch"
+INSANE_SKIP:${PN}-dev += "arch"
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 IPC_PACKAGE_DIR = "${S}/ipc-package"
 
@@ -73,19 +73,19 @@ do_install() {
 }
 
 KFDSPNUM = "0"
-KFDSPNUM_k2hk = "8"
-KFDSPNUM_k2l = "4"
-KFDSPNUM_keystone = "1"
+KFDSPNUM:k2hk = "8"
+KFDSPNUM:k2l = "4"
+KFDSPNUM:keystone = "1"
 
 KFPLAT = ""
-KFPLAT_k2hk = "TCI6638K2K"
-KFPLAT_k2l = "TCI6630K2L"
-KFPLAT_k2e = "C66AK2E"
-KFPLAT_k2g = "TCI66AK2G02"
+KFPLAT:k2hk = "TCI6638K2K"
+KFPLAT:k2l = "TCI6630K2L"
+KFPLAT:k2e = "C66AK2E"
+KFPLAT:k2g = "TCI66AK2G02"
 
 ALTERNATIVE_PRIORITY = "5"
 
-pkg_postinst_${PN}-fw_keystone () {
+pkg_postinst:${PN}-fw:keystone () {
   i=0
   while [ $i -lt ${KFDSPNUM} ]; do
     update-alternatives --install /lib/firmware/keystone-dsp$i-fw keystone-dsp$i-fw ipc/ti_platforms_evm${KFPLAT}_core0/messageq_single.xe66 ${ALTERNATIVE_PRIORITY}
@@ -93,7 +93,7 @@ pkg_postinst_${PN}-fw_keystone () {
   done
 }
 
-pkg_postrm_${PN}-fw_keystone () {
+pkg_postrm:${PN}-fw:keystone () {
   i=0
   while [ $i -lt ${KFDSPNUM} ]; do
     update-alternatives --remove keystone-dsp$i-fw ipc/ti_platforms_evm${KFPLAT}_core0/messageq_single.xe66
@@ -101,24 +101,24 @@ pkg_postrm_${PN}-fw_keystone () {
   done
 }
 
-pkg_postinst_${PN}-fw_omap-a15 () {
+pkg_postinst:${PN}-fw:omap-a15 () {
   update-alternatives --install /lib/firmware/dra7-dsp1-fw.xe66 dra7-dsp1-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp1/test_omx_dsp1_vayu.xe66 ${ALTERNATIVE_PRIORITY}
   update-alternatives --install /lib/firmware/dra7-dsp2-fw.xe66 dra7-dsp2-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp2/test_omx_dsp2_vayu.xe66 ${ALTERNATIVE_PRIORITY}
   update-alternatives --install /lib/firmware/dra7-ipu1-fw.xem4 dra7-ipu1-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu1/test_omx_ipu1_vayu.xem4 ${ALTERNATIVE_PRIORITY}
   update-alternatives --install /lib/firmware/dra7-ipu2-fw.xem4 dra7-ipu2-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu2/test_omx_ipu2_vayu.xem4 ${ALTERNATIVE_PRIORITY}
 }
 
-pkg_postrm_${PN}-fw_omap-a15 () {
+pkg_postrm:${PN}-fw:omap-a15 () {
   update-alternatives --remove dra7-dsp1-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp1/test_omx_dsp1_vayu.xe66
   update-alternatives --remove dra7-dsp2-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp2/test_omx_dsp2_vayu.xe66
   update-alternatives --remove dra7-ipu1-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu1/test_omx_ipu1_vayu.xem4
   update-alternatives --remove dra7-ipu2-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu2/test_omx_ipu2_vayu.xem4
 }
 
-pkg_postinst_${PN}-fw_omapl138 () {
+pkg_postinst:${PN}-fw:omapl138 () {
   update-alternatives --install /lib/firmware/rproc-dsp-fw rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674 ${ALTERNATIVE_PRIORITY}
 }
 
-pkg_postrm_${PN}-fw_omapl138 () {
+pkg_postrm:${PN}-fw:omapl138 () {
   update-alternatives --remove rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674
 }

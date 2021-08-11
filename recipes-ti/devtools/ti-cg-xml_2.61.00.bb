@@ -29,9 +29,9 @@ do_install() {
     cp ${CP_ARGS} ${S}/* ${D}${CG_XML_INSTALL_DIR_RECIPE}
 }
 
-FILES_${PN} += "${CG_XML_INSTALL_DIR_RECIPE}"
+FILES:${PN} += "${CG_XML_INSTALL_DIR_RECIPE}"
 
-INSANE_SKIP_${PN} = "arch ldflags file-rdeps"
+INSANE_SKIP:${PN} = "arch ldflags file-rdeps"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"

@@ -9,13 +9,13 @@ LIC_FILES_CHKSUM = "file://nimu_icssEth.h;beginline=1;endline=35;md5=3ea633a510b
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k2g|c66x|omapl1|k3"
 
-DEPENDS_append = " ti-ndk \
+DEPENDS:append = " ti-ndk \
                    pruss-lld-rtos \
                    icss-emac-lld-rtos \
 "
-DEPENDS_append_c665x-evm = " emac-lld-rtos"
-DEPENDS_append_c667x-evm = " pa-lld-rtos"
-DEPENDS_append_omapl1 = " emac-lld-rtos"
+DEPENDS:append_c665x-evm = " emac-lld-rtos"
+DEPENDS:append_c667x-evm = " pa-lld-rtos"
+DEPENDS:append:omapl1 = " emac-lld-rtos"
 
 TI_PDK_COMP = "ti.transport.ndk.nimu_icss"
 
@@ -26,4 +26,4 @@ export PDK_NIMU_ICSS_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
 
 export NDK_INSTALL_PATH = "${NDK_INSTALL_DIR}"
-XDCPATH_append = ";${NDK_INSTALL_DIR}/packages"
+XDCPATH:append = ";${NDK_INSTALL_DIR}/packages"

@@ -26,4 +26,4 @@ PDK_COMP_LINK_TEXT = "IPCLLD"
 
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${PDK_INSTALL_PATH} "
 
-TI_PDK_LIMIT_CORES_append_am65xx-evm = " mcu1_1 "
+TI_PDK_LIMIT_CORES:append:am65xx-evm = " mcu1_1 "

@@ -14,9 +14,9 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r2"
 
-DEPENDS_append = " osal-rtos \
+DEPENDS:append = " osal-rtos \
 "
-DEPENDS_append_ti43x = " starterware-rtos \
+DEPENDS:append:ti43x = " starterware-rtos \
                          pruss-lld-rtos \
 "
 
@@ -27,7 +27,7 @@ TI_PDK_XDCMAKE = "0"
 export PDK_IOLINK_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "IOLINK LLD"

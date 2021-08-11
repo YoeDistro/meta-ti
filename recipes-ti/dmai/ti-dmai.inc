@@ -31,22 +31,22 @@ SRC_URI = "svn://gforge.ti.com/svn/dmai/;module=${DMAIBRANCH};protocol=https;use
 
 DEPENDS = "virtual/kernel alsa-lib ti-framework-components ti-codec-engine ti-xdctools-native"
 
-DEPENDS_append_dm6446 	= " ti-codecs-dm6446   ti-dspbios ti-cgt6x ti-linuxutils"
-DEPENDS_append_dm6467 	= " ti-codecs-dm6467   ti-dspbios ti-cgt6x ti-linuxutils"
-DEPENDS_append_omap3    = " ti-codecs-omap3530 ti-dspbios ti-cgt6x ti-linuxutils"
-DEPENDS_append_dm355  	= " ti-codecs-dm355"
-DEPENDS_append_dm365    = " ti-codecs-dm365"
-DEPENDS_append_omapl137 = " ti-codecs-omapl137 ti-dspbios ti-cgt6x ti-linuxutils"
-DEPENDS_append_omapl138 = " ti-codecs-omapl138 ti-dspbios ti-cgt6x ti-linuxutils"
+DEPENDS:append_dm6446 	= " ti-codecs-dm6446   ti-dspbios ti-cgt6x ti-linuxutils"
+DEPENDS:append_dm6467 	= " ti-codecs-dm6467   ti-dspbios ti-cgt6x ti-linuxutils"
+DEPENDS:append:omap3    = " ti-codecs-omap3530 ti-dspbios ti-cgt6x ti-linuxutils"
+DEPENDS:append_dm355  	= " ti-codecs-dm355"
+DEPENDS:append_dm365    = " ti-codecs-dm365"
+DEPENDS:append:omapl137 = " ti-codecs-omapl137 ti-dspbios ti-cgt6x ti-linuxutils"
+DEPENDS:append:omapl138 = " ti-codecs-omapl138 ti-dspbios ti-cgt6x ti-linuxutils"
 
 # Define DMAI build time variables
 DMAIPLATFORM_dm6446    = "dm6446_al"
 DMAIPLATFORM_dm6467    = "dm6467_al"
-DMAIPLATFORM_omap3     = "o3530_al"
+DMAIPLATFORM:omap3     = "o3530_al"
 DMAIPLATFORM_dm355     = "dm355_al"
 DMAIPLATFORM_dm365     = "dm365_al"
-DMAIPLATFORM_omapl137  = "ol137_al"
-DMAIPLATFORM_omapl138  = "ol138_al"
+DMAIPLATFORM:omapl137  = "ol137_al"
+DMAIPLATFORM:omapl138  = "ol138_al"
 DMAIPLATFORM          ?= "UNDEFINED_DMAIPLATFORM"
 
 # Need to set this for other platforms as well
@@ -55,8 +55,8 @@ DMAIPLATFORM          ?= "UNDEFINED_DMAIPLATFORM"
 #GPPOS           ?= "UNDEFINEDGPPOS"
 
 # Need to re-define this for OMAP-L137/L138
-DSPSUFFIX_omapl137 = "x64P"
-DSPSUFFIX_omapl138 = "x64P"
+DSPSUFFIX:omapl137 = "x64P"
+DSPSUFFIX:omapl138 = "x64P"
 DSPSUFFIX ?= "x64p"
 
 # This is needed for dm355/dm365 targets in order to find ti.sdo.codecs.g711
@@ -145,18 +145,18 @@ do_install () {
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PACKAGES += "ti-dmai-apps"
-FILES_ti-dmai-apps = "${installdir}/ti-dmai-apps/*"
-INSANE_SKIP_ti-dmai-apps = "1"
+FILES:ti-dmai-apps = "${installdir}/ti-dmai-apps/*"
+INSANE_SKIP:ti-dmai-apps = "1"
 
-RDEPENDS_ti-dmai-apps_dm6446    += "ti-codecs-dm6446-server   ti-cmem-module ti-dsplink-module"
-RDEPENDS_ti-dmai-apps_dm6467    += "ti-codecs-dm6467          ti-cmem-module ti-dsplink-module"
-RDEPENDS_ti-dmai-apps_omap3     += "ti-codecs-omap3530-server ti-cmem-module ti-dsplink-module ti-lpm-module ti-sdma-module"
-RDEPENDS_ti-dmai-apps_dm355     += "ti-codecs-dm355           ti-cmem-module ti-dm355mm-module"
-RDEPENDS_ti-dmai-apps_dm365     += "ti-codecs-dm365           ti-cmem-module ti-dm365mm-module ti-edma-module ti-irq-module"
-RDEPENDS_ti-dmai-apps_omapl137  += "ti-codecs-omapl137-server ti-cmem-module ti-dsplink-module"
-RDEPENDS_ti-dmai-apps_omapl138  += "ti-codecs-omapl138-server ti-cmem-module ti-dsplink-module"
+RDEPENDS:ti-dmai-apps_dm6446    += "ti-codecs-dm6446-server   ti-cmem-module ti-dsplink-module"
+RDEPENDS:ti-dmai-apps_dm6467    += "ti-codecs-dm6467          ti-cmem-module ti-dsplink-module"
+RDEPENDS:ti-dmai-apps:omap3     += "ti-codecs-omap3530-server ti-cmem-module ti-dsplink-module ti-lpm-module ti-sdma-module"
+RDEPENDS:ti-dmai-apps_dm355     += "ti-codecs-dm355           ti-cmem-module ti-dm355mm-module"
+RDEPENDS:ti-dmai-apps_dm365     += "ti-codecs-dm365           ti-cmem-module ti-dm365mm-module ti-edma-module ti-irq-module"
+RDEPENDS:ti-dmai-apps:omapl137  += "ti-codecs-omapl137-server ti-cmem-module ti-dsplink-module"
+RDEPENDS:ti-dmai-apps:omapl138  += "ti-codecs-omapl138-server ti-cmem-module ti-dsplink-module"
 
-pkg_postinst_ti-dmai-apps () {
+pkg_postinst:ti-dmai-apps () {
 	ln -sf ${installdir}/ti-codecs-server/*.${DSPSUFFIX} ${installdir}/ti-dmai-apps/
 }
 

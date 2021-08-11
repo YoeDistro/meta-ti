@@ -24,4 +24,4 @@ do_install () {
 }
 
 INHIBIT_PACKAGE_STRIP_FILES = "${PKGD}${libdir}/libpa2.a"
-INHIBIT_PACKAGE_STRIP_FILES_k2hk = "${PKGD}${libdir}/libpa.a"
+INHIBIT_PACKAGE_STRIP_FILES:k2hk = "${PKGD}${libdir}/libpa.a"

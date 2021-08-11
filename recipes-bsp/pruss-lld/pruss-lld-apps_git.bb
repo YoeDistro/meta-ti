@@ -2,8 +2,8 @@ DESCRIPTION = "TI PRUSS low level driver example applications"
 
 DEPENDS="common-csl-ip pruss-lld osal ti-pdk-build-rtos pruss-lld-rtos"
 
-DEPENDS_append_ti33x = " starterware"
-DEPENDS_append_ti43x = " starterware"
+DEPENDS:append:ti33x = " starterware"
+DEPENDS:append:ti43x = " starterware"
 
 include pruss-lld.inc
 

@@ -23,7 +23,7 @@ do_install() {
 	install -m 0644 bin/*-scale-data.bin ${D}${base_libdir}/firmware/
 }
 
-FILES_${PN} += "${base_libdir}/firmware"
+FILES:${PN} += "${base_libdir}/firmware"
 
 COMPATIBLE_MACHINE = "(ti-soc)"
 TOOLCHAIN = "gcc"

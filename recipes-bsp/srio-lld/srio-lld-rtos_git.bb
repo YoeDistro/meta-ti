@@ -6,10 +6,10 @@ require recipes-bsp/srio-lld/srio-lld.inc
 
 PR = "${INC_PR}.0"
 
-DEPENDS_append = " cppi-lld-rtos \
+DEPENDS:append = " cppi-lld-rtos \
                    qmss-lld-rtos \
 "
-COMPATIBLE_MACHINE_append = "|c66x"
+COMPATIBLE_MACHINE:append = "|c66x"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 

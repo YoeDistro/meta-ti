@@ -14,7 +14,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r0"
 
-DEPENDS_append = " osal-rtos \
+DEPENDS:append = " osal-rtos \
 "
 
 # Build with make instead of XDC
@@ -28,8 +28,8 @@ export PDK_FVID2_ROOT_PATH = "${FVID2_PACKAGE_BASE}/package/all/pdk_/packages"
 
 
 BOARD_PACKAGE = ""
-BOARD_PACKAGE_am65xx = "am65xx_evm"
-BOARD_PACKAGE_j7 = "j721e_evm"
+BOARD_PACKAGE:am65xx = "am65xx_evm"
+BOARD_PACKAGE:j7 = "j721e_evm"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "FVID2"
@@ -62,6 +62,6 @@ do_install() {
     find -name "*.tar" -exec tar xf {} --no-same-owner -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages/ti/drv/fvid2 \;
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 
-INSANE_SKIP_${PN} = "arch ldflags"
+INSANE_SKIP:${PN} = "arch ldflags"

@@ -3,9 +3,9 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=9d4316fe434ba450dca4da25348ca5a3"
 
 # This package builds a kernel module, use kernel PR as base and append a local
-MACHINE_KERNEL_PR_append = "a"
+MACHINE_KERNEL_PR:append = "a"
 PR = "${MACHINE_KERNEL_PR}"
-PV_append = "+git${SRCPV}"
+PV:append = "+git${SRCPV}"
 
 S = "${WORKDIR}/git/temperature_module/temperature-mod"
 

@@ -25,4 +25,4 @@ do_install() {
 	install -m 0644 ${S}/cadence/${TARGET} ${D}${base_libdir}/firmware/cadence/${TARGET}
 }
 
-FILES_${PN} = "${base_libdir}/firmware"
+FILES:${PN} = "${base_libdir}/firmware"

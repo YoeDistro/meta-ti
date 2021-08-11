@@ -17,6 +17,6 @@ UBOOT_LOADADDRESS = "0x80008000"
 EXTRA_IMAGEDEPENDS += "u-boot"
 
 SERIAL_CONSOLES ?= "115200;ttyS0"
-EXTRA_IMAGECMD_jffs2 = "--pad --little-endian --eraseblock=0x20000 -n"
+EXTRA_IMAGECMD:jffs2 = "--pad --little-endian --eraseblock=0x20000 -n"
 
 MACHINE_FEATURES = "kernel26 serial ethernet usbhost usbgadget mmc alsa"

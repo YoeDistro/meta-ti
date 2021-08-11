@@ -16,8 +16,8 @@ PR = "r0"
 S = "${WORKDIR}/git/aet"
 
 DEVICE=""
-DEVICE_dra7xx = "DRA7xx"
-DEVICE_keystone = "C66AK2Hxx"
+DEVICE:dra7xx = "DRA7xx"
+DEVICE:keystone = "C66AK2Hxx"
 
 EXTRA_OEMAKE = "C6X_C_DIR=${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x/include"
 
@@ -32,8 +32,8 @@ do_install() {
 COMPATIBLE_MACHINE = "dra7xx|keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-FILES_${PN}-dev += "\
+FILES:${PN}-dev += "\
     ${datadir}/ti/ctoolslib/aet \
 "
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"

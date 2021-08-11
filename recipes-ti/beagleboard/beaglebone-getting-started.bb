@@ -17,5 +17,5 @@ do_install() {
 	cp -R --no-dereference --preserve=mode,links ${S}/* ${D}${datadir}/${PN}
 }
 
-FILES_${PN} += "${datadir}/${PN}"
-INSANE_SKIP_${PN} = "file-rdeps"
+FILES:${PN} += "${datadir}/${PN}"
+INSANE_SKIP:${PN} = "file-rdeps"

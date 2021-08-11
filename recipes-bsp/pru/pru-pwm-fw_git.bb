@@ -34,6 +34,6 @@ do_install() {
 	install -m 0644 ${S}/gen/pwm.out ${D}/lib/firmware/ti-pruss/am65x-pru0-pwm-fw.elf
 }
 
-FILES_${PN} = "/lib/firmware"
+FILES:${PN} = "/lib/firmware"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

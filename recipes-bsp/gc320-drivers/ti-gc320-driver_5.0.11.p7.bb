@@ -7,7 +7,7 @@ inherit module features_check
 
 REQUIRED_MACHINE_FEATURES = "gc320"
 
-MACHINE_KERNEL_PR_append = "i"
+MACHINE_KERNEL_PR:append = "i"
 PR = "${MACHINE_KERNEL_PR}"
 
 # Need to branch out with ${PV} var
@@ -27,4 +27,4 @@ do_install() {
 }
 
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"

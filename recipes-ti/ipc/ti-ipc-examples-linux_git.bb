@@ -5,7 +5,7 @@ SRC_URI += "file://0001-examples-ClusterMgr-sys_errlist-has-been-deprecated-.pat
 
 DEPENDS = "ti-ipc ti-xdctools-native ti-sysbios ti-ipc-rtos zip-native"
 
-do_compile_append() {
+do_compile:append() {
 
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
     oe_runmake extract HOSTOS="linux" IPC_INSTALL_DIR="${IPC_INSTALL_DIR}"
@@ -27,7 +27,7 @@ do_compile_append() {
   fi
 }
 
-do_install_append() {
+do_install:append() {
   cd ${S_ipc-examples}/src
 
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
@@ -46,4 +46,4 @@ do_install_append() {
   fi
 }
 
-FILES_${PN} += "${bindir}/*"
+FILES:${PN} += "${bindir}/*"

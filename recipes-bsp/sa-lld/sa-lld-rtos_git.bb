@@ -6,18 +6,18 @@ require recipes-bsp/sa-lld/sa-lld.inc
 
 PR = "${INC_PR}.0"
 
-COMPATIBLE_MACHINE_append = "|c667x-evm|k3"
+COMPATIBLE_MACHINE:append = "|c667x-evm|k3"
 
 # Build with make instead of XDC
-TI_PDK_XDCMAKE_k3 = "0"
+TI_PDK_XDCMAKE:k3 = "0"
 
 # SA promote/demote library depends on osal
-DEPENDS_append = " osal-rtos \
+DEPENDS:append = " osal-rtos \
 "
 export PDK_SA_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 

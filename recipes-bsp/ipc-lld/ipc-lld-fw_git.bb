@@ -22,25 +22,25 @@ S = "${WORKDIR}/git"
 AM65X_R5_FW_DIR = "${S}/examples/echo_test/binaries/am65xx"
 J721E_R5_DSP_FW_DIR = "${S}/examples/echo_test/binaries/j721e"
 
-PLATFORM_am65xx = "am65xx"
-PLATFORM_j7 = "j7-evm"
+PLATFORM:am65xx = "am65xx"
+PLATFORM:j7 = "j7-evm"
 
 # make sure that lib/firmware, and all its contents are part of the package
-FILES_${PN} += "${base_libdir}/firmware"
+FILES:${PN} += "${base_libdir}/firmware"
 
 # install all R5 & DSP ipc echo test binaries in lib/firmware/pdk-ipc, with softlinks up a level
 do_install() {
     install -d ${D}${base_libdir}/firmware/pdk-ipc
 }
 
-do_install_append_am65xx() {
+do_install:append:am65xx() {
     install -m 0644 ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_0_release.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
     install -m 0644 ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_0_release.strip.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
     install -m 0644 ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_1_release.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
     install -m 0644 ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_1_release.strip.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
 }
 
-do_install_append_j7() {
+do_install:append:j7() {
     install -m 0644 ${J721E_R5_DSP_FW_DIR}/ipc_echo_test_mcu1_0_release.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
     install -m 0644 ${J721E_R5_DSP_FW_DIR}/ipc_echo_test_mcu1_0_release.strip.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
     install -m 0644 ${J721E_R5_DSP_FW_DIR}/ipc_echo_testb_mcu1_0_release.xer5f ${D}${base_libdir}/firmware/pdk-ipc/
@@ -74,11 +74,11 @@ do_install_append_j7() {
 }
 
 # Set up names for the firmwares
-ALTERNATIVE_${PN}_am65xx = "\
+ALTERNATIVE:${PN}:am65xx = "\
                     am65x-mcu-r5f0_0-fw \
                     am65x-mcu-r5f0_1-fw \
                     "
-ALTERNATIVE_${PN}_j7 = "\
+ALTERNATIVE:${PN}:j7 = "\
                     j7-mcu-r5f0_0-fw \
                     j7-mcu-r5f0_1-fw \
                     j7-main-r5f0_0-fw \
@@ -92,18 +92,18 @@ ALTERNATIVE_${PN}_j7 = "\
 
 # Set up link names for the firmwares
 
-TARGET_MCU_R5FSS0_0_am65xx = "am65x-mcu-r5f0_0-fw"
-TARGET_MCU_R5FSS0_1_am65xx = "am65x-mcu-r5f0_1-fw"
+TARGET_MCU_R5FSS0_0:am65xx = "am65x-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1:am65xx = "am65x-mcu-r5f0_1-fw"
 
-TARGET_MCU_R5FSS0_0_j7 = "j7-mcu-r5f0_0-fw"
-TARGET_MCU_R5FSS0_1_j7 = "j7-mcu-r5f0_1-fw"
-TARGET_MAIN_R5FSS0_0_j7 = "j7-main-r5f0_0-fw"
-TARGET_MAIN_R5FSS0_1_j7 = "j7-main-r5f0_1-fw"
-TARGET_MAIN_R5FSS1_0_j7 = "j7-main-r5f1_0-fw"
-TARGET_MAIN_R5FSS1_1_j7 = "j7-main-r5f1_1-fw"
-TARGET_C66_0_j7 = "j7-c66_0-fw"
-TARGET_C66_1_j7 = "j7-c66_1-fw"
-TARGET_C7X_j7 = "j7-c71_0-fw"
+TARGET_MCU_R5FSS0_0:j7 = "j7-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1:j7 = "j7-mcu-r5f0_1-fw"
+TARGET_MAIN_R5FSS0_0:j7 = "j7-main-r5f0_0-fw"
+TARGET_MAIN_R5FSS0_1:j7 = "j7-main-r5f0_1-fw"
+TARGET_MAIN_R5FSS1_0:j7 = "j7-main-r5f1_0-fw"
+TARGET_MAIN_R5FSS1_1:j7 = "j7-main-r5f1_1-fw"
+TARGET_C66_0:j7 = "j7-c66_0-fw"
+TARGET_C66_1:j7 = "j7-c66_1-fw"
+TARGET_C7X:j7 = "j7-c71_0-fw"
 
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_0-fw] = "${base_libdir}/firmware/${TARGET_MCU_R5FSS0_0}"
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_1-fw] = "${base_libdir}/firmware/${TARGET_MCU_R5FSS0_1}"
@@ -141,14 +141,14 @@ do_deploy() {
     :
 }
 
-do_deploy_am65xx() {
+do_deploy:am65xx() {
     install ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_0_release.xer5f ${DEPLOYDIR}/
     install ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_0_release.strip.xer5f ${DEPLOYDIR}/
     install ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_1_release.xer5f ${DEPLOYDIR}/
     install ${AM65X_R5_FW_DIR}/ipc_echo_test_mcu1_1_release.strip.xer5f ${DEPLOYDIR}/
 }
 
-do_deploy_j7() {
+do_deploy:j7() {
     install ${J721E_R5_DSP_FW_DIR}/ipc_echo_test_mcu1_0_release.xer5f ${DEPLOYDIR}/
     install ${J721E_R5_DSP_FW_DIR}/ipc_echo_test_mcu1_0_release.strip.xer5f ${DEPLOYDIR}/
     install ${J721E_R5_DSP_FW_DIR}/ipc_echo_testb_mcu1_0_release.xer5f ${DEPLOYDIR}/
@@ -189,7 +189,7 @@ INHIBIT_SYSROOT_STRIP = "1"
 # This is used to prevent the build system to split the debug info in a separate file
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 # As it likely to be a different arch from the Yocto build, disable checking by adding "arch" to INSANE_SKIP
-INSANE_SKIP_${PN} += "arch"
+INSANE_SKIP:${PN} += "arch"
 
 # we don't want to configure and build the source code
 do_compile[noexec] = "1"

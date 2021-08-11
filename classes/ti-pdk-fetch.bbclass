@@ -18,7 +18,7 @@ TI_PDK_SOURCE = "${TI_PDK_SOURCE_WORKDIR}/git"
 S = "${@'${WORKDIR}/git/${TI_PDK_COMP_PATH}'.rstrip('/')}"
 
 # Hard-link only required sources from PDK
-python do_unpack_append() {
+python do_unpack:append() {
     if len(d.getVar('TI_PDK_COMP') or '') > 0:
         import shutil
 

@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "file://bmet_transport.h;beginline=12;endline=40;md5=6d209c69
 
 COMPATIBLE_MACHINE = "k2hk|k2e|k2l"
 
-DEPENDS_append = " qmss-lld-rtos \
+DEPENDS:append = " qmss-lld-rtos \
                    cppi-lld-rtos \
 "
 

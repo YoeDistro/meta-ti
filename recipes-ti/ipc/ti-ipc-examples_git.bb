@@ -3,7 +3,7 @@ require ti-ipc-examples.inc
 
 DEPENDS = "ti-ipc ti-xdctools-native ti-sysbios ti-ipc-rtos zip-native"
 
-do_compile_append() {
+do_compile:append() {
 
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
     oe_runmake extract HOSTOS="bios" IPC_INSTALL_DIR="${IPC_INSTALL_DIR}"
@@ -21,7 +21,7 @@ do_compile_append() {
   fi
 }
 
-do_install_append() {
+do_install:append() {
   if [  "${PLATFORM}" != "UNKNOWN" ]; then
     # Install directory for bios examples
     install -d ${D}/ipc_${IPC_VERSION}/examples/bios
@@ -41,4 +41,4 @@ do_install_append() {
   fi
 }
 
-FILES_${PN} += "ipc_*"
+FILES:${PN} += "ipc_*"

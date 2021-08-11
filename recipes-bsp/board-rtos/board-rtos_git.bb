@@ -16,24 +16,24 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r0"
 
-DEPENDS_append = " i2c-lld-rtos \
+DEPENDS:append = " i2c-lld-rtos \
                    spi-lld-rtos \
                    uart-lld-rtos \
                    osal-rtos \
 "
 
-DEPENDS_append_omap-a15 = " ti-ndk \
+DEPENDS:append:omap-a15 = " ti-ndk \
                             mmcsd-lld-rtos \
                             pm-lld-rtos \
 "
 
-DEPENDS_append_am57xx-evm = " gpio-lld-rtos \
+DEPENDS:append:am57xx-evm = " gpio-lld-rtos \
                               icss-emac-lld-rtos \
                               pruss-lld-rtos \
 "
 
 
-DEPENDS_append_ti33x = " gpio-lld-rtos \
+DEPENDS:append:ti33x = " gpio-lld-rtos \
                          gpmc-lld-rtos \
                          icss-emac-lld-rtos \
                          mmcsd-lld-rtos \
@@ -42,7 +42,7 @@ DEPENDS_append_ti33x = " gpio-lld-rtos \
                          ti-ndk \
 "
 
-DEPENDS_append_ti43x = " gpio-lld-rtos \
+DEPENDS:append:ti43x = " gpio-lld-rtos \
                          gpmc-lld-rtos \
                          icss-emac-lld-rtos \
                          mmcsd-lld-rtos \
@@ -51,13 +51,13 @@ DEPENDS_append_ti43x = " gpio-lld-rtos \
                          ti-ndk \
 "
 
-DEPENDS_append_dra7xx = " pm-lld-rtos \
+DEPENDS:append:dra7xx = " pm-lld-rtos \
                           mmcsd-lld-rtos \
 "
 
-DEPENDS_append_am65xx = " sciclient-rtos \
+DEPENDS:append:am65xx = " sciclient-rtos \
 "
-DEPENDS_append_j7 = " udma-lld-rtos \
+DEPENDS:append:j7 = " udma-lld-rtos \
                           sciclient-rtos \
                           mmcsd-lld-rtos \
 "
@@ -71,6 +71,6 @@ INHIBIT_PACKAGE_STRIP = "1"
 export PDK_BOARD_ROOT_PATH ="${WORKDIR}/build"
 export DEST_ROOT="${S}"
 
-XDCPATH_append = ";${PDK_INSTALL_DIR}/packages/ti/csl;${NDK_INSTALL_DIR}/packages"
+XDCPATH:append = ";${PDK_INSTALL_DIR}/packages/ti/csl;${NDK_INSTALL_DIR}/packages"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

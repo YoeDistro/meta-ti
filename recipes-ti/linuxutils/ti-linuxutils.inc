@@ -15,7 +15,7 @@ require recipes-ti/includes/ti-staging.inc
 PR = "${MACHINE_KERNEL_PR}"
 
 #This is a kernel module, don't set PR directly
-MACHINE_KERNEL_PR_append = "f"
+MACHINE_KERNEL_PR:append = "f"
 
 inherit module
 
@@ -82,12 +82,12 @@ PACKAGES =+ " ti-cmem-module \
               ti-irq-module \
               ti-linuxutils-app"
 
-FILES_ti-cmem-module = "/lib/modules/${KERNEL_VERSION}/kernel/drivers/dsp/cmem*.ko"
-FILES_ti-sdma-module = "/lib/modules/${KERNEL_VERSION}/kernel/drivers/dsp/sdma*.ko"
-FILES_ti-edma-module = "/lib/modules/${KERNEL_VERSION}/kernel/drivers/dsp/edma*.ko"
-FILES_ti-irq-module = "/lib/modules/${KERNEL_VERSION}/kernel/drivers/dsp/irq*.ko"
+FILES:ti-cmem-module = "/lib/modules/${KERNEL_VERSION}/kernel/drivers/dsp/cmem*.ko"
+FILES:ti-sdma-module = "/lib/modules/${KERNEL_VERSION}/kernel/drivers/dsp/sdma*.ko"
+FILES:ti-edma-module = "/lib/modules/${KERNEL_VERSION}/kernel/drivers/dsp/edma*.ko"
+FILES:ti-irq-module = "/lib/modules/${KERNEL_VERSION}/kernel/drivers/dsp/irq*.ko"
 
-FILES_ti-linuxutils-app = "${installdir}/ti-linuxutils-app/*/*"
+FILES:ti-linuxutils-app = "${installdir}/ti-linuxutils-app/*/*"
 
-INSANE_SKIP_ti-linuxutils-app = "True"
+INSANE_SKIP:ti-linuxutils-app = "True"
 INHIBIT_PACKAGE_STRIP = "1"

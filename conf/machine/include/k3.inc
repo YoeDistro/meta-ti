@@ -1,7 +1,7 @@
 # TI K3 Aarch64 profile for Cortex-A53/A72 cores
 
 require conf/machine/include/ti-soc.inc
-SOC_FAMILY_append = ":k3"
+SOC_FAMILY:append = ":k3"
 
 require conf/machine/include/arm/arch-arm64.inc
 

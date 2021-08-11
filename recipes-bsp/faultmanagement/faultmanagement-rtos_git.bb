@@ -25,12 +25,12 @@ PR = "r0"
 
 S = "${WORKDIR}/${FAULT_MANAGEMENT_GIT_DESTSUFFIX}"
 
-DEPENDS_append_keystone = " qmss-lld-rtos \
+DEPENDS:append:keystone = " qmss-lld-rtos \
                             cppi-lld-rtos \
                             pa-lld-rtos \
 "
 
-DEPENDS_append_k2hk = " aif2-lld-rtos \
+DEPENDS:append:k2hk = " aif2-lld-rtos \
 "
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "Fault Management"

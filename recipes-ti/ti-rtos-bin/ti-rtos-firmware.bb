@@ -13,12 +13,12 @@ inherit deploy
 inherit update-alternatives
 
 PLAT_SFX = ""
-PLAT_SFX_j7 = "j721e"
-PLAT_SFX_j7200-evm = "j7200"
-PLAT_SFX_am65xx = "am65xx"
-PLAT_SFX_am64xx = "am64xx"
+PLAT_SFX:j7 = "j721e"
+PLAT_SFX:j7200-evm = "j7200"
+PLAT_SFX:am65xx = "am65xx"
+PLAT_SFX:am64xx = "am64xx"
 
-FILESEXTRAPATHS_prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
+FILESEXTRAPATHS:prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
 require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
 
 CORESDK_RTOS_VERSION ?= "08.00.00.26"
@@ -30,7 +30,7 @@ PR = "${INC_PR}.0"
 # Secure Build 
 DEPENDS += "openssl-native"
 
-FILES_${PN} += "${base_libdir}"
+FILES:${PN} += "${base_libdir}"
 
 TI_SECURE_DEV_PKG ?= ""
 
@@ -47,7 +47,7 @@ LEGACY_DM_FW_DIR  = "${D}${base_libdir}/firmware/pdk-ipc/"
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
 
 # J7 HS support
-do_install_prepend_j7-hs-evm() {
+do_install:prepend:j7-hs-evm() {
 	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
 	( cd ${RTOS_DM_FW_DIR}; \
 		mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
@@ -56,7 +56,7 @@ do_install_prepend_j7-hs-evm() {
 }
 
 # Update the am64xx ipc binaries to be consistent with other platforms
-do_install_prepend_am64xx() {
+do_install:prepend:am64xx() {
         ( cd ${RTOS_IPC_FW_DIR}; \
                 mv am64-main-r5f0_0-fw ipc_echo_baremetal_test_mcu1_0_release_strip.xer5f; \
                 mv am64-main-r5f0_1-fw ipc_echo_baremetal_test_mcu1_1_release_strip.xer5f; \
@@ -70,7 +70,7 @@ do_install() {
 
 }
 
-do_install_j7() {
+do_install:j7() {
     install -d ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu1_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu2_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
@@ -87,7 +87,7 @@ do_install_j7() {
     install -m 0644 ${RTOS_ETH_FW_DIR}/app_remoteswitchcfg_server_strip.xer5f ${LEGACY_ETH_FW_DIR}
 }
 
-do_install_j7200-evm() {
+do_install:j7200-evm() {
     install -d ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu1_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu2_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
@@ -99,13 +99,13 @@ do_install_j7200-evm() {
     install -m 0644 ${RTOS_ETH_FW_DIR}/app_remoteswitchcfg_server_strip.xer5f ${LEGACY_ETH_FW_DIR}
 }
 
-do_install_am65xx() {
+do_install:am65xx() {
     install -d ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu1_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu1_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
 }
 
-do_install_am64xx() {
+do_install:am64xx() {
     install -d ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_baremetal_test_mcu1_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_baremetal_test_mcu1_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
@@ -114,19 +114,19 @@ do_install_am64xx() {
 }
 
 # Set up names for the firmwares
-ALTERNATIVE_${PN}_am65xx = "\
+ALTERNATIVE:${PN}:am65xx = "\
                     am65x-mcu-r5f0_0-fw \
                     am65x-mcu-r5f0_1-fw \
                     "
 
-ALTERNATIVE_${PN}_am64xx = "\
+ALTERNATIVE:${PN}:am64xx = "\
                     am64-main-r5f0_0-fw \
                     am64-main-r5f0_1-fw \
                     am64-main-r5f1_0-fw \
                     am64-main-r5f1_1-fw \
                     "
 
-ALTERNATIVE_${PN}_j7 = "\
+ALTERNATIVE:${PN}:j7 = "\
                     j7-mcu-r5f0_0-fw \
                     j7-mcu-r5f0_1-fw \
                     j7-main-r5f0_0-fw \
@@ -138,7 +138,7 @@ ALTERNATIVE_${PN}_j7 = "\
                     j7-c71_0-fw\
                     "
 
-ALTERNATIVE_${PN}_j7200-evm = "\
+ALTERNATIVE:${PN}:j7200-evm = "\
                     j7200-mcu-r5f0_0-fw \
                     j7200-mcu-r5f0_1-fw \
                     j7200-main-r5f0_0-fw \
@@ -147,28 +147,28 @@ ALTERNATIVE_${PN}_j7200-evm = "\
 
 # Set up link names for the firmwares
 
-TARGET_MCU_R5FSS0_0_am65xx = "am65x-mcu-r5f0_0-fw"
-TARGET_MCU_R5FSS0_1_am65xx = "am65x-mcu-r5f0_1-fw"
+TARGET_MCU_R5FSS0_0:am65xx = "am65x-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1:am65xx = "am65x-mcu-r5f0_1-fw"
 
-TARGET_MAIN_R5FSS0_0_am64xx = "am64-main-r5f0_0-fw"
-TARGET_MAIN_R5FSS0_1_am64xx = "am64-main-r5f0_1-fw"
-TARGET_MAIN_R5FSS1_0_am64xx = "am64-main-r5f1_0-fw"
-TARGET_MAIN_R5FSS1_1_am64xx = "am64-main-r5f1_1-fw"
+TARGET_MAIN_R5FSS0_0:am64xx = "am64-main-r5f0_0-fw"
+TARGET_MAIN_R5FSS0_1:am64xx = "am64-main-r5f0_1-fw"
+TARGET_MAIN_R5FSS1_0:am64xx = "am64-main-r5f1_0-fw"
+TARGET_MAIN_R5FSS1_1:am64xx = "am64-main-r5f1_1-fw"
 
-TARGET_MCU_R5FSS0_0_j7 = "j7-mcu-r5f0_0-fw"
-TARGET_MCU_R5FSS0_1_j7 = "j7-mcu-r5f0_1-fw"
-TARGET_MAIN_R5FSS0_0_j7 = "j7-main-r5f0_0-fw"
-TARGET_MAIN_R5FSS0_1_j7 = "j7-main-r5f0_1-fw"
-TARGET_MAIN_R5FSS1_0_j7 = "j7-main-r5f1_0-fw"
-TARGET_MAIN_R5FSS1_1_j7 = "j7-main-r5f1_1-fw"
-TARGET_C66_0_j7 = "j7-c66_0-fw"
-TARGET_C66_1_j7 = "j7-c66_1-fw"
-TARGET_C7X_j7 = "j7-c71_0-fw"
+TARGET_MCU_R5FSS0_0:j7 = "j7-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1:j7 = "j7-mcu-r5f0_1-fw"
+TARGET_MAIN_R5FSS0_0:j7 = "j7-main-r5f0_0-fw"
+TARGET_MAIN_R5FSS0_1:j7 = "j7-main-r5f0_1-fw"
+TARGET_MAIN_R5FSS1_0:j7 = "j7-main-r5f1_0-fw"
+TARGET_MAIN_R5FSS1_1:j7 = "j7-main-r5f1_1-fw"
+TARGET_C66_0:j7 = "j7-c66_0-fw"
+TARGET_C66_1:j7 = "j7-c66_1-fw"
+TARGET_C7X:j7 = "j7-c71_0-fw"
 
-TARGET_MCU_R5FSS0_0_j7200-evm = "j7200-mcu-r5f0_0-fw"
-TARGET_MCU_R5FSS0_1_j7200-evm = "j7200-mcu-r5f0_1-fw"
-TARGET_MAIN_R5FSS0_0_j7200-evm = "j7200-main-r5f0_0-fw"
-TARGET_MAIN_R5FSS0_1_j7200-evm = "j7200-main-r5f0_1-fw"
+TARGET_MCU_R5FSS0_0:j7200-evm = "j7200-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1:j7200-evm = "j7200-mcu-r5f0_1-fw"
+TARGET_MAIN_R5FSS0_0:j7200-evm = "j7200-main-r5f0_0-fw"
+TARGET_MAIN_R5FSS0_1:j7200-evm = "j7200-main-r5f0_1-fw"
 
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_0-fw] = "${base_libdir}/firmware/${TARGET_MCU_R5FSS0_0}"
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_1-fw] = "${base_libdir}/firmware/${TARGET_MCU_R5FSS0_1}"
@@ -221,7 +221,7 @@ ALTERNATIVE_TARGET[j7200-main-r5f0_1-fw] = "${base_libdir}/firmware/pdk-ipc/ipc_
 ALTERNATIVE_PRIORITY = "10"
 
 # make sure that lib/firmware, and all its contents are part of the package
-FILES_${PN} += "${base_libdir}/firmware"
+FILES:${PN} += "${base_libdir}/firmware"
 
 # This is used to prevent the build system to_strip the executables
 INHIBIT_PACKAGE_STRIP = "1"
@@ -229,7 +229,7 @@ INHIBIT_SYSROOT_STRIP = "1"
 # This is used to prevent the build system to split the debug info in a separate file
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 # As it likely to be a different arch from the Yocto build, disable checking by adding "arch" to INSANE_SKIP
-INSANE_SKIP_${PN} += "arch"
+INSANE_SKIP:${PN} += "arch"
 
 # we don't want to configure and build the source code
 do_compile[noexec] = "1"

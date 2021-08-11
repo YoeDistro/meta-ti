@@ -2,7 +2,7 @@ require common-csl-ip.inc
 
 PR = "${INC_PR}.0"
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 CLEANBROKEN = "1"
 

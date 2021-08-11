@@ -6,12 +6,12 @@ PR = "${INC_PR}.0"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS="common-csl-ip mmap-lld"
-RDEPENDS_${PN}="uio-module-drv"
+RDEPENDS:${PN}="uio-module-drv"
 
-DEVICELIST_k2hk = "k2h k2k"
-DEVICELIST_k2e = "k2e"
-DEVICELIST_k2l = "k2l"
-DEVICELIST_k2g = "k2g"
+DEVICELIST:k2hk = "k2h k2k"
+DEVICELIST:k2e = "k2e"
+DEVICELIST:k2l = "k2l"
+DEVICELIST:k2g = "k2g"
 
 CHOICELIST = " yes \
                no \

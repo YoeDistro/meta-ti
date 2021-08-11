@@ -14,9 +14,9 @@ PM_LLD_GIT_PROTOCOL = "git"
 
 PM_LLD_GIT_BRANCH = "master"
 
-PM_LLD_GIT_BRANCH_ti33x = "int_pm_am335x"
-PM_LLD_GIT_BRANCH_ti43x = "int_pm_am335x"
-PM_LLD_GIT_BRANCH_k2g = "int_pm_am335x"
+PM_LLD_GIT_BRANCH:ti33x = "int_pm_am335x"
+PM_LLD_GIT_BRANCH:ti43x = "int_pm_am335x"
+PM_LLD_GIT_BRANCH:k2g = "int_pm_am335x"
 
 PM_LLD_GIT_DESTSUFFIX = "git/ti/drv/pm"
 
@@ -24,9 +24,9 @@ PM_LLD_GIT_DESTSUFFIX = "git/ti/drv/pm"
 PM_LLD_SRCREV = "59abc6ffb890d24b82de0248d204ad10c1bfc2af"
 
 # Below commit ID corresponds to "DEV.PM_LLD.01.04.00.05C"
-PM_LLD_SRCREV_ti33x = "dd1f8486e7738956631b7f4829c8238be2e49dd6"
-PM_LLD_SRCREV_ti43x = "dd1f8486e7738956631b7f4829c8238be2e49dd6"
-PM_LLD_SRCREV_k2g = "dd1f8486e7738956631b7f4829c8238be2e49dd6"
+PM_LLD_SRCREV:ti33x = "dd1f8486e7738956631b7f4829c8238be2e49dd6"
+PM_LLD_SRCREV:ti43x = "dd1f8486e7738956631b7f4829c8238be2e49dd6"
+PM_LLD_SRCREV:k2g = "dd1f8486e7738956631b7f4829c8238be2e49dd6"
 
 BRANCH = "${PM_LLD_GIT_BRANCH}"
 SRC_URI = "${PM_LLD_GIT_URI};destsuffix=${PM_LLD_GIT_DESTSUFFIX};protocol=${PM_LLD_GIT_PROTOCOL};branch=${BRANCH}"
@@ -37,15 +37,15 @@ PR = "r0"
 
 S = "${WORKDIR}/${PM_LLD_GIT_DESTSUFFIX}"
 
-DEPENDS_append = " ti-sysbios \
+DEPENDS:append = " ti-sysbios \
             osal-rtos \
 "
-DEPENDS_append_ti33x = " starterware-rtos \
+DEPENDS:append:ti33x = " starterware-rtos \
 "
-DEPENDS_append_ti43x = " starterware-rtos \
+DEPENDS:append:ti43x = " starterware-rtos \
 "
 
-DEPENDS_append_k3 = " sciclient-rtos \
+DEPENDS:append:k3 = " sciclient-rtos \
 "
 
 export PDK_PM_ROOT_PATH = "${WORKDIR}/build"
@@ -54,7 +54,7 @@ export DEST_ROOT="${S}"
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
 
-do_compile_append() {
+do_compile:append() {
     # Delete archive created by XDC release command since it does not contain all content
     find -name "*.tar" -exec rm -f {} \;
 
@@ -65,7 +65,7 @@ do_compile_append() {
 
 
 # Workaround: dra7xx build requires am57xx pm libraries for opencl-monitor
-TI_PDK_LIMIT_SOCS_append_dra7xx = " am571x am572x am574x"
-TI_PDK_LIMIT_BOARDS_append_dra7xx = " evmAM571x evmAM572x idkAM574x"
+TI_PDK_LIMIT_SOCS:append:dra7xx = " am571x am572x am574x"
+TI_PDK_LIMIT_BOARDS:append:dra7xx = " evmAM571x evmAM572x idkAM574x"
 
-INSANE_SKIP_${PN} = "arch staticdev"
+INSANE_SKIP:${PN} = "arch staticdev"

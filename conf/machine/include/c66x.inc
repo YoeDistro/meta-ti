@@ -1,5 +1,5 @@
 require conf/machine/include/keystone.inc
-SOC_FAMILY_append = ":c66x"
+SOC_FAMILY:append = ":c66x"
 
 # HACK: The c66x family is composed of devices with only DSP cores, and no ARM
 #       cores. The Linux kernel is not supported on these machines.

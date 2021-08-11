@@ -9,8 +9,8 @@ PR = "${INC_PR}.0"
 S = "${WORKDIR}/git/gdbserver-c6x/src"
 
 PLATFORM = ""
-PLATFORM_dra7xx = "DRA7xx_PLATFORM"
-PLATFORM_keystone = "KEYSTONE_PLATFORM"
+PLATFORM:dra7xx = "DRA7xx_PLATFORM"
+PLATFORM:keystone = "KEYSTONE_PLATFORM"
 
 EXTRA_OEMAKE = "PLATFORM=${PLATFORM}"
 
@@ -37,7 +37,7 @@ do_install() {
 COMPATIBLE_MACHINE = "dra7xx|keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-FILES_${PN}-dev += "\
+FILES:${PN}-dev += "\
     ${datadir}/ti/gdbc6x \
 "
 
@@ -45,6 +45,6 @@ include gdbc6x.inc
 
 require recipes-ti/includes/ti-paths.inc
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 PARALLEL_MAKE = ""

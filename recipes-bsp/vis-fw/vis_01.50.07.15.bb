@@ -25,12 +25,12 @@ do_install() {
 }
 
 PACKAGES += "${PN}-fw"
-RDEPENDS_${PN} += "${PN}-fw"
+RDEPENDS:${PN} += "${PN}-fw"
 
-FILES_${PN}-fw += "${base_libdir}/firmware/${DSPAPP}"
+FILES:${PN}-fw += "${base_libdir}/firmware/${DSPAPP}"
 
-INSANE_SKIP_${PN} = "ldflags"
-INSANE_SKIP_${PN}-fw = "arch"
+INSANE_SKIP:${PN} = "ldflags"
+INSANE_SKIP:${PN}-fw = "arch"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"

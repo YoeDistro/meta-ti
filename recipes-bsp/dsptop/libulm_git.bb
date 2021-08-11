@@ -12,8 +12,8 @@ PR = "${INC_PR}.0"
 S = "${WORKDIR}/git/dsptop/ulm"
 
 DEVICE=""
-DEVICE_dra7xx = "DRA7xx"
-DEVICE_keystone = "C66AK2Hxx"
+DEVICE:dra7xx = "DRA7xx"
+DEVICE:keystone = "C66AK2Hxx"
 
 EXTRA_OEMAKE = "release DEVICE=${DEVICE} CROSS_COMPILE=${TARGET_PREFIX}"
 
@@ -35,12 +35,12 @@ do_install() {
 COMPATIBLE_MACHINE = "dra7xx|keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-FILES_${PN}-dev += "\
+FILES:${PN}-dev += "\
     ${datadir}/ti/ulm \
 "
 
 include dsptop.inc
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 PARALLEL_MAKE= ""

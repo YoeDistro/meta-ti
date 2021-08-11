@@ -16,4 +16,4 @@ SRCREV = "${UIO_MODULE_DRV_SRCREV}"
 S = "${WORKDIR}/git"
 
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST_ti-soc = "(.*)"
+COMPATIBLE_HOST:ti-soc = "(.*)"

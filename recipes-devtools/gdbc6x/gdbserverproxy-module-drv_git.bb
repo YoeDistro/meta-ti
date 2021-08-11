@@ -3,17 +3,17 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=75859989545e37968a99b631ef42722e"
 
 # This package builds a kernel module, use kernel PR as base and append a local
-MACHINE_KERNEL_PR_append = "b"
+MACHINE_KERNEL_PR:append = "b"
 PR = "${MACHINE_KERNEL_PR}"
-PV_append = "+git${SRCPV}"
+PV:append = "+git${SRCPV}"
 
 S = "${WORKDIR}/git/kernel_module/gdbproxy-mod"
 
 inherit module
 
 PLATFORM = ""
-PLATFORM_dra7xx = "DRA7xx_PLATFORM"
-PLATFORM_keystone = "KEYSTONE_PLATFORM"
+PLATFORM:dra7xx = "DRA7xx_PLATFORM"
+PLATFORM:keystone = "KEYSTONE_PLATFORM"
 
 EXTRA_OEMAKE = "PLATFORM=${PLATFORM} KVERSION=${KERNEL_VERSION} KERNEL_SRC=${STAGING_KERNEL_DIR}"
 

@@ -10,10 +10,10 @@ INHIBIT_DEFAULT_DEPS = "1"
 inherit nopackages deploy
 
 PLAT_SFX = ""
-PLAT_SFX_j7 = "/j721e"
-PLAT_SFX_j7200-evm = "/j7200"
-PLAT_SFX_am65xx = "/am65xx"
-PLAT_SFX_am64xx = "/am64x"
+PLAT_SFX:j7 = "/j721e"
+PLAT_SFX:j7200-evm = "/j7200"
+PLAT_SFX:am65xx = "/am65xx"
+PLAT_SFX:am64xx = "/am64x"
 
 # Use weak assignment to set defaults to TI_RTOS_METADATA_* variables
 TI_RTOS_METADATA_URI ?= "git://git.ti.com/processor-sdk/coresdk_rtos_releases.git"
@@ -22,7 +22,7 @@ TI_RTOS_METADATA_SRCREV ?= "2ecbf45af64bc47806623cc5bf7ab493489acaf9"
 TI_RTOS_METADATA_BRANCH ?= "master"
 TI_RTOS_METADATA_DIR ?= "${PLAT_SFX}"
 TI_RTOS_METADATA_FILE ?= "${S}${TI_RTOS_METADATA_DIR}/metadata.inc"
-TI_RTOS_METADATA_FILE_am64xx ?= "${S}${TI_RTOS_METADATA_DIR}/mcusdk_metadata.inc"
+TI_RTOS_METADATA_FILE:am64xx ?= "${S}${TI_RTOS_METADATA_DIR}/mcusdk_metadata.inc"
 
 PV = "1.0.0+git${SRCPV}"
 
@@ -39,7 +39,7 @@ do_deploy () {
 	:
 }
 
-do_deploy_k3 () {
+do_deploy:k3 () {
 	install -d ${DEPLOYDIR}
 	install -m 0644 ${TI_RTOS_METADATA_FILE} ${DEPLOYDIR}/
 }

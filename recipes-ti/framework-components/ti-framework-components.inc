@@ -15,7 +15,7 @@ do_install() {
     cp ${CP_ARGS} ${S}/* ${D}${FC_INSTALL_DIR_RECIPE}
 }
 
-INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP:${PN} = "ldflags"
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${FC_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}-dev += "${FC_INSTALL_DIR_RECIPE}"

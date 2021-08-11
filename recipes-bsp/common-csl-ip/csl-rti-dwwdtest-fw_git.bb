@@ -47,15 +47,15 @@ do_install() {
 # Create separate package for each firmware so we can utilize
 # update-alternatives.
 PACKAGES =+ "${PN}-evm ${PN}-idk"
-RDEPENDS_${PN} = "${PN}-evm ${PN}-idk"
-ALLOW_EMPTY_${PN} = "1"
+RDEPENDS:${PN} = "${PN}-evm ${PN}-idk"
+ALLOW_EMPTY:${PN} = "1"
 
-FILES_${PN}-evm = "${base_libdir}/firmware/rti_dwwdtest/am65xx_evm"
-FILES_${PN}-idk = "${base_libdir}/firmware/rti_dwwdtest/am65xx_idk"
+FILES:${PN}-evm = "${base_libdir}/firmware/rti_dwwdtest/am65xx_evm"
+FILES:${PN}-idk = "${base_libdir}/firmware/rti_dwwdtest/am65xx_idk"
 
 # We are packaging R5 firmware
-INSANE_SKIP_${PN}-evm = "arch"
-INSANE_SKIP_${PN}-idk = "arch"
+INSANE_SKIP:${PN}-evm = "arch"
+INSANE_SKIP:${PN}-idk = "arch"
 
 # Configure update-alternatives as there may be other firmwares provided in an
 # image.
@@ -63,8 +63,8 @@ inherit update-alternatives
 
 # It might be nice to dynamically declare the following based on
 # TI_PDK_LIMIT_BOARDS, but that is probably overkill.
-ALTERNATIVE_${PN}-evm = "am65x-mcu-r5f0_0-fw"
-ALTERNATIVE_${PN}-idk = "am65x-mcu-r5f0_0-fw"
+ALTERNATIVE:${PN}-evm = "am65x-mcu-r5f0_0-fw"
+ALTERNATIVE:${PN}-idk = "am65x-mcu-r5f0_0-fw"
 
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_0-fw] = "${base_libdir}/firmware/am65x-mcu-r5f0_0-fw"
 

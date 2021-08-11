@@ -15,11 +15,11 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PR = "r0"
 
 
-DEPENDS_append = " edma3-lld-rtos \
+DEPENDS:append = " edma3-lld-rtos \
 "
 
 export EDMA3LLD_BIOS6_INSTALLDIR = "${EDMA3_LLD_INSTALL_DIR}"
-XDCPATH_append = ";${EDMA3_LLD_INSTALL_DIR}/packages"
+XDCPATH:append = ";${EDMA3_LLD_INSTALL_DIR}/packages"
 
 TI_PDK_XDCMAKE = "0"
 

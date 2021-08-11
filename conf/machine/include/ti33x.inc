@@ -1,5 +1,5 @@
 require conf/machine/include/ti-soc.inc
-SOC_FAMILY_append = ":ti33x"
+SOC_FAMILY:append = ":ti33x"
 
 DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/tune-cortexa8.inc

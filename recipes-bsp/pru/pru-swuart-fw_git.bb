@@ -15,7 +15,7 @@ TI_PDK_COMP = "ti.drv.uart"
 
 PE = "1"
 
-SRC_URI_append = " \
+SRC_URI:append = " \
 	file://0001-icss_uart-add-Makefile-for-building-firmware.patch \
 	file://0001-icss_uart-remove-dependency-on-PDK-CSL.patch \
 "
@@ -35,6 +35,6 @@ do_install() {
 	install -m 0644 ${S}/firmware/icss_uart/src/gen/src.out ${D}/lib/firmware/ti-pruss/pru_swuart-fw.elf
 }
 
-FILES_${PN} = "/lib/firmware"
+FILES:${PN} = "/lib/firmware"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

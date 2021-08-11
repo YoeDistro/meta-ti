@@ -16,7 +16,7 @@ BRANCH = "ti-${PV}"
 SRC_URI = "git://git.ti.com/graphics/ti-gc320-libs.git;protocol=git;branch=${BRANCH}"
 SRCREV = "c0afab259de59909cfe74c01f3f7fbaa147f94b5"
 
-RRECOMMENDS_${PN} = "ti-gc320-driver"
+RRECOMMENDS:${PN} = "ti-gc320-driver"
 
 # There's only hardfp version available
 python __anonymous() {
@@ -43,4 +43,4 @@ do_install() {
     chown -R root:root ${D}
 }
 
-INSANE_SKIP_${PN} += "ldflags"
+INSANE_SKIP:${PN} += "ldflags"

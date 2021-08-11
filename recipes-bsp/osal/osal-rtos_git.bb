@@ -3,10 +3,10 @@ require recipes-bsp/osal/osal.inc
 
 PR = "${INC_PR}.0"
 
-COMPATIBLE_MACHINE_append = "|c66x|k3"
+COMPATIBLE_MACHINE:append = "|c66x|k3"
 
-DEPENDS_append_ti33x = " starterware-rtos"
-DEPENDS_append_ti43x = " starterware-rtos"
+DEPENDS:append:ti33x = " starterware-rtos"
+DEPENDS:append:ti43x = " starterware-rtos"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"

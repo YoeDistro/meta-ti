@@ -25,7 +25,7 @@ SRCREV = "62fb9874f5da54fdb243003b386128037319b219"
 PV = "5.13+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "b"
+MACHINE_KERNEL_PR:append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_GIT_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
@@ -41,12 +41,12 @@ SRCREV_FORMAT = "linux"
 
 KERNEL_DEVICETREE = ""
 
-kernel_do_compile_append() {
+kernel_do_compile:append() {
 	oe_runmake dtbs CC="${KERNEL_CC} $cc_extra " LD="${KERNEL_LD}" ${KERNEL_EXTRA_ARGS}
 	oe_runmake -C ${WORKDIR}/ti-upstream-tools LINUX=${S} DTC=${B}/scripts/dtc/dtc O=${B} CC="${KERNEL_CC} $cc_extra " LD="${KERNEL_LD}" ${KERNEL_EXTRA_ARGS}
 }
 
-do_install_append() {
+do_install:append() {
 	for dtbf in `find arch/${ARCH}/boot/dts/ \( -name '*.dtb' -or -name '*.dtbo' \)`; do
 		dtb="$dtbf"
 		dtb_ext=${dtb##*.}
@@ -56,7 +56,7 @@ do_install_append() {
 	done
 }
 
-do_deploy_append() {
+do_deploy:append() {
 	for dtbf in `find arch/${ARCH}/boot/dts/ \( -name '*.dtb' -or -name '*.dtbo' \) -printf '%P\n'`; do
 		dtb="$dtbf"
 		dtb_ext=${dtb##*.}
@@ -67,9 +67,9 @@ do_deploy_append() {
 	done
 }
 
-do_shared_workdir_prepend() {
+do_shared_workdir:prepend() {
 	cd ${B}
 	echo >> Module.symvers
 }
 
-FILES_${KERNEL_PACKAGE_NAME}-devicetree += "/${KERNEL_IMAGEDEST}/*.itb"
+FILES:${KERNEL_PACKAGE_NAME}-devicetree += "/${KERNEL_IMAGEDEST}/*.itb"

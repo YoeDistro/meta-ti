@@ -1,1 +1,1 @@
-COMPATIBLE_MACHINE_ti-soc = "ti-soc"
+COMPATIBLE_MACHINE:ti-soc = "ti-soc"

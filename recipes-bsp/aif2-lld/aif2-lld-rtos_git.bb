@@ -6,7 +6,7 @@ require recipes-bsp/aif2-lld/aif2-lld.inc
 
 PR = "${INC_PR}.0"
 
-DEPENDS_append = " qmss-lld-rtos \
+DEPENDS:append = " qmss-lld-rtos \
                    cppi-lld-rtos \
 "
 

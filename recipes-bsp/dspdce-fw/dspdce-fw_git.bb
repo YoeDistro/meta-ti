@@ -55,11 +55,11 @@ do_install() {
     install -m 0644 ${S}/dra7xx-c66x-dsp.xe66 ${D}${base_libdir}/firmware/${TARGET}.${BPN}
 }
 
-ALTERNATIVE_${PN} = "dra7-dsp1-fw.xe66"
+ALTERNATIVE:${PN} = "dra7-dsp1-fw.xe66"
 ALTERNATIVE_LINK_NAME[dra7-dsp1-fw.xe66] = "${base_libdir}/firmware/${TARGET}"
 ALTERNATIVE_TARGET[dra7-dsp1-fw.xe66] = "${base_libdir}/firmware/${TARGET}.${BPN}"
 ALTERNATIVE_PRIORITY = "10"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"
 
-FILES_${PN} += "${base_libdir}/firmware/*"
+FILES:${PN} += "${base_libdir}/firmware/*"

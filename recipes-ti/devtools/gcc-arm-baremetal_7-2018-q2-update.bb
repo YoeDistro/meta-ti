@@ -14,16 +14,16 @@ S = "${WORKDIR}/gcc-arm-none-eabi-7-2018-q2-update"
 
 # only x86_64 is supported
 COMPATIBLE_HOST = "x86_64.*-linux"
-COMPATIBLE_HOST_class-target = "null"
+COMPATIBLE_HOST:class-target = "null"
 
 do_install() {
     install -d ${D}${GCC_ARM_NONE_TOOLCHAIN_RECIPE}
     cp -r ${S}/. ${D}${GCC_ARM_NONE_TOOLCHAIN_RECIPE}
 }
 
-FILES_${PN} = "${GCC_ARM_NONE_TOOLCHAIN_RECIPE}/*"
+FILES:${PN} = "${GCC_ARM_NONE_TOOLCHAIN_RECIPE}/*"
 
-INSANE_SKIP_${PN} = "already-stripped libdir staticdev build-deps file-rdeps"
+INSANE_SKIP:${PN} = "already-stripped libdir staticdev build-deps file-rdeps"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 BBCLASSEXTEND = "native nativesdk"

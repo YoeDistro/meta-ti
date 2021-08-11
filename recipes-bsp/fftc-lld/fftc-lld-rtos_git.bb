@@ -14,7 +14,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r0"
 
-DEPENDS_append= " qmss-lld-rtos \
+DEPENDS:append= " qmss-lld-rtos \
                   cppi-lld-rtos \
 "
 

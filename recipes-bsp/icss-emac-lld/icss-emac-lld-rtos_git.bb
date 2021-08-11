@@ -5,12 +5,12 @@ require icss-emac-lld.inc
 
 PR = "${INC_PR}.0"
 
-DEPENDS_append = " osal-rtos \
+DEPENDS:append = " osal-rtos \
                    pruss-lld-rtos \
 "
-DEPENDS_append_ti33x = " starterware-rtos \
+DEPENDS:append:ti33x = " starterware-rtos \
 "
-DEPENDS_append_ti43x = " starterware-rtos \
+DEPENDS:append:ti43x = " starterware-rtos \
 "
 
 # Build with make instead of XDC
@@ -22,4 +22,4 @@ export DEST_ROOT="${S}"
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "ICSS-EMAC LLD"
 
-INSANE_SKIP_${PN} = "arch"
+INSANE_SKIP:${PN} = "arch"

@@ -1,5 +1,5 @@
 require conf/machine/include/ti-soc.inc
-SOC_FAMILY_append = ":omap3"
+SOC_FAMILY:append = ":omap3"
 
 DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/tune-cortexa8.inc

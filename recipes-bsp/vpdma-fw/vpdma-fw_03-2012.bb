@@ -20,6 +20,6 @@ do_install() {
     cp ${S}/${TARGET} ${D}${base_libdir}/firmware/${TARGET}
 }
 
-FILES_${PN} += "${base_libdir}/firmware/${TARGET}"
+FILES:${PN} += "${base_libdir}/firmware/${TARGET}"
 
 PR = "r1"

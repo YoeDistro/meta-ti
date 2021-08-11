@@ -23,12 +23,12 @@ do_install() {
     cp ${CP_ARGS} ${S}/* ${D}${IMGLIB_C66_INSTALL_DIR_RECIPE}
 }
 
-ALLOW_EMPTY_${PN} = "1"
-FILES_${PN}-dev += "${IMGLIB_C66_INSTALL_DIR_RECIPE}"
+ALLOW_EMPTY:${PN} = "1"
+FILES:${PN}-dev += "${IMGLIB_C66_INSTALL_DIR_RECIPE}"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-RDEPENDS_${PN}-dev += "perl"
-INSANE_SKIP_${PN}-dev = "arch"
+RDEPENDS:${PN}-dev += "perl"
+INSANE_SKIP:${PN}-dev = "arch"

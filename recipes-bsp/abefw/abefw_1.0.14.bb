@@ -20,4 +20,4 @@ do_install() {
         cp ${S}/firmware/omap4_abe_new ${D}/lib/firmware/
 }
 
-FILES_${PN} += "/lib/firmware/omap4_abe_new"
+FILES:${PN} += "/lib/firmware/omap4_abe_new"

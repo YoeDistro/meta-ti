@@ -3,8 +3,8 @@ require pktlib.inc
 
 PR = "${INC_PR}.1"
 
-DEPENDS_append = " rm-lld-rtos \
+DEPENDS:append = " rm-lld-rtos \
                    qmss-lld-rtos \
                    cppi-lld-rtos \
 "
-COMPATIBLE_MACHINE_append = "|c66x"
+COMPATIBLE_MACHINE:append = "|c66x"

@@ -14,7 +14,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r1"
 
-DEPENDS_append = " osal-rtos common-csl-ip-rtos openssl-native"
+DEPENDS:append = " osal-rtos common-csl-ip-rtos openssl-native"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"
@@ -26,12 +26,12 @@ export PDK_INSTALL_PATH = "${PDK_INSTALL_DIR}/packages"
 export PDK_SCICLIENT_ROOT_PATH = "${SCICLIENT_PACKAGE_BASE}/package/all/pdk_/packages"
 
 BUILD_HS = ""
-BUILD_HS_am65xx-hs-evm = "yes"
-BUILD_HS_j7-hs-evm = "yes"
+BUILD_HS:am65xx-hs-evm = "yes"
+BUILD_HS:j7-hs-evm = "yes"
 export BUILD_HS
 
 # Sciclient for am65x supports mcu1_1 in addition to the default cores in TI_PDK_LIMIT_CORES
-TI_PDK_LIMIT_CORES_append_am65xx = " mcu1_1"
+TI_PDK_LIMIT_CORES:append:am65xx = " mcu1_1"
 
 # HTML doc link params
 PDK_COMP_LINK_TEXT = "SCICLIENT"
@@ -66,7 +66,7 @@ do_compile() {
 }
 
 
-do_compile_prepend_am65xx-hs-evm() {
+do_compile:prepend:am65xx-hs-evm() {
 
     cd ${SCICLIENT_ROOTPATH}
 
@@ -79,7 +79,7 @@ do_compile_prepend_am65xx-hs-evm() {
     cd -
 }
 
-do_compile_prepend_am65xx-evm() {
+do_compile:prepend:am65xx-evm() {
 
     cd ${SCICLIENT_ROOTPATH}/tools
 
@@ -92,7 +92,7 @@ do_compile_prepend_am65xx-evm() {
 }
 
 
-do_compile_prepend_j7-evm() {
+do_compile:prepend:j7-evm() {
 
     cd ${SCICLIENT_ROOTPATH}/tools
     # Create the .bin file for GP
@@ -100,7 +100,7 @@ do_compile_prepend_j7-evm() {
     cd -
 }
 
-do_compile_prepend_j7-hs-evm() {
+do_compile:prepend:j7-hs-evm() {
 
     cd ${SCICLIENT_ROOTPATH}/tools
     # Create the .bin file for HS
@@ -114,11 +114,11 @@ do_install() {
     find -name "*.tar" -exec tar xf {} --no-same-owner -C ${D}${PDK_INSTALL_DIR_RECIPE}/packages/ti/drv/sciclient \;
 }
 
-FILES_${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
+FILES:${PN} += "${PDK_INSTALL_DIR_RECIPE}/packages"
 
-INSANE_SKIP_${PN} = "arch ldflags file-rdeps"
+INSANE_SKIP:${PN} = "arch ldflags file-rdeps"
 
-INSANE_SKIP_${PN}-dbg = "arch"
+INSANE_SKIP:${PN}-dbg = "arch"
 
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 INHIBIT_PACKAGE_STRIP = "1"

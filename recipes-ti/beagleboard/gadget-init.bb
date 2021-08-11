@@ -39,22 +39,22 @@ do_install() {
 
 PACKAGES =+ "${PN}-storage ${PN}-network ${PN}-udhcpd"
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
-FILES_${PN}-storage = "${base_libdir}/systemd/system/storage-gadget-init.service \
+FILES:${PN}-storage = "${base_libdir}/systemd/system/storage-gadget-init.service \
                        ${base_libdir}/systemd/system/basic.target.wants/storage-gadget-init.service \
                        ${bindir}/g-storage-reinsert.sh \
                        ${bindir}/update-image-info-on-mmcblk0p1.sh \
                        ${sysconfdir}/udev/rules.d/bone-gmass-eject.rules"
 
-FILES_${PN}-network = "${base_libdir}/systemd/system/network-gadget-init.service \
+FILES:${PN}-network = "${base_libdir}/systemd/system/network-gadget-init.service \
                        ${base_libdir}/systemd/system/basic.target.wants/network-gadget-init.service \
                        ${bindir}/g-ether-load.sh \
                        ${bindir}/g-ether-start-service.sh \
                        ${sysconfdir}/udev/rules.d/udhcpd.rules"
 
-FILES_${PN}-udhcpd = "${base_libdir}/systemd/system/udhcpd.service \
+FILES:${PN}-udhcpd = "${base_libdir}/systemd/system/udhcpd.service \
                       ${base_libdir}/systemd/system/basic.target.wants/udhcpd.service \
                       ${sysconfdir}/udhcpd.conf"
 
-RRECOMMENDS_${PN} = "${PN}-storage ${PN}-network ${PN}-udhcpd"
+RRECOMMENDS:${PN} = "${PN}-storage ${PN}-network ${PN}-udhcpd"

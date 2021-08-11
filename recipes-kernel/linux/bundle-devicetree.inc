@@ -2,7 +2,7 @@
 # zImage. The factory u-boot on lego-ev3 EEPROM only supports uImage, so we
 # append the DTB to the final uImage here.
 
-do_deploy_append() {
+do_deploy:append() {
     if [ "${KERNEL_DEVICETREE_BUNDLE}" = "1" ]; then
         install -d ${DEPLOYDIR}
         for dtbf in ${KERNEL_DEVICETREE}; do

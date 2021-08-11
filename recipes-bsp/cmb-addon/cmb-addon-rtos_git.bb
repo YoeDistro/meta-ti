@@ -27,7 +27,7 @@ SRC_URI = "${CMB_ADDON_GIT_URI};destsuffix=${CMB_ADDON_GIT_DESTSUFFIX};protocol=
 
 S = "${WORKDIR}/git/ti/addon/cmb"
 
-DEPENDS_append = " ti-sysbios \
+DEPENDS:append = " ti-sysbios \
             gpio-lld-rtos \
             i2c-lld-rtos \
             mcasp-lld-rtos \

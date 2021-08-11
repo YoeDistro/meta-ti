@@ -3,13 +3,13 @@ HOMEPAGE = "https://www-a.ti.com/downloads/sds_support/TICodegenerationTools/dow
 LICENSE = "(TI-TSPA & Thai-Open-Source-Software-Center) & BSD-3-Clause & BSL-1.0 & Patrick-Powell & AFL-3.0 & MIT & BSD-2-Clause & PD"
 
 LIC_FILES_CHKSUM = "file://ti-cgt-c6000_${PV}/C6000CodeGenerationTools_8.3.x_manifest.html;md5=d06c6f9acebf78df4108a8535396e9f1"
-LIC_FILES_CHKSUM_class-target = "file://usr/share/doc/ti/cgt-c6x/C6000CodeGenerationTools_8.3.x_manifest.html;md5=d06c6f9acebf78df4108a8535396e9f1"
+LIC_FILES_CHKSUM:class-target = "file://usr/share/doc/ti/cgt-c6x/C6000CodeGenerationTools_8.3.x_manifest.html;md5=d06c6f9acebf78df4108a8535396e9f1"
 
 PE = "1"
 
 require recipes-ti/includes/ti-unpack.inc
 
-COMPATIBLE_HOST_class-target = "arm.*-linux"
+COMPATIBLE_HOST:class-target = "arm.*-linux"
 
 # For now we only have hardfp version for target class
 python __anonymous() {
@@ -26,13 +26,13 @@ python __anonymous() {
             raise bb.parse.SkipPackage("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
 }
 
-BINFILE = "ti_cgt_c6000_${PV}_linux_installer_x86.bin"
-BINFILE_NAME = "cgt6x_x86_installer"
+BINFILE = "ti_cgt_c6000_${PV}_linux_installer:x86.bin"
+BINFILE_NAME = "cgt6x:x86_installer"
 TI_BIN_UNPK_ARGS = "--prefix ${S}"
 TI_BIN_UNPK_CMDS = ""
 
-BINFILE_class-target = "ti_cgt_c6000_${PV}_armlinuxa8hf_busybox_installer.sh"
-BINFILE_NAME_class-target = "cgt6x_arm_installer"
+BINFILE:class-target = "ti_cgt_c6000_${PV}:armlinuxa8hf_busybox_installer.sh"
+BINFILE_NAME:class-target = "cgt6x:arm_installer"
 
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C6000/${PV}/${BINFILE};name=${BINFILE_NAME}"
 
@@ -91,17 +91,17 @@ do_install() {
 
 }
 
-do_install_class-target() {
+do_install:class-target() {
     ${WORKDIR}/${BINFILE} --prefix ${D}
 }
 
-FILES_${PN} += "${datadir}/ti/*"
+FILES:${PN} += "${datadir}/ti/*"
 
-FILES_${PN}-dbg += "${datadir}/ti/cgt-c6x/bin/.debug"
+FILES:${PN}-dbg += "${datadir}/ti/cgt-c6x/bin/.debug"
 
-INSANE_SKIP_${PN} += "staticdev"
+INSANE_SKIP:${PN} += "staticdev"
 INHIBIT_PACKAGE_STRIP_FILES = "${PKGD}${datadir}/ti/cgt-c6x/lib/libc.a"
 
 BBCLASSEXTEND = "native nativesdk"
 
-COMPATIBLE_MACHINE_class-target = "(ti-soc)"
+COMPATIBLE_MACHINE:class-target = "(ti-soc)"

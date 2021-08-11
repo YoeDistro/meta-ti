@@ -1,6 +1,6 @@
 inherit ti-pdk
 
-COMPATIBLE_MACHINE_append = "|c66x"
+COMPATIBLE_MACHINE:append = "|c66x"
 
 require rm-lld.inc
 

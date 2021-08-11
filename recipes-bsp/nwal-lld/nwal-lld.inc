@@ -14,8 +14,8 @@ INC_PR = "r0"
 
 BASEDIR = "${WORKDIR}/git"
 
-DEVICELIST_k2hk = "k2h k2k"
-DEVICELIST_k2l  = "k2l"
-DEVICELIST_k2e  = "k2e"
+DEVICELIST:k2hk = "k2h k2k"
+DEVICELIST:k2l  = "k2l"
+DEVICELIST:k2e  = "k2e"
 
 CHOICELIST = "yes no"

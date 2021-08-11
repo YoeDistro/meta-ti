@@ -14,10 +14,10 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PR = "r0"
 
-DEPENDS_append = " osal-rtos"
-DEPENDS_append_ti33x = " starterware-rtos"
-DEPENDS_append_ti43x = " starterware-rtos"
-DEPENDS_append_k3 = " sciclient-rtos"
+DEPENDS:append = " osal-rtos"
+DEPENDS:append:ti33x = " starterware-rtos"
+DEPENDS:append:ti43x = " starterware-rtos"
+DEPENDS:append:k3 = " sciclient-rtos"
 
 # Build with make instead of XDC
 TI_PDK_XDCMAKE = "0"

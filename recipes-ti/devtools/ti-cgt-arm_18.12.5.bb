@@ -21,7 +21,7 @@ TI_BIN_UNPK_CMDS = ""
 
 # only x86_64 is supported
 COMPATIBLE_HOST = "x86_64.*-linux"
-COMPATIBLE_HOST_class-target = "null"
+COMPATIBLE_HOST:class-target = "null"
 
 do_install() {
     install -d ${D}${M4_TOOLCHAIN_INSTALL_DIR_RECIPE}
@@ -31,14 +31,14 @@ do_install() {
 SRC_URI[cgt_arm_installer.md5sum] = "e9e668332cf86c965b4da9d1d488426b"
 SRC_URI[cgt_arm_installer.sha256sum] = "da976143128c619a278cb4214a4295c409d100f9e65ad2f4d0d1039db7cf98f4"
 
-BINFILE_NAME = "cgt_arm_installer"
+BINFILE_NAME = "cgt:arm_installer"
 
-FILES_${PN} += "${M4_TOOLCHAIN_INSTALL_DIR_RECIPE}"
+FILES:${PN} += "${M4_TOOLCHAIN_INSTALL_DIR_RECIPE}"
 
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-INSANE_SKIP_${PN} += "arch staticdev file-rdeps"
+INSANE_SKIP:${PN} += "arch staticdev file-rdeps"
 
 BBCLASSEXTEND = "native nativesdk"

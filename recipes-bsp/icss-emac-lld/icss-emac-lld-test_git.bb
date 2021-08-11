@@ -2,8 +2,8 @@ DESCRIPTION = "TI ICSS-EMAC low level driver tests"
 
 DEPENDS="common-csl-ip pruss-lld icss-emac-lld osal ti-pdk-build-rtos icss-emac-lld-rtos"
 
-DEPENDS_append_ti33x = " starterware"
-DEPENDS_append_ti43x = " starterware"
+DEPENDS:append:ti33x = " starterware"
+DEPENDS:append:ti43x = " starterware"
 
 include icss-emac-lld.inc
 

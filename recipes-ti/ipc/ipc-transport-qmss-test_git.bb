@@ -10,9 +10,9 @@ DEPENDS = "ipc-transport-qmss ti-ipc"
 
 CHOICELIST = "yes no"
 
-DEVICELIST_k2hk = "k2h k2k"
-DEVICELIST_k2e  = "k2e"
-DEVICELIST_k2l  = "k2l"
+DEVICELIST:k2hk = "k2h k2k"
+DEVICELIST:k2e  = "k2e"
+DEVICELIST:k2l  = "k2l"
 
 do_compile () {
 #   Now build the test code
