@@ -2,7 +2,7 @@ require conf/machine/include/ti-soc.inc
 SOC_FAMILY:append = ":keystone"
 
 DEFAULTTUNE ?= "armv7athf-neon"
-require conf/machine/include/tune-cortexa15.inc
+require conf/machine/include/arm/armv7a/tune-cortexa15.inc
 
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-ti-staging"
 PREFERRED_PROVIDER_virtual/bootloader = "u-boot-ti-staging"

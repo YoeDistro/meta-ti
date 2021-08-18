@@ -1,4 +1,4 @@
-require conf/machine/include/tune-arm926ejs.inc
+require conf/machine/include/arm/armv5/tune-arm926ejs.inc
 
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r54"

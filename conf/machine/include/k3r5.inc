@@ -5,7 +5,7 @@ SOC_FAMILY:append = ":k3r5"
 
 # The closest of existing tunes for Cortex-R5F
 DEFAULTTUNE = "armv7athf"
-require conf/machine/include/tune-cortexa8.inc
+require conf/machine/include/arm/armv7a/tune-cortexa8.inc
 
 # R5 runs early bootloader and loads SYSFW
 # https://git.ti.com/cgit/ti-u-boot/ti-u-boot/tree/board/ti/am65x/README

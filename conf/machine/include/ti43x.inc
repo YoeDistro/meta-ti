@@ -2,7 +2,7 @@ require conf/machine/include/ti-soc.inc
 SOC_FAMILY:append = ":ti43x"
 
 DEFAULTTUNE ?= "armv7athf-neon"
-require conf/machine/include/tune-cortexa9.inc
+require conf/machine/include/arm/armv7a/tune-cortexa9.inc
 
 PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
 

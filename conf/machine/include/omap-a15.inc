@@ -2,7 +2,7 @@ require conf/machine/include/ti-soc.inc
 SOC_FAMILY:append = ":omap-a15"
 
 DEFAULTTUNE ?= "armv7athf-neon"
-require conf/machine/include/tune-cortexa15.inc
+require conf/machine/include/arm/armv7a/tune-cortexa15.inc
 
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r7"
