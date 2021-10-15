@@ -8,12 +8,12 @@ LIC_FILES_CHKSUM:class-target = "file://usr/share/doc/ti/cgt-pru/PRU_Code_Genera
 require recipes-ti/includes/ti-paths.inc
 require recipes-ti/includes/ti-unpack.inc
 
-BINFILE = "ti_cgt_pru_${PV}_linux_installer:x86.bin"
+BINFILE = "ti_cgt_pru_${PV}_linux_installer_x86.bin"
 BINFILE_NAME = "cgt-pru-x86"
 TI_BIN_UNPK_ARGS = "--prefix ${S}"
 TI_BIN_UNPK_CMDS = ""
 
-BINFILE:class-target = "ti_cgt_pru_${PV}:armlinuxa8hf_busybox_installer.sh"
+BINFILE:class-target = "ti_cgt_pru_${PV}_armlinuxa8hf_busybox_installer.sh"
 BINFILE_NAME:class-target = "cgt-pru-arm"
 
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/PRU/${PV}/${BINFILE};name=${BINFILE_NAME}"

@@ -20,7 +20,7 @@ COMPATIBLE_HOST:class-target = "null"
 PE = "1"
 
 BINFILE = "ti_cgt_c7000_${PV}.STS_linux_installer_x86.bin"
-BINFILE_NAME = "cgt7x:x86_installer"
+BINFILE_NAME = "cgt7x_x86_installer"
 
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/C7000/${PV}.STS/${BINFILE};name=${BINFILE_NAME}"
 

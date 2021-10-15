@@ -31,7 +31,7 @@ do_install() {
 SRC_URI[cgt_arm_installer.md5sum] = "e9e668332cf86c965b4da9d1d488426b"
 SRC_URI[cgt_arm_installer.sha256sum] = "da976143128c619a278cb4214a4295c409d100f9e65ad2f4d0d1039db7cf98f4"
 
-BINFILE_NAME = "cgt:arm_installer"
+BINFILE_NAME = "cgt_arm_installer"
 
 FILES:${PN} += "${M4_TOOLCHAIN_INSTALL_DIR_RECIPE}"
 

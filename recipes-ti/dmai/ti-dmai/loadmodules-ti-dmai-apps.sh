@@ -34,4 +34,4 @@ modprobe dsplinkk
 
 # insert Local Power Manager driver
 #
-modprobe lpm:omap3530
+modprobe lpm_omap3530
