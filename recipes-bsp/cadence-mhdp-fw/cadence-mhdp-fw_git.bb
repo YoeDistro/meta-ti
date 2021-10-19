@@ -1,21 +1,18 @@
 SUMMARY = "Cadence MHDP DP bridge firmware"
 
+require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
+
 LICENSE = "BSD-3-Clause | Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENCE.cadence;md5=009f46816f6956cfb75ede13d3e1cee0"
 
-PV = "1.2.17"
-PR = "r0"
+PV = "${CADENCE_MHDP_FW_VERSION}"
+PR = "${INC_PR}.0"
 
 CLEANBROKEN = "1"
 
 COMPATIBLE_MACHINE = "j7"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-SRCREV = "7bad9a69a343e01056ece5ce6da4d4060c42f6bc"
-BRANCH ?= "ti-linux-firmware"
-
-SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 TARGET = "mhdp8546.bin"

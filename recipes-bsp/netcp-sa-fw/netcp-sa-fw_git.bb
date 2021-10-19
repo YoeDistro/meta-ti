@@ -1,21 +1,15 @@
 DESCRIPTION = "NETCP SA firmware for Keystone"
 
-LICENSE = "TI-TFL"
-LIC_FILES_CHKSUM = "file://LICENCE.ti-keystone;md5=3a86335d32864b0bef996bee26cc0f2c"
+require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
-PV = "1.0.0"
-PR = "r0"
+PV = "${NETCP_SA_FW_VERSION}"
+PR = "${INC_PR}.0"
 
 CLEANBROKEN = "1"
 
 COMPATIBLE_MACHINE = "keystone"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-SRCREV = "588f602a21c62f90b1f4318b881c80a1e711317a"
-BRANCH ?= "ti-linux-firmware"
-
-SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 
