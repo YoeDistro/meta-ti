@@ -27,8 +27,9 @@ SYSFW_PREFIX_j7-hs-evm-k3r5 = "ti-fs-firmware"
 SYSFW_SUFFIX ?= "unknown"
 
 SYSFW_BASE = "${SYSFW_PREFIX}-${SYSFW_SOC}-${SYSFW_SUFFIX}"
+SYSFW_BASE_append = "${@['','*']['${SYSFW_SUFFIX}' == 'hs']}"
 
-SYSFW_TISCI = "${S}/ti-sysfw/${SYSFW_BASE}*.bin"
+SYSFW_TISCI = "${S}/ti-sysfw/${SYSFW_BASE}.bin"
 
 SYSFW_BINARY = "sysfw-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
 SYSFW_VBINARY = "sysfw-${PV}-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
