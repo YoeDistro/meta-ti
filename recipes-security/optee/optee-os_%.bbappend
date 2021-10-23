@@ -10,6 +10,8 @@ SRC_URI_ti-soc = " \
     file://0007-allow-setting-sysroot-for-clang.patch \
 "
 
+EXTRA_OEMAKE_append_k3 = "${@ 'CFG_CONSOLE_UART='+ d.getVar('OPTEE_K3_USART') if d.getVar('OPTEE_K3_USART') else ''}"
+
 do_compile_prepend_ti-soc() {
     export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
 }
