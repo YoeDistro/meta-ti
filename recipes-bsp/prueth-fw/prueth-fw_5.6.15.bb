@@ -1,20 +1,14 @@
 SUMMARY = "PRU Ethernet firmware for AM57xx, AM437x and AM335x"
 
-LICENSE = "TI-TFL"
-LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
+require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
-PR = "r0"
+PR = "${INC_PR}.0"
 
 CLEANBROKEN = "1"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|am57xx-evm|am57xx-hs-evm"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-SRCREV = "11fecaf08eeed27f2a834c9911edb8a5fb2a23b1"
-BRANCH ?= "ti-linux-firmware"
-
-SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 

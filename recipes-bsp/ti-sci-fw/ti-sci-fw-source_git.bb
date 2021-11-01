@@ -2,7 +2,7 @@
 # Let's take a page from gcc-source as a common recipe for all gcc stages,
 # but also to provide a single package for MAINMACHINE of all multiconfigs
 
-require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
+require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
 SUMMARY += "- sources"
 

@@ -1,21 +1,15 @@
 SUMMARY = "PRU HSR firmware for AM335x/AM437x/AM57xx"
 
-LICENSE = "TI-TFL"
-LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
+require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
 PE = "1"
-PR = "r0"
+PR = "${INC_PR}.0"
 
 CLEANBROKEN = "1"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|am57xx-evm|am57xx-hs-evm"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-SRCREV = "0038ff0ecda8dae83c65d454c85776c6a4ef8e63"
-BRANCH ?= "ti-linux-firmware"
-
-SRC_URI = "git://git.ti.com/processor-firmware/ti-linux-firmware.git;protocol=git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 

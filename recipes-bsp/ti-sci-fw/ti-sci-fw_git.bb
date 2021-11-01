@@ -1,11 +1,11 @@
-require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
+require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native"
 DEPENDS:append:j7200-evm-k3r5 = " virtual/bootloader"
 DEPENDS:append:am64xx-evm-k3r5 = " virtual/bootloader"
 
 CLEANBROKEN = "1"
-PR = "r1"
+PR = "${INC_PR}.0"
 
 # Loaded by R5F core
 COMPATIBLE_MACHINE = "k3r5"

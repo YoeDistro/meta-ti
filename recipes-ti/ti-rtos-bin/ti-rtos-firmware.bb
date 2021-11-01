@@ -19,7 +19,7 @@ PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 
 FILESEXTRAPATHS:prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
-require recipes-bsp/ti-sci-fw/ti-sci-fw.inc
+require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
 CORESDK_RTOS_VERSION ?= "08.00.00.26"
 PV = "${CORESDK_RTOS_VERSION}"
