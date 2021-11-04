@@ -21,8 +21,8 @@ PR = "r0"
 
 CC += "-fcommon"
 EXTRA_OEMAKE = "PDK_INSTALL_PATH=${STAGING_INCDIR}"
-EXTRA_OEMAKE:append:k2hk += "HYPLNK_TRANSPORT=true SRIO_TRANSPORT=true"
-EXTRA_OEMAKE:append:k2e += "HYPLNK_TRANSPORT=true"
+EXTRA_OEMAKE:append:k2hk = " HYPLNK_TRANSPORT=true SRIO_TRANSPORT=true"
+EXTRA_OEMAKE:append:k2e = " HYPLNK_TRANSPORT=true"
 INSANE_SKIP:${PN} += "ldflags"
 
 S = "${WORKDIR}/git"
