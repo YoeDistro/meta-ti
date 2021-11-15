@@ -10,6 +10,7 @@ KERNEL_DEVICETREE = " \
     ti/k3-am642-evm.dtb \
     ti/k3-am642-sk.dtb \
     ti/k3-am642-evm-icssg1-dualemac.dtbo \
+    ti/k3-am642-evm-nand.dtbo \
 "
 
 # AM64 supports multi-certificate images, use the same
