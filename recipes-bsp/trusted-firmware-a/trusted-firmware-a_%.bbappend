@@ -31,3 +31,11 @@ do_compile_append_j7-hs-evm() {
 		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
 	)
 }
+
+do_compile_append_j7200-hs-evm() {
+        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
+        ( cd ${B}/${BUILD_DIR}/release/; \
+                mv bl31.bin bl31.bin.unsigned; \
+                ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
+        )
+}
