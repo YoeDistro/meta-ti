@@ -25,6 +25,7 @@ SYSFW_PREFIX = "ti-sci-firmware"
 SYSFW_PREFIX:j7-evm-k3r5 = "ti-fs-firmware"
 SYSFW_PREFIX:j7200-evm-k3r5 = "ti-fs-firmware"
 SYSFW_PREFIX:j7-hs-evm-k3r5 = "ti-fs-firmware"
+SYSFW_PREFIX:j7-hs-evm-k3r5-sr1-1 = "ti-fs-firmware"
 SYSFW_PREFIX:j7200-hs-evm-k3r5 = "ti-fs-firmware"
 
 SYSFW_SUFFIX ?= "unknown"
