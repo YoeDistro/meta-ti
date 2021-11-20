@@ -49,6 +49,10 @@ do_compile:append:am65xx-hs-evm() {
     optee_sign_k3hs
 }
 
+do_compile:append:am64xx-hs-evm() {
+    optee_sign_k3hs
+}
+
 do_compile:append:j7-hs-evm() {
     optee_sign_k3hs
 }

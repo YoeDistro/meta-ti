@@ -66,6 +66,7 @@ SPL_UART_BINARY:k3r5 = ""
 SPL_UART_BINARY:lego-ev3 = ""
 SPL_UART_BINARY:j7200-evm-k3r5 = "u-boot-spl.bin"
 SPL_UART_BINARY:am64xx-evm-k3r5 = "u-boot-spl.bin"
+SPL_UART_BINARY:am64xx-hs-evm-k3r5 = "u-boot-spl.bin"
 
 SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${PV}-${PR}"
 SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
@@ -397,6 +398,11 @@ do_deploy:append:j7200-evm-k3r5 () {
 }
 
 do_deploy:append:am64xx-evm-k3r5 () {
+	mv ${DEPLOYDIR}/tiboot3.bin ${DEPLOYDIR}/tiboot3-r5spl.bin || true
+	mv ${DEPLOYDIR}/u-boot-spl.bin ${DEPLOYDIR}/u-boot-spl-r5spl.bin || true
+}
+
+do_deploy:append:am64xx-hs-evm-k3r5 () {
 	mv ${DEPLOYDIR}/tiboot3.bin ${DEPLOYDIR}/tiboot3-r5spl.bin || true
 	mv ${DEPLOYDIR}/u-boot-spl.bin ${DEPLOYDIR}/u-boot-spl-r5spl.bin || true
 }
