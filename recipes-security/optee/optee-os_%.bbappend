@@ -57,6 +57,10 @@ do_compile:append:j7-hs-evm() {
     optee_sign_k3hs
 }
 
+do_compile:append:j7200-hs-evm() {
+    optee_sign_k3hs
+}
+
 do_install:append:ti-soc() {
     install -m 644 ${B}/*.optee ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin ${D}${nonarch_base_libdir}/firmware/ || true
