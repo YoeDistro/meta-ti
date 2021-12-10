@@ -27,7 +27,7 @@ SRCREV = "dcc6bedb2c2bdb509709e4ae08303206e95ce6c2"
 PV = "5.10.65+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR_append = "a"
+MACHINE_KERNEL_PR_append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 
 KERNEL_GIT_URI = "git://git.ti.com/ti-linux-kernel/ti-linux-kernel.git"
@@ -43,3 +43,9 @@ module_conf_ti_k3_r5_remoteproc = "softdep ti_k3_r5_remoteproc pre: virtio_rpmsg
 module_conf_ti_k3_dsp_remoteproc = "softdep ti_k3_dsp_remoteproc pre: virtio_rpmsg_bus"
 KERNEL_MODULE_PROBECONF += "rpmsg_client_sample ti_k3_r5_remoteproc ti_k3_dsp_remoteproc"
 KERNEL_MODULE_AUTOLOAD_append_j7 = " rpmsg_kdrv_switch"
+
+# Disable SA2UL for AM64x HS and J7200 HS
+module_conf_sa2ul_am64xx-hs-evm = "blacklist sa2ul"
+KERNEL_MODULE_PROBECONF_append_am64xx-hs-evm = " sa2ul"
+module_conf_sa2ul_j7200-hs-evm = "blacklist sa2ul"
+KERNEL_MODULE_PROBECONF_append_j7200-hs-evm = " sa2ul"
