@@ -32,6 +32,7 @@ inherit update-rc.d
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm"
 
 DEPENDS += "libdrm udev wayland wayland-protocols libffi expat"
+DEPENDS:append:libc-musl = " gcompat"
 RDEPENDS:${PN} += "libdrm libdrm-omap udev wayland wayland-protocols libffi expat"
 
 RPROVIDES:${PN} = "libegl libgles1 libgles2 libgbm"

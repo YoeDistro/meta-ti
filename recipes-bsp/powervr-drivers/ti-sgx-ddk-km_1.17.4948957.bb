@@ -22,6 +22,7 @@ BRANCH = "ti-img-sgx/${PV}/k5.10"
 
 SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH} \
     file://0001-km-support-OpenEmbedded-hardfp-toolchain-w-o-gnueabi.patch \
+    file://0002-Fix-driver-config-for-5.10-kernel.patch \
 "
 
 S = "${WORKDIR}/git"
