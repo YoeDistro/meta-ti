@@ -32,15 +32,4 @@ SRC_URI = " \
 	git://git.ti.com/k3-image-gen/k3-image-gen.git;protocol=git;branch=master;destsuffix=imggen;name=imggen \
 "
 
-# This is a protection in case the definition is not present in other distros.
-ARAGO_BRAND ?= ""
-
-# Mainline u_boot 2021.07 and upstream kernel v5.13 tag cannot use new SPL address
-# in K3-Imagegen
-SRC_URI += "\
-	${@oe.utils.conditional('ARAGO_BRAND', 'mainline', '\
-	file://0001-Revert-soc-am64x-Makefile-Move-the-SPL-Load-address-.patch;patchdir=../imggen \
-	', '', d)} \
-"
-
 S = "${WORKDIR}/git"
