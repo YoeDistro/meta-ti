@@ -8,9 +8,9 @@ inherit update-alternatives
 
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/pru-software-support-package/pru-software-support-package.git;protocol=git;branch=${BRANCH}"
-SRCREV = "acd8479d7f3bdbb4536ceca3cd6803662babaa5a"
+SRCREV = "8eee431384b6a1a9c96ae91a8e99485176b4d2b3"
 
-PV = "6.0.0"
+PV = "6.0.1"
 PR = "r0"
 
 require recipes-ti/includes/ti-paths.inc
