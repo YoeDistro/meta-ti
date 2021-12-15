@@ -43,3 +43,9 @@ module_conf_ti_k3_r5_remoteproc = "softdep ti_k3_r5_remoteproc pre: virtio_rpmsg
 module_conf_ti_k3_dsp_remoteproc = "softdep ti_k3_dsp_remoteproc pre: virtio_rpmsg_bus"
 KERNEL_MODULE_PROBECONF += "rpmsg_client_sample ti_k3_r5_remoteproc ti_k3_dsp_remoteproc"
 KERNEL_MODULE_AUTOLOAD:append:j7 = " rpmsg_kdrv_switch"
+
+# Disable SA2UL for AM64x HS and J7200 HS
+module_conf_sa2ul:am64xx-hs-evm = "blacklist sa2ul"
+KERNEL_MODULE_PROBECONF:append:am64xx-hs-evm = " sa2ul"
+module_conf_sa2ul:j7200-hs-evm = "blacklist sa2ul"
+KERNEL_MODULE_PROBECONF:append:j7200-hs-evm = " sa2ul"
