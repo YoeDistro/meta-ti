@@ -6,6 +6,8 @@ DEPENDS = "libdrm ffmpeg"
 
 inherit autotools pkgconfig
 
+COMPATIBLE_MACHINE = "j7"
+
 PR = "r1"
 SRCREV = "94a80c8c090dbfdc7fafd4e5bb78c2091e715af2"
 
