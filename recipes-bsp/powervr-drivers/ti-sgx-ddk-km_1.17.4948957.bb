@@ -9,7 +9,7 @@ REQUIRED_MACHINE_FEATURES = "gpu"
 
 COMPATIBLE_MACHINE = "pandaboard|beagleboard|ti33x|ti43x|omap-a15|k3"
 
-MACHINE_KERNEL_PR_append = "x"
+MACHINE_KERNEL_PR_append = "y"
 PR = "${MACHINE_KERNEL_PR}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -20,13 +20,11 @@ PROVIDES = "virtual/gpudriver"
 
 BRANCH = "ti-img-sgx/${PV}/k5.10"
 
-SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH} \
-    file://0001-km-support-OpenEmbedded-hardfp-toolchain-w-o-gnueabi.patch \
-"
+SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-linux.git;protocol=git;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "62f31de3ceed156bff32abb3dd03693a02df117e"
+SRCREV = "eda7780bfd5277e16913c9bc0b0e6892b4e79063"
 
 TARGET_PRODUCT_omap-a15 = "jacinto6evm"
 TARGET_PRODUCT_ti33x = "ti335x"
