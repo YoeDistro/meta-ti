@@ -55,7 +55,7 @@ S = "${WORKDIR}/git"
 
 do_install () {
     oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT}
-    ln -sf libGLESv2.so ${D}${libdir}/libGLESv2.so.1
+    ln -sf libGLESv2.so.2 ${D}${libdir}/libGLESv2.so.1
 
     chown -R root:root ${D}
 }
