@@ -49,11 +49,6 @@ LD[unexport] = "1"
 
 do_configure[noexec] = "1"
 
-SRC_URI_append_j7200-hs-evm-k3r5 = "\ 
-	file://0001-Makefile-Skip-signing-of-binaries-for-combined-boot-.patch;patchdir=../imggen"
-SRC_URI_append_am64xx-hs-evm-k3r5 = "\
-	file://0001-Makefile-Skip-signing-of-binaries-for-combined-boot-.patch;patchdir=../imggen"
-
 EXTRA_OEMAKE = "\
     CROSS_COMPILE=${TARGET_PREFIX} SYSFW_DL_URL='' SYSFW_HS_DL_URL='' SYSFW_HS_INNER_CERT_DL_URL='' \
     SYSFW_PATH="${SYSFW_TISCI}" SOC=${SYSFW_SOC} CONFIG=${SYSFW_CONFIG} \
