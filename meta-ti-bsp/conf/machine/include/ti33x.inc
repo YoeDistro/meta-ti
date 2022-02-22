@@ -13,9 +13,6 @@ XSERVER = "xserver-xorg \
            xf86-video-fbdev \
            xf86-input-keyboard"
 
-# Default to external video, change to smallscreen for built-in LCD
-MACHINE_GUI_CLASS = "bigscreen"
-
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r22"
 
@@ -62,7 +59,7 @@ UBI_VOLNAME = "rootfs"
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
 # List common SoC features, may need to add touchscreen for specific machines
-MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat ext2 screen alsa ethernet gpu"
+MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat ext2 alsa ethernet gpu"
 
 IMAGE_FSTYPES += "tar.xz wic.xz"
 WKS_FILE ?= "sdimage-2part.wks"
