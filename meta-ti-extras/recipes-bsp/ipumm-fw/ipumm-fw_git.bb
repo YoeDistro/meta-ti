@@ -54,14 +54,14 @@ TARGET = "dra7-ipu2-fw.xem4"
 TARGET_MAP = "platform/ti/dce/baseimage/package/cfg/out/ipu/release/ipu.xem4.map"
 
 do_install() {
-    install -d ${D}${base_libdir}/firmware
-    install -m 0644 ${S}/${TARGET} ${D}${base_libdir}/firmware/${TARGET}.${BPN}
-    install -m 0644 ${S}/${TARGET_MAP} ${D}${base_libdir}/firmware/${TARGET}.map
+    install -d ${D}${nonarch_base_libdir}/firmware
+    install -m 0644 ${S}/${TARGET} ${D}${nonarch_base_libdir}/firmware/${TARGET}.${BPN}
+    install -m 0644 ${S}/${TARGET_MAP} ${D}${nonarch_base_libdir}/firmware/${TARGET}.map
 }
 
 ALTERNATIVE:${PN} = "dra7-ipu2-fw.xem4"
-ALTERNATIVE_LINK_NAME[dra7-ipu2-fw.xem4] = "${base_libdir}/firmware/${TARGET}"
-ALTERNATIVE_TARGET[dra7-ipu2-fw.xem4] = "${base_libdir}/firmware/${TARGET}.${BPN}"
+ALTERNATIVE_LINK_NAME[dra7-ipu2-fw.xem4] = "${nonarch_base_libdir}/firmware/${TARGET}"
+ALTERNATIVE_TARGET[dra7-ipu2-fw.xem4] = "${nonarch_base_libdir}/firmware/${TARGET}.${BPN}"
 ALTERNATIVE_PRIORITY = "20"
 
-FILES:${PN} += "${base_libdir}/firmware/*"
+FILES:${PN} += "${nonarch_base_libdir}/firmware/*"

@@ -51,15 +51,15 @@ do_compile() {
 TARGET = "dra7-dsp1-fw.xe66"
 
 do_install() {
-    install -d ${D}${base_libdir}/firmware
-    install -m 0644 ${S}/dra7xx-c66x-dsp.xe66 ${D}${base_libdir}/firmware/${TARGET}.${BPN}
+    install -d ${D}${nonarch_base_libdir}/firmware
+    install -m 0644 ${S}/dra7xx-c66x-dsp.xe66 ${D}${nonarch_base_libdir}/firmware/${TARGET}.${BPN}
 }
 
 ALTERNATIVE:${PN} = "dra7-dsp1-fw.xe66"
-ALTERNATIVE_LINK_NAME[dra7-dsp1-fw.xe66] = "${base_libdir}/firmware/${TARGET}"
-ALTERNATIVE_TARGET[dra7-dsp1-fw.xe66] = "${base_libdir}/firmware/${TARGET}.${BPN}"
+ALTERNATIVE_LINK_NAME[dra7-dsp1-fw.xe66] = "${nonarch_base_libdir}/firmware/${TARGET}"
+ALTERNATIVE_TARGET[dra7-dsp1-fw.xe66] = "${nonarch_base_libdir}/firmware/${TARGET}.${BPN}"
 ALTERNATIVE_PRIORITY = "10"
 
 INSANE_SKIP:${PN} = "arch"
 
-FILES:${PN} += "${base_libdir}/firmware/*"
+FILES:${PN} += "${nonarch_base_libdir}/firmware/*"

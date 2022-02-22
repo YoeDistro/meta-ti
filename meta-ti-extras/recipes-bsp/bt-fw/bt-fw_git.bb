@@ -17,8 +17,8 @@ do_compile() {
 }
 
 do_install() {
-    install -d ${D}${base_libdir}/firmware/ti-connectivity
-    oe_runmake "DEST_DIR=${D}" "BASE_LIB_DIR=${base_libdir}" install
+    install -d ${D}${nonarch_base_libdir}/firmware/ti-connectivity
+    oe_runmake "DEST_DIR=${D}" "BASE_LIB_DIR=${nonarch_base_libdir}" install
 }
 
-FILES:${PN} += "${base_libdir}/firmware/ti-connectivity/*"
+FILES:${PN} += "${nonarch_base_libdir}/firmware/ti-connectivity/*"

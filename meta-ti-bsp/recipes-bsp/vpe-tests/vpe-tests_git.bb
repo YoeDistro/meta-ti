@@ -25,6 +25,6 @@ EXTRA_OEMAKE = 'CROSS_COMPILE="${TARGET_PREFIX}" CC="${TARGET_PREFIX}gcc ${FLOAT
 
 do_install() {
     oe_runmake DESTDIR="${D}" install
-    rm -rf ${D}${base_libdir}/firmware/vpdma-*.bin
-    rmdir -p ${D}${base_libdir}/firmware || true
+    rm -rf ${D}${nonarch_base_libdir}/firmware/vpdma-*.bin
+    rmdir -p ${D}${nonarch_base_libdir}/firmware || true
 }

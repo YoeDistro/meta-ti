@@ -17,8 +17,8 @@ S = "${WORKDIR}/git"
 TARGET = "pvdec_full_bin.fw"
 
 do_install() {
-        install -d ${D}${base_libdir}/firmware
-        install -m 0644 ${S}/ti-img/${TARGET} ${D}${base_libdir}/firmware/${TARGET}
+        install -d ${D}${nonarch_base_libdir}/firmware
+        install -m 0644 ${S}/ti-img/${TARGET} ${D}${nonarch_base_libdir}/firmware/${TARGET}
 }
 
-FILES:${PN} = "${base_libdir}/firmware"
+FILES:${PN} = "${nonarch_base_libdir}/firmware"

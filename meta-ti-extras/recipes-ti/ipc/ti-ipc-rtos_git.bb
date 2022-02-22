@@ -5,7 +5,7 @@ require ti-ipc-rtos.inc
 DEPENDS = "ti-xdctools-native ti-sysbios doxygen-native zip-native"
 
 PACKAGES =+ "${PN}-fw"
-FILES:${PN}-fw = "${base_libdir}/firmware/*"
+FILES:${PN}-fw = "${nonarch_base_libdir}/firmware/*"
 FILES:${PN}-dev += "${IPC_INSTALL_DIR_RECIPE}"
 
 INSANE_SKIP:${PN}-fw += "arch"
@@ -68,8 +68,8 @@ do_install() {
   install -d ${D}${IPC_INSTALL_DIR_RECIPE}
   cp ${CP_ARGS} ${IPC_PACKAGE_DIR}/* -d ${D}${IPC_INSTALL_DIR_RECIPE}
 
-  install -d ${D}${base_libdir}/firmware/ipc
-  cp ${CP_ARGS} ${S}/packages/ti/ipc/tests/bin/* ${D}${base_libdir}/firmware/ipc || true
+  install -d ${D}${nonarch_base_libdir}/firmware/ipc
+  cp ${CP_ARGS} ${S}/packages/ti/ipc/tests/bin/* ${D}${nonarch_base_libdir}/firmware/ipc || true
 }
 
 KFDSPNUM = "0"

@@ -18,12 +18,12 @@ do_compile() {
 }
 
 do_install() {
-	install -d ${D}${base_libdir}/firmware
-	install -m 0644 bin/am335x-pm-firmware.elf ${D}${base_libdir}/firmware/
-	install -m 0644 bin/*-scale-data.bin ${D}${base_libdir}/firmware/
+	install -d ${D}${nonarch_base_libdir}/firmware
+	install -m 0644 bin/am335x-pm-firmware.elf ${D}${nonarch_base_libdir}/firmware/
+	install -m 0644 bin/*-scale-data.bin ${D}${nonarch_base_libdir}/firmware/
 }
 
-FILES:${PN} += "${base_libdir}/firmware"
+FILES:${PN} += "${nonarch_base_libdir}/firmware"
 
 COMPATIBLE_MACHINE = "(ti-soc)"
 TOOLCHAIN = "gcc"

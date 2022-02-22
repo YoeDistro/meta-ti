@@ -16,10 +16,10 @@ S = "${WORKDIR}/vpdma-fw-${PV}"
 TARGET = "vpdma-1b8.bin"
 
 do_install() {
-    mkdir -p ${D}${base_libdir}/firmware
-    cp ${S}/${TARGET} ${D}${base_libdir}/firmware/${TARGET}
+    mkdir -p ${D}${nonarch_base_libdir}/firmware
+    cp ${S}/${TARGET} ${D}${nonarch_base_libdir}/firmware/${TARGET}
 }
 
-FILES:${PN} += "${base_libdir}/firmware/${TARGET}"
+FILES:${PN} += "${nonarch_base_libdir}/firmware/${TARGET}"
 
 PR = "r1"

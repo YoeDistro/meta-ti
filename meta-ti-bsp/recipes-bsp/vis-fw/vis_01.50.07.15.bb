@@ -18,16 +18,16 @@ DSPAPP = "dra7-dsp1-fw-radio.xe66"
 GPPAPP = "RadioApp"
 
 do_install() {
-    install -d ${D}${base_libdir}/firmware
+    install -d ${D}${nonarch_base_libdir}/firmware
     install -d ${D}${bindir}
-    install ${S}/prebuilt/${DSPAPP} ${D}${base_libdir}/firmware/${DSPAPP}
+    install ${S}/prebuilt/${DSPAPP} ${D}${nonarch_base_libdir}/firmware/${DSPAPP}
     install -m 0755 ${S}/prebuilt/${GPPAPP} ${D}${bindir}/${GPPAPP}
 }
 
 PACKAGES += "${PN}-fw"
 RDEPENDS:${PN} += "${PN}-fw"
 
-FILES:${PN}-fw += "${base_libdir}/firmware/${DSPAPP}"
+FILES:${PN}-fw += "${nonarch_base_libdir}/firmware/${DSPAPP}"
 
 INSANE_SKIP:${PN} = "ldflags"
 INSANE_SKIP:${PN}-fw = "arch"

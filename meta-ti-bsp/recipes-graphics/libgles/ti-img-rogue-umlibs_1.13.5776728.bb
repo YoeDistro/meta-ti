@@ -54,7 +54,7 @@ do_install () {
     chown -R root:root ${D}
 }
 
-FILES:${PN} += " ${base_libdir}/firmware/"
+FILES:${PN} += " ${nonarch_base_libdir}/firmware/"
 FILES:${PN} += " ${datadir}/"
 
 PACKAGES =+ "${PN}-plugins"

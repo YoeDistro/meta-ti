@@ -18,8 +18,8 @@ S = "${WORKDIR}/git"
 TARGET = "mhdp8546.bin"
 
 do_install() {
-	install -d ${D}${base_libdir}/firmware/cadence
-	install -m 0644 ${S}/cadence/${TARGET} ${D}${base_libdir}/firmware/cadence/${TARGET}
+	install -d ${D}${nonarch_base_libdir}/firmware/cadence
+	install -m 0644 ${S}/cadence/${TARGET} ${D}${nonarch_base_libdir}/firmware/cadence/${TARGET}
 }
 
-FILES:${PN} = "${base_libdir}/firmware"
+FILES:${PN} = "${nonarch_base_libdir}/firmware"

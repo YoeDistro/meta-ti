@@ -19,8 +19,8 @@ ORIGIN = "DRA71x-RevA-GT9271_SpecDig_Config.bin"
 TARGET = "goodix_9271_cfg.bin"
 
 do_install() {
-	install -d ${D}${base_libdir}/firmware
-	install -m 0644 ${S}/ti-evm/${ORIGIN} ${D}${base_libdir}/firmware/${TARGET}
+	install -d ${D}${nonarch_base_libdir}/firmware
+	install -m 0644 ${S}/ti-evm/${ORIGIN} ${D}${nonarch_base_libdir}/firmware/${TARGET}
 }
 
-FILES:${PN} = "${base_libdir}/firmware"
+FILES:${PN} = "${nonarch_base_libdir}/firmware"

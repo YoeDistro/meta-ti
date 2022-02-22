@@ -19,13 +19,13 @@ TARGET:am57xx-evm = "am57xx-pru0-prusw-fw.elf am57xx-pru1-prusw-fw.elf"
 TARGET:am57xx-hs-evm = "am57xx-pru0-prusw-fw.elf am57xx-pru1-prusw-fw.elf"
 
 do_install() {
-	install -d ${D}${base_libdir}/firmware/ti-pruss
+	install -d ${D}${nonarch_base_libdir}/firmware/ti-pruss
 	for f in ${TARGET}; do
-		install -m 0644 ${S}/ti-pruss/$f ${D}${base_libdir}/firmware/ti-pruss/$f
+		install -m 0644 ${S}/ti-pruss/$f ${D}${nonarch_base_libdir}/firmware/ti-pruss/$f
 	done
 }
 
 
-FILES:${PN} = "${base_libdir}/firmware"
+FILES:${PN} = "${nonarch_base_libdir}/firmware"
 
 INSANE_SKIP:${PN} = "arch"
