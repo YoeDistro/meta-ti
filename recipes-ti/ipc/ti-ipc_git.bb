@@ -15,7 +15,6 @@ SRC_URI += "file://tiipclad-daemon.sh \
            "
 
 DAEMON = "UNKNOWN"
-DAEMON:omap5-evm = "lad_omap54xx_smp"
 DAEMON:dra7xx = "lad_dra7xx"
 DAEMON:k2hk = "lad_tci6638"
 DAEMON:k2l = "lad_tci6630"
