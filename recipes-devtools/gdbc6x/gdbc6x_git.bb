@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://debian/copyright;md5=bf0fe2872eb3dfeebb2cbe38206fe81f
 
 DEPENDS = "ncurses bison-native texinfo flex-native gettext"
 
-COMPATIBLE_MACHINE = "dra7xx|keystone"
+COMPATIBLE_MACHINE = "dra7xx"
 
 PR = "${INC_PR}.1"
 

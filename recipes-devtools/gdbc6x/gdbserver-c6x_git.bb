@@ -10,7 +10,6 @@ S = "${WORKDIR}/git/gdbserver-c6x/src"
 
 PLATFORM = ""
 PLATFORM:dra7xx = "DRA7xx_PLATFORM"
-PLATFORM:keystone = "KEYSTONE_PLATFORM"
 
 EXTRA_OEMAKE = "PLATFORM=${PLATFORM}"
 
@@ -34,7 +33,7 @@ do_install() {
     cp -f ../lib/* ${D}${datadir}/ti/gdbc6x/lib
 }
 
-COMPATIBLE_MACHINE = "dra7xx|keystone"
+COMPATIBLE_MACHINE = "dra7xx"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FILES:${PN}-dev += "\

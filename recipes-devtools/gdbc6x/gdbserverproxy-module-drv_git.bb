@@ -13,7 +13,6 @@ inherit module
 
 PLATFORM = ""
 PLATFORM:dra7xx = "DRA7xx_PLATFORM"
-PLATFORM:keystone = "KEYSTONE_PLATFORM"
 
 EXTRA_OEMAKE = "PLATFORM=${PLATFORM} KVERSION=${KERNEL_VERSION} KERNEL_SRC=${STAGING_KERNEL_DIR}"
 
@@ -24,7 +23,7 @@ do_configure() {
     :
 }
 
-COMPATIBLE_MACHINE = "dra7xx|keystone"
+COMPATIBLE_MACHINE = "dra7xx"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 include gdbc6x.inc

@@ -61,7 +61,6 @@ SYSROOT_DIRS += "/boot"
 
 # SPL (Second Program Loader) to be loaded over UART
 SPL_UART_BINARY = "u-boot-spl.bin"
-SPL_UART_BINARY:keystone = ""
 SPL_UART_BINARY:k3r5 = ""
 SPL_UART_BINARY:lego-ev3 = ""
 SPL_UART_BINARY:j7200-evm-k3r5 = "u-boot-spl.bin"
@@ -74,20 +73,8 @@ SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
 
 # SPI NOR Flash binaries
 UBOOT_SPI_SPL_BINARY = "u-boot-spl.bin"
-UBOOT_SPI_SPL_BINARY:k2e-hs-evm = ""
-UBOOT_SPI_SPL_BINARY:k2hk-hs-evm = ""
-UBOOT_SPI_SPL_BINARY:k2g-hs-evm = ""
-UBOOT_SPI_SPL_BINARY:k2l-hs-evm = ""
 UBOOT_SPI_BINARY = "u-boot.img"
-UBOOT_SPI_BINARY:k2e-hs-evm = ""
-UBOOT_SPI_BINARY:k2hk-hs-evm = ""
-UBOOT_SPI_BINARY:k2g-hs-evm = ""
-UBOOT_SPI_BINARY:k2l-hs-evm = ""
 UBOOT_SPI_GPH_BINARY = "u-boot-spi.gph"
-UBOOT_SPI_GPH_BINARY:k2e-hs-evm = ""
-UBOOT_SPI_GPH_BINARY:k2hk-hs-evm = ""
-UBOOT_SPI_GPH_BINARY:k2g-hs-evm = ""
-UBOOT_SPI_GPH_BINARY:k2l-hs-evm = ""
 
 # SPI NOR Flash deployed images
 UBOOT_SPI_SPL_IMAGE = "u-boot-spl-${MACHINE}-${PV}-${PR}.bin"
@@ -275,119 +262,6 @@ do_deploy:append () {
 	rm ${DEPLOYDIR}/${PN}-initial-env-${MACHINE} || true
 	rm ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${PV}-${PR} || true
 	rm ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${PV}-${PR} || true
-}
-
-do_install:append:keystone () {
-	if [ -n "${UBOOT_CONFIG}" ]
-	then
-		for config in ${UBOOT_MACHINE}; do
-			i=$(expr $i + 1);
-			for type in ${UBOOT_CONFIG}; do
-				j=$(expr $j + 1);
-				if [ $j -eq $i ]
-				then
-					if [ "x${UBOOT_SPI_SPL_BINARY}" != "x" ]; then
-						install ${B}/${config}/spl/${UBOOT_SPI_SPL_BINARY} ${D}/boot/${UBOOT_SPI_SPL_IMAGE}-${type}
-						ln -sf ${UBOOT_SPI_SPL_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_SPL_BINARY}-${type}
-						ln -sf ${UBOOT_SPI_SPL_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_SPL_BINARY}
-					fi
-
-					if [ "x${UBOOT_SPI_BINARY}" != "x" ]; then
-						install ${B}/${config}/${UBOOT_SPI_BINARY} ${D}/boot/${UBOOT_SPI_IMAGE}-${type}
-						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_BINARY}-${type}
-						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_BINARY}
-					fi
-
-					if [ "x${UBOOT_SPI_GPH_BINARY}" != "x" ]; then
-						install ${B}/${config}/${UBOOT_SPI_GPH_BINARY} ${D}/boot/${UBOOT_SPI_GPH_IMAGE}-${type}
-						ln -sf ${UBOOT_SPI_GPH_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_GPH_BINARY}-${type}
-						ln -sf ${UBOOT_SPI_GPH_IMAGE}-${type} ${D}/boot/${UBOOT_SPI_GPH_BINARY}
-					fi
-				fi
-			done
-			unset  j
-		done
-		unset  i
-	else
-		if [ "x${UBOOT_SPI_SPL_BINARY}" != "x" ]; then
-			install ${B}/spl/${UBOOT_SPI_SPL_BINARY} ${D}/boot/${UBOOT_SPI_SPL_IMAGE}
-			ln -sf ${UBOOT_SPI_SPL_IMAGE} ${D}/boot/${UBOOT_SPI_SPL_BINARY}
-		fi
-
-		if [ "x${UBOOT_SPI_BINARY}" != "x" ]; then
-			install ${B}/${UBOOT_SPI_BINARY} ${D}/boot/${UBOOT_SPI_IMAGE}
-			ln -sf ${UBOOT_SPI_IMAGE} ${D}/boot/${UBOOT_SPI_BINARY}
-		fi
-
-		if [ "x${UBOOT_SPI_GPH_BINARY}" != "x" ]; then
-			install ${B}/${UBOOT_SPI_GPH_BINARY} ${D}/boot/${UBOOT_SPI_GPH_IMAGE}
-			ln -sf ${UBOOT_SPI_GPH_IMAGE} ${D}/boot/${UBOOT_SPI_GPH_BINARY}
-		fi
-	fi
-}
-
-do_deploy:append:keystone () {
-	if [ -n "${UBOOT_CONFIG}" ]
-	then
-		for config in ${UBOOT_MACHINE}; do
-			i=$(expr $i + 1);
-			for type in ${UBOOT_CONFIG}; do
-				j=$(expr $j + 1);
-				if [ $j -eq $i ]
-				then
-					if [ "x${UBOOT_SPI_SPL_BINARY}" != "x" ]; then
-						install ${B}/${config}/spl/${UBOOT_SPI_SPL_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_SPL_IMAGE}-${type}
-						rm -f ${UBOOT_SPI_SPL_BINARY} ${UBOOT_SPI_SPL_SYMLINK}
-						ln -sf ${UBOOT_SPI_SPL_IMAGE}-${type} ${UBOOT_SPI_SPL_SYMLINK}-${type}
-						ln -sf ${UBOOT_SPI_SPL_IMAGE}-${type} ${UBOOT_SPI_SPL_SYMLINK}
-						ln -sf ${UBOOT_SPI_SPL_IMAGE}-${type} ${UBOOT_SPI_SPL_BINARY}-${type}
-						ln -sf ${UBOOT_SPI_SPL_IMAGE}-${type} ${UBOOT_SPI_SPL_BINARY}
-					fi
-
-					if [ "x${UBOOT_SPI_BINARY}" != "x" ]; then
-						install ${B}/${config}/${UBOOT_SPI_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_IMAGE}-${type}
-						rm -f ${UBOOT_SPI_BINARY} ${UBOOT_SPI_SYMLINK}
-						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_SYMLINK}-${type}
-						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_SYMLINK}
-						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_BINARY}-${type}
-						ln -sf ${UBOOT_SPI_IMAGE}-${type} ${UBOOT_SPI_BINARY}
-					fi
-
-					if [ "x${UBOOT_SPI_GPH_BINARY}" != "x" ]; then
-						install ${B}/${config}/${UBOOT_SPI_GPH_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_GPH_IMAGE}-${type}
-						rm -f ${UBOOT_SPI_GPH_BINARY} ${UBOOT_SPI_GPH_SYMLINK}
-						ln -sf ${UBOOT_SPI_GPH_IMAGE}-${type} ${UBOOT_SPI_GPH_SYMLINK}-${type}
-						ln -sf ${UBOOT_SPI_GPH_IMAGE}-${type} ${UBOOT_SPI_GPH_SYMLINK}
-						ln -sf ${UBOOT_SPI_GPH_IMAGE}-${type} ${UBOOT_SPI_GPH_BINARY}-${type}
-						ln -sf ${UBOOT_SPI_GPH_IMAGE}-${type} ${UBOOT_SPI_GPH_BINARY}
-					fi
-				fi
-			done
-			unset  j
-		done
-		unset  i
-	else
-		if [ "x${UBOOT_SPI_SPL_BINARY}" != "x" ]; then
-			install ${B}/spl/${UBOOT_SPI_SPL_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_SPL_IMAGE}
-			rm -f ${UBOOT_SPI_SPL_BINARY} ${UBOOT_SPI_SPL_SYMLINK}
-			ln -sf ${UBOOT_SPI_SPL_IMAGE} ${UBOOT_SPI_SPL_SYMLINK}
-			ln -sf ${UBOOT_SPI_SPL_IMAGE} ${UBOOT_SPI_SPL_BINARY}
-		fi
-
-		if [ "x${UBOOT_SPI_BINARY}" != "x" ]; then
-			install ${B}/${UBOOT_SPI_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_IMAGE}
-			rm -f ${UBOOT_SPI_BINARY} ${UBOOT_SPI_SYMLINK}
-			ln -sf ${UBOOT_SPI_IMAGE} ${UBOOT_SPI_SYMLINK}
-			ln -sf ${UBOOT_SPI_IMAGE} ${UBOOT_SPI_BINARY}
-		fi
-
-		if [ "x${UBOOT_SPI_GPH_BINARY}" != "x" ]; then
-			install ${B}/${UBOOT_SPI_GPH_BINARY} ${DEPLOYDIR}/${UBOOT_SPI_GPH_IMAGE}
-			rm -f ${UBOOT_SPI_GPH_BINARY} ${UBOOT_SPI_GPH_SYMLINK}
-			ln -sf ${UBOOT_SPI_GPH_IMAGE} ${UBOOT_SPI_GPH_SYMLINK}
-			ln -sf ${UBOOT_SPI_GPH_IMAGE} ${UBOOT_SPI_GPH_BINARY}
-		fi
-	fi
 }
 
 # j7200 uses combined image for tiboot3.bin that includes u-boot-spl.bin and sysfw

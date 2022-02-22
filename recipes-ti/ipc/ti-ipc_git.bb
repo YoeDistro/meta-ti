@@ -16,10 +16,6 @@ SRC_URI += "file://tiipclad-daemon.sh \
 
 DAEMON = "UNKNOWN"
 DAEMON:dra7xx = "lad_dra7xx"
-DAEMON:k2hk = "lad_tci6638"
-DAEMON:k2l = "lad_tci6630"
-DAEMON:k2e = "lad_66ak2e"
-DAEMON:k2g = "lad_66ak2g"
 DAEMON:omapl138 = "lad_omapl138"
 
 inherit autotools-brokensep pkgconfig update-rc.d systemd

@@ -17,7 +17,6 @@ S = "${WORKDIR}/git/aet"
 
 DEVICE=""
 DEVICE:dra7xx = "DRA7xx"
-DEVICE:keystone = "C66AK2Hxx"
 
 EXTRA_OEMAKE = "C6X_C_DIR=${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x/include"
 
@@ -29,7 +28,7 @@ do_install() {
     install -m 0644 ${S}/build/c66/libaet.ae66 ${D}${datadir}/ti/ctoolslib/aet/lib/
 }
 
-COMPATIBLE_MACHINE = "dra7xx|keystone"
+COMPATIBLE_MACHINE = "dra7xx"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FILES:${PN}-dev += "\

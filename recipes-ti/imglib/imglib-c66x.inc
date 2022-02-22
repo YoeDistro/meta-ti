@@ -7,7 +7,7 @@ require ../includes/ti-paths.inc
 require ../includes/ti-staging.inc
 require ../includes/ti-unpack.inc
 
-COMPATIBLE_MACHINE = "omap-a15|keystone"
+COMPATIBLE_MACHINE = "omap-a15"
 
 SRC_URI = "http://software-dl.ti.com/sdoemb/sdoemb_public_sw/imglib/${PV}/exports/${BINFILE};name=imglib"
 

@@ -24,11 +24,8 @@ SRCREV = "c090eb664d9815a36ead0e14f31e102590680fb8"
 LIC_FILES_CHKSUM = "file://docs/license/omp_manifest_template.html;md5=61a6972303c0447b7c056195d7ebafee"
 
 DEPENDS = "common-csl-ip-rtos doxygen-native libulm ti-xdctools-native ti-ipc-rtos ti-sysbios ti-cgt6x-native zip-native"
-DEPENDS:append:k2hk = " qmss-lld-rtos cppi-lld-rtos"
-DEPENDS:append:k2e = " qmss-lld-rtos cppi-lld-rtos"
-DEPENDS:append:k2l = " qmss-lld-rtos cppi-lld-rtos"
 
-COMPATIBLE_MACHINE = "keystone|omap-a15"
+COMPATIBLE_MACHINE = "omap-a15"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 S = "${WORKDIR}/git"
@@ -38,22 +35,14 @@ export BIOS_DIR = "${SYSBIOS_INSTALL_DIR}"
 export ULM_DIR ="${STAGING_DIR_TARGET}/usr/share/ti/ulm"
 export C6636_PDK_DIR ="${PDK_INSTALL_DIR}"
 export AM572_PDK_DIR ="${PDK_INSTALL_DIR}"
-export K2G_PDK_DIR ="${PDK_INSTALL_DIR}"
 export XDCCGROOT = "${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x"
 
-export BUILD_K2H = "0"
 export BUILD_AM572 = "0"
-export BUILD_K2G = "0"
 
-BUILD_K2H:keystone = "1"
 BUILD_AM572:omap-a15 = "1"
-BUILD_K2H:k2g = "0"
-BUILD_K2G:k2g = "1"
 
 RELEASE_TARGET = ""
-RELEASE_TARGET:keystone = "k2x"
 RELEASE_TARGET:omap-a15 = "am57xx"
-RELEASE_TARGET:k2g = "k2g"
 
 do_compile() {
     make -f utils/product/Makefile .zipfile

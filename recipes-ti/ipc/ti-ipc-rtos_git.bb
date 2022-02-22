@@ -73,33 +73,10 @@ do_install() {
 }
 
 KFDSPNUM = "0"
-KFDSPNUM:k2hk = "8"
-KFDSPNUM:k2l = "4"
-KFDSPNUM:keystone = "1"
 
 KFPLAT = ""
-KFPLAT:k2hk = "TCI6638K2K"
-KFPLAT:k2l = "TCI6630K2L"
-KFPLAT:k2e = "C66AK2E"
-KFPLAT:k2g = "TCI66AK2G02"
 
 ALTERNATIVE_PRIORITY = "5"
-
-pkg_postinst:${PN}-fw:keystone () {
-  i=0
-  while [ $i -lt ${KFDSPNUM} ]; do
-    update-alternatives --install /lib/firmware/keystone-dsp$i-fw keystone-dsp$i-fw ipc/ti_platforms_evm${KFPLAT}_core0/messageq_single.xe66 ${ALTERNATIVE_PRIORITY}
-    i=$(($i + 1))
-  done
-}
-
-pkg_postrm:${PN}-fw:keystone () {
-  i=0
-  while [ $i -lt ${KFDSPNUM} ]; do
-    update-alternatives --remove keystone-dsp$i-fw ipc/ti_platforms_evm${KFPLAT}_core0/messageq_single.xe66
-    i=$(($i + 1))
-  done
-}
 
 pkg_postinst:${PN}-fw:omap-a15 () {
   update-alternatives --install /lib/firmware/dra7-dsp1-fw.xe66 dra7-dsp1-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp1/test_omx_dsp1_vayu.xe66 ${ALTERNATIVE_PRIORITY}

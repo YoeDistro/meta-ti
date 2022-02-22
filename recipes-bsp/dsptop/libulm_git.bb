@@ -13,7 +13,6 @@ S = "${WORKDIR}/git/dsptop/ulm"
 
 DEVICE=""
 DEVICE:dra7xx = "DRA7xx"
-DEVICE:keystone = "C66AK2Hxx"
 
 EXTRA_OEMAKE = "release DEVICE=${DEVICE} CROSS_COMPILE=${TARGET_PREFIX}"
 
@@ -32,7 +31,7 @@ do_install() {
     cp -f release/libtiulm.ae66 ${D}${datadir}/ti/ulm
 }
 
-COMPATIBLE_MACHINE = "dra7xx|keystone"
+COMPATIBLE_MACHINE = "dra7xx"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FILES:${PN}-dev += "\
