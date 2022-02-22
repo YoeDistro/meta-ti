@@ -1,5 +1,5 @@
 HOMEPAGE = "http://processors.wiki.ti.com/index.php/Category:IPC"
-require ti-ipc-common.inc
+require recipes-ti/ipc/ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
 LICENSE = "BSD"

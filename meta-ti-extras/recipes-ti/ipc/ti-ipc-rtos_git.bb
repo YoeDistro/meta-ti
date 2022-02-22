@@ -1,5 +1,5 @@
-require ti-ipc.inc
-require ti-ipc-common.inc
+require recipes-ti/ipc/ti-ipc.inc
+require recipes-ti/ipc/ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
 DEPENDS = "ti-xdctools-native ti-sysbios doxygen-native zip-native"
