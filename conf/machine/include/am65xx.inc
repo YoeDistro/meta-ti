@@ -30,8 +30,3 @@ do_image_tar[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
 
 OPTEEMACHINE = "k3-am65x"
 OPTEEOUTPUTMACHINE = "k3"
-
-# Set the list of device targets for ti-pdk class recipes
-TI_PDK_LIMIT_SOCS = "am65xx"
-TI_PDK_LIMIT_BOARDS = "am65xx_evm am65xx_idk"
-TI_PDK_LIMIT_CORES = "mcu1_0 mpu1_0"

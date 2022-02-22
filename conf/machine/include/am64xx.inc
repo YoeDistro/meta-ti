@@ -22,8 +22,3 @@ do_image_tar[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
 TFA_BOARD = "lite"
 OPTEEMACHINE = "k3-am65x"
 OPTEEOUTPUTMACHINE = "k3"
-
-# Set the list of device targets for ti-pdk class recipes
-TI_PDK_LIMIT_SOCS = "am64x"
-TI_PDK_LIMIT_BOARDS = "am64x_evm"
-TI_PDK_LIMIT_CORES = "mcu1_0 mpu1_0 mcu1_1 mcu2_0 mcu2_1"

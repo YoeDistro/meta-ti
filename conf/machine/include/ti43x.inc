@@ -61,10 +61,6 @@ EXTRA_IMAGEDEPENDS += "u-boot"
 # List common SoC features, may need to add touchscreen for specific machines
 MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat ext2 screen alsa ethernet gpu"
 
-# Set the list of device targets for ti-pdk class recipes
-TI_PDK_LIMIT_SOCS = "am437x"
-TI_PDK_LIMIT_BOARDS = "evmAM437x idkAM437x skAM437x"
-
 IMAGE_FSTYPES += "tar.xz wic.xz"
 WKS_FILE ?= "sdimage-2part.wks"
 IMAGE_BOOT_FILES ?= "${SPL_BINARY} u-boot.${UBOOT_SUFFIX} ${UBOOT_EXTLINUX_BOOT_FILES}"
