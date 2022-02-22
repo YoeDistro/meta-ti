@@ -1,6 +1,6 @@
 DESCRIPTION = "TI Operating System Abstraction Library (OSAL)"
 HOMEPAGE = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/osal"
-LICENSE = "BSD & EPL-1.0"
+LICENSE = "BSD-3-Clause & EPL-1.0"
 SECTION = "devel"
 
 require ../includes/ti-paths.inc

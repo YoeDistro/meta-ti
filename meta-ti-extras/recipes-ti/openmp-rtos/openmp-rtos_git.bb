@@ -1,6 +1,6 @@
 DESCRIPTION = "TI OpenMP RTOS"
 HOMEPAGE = "git://git.ti.com/openmp/ti-openmp-dsp-runtime.git"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 
 require recipes-ti/includes/ti-paths.inc
 

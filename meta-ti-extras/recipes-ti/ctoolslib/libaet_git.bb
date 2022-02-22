@@ -1,7 +1,7 @@
 SUMMARY = "TI Emulation CTools AET library"
 DESCRIPTION = "The AETLIB library provides programmatic access to the Advanced Event Triggering capability on C6x processor cores"
 
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 
 PV = "4.19.0.0"
 

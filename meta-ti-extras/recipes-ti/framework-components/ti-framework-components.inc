@@ -1,7 +1,7 @@
 DESCRIPTION = "TI Framework Components"
 HOMEPAGE = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/fc"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 
 require recipes-ti/includes/ti-paths.inc
 

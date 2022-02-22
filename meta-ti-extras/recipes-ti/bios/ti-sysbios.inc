@@ -1,7 +1,7 @@
 DESCRIPTION = "TI SYS/BIOS v6 Kernel"
 HOMEPAGE = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 
 require ../includes/ti-paths.inc
 require ../includes/ti-staging.inc

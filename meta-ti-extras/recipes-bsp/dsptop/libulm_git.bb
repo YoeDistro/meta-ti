@@ -1,5 +1,5 @@
 SUMMARY = "TI Usage & Load Monitor Implementation"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://../debian/copyright;md5=309825aa8f5edfcf2c44912ac094b979"
 
 inherit features_check

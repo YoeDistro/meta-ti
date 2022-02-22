@@ -1,5 +1,5 @@
 DESCRIPTION = "TI dsptop utility."
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://debian/copyright;md5=309825aa8f5edfcf2c44912ac094b979"
 
 DEPENDS = "libulm ncurses"

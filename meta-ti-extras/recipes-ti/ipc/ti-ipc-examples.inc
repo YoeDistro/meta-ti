@@ -2,7 +2,7 @@ HOMEPAGE = "http://processors.wiki.ti.com/index.php/Category:IPC"
 require recipes-ti/ipc/ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${S_ipc-examples}/src/makefile;beginline=1;endline=30;md5=a52324bd5033bb49ea07bade1244ac9a"
 
 INSANE_SKIP:${PN} += "arch"

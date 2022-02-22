@@ -1,7 +1,7 @@
 SUMMARY = "TI Software Tools"
 HOMEPAGE = "https://git.ti.com/ep-processor-libraries/swtools"
 SECTION = "devel"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://ti/mas/swtools/copyright.txt;md5=b1f52a1435051fdb18f8885b0384147d"
 
 require ../includes/ti-paths.inc

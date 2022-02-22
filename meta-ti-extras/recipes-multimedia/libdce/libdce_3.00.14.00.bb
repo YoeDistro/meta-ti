@@ -1,5 +1,5 @@
 SUMMARY = "Library for remotely invoking HW accelerated codecs on IVA-HD"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://libdce.h;beginline=1;endline=31;md5=0a398cf815b8b5f31f552266cd453dae"
 
 inherit autotools pkgconfig

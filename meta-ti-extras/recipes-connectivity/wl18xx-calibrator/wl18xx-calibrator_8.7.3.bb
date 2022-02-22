@@ -1,5 +1,5 @@
 DESCRIPTION = "The calibrator utility for TI wireless solution based on wl18xx driver"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=4725015cb0be7be389cf06deeae3683d"
 
 DEPENDS = "libnl"
