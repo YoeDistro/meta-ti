@@ -1,5 +1,5 @@
 DESCRIPTION = "Debug Sub-System (DebugSS) driver for Keystone and DRA7xx devices"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=9d4316fe434ba450dca4da25348ca5a3"
 
 # This package builds a kernel module, use kernel PR as base and append a local

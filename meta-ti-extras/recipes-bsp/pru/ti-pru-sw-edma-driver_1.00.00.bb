@@ -1,6 +1,6 @@
 DESCRIPTION = "Builds eDMA module used by eDMA libraries for PRU sw example applications"
 HOMEPAGE = "https://gforge.ti.com/gf/project/pru_sw/"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://edmautils.c;beginline=1;endline=23;md5=312e9cb8a37a044c617c98a9e980ad1b"
 
 COMPATIBLE_MACHINE = "omapl138"

@@ -4,7 +4,7 @@ PR = "r22"
 
 inherit allarch
 
-LICENSE = "CC-BY-SA-3.0 & GPLv3+ & MIT & PD"
+LICENSE = "CC-BY-SA-3.0 & GPL-3.0-or-later & MIT & PD"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=f6f02761e31334c48f7021fb94c89aaa"
 
 SRCREV = "05bedba192646152b7bc80b0accaea75aef864e5"

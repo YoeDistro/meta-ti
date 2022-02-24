@@ -1,5 +1,5 @@
 SUMMARY = "Test applications for TI DEC (v4l2 decoder for IMG D5520)"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://main.c;beginline=1;endline=14;md5=f17e17d664f72942124e4fcf06c178ee"
 
 DEPENDS = "libdrm ffmpeg"

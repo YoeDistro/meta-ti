@@ -1,6 +1,6 @@
 HOMEPAGE = "http://processors.wiki.ti.com/index.php/Category:CMEM"
 
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://include/ti/cmem.h;beginline=1;endline=30;md5=26be509e4bb413905bda8309e338e2b1"
 
 BRANCH = "master"

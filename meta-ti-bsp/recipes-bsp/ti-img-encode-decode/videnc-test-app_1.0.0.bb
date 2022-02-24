@@ -1,5 +1,5 @@
 SUMMARY = "Test applications for TI ENC (v4l2 encoder for IMG VXE384)"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://main.c;beginline=1;endline=14;md5=3545dd5bdf513840937d38c10b866605"
 
 DEPENDS = "libdrm"

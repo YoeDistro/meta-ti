@@ -1,5 +1,5 @@
 DESCRIPTION = "Interface for GDB to commincate witha TI C66X DSP"
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=75859989545e37968a99b631ef42722e"
 
 # This package builds a kernel module, use kernel PR as base and append a local

@@ -1,6 +1,6 @@
 DESCRIPTION = "GNU debugger for TI C6X DSP."
 SECTION = "devel"
-LICENSE = "GPLv3+"
+LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://debian/copyright;md5=bf0fe2872eb3dfeebb2cbe38206fe81f"
 
 DEPENDS = "ncurses bison-native texinfo flex-native gettext"
