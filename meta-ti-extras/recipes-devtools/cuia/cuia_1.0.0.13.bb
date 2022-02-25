@@ -22,9 +22,12 @@ do_compile () {
 do_install() {
 	cd ${S}
 	oe_runmake DESTDIR=${D} libdir=${libdir} includedir=${includedir} install
+	rm -rf ${D}${libdir}/boot.*
+	rm -rf ${D}${libdir}/gnu.targets.*
+	rm -rf ${D}${libdir}/syscalls.*
 }
 
 COMPATIBLE_HOST ?= "null"
 COMPATIBLE_HOST:ti-soc = "(.*)"
 
-INSANE_SKIP:${PN} += "textrel installed-vs-shipped"
+INSANE_SKIP:${PN} += "textrel"
