@@ -49,7 +49,7 @@ LEGACY_DM_FW_DIR  = "${D}${nonarch_base_libdir}/firmware/pdk-ipc/"
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
 
 # J7 HS support
-do_install:prepend:j7-hs-evm() {
+do_install:prepend:j721e-hs-evm() {
 	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
 	( cd ${RTOS_DM_FW_DIR}; \
 		mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
