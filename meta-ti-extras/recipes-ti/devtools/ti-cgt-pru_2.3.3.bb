@@ -18,11 +18,11 @@ BINFILE_NAME:class-target = "cgt-pru-arm"
 
 SRC_URI = "http://software-dl.ti.com/codegen/esd/cgt_public_sw/PRU/${PV}/${BINFILE};name=${BINFILE_NAME}"
 
-SRC_URI[cgt-pru-x86.md5sum] = "270a0ecca383f66cad3a0e2a738c6ab0"
-SRC_URI[cgt-pru-x86.sha256sum] = "af1178a059d46d67d5672df053dd2fbebb0b89a513b17b8739dbe915b4a5d71a"
+SRC_URI[cgt-pru-x86.md5sum] = "abb76fac986993aafaf467915985ec4f"
+SRC_URI[cgt-pru-x86.sha256sum] = "1f1405167214f2c0ef848591b17a7799fdcd9f55f11bc90db9ace3490d426215"
 
-SRC_URI[cgt-pru-arm.md5sum] = "fbf10083af1b0e5d69b018126603bb58"
-SRC_URI[cgt-pru-arm.sha256sum] = "75ac84775a5624ea7e4fad4efc1acb7e869c79160550d48ba780068a3dce879c"
+SRC_URI[cgt-pru-arm.md5sum] = "648a6d7d8162fd6a89f381c7b974e6b0"
+SRC_URI[cgt-pru-arm.sha256sum] = "8390cb77b46b728ce2940595b81406f76d86dfed58c21258e3206a7c1232ccf2"
 
 do_install() {
     install -d ${D}${TI_CGT_PRU_INSTALL_DIR_RECIPE}
