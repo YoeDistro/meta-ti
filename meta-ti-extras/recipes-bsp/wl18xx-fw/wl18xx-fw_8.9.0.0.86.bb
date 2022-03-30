@@ -19,7 +19,11 @@ do_compile() {
 }
 
 do_install() {
-    oe_runmake 'DEST_DIR=${D}' install
+    if ${@bb.utils.contains('DISTRO_FEATURES','usrmerge','true','false',d)}; then
+        oe_runmake 'DEST_DIR=${D}/usr' install
+    else
+        oe_runmake 'DEST_DIR=${D}' install
+    fi
 }
 
-FILES:${PN} = "/lib/firmware/ti-connectivity/*"
+FILES:${PN} = "${nonarch_base_libdir}/firmware/ti-connectivity/*"
