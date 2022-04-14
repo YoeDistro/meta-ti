@@ -20,8 +20,8 @@ optee_sign_legacyhs() {
     )
 
     if [ "${OPTEEPAGER}" = "y" ]; then
-        oe_runmake clean
-        oe_runmake all CFG_TEE_TA_LOG_LEVEL=0 CFG_WITH_PAGER=y
+        oe_runmake -C ${S} clean
+        oe_runmake -C ${S} all CFG_TEE_TA_LOG_LEVEL=0 CFG_WITH_PAGER=y
         ( cd ${B}/core/; \
             ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh tee.bin tee.bin.signed; \
             normfl=`echo ${OPTEEFLAVOR} | tr "_" "-"`
