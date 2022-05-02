@@ -41,6 +41,7 @@ PACKAGECONFIG[dm] = "DM=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/pdk-i
 
 PACKAGECONFIG:append:aarch64 = " atf optee"
 PACKAGECONFIG:append:j7 = " dm"
+PACKAGECONFIG:append:am62xx = " dm"
 
 COMPATIBLE_MACHINE = "(ti-soc)"
 
@@ -68,6 +69,7 @@ SPL_UART_BINARY:j7200-hs-evm-k3r5 = "u-boot-spl.bin"
 SPL_UART_BINARY:j721s2-evm-k3r5 = "u-boot-spl.bin"
 SPL_UART_BINARY:am64xx-evm-k3r5 = "u-boot-spl.bin"
 SPL_UART_BINARY:am64xx-hs-evm-k3r5 = "u-boot-spl.bin"
+SPL_UART_BINARY:am62xx-evm-k3r5 = "u-boot-spl.bin"
 
 SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${PV}-${PR}"
 SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
@@ -289,6 +291,11 @@ do_deploy:append:am64xx-evm-k3r5 () {
 }
 
 do_deploy:append:am64xx-hs-evm-k3r5 () {
+	mv ${DEPLOYDIR}/tiboot3.bin ${DEPLOYDIR}/tiboot3-r5spl.bin || true
+	mv ${DEPLOYDIR}/u-boot-spl.bin ${DEPLOYDIR}/u-boot-spl-r5spl.bin || true
+}
+
+do_deploy:append:am62xx-evm-k3r5 () {
 	mv ${DEPLOYDIR}/tiboot3.bin ${DEPLOYDIR}/tiboot3-r5spl.bin || true
 	mv ${DEPLOYDIR}/u-boot-spl.bin ${DEPLOYDIR}/u-boot-spl-r5spl.bin || true
 }
