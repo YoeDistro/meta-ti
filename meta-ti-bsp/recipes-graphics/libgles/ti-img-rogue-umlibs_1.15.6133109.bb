@@ -8,17 +8,18 @@ inherit features_check
 REQUIRED_MACHINE_FEATURES = "gpu"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-COMPATIBLE_MACHINE = "j721e"
+COMPATIBLE_MACHINE = "j721e|j721s2|am62xx"
 
-PR = "r3"
+PR = "r1"
 
 BRANCH = "linuxws/dunfell/k5.10/${PV}"
 
 SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-umlibs.git;branch=${BRANCH}"
+SRCREV = "47c3ffc44f2881397d45c8a2b5dfa7d6c58b79fb"
 
-SRCREV = "5ef38353c38d921a65ea6df75c7b6ce710b66034"
-
-PVR_SOC ?= "j721e_linux"
+TARGET_PRODUCT:j721e = "j721e_linux"
+TARGET_PRODUCT:j721s2 = "j721s2_linux"
+TARGET_PRODUCT:am62xx = "am62_linux"
 PVR_BUILD ?= "release"
 PVR_WS = "wayland"
 
@@ -50,7 +51,7 @@ RRECOMMENDS:${PN} += "ti-img-rogue-driver"
 S = "${WORKDIR}/git"
 
 do_install () {
-    oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${PVR_SOC} BUILD=${PVR_BUILD} WINDOW_SYSTEM=${PVR_WS}
+    oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT} BUILD=${PVR_BUILD} WINDOW_SYSTEM=${PVR_WS}
     chown -R root:root ${D}
 }
 
