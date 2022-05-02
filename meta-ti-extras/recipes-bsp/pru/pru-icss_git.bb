@@ -40,6 +40,7 @@ SUBDIRS = "examples pru_cape/pru_fw lib/src labs"
 PLATFORM:ti33x = "am335x"
 PLATFORM:ti43x = "am437x"
 PLATFORM:omap-a15 = "am572x"
+PLATFORM:am62xx = "am62x"
 PLATFORM:am64xx = "am64x"
 PLATFORM:am65xx = "am65x"
 PLATFORM:j7 = "j721e"
@@ -96,6 +97,16 @@ do_install:append:omap-a15() {
             install -m 0644 ${S}/examples/am572x/PRU_RPMsg_Echo_Interrupt${i}_${j}/gen/PRU_RPMsg_Echo_Interrupt${i}_${j}.out \
                             ${D}${nonarch_base_libdir}/firmware/pru
         done
+    done
+}
+
+do_install:append:am62xx() {
+    install -m 644 ${S}/examples/${PLATFORM}/PRU_Halt/gen/PRU_Halt.out \
+                   ${D}${nonarch_base_libdir}/firmware/pru
+    for i in 0 1
+    do
+        install -m 0644 ${S}/examples/${PLATFORM}/PRU_RPMsg_Echo_Interrupt${i}/gen/PRU_RPMsg_Echo_Interrupt${i}.out \
+                        ${D}${nonarch_base_libdir}/firmware/pru
     done
 }
 
@@ -175,6 +186,7 @@ FILES:${PN}-rpmsg-echo = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Int
 PRU_ICSS_ALTERNATIVES:ti33x    = "am335x-pru0-fw am335x-pru1-fw"
 PRU_ICSS_ALTERNATIVES:ti43x    = "am437x-pru0_0-fw am437x-pru0_1-fw am437x-pru1_0-fw am437x-pru1_1-fw"
 PRU_ICSS_ALTERNATIVES:omap-a15 = "am57xx-pru1_0-fw am57xx-pru1_1-fw am57xx-pru2_0-fw am57xx-pru2_1-fw"
+PRU_ICSS_ALTERNATIVES:am62xx   = "am62x-pru0-fw am62x-pru1-fw"
 PRU_ICSS_ALTERNATIVES:am64xx   = "am64x-pru0_0-fw am64x-pru0_1-fw am64x-pru1_0-fw am64x-pru1_1-fw am64x-rtu0_0-fw am64x-rtu0_1-fw am64x-rtu1_0-fw am64x-rtu1_1-fw"
 PRU_ICSS_ALTERNATIVES:am65xx   = "am65x-pru0_0-fw am65x-pru0_1-fw am65x-pru1_0-fw am65x-pru1_1-fw am65x-pru2_0-fw am65x-pru2_1-fw am65x-rtu0_0-fw am65x-rtu0_1-fw am65x-rtu1_0-fw am65x-rtu1_1-fw am65x-rtu2_0-fw am65x-rtu2_1-fw"
 PRU_ICSS_ALTERNATIVES:j7       = "j7-pru0_0-fw j7-pru0_1-fw j7-pru1_0-fw j7-pru1_1-fw j7-rtu0_0-fw j7-rtu0_1-fw j7-rtu1_0-fw j7-rtu1_1-fw"
@@ -192,6 +204,9 @@ ALTERNATIVE_LINK_NAME[am57xx-pru1_0-fw] = "${nonarch_base_libdir}/firmware/am57x
 ALTERNATIVE_LINK_NAME[am57xx-pru1_1-fw] = "${nonarch_base_libdir}/firmware/am57xx-pru1_1-fw"
 ALTERNATIVE_LINK_NAME[am57xx-pru2_0-fw] = "${nonarch_base_libdir}/firmware/am57xx-pru2_0-fw"
 ALTERNATIVE_LINK_NAME[am57xx-pru2_1-fw] = "${nonarch_base_libdir}/firmware/am57xx-pru2_1-fw"
+
+ALTERNATIVE_LINK_NAME[am62x-pru0-fw] = "${nonarch_base_libdir}/firmware/am62x-pru0-fw"
+ALTERNATIVE_LINK_NAME[am62x-pru1-fw] = "${nonarch_base_libdir}/firmware/am62x-pru1-fw"
 
 ALTERNATIVE_LINK_NAME[am64x-pru0_0-fw] = "${nonarch_base_libdir}/firmware/am64x-pru0_0-fw"
 ALTERNATIVE_LINK_NAME[am64x-pru0_1-fw] = "${nonarch_base_libdir}/firmware/am64x-pru0_1-fw"
@@ -259,6 +274,9 @@ ALTERNATIVE_TARGET_pru-icss-halt[am57xx-pru1_1-fw] = "${nonarch_base_libdir}/fir
 ALTERNATIVE_TARGET_pru-icss-halt[am57xx-pru2_0-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_Halt.out"
 ALTERNATIVE_TARGET_pru-icss-halt[am57xx-pru2_1-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_Halt.out"
 
+ALTERNATIVE_TARGET_pru-icss-halt[am62x-pru0-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_Halt.out"
+ALTERNATIVE_TARGET_pru-icss-halt[am62x-pru1-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_Halt.out"
+
 ALTERNATIVE_TARGET_pru-icss-halt[am64x-pru0_0-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_Halt_0.out"
 ALTERNATIVE_TARGET_pru-icss-halt[am64x-pru0_1-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_Halt_1.out"
 ALTERNATIVE_TARGET_pru-icss-halt[am64x-pru1_0-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_Halt_0.out"
@@ -322,6 +340,9 @@ ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am57xx-pru1_0-fw] = "${nonarch_base_libdi
 ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am57xx-pru1_1-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Interrupt1_1.out"
 ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am57xx-pru2_0-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Interrupt2_0.out"
 ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am57xx-pru2_1-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Interrupt2_1.out"
+
+ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am62x-pru0-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Interrupt0.out"
+ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am62x-pru1-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Interrupt1.out"
 
 ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am64x-pru0_0-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Interrupt0_0.out"
 ALTERNATIVE_TARGET_pru-icss-rpmsg-echo[am64x-pru0_1-fw] = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Interrupt0_1.out"
