@@ -6,6 +6,8 @@ MACHINE_FEATURES += "screen touchscreen"
 SERIAL_CONSOLES = "115200;ttyS2"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
+TFA_K3_SYSTEM_SUSPEND = "1"
+
 # AM62 supports multi-certificate images, use the same
 IMAGE_BOOT_FILES = "${IMAGE_BOOT_FILES_MULTI_CERT}"
 
