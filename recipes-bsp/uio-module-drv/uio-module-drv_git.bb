@@ -4,8 +4,6 @@ include uio-module-drv.inc
 
 FILESEXTRAPATHS_prepend:= "${THISDIR}/${PN}:"
 
-SRC_URI += "file://0001-uio-module-drv-Replace-ioremap_nocache-with-ioremap.patch"
-
 # This package builds a kernel module, use kernel PR as base and append a local
 MACHINE_KERNEL_PR_append = "d"
 PR = "${MACHINE_KERNEL_PR}"
