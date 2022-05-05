@@ -6,6 +6,12 @@ MACHINE_FEATURES += "screen touchscreen gpu"
 SERIAL_CONSOLES = "115200;ttyS2 115200;ttyS1"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
+PREFERRED_PROVIDER_virtual/egl = "ti-sgx-ddk-um"
+PREFERRED_PROVIDER_virtual/libgles1 = "ti-sgx-ddk-um"
+PREFERRED_PROVIDER_virtual/libgles2 = "ti-sgx-ddk-um"
+PREFERRED_PROVIDER_virtual/libgbm = "ti-sgx-ddk-um"
+PREFERRED_PROVIDER_virtual/gpudriver = "ti-sgx-ddk-km"
+
 KERNEL_DEVICETREE = " \
     ti/k3-am654-base-board.dtb \
     ti/k3-am654-base-board-sr1.dtbo \
