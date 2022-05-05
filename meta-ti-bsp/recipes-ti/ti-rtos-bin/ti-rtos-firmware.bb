@@ -33,8 +33,6 @@ PR = "${INC_PR}.0"
 # Secure Build 
 DEPENDS += "openssl-native"
 
-FILES:${PN} += "${nonarch_base_libdir}"
-
 TI_SECURE_DEV_PKG ?= ""
 
 RTOS_ETH_FW_DIR = "${S}/ti-eth/${PLAT_SFX}"
