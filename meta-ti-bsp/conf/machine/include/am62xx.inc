@@ -6,11 +6,11 @@ MACHINE_FEATURES += "screen touchscreen gpu"
 SERIAL_CONSOLES = "115200;ttyS2"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
-PREFERRED_PROVIDER_virtual/egl = "ti-img-rogue-umlibs"
-PREFERRED_PROVIDER_virtual/libgles1 = "ti-img-rogue-umlibs"
-PREFERRED_PROVIDER_virtual/libgles2 = "ti-img-rogue-umlibs"
-PREFERRED_PROVIDER_virtual/libgbm = "ti-img-rogue-umlibs"
-PREFERRED_PROVIDER_virtual/gpudriver = "ti-img-rogue-driver"
+PREFERRED_PROVIDER_virtual/egl ?= "ti-img-rogue-umlibs"
+PREFERRED_PROVIDER_virtual/libgles1 ?= "ti-img-rogue-umlibs"
+PREFERRED_PROVIDER_virtual/libgles2 ?= "ti-img-rogue-umlibs"
+PREFERRED_PROVIDER_virtual/libgbm ?= "ti-img-rogue-umlibs"
+PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 
 # AM62 supports multi-certificate images, use the same
 IMAGE_BOOT_FILES = "${IMAGE_BOOT_FILES_MULTI_CERT}"
