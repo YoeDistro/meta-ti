@@ -4,18 +4,6 @@ SOC_FAMILY:append = ":ti43x"
 DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/arm/armv7a/tune-cortexa9.inc
 
-PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
-
-# For built-in LCD, add xf86-input-tslib
-XSERVER = "xserver-xorg \
-           xf86-input-evdev \
-           xf86-input-mouse \
-           xf86-video-fbdev \
-           xf86-input-keyboard"
-
-# Default to external video, change to smallscreen for built-in LCD
-MACHINE_GUI_CLASS = "bigscreen"
-
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r3"
 

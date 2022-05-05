@@ -40,13 +40,6 @@ UBOOT_SUFFIX = "img"
 
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
-PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
-XSERVER = "xserver-xorg \
-           xf86-input-evdev \
-           xf86-video-fbdev"
-
-MACHINE_GUI_CLASS = "smallscreen"
-
 # Use the expected value of the ubifs filesystem's volume name in the kernel
 # and u-boot.
 UBI_VOLNAME = "rootfs"

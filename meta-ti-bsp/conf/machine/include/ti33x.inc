@@ -4,15 +4,6 @@ SOC_FAMILY:append = ":ti33x"
 DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/arm/armv7a/tune-cortexa8.inc
 
-PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
-
-# For built-in LCD, add xf86-input-tslib
-XSERVER = "xserver-xorg \
-           xf86-input-evdev \
-           xf86-input-mouse \
-           xf86-video-fbdev \
-           xf86-input-keyboard"
-
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r22"
 
