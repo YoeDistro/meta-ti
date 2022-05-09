@@ -1,14 +1,6 @@
 # KERNEL_LOCALVERSION can be set to add a tag to the end of the
 # kernel version string.  such as the commit id
-def get_git_revision(p):
-    import subprocess
-
-    try:
-        return subprocess.Popen("git rev-parse HEAD 2>/dev/null ", cwd=p, shell=True, stdout=subprocess.PIPE, universal_newlines=True).communicate()[0].rstrip()
-    except OSError:
-        return None
-
-KERNEL_LOCALVERSION = "-g${@get_git_revision('${S}').__str__()[:10]}"
+KERNEL_LOCALVERSION = "-g${@d.getVar('SRCPV', True).split('+')[1]}"
 
 # Check the defconfig file and see if it points to an in kernel
 # defconfig that should be used, or if it is a complete config file
