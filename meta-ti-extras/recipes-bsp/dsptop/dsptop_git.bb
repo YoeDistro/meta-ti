@@ -15,6 +15,7 @@ EXTRA_OEMAKE = "release DEVICE=${DEVICE} CROSS_COMPILE=${TARGET_PREFIX} CC="${CC
 
 do_install() {
     oe_runmake install DESTDIR=${D}
+    chown -R root:root ${D}
 }
 
 COMPATIBLE_MACHINE = "dra7xx"
