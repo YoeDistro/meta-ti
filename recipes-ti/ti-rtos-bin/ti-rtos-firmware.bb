@@ -169,6 +169,16 @@ do_install_am62xx() {
     install -m 0644 ${RTOS_DM_FW_DIR}/ipc_echo_testb_mcu1_0_release_strip.xer5f ${LEGACY_DM_FW_DIR}
 }
 
+
+do_deploy() {
+    install -d ${DEPLOYDIR}
+}
+
+do_deploy_am62xx() {
+    install -d ${DEPLOYDIR}
+    install -m 0644 ${RTOS_DM_FW_DIR}/ipc_echo_testb_mcu1_0_release_strip.xer5f ${DEPLOYDIR}
+}
+
 # Set up names for the firmwares
 ALTERNATIVE_${PN}_am65xx = "\
                     am65x-mcu-r5f0_0-fw \
@@ -357,3 +367,5 @@ INSANE_SKIP_${PN} += "arch"
 # we don't want to configure and build the source code
 do_compile[noexec] = "1"
 do_configure[noexec] = "1"
+
+addtask deploy after do_install
