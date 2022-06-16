@@ -21,7 +21,7 @@ do_image_wic[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
 do_image_tar[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
 
 TFA_BOARD = "lite"
-OPTEEMACHINE = "k3-am65x"
+OPTEEMACHINE = "k3-am64x"
 OPTEEOUTPUTMACHINE = "k3"
 
 # Set the list of device targets for ti-pdk class recipes

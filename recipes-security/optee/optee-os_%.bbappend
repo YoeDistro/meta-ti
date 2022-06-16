@@ -1,14 +1,8 @@
-FILESEXTRAPATHS_prepend_ti-soc := "${THISDIR}/${PN}:"
+PV_ti-soc = "3.17.0+git${SRCPV}"
+SRCREV_ti-soc = "15a746d28d10df3d79d72bc9fe4a5a654b88bcca"
+SRC_URI_ti-soc = "git://github.com/OP-TEE/optee_os.git;protocol=https"
 
-PV_ti-soc = "3.12.0+git${SRCPV}"
-
-SRCREV_ti-soc = "3d47a131bca1d9ed511bfd516aa5e70269e12c1d"
-
-SRC_URI_ti-soc = " \
-    git://github.com/OP-TEE/optee_os.git \
-    file://0006-allow-setting-sysroot-for-libgcc-lookup.patch \
-    file://0007-allow-setting-sysroot-for-clang.patch \
-"
+DEPENDS_append_ti-soc = " python3-cryptography-native"
 
 EXTRA_OEMAKE_append_k3 = "${@ 'CFG_CONSOLE_UART='+ d.getVar('OPTEE_K3_USART') if d.getVar('OPTEE_K3_USART') else ''}"
 
