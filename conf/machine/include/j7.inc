@@ -4,8 +4,6 @@ SOC_FAMILY_append = ":j7"
 OPTEEMACHINE = "k3-j721e"
 OPTEEOUTPUTMACHINE = "k3"
 
-# Use default IMAGE_BOOT_FILES_LEGACY files
-
 # Set the list of device targets for ti-pdk class recipes
 TI_PDK_LIMIT_SOCS = "j721e j7200"
 TI_PDK_LIMIT_BOARDS = "j721e_evm j7200_evm"

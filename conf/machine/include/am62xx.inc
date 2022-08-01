@@ -8,9 +8,6 @@ SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
 TFA_K3_SYSTEM_SUSPEND = "1"
 
-# AM62 supports multi-certificate images, use the same
-IMAGE_BOOT_FILES = "${IMAGE_BOOT_FILES_MULTI_CERT}"
-
 do_image_wic[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
 do_image_tar[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
 
