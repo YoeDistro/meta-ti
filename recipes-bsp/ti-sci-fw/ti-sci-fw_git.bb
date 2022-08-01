@@ -22,24 +22,20 @@ TI_SECURE_DEV_PKG ?= ""
 export TI_SECURE_DEV_PKG
 
 SYSFW_SOC ?= "unknown"
+SYSFW_SUFFIX ?= "unknown"
 SYSFW_CONFIG ?= "unknown"
 
-SYSFW_PREFIX = "ti-sci-firmware"
-SYSFW_PREFIX_j7-evm-k3r5 = "ti-fs-firmware"
-SYSFW_PREFIX_j7-hs-evm-k3r5 = "ti-fs-firmware"
-SYSFW_PREFIX_j7-hs-evm-k3r5-sr1-1 = "ti-fs-firmware"
-SYSFW_PREFIX_j7200-evm-k3r5 = "ti-fs-firmware"
-SYSFW_PREFIX_j7200-hs-evm-k3r5 = "ti-fs-firmware"
-SYSFW_PREFIX_j721s2-evm-k3r5 = "ti-fs-firmware"
-SYSFW_PREFIX_j721s2-hs-evm-k3r5 = "ti-fs-firmware"
-SYSFW_PREFIX_am62xx-evm-k3r5 = "ti-fs-firmware"
+SYSFW_PREFIX = "sci"
+SYSFW_PREFIX_j7-evm-k3r5 = "fs"
+SYSFW_PREFIX_j7-hs-evm-k3r5 = "fs"
+SYSFW_PREFIX_j7-hs-evm-k3r5-sr1-1 = "fs"
+SYSFW_PREFIX_j7200-evm-k3r5 = "fs"
+SYSFW_PREFIX_j7200-hs-evm-k3r5 = "fs"
+SYSFW_PREFIX_j721s2-evm-k3r5 = "fs"
+SYSFW_PREFIX_j721s2-hs-evm-k3r5 = "fs"
+SYSFW_PREFIX_am62xx-evm-k3r5 = "fs"
 
-SYSFW_SUFFIX ?= "unknown"
-
-SYSFW_BASE = "${SYSFW_PREFIX}-${SYSFW_SOC}-${SYSFW_SUFFIX}"
-SYSFW_BASE_append = "${@['','*']['${SYSFW_SUFFIX}' == 'hs']}"
-
-SYSFW_TISCI = "${S}/ti-sysfw/${SYSFW_BASE}.bin"
+SYSFW_TISCI = "${S}/ti-sysfw/ti-${SYSFW_PREFIX}-firmware-${SYSFW_SOC}-*.bin"
 
 SYSFW_BINARY = "sysfw-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
 SYSFW_VBINARY = "sysfw-${PV}-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
