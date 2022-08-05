@@ -16,9 +16,9 @@ PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
 
 SPL_BINARY = ""
 UBOOT_SUFFIX = "bin"
-UBOOT_BINARY = "tiboot3.${UBOOT_SUFFIX}"
-UBOOT_IMAGE = "tiboot3-${MAINMACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
-UBOOT_SYMLINK = "tiboot3-${MAINMACHINE}.${UBOOT_SUFFIX}"
+UBOOT_BINARY = "u-boot-spl.${UBOOT_SUFFIX}"
+UBOOT_IMAGE = "u-boot-r5spl-${MAINMACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
+UBOOT_SYMLINK = "u-boot-r5spl.${UBOOT_SUFFIX}"
 
 PACKAGECONFIG_pn-u-boot-ti-staging = ""
 PACKAGECONFIG_pn-u-boot-ti-mainline = ""
