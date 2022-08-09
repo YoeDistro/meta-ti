@@ -2,6 +2,7 @@ require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native virtual/bootloader"
 DEPENDS_remove_am65xx-evm-k3r5 = " virtual/bootloader"
+DEPENDS_remove_am65xx-evm-k3r5-sr2 = " virtual/bootloader"
 DEPENDS_remove_am65xx-hs-evm-k3r5 = " virtual/bootloader"
 DEPENDS_remove_am65xx-hs-evm-k3r5-sr2 = " virtual/bootloader"
 DEPENDS_remove_j7-evm-k3r5 = " virtual/bootloader"
@@ -57,6 +58,7 @@ EXTRA_OEMAKE = "\
     SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin" \
 "
 EXTRA_OEMAKE_remove_am65xx-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
+EXTRA_OEMAKE_remove_am65xx-evm-k3r5-sr2 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
 EXTRA_OEMAKE_remove_am65xx-hs-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
 EXTRA_OEMAKE_remove_am65xx-hs-evm-k3r5-sr2 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
 EXTRA_OEMAKE_remove_j7-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
