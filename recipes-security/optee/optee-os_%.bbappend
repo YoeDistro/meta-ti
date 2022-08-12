@@ -66,7 +66,7 @@ do_compile_append_am65xx-hs-evm() {
     optee_sign_k3hs
 }
 
-do_compile_append_am64xx-hs-evm() {
+do_compile_append_am64xx-evm() {
     optee_sign_k3hs
 }
 
