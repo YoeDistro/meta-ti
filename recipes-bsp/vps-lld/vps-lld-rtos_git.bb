@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://COPYING.txt;beginline=1;endline=32;md5=4303d306ea53eb
 COMPATIBLE_MACHINE = "omap-a15"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-VPS_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/vps.git"
-VPS_LLD_GIT_PROTOCOL = "git"
+VPS_LLD_GIT_URI = "git://git.ti.com/git/keystone-rtos/vps.git"
+VPS_LLD_GIT_PROTOCOL = "https"
 VPS_LLD_GIT_BRANCH = "master"
 VPS_LLD_GIT_DESTSUFFIX = "git/ti/drv/vps"
 

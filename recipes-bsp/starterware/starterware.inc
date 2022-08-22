@@ -4,8 +4,8 @@ LIC_FILES_CHKSUM = "file://Makefile;beginline=1;endline=35;md5=286cbb5dce3e34829
 COMPATIBLE_MACHINE = "ti33x|ti43x"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-STARTERWARE_GIT_URI = "git://git.ti.com/keystone-rtos/starterware.git"
-STARTERWARE_GIT_PROTOCOL = "git"
+STARTERWARE_GIT_URI = "git://git.ti.com/git/keystone-rtos/starterware.git"
+STARTERWARE_GIT_PROTOCOL = "https"
 STARTERWARE_GIT_BRANCH = "master"
 
 # Below commit ID corresponds to "DEV.STARTERWARE.PROCSDK.02.01.01.12A"

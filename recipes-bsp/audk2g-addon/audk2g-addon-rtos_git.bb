@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://audk2gaddonver.h;beginline=8;endline=47;md5=7a3996aaf
 COMPATIBLE_MACHINE = "k2g"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-AUDK2G_ADDON_GIT_URI = "git://git.ti.com/processor-sdk/audk2g-addon.git"
-AUDK2G_ADDON_GIT_PROTOCOL = "git"
+AUDK2G_ADDON_GIT_URI = "git://git.ti.com/git/processor-sdk/audk2g-addon.git"
+AUDK2G_ADDON_GIT_PROTOCOL = "https"
 AUDK2G_ADDON_GIT_BRANCH = "master"
 AUDK2G_ADDON_GIT_DESTSUFFIX = "git/ti/addon/audk2g"
 

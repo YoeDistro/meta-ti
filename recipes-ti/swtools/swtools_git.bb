@@ -15,8 +15,8 @@ PR = "r3"
 S = "${WORKDIR}/git"
 
 SWTOOLS_GIT_BRANCH = "master"
-SWTOOLS_GIT_PROTOCOL = "git"
-SWTOOLS_GIT_URI = "git://git.ti.com/ep-processor-libraries/swtools.git"
+SWTOOLS_GIT_PROTOCOL = "https"
+SWTOOLS_GIT_URI = "git://git.ti.com/git/ep-processor-libraries/swtools.git"
 SWTOOLS_SRCREV = "7d1c85e686b1466cd2d535fc9cac5baf1aae24a4"
 
 SRC_URI = "${SWTOOLS_GIT_URI};protocol=${SWTOOLS_GIT_PROTOCOL};branch=${SWTOOLS_GIT_BRANCH}"

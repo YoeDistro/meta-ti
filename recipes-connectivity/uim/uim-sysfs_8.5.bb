@@ -8,7 +8,7 @@ INITSCRIPT_PARAMS = "defaults 03"
 inherit update-rc.d
 
 SRCREV = "a75f45be2d5c74fc1dd913d08afc30f09a230aa9"
-SRC_URI = "git://git.ti.com/ti-bt/uim.git"
+SRC_URI = "git://git.ti.com/git/ti-bt/uim.git;protocol=https"
 
 S = "${WORKDIR}/git"
 

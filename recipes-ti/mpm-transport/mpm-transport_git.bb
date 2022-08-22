@@ -10,7 +10,7 @@ DEPENDS_append_k2e = " hyplnk-lld"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRC_URI = "git://git.ti.com/keystone-linux/mpm-transport.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/keystone-linux/mpm-transport.git;protocol=https;branch=${BRANCH}"
 
 BRANCH = "master"
 # This commit corresponds to tag DEV.MPM-TRANSPORT-02.00.04.00

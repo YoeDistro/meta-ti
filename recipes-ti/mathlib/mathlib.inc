@@ -17,8 +17,8 @@ DEPENDS = "ti-cgt6x-native \
 S = "${WORKDIR}/git"
 
 MATHLIB_GIT_BRANCH = "master"
-MATHLIB_GIT_PROTOCOL = "git"
-MATHLIB_GIT_URI = "git://git.ti.com/ep-processor-libraries/mathlib.git"
+MATHLIB_GIT_PROTOCOL = "https"
+MATHLIB_GIT_URI = "git://git.ti.com/git/ep-processor-libraries/mathlib.git"
 MATHLIB_SRCREV = "eadcc9547faf69789661b004bb0b5ef53bb69951"
 
 SRC_URI = "${MATHLIB_GIT_URI};protocol=${MATHLIB_GIT_PROTOCOL};branch=${MATHLIB_GIT_BRANCH}"

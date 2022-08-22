@@ -16,7 +16,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "c66x"
 
 BRANCH = "master"
-SRC_URI = "git://git.ti.com/keystone-rtos/mad-utils.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/keystone-rtos/mad-utils.git;protocol=https;branch=${BRANCH}"
 SRCREV = "2458510f76eddfa837c2b83448965e233156944b"
 PR = "r0"
 

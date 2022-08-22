@@ -10,7 +10,7 @@ BRANCH = "master"
 # This commit corresponds to tag DEV.SRSS-TC-01.00.00.01A
 SRCREV = "107cd1433ef5785e5647ef086a4cc77566506604"
 
-SRC_URI = "git://git.ti.com/keystone-linux/srss-tc.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/keystone-linux/srss-tc.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 

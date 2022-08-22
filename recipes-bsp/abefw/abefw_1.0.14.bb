@@ -7,7 +7,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 COMPATIBLE_MACHINE = "pandaboard|omap5-evm"
 
-SRC_URI = "git://git.ti.com/glsdk/abefw-omap4plus.git;protocol=git"
+SRC_URI = "git://git.ti.com/git/glsdk/abefw-omap4plus.git;protocol=https"
 
 S = "${WORKDIR}/git"
 

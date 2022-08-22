@@ -10,7 +10,7 @@ COMPATIBLE_MACHINE = "k3"
 BRANCH ?= "master"
 SRCREV = "48cb8e8d7dc962229a9f318cd512b4ddeec5cdc5"
 
-SRC_URI = "git://git.ti.com/k3conf/k3conf.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/k3conf/k3conf.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 

@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://docs/Doxyfile;md5=91d01dc3788e1f405f000b2089191a0a"
 COMPATIBLE_MACHINE = "keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PKTLIB_GIT_URI = "git://git.ti.com/keystone-rtos/pktlib.git"
-PKTLIB_GIT_PROTOCOL = "git"
+PKTLIB_GIT_URI = "git://git.ti.com/git/keystone-rtos/pktlib.git"
+PKTLIB_GIT_PROTOCOL = "https"
 PKTLIB_GIT_BRANCH = "master"
 PKTLIB_GIT_DESTSUFFIX = "git/ti/runtime/pktlib"
 

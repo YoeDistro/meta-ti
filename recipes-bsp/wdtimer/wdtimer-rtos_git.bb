@@ -8,8 +8,8 @@ inherit ti-pdk
 COMPATIBLE_MACHINE = "k2hk|k2e|k2l"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-WATCHDOG_TIMER_GIT_URI = "git://git.ti.com/keystone-rtos/wdtimer.git"
-WATCHDOG_TIMER_GIT_PROTOCOL = "git"
+WATCHDOG_TIMER_GIT_URI = "git://git.ti.com/git/keystone-rtos/wdtimer.git"
+WATCHDOG_TIMER_GIT_PROTOCOL = "https"
 WATCHDOG_TIMER_GIT_BRANCH = "master"
 WATCHDOG_TIMER_GIT_DESTSUFFIX = "git/ti/instrumentation/wdtimer"
 

@@ -5,8 +5,8 @@ DEVICELIST_k2hk = "k2h k2k"
 DEVICELIST_k2l  = "k2l"
 DEVICELIST_k2e  = "k2e"
 
-HPLIB_GIT_URI = "git://git.ti.com/keystone-rtos/hplib.git"
-HPLIB_GIT_PROTOCOL = "git"
+HPLIB_GIT_URI = "git://git.ti.com/git/keystone-rtos/hplib.git"
+HPLIB_GIT_PROTOCOL = "https"
 HPLIB_GIT_BRANCH = "master"
 
 # Below Commit ID corresponds to "DEV.HPLIB.01.01.00.08"

@@ -1,6 +1,6 @@
-TI_PDK_GIT_URI ?= "git://git.ti.com/processor-sdk/pdk.git"
+TI_PDK_GIT_URI ?= "git://git.ti.com/git/processor-sdk/pdk.git"
 TI_PDK_GIT_BRANCH ?= "master"
-TI_PDK_GIT_PROTOCOL ?= "git"
+TI_PDK_GIT_PROTOCOL ?= "https"
 TI_PDK_SRCREV ?= "a1ace885998e9adbcbbd0abf8b9ded6ba9ec54ff"
 
 TI_PDK_VERSION ?= "2020.5.6"

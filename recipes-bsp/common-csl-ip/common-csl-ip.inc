@@ -8,8 +8,8 @@ PV = "03.03.00.17B"
 INC_PR = "r0"
 PE = "2"
 
-CSL_GIT_URI = "git://git.ti.com/keystone-rtos/common-csl-ip.git"
-CSL_GIT_PROTOCOL ="git"
+CSL_GIT_URI = "git://git.ti.com/git/keystone-rtos/common-csl-ip.git"
+CSL_GIT_PROTOCOL ="https"
 CSL_GIT_BRANCH = "release"
 CSL_GIT_DESTSUFFIX = "git"
 

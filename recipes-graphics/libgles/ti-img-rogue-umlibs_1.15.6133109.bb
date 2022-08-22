@@ -14,7 +14,7 @@ PR = "r2"
 
 BRANCH = "linuxws/dunfell/k5.10/${PV}_unified_fw_pagesize"
 
-SRC_URI = "git://git.ti.com/graphics/ti-img-rogue-umlibs.git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
 SRCREV = "fba0c770b712640ab3761dbe8369d43f89f616ed"
 
 TARGET_PRODUCT_j7-evm = "j721e_linux"

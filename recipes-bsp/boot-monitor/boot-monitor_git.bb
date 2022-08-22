@@ -7,7 +7,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "u-boot-mkimage-native"
 
-SRC_URI = "git://git.ti.com/processor-firmware/ks2-boot-monitor.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/processor-firmware/ks2-boot-monitor.git;protocol=https;branch=${BRANCH}"
 
 PV = "4.0+git${SRCPV}"
 

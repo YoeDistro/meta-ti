@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://serdes_diag.h;beginline=1;endline=42;;md5=68e7ce6fdc0
 COMPATIBLE_MACHINE = "keystone|c66x|k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SERDES_DIAG_GIT_URI = "git://git.ti.com/keystone-rtos/serdes_diag.git"
-SERDES_DIAG_GIT_PROTOCOL = "git"
+SERDES_DIAG_GIT_URI = "git://git.ti.com/git/keystone-rtos/serdes_diag.git"
+SERDES_DIAG_GIT_PROTOCOL = "https"
 SERDES_DIAG_GIT_BRANCH = "master"
 SERDES_DIAG_GIT_DESTSUFFIX = "git/ti/diag/serdes_diag"
 

@@ -9,7 +9,7 @@ COMPATIBLE_MACHINE = "null"
 COMPATIBLE_MACHINE_class-native = "(.*)"
 COMPATIBLE_MACHINE_class-nativesdk = "(.*)"
 
-GIT_URI = "git://git.ti.com/git/security-development-tools/core-secdev-k3.git"
+GIT_URI = "git://git.ti.com/git/git/security-development-tools/core-secdev-k3.git"
 GIT_PROTOCOL = "https"
 GIT_BRANCH = "master"
 GIT_SRCREV = "eb2c4d734487e5095b94cef3fd7213ee71d9e016"

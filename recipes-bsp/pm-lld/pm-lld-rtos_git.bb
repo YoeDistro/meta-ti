@@ -9,8 +9,8 @@ COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k2g|k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 
-PM_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/pm-lld.git"
-PM_LLD_GIT_PROTOCOL = "git"
+PM_LLD_GIT_URI = "git://git.ti.com/git/keystone-rtos/pm-lld.git"
+PM_LLD_GIT_PROTOCOL = "https"
 
 PM_LLD_GIT_BRANCH = "master"
 

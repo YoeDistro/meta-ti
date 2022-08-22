@@ -19,8 +19,8 @@ COMPATIBLE_MACHINE = "c66x"
 
 CLEANBROKEN = "1"
 
-IBL_BOOT_GIT_URI = "git://git.ti.com/keystone-rtos/ibl.git"
-IBL_BOOT_GIT_PROTOCOL = "git"
+IBL_BOOT_GIT_URI = "git://git.ti.com/git/keystone-rtos/ibl.git"
+IBL_BOOT_GIT_PROTOCOL = "https"
 IBL_BOOT_GIT_BRANCH = "master"
 IBL_BOOT_SRCREV = "ed3f0989d8cdc813b7ca1ed899c4d84b63de3a75"
 

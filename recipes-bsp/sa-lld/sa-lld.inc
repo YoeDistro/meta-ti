@@ -3,8 +3,8 @@ COMPATIBLE_MACHINE = "k2hk|k2e|k2l"
 
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/ti/drv/sa/COPYING.txt;md5=cd04fb087063a2a82c4ce61983836871"
 
-SA_LLD_GIT_URI = "git://git.ti.com/keystone-rtos/sa-lld.git"
-SA_LLD_GIT_PROTOCOL = "git"
+SA_LLD_GIT_URI = "git://git.ti.com/git/keystone-rtos/sa-lld.git"
+SA_LLD_GIT_PROTOCOL = "https"
 SA_LLD_GIT_BRANCH = "master"
 SA_LLD_GIT_DESTSUFFIX = "git/ti/drv/sa"
 

@@ -7,7 +7,7 @@ RDEPENDS_${PN} = "wl18xx-fw"
 
 #Tag: R8.7_SP3 (8.7.3)
 SRCREV = "5048b59a444ac59ba7171d6e122d5a84581aebf2"
-SRC_URI = "git://git.ti.com/wilink8-wlan/18xx-ti-utils.git"
+SRC_URI = "git://git.ti.com/git/wilink8-wlan/18xx-ti-utils.git;protocol=https"
 
 S = "${WORKDIR}/git"
 

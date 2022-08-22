@@ -9,8 +9,8 @@ COMPATIBLE_MACHINE = "k2g|omapl137-evm"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-CMB_ADDON_GIT_URI = "git://git.ti.com/processor-sdk/circmicarray-addon.git"
-CMB_ADDON_GIT_PROTOCOL = "git"
+CMB_ADDON_GIT_URI = "git://git.ti.com/git/processor-sdk/circmicarray-addon.git"
+CMB_ADDON_GIT_PROTOCOL = "https"
 CMB_ADDON_GIT_BRANCH = "master"
 CMB_ADDON_GIT_DESTSUFFIX = "git/ti/addon"
 

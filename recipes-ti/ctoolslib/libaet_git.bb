@@ -7,7 +7,7 @@ PV = "4.19.0.0"
 
 LIC_FILES_CHKSUM = "file://../ctoolslib_manifest.html;md5=b7dd369a2e07ef9a71795ee5a9bd01bd"
 
-SRC_URI = "git://git.ti.com/sdo-emu/ctoolslib.git;protocol=git;branch=opencl_aetlib_build"
+SRC_URI = "git://git.ti.com/git/sdo-emu/ctoolslib.git;protocol=https;branch=opencl_aetlib_build"
 SRCREV = "de7954abab0f0caa8a2c7b53095c30226d901a31"
 
 DEPENDS = "ti-cgt6x-native"

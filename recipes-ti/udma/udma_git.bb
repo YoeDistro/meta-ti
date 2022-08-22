@@ -5,7 +5,7 @@ COMPATIBLE_MACHINE = "keystone"
 LIC_FILES_CHKSUM = "file://include/udma.h;startline=1;endline=39;md5=ba3c7f91f970afe073b759ced61d0f27"
 
 BRANCH = "master"
-SRC_URI = "git://git.ti.com/keystone-linux/udma.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/keystone-linux/udma.git;protocol=https;branch=${BRANCH}"
 S = "${WORKDIR}/git"
 # Commit corresponds to UDMA.01.00.00.00
 SRCREV = "53d09fb0bc98c41c5eb43623097e363c497d6fd8"

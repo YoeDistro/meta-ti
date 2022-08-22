@@ -4,8 +4,8 @@ LIC_FILES_CHKSUM = "file://COPYING.txt;md5=e8f6789acdcda76d02ed9203fc2e603d"
 COMPATIBLE_MACHINE = "tci6614-evm|keystone"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-TRACEFRAMEWORK_GIT_URI = "git://git.ti.com/keystone-rtos/traceframework.git"
-TRACEFRAMEWORK_GIT_PROTOCOL = "git"
+TRACEFRAMEWORK_GIT_URI = "git://git.ti.com/git/keystone-rtos/traceframework.git"
+TRACEFRAMEWORK_GIT_PROTOCOL = "https"
 TRACEFRAMEWORK_GIT_BRANCH = "master"
 TRACEFRAMEWORK_GIT_DESTSUFFIX = "git/ti/instrumentation/traceframework"
 
