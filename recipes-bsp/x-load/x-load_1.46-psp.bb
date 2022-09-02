@@ -12,7 +12,7 @@ PE = "1"
 
 # TI PSP v1.46_OMAPPSP_03.00.01.06 (Tag is one commit different)
 SRCREV_pn-${PN} = "fc6d5be15c703d21aef0ae0b8c02177721f0445f"
-SRC_URI = "git://git.ti.com/git/git/arago-project-org/x-load-omap3.git;protocol=https"
+SRC_URI = "git://git.ti.com/git/arago-project-org/x-load-omap3.git;protocol=https"
 
 S = "${WORKDIR}/git"
 
