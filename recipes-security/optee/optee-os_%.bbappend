@@ -1,5 +1,5 @@
-PV_ti-soc = "3.17.0+git${SRCPV}"
-SRCREV_ti-soc = "15a746d28d10df3d79d72bc9fe4a5a654b88bcca"
+PV_ti-soc = "3.18.0+git${SRCPV}"
+SRCREV_ti-soc = "8e155bae3a5eb9d1a3ed9260bd7281a7a35f5086"
 SRC_URI_ti-soc = "git://github.com/OP-TEE/optee_os.git;protocol=https"
 
 DEPENDS_append_ti-soc = " python3-cryptography-native"
