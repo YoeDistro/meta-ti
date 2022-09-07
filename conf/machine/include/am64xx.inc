@@ -14,9 +14,9 @@ KERNEL_DEVICETREE = " \
     ti/k3-am642-evm-nand.dtbo \
 "
 
-BBMULTICONFIG = "k3r5-hs-se"
-do_image_wic[mcdepends] = "mc::k3r5-hs-se:ti-sci-fw:do_deploy"
-do_image_tar[mcdepends] = "mc::k3r5-hs-se:ti-sci-fw:do_deploy"
+BBMULTICONFIG = "k3r5-sr2-hs-fs"
+do_image_wic[mcdepends] = "mc::k3r5-sr2-hs-fs:ti-sci-fw:do_deploy"
+do_image_tar[mcdepends] = "mc::k3r5-sr2-hs-fs:ti-sci-fw:do_deploy"
 
 TFA_BOARD = "lite"
 OPTEEMACHINE = "k3-am64x"
