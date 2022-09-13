@@ -41,7 +41,12 @@ optee_sign_legacyhs() {
 # Signing procedure for K3 HS devices
 optee_sign_k3hs() {
     ( cd ${B}/core/; \
-        ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh tee-pager_v2.bin tee-pager.bin.signed; \
+        if [ -f ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ]; then \
+            ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh tee-pager_v2.bin tee-pager.bin.signed; \
+        else \
+            echo "Warning: TI_SECURE_DEV_PKG not set, OP-TEE not signed."; \
+            cp tee-pager_v2.bin tee-pager.bin.signed; \
+        fi; \
         mv tee-pager.bin.signed ${B}/bl32.bin; \
         cp tee.elf ${B}/bl32.elf; \
     )
