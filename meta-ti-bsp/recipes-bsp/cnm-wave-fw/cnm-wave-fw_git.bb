@@ -13,7 +13,7 @@ PR = "${INC_PR}.1"
 
 CLEANBROKEN = "1"
 
-COMPATIBLE_MACHINE = "j721s2-evm"
+COMPATIBLE_MACHINE = "j721s2"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -21,7 +21,7 @@ S = "${WORKDIR}/git"
 TARGET_WAVE521C = "wave521c_codec_fw.bin"
 
 SOURCE_WAVE521C = "wave521c_codec_fw.bin"
-SOURCE_WAVE521C:j721s2-evm = "wave521c_j721s2_codec_fw.bin"
+SOURCE_WAVE521C:j721s2 = "wave521c_j721s2_codec_fw.bin"
 
 ALTERNATIVE_LINK_NAME[wave521c_codec_fw.bin] = "${nonarch_base_libdir}/firmware/${TARGET_WAVE521C}"
 ALTERNATIVE_TARGET[wave521c_codec_fw.bin] = "${nonarch_base_libdir}/firmware/cnm/${TARGET_WAVE521C}"

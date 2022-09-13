@@ -27,7 +27,7 @@ RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:j7 = " cadence-mhdp-fw"
 RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:j7 = " vxd-dec-fw"
 
 # Add run-time dependency for Chips&Media Wave521 firmware to the rootfs
-RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:j721s2-evm = " cnm-wave-fw"
+RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:j721s2 = " cnm-wave-fw"
 
 # Add run-time dependency for TIFS Low Power Module stub
 RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:am62xx-evm = " tifs-lpm-stub"
