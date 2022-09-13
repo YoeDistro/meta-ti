@@ -1,6 +1,6 @@
 # UBOOT_LOCALVERSION can be set to add a tag to the end of the
 # U-boot version string.  such as the commit id
-UBOOT_LOCALVERSION = "-g${@d.getVar('SRCPV', True).split('+')[1]}"
+UBOOT_LOCALVERSION = "-g${@d.getVar('SRCPV', True).replace('AUTOINC+','')[:10]}"
 
 UBOOT_SUFFIX ?= "img"
 SPL_BINARY ?= "MLO"
