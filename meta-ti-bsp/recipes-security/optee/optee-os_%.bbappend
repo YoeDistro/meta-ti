@@ -5,6 +5,9 @@ DEPENDS:append:ti-soc = " python3-cryptography-native"
 
 EXTRA_OEMAKE:append:k3 = "${@ ' CFG_CONSOLE_UART='+ d.getVar('OPTEE_K3_USART') if d.getVar('OPTEE_K3_USART') else ''}"
 
+EXTRA_OEMAKE:append:am62xx = " CFG_WITH_SOFTWARE_PRNG=y"
+EXTRA_OEMAKE:append:j721s2 = " CFG_WITH_SOFTWARE_PRNG=y"
+
 do_compile:prepend:ti-soc() {
     export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
 }
