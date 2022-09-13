@@ -21,5 +21,5 @@ do_image_tar[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
 TFA_BOARD = "lite"
 TFA_K3_SYSTEM_SUSPEND = "1"
 
-OPTEEMACHINE = "k3-am65x"
+OPTEEMACHINE = "k3-am62x"
 OPTEEOUTPUTMACHINE = "k3"
