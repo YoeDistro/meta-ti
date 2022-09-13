@@ -9,42 +9,36 @@ TFA_SPD:k3 = "opteed"
 EXTRA_OEMAKE:append:k3 = "${@ ' K3_USART=' + d.getVar('TFA_K3_USART') if d.getVar('TFA_K3_USART') else ''}"
 EXTRA_OEMAKE:append:k3 = "${@ ' K3_PM_SYSTEM_SUSPEND=' + d.getVar('TFA_K3_SYSTEM_SUSPEND') if d.getVar('TFA_K3_SYSTEM_SUSPEND') else ''}"
 
-do_compile:append:am65xx-hs-evm() {
+# Signing procedure for K3 HS devices
+tfa_sign_k3hs() {
 	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
 	( cd ${BUILD_DIR}; \
 		mv bl31.bin bl31.bin.unsigned; \
-		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
+		if [ -f ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ]; then \
+			${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
+		else \
+			echo "Warning: TI_SECURE_DEV_PKG not set, TF-A not signed."; \
+			cp bl31.bin.unsigned bl31.bin; \
+		fi; \
 	)
+}
+
+do_compile:append:am65xx-hs-evm() {
+	tfa_sign_k3hs
 }
 
 do_compile:append:am64xx-hs-evm() {
-	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
-	( cd ${BUILD_DIR}; \
-		mv bl31.bin bl31.bin.unsigned; \
-		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
-	)
+	tfa_sign_k3hs
 }
 
 do_compile:append:j721e-hs-evm() {
-	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
-	( cd ${BUILD_DIR}; \
-		mv bl31.bin bl31.bin.unsigned; \
-		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
-	)
+	tfa_sign_k3hs
 }
 
 do_compile:append:j7200-hs-evm() {
-	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
-	( cd ${BUILD_DIR}; \
-		mv bl31.bin bl31.bin.unsigned; \
-		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
-	)
+	tfa_sign_k3hs
 }
 
 do_compile:append:j721s2-hs-evm() {
-	export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
-	( cd ${B}/${BUILD_DIR}/release/; \
-		mv bl31.bin bl31.bin.unsigned; \
-		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh bl31.bin.unsigned bl31.bin; \
-	)
+	tfa_sign_k3hs
 }
