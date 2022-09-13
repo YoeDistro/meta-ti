@@ -17,6 +17,7 @@ PLAT_SFX:j7 = "j721e"
 PLAT_SFX:j7200-evm = "j7200"
 PLAT_SFX:j7200-hs-evm = "j7200"
 PLAT_SFX:j721s2-evm = "j721s2"
+PLAT_SFX:j721s2-hs-evm = "j721s2"
 PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
@@ -58,6 +59,15 @@ do_install:prepend:j721e-hs-evm() {
 
 # J7 HS support
 do_install:prepend:j7200-hs-evm() {
+        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
+        ( cd ${RTOS_DM_FW_DIR}; \
+                mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
+                ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
+        )
+}
+
+# J7 HS support
+do_install:prepend:j721s2-hs-evm() {
         export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
@@ -130,6 +140,22 @@ do_install:j7200-hs-evm() {
 }
 
 do_install:j721s2-evm() {
+    install -d ${LEGACY_IPC_FW_DIR}
+    install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu1_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
+    install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu2_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
+    install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu2_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
+    install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu3_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
+    install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu3_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
+    install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_c7x_1_release_strip.xe71 ${LEGACY_IPC_FW_DIR}
+    install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_c7x_2_release_strip.xe71 ${LEGACY_IPC_FW_DIR}
+    # DM Firmware
+    install -m 0644 ${RTOS_DM_FW_DIR}/ipc_echo_testb_mcu1_0_release_strip.xer5f ${LEGACY_DM_FW_DIR}
+    # ETH firmware
+    # install -d ${LEGACY_ETH_FW_DIR}
+    # install -m 0644 ${RTOS_ETH_FW_DIR}/app_remoteswitchcfg_server_strip.xer5f ${LEGACY_ETH_FW_DIR}
+}
+
+do_install:j721s2-hs-evm() {
     install -d ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu1_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu2_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
@@ -232,6 +258,17 @@ ALTERNATIVE_${PN}:j721s2-evm = "\
                     j721s2-c71_1-fw \
                     "
 
+ALTERNATIVE:${PN}:j721s2-hs-evm = "\
+                    j721s2-mcu-r5f0_0-fw \
+                    j721s2-mcu-r5f0_1-fw \
+                    j721s2-main-r5f0_0-fw \
+                    j721s2-main-r5f0_1-fw \
+                    j721s2-main-r5f1_0-fw \
+                    j721s2-main-r5f1_1-fw \
+                    j721s2-c71_0-fw \
+                    j721s2-c71_1-fw \
+                    "
+
 # Set up link names for the firmwares
 
 TARGET_MCU_R5FSS0_0:am65xx = "am65x-mcu-r5f0_0-fw"
@@ -274,6 +311,15 @@ TARGET_MAIN_R5FSS1_0:j721s2-evm = "j721s2-main-r5f1_0-fw"
 TARGET_MAIN_R5FSS1_1:j721s2-evm = "j721s2-main-r5f1_1-fw"
 TARGET_C7X_0:j721s2-evm = "j721s2-c71_0-fw"
 TARGET_C7X_1:j721s2-evm = "j721s2-c71_1-fw"
+
+TARGET_MCU_R5FSS0_0:j721s2-hs-evm = "j721s2-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1:j721s2-hs-evm = "j721s2-mcu-r5f0_1-fw"
+TARGET_MAIN_R5FSS0_0:j721s2-hs-evm = "j721s2-main-r5f0_0-fw"
+TARGET_MAIN_R5FSS0_1:j721s2-hs-evm = "j721s2-main-r5f0_1-fw"
+TARGET_MAIN_R5FSS1_0:j721s2-hs-evm = "j721s2-main-r5f1_0-fw"
+TARGET_MAIN_R5FSS1_1:j721s2-hs-evm = "j721s2-main-r5f1_1-fw"
+TARGET_C7X_0:j721s2-hs-evm = "j721s2-c71_0-fw"
+TARGET_C7X_1:j721s2-hs-evm = "j721s2-c71_1-fw"
 
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/${TARGET_MCU_R5FSS0_0}"
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_1-fw] = "${nonarch_base_libdir}/firmware/${TARGET_MCU_R5FSS0_1}"
