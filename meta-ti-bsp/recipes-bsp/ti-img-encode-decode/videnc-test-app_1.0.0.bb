@@ -6,7 +6,7 @@ DEPENDS = "libdrm"
 
 inherit autotools pkgconfig
 
-COMPATIBLE_MACHINE = "j7"
+COMPATIBLE_MACHINE = "j721e"
 
 PR = "r0"
 SRCREV = "a5e7d820bea1be24f25a8369d4d4521c784f869a"
