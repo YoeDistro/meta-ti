@@ -1,10 +1,10 @@
 require u-boot-ti.inc
 
-LIC_FILES_CHKSUM = "file://Licenses/README;md5=5a7450c57ffe5ae63fd732446b988025"
+LIC_FILES_CHKSUM = "file://Licenses/README;md5=2ca5f2c35c8cc335f0a19756634782f1"
 
 PR = "r0"
 
-PV = "2021.10"
+PV = "2022.10"
 
 # For the un-initiated:
 # The actual URL you'd use with a git clone for example would be:
@@ -15,4 +15,4 @@ PV = "2021.10"
 # b) and we want git fetcher to use https protocol, hence GIT_PROTOCOL as https
 UBOOT_GIT_URI = "git://source.denx.de/u-boot/u-boot.git"
 UBOOT_GIT_PROTOCOL = "https"
-SRCREV = "d80bb749fab53da72c4a0e09b8c2d2aaa3103c91"
+SRCREV = "4debc57a3da6c3f4d3f89a637e99206f4cea0a96"
