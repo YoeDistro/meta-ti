@@ -4,6 +4,8 @@ SECTION = "devel"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://manifest/k3-secdev-0.2-manifest.html;md5=f632a78870cc64550078d7b3cbac0892"
 
+require recipes-ti/includes/ti-paths.inc
+
 # Native host tool only
 COMPATIBLE_MACHINE = "null"
 COMPATIBLE_MACHINE_class-native = "(.*)"
