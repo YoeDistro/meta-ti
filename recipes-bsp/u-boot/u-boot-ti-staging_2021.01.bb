@@ -6,4 +6,4 @@ PR = "r33"
 
 BRANCH = "ti-u-boot-2021.01"
 
-SRCREV = "1c0d06c606ab2026019e26b8225054216becfdf1"
+SRCREV = "28c0bc78e94e06b84eb728eca40f6bca4c09e8a8"
