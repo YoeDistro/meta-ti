@@ -1,7 +1,5 @@
-PV:ti-soc = "3.17.0+git${SRCPV}"
-SRCREV:ti-soc = "15a746d28d10df3d79d72bc9fe4a5a654b88bcca"
-
-DEPENDS:append:ti-soc = " python3-cryptography-native"
+PV:ti-soc = "3.18.0+git${SRCPV}"
+SRCREV:ti-soc = "8e155bae3a5eb9d1a3ed9260bd7281a7a35f5086"
 
 EXTRA_OEMAKE:append:k3 = "${@ ' CFG_CONSOLE_UART='+ d.getVar('OPTEE_K3_USART') if d.getVar('OPTEE_K3_USART') else ''}"
 
