@@ -9,11 +9,11 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit deploy
 inherit update-alternatives
 
-PROTOCOL = "git"
+PROTOCOL = "https"
 BRANCH = "master"
 SRCREV = "91f1628507bf7f8716f0bc7cafe88ad7f14c94f5"
 
-SRC_URI = "git://git.ti.com/glsdk/ti-eth-fw.git;protocol=${PROTOCOL};branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/glsdk/ti-eth-fw.git;protocol=${PROTOCOL};branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 

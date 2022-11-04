@@ -8,7 +8,7 @@ inherit features_check
 
 REQUIRED_MACHINE_FEATURES = "dsp"
 
-SRC_URI = "git://git.ti.com/glsdk/dspdce.git;protocol=git"
+SRC_URI = "git://git.ti.com/git/glsdk/dspdce.git;protocol=https;branch=master"
 
 SRCREV = "de6e599f067b25c46cc0c8f74a22cc3b8aafbae8"
 
