@@ -16,8 +16,8 @@ PLAT_SFX:am65xx = "/am65xx"
 PLAT_SFX:am64xx = "/am64x"
 
 # Use weak assignment to set defaults to TI_RTOS_METADATA_* variables
-TI_RTOS_METADATA_URI ?= "git://git.ti.com/processor-sdk/coresdk_rtos_releases.git"
-TI_RTOS_METADATA_PROTOCOL ?= "git"
+TI_RTOS_METADATA_URI ?= "git://git.ti.com/git/processor-sdk/coresdk_rtos_releases.git"
+TI_RTOS_METADATA_PROTOCOL ?= "https"
 TI_RTOS_METADATA_SRCREV ?= "2ecbf45af64bc47806623cc5bf7ab493489acaf9"
 TI_RTOS_METADATA_BRANCH ?= "master"
 TI_RTOS_METADATA_DIR ?= "${PLAT_SFX}"

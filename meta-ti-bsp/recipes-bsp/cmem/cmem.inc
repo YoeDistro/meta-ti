@@ -9,7 +9,7 @@ SRCREV = "86269258a48e0a9008dd9d5ebfae9da7ce843393"
 
 PV = "4.20.00.01+git${SRCPV}"
 
-SRC_URI = "git://git.ti.com/ipc/ludev.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/ipc/ludev.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 COMPATIBLE_HOST ?= "null"

@@ -15,7 +15,7 @@ BRANCH = "ti-${PV}-k5.10"
 
 SRCREV = "e2a10f31e255a65ec30a6e10b890e77d7e9cb107"
 
-SRC_URI = "git://git.ti.com/graphics/ti-gc320-driver.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/graphics/ti-gc320-driver.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git/src"
 

@@ -1,5 +1,5 @@
 DESCRIPTION = "TI OpenMP RTOS"
-HOMEPAGE = "git://git.ti.com/openmp/ti-openmp-dsp-runtime.git"
+HOMEPAGE = "git://git.ti.com/git/openmp/ti-openmp-dsp-runtime.git"
 LICENSE = "BSD-3-Clause"
 
 require recipes-ti/includes/ti-paths.inc
@@ -12,8 +12,8 @@ REQUIRED_DISTRO_FEATURES = "openmp"
 PV = "2_06_03_00"
 PR = "r0"
 
-OPENMP_RTOS_GIT_URI = "git://git.ti.com/openmp/ti-openmp-dsp-runtime.git"
-OPENMP_RTOS_GIT_PROTOCOL = "git"
+OPENMP_RTOS_GIT_URI = "git://git.ti.com/git/openmp/ti-openmp-dsp-runtime.git"
+OPENMP_RTOS_GIT_PROTOCOL = "https"
 OPENMP_RTOS_GIT_BRANCH = "master"
 
 BRANCH = "${OPENMP_RTOS_GIT_BRANCH}"

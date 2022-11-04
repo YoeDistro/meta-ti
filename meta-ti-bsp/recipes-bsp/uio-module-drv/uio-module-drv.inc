@@ -7,8 +7,8 @@ UIO_MODULE_DRV_SRCREV = "78c535afe8f8cc0b715500a63eab0bc3606c0579"
 
 PV = "2.3.1.0+git${SRCPV}"
 
-UIO_MODULE_DRV_GIT_URI = "git://git.ti.com/keystone-linux/uio-module-drv.git"
-UIO_MODULE_DRV_GIT_PROTOCOL = "git"
+UIO_MODULE_DRV_GIT_URI = "git://git.ti.com/git/keystone-linux/uio-module-drv.git"
+UIO_MODULE_DRV_GIT_PROTOCOL = "https"
 SRC_URI = "${UIO_MODULE_DRV_GIT_URI};protocol=${UIO_MODULE_DRV_GIT_PROTOCOL};branch=${BRANCH}"
 
 SRCREV = "${UIO_MODULE_DRV_SRCREV}"
