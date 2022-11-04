@@ -36,6 +36,7 @@ SYSFW_PREFIX:j7200-hs-evm-k3r5 = "fs"
 SYSFW_PREFIX:j721s2-evm-k3r5 = "fs"
 SYSFW_PREFIX:j721s2-hs-evm-k3r5 = "fs"
 SYSFW_PREFIX:am62xx-evm-k3r5 = "fs"
+SYSFW_PREFIX:am62xx-lp-evm-k3r5 = "fs"
 
 SYSFW_TISCI = "${S}/ti-sysfw/ti-${SYSFW_PREFIX}-firmware-${SYSFW_SOC}-*.bin"
 

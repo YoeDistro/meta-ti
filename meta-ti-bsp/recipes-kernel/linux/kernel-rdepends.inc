@@ -30,5 +30,4 @@ RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:j7 = " vxd-dec-fw"
 RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:j721s2 = " cnm-wave-fw"
 
 # Add run-time dependency for TIFS Low Power Module stub
-RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:am62xx-evm = " tifs-lpm-stub"
-
+RDEPENDS:${KERNEL_PACKAGE_NAME}-base:append:am62xx = " tifs-lpm-stub"
