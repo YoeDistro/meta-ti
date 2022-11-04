@@ -99,6 +99,7 @@ do_deploy () {
 		ln -sf ${SYSFW_VBINARY} ${DEPLOYDIR}/${SYSFW_IMAGE}
 		if [ ! -z "${SYSFW_SYMLINK}" ]; then
 			ln -sf ${SYSFW_VBINARY} ${DEPLOYDIR}/${SYSFW_SYMLINK}
+			install -m 644 ${SYSFW_TISCI} ${DEPLOYDIR}/
 		fi
 	fi
 
@@ -106,10 +107,9 @@ do_deploy () {
 		install -m 644 ${WORKDIR}/imggen/${SYSFW_TIBOOT3} ${DEPLOYDIR}/${SYSFW_TIBOOT3}
 		if [ ! -z "${SYSFW_TIBOOT3_SYMLINK}" ]; then
 			ln -sf ${SYSFW_TIBOOT3} ${DEPLOYDIR}/${SYSFW_TIBOOT3_SYMLINK}
+			install -m 644 ${SYSFW_TISCI} ${DEPLOYDIR}/
 		fi
 	fi
-
-	install -m 644 ${SYSFW_TISCI} ${DEPLOYDIR}/
 }
 
 addtask deploy before do_build after do_compile
