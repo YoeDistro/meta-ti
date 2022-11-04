@@ -2,8 +2,6 @@ DESCRIPTION = "The cmem component supports contiguous memory allocation from use
 
 include cmem.inc
 
-RDEPENDS:${PN} = "cmem-mod"
-
 PR = "r0"
 
 PACKAGES =+ "${PN}-test"
