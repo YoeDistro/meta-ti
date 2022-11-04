@@ -1,13 +1,12 @@
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
-DEPENDS = "openssl-native u-boot-mkimage-native dtc-native"
-DEPENDS:append:j7200-evm-k3r5 = " virtual/bootloader"
-DEPENDS:append:j7200-hs-evm-k3r5 = " virtual/bootloader"
-DEPENDS:append:j721s2-evm-k3r5 = " virtual/bootloader"
-DEPENDS:append:j721s2-hs-evm-k3r5 = " virtual/bootloader"
-DEPENDS:append:am64xx-evm-k3r5 = " virtual/bootloader"
-DEPENDS:append:am64xx-hs-evm-k3r5 = " virtual/bootloader"
-DEPENDS:append:am62xx-evm-k3r5 = " virtual/bootloader"
+DEPENDS = "openssl-native u-boot-mkimage-native dtc-native virtual/bootloader"
+DEPENDS:remove:am65xx-evm-k3r5 = "virtual/bootloader"
+DEPENDS:remove:am65xx-hs-evm-k3r5 = "virtual/bootloader"
+DEPENDS:remove:am65xx-hs-evm-k3r5-sr2 = "virtual/bootloader"
+DEPENDS:remove:j721e-evm-k3r5 = "virtual/bootloader"
+DEPENDS:remove:j721e-hs-evm-k3r5 = "virtual/bootloader"
+DEPENDS:remove:j721e-hs-evm-k3r5-sr1-1 = "virtual/bootloader"
 
 CLEANBROKEN = "1"
 PR = "${INC_PR}.2"
@@ -54,15 +53,14 @@ do_configure[noexec] = "1"
 EXTRA_OEMAKE = "\
     CROSS_COMPILE=${TARGET_PREFIX} SOC=${SYSFW_SOC} SOC_TYPE=${SYSFW_SUFFIX} \
     CONFIG=${SYSFW_CONFIG} SYSFW_DIR="${S}/ti-sysfw" \
+    SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin" \
 "
-
-EXTRA_OEMAKE:append:j7200-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
-EXTRA_OEMAKE:append:j7200-hs-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
-EXTRA_OEMAKE:append:j721s2-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
-EXTRA_OEMAKE:append:j721s2-hs-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
-EXTRA_OEMAKE:append:am64xx-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
-EXTRA_OEMAKE:append:am64xx-hs-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
-EXTRA_OEMAKE:append:am62xx-evm-k3r5 = " SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
+EXTRA_OEMAKE:remove:am65xx-evm-k3r5 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
+EXTRA_OEMAKE:remove:am65xx-hs-evm-k3r5 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
+EXTRA_OEMAKE:remove:am65xx-hs-evm-k3r5-sr2 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
+EXTRA_OEMAKE:remove:j721e-evm-k3r5 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
+EXTRA_OEMAKE:remove:j721e-hs-evm-k3r5 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
+EXTRA_OEMAKE:remove:j721e-hs-evm-k3r5-sr1-1 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
 
 do_compile() {
 	cd ${WORKDIR}/imggen/
