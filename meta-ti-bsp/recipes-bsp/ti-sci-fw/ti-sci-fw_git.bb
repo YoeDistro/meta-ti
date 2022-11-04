@@ -1,4 +1,5 @@
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
+require recipes-ti/includes/ti-paths.inc
 
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native virtual/bootloader"
 DEPENDS:remove:am65xx-evm-k3r5 = "virtual/bootloader"
@@ -8,6 +9,7 @@ DEPENDS:remove:am65xx-hs-evm-k3r5-sr2 = "virtual/bootloader"
 DEPENDS:remove:j721e-evm-k3r5 = "virtual/bootloader"
 DEPENDS:remove:j721e-hs-evm-k3r5 = "virtual/bootloader"
 DEPENDS:remove:j721e-hs-evm-k3r5-sr1-1 = "virtual/bootloader"
+DEPENDS:append = " ${@ '' if '${TI_SECURE_DEV_PKG_K3}' else 'ti-k3-secdev-native' }"
 
 CLEANBROKEN = "1"
 PR = "${INC_PR}.2"
@@ -18,7 +20,7 @@ COMPATIBLE_MACHINE:aarch64 = "null"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-TI_SECURE_DEV_PKG ?= ""
+TI_SECURE_DEV_PKG = "${@ '${TI_SECURE_DEV_PKG_K3}' or '${TI_K3_SECDEV_INSTALL_DIR}' }"
 export TI_SECURE_DEV_PKG
 
 SYSFW_SOC ?= "unknown"
