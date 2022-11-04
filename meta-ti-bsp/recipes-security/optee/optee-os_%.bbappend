@@ -1,5 +1,5 @@
-PV:ti-soc = "3.18.0+git${SRCPV}"
-SRCREV:ti-soc = "6bf4a81a8f5388e6cb6b1d7e8ebe57c5089c0954"
+PV:ti-soc = "3.19.0+git${SRCPV}"
+SRCREV:ti-soc = "afacf356f9593a7f83cae9f96026824ec242ff52"
 
 EXTRA_OEMAKE:append:k3 = "${@ ' CFG_CONSOLE_UART='+ d.getVar('OPTEE_K3_USART') if d.getVar('OPTEE_K3_USART') else ''}"
 
