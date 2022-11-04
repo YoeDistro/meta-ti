@@ -20,9 +20,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 S = "${WORKDIR}/git"
 TARGET_WAVE521C = "wave521c_codec_fw.bin"
 
-SOURCE_WAVE521C = "wave521c_codec_fw.bin"
-SOURCE_WAVE521C:j721s2 = "wave521c_j721s2_codec_fw.bin"
-SOURCE_WAVE521C:j784s4 = "wave521c_j721s2_codec_fw.bin"
+SOURCE_WAVE521C = "wave521c_k3_codec_fw.bin"
 
 ALTERNATIVE_LINK_NAME[wave521c_codec_fw.bin] = "${nonarch_base_libdir}/firmware/${TARGET_WAVE521C}"
 ALTERNATIVE_TARGET[wave521c_codec_fw.bin] = "${nonarch_base_libdir}/firmware/cnm/${TARGET_WAVE521C}"
