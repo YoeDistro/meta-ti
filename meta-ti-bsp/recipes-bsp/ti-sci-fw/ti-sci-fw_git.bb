@@ -37,6 +37,8 @@ SYSFW_PREFIX:am62xx-evm-k3r5 = "fs"
 
 SYSFW_TISCI = "${S}/ti-sysfw/ti-${SYSFW_PREFIX}-firmware-${SYSFW_SOC}-*.bin"
 
+SYSFW_TIBOOT3 = "tiboot3-${SYSFW_SOC}-${SYSFW_SUFFIX}-${SYSFW_CONFIG}.bin"
+
 SYSFW_BINARY = "sysfw-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
 SYSFW_VBINARY = "sysfw-${PV}-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
 SYSFW_IMAGE = "sysfw-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
@@ -78,10 +80,9 @@ do_install() {
 		fi
 	fi
 
-	if [ -f "${WORKDIR}/imggen/${UBOOT_BINARY}" ]; then
-		install -m 644 ${WORKDIR}/imggen/${UBOOT_BINARY} ${D}/boot/${UBOOT_IMAGE}
-		ln -sf ${UBOOT_IMAGE} ${D}/boot/${UBOOT_SYMLINK}
-		ln -sf ${UBOOT_IMAGE} ${D}/boot/${UBOOT_BINARY}
+	if [ -f "${WORKDIR}/imggen/${SYSFW_TIBOOT3}" ]; then
+		install -m 644 ${WORKDIR}/imggen/${SYSFW_TIBOOT3} ${D}/boot/${SYSFW_TIBOOT3}
+		ln -sf ${SYSFW_TIBOOT3} ${D}/boot/tiboot3.bin
 	fi
 }
 
@@ -100,10 +101,9 @@ do_deploy () {
 		fi
 	fi
 
-	if [ -f "${WORKDIR}/imggen/${UBOOT_BINARY}" ]; then
-		install -m 644 ${WORKDIR}/imggen/${UBOOT_BINARY} ${DEPLOYDIR}/${UBOOT_IMAGE}
-		ln -sf ${UBOOT_IMAGE} ${DEPLOYDIR}/${UBOOT_SYMLINK}
-		ln -sf ${UBOOT_IMAGE} ${DEPLOYDIR}/${UBOOT_BINARY}
+	if [ -f "${WORKDIR}/imggen/${SYSFW_TIBOOT3}" ]; then
+		install -m 644 ${WORKDIR}/imggen/${SYSFW_TIBOOT3} ${DEPLOYDIR}/${SYSFW_TIBOOT3}
+		ln -sf ${SYSFW_TIBOOT3} ${DEPLOYDIR}/tiboot3.bin
 	fi
 
 	install -m 644 ${SYSFW_TISCI} ${DEPLOYDIR}/
