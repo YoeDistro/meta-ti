@@ -37,6 +37,7 @@ SYSFW_PREFIX:am62xx-evm-k3r5 = "fs"
 SYSFW_TISCI = "${S}/ti-sysfw/ti-${SYSFW_PREFIX}-firmware-${SYSFW_SOC}-*.bin"
 
 SYSFW_TIBOOT3 = "tiboot3-${SYSFW_SOC}-${SYSFW_SUFFIX}-${SYSFW_CONFIG}.bin"
+SYSFW_TIBOOT3_SYMLINK ?= "tiboot3.bin"
 
 SYSFW_BINARY = "sysfw-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
 SYSFW_VBINARY = "sysfw-${PV}-${SYSFW_SOC}-${SYSFW_CONFIG}.itb"
@@ -80,7 +81,9 @@ do_install() {
 
 	if [ -f "${WORKDIR}/imggen/${SYSFW_TIBOOT3}" ]; then
 		install -m 644 ${WORKDIR}/imggen/${SYSFW_TIBOOT3} ${D}/boot/${SYSFW_TIBOOT3}
-		ln -sf ${SYSFW_TIBOOT3} ${D}/boot/tiboot3.bin
+		if [ ! -z "${SYSFW_TIBOOT3_SYMLINK}" ]; then
+			ln -sf ${SYSFW_TIBOOT3} ${D}/boot/${SYSFW_TIBOOT3_SYMLINK}
+		fi
 	fi
 }
 
@@ -101,7 +104,9 @@ do_deploy () {
 
 	if [ -f "${WORKDIR}/imggen/${SYSFW_TIBOOT3}" ]; then
 		install -m 644 ${WORKDIR}/imggen/${SYSFW_TIBOOT3} ${DEPLOYDIR}/${SYSFW_TIBOOT3}
-		ln -sf ${SYSFW_TIBOOT3} ${DEPLOYDIR}/tiboot3.bin
+		if [ ! -z "${SYSFW_TIBOOT3_SYMLINK}" ]; then
+			ln -sf ${SYSFW_TIBOOT3} ${DEPLOYDIR}/${SYSFW_TIBOOT3_SYMLINK}
+		fi
 	fi
 
 	install -m 644 ${SYSFW_TISCI} ${DEPLOYDIR}/
