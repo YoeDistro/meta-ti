@@ -16,6 +16,7 @@ PREFERRED_PROVIDER_u-boot ?= "u-boot-ti-staging"
 
 KERNEL_IMAGETYPE = "Image"
 KERNEL_IMAGETYPES = "Image vmlinux.gz fitImage"
+KERNEL_CLASSES += "kernel-fitimage"
 
 UBOOT_ARCH = "arm"
 UBOOT_ENTRYPOINT = "0x80008000"
