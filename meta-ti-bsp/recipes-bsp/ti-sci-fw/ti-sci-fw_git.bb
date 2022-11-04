@@ -9,7 +9,7 @@ DEPENDS:remove:am65xx-hs-evm-k3r5-sr2 = "virtual/bootloader"
 DEPENDS:remove:j721e-evm-k3r5 = "virtual/bootloader"
 DEPENDS:remove:j721e-hs-evm-k3r5 = "virtual/bootloader"
 DEPENDS:remove:j721e-hs-evm-k3r5-sr1-1 = "virtual/bootloader"
-DEPENDS:append = " ${@ '' if '${TI_SECURE_DEV_PKG_K3}' else 'ti-k3-secdev-native' }"
+DEPENDS:append = "${@ '' if d.getVar('TI_SECURE_DEV_PKG_K3') else ' ti-k3-secdev-native' }"
 
 CLEANBROKEN = "1"
 PR = "${INC_PR}.2"
