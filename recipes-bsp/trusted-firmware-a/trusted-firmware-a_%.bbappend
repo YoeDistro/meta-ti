@@ -42,3 +42,7 @@ do_compile_append_j7200-hs-evm() {
 do_compile_append_j721s2-hs-evm() {
 	tfa_sign_k3hs
 }
+
+do_compile_append_j784s4-hs-evm() {
+	tfa_sign_k3hs
+}
