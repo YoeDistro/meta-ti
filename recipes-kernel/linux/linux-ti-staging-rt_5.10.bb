@@ -6,5 +6,5 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-5.10:"
 
 BRANCH = "ti-rt-linux-5.10.y"
 
-SRCREV = "ba54e9431f1a1c591fc2486179176cd5d7d13642"
+SRCREV = "0df7cc0df559a07abff8ef6bc17f3a04d5af1aa1"
 PV = "5.10.153+git${SRCPV}"
