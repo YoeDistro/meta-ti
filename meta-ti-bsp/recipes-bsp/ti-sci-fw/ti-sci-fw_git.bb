@@ -1,5 +1,5 @@
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
-require recipes-ti/includes/ti-paths.inc
+include recipes-ti/includes/ti-paths.inc
 
 DEPENDS = "openssl-native u-boot-mkimage-native dtc-native virtual/bootloader"
 DEPENDS:remove:am65xx-evm-k3r5 = "virtual/bootloader"
@@ -20,7 +20,7 @@ COMPATIBLE_MACHINE:aarch64 = "null"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-TI_SECURE_DEV_PKG = "${@ d.getVar('TI_SECURE_DEV_PKG_K3') or '${TI_K3_SECDEV_INSTALL_DIR}' }"
+TI_SECURE_DEV_PKG = "${@ d.getVar('TI_SECURE_DEV_PKG_K3') or d.getVar('TI_K3_SECDEV_INSTALL_DIR') }"
 export TI_SECURE_DEV_PKG
 
 SYSFW_SOC ?= "unknown"
