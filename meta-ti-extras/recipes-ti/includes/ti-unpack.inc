@@ -24,7 +24,6 @@ python ti_bin_do_unpack() {
         bb.fatal("TI installer requires 32bit glibc libraries for proper operation\nrun 'yum install glibc.i686' on Fedora or 'apt-get install libc6:i386' on Ubuntu/Debian")
 
     localdata = bb.data.createCopy(d)
-    bb.data.update_data(localdata)
 
     binfile  = localdata.getVar('BINFILE')
     binfile  = bb.data.expand(binfile, localdata)
