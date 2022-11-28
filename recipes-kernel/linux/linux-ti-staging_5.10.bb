@@ -25,7 +25,7 @@ S = "${WORKDIR}/git"
 
 BRANCH = "ti-linux-5.10.y"
 
-SRCREV = "90c3a58fd297079d5fe3ebbaed1d1ff56191c953"
+SRCREV = "362f9a5328f88da6c524bfd18a334ba996d4e581"
 PV = "5.10.153+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
