@@ -75,7 +75,7 @@ diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
 index 308189454788..6573d2b07548 100644
 --- a/tools/perf/util/annotate.c
 +++ b/tools/perf/util/annotate.c
-@@ -1685,6 +1685,18 @@ static int dso__disassemble_filename(struct dso *dso, char *filename, size_t fil
+@@ -1685,6 +1685,18 @@
  #include <bfd.h>
  #include <dis-asm.h>
  
@@ -92,7 +92,7 @@ index 308189454788..6573d2b07548 100644
 +}
 +
  static int symbol__disassemble_bpf(struct symbol *sym,
-                                   struct annotate_args *args)
+				   struct annotate_args *args)
  {
 @@ -1727,7 +1739,8 @@ static int symbol__disassemble_bpf(struct symbol *sym,
 		goto out;
@@ -102,8 +102,8 @@ index 308189454788..6573d2b07548 100644
 +			      (fprintf_ftype) fprintf,
 +                  fprintf_styled);
  
-        info.arch = bfd_get_arch(bfdf);
-        info.mach = bfd_get_mach(bfdf);
+	info.arch = bfd_get_arch(bfdf);
+	info.mach = bfd_get_mach(bfdf);
 -- 
 2.17.1
 
