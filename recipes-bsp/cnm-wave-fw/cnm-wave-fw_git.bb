@@ -13,7 +13,7 @@ PR = "${INC_PR}.1"
 
 CLEANBROKEN = "1"
 
-COMPATIBLE_MACHINE = "j721s2-evm|j721s2-hs-evm|j784s4-evm|j784s4-hs-evm"
+COMPATIBLE_MACHINE = "j721s2-evm|j721s2-hs-evm|j784s4-evm|j784s4-hs-evm|am62axx"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -27,7 +27,7 @@ ALTERNATIVE_TARGET[wave521c_codec_fw.bin] = "${base_libdir}/firmware/cnm/${TARGE
 ALTERNATIVE_PRIORITY = "10"
 
 # Set up names for the firmwares
-ALTERNATIVE_${PN}_j7 = "\
+ALTERNATIVE_${PN} = "\
                     wave521c_codec_fw.bin"
 
 do_install() {

@@ -7,7 +7,7 @@ PR = "${INC_PR}.0"
 
 CLEANBROKEN = "1"
 
-COMPATIBLE_MACHINE = "am62xx-evm|am62xx-lp-evm"
+COMPATIBLE_MACHINE = "am62xx|am62axx"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
