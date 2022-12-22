@@ -10,9 +10,9 @@ require conf/machine/include/arm/armv7a/tune-cortexa8.inc
 # R5 runs early bootloader and loads SYSFW
 # https://git.ti.com/cgit/ti-u-boot/ti-u-boot/tree/board/ti/am65x/README
 # https://git.ti.com/cgit/ti-u-boot/ti-u-boot/tree/board/ti/j721e/README
-PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
-PREFERRED_PROVIDER_virtual/bootloader = "u-boot-ti-staging"
-PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-dummy"
+PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot-ti-staging"
+PREFERRED_PROVIDER_u-boot ?= "u-boot-ti-staging"
 
 SPL_BINARY = ""
 UBOOT_SUFFIX = "bin"
