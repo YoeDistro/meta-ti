@@ -24,6 +24,7 @@ PLAT_SFX_j784s4-hs-evm = "j784s4"
 PLAT_SFX_am65xx = "am65xx"
 PLAT_SFX_am64xx = "am64xx"
 PLAT_SFX_am62xx = "am62xx"
+PLAT_SFX_am62xx-lp-evm = "am62xx"
 PLAT_SFX_am62axx = "am62axx"
 
 FILESEXTRAPATHS_prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
@@ -177,6 +178,15 @@ do_install_prepend_am64xx() {
 do_install_prepend_am62xx() {
         ( cd ${RTOS_IPC_FW_DIR}; \
                 mv am62-mcu-m4f0_0-fw ipc_echo_baremetal_test_mcu2_0_release_strip.xer5f; \
+        )
+}
+
+# AM62Q HS-SE support
+do_install_prepend_am62xx-lp-evm() {
+        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
+        ( cd ${RTOS_DM_FW_DIR}; \
+                mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
+                ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
         )
 }
 
@@ -355,6 +365,13 @@ do_install_am62xx() {
     install -m 0644 ${RTOS_DM_FW_DIR}/ipc_echo_testb_mcu1_0_release_strip.xer5f ${LEGACY_DM_FW_DIR}
 }
 
+do_install_am62xx-lp-evm() {
+    install -d ${LEGACY_IPC_FW_DIR}
+    install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_baremetal_test_mcu2_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
+    # DM Firmware
+    install -m 0644 ${RTOS_DM_FW_DIR}/ipc_echo_testb_mcu1_0_release_strip.xer5f ${LEGACY_DM_FW_DIR} 
+}
+
 do_install_am62axx() {
     install -d ${LEGACY_IPC_FW_DIR}
     # DM+IPC Firmware
@@ -368,6 +385,11 @@ do_deploy() {
 }
 
 do_deploy_am62xx() {
+    install -d ${DEPLOYDIR}
+    install -m 0644 ${RTOS_DM_FW_DIR}/ipc_echo_testb_mcu1_0_release_strip.xer5f ${DEPLOYDIR}
+}
+
+do_deploy_am62xx-lp-evm() {
     install -d ${DEPLOYDIR}
     install -m 0644 ${RTOS_DM_FW_DIR}/ipc_echo_testb_mcu1_0_release_strip.xer5f ${DEPLOYDIR}
 }
@@ -391,6 +413,11 @@ ALTERNATIVE_${PN}_am64xx = "\
                     am64-mcu-m4f0_0-fw \
                     "
 ALTERNATIVE_${PN}_am62xx = "\
+                    am62-mcu-m4f0_0-fw \
+                    am62-main-r5f0_0-fw \
+                    "
+
+ALTERNATIVE_${PN}_am62xx-lp-evm = "\
                     am62-mcu-m4f0_0-fw \
                     am62-main-r5f0_0-fw \
                     "
@@ -531,6 +558,9 @@ TARGET_MCU_M4FSS0_0_am64xx = "am64-mcu-m4f0_0-fw"
 
 TARGET_MAIN_R5FSS0_0_am62xx = "am62-main-r5f0_0-fw"
 TARGET_MCU_M4FSS0_0_am62xx = "am62-mcu-m4f0_0-fw"
+
+TARGET_MAIN_R5FSS0_0_am62xx-lp-evm = "am62-main-r5f0_0-fw"
+TARGET_MCU_M4FSS0_0_am62xx-lp-evm = "am62-mcu-m4f0_0-fw"
 
 TARGET_C7X_0_am62axx = "am62a-c71_0-fw"
 TARGET_MCU_R5F0_0_am62axx = "am62a-mcu-r5f0_0-fw"

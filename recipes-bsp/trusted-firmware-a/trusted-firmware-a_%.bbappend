@@ -31,6 +31,10 @@ do_compile_append_am64xx-evm() {
 	tfa_sign_k3hs
 }
 
+do_compile_append_am62xx-lp-evm() {
+        tfa_sign_k3hs
+}
+
 do_compile_append_j7-hs-evm() {
 	tfa_sign_k3hs
 }
