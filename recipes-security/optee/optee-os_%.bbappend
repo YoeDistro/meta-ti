@@ -17,6 +17,7 @@ do_compile_prepend_ti-soc() {
 do_compile_append_k3() {
     ( cd out/arm-plat-${OPTEEOUTPUTMACHINE}/core/; \
         cp tee-pager_v2.bin ${B}/bl32.bin; \
+        cp tee-pager_v2.bin ${B}/bl32.bin.unsigned; \
         cp tee.elf ${B}/bl32.elf; \
     )
 }
@@ -50,6 +51,7 @@ optee_sign_k3hs() {
             cp tee-pager_v2.bin tee-pager.bin.signed; \
         fi; \
         mv tee-pager.bin.signed ${B}/bl32.bin; \
+        cp tee-pager_v2.bin bl32.bin.unsigned; \
         cp tee.elf ${B}/bl32.elf; \
     )
 }
@@ -93,6 +95,7 @@ do_compile_append_j784s4-hs-evm() {
 do_install_append_ti-soc() {
     install -m 644 ${B}/*.optee ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin ${D}${nonarch_base_libdir}/firmware/ || true
+    install -m 644 ${B}/bl32.bin.unsigned ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.elf ${D}${nonarch_base_libdir}/firmware/ || true
 }
 
@@ -113,6 +116,7 @@ do_deploy_append_dra7xx() {
 
 do_deploy_append_k3() {
     ln -sf optee/bl32.bin ${DEPLOYDIR}/
+    ln -sf optee/bl32.bin.unsigned ${DEPLOYDIR}/
     ln -sf optee/bl32.elf ${DEPLOYDIR}/
 }
 

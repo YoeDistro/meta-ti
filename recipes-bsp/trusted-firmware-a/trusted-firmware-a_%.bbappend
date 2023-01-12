@@ -50,3 +50,16 @@ do_compile_append_j721s2-hs-evm() {
 do_compile_append_j784s4-hs-evm() {
 	tfa_sign_k3hs
 }
+
+do_install_append_k3() {
+    if [ -f $BUILD_PLAT/bl31.bin.unsigned ]; then
+        echo "Install bl31.bin.unsigned"
+        install -m 0644 $BUILD_PLAT/bl31.bin.unsigned \
+        ${D}/firmware/bl31.bin.unsigned
+    else
+        echo "Install bl31.bin.unsigned"
+        install -m 0644 $BUILD_PLAT/bl31.bin \
+        ${D}/firmware/bl31.bin.unsigned
+    fi
+}
+
