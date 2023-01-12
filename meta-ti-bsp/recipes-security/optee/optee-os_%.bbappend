@@ -1,12 +1,3 @@
-PV:ti-soc = "3.19.0+git${SRCPV}"
-SRCREV:ti-soc = "afacf356f9593a7f83cae9f96026824ec242ff52"
-
-# These patches are from upstream against v3.18, but we moved to v3.19 and the
-# patches are now invalid.  These can be removed once upstream moves up to or
-# beyond v3.19.
-SRC_URI:remove:ti-soc = "file://0008-no-warn-rwx-segments.patch"
-SRC_URI:remove:ti-soc = "file://0009-add-z-execstack.patch"
-
 EXTRA_OEMAKE:append:k3 = "${@ ' CFG_CONSOLE_UART='+ d.getVar('OPTEE_K3_USART') if d.getVar('OPTEE_K3_USART') else ''}"
 
 EXTRA_OEMAKE:append:am62xx = " CFG_WITH_SOFTWARE_PRNG=y CFG_TEE_CORE_LOG_LEVEL=1"
