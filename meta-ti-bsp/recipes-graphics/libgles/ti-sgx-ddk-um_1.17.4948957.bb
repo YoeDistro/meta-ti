@@ -14,7 +14,10 @@ PR = "r38"
 
 BRANCH = "ti-img-sgx/kirkstone/${PV}"
 
-SRC_URI = "git://git.ti.com/git/graphics/omap5-sgx-ddk-um-linux.git;protocol=https;branch=${BRANCH}"
+SRC_URI = " \
+    git://git.ti.com/git/graphics/omap5-sgx-ddk-um-linux.git;protocol=https;branch=${BRANCH} \
+    file://pvrsrvkm.rules \
+"
 SRCREV = "905809029b877fea42e91b9738825a6294ff1775"
 
 TARGET_PRODUCT:ti33x = "ti335x"
@@ -26,6 +29,9 @@ INITSCRIPT_NAME = "rc.pvr"
 INITSCRIPT_PARAMS = "defaults 8"
 
 inherit update-rc.d
+
+PACKAGECONFIG ??= "udev"
+PACKAGECONFIG[udev] = ",,,udev"
 
 PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm"
 
@@ -56,6 +62,20 @@ do_install () {
     oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT}
     ln -sf libGLESv2.so.2 ${D}${libdir}/libGLESv2.so.1
 
+    without_sysvinit=${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', 'false', 'true', d)}
+    with_udev=${@bb.utils.contains('PACKAGECONFIG', 'udev', 'true', 'false', d)}
+
+    # Delete initscript if it is not needed or would conflict with the udev rules
+    if $without_sysvinit || $with_udev; then
+        rm -rf ${D}${sysconfdir}/init.d
+        rmdir --ignore-fail-on-non-empty ${D}${sysconfdir}
+    fi
+
+    if $with_udev; then
+        install -m644 -D ${WORKDIR}/pvrsrvkm.rules \
+            ${D}${nonarch_base_libdir}/udev/rules.d/80-pvrsrvkm.rules
+    fi
+
     chown -R root:root ${D}
 }
 
@@ -64,6 +84,7 @@ FILES:${PN} += " ${libdir}/*"
 FILES:${PN} +=  "${includedir}/*"
 FILES:${PN} +=  "${sysconfdir}/*"
 FILES:${PN} +=  "${datadir}/*"
+FILES:${PN} += "${nonarch_base_libdir}/udev/rules.d"
 
 INSANE_SKIP:${PN} += "dev-so ldflags useless-rpaths"
 INSANE_SKIP:${PN} += "already-stripped dev-deps"
