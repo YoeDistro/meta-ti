@@ -14,7 +14,7 @@ PR = "r38"
 
 BRANCH = "ti-img-sgx/kirkstone/${PV}"
 
-SRC_URI = "git://git.ti.com/graphics/omap5-sgx-ddk-um-linux.git;protocol=git;branch=${BRANCH}"
+SRC_URI = "git://git.ti.com/git/graphics/omap5-sgx-ddk-um-linux.git;protocol=https;branch=${BRANCH}"
 SRCREV = "905809029b877fea42e91b9738825a6294ff1775"
 
 TARGET_PRODUCT:ti33x = "ti335x"
