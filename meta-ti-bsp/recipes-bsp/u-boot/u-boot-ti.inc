@@ -32,7 +32,10 @@ PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/b
 PACKAGECONFIG[dm] = "DM=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/pdk-ipc/${DM_FIRMWARE},,ti-rtos-firmware"
 
 PACKAGECONFIG:append:aarch64 = " atf optee"
-PACKAGECONFIG:append:j7 = " dm"
+PACKAGECONFIG:append:j721e = " dm"
+PACKAGECONFIG:append:j7200 = " dm"
+PACKAGECONFIG:append:j721s2 = " dm"
+PACKAGECONFIG:append:j784s4 = " dm"
 PACKAGECONFIG:append:am62xx = " dm"
 
 COMPATIBLE_MACHINE = "(ti-soc)"

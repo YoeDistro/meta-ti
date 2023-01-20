@@ -1,7 +1,7 @@
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/BSD-3-Clause;md5=550794465ba0ec5312d6919e203a55f9"
 
-COMPATIBLE_MACHINE = "ti-soc"
+COMPATIBLE_MACHINE = "j721e|j7200|am65xx|am64xx"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -10,8 +10,8 @@ INHIBIT_DEFAULT_DEPS = "1"
 inherit nopackages deploy
 
 PLAT_SFX = ""
-PLAT_SFX:j7 = "/j721e"
-PLAT_SFX:j7200-evm = "/j7200"
+PLAT_SFX:j721e = "/j721e"
+PLAT_SFX:j7200 = "/j7200"
 PLAT_SFX:am65xx = "/am65xx"
 PLAT_SFX:am64xx = "/am64x"
 
