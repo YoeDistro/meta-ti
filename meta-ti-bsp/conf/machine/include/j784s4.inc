@@ -1,5 +1,8 @@
-require conf/machine/include/j7.inc
+require conf/machine/include/k3.inc
 SOC_FAMILY:append = ":j784s4"
+
+OPTEEMACHINE = "k3-j721e"
+OPTEEOUTPUTMACHINE = "k3"
 
 MACHINE_FEATURES += "gpu"
 
