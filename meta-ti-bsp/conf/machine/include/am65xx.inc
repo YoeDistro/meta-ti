@@ -37,4 +37,6 @@ IMAGE_BOOT_FILES += "sysfw-am65x-evm.itb"
 do_image_wic[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
 do_image_tar[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
 
+TFA_BOARD = "generic"
+
 OPTEEMACHINE = "k3-am65x"
