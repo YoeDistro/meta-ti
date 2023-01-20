@@ -12,9 +12,6 @@ PREFERRED_PROVIDER_virtual/libgles2 ?= "ti-img-rogue-umlibs"
 PREFERRED_PROVIDER_virtual/libgbm ?= "ti-img-rogue-umlibs"
 PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 
-do_image_wic[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
-do_image_tar[mcdepends] = "mc::k3r5:ti-sci-fw:do_deploy"
-
 TFA_BOARD = "lite"
 TFA_K3_SYSTEM_SUSPEND = "1"
 
