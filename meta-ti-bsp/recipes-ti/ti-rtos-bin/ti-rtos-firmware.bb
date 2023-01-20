@@ -13,13 +13,10 @@ inherit deploy
 inherit update-alternatives
 
 PLAT_SFX = ""
-PLAT_SFX:j7 = "j721e"
-PLAT_SFX:j721e-hs-evm = "j721e"
-PLAT_SFX:j7200-evm = "j7200"
-PLAT_SFX:j7200-hs-evm = "j7200"
-PLAT_SFX:j721s2-evm = "j721s2"
-PLAT_SFX:j721s2-hs-evm = "j721s2"
-PLAT_SFX:j784s4-evm = "j784s4"
+PLAT_SFX:j721e = "j721e"
+PLAT_SFX:j7200 = "j7200"
+PLAT_SFX:j721s2 = "j721s2"
+PLAT_SFX:j784s4 = "j784s4"
 PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
@@ -50,7 +47,7 @@ LEGACY_DM_FW_DIR  = "${D}${nonarch_base_libdir}/firmware/pdk-ipc/"
 
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
 
-# J7 HS support
+# J721e HS support
 do_install:prepend:j721e-hs-evm() {
         export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
@@ -81,7 +78,7 @@ do_install:prepend:j721e-hs-evm() {
         )
 }
 
-# J7 HS support
+# J7200 HS support
 do_install:prepend:j7200-hs-evm() {
         export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
@@ -102,7 +99,7 @@ do_install:prepend:j7200-hs-evm() {
         )
 }
 
-# J7 HS support
+# J721s2 HS support
 do_install:prepend:j721s2-hs-evm() {
         export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
@@ -149,7 +146,7 @@ do_install() {
 	:
 }
 
-do_install:j7() {
+do_install:j721e() {
     install -d ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu1_1_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
     install -m 0644 ${RTOS_IPC_FW_DIR}/ipc_echo_test_mcu2_0_release_strip.xer5f ${LEGACY_IPC_FW_DIR}
@@ -335,7 +332,7 @@ ALTERNATIVE:${PN}:j721e-hs-evm = "\
                     j7-c71_0-fw-sec \
                     "
 
-ALTERNATIVE:${PN}:j7 = "\
+ALTERNATIVE:${PN}:j721e-evm = "\
                     j7-mcu-r5f0_0-fw \
                     j7-mcu-r5f0_1-fw \
                     j7-main-r5f0_0-fw \
@@ -420,15 +417,15 @@ TARGET_MCU_M4FSS0_0:am64xx = "am64-mcu-m4f0_0-fw"
 TARGET_MAIN_R5FSS0_0:am62xx = "am62-main-r5f0_0-fw"
 TARGET_MCU_M4FSS0_0:am62xx = "am62-mcu-m4f0_0-fw"
 
-TARGET_MCU_R5FSS0_0:j7 = "j7-mcu-r5f0_0-fw"
-TARGET_MCU_R5FSS0_1:j7 = "j7-mcu-r5f0_1-fw"
-TARGET_MAIN_R5FSS0_0:j7 = "j7-main-r5f0_0-fw"
-TARGET_MAIN_R5FSS0_1:j7 = "j7-main-r5f0_1-fw"
-TARGET_MAIN_R5FSS1_0:j7 = "j7-main-r5f1_0-fw"
-TARGET_MAIN_R5FSS1_1:j7 = "j7-main-r5f1_1-fw"
-TARGET_C66_0:j7 = "j7-c66_0-fw"
-TARGET_C66_1:j7 = "j7-c66_1-fw"
-TARGET_C7X_0:j7 = "j7-c71_0-fw"
+TARGET_MCU_R5FSS0_0:j721e = "j7-mcu-r5f0_0-fw"
+TARGET_MCU_R5FSS0_1:j721e = "j7-mcu-r5f0_1-fw"
+TARGET_MAIN_R5FSS0_0:j721e = "j7-main-r5f0_0-fw"
+TARGET_MAIN_R5FSS0_1:j721e = "j7-main-r5f0_1-fw"
+TARGET_MAIN_R5FSS1_0:j721e = "j7-main-r5f1_0-fw"
+TARGET_MAIN_R5FSS1_1:j721e = "j7-main-r5f1_1-fw"
+TARGET_C66_0:j721e = "j7-c66_0-fw"
+TARGET_C66_1:j721e = "j7-c66_1-fw"
+TARGET_C7X_0:j721e = "j7-c71_0-fw"
 
 TARGET_MAIN_R5FSS0_0_SIGNED:j721e-hs-evm = "j7-main-r5f0_0-fw-sec"
 TARGET_MAIN_R5FSS0_1_SIGNED:j721e-hs-evm = "j7-main-r5f0_1-fw-sec"
