@@ -38,4 +38,3 @@ do_image_wic[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
 do_image_tar[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
 
 OPTEEMACHINE = "k3-am65x"
-OPTEEOUTPUTMACHINE = "k3"
