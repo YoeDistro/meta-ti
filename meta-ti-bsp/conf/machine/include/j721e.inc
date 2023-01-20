@@ -2,7 +2,6 @@ require conf/machine/include/k3.inc
 SOC_FAMILY:append = ":j721e"
 
 OPTEEMACHINE = "k3-j721e"
-OPTEEOUTPUTMACHINE = "k3"
 
 MACHINE_FEATURES += "gpu"
 
