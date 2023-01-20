@@ -32,4 +32,5 @@ do_image_wic[mcdepends] += "mc::k3r5-sr2-hs-se:ti-sci-fw:do_deploy"
 do_image_tar[mcdepends] += "mc::k3r5-sr2-hs-se:ti-sci-fw:do_deploy"
 
 TFA_BOARD = "lite"
+
 OPTEEMACHINE = "k3-am64x"
