@@ -11,6 +11,7 @@ DEPENDS:remove:am65xx-hs-evm-k3r5-sr2 = "virtual/bootloader"
 DEPENDS:remove:j721e-evm-k3r5 = "virtual/bootloader"
 DEPENDS:remove:j721e-hs-evm-k3r5 = "virtual/bootloader"
 DEPENDS:remove:j721e-hs-evm-k3r5-sr1-1 = "virtual/bootloader"
+DEPENDS:remove:beaglebone-ai64-k3r5 = "virtual/bootloader"
 DEPENDS:append = "${@ '' if d.getVar('TI_SECURE_DEV_PKG_K3') else ' ti-k3-secdev-native' }"
 
 CLEANBROKEN = "1"
@@ -33,6 +34,7 @@ SYSFW_PREFIX = "sci"
 SYSFW_PREFIX:j721e-evm-k3r5 = "fs"
 SYSFW_PREFIX:j721e-hs-evm-k3r5 = "fs"
 SYSFW_PREFIX:j721e-hs-evm-k3r5-sr1-1 = "fs"
+SYSFW_PREFIX:beaglebone-ai64-k3r5 = "fs"
 SYSFW_PREFIX:j7200-evm-k3r5 = "fs"
 SYSFW_PREFIX:j7200-hs-evm-k3r5 = "fs"
 SYSFW_PREFIX:j721s2-evm-k3r5 = "fs"
@@ -70,6 +72,7 @@ EXTRA_OEMAKE:remove:am65xx-hs-evm-k3r5-sr2 = "SBL="${STAGING_DIR_HOST}/boot/u-bo
 EXTRA_OEMAKE:remove:j721e-evm-k3r5 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
 EXTRA_OEMAKE:remove:j721e-hs-evm-k3r5 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
 EXTRA_OEMAKE:remove:j721e-hs-evm-k3r5-sr1-1 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
+EXTRA_OEMAKE:remove:beaglebone-ai64-k3r5 = "SBL="${STAGING_DIR_HOST}/boot/u-boot-spl.bin""
 
 do_compile() {
 	cd ${WORKDIR}/imggen/
