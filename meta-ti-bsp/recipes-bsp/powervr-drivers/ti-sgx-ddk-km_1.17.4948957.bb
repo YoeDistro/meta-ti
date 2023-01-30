@@ -3,9 +3,9 @@ HOMEPAGE = "https://git.ti.com/graphics/omap5-sgx-ddk-linux"
 LICENSE = "MIT | GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://eurasia_km/README;beginline=13;endline=22;md5=74506d9b8e5edbce66c2747c50fcef12"
 
-inherit module features_check
+inherit module
 
-REQUIRED_MACHINE_FEATURES = "gpu"
+PROVIDES = "virtual/gpudriver"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k3"
 
@@ -15,8 +15,6 @@ PR = "${MACHINE_KERNEL_PR}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "virtual/kernel"
-
-PROVIDES = "virtual/gpudriver"
 
 BRANCH = "ti-img-sgx/${PV}/k5.10"
 
@@ -44,3 +42,5 @@ do_install() {
 do_install:k3() {
     make -C ${STAGING_KERNEL_DIR} M=${B}/eurasia_km/eurasiacon/binary_omap_linux_nulldrmws_release/target_aarch64/kbuild INSTALL_MOD_PATH=${D}${root_prefix} PREFIX=${STAGING_DIR_HOST} modules_install
 }
+
+RRECOMMENDS:${PN} += "ti-sgx-ddk-um"
