@@ -1,0 +1,32 @@
+From 3a696a3eb2c23da1d4abcda3d3e3b6aca65a9f9b Mon Sep 17 00:00:00 2001
+From: Jose Quaresma <jose.quaresma@foundries.io>
+Date: Tue, 24 Jan 2023 12:39:30 +0000
+Subject: [PATCH] Makefile: handle firmware with usrmerge
+
+Signed-off-by: Jose Quaresma <jose.quaresma@foundries.io>
+---
+ Makefile | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 48f9b9c..04b4154 100755
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,5 @@
+ DESTDIR ?= ${DISCIMAGE}
++FWDIR ?= lib
+ TARGET_PRODUCT ?= j721e_linux
+ BUILD ?= release
+ WINDOW_SYSTEM ?= nulldrmws
+@@ -13,7 +14,7 @@ all:
+ install:
+	mkdir -p ${DESTDIR}/${etcdir}
+	mkdir -p ${DESTDIR}/${usrdir}
+-	mkdir -p ${DESTDIR}/${fwdir}
++	mkdir -p ${DESTDIR}/${FWDIR}
+	cp -ar ${SRCDIR}/${etcdir}/* ${DESTDIR}/${etcdir}
+	cp -ar ${SRCDIR}/${usrdir}/* ${DESTDIR}/${usrdir}
+-	cp -ar ${SRCDIR}/${fwdir}/* ${DESTDIR}/${fwdir}
++	cp -ar ${SRCDIR}/${fwdir}/* ${DESTDIR}/${FWDIR}
+--
+2.34.1
