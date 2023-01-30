@@ -10,10 +10,6 @@ MACHINE_KERNEL_PR = "r7"
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-ti-staging"
 PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot-ti-staging"
 PREFERRED_PROVIDER_u-boot ?= "u-boot-ti-staging"
-PREFERRED_PROVIDER_virtual/egl ?= "ti-sgx-ddk-um"
-PREFERRED_PROVIDER_virtual/libgles1 ?= "ti-sgx-ddk-um"
-PREFERRED_PROVIDER_virtual/libgles2 ?= "ti-sgx-ddk-um"
-PREFERRED_PROVIDER_virtual/libgbm ?= "ti-sgx-ddk-um"
 PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-sgx-ddk-km"
 
 KERNEL_IMAGETYPE = "zImage"
@@ -45,7 +41,7 @@ EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 UBI_VOLNAME = "rootfs"
 
 # List common SoC features, may need to add touchscreen for specific machines
-MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat ext2 screen alsa ethernet gpu mmip dsp gc320"
+MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat ext2 screen alsa ethernet mmip dsp gc320"
 
 IMAGE_FSTYPES += "tar.xz wic.xz wic.bmap"
 WKS_FILE ?= "sdimage-2part.wks"
