@@ -1,5 +1,5 @@
-PV_ti-soc = "3.20.0+git${SRCPV}"
-SRCREV_ti-soc = "a98d01e1b9168eaed96bcd0bac0df67c44a81081"
+PV_ti-soc = "3.19.0+git${SRCPV}"
+SRCREV_ti-soc = "f301ee9df2129c0db683e726c91dc2cefe4cdb65"
 SRC_URI_ti-soc = "git://github.com/linaro-swg/optee_examples.git;protocol=https"
 
 DEPENDS_append_ti-soc = " python3-cryptography-native"
