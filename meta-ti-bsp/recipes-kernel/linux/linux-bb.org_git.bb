@@ -25,7 +25,8 @@ SRCREV:k3 = "11ebcc09f32669fac8254dff56d500f86c4c2caf"
 PV:k3 = "5.10.153+git${SRCPV}"
 BRANCH:k3 = "5.10-arm64"
 
-SRC_URI = "git://git.beagleboard.org/beagleboard/linux.git;protocol=https;branch=${BRANCH}"
+SRC_URI = "git://git.beagleboard.org/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
+           file://init_disassemble_info-signature-changes-causes-compile-failures.patch"
 
 DEFCONFIG_NAME = "bb.org_defconfig"
 KERNEL_CONFIG_COMMAND = "oe_runmake -C ${S} O=${B} ${DEFCONFIG_NAME}"
