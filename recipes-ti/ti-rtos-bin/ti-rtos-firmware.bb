@@ -37,11 +37,14 @@ CLEANBROKEN = "1"
 PR = "${INC_PR}.0"
 
 # Secure Build
+include recipes-ti/includes/ti-paths.inc
 DEPENDS += "openssl-native"
 
 FILES_${PN} += "${base_libdir}"
 
-TI_SECURE_DEV_PKG ?= ""
+DEPENDS_append = "${@ '' if d.getVar('TI_SECURE_DEV_PKG_K3') else ' ti-k3-secdev-native' }"
+TI_SECURE_DEV_PKG = "${@ d.getVar('TI_SECURE_DEV_PKG_K3') or d.getVar('TI_K3_SECDEV_INSTALL_DIR') }"
+export TI_SECURE_DEV_PKG
 
 RTOS_ETH_FW_DIR = "${S}/ti-eth/${PLAT_SFX}"
 RTOS_DM_FW_DIR = "${S}/ti-dm/${PLAT_SFX}"
@@ -57,7 +60,6 @@ DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
 
 # J7 HS support
 do_install_prepend_j7-hs-evm() {
-        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
                 ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
@@ -88,7 +90,6 @@ do_install_prepend_j7-hs-evm() {
 
 # J7 HS support
 do_install_prepend_j7200-hs-evm() {
-        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
                 ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
@@ -109,7 +110,6 @@ do_install_prepend_j7200-hs-evm() {
 
 # J7 HS support
 do_install_prepend_j721s2-hs-evm() {
-        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
                 ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
@@ -133,7 +133,6 @@ do_install_prepend_j721s2-hs-evm() {
 
 # J784S4 support
 do_install_prepend_j784s4-hs-evm() {
-        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
                 ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
@@ -176,7 +175,6 @@ do_install_prepend_am64xx() {
 
 # AM62Q HS-SE support
 do_install_prepend_am62xx() {
-        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
                 ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
