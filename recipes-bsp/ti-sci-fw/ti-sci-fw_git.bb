@@ -44,7 +44,9 @@ SYSFW_PREFIX_am62xx-evm-k3r5-hs-fs = "fs"
 SYSFW_PREFIX_am62xx-lp-evm-k3r5 = "fs"
 SYSFW_PREFIX_am62xx-lp-evm-k3r5-hs-se = "fs"
 SYSFW_PREFIX_am62xx-lp-evm-k3r5-hs-fs = "fs"
-SYSFW_PREFIX_am62axx-evm-k3r5 = "fs"
+SYSFW_PREFIX_am62axx-evm-k3r5-gp = "fs"
+SYSFW_PREFIX_am62axx-evm-k3r5-hs-fs = "fs"
+SYSFW_PREFIX_am62axx-evm-k3r5-hs-se = "fs"
 
 SYSFW_TISCI = "${S}/ti-sysfw/ti-${SYSFW_PREFIX}-firmware-${SYSFW_SOC}-*.bin"
 
