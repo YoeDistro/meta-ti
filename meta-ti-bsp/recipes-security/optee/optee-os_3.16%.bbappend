@@ -1,13 +1,12 @@
 PV:ti-soc = "3.19.0+git${SRCPV}"
 SRCREV:ti-soc = "afacf356f9593a7f83cae9f96026824ec242ff52"
 
+# Use TI SECDEV for signing
+inherit ti-secdev
+
 EXTRA_OEMAKE:append:k3 = "${@ ' CFG_CONSOLE_UART='+ d.getVar('OPTEE_K3_USART') if d.getVar('OPTEE_K3_USART') else ''}"
 
 EXTRA_OEMAKE:append:am62xx = " CFG_WITH_SOFTWARE_PRNG=y CFG_TEE_CORE_LOG_LEVEL=1"
-
-do_compile:prepend:ti-soc() {
-    export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
-}
 
 do_compile:append:k3() {
     ( cd ${B}/core/; \
@@ -35,20 +34,6 @@ optee_sign_legacyhs() {
     fi
 }
 
-# Signing procedure for K3 HS devices
-optee_sign_k3hs() {
-    ( cd ${B}/core/; \
-        if [ -f ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ]; then \
-            ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh tee-pager_v2.bin tee-pager.bin.signed; \
-        else \
-            echo "Warning: TI_SECURE_DEV_PKG not set, OP-TEE not signed."; \
-            cp tee-pager_v2.bin tee-pager.bin.signed; \
-        fi; \
-        mv tee-pager.bin.signed ${B}/bl32.bin; \
-        cp tee.elf ${B}/bl32.elf; \
-    )
-}
-
 do_compile:append:ti43x() {
     optee_sign_legacyhs
 }
@@ -57,24 +42,10 @@ do_compile:append:dra7xx() {
     optee_sign_legacyhs
 }
 
-do_compile:append:am65xx-hs-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:am64xx-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:j721e-hs-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:j7200-hs-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:j721s2-hs-evm() {
-    optee_sign_k3hs
+# Signing procedure for K3 devices
+do_compile:append:k3() {
+    ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${B}/core/tee-pager_v2.bin ${B}/bl32.bin
+    cp ${B}/core/tee.elf ${B}/bl32.elf
 }
 
 do_install:append:ti-soc() {
