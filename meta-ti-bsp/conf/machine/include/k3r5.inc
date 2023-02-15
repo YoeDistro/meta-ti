@@ -23,5 +23,3 @@ UBOOT_SYMLINK = "u-boot-r5spl.${UBOOT_SUFFIX}"
 
 PACKAGECONFIG:pn-u-boot-ti-staging = ""
 PACKAGECONFIG:pn-u-boot-ti-mainline = ""
-
-TI_SECURE_DEV_PKG = "${TI_SECURE_DEV_PKG_K3}"

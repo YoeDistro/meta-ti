@@ -1,4 +1,4 @@
-inherit kernel-uboot uboot-sign-legacyhs
+inherit ti-secdev kernel-uboot uboot-sign-legacyhs
 
 FITIMAGE_HASH_ALGO ?= "sha1"
 FITIMAGE_PACK_TEE ?= "0"
@@ -51,7 +51,7 @@ python __anonymous () {
 UBOOT_MKIMAGE_DTCOPTS ??= ""
 
 fitimage_ti_secure() {
-	if test -n "${TI_SECURE_DEV_PKG}"; then
+	if test -f "${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh"; then
 		export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
 		${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh $1 $2
 	else
