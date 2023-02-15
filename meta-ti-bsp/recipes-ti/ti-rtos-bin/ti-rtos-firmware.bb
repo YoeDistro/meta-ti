@@ -183,7 +183,7 @@ ALTERNATIVE:${PN}:am62xx = "\
                     am62-main-r5f0_0-fw \
                     "
 
-ALTERNATIVE:${PN}:j721e-hs-evm = "\
+ALTERNATIVE:${PN}:j721e = "\
                     j7-mcu-r5f0_0-fw \
                     j7-mcu-r5f0_1-fw \
                     j7-main-r5f0_0-fw \
@@ -202,26 +202,7 @@ ALTERNATIVE:${PN}:j721e-hs-evm = "\
                     j7-c71_0-fw-sec \
                     "
 
-ALTERNATIVE:${PN}:j721e-evm = "\
-                    j7-mcu-r5f0_0-fw \
-                    j7-mcu-r5f0_1-fw \
-                    j7-main-r5f0_0-fw \
-                    j7-main-r5f0_1-fw \
-                    j7-main-r5f1_0-fw \
-                    j7-main-r5f1_1-fw \
-                    j7-c66_0-fw \
-                    j7-c66_1-fw \
-                    j7-c71_0-fw\
-                    "
-
-ALTERNATIVE:${PN}:j7200-evm = "\
-                    j7200-mcu-r5f0_0-fw \
-                    j7200-mcu-r5f0_1-fw \
-                    j7200-main-r5f0_0-fw \
-                    j7200-main-r5f0_1-fw \
-                    "
-
-ALTERNATIVE:${PN}:j7200-hs-evm = "\
+ALTERNATIVE:${PN}:j7200 = "\
                     j7200-mcu-r5f0_0-fw \
                     j7200-mcu-r5f0_1-fw \
                     j7200-main-r5f0_0-fw \
@@ -230,18 +211,7 @@ ALTERNATIVE:${PN}:j7200-hs-evm = "\
                     j7200-main-r5f0_1-fw-sec \
                     "
 
-ALTERNATIVE_${PN}:j721s2-evm = "\
-                    j721s2-mcu-r5f0_0-fw \
-                    j721s2-mcu-r5f0_1-fw \
-                    j721s2-main-r5f0_0-fw \
-                    j721s2-main-r5f0_1-fw \
-                    j721s2-main-r5f1_0-fw \
-                    j721s2-main-r5f1_1-fw \
-                    j721s2-c71_0-fw \
-                    j721s2-c71_1-fw \
-                    "
-
-ALTERNATIVE:${PN}:j721s2-hs-evm = "\
+ALTERNATIVE:${PN}:j721s2 = "\
                     j721s2-mcu-r5f0_0-fw \
                     j721s2-mcu-r5f0_1-fw \
                     j721s2-main-r5f0_0-fw \
@@ -258,7 +228,7 @@ ALTERNATIVE:${PN}:j721s2-hs-evm = "\
                     j721s2-c71_1-fw-sec \
                     "
 
-ALTERNATIVE:${PN}:j784s4-evm = "\
+ALTERNATIVE:${PN}:j784s4 = "\
                     j784s4-mcu-r5f0_0-fw \
                     j784s4-mcu-r5f0_1-fw \
                     j784s4-main-r5f0_0-fw \
