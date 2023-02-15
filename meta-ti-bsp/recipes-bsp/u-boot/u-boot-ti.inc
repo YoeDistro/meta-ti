@@ -50,8 +50,7 @@ PKG:${PN}-dbg = "u-boot-dbg"
 S = "${WORKDIR}/git"
 
 # Support for secure devices - detailed info is in doc/README.ti-secure
-TI_SECURE_DEV_PKG ?= ""
-export TI_SECURE_DEV_PKG
+inherit ti-secdev
 
 SYSROOT_DIRS += "/boot"
 
