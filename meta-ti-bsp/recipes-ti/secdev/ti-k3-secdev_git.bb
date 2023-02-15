@@ -4,9 +4,8 @@ SECTION = "devel"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://manifest/k3-secdev-0.2-manifest.html;md5=f632a78870cc64550078d7b3cbac0892"
 
-# set a default value for TI_K3_SECDEV_INSTALL_DIR_RECIPE
-export TI_K3_SECDEV_INSTALL_DIR_RECIPE = "${datadir}/ti/ti-k3-secdev"
-include recipes-ti/includes/ti-paths.inc
+# set a default install location
+TI_K3_SECDEV_INSTALL_DIR_RECIPE = "${datadir}/ti/ti-k3-secdev"
 
 # Native host tool only
 COMPATIBLE_MACHINE = "null"
