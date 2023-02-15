@@ -31,9 +31,7 @@ CLEANBROKEN = "1"
 PR = "${INC_PR}.0"
 
 # Secure Build
-DEPENDS += "openssl-native"
-
-TI_SECURE_DEV_PKG ?= ""
+inherit ti-secdev
 
 RTOS_ETH_FW_DIR = "${S}/ti-eth/${PLAT_SFX}"
 RTOS_DM_FW_DIR = "${S}/ti-dm/${PLAT_SFX}"
@@ -49,7 +47,6 @@ DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
 
 # J721e HS support
 do_install:prepend:j721e-hs-evm() {
-        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
                 ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
@@ -80,7 +77,6 @@ do_install:prepend:j721e-hs-evm() {
 
 # J7200 HS support
 do_install:prepend:j7200-hs-evm() {
-        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
                 ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
@@ -101,7 +97,6 @@ do_install:prepend:j7200-hs-evm() {
 
 # J721s2 HS support
 do_install:prepend:j721s2-hs-evm() {
-        export TI_SECURE_DEV_PKG=${TI_SECURE_DEV_PKG}
         ( cd ${RTOS_DM_FW_DIR}; \
                 mv ${DM_FIRMWARE} ${DM_FIRMWARE}.unsigned; \
                 ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${DM_FIRMWARE}.unsigned ${DM_FIRMWARE}; \
