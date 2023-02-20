@@ -25,6 +25,10 @@ PVR_WS = "lws-generic"
 RDEPENDS:${PN} += "mesa-megadriver libdrm ti-img-rogue-driver"
 
 do_install:append() {
+    if ${@bb.utils.contains('DISTRO_FEATURES', 'usrmerge', 'true', 'false', d)}; then
+        mv ${D}/lib/firmware ${D}${nonarch_base_libdir}
+        rmdir ${D}/lib
+    fi
     rm -rf "${D}/etc/init.d"
     rm -rf "${D}/usr/lib/libvulkan.so"
     rm -rf "${D}/usr/lib/libvulkan.so.0"
