@@ -1,7 +1,7 @@
 require conf/machine/include/k3.inc
 SOC_FAMILY:append = ":j784s4"
 
-MACHINE_FEATURES += "gpu"
+MACHINE_FEATURES += "screen gpu"
 
 PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 
