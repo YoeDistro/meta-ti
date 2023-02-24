@@ -1,8 +1,6 @@
 require conf/machine/include/k3.inc
 SOC_FAMILY:append = ":am64xx"
 
-MACHINE_FEATURES += "screen touchscreen"
-
 SERIAL_CONSOLES = "115200;ttyS2 115200;ttyS1"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
