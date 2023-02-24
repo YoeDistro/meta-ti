@@ -10,7 +10,10 @@ MACHINE_KERNEL_PR = "r7"
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-ti-staging"
 PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot-ti-staging"
 PREFERRED_PROVIDER_u-boot ?= "u-boot-ti-staging"
+
+# Graphics providers and variables
 PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-sgx-ddk-km"
+PVR_DISPLAY_CONTROLLER_ALIAS ?= "omapdrm"
 
 KERNEL_IMAGETYPE = "zImage"
 KERNEL_IMAGETYPES = "zImage uImage"
