@@ -3,22 +3,18 @@ HOMEPAGE = "https://git.ti.com/graphics/omap5-sgx-ddk-um-linux"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://TI-Linux-Graphics-DDK-UM-Manifest.doc;md5=b17390502bc89535c86cfbbae961a2a8"
 
-inherit features_check
-
-REQUIRED_MACHINE_FEATURES = "gpu"
-
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|am65xx"
 
 PR = "r38"
 
-BRANCH = "ti-img-sgx/kirkstone/${PV}"
+BRANCH = "ti-img-sgx/kirkstone-mesa/${PV}"
 
 SRC_URI = " \
     git://git.ti.com/git/graphics/omap5-sgx-ddk-um-linux.git;protocol=https;branch=${BRANCH} \
     file://pvrsrvkm.rules \
 "
-SRCREV = "905809029b877fea42e91b9738825a6294ff1775"
+SRCREV = "bbae7217051341f515515ec190e165119102f45a"
 
 TARGET_PRODUCT:ti33x = "ti335x"
 TARGET_PRODUCT:ti43x = "ti437x"
@@ -33,26 +29,7 @@ inherit update-rc.d
 PACKAGECONFIG ??= "udev"
 PACKAGECONFIG[udev] = ",,,udev"
 
-PROVIDES += "virtual/egl virtual/libgles1 virtual/libgles2 virtual/libgbm"
-
-DEPENDS += "libdrm udev wayland wayland-protocols libffi expat"
-DEPENDS:append:libc-musl = " gcompat"
-RDEPENDS:${PN} += "libdrm libdrm-omap udev wayland wayland-protocols libffi expat"
-
-RPROVIDES:${PN} = "libegl libgles1 libgles2 libgbm"
-RPROVIDES:${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
-RPROVIDES:${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg libgbm-dbg"
-
-RREPLACES:${PN} = "libegl libgles1 libgles2 libgbm"
-RREPLACES:${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
-RREPLACES:${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg libgbm-dbg"
-
-RCONFLICTS:${PN} = "libegl libgles1 libgles2 libgbm"
-RCONFLICTS:${PN}-dev = "libegl-dev libgles1-dev libgles2-dev libgbm-dev"
-RCONFLICTS:${PN}-dbg = "libegl-dbg libgles1-dbg libgles2-dbg libgbm-dbg"
-
-# The actual SONAME is libGLESv2.so.2, so need to explicitly specify RPROVIDES for .so.1 here
-RPROVIDES:${PN} += "libGLESv2.so.1"
+RDEPENDS:${PN} += "libdrm libdrm-omap"
 
 RRECOMMENDS:${PN} += "ti-sgx-ddk-km"
 
@@ -60,7 +37,6 @@ S = "${WORKDIR}/git"
 
 do_install () {
     oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT}
-    ln -sf libGLESv2.so.2 ${D}${libdir}/libGLESv2.so.1
 
     without_sysvinit=${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', 'false', 'true', d)}
     with_udev=${@bb.utils.contains('PACKAGECONFIG', 'udev', 'true', 'false', d)}
