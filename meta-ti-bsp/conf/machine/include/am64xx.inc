@@ -4,12 +4,11 @@ SOC_FAMILY:append = ":am64xx"
 SERIAL_CONSOLES = "115200;ttyS2 115200;ttyS1"
 SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
 
+KERNEL_DEVICETREE_PREFIX = "ti/k3-am642"
+
 KERNEL_DEVICETREE = " \
     ti/k3-am642-evm.dtb \
     ti/k3-am642-sk.dtb \
-    ti/k3-am642-evm-icssg1-dualemac.dtbo \
-    ti/k3-am642-evm-icssg1-dualemac-mii.dtbo \
-    ti/k3-am642-evm-nand.dtbo \
 "
 
 # Default tiboot3.bin on AM64x is for SR2.0 HS-FS

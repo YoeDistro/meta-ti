@@ -18,12 +18,16 @@ PVR_DISPLAY_CONTROLLER_ALIAS ?= "omapdrm"
 
 KERNEL_IMAGETYPE = "zImage"
 
+KERNEL_DEVICETREE_PREFIX = " \
+    am437x \
+    am43x \
+"
+
 KERNEL_DEVICETREE = " \
     am437x-gp-evm.dtb \
-    ${@oe.utils.conditional('PREFERRED_PROVIDER_virtual/kernel', 'linux-ti-mainline', '', 'am437x-gp-evm-hdmi.dtb', d)} \
-    am437x-sk-evm.dtb am437x-idk-evm.dtb \
+    am437x-sk-evm.dtb \
+    am437x-idk-evm.dtb \
     am43x-epos-evm.dtb \
-    ${@oe.utils.conditional('PREFERRED_PROVIDER_virtual/kernel', 'linux-ti-mainline', '', 'am43x-epos-evm-hdmi.dtb', d)} \
 "
 
 KERNEL_DEVICETREE += "${@oe.utils.conditional('ENABLE_TI_UIO_DEVICES', '1', 'am437x-idk-pru-excl-uio.dtb', '', d)}"
