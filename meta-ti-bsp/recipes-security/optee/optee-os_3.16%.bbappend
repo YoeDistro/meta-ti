@@ -1,5 +1,5 @@
 PV:ti-soc = "3.20.0+git${SRCPV}"
-SRCREV:ti-soc = "3bc3809afe372ca7e8216fc5d7a64e965bb4ad70"
+SRCREV:ti-soc = "8e74d47616a20eaa23ca692f4bbbf917a236ed94"
 
 # Use TI SECDEV for signing
 inherit ti-secdev
