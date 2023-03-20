@@ -1,2 +1,2 @@
-PV:ti-soc = "3.17.0+git${SRCPV}"
-SRCREV:ti-soc = "65fc74309e12189ad5b6ce3ffec37c8011088a5a"
+PV:ti-soc = "3.19.0+git${SRCPV}"
+SRCREV:ti-soc = "f301ee9df2129c0db683e726c91dc2cefe4cdb65"
