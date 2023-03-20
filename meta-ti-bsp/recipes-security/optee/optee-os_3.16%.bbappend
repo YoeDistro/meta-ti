@@ -9,13 +9,6 @@ EXTRA_OEMAKE:append:k3 = "${@ ' CFG_CONSOLE_UART='+ d.getVar('OPTEE_K3_USART') i
 EXTRA_OEMAKE:append:am62xx = " CFG_TEE_CORE_LOG_LEVEL=1"
 EXTRA_OEMAKE:append:am62axx = " CFG_TEE_CORE_LOG_LEVEL=1"
 
-do_compile:append:k3() {
-    ( cd ${B}/core/; \
-        cp tee-pager_v2.bin ${B}/bl32.bin; \
-        cp tee.elf ${B}/bl32.elf; \
-    )
-}
-
 # Signing procedure for legacy HS devices
 optee_sign_legacyhs() {
     ( cd ${B}/core/; \
@@ -46,12 +39,14 @@ do_compile:append:dra7xx() {
 # Signing procedure for K3 devices
 do_compile:append:k3() {
     ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${B}/core/tee-pager_v2.bin ${B}/bl32.bin
+    cp ${B}/core/tee-pager_v2.bin ${B}/bl32.bin.unsigned
     cp ${B}/core/tee.elf ${B}/bl32.elf
 }
 
 do_install:append:ti-soc() {
     install -m 644 ${B}/*.optee ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin ${D}${nonarch_base_libdir}/firmware/ || true
+    install -m 644 ${B}/bl32.bin.unsigned ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.elf ${D}${nonarch_base_libdir}/firmware/ || true
 }
 
@@ -72,6 +67,7 @@ do_deploy:append:dra7xx() {
 
 do_deploy:append:k3() {
     ln -sf optee/bl32.bin ${DEPLOYDIR}/
+    ln -sf optee/bl32.bin.unsigned ${DEPLOYDIR}/
     ln -sf optee/bl32.elf ${DEPLOYDIR}/
 }
 
