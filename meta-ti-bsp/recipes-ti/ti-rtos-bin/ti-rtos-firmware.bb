@@ -20,6 +20,7 @@ PLAT_SFX:j784s4 = "j784s4"
 PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
+PLAT_SFX:am62axx = "am62axx"
 
 FILESEXTRAPATHS:prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
@@ -63,31 +64,34 @@ C7X_4_FW   = "ipc_echo_test_c7x_4_release_strip.xe71"
 ETH_FW = "app_remoteswitchcfg_server_strip.xer5f"
 
 DM_FW_LIST = ""
-DM_FW_LIST:am65xx = ""
-DM_FW_LIST:j721e =  "${DM_FIRMWARE}"
-DM_FW_LIST:j7200 =  "${DM_FIRMWARE}"
-DM_FW_LIST:j721s2 = "${DM_FIRMWARE}"
-DM_FW_LIST:am64xx = ""
-DM_FW_LIST:am62xx = "${DM_FIRMWARE}"
-DM_FW_LIST:j784s4 = "${DM_FIRMWARE}"
+DM_FW_LIST:am65xx =  ""
+DM_FW_LIST:j721e =   "${DM_FIRMWARE}"
+DM_FW_LIST:j7200 =   "${DM_FIRMWARE}"
+DM_FW_LIST:j721s2 =  "${DM_FIRMWARE}"
+DM_FW_LIST:am64xx =  ""
+DM_FW_LIST:am62xx =  "${DM_FIRMWARE}"
+DM_FW_LIST:am62axx = "${DM_FIRMWARE}"
+DM_FW_LIST:j784s4 =  "${DM_FIRMWARE}"
 
 IPC_FW_LIST = ""
-IPC_FW_LIST:am65xx = "${MCU_1_0_FW} ${MCU_1_1_FW}"
-IPC_FW_LIST:j721e =  "                            ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW} ${C66_1_FW} ${C66_2_FW} ${C7X_1_FW}"
-IPC_FW_LIST:j7200 =  "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW}"
-IPC_FW_LIST:j721s2 = "                            ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_2_0_FW} ${MCU_3_1_FW}                         ${C7X_1_FW} ${C7X_2_FW}"
-IPC_FW_LIST:am64xx = "${MCU_1_0_FW} ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW}"
-IPC_FW_LIST:am62xx = "                            ${MCU_2_0_FW}"
-IPC_FW_LIST:j784s4 = "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                         ${C7X_1_FW} ${C7X_2_FW} ${C7X_3_FW} ${C7X_4_FW}"
+IPC_FW_LIST:am65xx =  "${MCU_1_0_FW} ${MCU_1_1_FW}"
+IPC_FW_LIST:j721e =   "                            ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW} ${C66_1_FW} ${C66_2_FW} ${C7X_1_FW}"
+IPC_FW_LIST:j7200 =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW}"
+IPC_FW_LIST:j721s2 =  "                            ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_2_0_FW} ${MCU_3_1_FW}                         ${C7X_1_FW} ${C7X_2_FW}"
+IPC_FW_LIST:am64xx =  "${MCU_1_0_FW} ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW}"
+IPC_FW_LIST:am62xx =  "                            ${MCU_2_0_FW}"
+IPC_FW_LIST:am62axx = "                            ${MCU_2_0_FW}                                                                   ${C7X_1_FW}"
+IPC_FW_LIST:j784s4 =  "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                         ${C7X_1_FW} ${C7X_2_FW} ${C7X_3_FW} ${C7X_4_FW}"
 
 ETH_FW_LIST = ""
-ETH_FW_LIST:am65xx = ""
-ETH_FW_LIST:j721e =  "${ETH_FW}"
-ETH_FW_LIST:j7200 =  "${ETH_FW}"
-ETH_FW_LIST:j721s2 = ""
-ETH_FW_LIST:am64xx = ""
-ETH_FW_LIST:am62xx = ""
-ETH_FW_LIST:j784s4 = "${ETH_FW}"
+ETH_FW_LIST:am65xx =  ""
+ETH_FW_LIST:j721e =   "${ETH_FW}"
+ETH_FW_LIST:j7200 =   "${ETH_FW}"
+ETH_FW_LIST:j721s2 =  ""
+ETH_FW_LIST:am64xx =  ""
+ETH_FW_LIST:am62xx =  ""
+ETH_FW_LIST:am62axx = ""
+ETH_FW_LIST:j784s4 =  "${ETH_FW}"
 
 # Update the am64xx ipc binaries to be consistent with other platforms
 do_install:prepend:am64xx() {
@@ -104,6 +108,13 @@ do_install:prepend:am64xx() {
 do_install:prepend:am62xx() {
         ( cd ${RTOS_IPC_FW_DIR}; \
                 ln -s am62-mcu-m4f0_0-fw ${MCU_2_0_FW}; \
+        )
+}
+
+# Update the am62axx ipc binaries to be consistent with other platforms
+do_install:prepend:am62axx() {
+        ( cd ${RTOS_IPC_FW_DIR}; \
+                ln -s am62a-mcu-r5f0_0-fw ${MCU_1_0_FW}; \
         )
 }
 
@@ -183,6 +194,11 @@ ALTERNATIVE:${PN}:am62xx = "\
                     am62-main-r5f0_0-fw \
                     "
 
+ALTERNATIVE:${PN}:am62axx = "\
+                    am62a-mcu-r5f0_0-fw \
+                    am62a-c71_0-fw \
+                    "
+
 ALTERNATIVE:${PN}:j721e = "\
                     j7-mcu-r5f0_0-fw \
                     j7-mcu-r5f0_1-fw \
@@ -257,6 +273,9 @@ ALTERNATIVE_LINK_NAME[am64-mcu-m4f0_0-fw] = "${nonarch_base_libdir}/firmware/am6
 ALTERNATIVE_LINK_NAME[am62-main-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/am62-main-r5f0_0-fw"
 ALTERNATIVE_LINK_NAME[am62-mcu-m4f0_0-fw] = "${nonarch_base_libdir}/firmware/am62-mcu-m4f0_0-fw"
 
+ALTERNATIVE_LINK_NAME[am62a-mcu-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/am62a-mcu-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[am62a-c71_0-fw] = "${nonarch_base_libdir}/firmware/am62a-c71_0-fw"
+
 ALTERNATIVE_LINK_NAME[j7-mcu-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/j7-mcu-r5f0_0-fw"
 ALTERNATIVE_LINK_NAME[j7-mcu-r5f0_1-fw] = "${nonarch_base_libdir}/firmware/j7-mcu-r5f0_1-fw"
 ALTERNATIVE_LINK_NAME[j7-main-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/j7-main-r5f0_0-fw"
@@ -325,6 +344,10 @@ ALTERNATIVE_TARGET[am64-mcu-m4f0_0-fw] = "${nonarch_base_libdir}/firmware/pdk-ip
 
 ALTERNATIVE_TARGET[am62-main-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/pdk-ipc/${DM_FIRMWARE}"
 ALTERNATIVE_TARGET[am62-mcu-m4f0_0-fw] = "${nonarch_base_libdir}/firmware/pdk-ipc/${MCU_2_0_FW}"
+
+ALTERNATIVE_TARGET[am62a-main-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/pdk-ipc/${DM_FIRMWARE}"
+ALTERNATIVE_TARGET[am62a-mcu-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/pdk-ipc/${MCU_2_0_FW}"
+ALTERNATIVE_TARGET[am62a-c71_0-fw] = "${nonarch_base_libdir}/firmware/pdk-ipc/${C7X_1_FW}"
 
 ALTERNATIVE_TARGET[j7-mcu-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/pdk-ipc/${DM_FIRMWARE}"
 ALTERNATIVE_TARGET[j7-mcu-r5f0_1-fw] = "${nonarch_base_libdir}/firmware/pdk-ipc/${MCU_1_1_FW}"

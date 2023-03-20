@@ -37,6 +37,7 @@ PACKAGECONFIG:append:j7200 = " dm"
 PACKAGECONFIG:append:j721s2 = " dm"
 PACKAGECONFIG:append:j784s4 = " dm"
 PACKAGECONFIG:append:am62xx = " dm"
+PACKAGECONFIG:append:am62axx = " dm"
 
 COMPATIBLE_MACHINE = "(ti-soc)"
 
