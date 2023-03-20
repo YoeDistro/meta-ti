@@ -64,105 +64,103 @@ C7X_4_FW   = "ipc_echo_test_c7x_4_release_strip.xe71"
 ETH_FW = "app_remoteswitchcfg_server_strip.xer5f"
 
 DM_FW_LIST = ""
-DM_FW_LIST:am65xx =  ""
 DM_FW_LIST:j721e =   "${DM_FIRMWARE}"
 DM_FW_LIST:j7200 =   "${DM_FIRMWARE}"
 DM_FW_LIST:j721s2 =  "${DM_FIRMWARE}"
+DM_FW_LIST:j784s4 =  "${DM_FIRMWARE}"
+DM_FW_LIST:am65xx =  ""
 DM_FW_LIST:am64xx =  ""
 DM_FW_LIST:am62xx =  "${DM_FIRMWARE}"
 DM_FW_LIST:am62axx = "${DM_FIRMWARE}"
-DM_FW_LIST:j784s4 =  "${DM_FIRMWARE}"
 
 IPC_FW_LIST = ""
-IPC_FW_LIST:am65xx =  "${MCU_1_0_FW} ${MCU_1_1_FW}"
-IPC_FW_LIST:j721e =   "                            ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW} ${C66_1_FW} ${C66_2_FW} ${C7X_1_FW}"
+IPC_FW_LIST:j721e =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                             ${C66_1_FW} ${C66_2_FW} ${C7X_1_FW}"
 IPC_FW_LIST:j7200 =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW}"
-IPC_FW_LIST:j721s2 =  "                            ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_2_0_FW} ${MCU_3_1_FW}                         ${C7X_1_FW} ${C7X_2_FW}"
+IPC_FW_LIST:j721s2 =  "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                                                     ${C7X_1_FW} ${C7X_2_FW}"
+IPC_FW_LIST:j784s4 =  "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW} ${MCU_4_0_FW} ${MCU_4_1_FW}                         ${C7X_1_FW} ${C7X_2_FW} ${C7X_3_FW} ${C7X_4_FW}"
+IPC_FW_LIST:am65xx =  "${MCU_1_0_FW} ${MCU_1_1_FW}"
 IPC_FW_LIST:am64xx =  "${MCU_1_0_FW} ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW}"
 IPC_FW_LIST:am62xx =  "                            ${MCU_2_0_FW}"
-IPC_FW_LIST:am62axx = "                            ${MCU_2_0_FW}                                                                   ${C7X_1_FW}"
-IPC_FW_LIST:j784s4 =  "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                         ${C7X_1_FW} ${C7X_2_FW} ${C7X_3_FW} ${C7X_4_FW}"
+IPC_FW_LIST:am62axx = "                            ${MCU_2_0_FW}                                                                                               ${C7X_1_FW}"
 
 ETH_FW_LIST = ""
-ETH_FW_LIST:am65xx =  ""
 ETH_FW_LIST:j721e =   "${ETH_FW}"
 ETH_FW_LIST:j7200 =   "${ETH_FW}"
 ETH_FW_LIST:j721s2 =  ""
+ETH_FW_LIST:j784s4 =  "${ETH_FW}"
+ETH_FW_LIST:am65xx =  ""
 ETH_FW_LIST:am64xx =  ""
 ETH_FW_LIST:am62xx =  ""
 ETH_FW_LIST:am62axx = ""
-ETH_FW_LIST:j784s4 =  "${ETH_FW}"
 
 # Update the am64xx ipc binaries to be consistent with other platforms
 do_install:prepend:am64xx() {
         ( cd ${RTOS_IPC_FW_DIR}; \
-                ln -s am64-main-r5f0_0-fw ${MCU_1_0_FW}; \
-                ln -s am64-main-r5f0_1-fw ${MCU_1_1_FW}; \
-                ln -s am64-main-r5f1_0-fw ${MCU_2_0_FW}; \
-                ln -s am64-main-r5f1_1-fw ${MCU_2_1_FW}; \
-                ln -s am64-mcu-m4f0_0-fw ${MCU_3_0_FW}; \
+                ln -sf am64-main-r5f0_0-fw ${MCU_1_0_FW}; \
+                ln -sf am64-main-r5f0_1-fw ${MCU_1_1_FW}; \
+                ln -sf am64-main-r5f1_0-fw ${MCU_2_0_FW}; \
+                ln -sf am64-main-r5f1_1-fw ${MCU_2_1_FW}; \
+                ln -sf am64-mcu-m4f0_0-fw ${MCU_3_0_FW}; \
         )
 }
 
 # Update the am62xx ipc binaries to be consistent with other platforms
 do_install:prepend:am62xx() {
         ( cd ${RTOS_IPC_FW_DIR}; \
-                ln -s am62-mcu-m4f0_0-fw ${MCU_2_0_FW}; \
+                ln -sf am62-mcu-m4f0_0-fw ${MCU_2_0_FW}; \
         )
 }
 
 # Update the am62axx ipc binaries to be consistent with other platforms
 do_install:prepend:am62axx() {
         ( cd ${RTOS_IPC_FW_DIR}; \
-                ln -s am62a-mcu-r5f0_0-fw ${MCU_1_0_FW}; \
+                ln -sf am62a-mcu-r5f0_0-fw ${MCU_2_0_FW}; \
         )
 }
 
-# Sign the firmware
-do_install:prepend() {
+do_install() {
+    # Sign the firmware
     # DM Firmware
     for FW_NAME in ${DM_FW_LIST}
     do
-      ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${RTOS_DM_FW_DIR}/${FW_NAME} ${RTOS_DM_FW_DIR}/${FW_NAME}.signed
+        ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${RTOS_DM_FW_DIR}/${FW_NAME} ${RTOS_DM_FW_DIR}/${FW_NAME}.signed
     done
 
     # IPC Firmware
     for FW_NAME in ${IPC_FW_LIST}
     do
-      ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${RTOS_IPC_FW_DIR}/${FW_NAME} ${RTOS_IPC_FW_DIR}/${FW_NAME}.signed
+        ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${RTOS_IPC_FW_DIR}/${FW_NAME} ${RTOS_IPC_FW_DIR}/${FW_NAME}.signed
     done
 
     # ETH firmware
     for FW_NAME in ${ETH_FW_LIST}
     do
-        ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${RTOS_ETH_FW_DIR}/${FW_NAME} ${RTOS_ETH_FW_DIR}/${FW_NAME}.signed;
+        ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${RTOS_ETH_FW_DIR}/${FW_NAME} ${RTOS_ETH_FW_DIR}/${FW_NAME}.signed
     done
-}
 
-#Install all R5 & DSP ipc echo test binaries in lib/firmware/pdk-ipc, with softlinks up a level
-do_install() {
+    # Install all R5 & DSP ipc echo test binaries in lib/firmware/pdk-ipc, with softlinks up a level
     # DM Firmware
     install -d ${LEGACY_DM_FW_DIR}
     for FW_NAME in ${DM_FW_LIST}
     do
-      install -m 0644 ${RTOS_DM_FW_DIR}/${FW_NAME}        ${LEGACY_DM_FW_DIR}/${FW_NAME}.unsigned
-      install -m 0644 ${RTOS_DM_FW_DIR}/${FW_NAME}.signed ${LEGACY_DM_FW_DIR}/${FW_NAME}
+        install -m 0644 ${RTOS_DM_FW_DIR}/${FW_NAME}        ${LEGACY_DM_FW_DIR}/${FW_NAME}.unsigned
+        install -m 0644 ${RTOS_DM_FW_DIR}/${FW_NAME}.signed ${LEGACY_DM_FW_DIR}/${FW_NAME}
     done
 
     # IPC Firmware
     install -d ${LEGACY_IPC_FW_DIR}
     for FW_NAME in ${IPC_FW_LIST}
     do
-      install -m 0644 ${RTOS_IPC_FW_DIR}/${FW_NAME}        ${LEGACY_IPC_FW_DIR}
-      install -m 0644 ${RTOS_IPC_FW_DIR}/${FW_NAME}.signed ${LEGACY_IPC_FW_DIR}
+        install -m 0644 ${RTOS_IPC_FW_DIR}/${FW_NAME}        ${LEGACY_IPC_FW_DIR}
+        install -m 0644 ${RTOS_IPC_FW_DIR}/${FW_NAME}.signed ${LEGACY_IPC_FW_DIR}
     done
 
     # ETH firmware
     install -d ${LEGACY_ETH_FW_DIR}
     for FW_NAME in ${ETH_FW_LIST}
     do
-      install -m 0644 ${RTOS_ETH_FW_DIR}/${FW_NAME}        ${LEGACY_ETH_FW_DIR}
-      install -m 0644 ${RTOS_ETH_FW_DIR}/${FW_NAME}.signed ${LEGACY_ETH_FW_DIR}
+        install -m 0644 ${RTOS_ETH_FW_DIR}/${FW_NAME}        ${LEGACY_ETH_FW_DIR}
+        install -m 0644 ${RTOS_ETH_FW_DIR}/${FW_NAME}.signed ${LEGACY_ETH_FW_DIR}
     done
 }
 
@@ -171,8 +169,8 @@ do_deploy() {
     install -d ${DEPLOYDIR}
     for FW_NAME in ${DM_FW_LIST}
     do
-      install -m 0644 ${RTOS_DM_FW_DIR}/${FW_NAME}        ${DEPLOYDIR}/${FW_NAME}.unsigned
-      install -m 0644 ${RTOS_DM_FW_DIR}/${FW_NAME}.signed ${DEPLOYDIR}/${FW_NAME}
+        install -m 0644 ${RTOS_DM_FW_DIR}/${FW_NAME}        ${DEPLOYDIR}/${FW_NAME}.unsigned
+        install -m 0644 ${RTOS_DM_FW_DIR}/${FW_NAME}.signed ${DEPLOYDIR}/${FW_NAME}
     done
 }
 
@@ -189,6 +187,7 @@ ALTERNATIVE:${PN}:am64xx = "\
                     am64-main-r5f1_1-fw \
                     am64-mcu-m4f0_0-fw \
                     "
+
 ALTERNATIVE:${PN}:am62xx = "\
                     am62-mcu-m4f0_0-fw \
                     am62-main-r5f0_0-fw \
