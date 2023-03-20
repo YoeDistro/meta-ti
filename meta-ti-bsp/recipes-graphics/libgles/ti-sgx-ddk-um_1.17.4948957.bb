@@ -24,10 +24,15 @@ TARGET_PRODUCT:am65xx = "ti654x"
 INITSCRIPT_NAME = "rc.pvr"
 INITSCRIPT_PARAMS = "defaults 8"
 
-inherit update-rc.d
-
 PACKAGECONFIG ??= "udev"
 PACKAGECONFIG[udev] = ",,,udev"
+
+def use_initscript(d):
+    sysvinit = bb.utils.contains('DISTRO_FEATURES', 'sysvinit', True, False, d)
+    udev = bb.utils.contains('PACKAGECONFIG', 'udev', True, False, d)
+    return sysvinit and not udev
+
+inherit ${@oe.utils.ifelse(use_initscript(d), 'update-rc.d', '')}
 
 RDEPENDS:${PN} += "libdrm libdrm-omap"
 
@@ -42,7 +47,7 @@ do_install () {
     with_udev=${@bb.utils.contains('PACKAGECONFIG', 'udev', 'true', 'false', d)}
 
     # Delete initscript if it is not needed or would conflict with the udev rules
-    if $without_sysvinit || $with_udev; then
+    if ${@oe.utils.ifelse(use_initscript(d), 'false', 'true')}; then
         rm -rf ${D}${sysconfdir}/init.d
         rmdir --ignore-fail-on-non-empty ${D}${sysconfdir}
     fi
