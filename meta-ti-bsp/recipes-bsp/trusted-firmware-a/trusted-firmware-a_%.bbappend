@@ -20,3 +20,15 @@ do_compile:append:k3() {
 	mv ${BUILD_DIR}/bl31.bin ${BUILD_DIR}/bl31.bin.unsigned
 	${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${BUILD_DIR}/bl31.bin.unsigned ${BUILD_DIR}/bl31.bin
 }
+
+do_install:append:k3() {
+    if [ -f ${BUILD_DIR}/bl31.bin.unsigned ]; then
+        echo "Install bl31.bin.unsigned"
+        install -m 0644 ${BUILD_DIR}/bl31.bin.unsigned \
+        ${D}/firmware/bl31.bin.unsigned
+    else
+        echo "Install bl31.bin.unsigned"
+        install -m 0644 ${BUILD_DIR}/bl31.bin \
+        ${D}/firmware/bl31.bin.unsigned
+    fi
+}
