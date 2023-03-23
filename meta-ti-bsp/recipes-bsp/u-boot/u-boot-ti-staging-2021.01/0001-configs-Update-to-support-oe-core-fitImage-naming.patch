@@ -1,0 +1,144 @@
+From 33c4b7335a39c48507a254505169df59c7a69c75 Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Thu, 23 Mar 2023 10:29:40 -0500
+Subject: [PATCH] configs: Update to support oe-core fitImage naming
+
+In kirkstone and forward, the values in the fitImage have been
+standardized to include both conf- and the vender subdir in the name of
+the dtbs.  This patch updates u-boot to support that.
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ include/configs/am62x_evm.h       | 6 +++---
+ include/configs/am64x_evm.h       | 4 ++--
+ include/configs/am65x_evm.h       | 2 +-
+ include/configs/j721e_evm.h       | 8 ++++----
+ include/configs/j721s2_evm.h      | 6 +++---
+ include/configs/j784s4_evm.h      | 6 +++---
+ include/configs/ti_armv7_common.h | 2 +-
+ 7 files changed, 17 insertions(+), 17 deletions(-)
+
+diff --git a/include/configs/am62x_evm.h b/include/configs/am62x_evm.h
+index 97bd7c1fd7..6d957c906b 100644
+--- a/include/configs/am62x_evm.h
++++ b/include/configs/am62x_evm.h
+@@ -122,11 +122,11 @@
+ #define EXTRA_ENV_AM625_BOARD_SETTINGS					\
+ 	"default_device_tree=" CONFIG_DEFAULT_DEVICE_TREE ".dtb\0"	\
+ 	"findfdt="							\
+-		"setenv name_fdt ${default_device_tree};"		\
++		"setenv name_fdt ti_${default_device_tree};"		\
+ 		"if test $board_name = am62x_skevm; then "		\
+-			"setenv name_fdt k3-am625-sk.dtb; fi;"		\
++			"setenv name_fdt ti_k3-am625-sk.dtb; fi;"		\
+ 		"if test $board_name = am62x_lp_skevm; then "		\
+-			"setenv name_fdt k3-am62x-lp-sk.dtb; fi;"	\
++			"setenv name_fdt ti_k3-am62x-lp-sk.dtb; fi;"	\
+ 		"setenv fdtfile ${name_fdt}\0"				\
+ 	"name_kern=Image\0"						\
+ 	"console=ttyS2,115200n8\0"					\
+diff --git a/include/configs/am64x_evm.h b/include/configs/am64x_evm.h
+index 33ba5da31f..d32b488b58 100644
+--- a/include/configs/am64x_evm.h
++++ b/include/configs/am64x_evm.h
+@@ -107,9 +107,9 @@
+ #define EXTRA_ENV_AM642_BOARD_SETTINGS					\
+ 	"findfdt="							\
+ 		"if test $board_name = am64x_gpevm; then " \
+-			"setenv fdtfile k3-am642-evm.dtb; fi; " \
++			"setenv fdtfile ti_k3-am642-evm.dtb; fi; " \
+ 		"if test $board_name = am64x_skevm; then " \
+-			"setenv fdtfile k3-am642-sk.dtb; fi;" \
++			"setenv fdtfile ti_k3-am642-sk.dtb; fi;" \
+ 		"if test $fdtfile = undefined; then " \
+ 			"echo WARNING: Could not determine device tree to use; fi; \0" \
+ 	"name_kern=Image\0"						\
+diff --git a/include/configs/am65x_evm.h b/include/configs/am65x_evm.h
+index c78e4c4493..07d234d5d3 100644
+--- a/include/configs/am65x_evm.h
++++ b/include/configs/am65x_evm.h
+@@ -64,7 +64,7 @@
+ /* U-Boot general configuration */
+ #define EXTRA_ENV_AM65X_BOARD_SETTINGS					\
+ 	"findfdt="							\
+-		"setenv name_fdt k3-am654-base-board.dtb;"		\
++		"setenv name_fdt ti_k3-am654-base-board.dtb;"		\
+ 		"setenv fdtfile ${name_fdt}\0"				\
+ 	"name_kern=Image\0"						\
+ 	"console=ttyS2,115200n8\0"					\
+diff --git a/include/configs/j721e_evm.h b/include/configs/j721e_evm.h
+index 50b018b6ed..ad11494bd0 100644
+--- a/include/configs/j721e_evm.h
++++ b/include/configs/j721e_evm.h
+@@ -77,13 +77,13 @@
+ #define EXTRA_ENV_J721E_BOARD_SETTINGS					\
+ 	"default_device_tree=" CONFIG_DEFAULT_DEVICE_TREE ".dtb\0"	\
+ 	"findfdt="							\
+-		"setenv name_fdt ${default_device_tree};"		\
++		"setenv name_fdt ti_${default_device_tree};"		\
+ 		"if test $board_name = J721EX-PM1-SOM; then "		\
+-			"setenv name_fdt k3-j721e-proc-board-tps65917.dtb; fi;" \
++			"setenv name_fdt ti_k3-j721e-proc-board-tps65917.dtb; fi;" \
+ 		"if test $board_name = j721e; then "			\
+-			"setenv name_fdt k3-j721e-common-proc-board.dtb; fi;" \
++			"setenv name_fdt ti_k3-j721e-common-proc-board.dtb; fi;" \
+ 		"if test $board_name = j721e-eaik || test $board_name = j721e-sk; then " \
+-			"setenv name_fdt k3-j721e-sk.dtb; fi;"	\
++			"setenv name_fdt ti_k3-j721e-sk.dtb; fi;"	\
+ 		"setenv fdtfile ${name_fdt}\0"				\
+ 	"name_kern=Image\0"						\
+ 	"console=ttyS2,115200n8\0"					\
+diff --git a/include/configs/j721s2_evm.h b/include/configs/j721s2_evm.h
+index 2d26eb544d..4b4d4a6e37 100644
+--- a/include/configs/j721s2_evm.h
++++ b/include/configs/j721s2_evm.h
+@@ -66,11 +66,11 @@
+ #define EXTRA_ENV_J721S2_BOARD_SETTINGS					\
+ 	"default_device_tree=" CONFIG_DEFAULT_DEVICE_TREE ".dtb\0"	\
+ 	"findfdt="							\
+-		"setenv name_fdt ${default_device_tree};"		\
++		"setenv name_fdt ti_${default_device_tree};"		\
+ 		"if test $board_name = j721s2; then "			\
+-			"setenv name_fdt k3-j721s2-common-proc-board.dtb; fi;" \
++			"setenv name_fdt ti_k3-j721s2-common-proc-board.dtb; fi;" \
+ 		"if test $board_name = am68-sk; then "			\
+-			"setenv name_fdt k3-am68-sk-base-board.dtb; fi;"\
++			"setenv name_fdt ti_k3-am68-sk-base-board.dtb; fi;"\
+ 		"setenv fdtfile ${name_fdt}\0"				\
+ 	"name_kern=Image\0"						\
+ 	"console=ttyS2,115200n8\0"					\
+diff --git a/include/configs/j784s4_evm.h b/include/configs/j784s4_evm.h
+index eb609100b0..30820ea1c6 100644
+--- a/include/configs/j784s4_evm.h
++++ b/include/configs/j784s4_evm.h
+@@ -67,11 +67,11 @@
+ #define EXTRA_ENV_J784S4_BOARD_SETTINGS					\
+ 	"default_device_tree=" CONFIG_DEFAULT_DEVICE_TREE ".dtb\0"	\
+ 	"findfdt="                                                      \
+-		"setenv name_fdt ${default_device_tree};"               \
++		"setenv name_fdt ti_${default_device_tree};"               \
+ 		"if test $board_name = am69-sk; then "           \
+-			"setenv name_fdt k3-am69-sk.dtb; fi;" \
++			"setenv name_fdt ti_k3-am69-sk.dtb; fi;" \
+ 		"if test $board_name = j784s4; then "                    \
+-			"setenv name_fdt k3-j784s4-evm.dtb; fi;" \
++			"setenv name_fdt ti_k3-j784s4-evm.dtb; fi;" \
+ 		"setenv fdtfile ${name_fdt}\0"				\
+ 	"name_kern=Image\0"						\
+ 	"console=ttyS2,115200n8\0"					\
+diff --git a/include/configs/ti_armv7_common.h b/include/configs/ti_armv7_common.h
+index c48c4c2398..29de095729 100644
+--- a/include/configs/ti_armv7_common.h
++++ b/include/configs/ti_armv7_common.h
+@@ -68,7 +68,7 @@
+ 		"do;" \
+ 		"setenv overlaystring ${overlaystring}'#'${overlay};" \
+ 		"done;\0" \
+-	"run_fit=bootm ${addr_fit}#${fdtfile}${overlaystring}\0" \
++	"run_fit=bootm ${addr_fit}#conf-${fdtfile}${overlaystring}\0" \
+ 
+ /*
+  * DDR information.  If the CONFIG_NR_DRAM_BANKS is not defined,
+-- 
+2.17.1
+
