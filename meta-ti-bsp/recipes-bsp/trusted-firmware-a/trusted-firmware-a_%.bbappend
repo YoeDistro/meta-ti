@@ -15,10 +15,46 @@ inherit ti-secdev
 EXTRA_OEMAKE:append:k3 = "${@ ' K3_USART=' + d.getVar('TFA_K3_USART') if d.getVar('TFA_K3_USART') else ''}"
 EXTRA_OEMAKE:append:k3 = "${@ ' K3_PM_SYSTEM_SUSPEND=' + d.getVar('TFA_K3_SYSTEM_SUSPEND') if d.getVar('TFA_K3_SYSTEM_SUSPEND') else ''}"
 
-# Signing procedure for K3 devices
-do_compile:append:k3() {
+# Signing procedure for K3 HS devices
+tfa_sign_k3hs() {
 	mv ${BUILD_DIR}/bl31.bin ${BUILD_DIR}/bl31.bin.unsigned
 	${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${BUILD_DIR}/bl31.bin.unsigned ${BUILD_DIR}/bl31.bin
+}
+
+do_compile:append:am65xx-hs-evm() {
+    tfa_sign_k3hs
+}
+
+do_compile:append:am64xx-evm() {
+    tfa_sign_k3hs
+}
+
+do_compile:append:am62xx-evm() {
+    tfa_sign_k3hs
+}
+
+do_compile:append:am62xx-lp-evm() {
+    tfa_sign_k3hs
+}
+
+do_compile:append:am62axx-evm() {
+    tfa_sign_k3hs
+}
+
+do_compile:append:j721e-hs-evm() {
+    tfa_sign_k3hs
+}
+
+do_compile:append:j7200-hs-evm() {
+    tfa_sign_k3hs
+}
+
+do_compile:append:j721s2-hs-evm() {
+    tfa_sign_k3hs
+}
+
+do_compile:append:j784s4-hs-evm() {
+    tfa_sign_k3hs
 }
 
 do_install:append:k3() {
