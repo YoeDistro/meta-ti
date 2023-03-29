@@ -3,6 +3,8 @@ SUMMARY = "Linux kernel for TI devices"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
+KERNEL_CLASSES += "${@bb.utils.contains('TFA_PLATFORM', 'k3', 'kernel-fitimage-ti-u-boot', '', d)}"
+
 inherit kernel
 
 DEFCONFIG_BUILDER = "${S}/ti_config_fragments/defconfig_builder.sh"
