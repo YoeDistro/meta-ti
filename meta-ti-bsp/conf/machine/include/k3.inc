@@ -52,4 +52,4 @@ MACHINE_FEATURES += "efi"
 
 WKS_FILE ?= "sdimage-2part-efi.wks"
 do_image_wic[depends] += "virtual/bootloader:do_deploy"
-do_image_wic[mcdepends] += "mc::k3r5:ti-sci-fw:do_deploy"
+do_image_complete[mcdepends] += "mc::k3r5:ti-sci-fw:do_deploy"

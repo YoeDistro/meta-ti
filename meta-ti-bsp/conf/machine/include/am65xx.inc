@@ -15,11 +15,11 @@ KERNEL_DEVICETREE = " \
 "
 
 # On AM65x the file tiboot3.bin comes from the bootloader not ti-sci-fw
-do_image_wic[mcdepends] += "mc::k3r5:virtual/bootloader:do_deploy"
+do_image_complete[mcdepends] += "mc::k3r5:virtual/bootloader:do_deploy"
 
 # Default sysfw.itb on AM65x is for SR2.0
 BBMULTICONFIG += "k3r5-sr2"
-do_image_wic[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
+do_image_complete[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
 IMAGE_BOOT_FILES += "sysfw.itb"
 
 # Since default sysfw.itb on AM65x is for SR2.0, add a version for SR1.0
