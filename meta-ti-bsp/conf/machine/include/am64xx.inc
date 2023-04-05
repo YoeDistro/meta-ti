@@ -1,9 +1,6 @@
 require conf/machine/include/k3.inc
 SOC_FAMILY:append = ":am64xx"
 
-SERIAL_CONSOLES = "115200;ttyS2 115200;ttyS1"
-SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
-
 KERNEL_DEVICETREE_PREFIX = "ti/k3-am642"
 
 KERNEL_DEVICETREE = " \

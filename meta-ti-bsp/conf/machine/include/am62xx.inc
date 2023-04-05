@@ -3,9 +3,6 @@ SOC_FAMILY:append = ":am62xx"
 
 MACHINE_FEATURES += "screen gpu"
 
-SERIAL_CONSOLES = "115200;ttyS2"
-SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
-
 PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 
 # Default tiboot3.bin on AM62x is for HS-FS
