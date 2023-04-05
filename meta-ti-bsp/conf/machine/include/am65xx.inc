@@ -3,9 +3,6 @@ SOC_FAMILY:append = ":am65xx"
 
 MACHINE_FEATURES += "screen touchscreen gpu"
 
-SERIAL_CONSOLES = "115200;ttyS2 115200;ttyS1"
-SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
-
 PREFERRED_PROVIDER_virtual/gpudriver ?= ""
 
 KERNEL_DEVICETREE_PREFIX = "ti/k3-am654"

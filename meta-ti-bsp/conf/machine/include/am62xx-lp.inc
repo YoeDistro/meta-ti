@@ -3,9 +3,6 @@ SOC_FAMILY:append = ":am62xx"
 
 MACHINE_FEATURES += "screen touchscreen"
 
-SERIAL_CONSOLES = "115200;ttyS0 115200;ttyS2"
-SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
-
 TFA_K3_SYSTEM_SUSPEND = "1"
 
 # Default tiboot3.bin on AM62x LP is for HS-FS
