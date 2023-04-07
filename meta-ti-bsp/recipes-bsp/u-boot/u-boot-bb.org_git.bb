@@ -17,3 +17,8 @@ BRANCH:beaglebone-ai64 = "v2021.01-ti-08.05.00.001"
 BRANCH:beaglebone-ai64-k3r5 = "v2021.01-ti-08.05.00.001"
 SRCREV:beaglebone-ai64 = "ea96725b5156135d5875415f75d2188f6f56622a"
 SRCREV:beaglebone-ai64-k3r5 = "ea96725b5156135d5875415f75d2188f6f56622a"
+
+BRANCH:beagleplay = "v2021.01-ti-BeaglePlay-Release"
+BRANCH:beagleplay-k3r5 = "v2021.01-ti-BeaglePlay-Release"
+SRCREV:beagleplay = "f036fbdc25941d7585182d2552c767edb9b04114"
+SRCREV:beagleplay-k3r5 = "f036fbdc25941d7585182d2552c767edb9b04114"
