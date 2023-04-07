@@ -15,17 +15,19 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} ${EXTRA_DTC_ARGS}"
 
 S = "${WORKDIR}/git"
 
-# 5.10.145 version
-SRCREV = "9b11aaf2cdb1861ca74dc69d032a0f94cdd32bd6"
-PV = "5.10.145+git${SRCPV}"
-BRANCH = "5.10"
+# 5.10.162 version for 32-bit
+SRCREV:armv7a = "982fde4eb381f98ec8be946e8d33dd0c9f9416ab"
+PV:armv7a = "5.10.162+git${SRCPV}"
+BRANCH:armv7a = "v5.10.162-ti-r59"
 
-# 5.10.153 version
-SRCREV:k3 = "11ebcc09f32669fac8254dff56d500f86c4c2caf"
-PV:k3 = "5.10.153+git${SRCPV}"
-BRANCH:k3 = "5.10-arm64"
+# 5.10.162 version for 64-bit
+SRCREV:aarch64 = "a2f5d5746b6c389e58d20fda0a0fa88403da428b"
+PV:aarch64 = "5.10.162+git${SRCPV}"
+BRANCH:aarch64 = "v5.10.162-ti-arm64-r99"
 
 SRC_URI = "git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH}"
+
+SRC_URI:append:armv7a = " file://0001-defconfig-switch-default-kernel-compression-to-LZMA.patch"
 
 DEFCONFIG_NAME = "bb.org_defconfig"
 KERNEL_CONFIG_COMMAND = "oe_runmake -C ${S} O=${B} ${DEFCONFIG_NAME}"
