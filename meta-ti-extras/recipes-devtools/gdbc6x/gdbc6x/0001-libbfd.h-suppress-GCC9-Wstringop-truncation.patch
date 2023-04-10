@@ -3,6 +3,8 @@ From: Denys Dmytriyenko <denys@ti.com>
 Date: Sat, 15 Feb 2020 15:59:37 -0500
 Subject: [PATCH] libbfd.h: suppress GCC9 -Wstringop-truncation
 
+Upstream-Status: Inappropriate [OE-specific]
+
 Signed-off-by: Denys Dmytriyenko <denys@ti.com>
 ---
  gdbc6x/bfd/libbfd.h | 4 ++++

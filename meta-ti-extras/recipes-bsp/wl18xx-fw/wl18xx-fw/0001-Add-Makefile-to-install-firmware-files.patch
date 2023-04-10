@@ -3,6 +3,8 @@ From: Denys Dmytriyenko <denys@ti.com>
 Date: Fri, 10 Mar 2017 13:28:29 -0500
 Subject: [PATCH] Add Makefile to install firmware files
 
+Upstream-Status: Pending
+
 Signed-off-by: Denys Dmytriyenko <denys@ti.com>
 ---
  Makefile | 9 +++++++++

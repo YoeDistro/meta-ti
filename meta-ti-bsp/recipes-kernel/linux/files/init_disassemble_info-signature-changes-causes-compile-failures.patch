@@ -4,6 +4,8 @@ kernel we have to "adjust" the patch to match our files.
 
 [A] https://patchwork.yoctoproject.org/project/arm/patch/20220824025819.4888-1-jon.mason@arm.com/#5104
 
+Upstream-Status: Pending
+
 Signed-off-by: Ryan Eatmon <reatmon@ti.com>
 
 

@@ -3,6 +3,8 @@ From: Denys Dmytriyenko <denys@ti.com>
 Date: Fri, 10 Nov 2017 17:02:39 -0500
 Subject: [PATCH] print_stat.sh: replace /system/bin/sh with /bin/sh
 
+Upstream-Status: Pending
+
 Signed-off-by: Denys Dmytriyenko <denys@ti.com>
 ---
  testing/print_stat.sh | 2 +-

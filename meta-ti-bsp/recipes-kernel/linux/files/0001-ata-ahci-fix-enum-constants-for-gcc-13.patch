@@ -24,6 +24,8 @@ Fix this by changing the entire enum definition to use BIT(x) in place
 of (1<<x), which results in all values being seen as 'unsigned' and
 fitting into an unsigned 32-bit type.
 
+Upstream-Status: Backport
+
 Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=107917
 Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=107405
 Reported-by: Luis Machado <luis.machado@arm.com>

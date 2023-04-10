@@ -7,6 +7,8 @@ We build kernel outside of the source directory and the generated version.h
 file ends up being in a separate directory from the rest of kernel headers.
 Use another variable to point to the kernel build artifacts.
 
+Upstream-Status: Inappropriate [OE-specific]
+
 Signed-off-by: Denys Dmytriyenko <denys@ti.com>
 
 ---
