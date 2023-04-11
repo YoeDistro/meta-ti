@@ -13,9 +13,9 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} ${EXTRA_DTC_ARGS}"
 
 S = "${WORKDIR}/git"
 
-# 6.1.0-rc1+ version
-SRCREV = "4d48f589d294ddc5e01d3b0dc7cecc55324c05ca"
-PV = "6.1.0-rc1+git${SRCPV}"
+# 6.3.0-rc6+ version
+SRCREV = "009795d283d1f9f043e5a4ff97d4140cde17e2d3"
+PV = "6.3.0-rc6+git${SRCPV}"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git;protocol=https;branch=master"
 
