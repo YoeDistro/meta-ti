@@ -67,7 +67,5 @@ FILES:${PN} +=  "${sysconfdir}/*"
 FILES:${PN} +=  "${datadir}/*"
 FILES:${PN} += "${nonarch_base_libdir}/udev/rules.d"
 
-INSANE_SKIP:${PN} += "dev-so ldflags useless-rpaths"
-INSANE_SKIP:${PN} += "already-stripped dev-deps"
-
-CLEANBROKEN = "1"
+INSANE_SKIP:${PN} += "ldflags"
+INSANE_SKIP:${PN} += "already-stripped"
