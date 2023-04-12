@@ -7,7 +7,7 @@ inherit module
 
 PROVIDES = "virtual/gpudriver"
 
-COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|k3"
+COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|am65xx"
 
 MACHINE_KERNEL_PR:append = "x"
 PR = "${MACHINE_KERNEL_PR}"
@@ -27,7 +27,7 @@ SRCREV = "eda7780bfd5277e16913c9bc0b0e6892b4e79063"
 TARGET_PRODUCT:omap-a15 = "jacinto6evm"
 TARGET_PRODUCT:ti33x = "ti335x"
 TARGET_PRODUCT:ti43x = "ti437x"
-TARGET_PRODUCT:k3 = "ti654x"
+TARGET_PRODUCT:am65xx = "ti654x"
 
 EXTRA_OEMAKE += 'KERNELDIR="${STAGING_KERNEL_DIR}" TARGET_PRODUCT=${TARGET_PRODUCT} WINDOW_SYSTEM=nulldrmws'
 
