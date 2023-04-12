@@ -34,7 +34,7 @@ def use_initscript(d):
 
 inherit ${@oe.utils.ifelse(use_initscript(d), 'update-rc.d', '')}
 
-RDEPENDS:${PN} += "libdrm libdrm-omap"
+RDEPENDS:${PN} += "libdrm"
 
 RRECOMMENDS:${PN} += "ti-sgx-ddk-km"
 
