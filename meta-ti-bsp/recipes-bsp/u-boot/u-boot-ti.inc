@@ -27,9 +27,19 @@ DEPENDS += "dtc-native bc-native lzop-native flex-native bison-native python3-se
 
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
 
+PLAT_SFX = ""
+PLAT_SFX:j721e = "j721e"
+PLAT_SFX:j7200 = "j7200"
+PLAT_SFX:j721s2 = "j721s2"
+PLAT_SFX:j784s4 = "j784s4"
+PLAT_SFX:am65xx = "am65xx"
+PLAT_SFX:am64xx = "am64xx"
+PLAT_SFX:am62xx = "am62xx"
+PLAT_SFX:am62axx = "am62axx"
+
 PACKAGECONFIG[atf] = "ATF=${STAGING_DIR_HOST}/firmware/bl31.bin,,trusted-firmware-a"
 PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/bl32.bin,,optee-os"
-PACKAGECONFIG[dm] = "DM=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/pdk-ipc/${DM_FIRMWARE},,ti-rtos-firmware"
+PACKAGECONFIG[dm] = "DM=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/ti-dm/${PLAT_SFX}/${DM_FIRMWARE},,ti-rtos-firmware"
 
 PACKAGECONFIG:append:aarch64 = " atf optee"
 PACKAGECONFIG:append:j721e = " dm"
