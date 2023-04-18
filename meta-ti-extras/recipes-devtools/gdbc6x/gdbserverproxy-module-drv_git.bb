@@ -7,6 +7,8 @@ MACHINE_KERNEL_PR:append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 PV:append = "+git${SRCPV}"
 
+SRC_URI:append = " file://0001-Support-Linux-kernels-v5.15.patch;patchdir=../.."
+
 S = "${WORKDIR}/git/kernel_module/gdbproxy-mod"
 
 inherit module

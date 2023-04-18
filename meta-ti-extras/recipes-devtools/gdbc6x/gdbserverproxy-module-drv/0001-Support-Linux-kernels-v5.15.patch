@@ -1,0 +1,40 @@
+From 7e6e1312629f9bc7a24871f7f395f2d288a1758f Mon Sep 17 00:00:00 2001
+From: Andrew Davis <afd@ti.com>
+Date: Tue, 18 Apr 2023 11:38:54 -0500
+Subject: [PATCH] Support Linux kernels v5.15+
+
+put_tty_driver was removed and write_room return type has changed.
+
+Function tty_driver_kref_put has been around a while, so no need
+to do a kernel version check.
+
+Upstream-Status: Pending
+Signed-off-by: Andrew Davis <afd@ti.com>
+---
+ kernel_module/gdbproxy-mod/gdbserverproxy.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/kernel_module/gdbproxy-mod/gdbserverproxy.c b/kernel_module/gdbproxy-mod/gdbserverproxy.c
+index 418b6db..4b1c676 100644
+--- a/kernel_module/gdbproxy-mod/gdbserverproxy.c
++++ b/kernel_module/gdbproxy-mod/gdbserverproxy.c
+@@ -540,7 +540,11 @@ static int gdb_write(struct tty_struct *tty,
+  *
+  *
+  */
++#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5,15,0))
++static unsigned int gdb_write_room(struct tty_struct *tty)
++#else
+ static int gdb_write_room(struct tty_struct *tty)
++#endif
+ {
+      return GDB_STR_SIZE;
+ }
+@@ -914,7 +918,7 @@ static int __init gdb_dev_init(void)
+      if (ret < 0) {
+
+           printk(KERN_ERR "Couldn't register gdbtty driver.\n");
+-          put_tty_driver(tty_gdb_driver);
++          tty_driver_kref_put(tty_gdb_driver);
+           return ret;
+      }
