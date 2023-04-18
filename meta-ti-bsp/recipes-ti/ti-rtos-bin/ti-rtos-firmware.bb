@@ -25,11 +25,10 @@ PLAT_SFX:am62axx = "am62axx"
 FILESEXTRAPATHS:prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
-CORESDK_RTOS_VERSION ?= "08.00.00.26"
 PV = "${CORESDK_RTOS_VERSION}"
+PR = "${INC_PR}.0"
 
 CLEANBROKEN = "1"
-PR = "${INC_PR}.0"
 
 # Secure Build
 inherit ti-secdev
