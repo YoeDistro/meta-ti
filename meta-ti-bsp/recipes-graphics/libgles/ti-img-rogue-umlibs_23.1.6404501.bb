@@ -12,7 +12,7 @@ PR = "r2"
 
 BRANCH = "linuxws/kirkstone/k6.1/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "49958a8e820a321d22ac3c635bd21d4a3118c006"
+SRCREV = "452b0f50d2984171c81d5a0d3b22198177d919ad"
 S = "${WORKDIR}/git/targetfs/${TARGET_PRODUCT}/${PVR_WS}/${PVR_BUILD}"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
@@ -30,14 +30,29 @@ do_install:append() {
         rmdir ${D}/lib
     fi
     rm -rf "${D}/etc/init.d"
-    rm -rf "${D}/usr/lib/libvulkan.so"
-    rm -rf "${D}/usr/lib/libvulkan.so.0"
-    rm -rf "${D}/usr/lib/libvulkan.so.1"
 }
 
-PACKAGES = "${PN}-tools ${PN}"
+PACKAGES = "${PN}-vulkan ${PN}-tools ${PN}"
+
+FILES:${PN}-vulkan = " \
+    ${datadir}/vulkan \
+    ${libdir}/libVK_IMG.so* \
+"
+RDEPENDS:${PN}-vulkan += " \
+    mesa-vulkan-drivers \
+    libdrm \
+    ti-img-rogue-driver \
+    libx11-xcb \
+    wayland \
+"
+INSANE_SKIP:${PN}-vulkan += " \
+    already-stripped \
+    dev-so \
+"
+
 FILES:${PN}-tools = "${bindir}/"
 RDEPENDS:${PN}-tools = "python3-core"
-RRECOMMENDS:${PN} += "${PN}-tools"
+
+RRECOMMENDS:${PN} += "${PN}-vulkan ${PN}-tools"
 
 INSANE_SKIP:${PN} += "ldflags arch already-stripped dev-so"
