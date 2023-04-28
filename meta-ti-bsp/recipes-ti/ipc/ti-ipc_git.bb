@@ -8,11 +8,17 @@ PR = "${INC_PR}.2"
 
 DEPENDS += "virtual/kernel"
 
+SRC_URI:append = " https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/plain/include/uapi/linux/rpmsg_rpc.h?h=ti-linux-5.10.y;name=rpmsg_rpc;subdir=linux;downloadfilename=rpmsg_rpc.h"
+SRC_URI[rpmsg_rpc.sha256sum] = "cd237f40a37520a1f2df19fbfeefd00c0a5ad68efeaba9ba0fba60ca16ea09be"
+
 SRC_URI += "file://tiipclad-daemon.sh \
             file://omap_remoteproc.conf \
             file://tiipclad-daemon.service \
             file://0001-Add-kernel-build-dir.patch \
+            file://0001-MmRpc-Stop-looking-for-rpmsg_rpc.h-in-the-kernel.patch \
            "
+
+CFLAGS += "-I${WORKDIR}"
 
 DAEMON = "UNKNOWN"
 DAEMON:dra7xx = "lad_dra7xx"

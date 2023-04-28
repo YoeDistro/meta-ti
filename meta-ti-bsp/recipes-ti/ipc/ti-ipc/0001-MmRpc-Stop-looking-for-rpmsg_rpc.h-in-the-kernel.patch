@@ -1,0 +1,35 @@
+From 66ca0e732c2e287814d4fc5082b818554ee42398 Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Fri, 28 Apr 2023 14:30:59 -0500
+Subject: [PATCH] MmRpc: Stop looking for rpmsg_rpc.h in the kernel
+
+Stop looking for the rpmsg_rpc.h in the kernel.  While we are doing the
+LTS migration for kirkstone, this file is not going to be in the kernel
+for a bit.  This patch works in conjunction with a recipe change that
+downloads the header and adds a -I to the CFLAGS to pick it up.  This
+will be removed once the 6.1 kernel has been updated.
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+
+Upstream-Status: Inappropriate [other]
+
+---
+ packages/ti/ipc/mm/MmRpc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/packages/ti/ipc/mm/MmRpc.c b/packages/ti/ipc/mm/MmRpc.c
+index 2df7420..10f496b 100644
+--- a/packages/ti/ipc/mm/MmRpc.c
++++ b/packages/ti/ipc/mm/MmRpc.c
+@@ -64,7 +64,7 @@
+ #define linux_include(kd,m) <kd/include/uapi/linux/m.h>
+ #endif
+ 
+-#include linux_include(KERNEL_INSTALL_DIR,rpmsg_rpc)
++#include "linux/rpmsg_rpc.h"
+ 
+ #ifdef _linux_
+ #define linux _linux
+-- 
+2.17.1
+
