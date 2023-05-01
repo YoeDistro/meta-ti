@@ -7,6 +7,7 @@ COMPATIBLE_MACHINE = "beagle.*"
 
 inherit kernel
 
+require recipes-kernel/linux/setup-defconfig.inc
 require recipes-kernel/linux/ti-kernel.inc
 
 DEPENDS += "gmp-native libmpc-native"
@@ -26,13 +27,9 @@ PV:aarch64 = "5.10.162+git${SRCPV}"
 BRANCH:aarch64 = "v5.10.162-ti-arm64-r99"
 
 SRC_URI = "git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
-           file://init_disassemble_info-signature-changes-causes-compile-failures.patch"
+           file://defconfig \
+           file://init_disassemble_info-signature-changes-causes-compile-failures.patch \
+"
 
 SRC_URI:append:armv7a = " file://0001-defconfig-switch-default-kernel-compression-to-LZMA.patch"
 
-DEFCONFIG_NAME = "bb.org_defconfig"
-KERNEL_CONFIG_COMMAND = "oe_runmake -C ${S} O=${B} ${DEFCONFIG_NAME}"
-
-kernel_do_compile:append() {
-	oe_runmake dtbs CC="${KERNEL_CC} $cc_extra " LD="${KERNEL_LD}" ${KERNEL_EXTRA_ARGS}
-}
