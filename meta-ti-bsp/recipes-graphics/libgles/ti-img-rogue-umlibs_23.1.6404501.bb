@@ -10,9 +10,9 @@ COMPATIBLE_MACHINE = "j721e|j721s2|j784s4|am62xx"
 
 PR = "r2"
 
-BRANCH = "linuxws/kirkstone/k5.10/${PV}"
+BRANCH = "linuxws/kirkstone/k6.1/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "51e598919641d51156a631efa5447124a3c0f543"
+SRCREV = "49958a8e820a321d22ac3c635bd21d4a3118c006"
 S = "${WORKDIR}/git/targetfs/${TARGET_PRODUCT}/${PVR_WS}/${PVR_BUILD}"
 
 TARGET_PRODUCT:j721e = "j721e_linux"

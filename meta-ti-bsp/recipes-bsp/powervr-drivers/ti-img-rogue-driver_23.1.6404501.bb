@@ -16,13 +16,13 @@ COMPATIBLE_MACHINE = "j721e|j721s2|j784s4|am62xx"
 
 DEPENDS = "virtual/kernel"
 
-BRANCH = "linuxws/kirkstone/k5.10/${PV}"
+BRANCH = "linuxws/kirkstone/k6.1/${PV}"
 
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-driver.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
 
-SRCREV = "d575e4f64c95a3534e10e85da15bd303febf133f"
+SRCREV = "b69b689252a1158bff205603288ad12b9482770b"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
 TARGET_PRODUCT:j721s2 = "j721s2_linux"
