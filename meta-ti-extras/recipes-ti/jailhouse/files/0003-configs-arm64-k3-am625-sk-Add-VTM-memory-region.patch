@@ -1,0 +1,53 @@
+From 9c9bba78b5635531fc8946914233af8c8ac8a6f3 Mon Sep 17 00:00:00 2001
+From: Andreas Dannenberg <dannenberg@ti.com>
+Date: Fri, 4 Nov 2022 12:58:48 -0500
+Subject: [PATCH] configs: arm64: k3-am625-sk: Add VTM memory region
+
+Add the memory region for VTM to the device-specific config
+file. This fixes a runtime exception when the kernel accesses
+that memory region:
+
+<snip>
+Unhandled data read at 0xb00308(4)
+
+FATAL: unhandled trap (exception class 0x24)
+<snip>
+
+Upstream-Status: Submitted [jailhouse-dev@googlegroups.com]
+
+written by: Ricardo Salveti <ricardo@foundries.io>
+Signed-off-by: Andreas Dannenberg <dannenberg@ti.com>
+Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+---
+ configs/arm64/k3-am625-sk.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/configs/arm64/k3-am625-sk.c b/configs/arm64/k3-am625-sk.c
+index 4b0b8043..fac4eaa6 100644
+--- a/configs/arm64/k3-am625-sk.c
++++ b/configs/arm64/k3-am625-sk.c
+@@ -18,7 +18,7 @@
+ struct {
+	struct jailhouse_system header;
+	__u64 cpus[1];
+-	struct jailhouse_memory mem_regions[32];
++	struct jailhouse_memory mem_regions[33];
+	struct jailhouse_irqchip irqchips[5];
+	struct jailhouse_pci_device pci_devices[2];
+ } __attribute__((packed)) config = {
+@@ -154,6 +154,13 @@ struct {
+			.flags = JAILHOUSE_MEM_READ | JAILHOUSE_MEM_WRITE |
+				JAILHOUSE_MEM_IO,
+		},
++		/* Wake Up Domain VTM0 */ {
++			.phys_start = 0x00b00000,
++			.virt_start = 0x00b00000,
++			.size = 0x00001000,
++			.flags = JAILHOUSE_MEM_READ | JAILHOUSE_MEM_WRITE |
++				JAILHOUSE_MEM_IO,
++		},
+		/* First peripheral window, 1 of 2 */ {
+			.phys_start = 0x01000000,
+			.virt_start = 0x01000000,
+--
+2.34.1
