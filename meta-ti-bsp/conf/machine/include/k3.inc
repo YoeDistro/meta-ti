@@ -50,7 +50,8 @@ IMAGE_EFI_BOOT_FILES ?= "${IMAGE_BOOT_FILES}"
 EFI_PROVIDER ?= "grub-efi"
 MACHINE_FEATURES += "efi"
 
-WKS_FILE ?= "sdimage-2part-efi.wks"
+WKS_FILE ?= "${@bb.utils.contains("MACHINE_FEATURES", "efi", "sdimage-2part-efi.wks", "sdimage-2part.wks", d)}"
+
 do_image_wic[depends] += "virtual/bootloader:do_deploy"
 do_image_complete[mcdepends] += "mc::k3r5:ti-sci-fw:do_deploy"
 
