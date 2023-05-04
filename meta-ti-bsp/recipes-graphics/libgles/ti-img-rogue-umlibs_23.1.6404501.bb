@@ -29,10 +29,18 @@ do_install:append() {
         mv ${D}/lib/firmware ${D}${nonarch_base_libdir}
         rmdir ${D}/lib
     fi
+    if ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'false', 'true', d)}; then
+        rm -rf ${D}${libdir}/libVK_IMG.so*
+    fi
     rm -rf "${D}/etc/init.d"
 }
 
-PACKAGES = "${PN}-vulkan ${PN}-tools ${PN}-firmware ${PN}"
+PACKAGES = " \
+    ${@bb.utils.contains("DISTRO_FEATURES", "x11", "${PN}-vulkan", "", d)} \
+    ${PN}-tools \
+    ${PN}-firmware \
+    ${PN} \
+"
 
 FILES:${PN}-vulkan = " \
     ${datadir}/vulkan \
@@ -56,7 +64,10 @@ RDEPENDS:${PN}-tools = "python3-core"
 FILES:${PN}-firmware = "${base_libdir}/firmware/*"
 INSANE_SKIP:${PN}-firmware += "arch"
 
-RRECOMMENDS:${PN} += "${PN}-vulkan ${PN}-tools"
+RRECOMMENDS:${PN} += " \
+    ${@bb.utils.contains("DISTRO_FEATURES", "x11", "${PN}-vulkan", "", d)} \
+    ${PN}-tools \
+"
 RDEPENDS:${PN} += " ${PN}-firmware"
 
 INSANE_SKIP:${PN} += "already-stripped dev-so"
