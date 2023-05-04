@@ -19,7 +19,7 @@ index 418b6db..4b1c676 100644
 --- a/kernel_module/gdbproxy-mod/gdbserverproxy.c
 +++ b/kernel_module/gdbproxy-mod/gdbserverproxy.c
 @@ -540,7 +540,11 @@ static int gdb_write(struct tty_struct *tty,
-  *
+  * 
   *
   */
 +#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5,15,0))
