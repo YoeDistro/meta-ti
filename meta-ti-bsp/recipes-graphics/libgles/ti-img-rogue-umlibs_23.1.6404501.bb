@@ -32,7 +32,7 @@ do_install:append() {
     rm -rf "${D}/etc/init.d"
 }
 
-PACKAGES = "${PN}-vulkan ${PN}-tools ${PN}"
+PACKAGES = "${PN}-vulkan ${PN}-tools ${PN}-firmware ${PN}"
 
 FILES:${PN}-vulkan = " \
     ${datadir}/vulkan \
@@ -53,6 +53,10 @@ INSANE_SKIP:${PN}-vulkan += " \
 FILES:${PN}-tools = "${bindir}/"
 RDEPENDS:${PN}-tools = "python3-core"
 
-RRECOMMENDS:${PN} += "${PN}-vulkan ${PN}-tools"
+FILES:${PN}-firmware = "${base_libdir}/firmware/*"
+INSANE_SKIP:${PN}-firmware += "arch"
 
-INSANE_SKIP:${PN} += "ldflags arch already-stripped dev-so"
+RRECOMMENDS:${PN} += "${PN}-vulkan ${PN}-tools"
+RDEPENDS:${PN} += " ${PN}-firmware"
+
+INSANE_SKIP:${PN} += "already-stripped dev-so"
