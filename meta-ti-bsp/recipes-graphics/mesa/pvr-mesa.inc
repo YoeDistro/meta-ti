@@ -38,14 +38,18 @@ PACKAGECONFIG:remove = "xvmc"
 PACKAGECONFIG[xvmc] = ""
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-PV = "22.0.3+pvr"
+PV = "22.3.5+pvr"
 
 GALLIUMDRIVERS:append = "${@bb.utils.contains('PACKAGECONFIG', 'pvr', ',pvr', '', d)}"
 GALLIUMDRIVERS:append = "${@bb.utils.contains('PACKAGECONFIG', 'sgx', ',sgx', '', d)}"
+
+VULKAN_DRIVERS:append = "${@bb.utils.contains('PACKAGECONFIG', 'pvr', ',pvr', '', d)}"
 
 do_install:append () {
     # remove pvr custom pkgconfig
     rm -rf ${D}${datadir}/pkgconfig
 }
+
+FILES:mesa-vulkan-drivers += " ${libdir}/libpvr_mesa_wsi.so"
 
 RRECOMMENDS:mesa-megadriver:append:class-target = " ${@d.getVar('PREFERRED_PROVIDER_virtual/gpudriver')}"
