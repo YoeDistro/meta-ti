@@ -33,3 +33,7 @@ SRC_URI = "git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH
 
 SRC_URI:append:armv7a = " file://0001-defconfig-switch-default-kernel-compression-to-LZMA.patch"
 
+FILES:${KERNEL_PACKAGE_NAME}-devicetree += " \
+    /${KERNEL_DTBDEST}/*/overlays/*.dtb \
+    /${KERNEL_DTBDEST}/*/overlays/*.dtbo \
+"
