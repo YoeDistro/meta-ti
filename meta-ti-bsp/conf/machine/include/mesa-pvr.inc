@@ -1,0 +1,8 @@
+PREFERRED_PROVIDER_virtual/mesa ?= "mesa-pvr"
+PREFERRED_PROVIDER_virtual/egl ?= "mesa-pvr"
+PREFERRED_PROVIDER_virtual/libgles1 ?= "mesa-pvr"
+PREFERRED_PROVIDER_virtual/libgles2 ?= "mesa-pvr"
+PREFERRED_PROVIDER_virtual/libgles3 ?= "mesa-pvr"
+PREFERRED_PROVIDER_virtual/libgbm ?= "mesa-pvr"
+PREFERRED_PROVIDER_virtual/libglx ?= "mesa-pvr"
+PREFERRED_PROVIDER_virtual/libgl ?= "mesa-pvr"
