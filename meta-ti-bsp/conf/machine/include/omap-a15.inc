@@ -12,6 +12,7 @@ PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot-ti-staging"
 PREFERRED_PROVIDER_u-boot ?= "u-boot-ti-staging"
 
 # Graphics providers and variables
+require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= ""
 PVR_DISPLAY_CONTROLLER_ALIAS ?= "omapdrm"
 

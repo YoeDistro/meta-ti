@@ -2,11 +2,13 @@
 # upstream yet. This allows us to build the shims we need without completely
 # clobbering mesa.
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+require recipes-graphics/mesa/mesa.inc
+
+SUMMARY += " (with PowerVR support for TI platforms)"
 
 LIC_FILES_CHKSUM = "file://docs/license.rst;md5=63779ec98d78d823a9dc533a0735ef10"
 
-BRANCH = "powervr/kirkstone/22.3.5"
+BRANCH = "powervr/kirkstone/${PV}"
 
 SRC_URI = " \
     git://gitlab.freedesktop.org/StaticRocket/mesa.git;protocol=https;branch=${BRANCH} \
@@ -38,7 +40,6 @@ PACKAGECONFIG:remove = "xvmc"
 PACKAGECONFIG[xvmc] = ""
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-PV = "22.3.5+pvr"
 
 GALLIUMDRIVERS:append = "${@bb.utils.contains('PACKAGECONFIG', 'pvr', ',pvr', '', d)}"
 GALLIUMDRIVERS:append = "${@bb.utils.contains('PACKAGECONFIG', 'sgx', ',sgx', '', d)}"
@@ -50,6 +51,7 @@ do_install:append () {
     rm -rf ${D}${datadir}/pkgconfig
 }
 
-FILES:mesa-vulkan-drivers += " ${libdir}/libpvr_mesa_wsi.so"
+FILES:${PN}-dev += "${datadir}/mesa/wayland-drm.xml"
+FILES:mesa-vulkan-drivers += "${libdir}/libpvr_mesa_wsi.so"
 
 RRECOMMENDS:mesa-megadriver:append:class-target = " ${@d.getVar('PREFERRED_PROVIDER_virtual/gpudriver')}"
