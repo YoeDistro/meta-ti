@@ -8,6 +8,7 @@ PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 
 # Default tiboot3.bin on AM62x is for HS-FS
 BBMULTICONFIG = "k3r5-hs-fs"
+IMAGE_BOOT_FILES += "tiboot3-am62x-hs-fs-evm.bin"
 do_image_complete[mcdepends] = "mc::k3r5-hs-fs:ti-sci-fw:do_deploy"
 
 # Since default tiboot3.bin on AM62x is for HS-FS, add a version for GP
