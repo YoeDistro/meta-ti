@@ -29,6 +29,10 @@ BRANCH:aarch64 = "v5.10.162-ti-arm64-r99"
 SRC_URI = "git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
            file://defconfig \
            file://init_disassemble_info-signature-changes-causes-compile-failures.patch \
+           file://0001-gcc-plugins-Fix-build-for-upcoming-GCC-release.patch \
+           file://0001-ata-ahci-fix-enum-constants-for-gcc-13.patch \
+           file://0001-blk-iocost-avoid-64-bit-division-in-ioc_timer_fn.patch \
+           file://0001-block-blk-iocost-gcc13-keep-large-values-in-a-new-en.patch \
 "
 
 SRC_URI:append:armv7a = " file://0001-defconfig-switch-default-kernel-compression-to-LZMA.patch"
