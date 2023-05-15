@@ -9,7 +9,7 @@ PR = "r34"
 
 BRANCH = "ti-u-boot-2021.01"
 
-SRCREV = "2ee8efd6543648c6b8a14d93d52a6038854035c8"
+SRCREV = "3a5205e9803809f18edc59a40fd9df470f98a00f"
 
 SRC_URI += "file://0001-configs-Update-to-support-oe-core-fitImage-naming.patch"
 
