@@ -8,4 +8,3 @@ BRANCH = "ti-u-boot-2023.04"
 
 SRCREV = "c22f1ee591f84ab28c025d7aed9ee10c7f0154c1"
 
-DEFAULT_PREFERENCE = "-1"
