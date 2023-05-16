@@ -18,10 +18,10 @@ do_image_complete[mcdepends] += "mc::k3r5:virtual/bootloader:do_deploy"
 # Default sysfw.itb on AM65x is for SR2.0
 BBMULTICONFIG += "k3r5-sr2"
 do_image_complete[mcdepends] += "mc::k3r5-sr2:ti-sci-fw:do_deploy"
-IMAGE_BOOT_FILES += "sysfw.itb"
+IMAGE_BOOT_FILES += "sysfw.itb sysfw-am65x_sr2-${SYSFW_SUFFIX}-evm.itb"
 
 # Since default sysfw.itb on AM65x is for SR2.0, add a version for SR1.0
-IMAGE_BOOT_FILES += "sysfw-am65x-evm.itb"
+IMAGE_BOOT_FILES += "sysfw-am65x-${SYSFW_SUFFIX}-evm.itb"
 
 TFA_BOARD = "generic"
 
