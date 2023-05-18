@@ -7,3 +7,8 @@ def get_extra_dtc_args(d):
         return ""
 
 EXTRA_DTC_ARGS += "${@get_extra_dtc_args(d)}"
+
+# Tell the kernel class to install the DTBs in the same directory structure as
+# the kernel.
+KERNEL_DTBDEST = "${KERNEL_IMAGEDEST}/dtb"
+KERNEL_DTBVENDORED = "1"
