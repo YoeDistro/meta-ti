@@ -82,7 +82,7 @@ do_compile:append:j784s4-hs-evm() {
     optee_sign_k3hs
 }
 
-do_install:append:ti-soc() {
+do_install:append() {
     install -m 644 ${B}/*.optee ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin.unsigned ${D}${nonarch_base_libdir}/firmware/ || true

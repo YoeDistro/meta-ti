@@ -1,4 +1,4 @@
 OPTEE_TI = ""
-OPTEE_TI:ti-soc = "optee-os-ti.inc"
+OPTEE_TI:ti-soc = "${BPN}-ti.inc"
 
 require ${OPTEE_TI}
