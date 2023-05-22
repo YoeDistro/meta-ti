@@ -1,3 +1,6 @@
+PV = "3.20.0+git${SRCPV}"
+SRCREV = "8e74d47616a20eaa23ca692f4bbbf917a236ed94"
+
 # Use TI SECDEV for signing
 inherit ti-secdev
 
@@ -82,7 +85,7 @@ do_compile:append:j784s4-hs-evm() {
     optee_sign_k3hs
 }
 
-do_install:append:ti-soc() {
+do_install:append() {
     install -m 644 ${B}/*.optee ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin.unsigned ${D}${nonarch_base_libdir}/firmware/ || true
