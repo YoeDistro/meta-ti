@@ -1,4 +1,4 @@
-SUMMARY = "TI RTOS prebuilt binary firmware images"
+SUMMARY = "TI Echo Test prebuilt binary firmware images"
 
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://${COREBASE}/../meta-ti/licenses/TI-TFL;md5=a1b59cb7ba626b9dbbcbf00f3fbc438a"
@@ -34,10 +34,8 @@ CLEANBROKEN = "1"
 inherit ti-secdev
 
 IPC_FW_DIR = "ti-ipc/${PLAT_SFX}"
-ETH_FW_DIR = "ti-eth/${PLAT_SFX}"
 
 INSTALL_IPC_FW_DIR = "${nonarch_base_libdir}/firmware/${IPC_FW_DIR}"
-INSTALL_ETH_FW_DIR = "${nonarch_base_libdir}/firmware/${ETH_FW_DIR}"
 
 MCU_1_0_FW = "ipc_echo_test_mcu1_0_release_strip.xer5f"
 MCU_1_1_FW = "ipc_echo_test_mcu1_1_release_strip.xer5f"
@@ -54,8 +52,6 @@ C7X_2_FW   = "ipc_echo_test_c7x_2_release_strip.xe71"
 C7X_3_FW   = "ipc_echo_test_c7x_3_release_strip.xe71"
 C7X_4_FW   = "ipc_echo_test_c7x_4_release_strip.xe71"
 
-ETH_FW = "app_remoteswitchcfg_server_strip.xer5f"
-
 IPC_FW_LIST = ""
 IPC_FW_LIST:j721e =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                             ${C66_1_FW} ${C66_2_FW} ${C7X_1_FW}"
 IPC_FW_LIST:j7200 =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW}"
@@ -65,16 +61,6 @@ IPC_FW_LIST:am65xx =  "${MCU_1_0_FW} ${MCU_1_1_FW}"
 IPC_FW_LIST:am64xx =  "${MCU_1_0_FW} ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW}"
 IPC_FW_LIST:am62xx =  "                            ${MCU_2_0_FW}"
 IPC_FW_LIST:am62axx = "                            ${MCU_2_0_FW}                                                                                               ${C7X_1_FW}"
-
-ETH_FW_LIST = ""
-ETH_FW_LIST:j721e =   "${ETH_FW}"
-ETH_FW_LIST:j7200 =   "${ETH_FW}"
-ETH_FW_LIST:j721s2 =  ""
-ETH_FW_LIST:j784s4 =  "${ETH_FW}"
-ETH_FW_LIST:am65xx =  ""
-ETH_FW_LIST:am64xx =  ""
-ETH_FW_LIST:am62xx =  ""
-ETH_FW_LIST:am62axx = ""
 
 # Update the am64xx ipc binaries to be consistent with other platforms
 do_install:prepend:am64xx() {
@@ -108,26 +94,12 @@ do_install() {
         ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${S}/${IPC_FW_DIR}/${FW_NAME} ${S}/${IPC_FW_DIR}/${FW_NAME}.signed
     done
 
-    # ETH firmware
-    for FW_NAME in ${ETH_FW_LIST}
-    do
-        ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${S}/${ETH_FW_DIR}/${FW_NAME} ${S}/${ETH_FW_DIR}/${FW_NAME}.signed
-    done
-
     # IPC Firmware
     install -d ${D}${INSTALL_IPC_FW_DIR}
     for FW_NAME in ${IPC_FW_LIST}
     do
         install -m 0644 ${S}/${IPC_FW_DIR}/${FW_NAME}        ${D}${INSTALL_IPC_FW_DIR}
         install -m 0644 ${S}/${IPC_FW_DIR}/${FW_NAME}.signed ${D}${INSTALL_IPC_FW_DIR}
-    done
-
-    # ETH firmware
-    install -d ${D}${INSTALL_ETH_FW_DIR}
-    for FW_NAME in ${ETH_FW_LIST}
-    do
-        install -m 0644 ${S}/${ETH_FW_DIR}/${FW_NAME}        ${D}${INSTALL_ETH_FW_DIR}
-        install -m 0644 ${S}/${ETH_FW_DIR}/${FW_NAME}.signed ${D}${INSTALL_ETH_FW_DIR}
     done
 }
 
@@ -303,7 +275,7 @@ ALTERNATIVE_TARGET[am62a-mcu-r5f0_0-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}"
 ALTERNATIVE_TARGET[am62a-c71_0-fw] = "${INSTALL_IPC_FW_DIR}/${C7X_1_FW}"
 
 ALTERNATIVE_TARGET[j7-mcu-r5f0_1-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_1_1_FW}"
-ALTERNATIVE_TARGET[j7-main-r5f0_0-fw] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}"
+ALTERNATIVE_TARGET[j7-main-r5f0_0-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}"
 ALTERNATIVE_TARGET[j7-main-r5f0_1-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_2_1_FW}"
 ALTERNATIVE_TARGET[j7-main-r5f1_0-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_3_0_FW}"
 ALTERNATIVE_TARGET[j7-main-r5f1_1-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_3_1_FW}"
@@ -311,7 +283,7 @@ ALTERNATIVE_TARGET[j7-c66_0-fw] = "${INSTALL_IPC_FW_DIR}/${C66_1_FW}"
 ALTERNATIVE_TARGET[j7-c66_1-fw] = "${INSTALL_IPC_FW_DIR}/${C66_2_FW}"
 ALTERNATIVE_TARGET[j7-c71_0-fw] = "${INSTALL_IPC_FW_DIR}/${C7X_1_FW}"
 
-ALTERNATIVE_TARGET[j7-main-r5f0_0-fw-sec] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}.signed"
+ALTERNATIVE_TARGET[j7-main-r5f0_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}.signed"
 ALTERNATIVE_TARGET[j7-main-r5f0_1-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_1_FW}.signed"
 ALTERNATIVE_TARGET[j7-main-r5f1_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_3_0_FW}.signed"
 ALTERNATIVE_TARGET[j7-main-r5f1_1-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_3_1_FW}.signed"
@@ -320,10 +292,10 @@ ALTERNATIVE_TARGET[j7-c66_1-fw-sec] = "${INSTALL_IPC_FW_DIR}/${C66_2_FW}.signed"
 ALTERNATIVE_TARGET[j7-c71_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${C7X_1_FW}.signed"
 
 ALTERNATIVE_TARGET[j7200-mcu-r5f0_1-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_1_1_FW}"
-ALTERNATIVE_TARGET[j7200-main-r5f0_0-fw] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}"
+ALTERNATIVE_TARGET[j7200-main-r5f0_0-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}"
 ALTERNATIVE_TARGET[j7200-main-r5f0_1-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_2_1_FW}"
 
-ALTERNATIVE_TARGET[j7200-main-r5f0_0-fw-sec] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}.signed"
+ALTERNATIVE_TARGET[j7200-main-r5f0_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}.signed"
 ALTERNATIVE_TARGET[j7200-main-r5f0_1-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_1_FW}.signed"
 
 ALTERNATIVE_TARGET[j721s2-mcu-r5f0_1-fw] = "${INSTALL_IPC_FW_DIR}/${MCU_1_1_FW}"
