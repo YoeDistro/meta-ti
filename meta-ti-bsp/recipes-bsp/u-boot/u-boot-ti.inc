@@ -25,6 +25,13 @@ PV:append = "+git${SRCPV}"
 # u-boot needs devtree compiler to parse dts files
 DEPENDS += "dtc-native bc-native lzop-native flex-native bison-native python3-setuptools-native"
 
+# u-boot needs these for binman
+DEPENDS += "python3-pyelftools-native python3-pyyaml-native python3-jsonschema-native"
+
+# SYSFW/TIFS Firmware
+DEPENDS:append:k3 = " ti-sci-fw"
+DEPENDS:append:k3r5 = " ti-sci-fw"
+
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
 
 PLAT_SFX = ""
@@ -37,7 +44,7 @@ PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
 PLAT_SFX:am62axx = "am62axx"
 
-PACKAGECONFIG[atf] = "ATF=${STAGING_DIR_HOST}/firmware/bl31.bin,,trusted-firmware-a"
+PACKAGECONFIG[atf] = "BL31=${STAGING_DIR_HOST}/firmware/bl31.bin,,trusted-firmware-a"
 PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/bl32.bin,,optee-os"
 PACKAGECONFIG[dm] = "DM=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/ti-dm/${PLAT_SFX}/${DM_FIRMWARE},,ti-dm-fw"
 
@@ -51,7 +58,9 @@ PACKAGECONFIG:append:am62axx = " dm"
 
 COMPATIBLE_MACHINE = "(ti-soc)"
 
-EXTRA_OEMAKE += "${PACKAGECONFIG_CONFARGS}"
+BINMAN_INDIRS="${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware"
+
+EXTRA_OEMAKE += "${PACKAGECONFIG_CONFARGS} BINMAN_INDIRS=${BINMAN_INDIRS}"
 
 PROVIDES += "u-boot"
 PKG:${PN} = "u-boot"
@@ -172,6 +181,20 @@ do_install:append () {
 			ln -sf ${UBOOT_HS_2ND_IMAGE} ${D}/boot/${UBOOT_HS_2ND_BINARY}
 		fi
 	fi
+}
+
+do_deploy:append:k3r5 () {
+	for f in ${B}/tiboot3-*.bin; do
+		if [ -f "$f" ]; then
+			install -m 644 $f ${DEPLOYDIR}/
+		fi
+	done
+
+	for f in ${B}/sysfw*.itb; do
+		if [ -f "$f" ]; then
+			install -m 644 $f ${DEPLOYDIR}/
+		fi
+	done
 }
 
 do_deploy:append () {
