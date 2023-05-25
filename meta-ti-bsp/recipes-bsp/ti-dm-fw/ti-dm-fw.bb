@@ -1,0 +1,119 @@
+SUMMARY = "TI DM prebuilt binary firmware images"
+
+LICENSE = "TI-TFL"
+LIC_FILES_CHKSUM = "file://${COREBASE}/../meta-ti/licenses/TI-TFL;md5=a1b59cb7ba626b9dbbcbf00f3fbc438a"
+
+COMPATIBLE_MACHINE = "k3"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+INHIBIT_DEFAULT_DEPS = "1"
+
+inherit deploy
+inherit update-alternatives
+
+require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
+
+PV = "${TI_DM_FW_VERSION}"
+PR = "${INC_PR}.0"
+
+CLEANBROKEN = "1"
+
+# Secure Build
+inherit ti-secdev
+
+PLAT_SFX = ""
+PLAT_SFX:j721e = "j721e"
+PLAT_SFX:j7200 = "j7200"
+PLAT_SFX:j721s2 = "j721s2"
+PLAT_SFX:j784s4 = "j784s4"
+PLAT_SFX:am65xx = "am65xx"
+PLAT_SFX:am64xx = "am64xx"
+PLAT_SFX:am62xx = "am62xx"
+PLAT_SFX:am62axx = "am62axx"
+
+DM_FW_DIR = "ti-dm/${PLAT_SFX}"
+
+INSTALL_DM_FW_DIR  = "${nonarch_base_libdir}/firmware/${DM_FW_DIR}"
+
+DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
+
+DM_FW_LIST = ""
+DM_FW_LIST:j721e =   "${DM_FIRMWARE}"
+DM_FW_LIST:j7200 =   "${DM_FIRMWARE}"
+DM_FW_LIST:j721s2 =  "${DM_FIRMWARE}"
+DM_FW_LIST:j784s4 =  "${DM_FIRMWARE}"
+DM_FW_LIST:am65xx =  ""
+DM_FW_LIST:am64xx =  ""
+DM_FW_LIST:am62xx =  "${DM_FIRMWARE}"
+DM_FW_LIST:am62axx = "${DM_FIRMWARE}"
+
+do_install() {
+    # Sign the firmware
+    # DM Firmware
+    for FW_NAME in ${DM_FW_LIST}
+    do
+        ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${S}/${DM_FW_DIR}/${FW_NAME} ${S}/${DM_FW_DIR}/${FW_NAME}.signed
+    done
+
+    # DM Firmware
+    install -d ${D}${INSTALL_DM_FW_DIR}
+    for FW_NAME in ${DM_FW_LIST}
+    do
+        install -m 0644 ${S}/${DM_FW_DIR}/${FW_NAME}        ${D}${INSTALL_DM_FW_DIR}/${FW_NAME}.unsigned
+        install -m 0644 ${S}/${DM_FW_DIR}/${FW_NAME}.signed ${D}${INSTALL_DM_FW_DIR}/${FW_NAME}
+    done
+}
+
+do_deploy() {
+    # DM Firmware is needed for rebuilding U-Boot
+    install -d ${DEPLOYDIR}
+    for FW_NAME in ${DM_FW_LIST}
+    do
+        install -m 0644 ${S}/${DM_FW_DIR}/${FW_NAME}        ${DEPLOYDIR}/${FW_NAME}.unsigned
+        install -m 0644 ${S}/${DM_FW_DIR}/${FW_NAME}.signed ${DEPLOYDIR}/${FW_NAME}
+    done
+}
+
+# Set up names for the firmwares
+ALTERNATIVE:${PN}:am62xx  = "am62-main-r5f0_0-fw"
+ALTERNATIVE:${PN}:am62axx = "am62a-main-r5f0_0-fw"
+ALTERNATIVE:${PN}:j721e   = "j7-mcu-r5f0_0-fw"
+ALTERNATIVE:${PN}:j7200   = "j7200-mcu-r5f0_0-fw"
+ALTERNATIVE:${PN}:j721s2  = "j721s2-mcu-r5f0_0-fw"
+ALTERNATIVE:${PN}:j784s4  = "j784s4-mcu-r5f0_0-fw"
+
+# Set up link names for the firmwares
+ALTERNATIVE_LINK_NAME[am62-main-r5f0_0-fw]  = "${nonarch_base_libdir}/firmware/am62-main-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[am62a-main-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/am62a-main-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[j7-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j7-mcu-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[j7200-mcu-r5f0_0-fw]  = "${nonarch_base_libdir}/firmware/j7200-mcu-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[j721s2-mcu-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/j721s2-mcu-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[j784s4-mcu-r5f0_0-fw] = "${nonarch_base_libdir}/firmware/j784s4-mcu-r5f0_0-fw"
+
+# Create the firmware alternatives
+ALTERNATIVE_TARGET[am62-main-r5f0_0-fw]  = "${INSTALL_DM_FW_DIR}/${DM_FIRMWARE}"
+ALTERNATIVE_TARGET[am62a-main-r5f0_0-fw] = "${INSTALL_DM_FW_DIR}/${DM_FIRMWARE}"
+ALTERNATIVE_TARGET[j7-mcu-r5f0_0-fw]     = "${INSTALL_DM_FW_DIR}/${DM_FIRMWARE}"
+ALTERNATIVE_TARGET[j7200-mcu-r5f0_0-fw]  = "${INSTALL_DM_FW_DIR}/${DM_FIRMWARE}"
+ALTERNATIVE_TARGET[j721s2-mcu-r5f0_0-fw] = "${INSTALL_DM_FW_DIR}/${DM_FIRMWARE}"
+ALTERNATIVE_TARGET[j784s4-mcu-r5f0_0-fw] = "${INSTALL_DM_FW_DIR}/${DM_FIRMWARE}"
+
+ALTERNATIVE_PRIORITY = "10"
+
+# make sure that lib/firmware, and all its contents are part of the package
+FILES:${PN} += "${nonarch_base_libdir}/firmware"
+
+# This is used to prevent the build system to_strip the executables
+INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_SYSROOT_STRIP = "1"
+# This is used to prevent the build system to split the debug info in a separate file
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+# As it likely to be a different arch from the Yocto build, disable checking by adding "arch" to INSANE_SKIP
+INSANE_SKIP:${PN} += "arch"
+
+# we don't want to configure and build the source code
+do_compile[noexec] = "1"
+do_configure[noexec] = "1"
+
+addtask deploy after do_install
