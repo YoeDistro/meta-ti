@@ -6,10 +6,16 @@ MACHINE_FEATURES += "screen gpu"
 require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 
-# On J721e the file tiboot3.bin comes from the bootloader not ti-sci-fw
-do_image_complete[mcdepends] += "mc::k3r5:virtual/bootloader:do_deploy"
-
 IMAGE_BOOT_FILES += "sysfw.itb"
+
+# Default sysfw.itb on J721e is for GP
+IMAGE_BOOT_FILES += "sysfw-j721e-gp-evm.itb"
+
+# Since default sysfw.itb on J721e is for GP, add a version for HS-FS
+IMAGE_BOOT_FILES += "sysfw-j721e_sr2-hs-fs-evm.itb"
+
+# Since default sysfw.itb on J721e is for GP, add a version for HS-SE
+IMAGE_BOOT_FILES += "sysfw-j721e_sr1_1-hs-evm.itb"
 
 TFA_BOARD = "generic"
 
