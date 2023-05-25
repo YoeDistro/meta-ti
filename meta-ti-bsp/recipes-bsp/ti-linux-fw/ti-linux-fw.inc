@@ -1,4 +1,4 @@
-SUMMARY = "TI SCI firmware (SYSFW)"
+SUMMARY = "Common include for TI Linux firmware"
 
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
@@ -16,21 +16,13 @@ IMG_DEC_FW_VERSION = "1.0"
 CNM_WAVE521_FW_VERSION = "1.0.00"
 TIFS_LPM_STUB_FW_VERSION = "08.06.04"
 TI_DM_FW_VERSION = "08.06.04"
+TI_SYSFW_VERSION = "08.06.04"
 
 TI_LINUX_FW_SRCREV ?= "d1372402013ab512dc25381403f075efa90e5a47"
 SRCREV = "${TI_LINUX_FW_SRCREV}"
 
 BRANCH ?= "ti-linux-firmware"
 
-K3_IMAGE_GEN_SRCREV ?= "c8ff829bb470e1e5c6c7ff6abd71fd38974bc760"
-SRCREV_imggen = "${K3_IMAGE_GEN_SRCREV}"
-SRCREV_FORMAT = "imggen"
-
-K3_IMAGE_GEN_BRANCH ?= "master"
-
-SRC_URI = " \
-	git://git.ti.com/git/processor-firmware/ti-linux-firmware.git;protocol=https;branch=${BRANCH} \
-	git://git.ti.com/git/k3-image-gen/k3-image-gen.git;protocol=https;branch=${K3_IMAGE_GEN_BRANCH};destsuffix=imggen;name=imggen \
-"
+SRC_URI = "git://git.ti.com/git/processor-firmware/ti-linux-firmware.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
