@@ -8,7 +8,6 @@ EXTRA_OEMAKE:append:am62axx = " CFG_TEE_CORE_LOG_LEVEL=1"
 
 do_compile:append:k3() {
     cp ${B}/core/tee-pager_v2.bin ${B}/bl32.bin
-    cp ${B}/core/tee-pager_v2.bin ${B}/bl32.bin.unsigned
     cp ${B}/core/tee.elf ${B}/bl32.elf
 }
 
@@ -39,53 +38,9 @@ do_compile:append:dra7xx() {
     optee_sign_legacyhs
 }
 
-# Signing procedure for K3 devices
-optee_sign_k3hs() {
-    ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${B}/core/tee-pager_v2.bin ${B}/bl32.bin
-    cp ${B}/core/tee-pager_v2.bin ${B}/bl32.bin.unsigned
-    cp ${B}/core/tee.elf ${B}/bl32.elf
-}
-
-do_compile:append:am65xx-hs-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:am64xx-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:am62xx-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:am62xx-lp-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:am62axx-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:j721e-hs-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:j7200-hs-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:j721s2-hs-evm() {
-    optee_sign_k3hs
-}
-
-do_compile:append:j784s4-hs-evm() {
-    optee_sign_k3hs
-}
-
 do_install:append() {
     install -m 644 ${B}/*.optee ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin ${D}${nonarch_base_libdir}/firmware/ || true
-    install -m 644 ${B}/bl32.bin.unsigned ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.elf ${D}${nonarch_base_libdir}/firmware/ || true
 }
 
@@ -106,7 +61,6 @@ do_deploy:append:dra7xx() {
 
 do_deploy:append:k3() {
     ln -sf optee/bl32.bin ${DEPLOYDIR}/
-    ln -sf optee/bl32.bin.unsigned ${DEPLOYDIR}/
     ln -sf optee/bl32.elf ${DEPLOYDIR}/
 }
 
