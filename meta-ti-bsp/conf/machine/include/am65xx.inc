@@ -14,10 +14,12 @@ KERNEL_DEVICETREE = " \
 
 IMAGE_BOOT_FILES += "sysfw.itb"
 
-# Default sysfw.itb on AM65x is for GP
+# Default on AM65x is for GP
+IMAGE_BOOT_FILES += "tiboot3-am65x-gp-evm.bin"
 IMAGE_BOOT_FILES += "sysfw-am65x-gp-evm.itb"
 
-# Since default sysfw.itb on AM65x is for GP, add a version for HS-SE
+# Since default on AM65x is for GP, add a version for HS-SE
+IMAGE_BOOT_FILES += "tiboot3-am65x_sr2-hs-evm.bin"
 IMAGE_BOOT_FILES += "sysfw-am65x_sr2-hs-evm.itb"
 
 TFA_BOARD = "generic"
