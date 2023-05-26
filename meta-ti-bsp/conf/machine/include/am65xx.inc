@@ -18,7 +18,7 @@ IMAGE_BOOT_FILES += "sysfw.itb"
 IMAGE_BOOT_FILES += "sysfw-am65x-gp-evm.itb"
 
 # Since default sysfw.itb on AM65x is for GP, add a version for HS-SE
-IMAGE_BOOT_FILES += "sysfw-am65x-hs-evm.itb"
+IMAGE_BOOT_FILES += "sysfw-am65x_sr2-hs-evm.itb"
 
 TFA_BOARD = "generic"
 
