@@ -27,7 +27,7 @@ ALTERNATIVE_TARGET[wave521c_codec_fw.bin] = "${nonarch_base_libdir}/firmware/cnm
 ALTERNATIVE_PRIORITY = "10"
 
 # Set up names for the firmwares
-ALTERNATIVE_${PN} = "wave521c_codec_fw.bin"
+ALTERNATIVE:${PN} = "wave521c_codec_fw.bin"
 
 do_install() {
 	install -d ${D}${nonarch_base_libdir}/firmware/cnm
