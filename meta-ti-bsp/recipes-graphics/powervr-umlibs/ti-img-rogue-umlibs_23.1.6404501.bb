@@ -36,11 +36,11 @@ do_install:append() {
 }
 
 PACKAGES = " \
-    libgles1-rogue libgles1-rogue-dev \
-    libgles2-rogue libgles2-rogue-dev \
-    libgles3-rogue libgles3-rogue-dev \
-    libvk-rogue libvk-rogue-dev \
-    libopencl-rogue libopencl-rogue-dev \
+    libgles1-rogue \
+    libgles2-rogue \
+    libgles3-rogue \
+    libvk-rogue \
+    libopencl-rogue \
     libopencl-rogue-tools \
     ${PN}-tools \
     ${PN}-firmware \
@@ -65,34 +65,26 @@ python __anonymous() {
         mlprefix = d.getVar("MLPREFIX")
         pkgs = " " + " ".join(mlprefix + x + suffix for x in p[1:])
         d.setVar("DEBIAN_NOAUTONAME:" + fullp, "1")
+        d.setVar("INSANE_SKIP:" + fullp, "dev-so")
         d.appendVar("RRECOMMENDS:" + fullp, " ${MLPREFIX}ti-img-rogue-umlibs" + suffix)
-
-        # For -dev, the first element is both the Debian and original name
-        fullp = mlprefix + p[1] + "-rogue-dev" + suffix
-        pkgs = " " + mlprefix + p[1] + "-dev" + suffix
-        d.setVar("DEBIAN_NOAUTONAME:" + fullp, "1")
 }
 
 # gles specific shared objects
-FILES:libgles1-rogue = "${libdir}/libGLESv1*.so.*"
-FILES:libgles1-rogue-dev = "${libdir}/libGLESv1*.so"
-FILES:libgles2-rogue = "${libdir}/libGLESv2*.so.*"
-FILES:libgles2-rogue-dev = "${libdir}/libGLESv2*.so"
+FILES:libgles1-rogue = "${libdir}/libGLESv1*.so*"
+FILES:libgles2-rogue = "${libdir}/libGLESv2*.so*"
 RDEPENDS:libgles1-rogue += "mesa-megadriver"
 RDEPENDS:libgles2-rogue += "mesa-megadriver"
-RDEPENDS:libgles3-rogue-dev += "libgles2-rogue-dev"
 
 # vulkan specific shared objects and configs
-FILES:libvk-rogue = "${libdir}/libVK_IMG.so.* ${datadir}/vulkan"
-FILES:libvk-rogue-dev = "${libdir}/libVK_IMG.so"
+FILES:libvk-rogue = "${libdir}/libVK_IMG.so* ${datadir}/vulkan"
 RDEPENDS:libvk-rogue += "vulkan-loader libx11-xcb wayland libdrm"
 
 # opencl specific shared objects and configs
-FILES:libopencl-rogue = "${libdir}/libPVROCL.so.* ${sysconfdir}/OpenCL"
-FILES:libopencl-rogue-dev = "${libdir}/libPVROCL.so"
+FILES:libopencl-rogue = "${libdir}/libPVROCL.so* ${sysconfdir}/OpenCL"
 RDEPENDS:libopencl-rogue += "opencl-icd-loader"
 RRECOMMENDS:libopencl-rogue += "libopencl-rogue-tools"
 FILES:libopencl-rogue-tools += "${bindir}/ocl*"
+DEBIAN_NOAUTONAME:libopencl-rogue-tools = "1"
 
 # optional tools and tests
 FILES:${PN}-tools = "${bindir}/"
