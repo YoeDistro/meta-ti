@@ -15,6 +15,9 @@ IMAGE_BOOT_FILES += "tiboot3-am62x-gp-evm.bin"
 # Since default tiboot3.bin on AM62x is for HS-FS, add a version for HS-SE
 IMAGE_BOOT_FILES += "tiboot3-am62x-hs-evm.bin"
 
+# Bitmap image tarball for early splashscreen
+IMAGE_BOOT_FILES += "ti_logo_414x97_32bpp.bmp.gz"
+
 TFA_BOARD = "lite"
 TFA_K3_SYSTEM_SUSPEND = "1"
 
