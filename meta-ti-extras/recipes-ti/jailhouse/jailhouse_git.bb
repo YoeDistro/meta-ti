@@ -10,6 +10,8 @@ LIC_FILES_CHKSUM = " \
     file://COPYING;md5=9fa7f895f96bde2d47fd5b7d95b6ba4d \
 "
 
+COMPATIBLE_MACHINE = "am62xx"
+
 TARGET_CC_ARCH += "${LDFLAGS}"
 
 PV = "0.12+git${SRCPV}"
