@@ -10,3 +10,12 @@ BRANCH = "ti-u-boot-2023.04"
 
 SRCREV = "a3595f1e3ed4905e1894d47cc91f0887a5cbfee0"
 
+do_install:append:am62xx() {
+	install -d ${D}/boot
+	install -m 0644 ${S}/tools/logos/ti_logo_414x97_32bpp.bmp.gz ${D}/boot
+}
+
+do_deploy:append:am62xx() {
+	install -d ${DEPLOYDIR}
+	install -m 0644 ${S}/tools/logos/ti_logo_414x97_32bpp.bmp.gz ${DEPLOYDIR}
+}
