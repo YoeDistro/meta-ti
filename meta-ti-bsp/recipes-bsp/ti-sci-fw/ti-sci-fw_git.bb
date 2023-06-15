@@ -18,6 +18,7 @@ do_install() {
 	install -d ${D}${nonarch_base_libdir}/firmware/ti-sysfw
 	install -m 644 ${S}/ti-sysfw/ti-sci-firmware-* ${D}${nonarch_base_libdir}/firmware/ti-sysfw
 	install -m 644 ${S}/ti-sysfw/ti-fs-firmware-* ${D}${nonarch_base_libdir}/firmware/ti-sysfw
+	install -m 644 ${S}/ti-sysfw/ti-fs-stub-firmware-* ${D}${nonarch_base_libdir}/firmware/ti-sysfw
 }
 
 FILES:${PN} = "${nonarch_base_libdir}/firmware"
