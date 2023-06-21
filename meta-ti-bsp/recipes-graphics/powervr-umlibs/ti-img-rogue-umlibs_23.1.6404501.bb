@@ -28,20 +28,63 @@ RDEPENDS:${PN} = " \
     ${PN}-firmware \
 "
 
+PACKAGECONFIG ?= " \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'vulkan x11 wayland', 'vulkan', '', d)} \
+    ${@bb.utils.filter('DISTRO_FEATURES', 'opengl opencl', d)} \
+"
+
+PACKAGECONFIG[opengl] = ",,,${GLES_LIB_PACKAGES}"
+PACKAGECONFIG[vulkan] = ",,,${VULKAN_LIB_PACKAGES}"
+PACKAGECONFIG[opencl] = ",,,${OPENCL_LIB_PACKAGES},libopencl-rogue-tools"
+
+def get_file_list(package_list_var, d):
+    file_list = []
+    package_list = d.getVar(package_list_var)
+    if package_list:
+        for package in package_list.split():
+            package_files = d.getVar(f"FILES:{package}")
+            if package_files:
+                file_list.append(package_files)
+    return " ".join(file_list)
+
 do_install:append() {
+    if ${@bb.utils.contains('PACKAGECONFIG', 'opengl', 'false', 'true', d)}; then
+        for file in ${@get_file_list('GLES_PACKAGES', d)}; do
+            rm -rf ${D}/${file}
+            rmdir --ignore-fail-on-non-empty $(dirname ${D}/${file})
+        done
+    fi
+    if ${@bb.utils.contains('PACKAGECONFIG', 'vulkan', 'false', 'true', d)}; then
+        for file in ${@get_file_list('VULKAN_PACKAGES', d)}; do
+            rm -rf ${D}/${file}
+            rmdir --ignore-fail-on-non-empty $(dirname ${D}/${file})
+        done
+    fi
+    if ${@bb.utils.contains('PACKAGECONFIG', 'opencl', 'false', 'true', d)}; then
+        for file in ${@get_file_list('OPENCL_PACKAGES', d)}; do
+            rm -rf ${D}/${file}
+            rmdir --ignore-fail-on-non-empty $(dirname ${D}/${file})
+        done
+    fi
     if ${@bb.utils.contains('DISTRO_FEATURES', 'usrmerge', 'true', 'false', d)}; then
         mv ${D}/lib/firmware ${D}${nonarch_base_libdir}
         rmdir ${D}/lib
     fi
 }
 
+GLES_LIB_PACKAGES = "libgles1-rogue libgles2-rogue libgles3-rogue"
+GLES_PACKAGES = "${GLES_LIB_PACKAGES}"
+
+VULKAN_LIB_PACKAGES = "libvk-rogue"
+VULKAN_PACKAGES = "${VULKAN_LIB_PACKAGES}"
+
+OPENCL_LIB_PACKAGES = "libopencl-rogue"
+OPENCL_PACKAGES = "${OPENCL_LIB_PACKAGES} libopencl-rogue-tools"
+
 PACKAGES = " \
-    libgles1-rogue \
-    libgles2-rogue \
-    libgles3-rogue \
-    libvk-rogue \
-    libopencl-rogue \
-    libopencl-rogue-tools \
+    ${@bb.utils.contains('PACKAGECONFIG', 'opengl', d.getVar('GLES_PACKAGES'), '', d)} \
+    ${@bb.utils.contains('PACKAGECONFIG', 'vulkan', d.getVar('VULKAN_PACKAGES'), '', d)} \
+    ${@bb.utils.contains('PACKAGECONFIG', 'opencl', d.getVar('OPENCL_PACKAGES'), '', d)} \
     ${PN}-tools \
     ${PN}-firmware \
     ${PN}-dev \
@@ -95,9 +138,6 @@ FILES:${PN}-firmware = "${base_libdir}/firmware/*"
 INSANE_SKIP:${PN}-firmware += "arch"
 
 RRECOMMENDS:${PN} += " \
-    ${@bb.utils.contains("DISTRO_FEATURES", "opengl", "libgles1-rogue libgles2-rogue", "", d)} \
-    ${@bb.utils.contains("DISTRO_FEATURES", "vulkan x11 wayland", "libvk-rogue", "", d)} \
-    ${@bb.utils.contains("DISTRO_FEATURES", "opencl", "libopencl-rogue", "", d)} \
     ${PN}-tools \
 "
 
