@@ -33,9 +33,9 @@ PACKAGECONFIG ?= " \
     ${@bb.utils.filter('DISTRO_FEATURES', 'opengl opencl', d)} \
 "
 
-PACKAGECONFIG[opengl] = ",,,${GLES_LIB_PACKAGES}"
-PACKAGECONFIG[vulkan] = ",,,${VULKAN_LIB_PACKAGES}"
-PACKAGECONFIG[opencl] = ",,,${OPENCL_LIB_PACKAGES},libopencl-rogue-tools"
+PACKAGECONFIG[opengl] = ",,,,${GLES_PACKAGES}"
+PACKAGECONFIG[vulkan] = ",,,,${VULKAN_PACKAGES}"
+PACKAGECONFIG[opencl] = ",,,,${OPENCL_PACKAGES}"
 
 def get_file_list(package_list_var, d):
     file_list = []
@@ -72,14 +72,9 @@ do_install:append() {
     fi
 }
 
-GLES_LIB_PACKAGES = "libgles1-rogue libgles2-rogue libgles3-rogue"
-GLES_PACKAGES = "${GLES_LIB_PACKAGES}"
-
-VULKAN_LIB_PACKAGES = "libvk-rogue"
-VULKAN_PACKAGES = "${VULKAN_LIB_PACKAGES}"
-
-OPENCL_LIB_PACKAGES = "libopencl-rogue"
-OPENCL_PACKAGES = "${OPENCL_LIB_PACKAGES} libopencl-rogue-tools"
+GLES_PACKAGES = "libgles1-rogue libgles2-rogue libgles3-rogue"
+VULKAN_PACKAGES = "libvk-rogue"
+OPENCL_PACKAGES = "libopencl-rogue libopencl-rogue-tools"
 
 PACKAGES = " \
     ${@bb.utils.contains('PACKAGECONFIG', 'opengl', d.getVar('GLES_PACKAGES'), '', d)} \
