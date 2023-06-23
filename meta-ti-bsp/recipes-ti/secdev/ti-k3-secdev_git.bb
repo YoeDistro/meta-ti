@@ -15,7 +15,7 @@ COMPATIBLE_MACHINE:class-nativesdk = "(.*)"
 GIT_URI = "git://git.ti.com/git/security-development-tools/core-secdev-k3.git"
 GIT_PROTOCOL = "https"
 GIT_BRANCH = "master"
-GIT_SRCREV = "bba9cabaeee96f7f287385188ff289b46769a4bf"
+GIT_SRCREV = "ed6951fd3877c6cac7f1237311f7278ac21634f3"
 
 SRC_URI = "${GIT_URI};protocol=${GIT_PROTOCOL};branch=${GIT_BRANCH}"
 SRCREV = "${GIT_SRCREV}"
