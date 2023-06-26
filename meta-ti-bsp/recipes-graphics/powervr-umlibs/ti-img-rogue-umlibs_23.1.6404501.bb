@@ -40,36 +40,37 @@ PACKAGECONFIG[opencl] = ",,,,${OPENCL_PACKAGES}"
 def get_file_list(package_list_var, d):
     file_list = []
     package_list = d.getVar(package_list_var)
+    prefix = f"{d.getVar('S')}/"
     if package_list:
         for package in package_list.split():
-            package_files = d.getVar(f"FILES:{package}")
-            if package_files:
-                file_list.append(package_files)
+            package_file_string = d.getVar(f"FILES:{package}")
+            if package_file_string:
+                for package_file in package_file_string.split():
+                    file_list.append(f"{prefix}{package_file}")
     return " ".join(file_list)
 
-do_install:append() {
+do_install:prepend() {
     if ${@bb.utils.contains('PACKAGECONFIG', 'opengl', 'false', 'true', d)}; then
-        for file in ${@get_file_list('GLES_PACKAGES', d)}; do
-            rm -rf ${D}/${file}
-            rmdir --ignore-fail-on-non-empty $(dirname ${D}/${file})
+        for file in ${@get_file_list('GLES_PACKAGES',  d)}; do
+            rm -rf ${file}
         done
     fi
     if ${@bb.utils.contains('PACKAGECONFIG', 'vulkan', 'false', 'true', d)}; then
         for file in ${@get_file_list('VULKAN_PACKAGES', d)}; do
-            rm -rf ${D}/${file}
-            rmdir --ignore-fail-on-non-empty $(dirname ${D}/${file})
+            rm -rf ${file}
         done
     fi
     if ${@bb.utils.contains('PACKAGECONFIG', 'opencl', 'false', 'true', d)}; then
         for file in ${@get_file_list('OPENCL_PACKAGES', d)}; do
-            rm -rf ${D}/${file}
-            rmdir --ignore-fail-on-non-empty $(dirname ${D}/${file})
+            rm -rf ${file}
         done
     fi
     if ${@bb.utils.contains('DISTRO_FEATURES', 'usrmerge', 'true', 'false', d)}; then
-        mv ${D}/lib/firmware ${D}${nonarch_base_libdir}
-        rmdir ${D}/lib
+        mv ${S}/lib/firmware ${S}${nonarch_base_libdir}
     fi
+
+    # clean up any empty directories
+    find "${S}" -empty -type d -delete
 }
 
 GLES_PACKAGES = "libgles1-rogue libgles2-rogue libgles3-rogue"
