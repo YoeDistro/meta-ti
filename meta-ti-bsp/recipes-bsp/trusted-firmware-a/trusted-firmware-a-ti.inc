@@ -1,5 +1,5 @@
-PV:k3 = "2.8+git${SRCPV}"
-SRCREV_tfa:k3 = "2fcd408bb3a6756767a43c073c597cef06e7f2d5"
+PV:k3 = "2.9+git${SRCPV}"
+SRCREV_tfa:k3 = "d3e71ead6ea5bc3555ac90a446efec84ef6c6122"
 SRC_URI:k3 = "git://git.trustedfirmware.org/TF-A/trusted-firmware-a.git;protocol=https;name=tfa;branch=master"
 COMPATIBLE_MACHINE:k3 = "k3"
 TFA_BUILD_TARGET:k3 = "all"
