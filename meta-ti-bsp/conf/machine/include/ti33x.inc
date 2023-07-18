@@ -35,8 +35,6 @@ KERNEL_DEVICETREE = " \
     am335x-sancloud-bbe.dtb \
 "
 
-KERNEL_DEVICETREE += "${@oe.utils.conditional('ENABLE_TI_UIO_DEVICES', '1', 'am335x-icev2-pru-excl-uio.dtb', '', d)}"
-
 UBOOT_ARCH = "arm"
 UBOOT_MACHINE = "am335x_evm_config"
 
