@@ -47,7 +47,7 @@ TFA_PLATFORM = "k3"
 UBI_VOLNAME = "rootfs"
 
 # List common SoC features, may need to add touchscreen for specific machines
-MACHINE_FEATURES = "kernel26 apm usbgadget usbhost vfat ext2 alsa ethernet pci"
+MACHINE_FEATURES = "apm usbgadget usbhost vfat ext2 alsa pci"
 
 IMAGE_FSTYPES += "tar.xz wic.xz wic.bmap"
 

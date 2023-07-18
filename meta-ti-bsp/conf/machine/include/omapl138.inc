@@ -11,4 +11,4 @@ PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
 
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
-MACHINE_FEATURES = "kernel26 serial ethernet usbhost usbgadget mmc alsa"
+MACHINE_FEATURES = "serial usbhost usbgadget alsa"
