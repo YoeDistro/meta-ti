@@ -18,5 +18,25 @@ def get_dtbs_from_kernel(dts_dir, dts_prefix):
             matches.append(filename)
     return ' '.join(matches)
 
-KERNEL_DEVICETREE = "${@get_dtbs_from_kernel('${S}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_PREFIX}')} ${KERNEL_DEVICETREE_DTBMERGE}"
+def get_merge_dtbs_from_kernel(dts_dir, dts_pattern):
+    import os
+    matches = []
+    if dts_dir == "":
+        return ' '
+    for pattern in dts_pattern.split():
+        pattern_dir = os.path.split(pattern)[0]
+        pattern_target = os.path.split(pattern)[1].replace(".","-") + "s"
+        makefile = dts_dir + "/" + pattern_dir + "/Makefile"
+        if os.path.exists(makefile):
+            with open(makefile) as f:
+                if pattern_target in f.read():
+                    matches.append(pattern)
+    return ' '.join(matches)
+
+KERNEL_DEVICETREE_DTBMERGE ?= ""
+
+KERNEL_DEVICETREE = " \
+    ${@get_dtbs_from_kernel('${S}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_PREFIX}')} \
+    ${@get_merge_dtbs_from_kernel('${S}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_DTBMERGE}')} \
+"
 
