@@ -22,6 +22,8 @@ KERNEL_IMAGETYPE = "zImage"
 KERNEL_DEVICETREE_PREFIX = " \
     am437x \
     am43x \
+    ti/omap/am437x \
+    ti/omap/am43x \
 "
 
 KERNEL_DEVICETREE = " \

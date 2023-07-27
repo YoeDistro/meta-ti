@@ -19,7 +19,10 @@ PVR_DISPLAY_CONTROLLER_ALIAS ?= "tilcdc"
 
 KERNEL_IMAGETYPE = "zImage"
 
-KERNEL_DEVICETREE_PREFIX = "am335x"
+KERNEL_DEVICETREE_PREFIX = " \
+    am335x \
+    ti/omap/am335x \
+"
 
 KERNEL_DEVICETREE = " \
     am335x-evm.dtb \
