@@ -380,5 +380,5 @@ ALTERNATIVE_PRIORITY_pru-icss-rpmsg-echo = "100"
 ALLOW_EMPTY:${PN} = "1"
 
 # This installs PRU firmware, so skip "arch" QA check
-INSANE_SKIP:${PN}-halt = "arch"
-INSANE_SKIP:${PN}-rpmsg-echo = "arch"
+INSANE_SKIP:${PN}-halt = "arch buildpaths"
+INSANE_SKIP:${PN}-rpmsg-echo = "arch buildpaths"
