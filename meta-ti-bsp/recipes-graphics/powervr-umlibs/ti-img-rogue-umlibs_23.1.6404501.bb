@@ -68,7 +68,9 @@ do_install:prepend() {
         done
     fi
     if ${@bb.utils.contains('DISTRO_FEATURES', 'usrmerge', 'true', 'false', d)}; then
-        mv ${S}/lib/firmware ${S}${nonarch_base_libdir}
+        if [ -e ${S}/lib/firmware ]; then
+            mv ${S}/lib/firmware ${S}${nonarch_base_libdir}
+        fi
     fi
 
     # clean up any empty directories
