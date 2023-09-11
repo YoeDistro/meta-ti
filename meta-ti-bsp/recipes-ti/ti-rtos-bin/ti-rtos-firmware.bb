@@ -21,6 +21,7 @@ PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
 PLAT_SFX:am62axx = "am62axx"
+PLAT_SFX:am62pxx = "am62pxx"
 
 FILESEXTRAPATHS:prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
@@ -56,6 +57,7 @@ IPC_FW_LIST = ""
 IPC_FW_LIST:am65xx =  "${MCU_1_0_FW} ${MCU_1_1_FW}"
 IPC_FW_LIST:am64xx =  "${MCU_1_0_FW} ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW}"
 IPC_FW_LIST:am62xx =  "                            ${MCU_2_0_FW}"
+IPC_FW_LIST:am62pxx =  "                            ${MCU_2_0_FW}"
 IPC_FW_LIST:am62axx = "                            ${MCU_2_0_FW}                                                                                               ${C7X_1_FW}"
 IPC_FW_LIST:j721e =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                             ${C66_1_FW} ${C66_2_FW} ${C7X_1_FW}"
 IPC_FW_LIST:j7200 =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW}"
@@ -77,6 +79,13 @@ do_install:prepend:am64xx() {
 do_install:prepend:am62xx() {
         ( cd ${S}/${IPC_FW_DIR}; \
                 ln -sf am62-mcu-m4f0_0-fw ${MCU_2_0_FW}; \
+        )
+}
+
+# Update the am62pxx ipc binaries to be consistent with other platforms
+do_install:prepend:am62pxx() {
+        ( cd ${S}/${IPC_FW_DIR}; \
+                ln -sf am62p-mcu-r5f0_0-fw ${MCU_2_0_FW}; \
         )
 }
 
@@ -120,6 +129,10 @@ ALTERNATIVE:${PN}:am64xx = "\
 ALTERNATIVE:${PN}:am62xx = "\
                     am62-mcu-m4f0_0-fw    am62-mcu-m4f0_0-fw-sec \
                     am62-main-r5f0_0-fw   am62-main-r5f0_0-fw-sec \
+                    "
+
+ALTERNATIVE:${PN}:am62pxx = "\
+                    am62p-mcu-r5f0_0-fw   am62p-mcu-r5f0_0-fw-sec \
                     "
 
 ALTERNATIVE:${PN}:am62axx = "\
@@ -190,6 +203,9 @@ ALTERNATIVE_LINK_NAME[am62-mcu-m4f0_0-fw]     = "${nonarch_base_libdir}/firmware
 ALTERNATIVE_LINK_NAME[am62-mcu-m4f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/am62-mcu-m4f0_0-fw-sec"
 ALTERNATIVE_LINK_NAME[am62-main-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/am62-main-r5f0_0-fw"
 ALTERNATIVE_LINK_NAME[am62-main-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/am62-main-r5f0_0-fw-sec"
+
+ALTERNATIVE_LINK_NAME[am62p-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/am62p-mcu-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[am62p-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/am62p-mcu-r5f0_0-fw-sec"
 
 ALTERNATIVE_LINK_NAME[am62a-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/am62a-mcu-r5f0_0-fw"
 ALTERNATIVE_LINK_NAME[am62a-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/am62a-mcu-r5f0_0-fw-sec"
@@ -280,6 +296,9 @@ ALTERNATIVE_TARGET[am62-mcu-m4f0_0-fw]     = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW
 ALTERNATIVE_TARGET[am62-mcu-m4f0_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}.signed"
 ALTERNATIVE_TARGET[am62-main-r5f0_0-fw]     = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}"
 ALTERNATIVE_TARGET[am62-main-r5f0_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}.signed"
+
+ALTERNATIVE_TARGET[am62p-mcu-r5f0_0-fw]     = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}"
+ALTERNATIVE_TARGET[am62p-mcu-r5f0_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}.signed"
 
 ALTERNATIVE_TARGET[am62a-mcu-r5f0_0-fw]     = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}"
 ALTERNATIVE_TARGET[am62a-mcu-r5f0_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}.signed"
