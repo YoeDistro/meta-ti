@@ -30,6 +30,7 @@ PLAT_SFX:j784s4 = "j784s4"
 PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
+PLAT_SFX:am62pxx = "am62pxx"
 PLAT_SFX:am62axx = "am62axx"
 
 ETH_FW_DIR = "ti-eth/${PLAT_SFX}"
@@ -46,6 +47,7 @@ ETH_FW_LIST:j784s4 =  "${ETH_FW}"
 ETH_FW_LIST:am65xx =  ""
 ETH_FW_LIST:am64xx =  ""
 ETH_FW_LIST:am62xx =  ""
+ETH_FW_LIST:am62pxx =  ""
 ETH_FW_LIST:am62axx = ""
 
 do_install() {
