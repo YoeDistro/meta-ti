@@ -128,7 +128,6 @@ ALTERNATIVE:${PN}:am62axx = "\
                     "
 
 ALTERNATIVE:${PN}:j721e = "\
-                    j7-mcu-r5f0_0-fw    j7-mcu-r5f0_0-fw-sec \
                     j7-mcu-r5f0_1-fw    j7-mcu-r5f0_1-fw-sec \
                     j7-main-r5f0_0-fw   j7-main-r5f0_0-fw-sec \
                     j7-main-r5f0_1-fw   j7-main-r5f0_1-fw-sec \
@@ -140,14 +139,12 @@ ALTERNATIVE:${PN}:j721e = "\
                     "
 
 ALTERNATIVE:${PN}:j7200 = "\
-                    j7200-mcu-r5f0_0-fw    j7200-mcu-r5f0_0-fw-sec \
                     j7200-mcu-r5f0_1-fw    j7200-mcu-r5f0_1-fw-sec \
                     j7200-main-r5f0_0-fw   j7200-main-r5f0_0-fw-sec \
                     j7200-main-r5f0_1-fw   j7200-main-r5f0_1-fw-sec \
                     "
 
 ALTERNATIVE:${PN}:j721s2 = "\
-                    j721s2-mcu-r5f0_0-fw    j721s2-mcu-r5f0_0-fw-sec \
                     j721s2-mcu-r5f0_1-fw    j721s2-mcu-r5f0_1-fw-sec \
                     j721s2-main-r5f0_0-fw   j721s2-main-r5f0_0-fw-sec \
                     j721s2-main-r5f0_1-fw   j721s2-main-r5f0_1-fw-sec \
@@ -158,7 +155,6 @@ ALTERNATIVE:${PN}:j721s2 = "\
                     "
 
 ALTERNATIVE:${PN}:j784s4 = "\
-                    j784s4-mcu-r5f0_0-fw    j784s4-mcu-r5f0_0-fw-sec \
                     j784s4-mcu-r5f0_1-fw    j784s4-mcu-r5f0_1-fw-sec \
                     j784s4-main-r5f0_0-fw   j784s4-main-r5f0_0-fw-sec \
                     j784s4-main-r5f0_1-fw   j784s4-main-r5f0_1-fw-sec \
@@ -200,8 +196,6 @@ ALTERNATIVE_LINK_NAME[am62a-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmwar
 ALTERNATIVE_LINK_NAME[am62a-c71_0-fw]     = "${nonarch_base_libdir}/firmware/am62a-c71_0-fw"
 ALTERNATIVE_LINK_NAME[am62a-c71_0-fw-sec] = "${nonarch_base_libdir}/firmware/am62a-c71_0-fw-sec"
 
-ALTERNATIVE_LINK_NAME[j7-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j7-mcu-r5f0_0-fw"
-ALTERNATIVE_LINK_NAME[j7-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j7-mcu-r5f0_0-fw-sec"
 ALTERNATIVE_LINK_NAME[j7-mcu-r5f0_1-fw]     = "${nonarch_base_libdir}/firmware/j7-mcu-r5f0_1-fw"
 ALTERNATIVE_LINK_NAME[j7-mcu-r5f0_1-fw-sec] = "${nonarch_base_libdir}/firmware/j7-mcu-r5f0_1-fw-sec"
 ALTERNATIVE_LINK_NAME[j7-main-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j7-main-r5f0_0-fw"
@@ -219,8 +213,6 @@ ALTERNATIVE_LINK_NAME[j7-c66_1-fw-sec] = "${nonarch_base_libdir}/firmware/j7-c66
 ALTERNATIVE_LINK_NAME[j7-c71_0-fw]     = "${nonarch_base_libdir}/firmware/j7-c71_0-fw"
 ALTERNATIVE_LINK_NAME[j7-c71_0-fw-sec] = "${nonarch_base_libdir}/firmware/j7-c71_0-fw-sec"
 
-ALTERNATIVE_LINK_NAME[j7200-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j7200-mcu-r5f0_0-fw"
-ALTERNATIVE_LINK_NAME[j7200-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j7200-mcu-r5f0_0-fw-sec"
 ALTERNATIVE_LINK_NAME[j7200-mcu-r5f0_1-fw]     = "${nonarch_base_libdir}/firmware/j7200-mcu-r5f0_1-fw"
 ALTERNATIVE_LINK_NAME[j7200-mcu-r5f0_1-fw-sec] = "${nonarch_base_libdir}/firmware/j7200-mcu-r5f0_1-fw-sec"
 ALTERNATIVE_LINK_NAME[j7200-main-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j7200-main-r5f0_0-fw"
@@ -228,8 +220,6 @@ ALTERNATIVE_LINK_NAME[j7200-main-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmwa
 ALTERNATIVE_LINK_NAME[j7200-main-r5f0_1-fw]     = "${nonarch_base_libdir}/firmware/j7200-main-r5f0_1-fw"
 ALTERNATIVE_LINK_NAME[j7200-main-r5f0_1-fw-sec] = "${nonarch_base_libdir}/firmware/j7200-main-r5f0_1-fw-sec"
 
-ALTERNATIVE_LINK_NAME[j721s2-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j721s2-mcu-r5f0_0-fw"
-ALTERNATIVE_LINK_NAME[j721s2-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j721s2-mcu-r5f0_0-fw-sec"
 ALTERNATIVE_LINK_NAME[j721s2-mcu-r5f0_1-fw]     = "${nonarch_base_libdir}/firmware/j721s2-mcu-r5f0_1-fw"
 ALTERNATIVE_LINK_NAME[j721s2-mcu-r5f0_1-fw-sec] = "${nonarch_base_libdir}/firmware/j721s2-mcu-r5f0_1-fw-sec"
 ALTERNATIVE_LINK_NAME[j721s2-main-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j721s2-main-r5f0_0-fw"
@@ -245,8 +235,6 @@ ALTERNATIVE_LINK_NAME[j721s2-c71_0-fw-sec] = "${nonarch_base_libdir}/firmware/j7
 ALTERNATIVE_LINK_NAME[j721s2-c71_1-fw]     = "${nonarch_base_libdir}/firmware/j721s2-c71_1-fw"
 ALTERNATIVE_LINK_NAME[j721s2-c71_1-fw-sec] = "${nonarch_base_libdir}/firmware/j721s2-c71_1-fw-sec"
 
-ALTERNATIVE_LINK_NAME[j784s4-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j784s4-mcu-r5f0_0-fw"
-ALTERNATIVE_LINK_NAME[j784s4-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j784s4-mcu-r5f0_0-fw-sec"
 ALTERNATIVE_LINK_NAME[j784s4-mcu-r5f0_1-fw]     = "${nonarch_base_libdir}/firmware/j784s4-mcu-r5f0_1-fw"
 ALTERNATIVE_LINK_NAME[j784s4-mcu-r5f0_1-fw-sec] = "${nonarch_base_libdir}/firmware/j784s4-mcu-r5f0_1-fw-sec"
 ALTERNATIVE_LINK_NAME[j784s4-main-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j784s4-main-r5f0_0-fw"
