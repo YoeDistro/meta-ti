@@ -1,0 +1,58 @@
+From 2dfe0f899aeb415a5491b8c67e208673d2a2914f Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Fri, 22 Sep 2023 21:50:08 -0500
+Subject: [PATCH] gallium: Fix build with llvm 17
+
+These headers are not available for C files in llvm 17+
+and they seem to be not needed to compile after all with llvm 17
+so add conditions to exclude them for llvm >= 17
+
+Upstream-Status: Submitted [https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/21262]
+Upstream-Status: Submitted [https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/22980]
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ src/gallium/auxiliary/gallivm/lp_bld_init.c   | 8 ++++----
+ src/gallium/auxiliary/gallivm/lp_bld_misc.cpp | 4 ++++
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/src/gallium/auxiliary/gallivm/lp_bld_init.c b/src/gallium/auxiliary/gallivm/lp_bld_init.c
+index 584ea738668..fe8bb2b11af 100644
+--- a/src/gallium/auxiliary/gallivm/lp_bld_init.c
++++ b/src/gallium/auxiliary/gallivm/lp_bld_init.c
+@@ -42,14 +42,14 @@
+
+ #include <llvm/Config/llvm-config.h>
+ #include <llvm-c/Analysis.h>
+-#include <llvm-c/Transforms/Scalar.h>
+-#if LLVM_VERSION_MAJOR >= 7
+-#include <llvm-c/Transforms/Utils.h>
+-#endif
+ #include <llvm-c/BitWriter.h>
+ #if GALLIVM_USE_NEW_PASS == 1
+ #include <llvm-c/Transforms/PassBuilder.h>
+ #elif GALLIVM_HAVE_CORO == 1
++#include <llvm-c/Transforms/Scalar.h>
++#if LLVM_VERSION_MAJOR >= 7
++#include <llvm-c/Transforms/Utils.h>
++#endif
+ #if LLVM_VERSION_MAJOR <= 8 && (defined(PIPE_ARCH_AARCH64) || defined (PIPE_ARCH_ARM) || defined(PIPE_ARCH_S390) || defined(PIPE_ARCH_MIPS64))
+ #include <llvm-c/Transforms/IPO.h>
+ #endif
+diff --git a/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp b/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp
+index 2279e5acb28..0caeaf94263 100644
+--- a/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp
++++ b/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp
+@@ -56,7 +56,11 @@
+ #include <llvm-c/ExecutionEngine.h>
+ #include <llvm/Target/TargetOptions.h>
+ #include <llvm/ExecutionEngine/ExecutionEngine.h>
++#if LLVM_VERSION_MAJOR >= 17
++#include <llvm/TargetParser/Triple.h>
++#else
+ #include <llvm/ADT/Triple.h>
++#endif
+ #include <llvm/Analysis/TargetLibraryInfo.h>
+ #include <llvm/ExecutionEngine/SectionMemoryManager.h>
+ #include <llvm/Support/CommandLine.h>
+--
+2.17.1

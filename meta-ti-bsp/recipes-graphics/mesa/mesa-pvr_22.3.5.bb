@@ -17,6 +17,8 @@ SRC_URI = " \
     file://0001-util-format-Check-for-NEON-before-using-it.patch \
     file://0001-gbm-backend-fix-gbm-compile-without-dri.patch \
     file://0001-freedreno-pm4-Use-unsigned-instead-of-uint-to-fix-mu.patch \
+    file://0001-gallium-Fix-build-with-llvm-17.patch \
+    file://0001-fix-gallivm-limit-usage-of-LLVMContextSetOpaquePoint.patch \
 "
 
 S = "${WORKDIR}/git"
