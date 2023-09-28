@@ -2,6 +2,7 @@ SUMMARY = "TI SYSFW/TIFS Firmware"
 
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
+COMPATIBLE_MACHINE = "k3r5"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 CFLAGS[unexport] = "1"
