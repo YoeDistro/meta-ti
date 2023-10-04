@@ -1,5 +1,7 @@
 SUMMARY = "TI SYSFW/TIFS Firmware"
 
+inherit deploy
+
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
 COMPATIBLE_MACHINE = "k3r5"
@@ -23,3 +25,12 @@ do_install() {
 }
 
 FILES:${PN} = "${nonarch_base_libdir}/firmware"
+
+do_deploy() {
+	install -d ${DEPLOYDIR}/ti-sysfw
+	install -m 644 ${S}/ti-sysfw/ti-sci-firmware-* ${DEPLOYDIR}/ti-sysfw
+	install -m 644 ${S}/ti-sysfw/ti-fs-firmware-* ${DEPLOYDIR}/ti-sysfw
+	install -m 644 ${S}/ti-sysfw/ti-fs-stub-firmware-* ${DEPLOYDIR}/ti-sysfw
+}
+
+addtask deploy before do_build after do_compile
