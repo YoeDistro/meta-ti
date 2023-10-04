@@ -67,11 +67,11 @@ do_install() {
 
 do_deploy() {
     # DM Firmware is needed for rebuilding U-Boot
-    install -d ${DEPLOYDIR}
+    install -d ${DEPLOYDIR}/${DM_FW_DIR}
     for FW_NAME in ${DM_FW_LIST}
     do
-        install -m 0644 ${S}/${DM_FW_DIR}/${FW_NAME}        ${DEPLOYDIR}/
-        install -m 0644 ${S}/${DM_FW_DIR}/${FW_NAME}.signed ${DEPLOYDIR}/
+        install -m 0644 ${S}/${DM_FW_DIR}/${FW_NAME}        ${DEPLOYDIR}/${DM_FW_DIR}
+        install -m 0644 ${S}/${DM_FW_DIR}/${FW_NAME}.signed ${DEPLOYDIR}/${DM_FW_DIR}
     done
 }
 
