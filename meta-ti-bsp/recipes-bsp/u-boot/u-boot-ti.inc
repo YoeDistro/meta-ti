@@ -30,6 +30,7 @@ DEPENDS += "dtc-native bc-native lzop-native flex-native bison-native python3-se
 DEPENDS += "python3-pyelftools-native python3-pyyaml-native python3-jsonschema-native"
 
 # SYSFW/TIFS Firmware
+DEPENDS:append:k3 = " ti-sci-fw"
 DEPENDS:append:k3r5 = " ti-sci-fw"
 
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
