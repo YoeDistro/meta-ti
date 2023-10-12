@@ -4,7 +4,6 @@ inherit deploy
 
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
-COMPATIBLE_MACHINE = "k3r5"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 CFLAGS[unexport] = "1"
@@ -26,7 +25,10 @@ do_install() {
 
 FILES:${PN} = "${nonarch_base_libdir}/firmware"
 
-do_deploy() {
+do_deploy(){
+}
+
+do_deploy:k3r5() {
 	install -d ${DEPLOYDIR}/ti-sysfw
 	install -m 644 ${S}/ti-sysfw/ti-sci-firmware-* ${DEPLOYDIR}/ti-sysfw
 	install -m 644 ${S}/ti-sysfw/ti-fs-firmware-* ${DEPLOYDIR}/ti-sysfw
