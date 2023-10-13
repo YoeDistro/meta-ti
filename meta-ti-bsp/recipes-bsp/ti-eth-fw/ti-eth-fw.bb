@@ -76,8 +76,8 @@ ALTERNATIVE:${PN}:j7200 = "\
                     "
 
 ALTERNATIVE:${PN}:j784s4 = "\
-                    j784s4-mcu-r5f0_0-fw \
-                    j784s4-mcu-r5f0_0-fw-sec \
+                    j784s4-main-r5f0_0-fw \
+                    j784s4-main-r5f0_0-fw-sec \
                     "
 
 # Set up link names for the firmwares
@@ -87,8 +87,8 @@ ALTERNATIVE_LINK_NAME[j7-main-r5f0_0-fw-sec]    = "${nonarch_base_libdir}/firmwa
 ALTERNATIVE_LINK_NAME[j7200-main-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j7200-main-r5f0_0-fw"
 ALTERNATIVE_LINK_NAME[j7200-main-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j7200-main-r5f0_0-fw-sec"
 
-ALTERNATIVE_LINK_NAME[j784s4-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j784s4-mcu-r5f0_0-fw"
-ALTERNATIVE_LINK_NAME[j784s4-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j784s4-mcu-r5f0_0-fw-sec"
+ALTERNATIVE_LINK_NAME[j784s4-main-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j784s4-main-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[j784s4-main-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j784s4-main-r5f0_0-fw-sec"
 
 # Create the firmware alternatives
 ALTERNATIVE_TARGET[j7-main-r5f0_0-fw]        = "${INSTALL_ETH_FW_DIR}/${ETH_FW}"
@@ -97,8 +97,8 @@ ALTERNATIVE_TARGET[j7-main-r5f0_0-fw-sec]    = "${INSTALL_ETH_FW_DIR}/${ETH_FW}.
 ALTERNATIVE_TARGET[j7200-main-r5f0_0-fw]     = "${INSTALL_ETH_FW_DIR}/${ETH_FW}"
 ALTERNATIVE_TARGET[j7200-main-r5f0_0-fw-sec] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}.signed"
 
-ALTERNATIVE_TARGET[j784s4-mcu-r5f0_0-fw]     = "${INSTALL_ETH_FW_DIR}/${ETH_FW}"
-ALTERNATIVE_TARGET[j784s4-mcu-r5f0_0-fw-sec] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}.signed"
+ALTERNATIVE_TARGET[j784s4-main-r5f0_0-fw]     = "${INSTALL_ETH_FW_DIR}/${ETH_FW}"
+ALTERNATIVE_TARGET[j784s4-main-r5f0_0-fw-sec] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}.signed"
 
 ALTERNATIVE_PRIORITY = "20"
 
