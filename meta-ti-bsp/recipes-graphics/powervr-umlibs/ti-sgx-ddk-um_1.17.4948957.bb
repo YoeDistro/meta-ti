@@ -1,38 +1,35 @@
 DESCRIPTION = "Userspace libraries for PowerVR SGX chipset on TI SoCs"
 HOMEPAGE = "https://git.ti.com/graphics/omap5-sgx-ddk-um-linux"
 LICENSE = "TI-TSPA"
-LIC_FILES_CHKSUM = "file://TI-Linux-Graphics-DDK-UM-Manifest.doc;md5=b17390502bc89535c86cfbbae961a2a8"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|am65xx"
 
 PR = "r38"
 
-BRANCH = "ti-img-sgx/kirkstone-mesa/${PV}"
+BRANCH = "${PV}/mesa/glibc-2.35"
 
 SRC_URI = " \
     git://git.ti.com/git/graphics/omap5-sgx-ddk-um-linux.git;protocol=https;branch=${BRANCH} \
-    file://pvrsrvkm.rules \
 "
-SRCREV = "bbae7217051341f515515ec190e165119102f45a"
-
-TARGET_PRODUCT:ti33x = "ti335x"
-TARGET_PRODUCT:ti43x = "ti437x"
-TARGET_PRODUCT:omap-a15 = "ti572x"
-TARGET_PRODUCT:am65xx = "ti654x"
+SRCREV = "70364424dd496833fad5b243c9e6cc8b077f04ac"
 
 INITSCRIPT_NAME = "rc.pvr"
 INITSCRIPT_PARAMS = "defaults 8"
 
 PACKAGECONFIG ??= "udev"
-PACKAGECONFIG[udev] = ",,,udev"
+PACKAGECONFIG[udev] = "UDEV=true,,,udev"
 
-def use_initscript(d):
-    sysvinit = bb.utils.contains('DISTRO_FEATURES', 'sysvinit', True, False, d)
-    udev = bb.utils.contains('PACKAGECONFIG', 'udev', True, False, d)
-    return sysvinit and not udev
+def use_sysvinit(d):
+    return d.getVar('VIRTUAL-RUNTIME_init_manager') == 'sysvinit'
 
-inherit ${@oe.utils.ifelse(use_initscript(d), 'update-rc.d', '')}
+inherit ${@oe.utils.ifelse(use_sysvinit(d), 'update-rc.d', '')}
+
+TARGET_PRODUCT:ti33x = "ti335x_linux"
+TARGET_PRODUCT:ti43x = "ti437x_linux"
+TARGET_PRODUCT:omap-a15 = "ti572x_linux"
+TARGET_PRODUCT:am65xx = "ti654x_linux"
 
 RDEPENDS:${PN} += "libdrm"
 
@@ -40,24 +37,10 @@ RRECOMMENDS:${PN} += "ti-sgx-ddk-km"
 
 S = "${WORKDIR}/git"
 
-do_install () {
-    oe_runmake install DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT}
+EXTRA_OEMAKE += "DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT} ${PACKAGECONFIG_CONFARGS}"
 
-    without_sysvinit=${@bb.utils.contains('DISTRO_FEATURES', 'sysvinit', 'false', 'true', d)}
-    with_udev=${@bb.utils.contains('PACKAGECONFIG', 'udev', 'true', 'false', d)}
-
-    # Delete initscript if it is not needed or would conflict with the udev rules
-    if ${@oe.utils.ifelse(use_initscript(d), 'false', 'true')}; then
-        rm -rf ${D}${sysconfdir}/init.d
-        rmdir --ignore-fail-on-non-empty ${D}${sysconfdir}
-    fi
-
-    if $with_udev; then
-        install -m644 -D ${WORKDIR}/pvrsrvkm.rules \
-            ${D}${nonarch_base_libdir}/udev/rules.d/80-pvrsrvkm.rules
-    fi
-
-    chown -R root:root ${D}
+do_install() {
+    oe_runmake install
 }
 
 FILES:${PN} =  "${bindir}/*"
@@ -66,6 +49,10 @@ FILES:${PN} +=  "${includedir}/*"
 FILES:${PN} +=  "${sysconfdir}/*"
 FILES:${PN} +=  "${datadir}/*"
 FILES:${PN} += "${nonarch_base_libdir}/udev/rules.d"
+FILES:${PN} += "${nonarch_base_libdir}/systemd/system"
+
+# No debug or dev packages for this recipe
+PACKAGES = "${PN}"
 
 INSANE_SKIP:${PN} += "ldflags"
-INSANE_SKIP:${PN} += "already-stripped"
+INSANE_SKIP:${PN} += "already-stripped dev-so"
