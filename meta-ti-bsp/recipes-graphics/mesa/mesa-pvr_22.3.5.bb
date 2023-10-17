@@ -23,7 +23,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 
-SRCREV = "54fd9d7dea098b6f11c2a244b0c6763dc8c5690c"
+SRCREV = "13829fd7ffa8e9e961cc8702869da55d72f99a84"
 
 PACKAGECONFIG:append = " \
     ${@bb.utils.contains('PREFERRED_PROVIDER_virtual/gpudriver', 'ti-img-rogue-driver', 'pvr', '', d)} \
