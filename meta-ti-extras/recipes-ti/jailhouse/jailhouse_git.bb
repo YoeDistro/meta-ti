@@ -19,7 +19,7 @@ SRCREV = "e57d1eff6d55aeed5f977fe4e2acfb6ccbdd7560"
 BRANCH = "master"
 
 SRC_URI = " \
-    git://github.com/siemens/jailhouse.git;protocol=https;branch=${BRANCH} \
+    git://git.ti.com/git/jailhouse/ti-jailhouse.git;protocol=https;branch=${BRANCH} \
     file://0001-configs-arm64-k3-am625-sk-Add-crypto-memory-region.patch \
     file://0002-configs-arm64-k3-am625-sk-Switch-inmate-boot-console.patch \
     file://0003-configs-arm64-k3-am625-sk-Add-VTM-memory-region.patch \
