@@ -6,7 +6,7 @@ PR = "r0"
 
 BRANCH = "ti-u-boot-2023.04"
 
-SRCREV = "7252c55a3fceae57ddc32bd10a9b6702c88a7522"
+SRCREV = "d74d0993e2456e7a1d7c7d2af816f3dc5e54bf17"
 
 do_install:append:am62xx() {
 	install -d ${D}/boot
