@@ -40,6 +40,8 @@ FIT_SIGN_ALG ?= "rsa4096"
 
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image-image"
+
 TFA_PLATFORM = "k3"
 
 # Use the expected value of the ubifs filesystem's volume name in the kernel

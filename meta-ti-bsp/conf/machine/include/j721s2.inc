@@ -9,3 +9,5 @@ PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 TFA_BOARD = "generic"
 
 OPTEEMACHINE = "k3-j784s4"
+
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "cadence-mhdp-fw cnm-wave-fw"

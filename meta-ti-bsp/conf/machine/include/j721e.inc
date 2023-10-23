@@ -23,3 +23,5 @@ IMAGE_BOOT_FILES += "sysfw-j721e_sr1_1-hs-evm.itb"
 TFA_BOARD = "generic"
 
 OPTEEMACHINE = "k3-j721e"
+
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "cadence-mhdp-fw vxd-dec-fw ti-eth-fw"

@@ -40,6 +40,10 @@ UBOOT_SUFFIX = "img"
 
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image-zimage"
+
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "vpdma-fw goodix-fw"
+
 # Use the expected value of the ubifs filesystem's volume name in the kernel
 # and u-boot.
 UBI_VOLNAME = "rootfs"

@@ -16,3 +16,5 @@ IMAGE_BOOT_FILES += "tiboot3-am62ax-hs-evm.bin"
 
 TFA_BOARD = "lite"
 OPTEEMACHINE = "k3-am62x"
+
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "cnm-wave-fw"

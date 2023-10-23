@@ -11,4 +11,6 @@ PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
 
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image-zimage"
+
 MACHINE_FEATURES = "serial usbhost usbgadget alsa"
