@@ -25,3 +25,5 @@ IMAGE_BOOT_FILES += "sysfw-am65x_sr2-hs-evm.itb"
 TFA_BOARD = "generic"
 
 OPTEEMACHINE = "k3-am65x"
+
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "prueth-fw-am65x"

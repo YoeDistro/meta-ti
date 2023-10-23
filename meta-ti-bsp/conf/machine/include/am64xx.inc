@@ -20,3 +20,5 @@ IMAGE_BOOT_FILES += "tiboot3-am64x_sr2-hs-evm.bin"
 TFA_BOARD = "lite"
 
 OPTEEMACHINE = "k3-am64x"
+
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "prueth-fw-am65x-sr2 pruhsr-fw-am65x-sr2 prusw-fw-am65x-sr2"
