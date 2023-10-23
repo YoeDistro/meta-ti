@@ -31,11 +31,6 @@ BRANCH:aarch64 = "v6.1.46-ti-arm64-r9"
 
 SRC_URI = "git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
            file://defconfig \
-           file://init_disassemble_info-signature-changes-causes-compile-failures.patch \
-           file://0001-gcc-plugins-Fix-build-for-upcoming-GCC-release.patch \
-           file://0001-ata-ahci-fix-enum-constants-for-gcc-13.patch \
-           file://0001-blk-iocost-avoid-64-bit-division-in-ioc_timer_fn.patch \
-           file://0001-block-blk-iocost-gcc13-keep-large-values-in-a-new-en.patch \
 "
 
 FILES:${KERNEL_PACKAGE_NAME}-devicetree += " \
