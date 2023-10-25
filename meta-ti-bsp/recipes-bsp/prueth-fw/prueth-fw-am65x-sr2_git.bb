@@ -9,8 +9,6 @@ COMPATIBLE_MACHINE = "am65xx-evm|am64xx"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-S = "${WORKDIR}/git"
-
 TARGET = " \
     am65x-sr2-pru0-prueth-fw.elf \
     am65x-sr2-pru1-prueth-fw.elf \
