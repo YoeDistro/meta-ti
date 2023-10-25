@@ -11,7 +11,6 @@ COMPATIBLE_MACHINE = "j721e"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-S = "${WORKDIR}/git"
 TARGET = "pvdec_full_bin.fw"
 
 do_install() {
