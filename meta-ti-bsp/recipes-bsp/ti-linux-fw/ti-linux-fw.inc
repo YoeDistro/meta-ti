@@ -30,3 +30,17 @@ CLEANBROKEN = "1"
 
 # Make sure that lib/firmware, and all its contents are part of the package
 FILES:${PN} = "${nonarch_base_libdir}/firmware"
+
+# This is used to prevent the build system from stripping the firmwares
+INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_SYSROOT_STRIP = "1"
+
+# This is used to prevent the build system from splitting out the firmware debug info into a separate file
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
+
+# Disable arch checking as firmware is likely to be a different arch from the Yocto build
+INSANE_SKIP:${PN} += "arch"
+
+# Firmware in Linux Firmware has no configure nor build steps
+do_compile[noexec] = "1"
+do_configure[noexec] = "1"

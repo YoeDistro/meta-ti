@@ -20,5 +20,3 @@ do_install() {
 		install -m 0644 ${S}/ti-pruss/$f ${D}${nonarch_base_libdir}/firmware/ti-pruss/$f
 	done
 }
-
-INSANE_SKIP:${PN} = "arch"
