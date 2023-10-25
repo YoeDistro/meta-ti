@@ -101,15 +101,3 @@ ALTERNATIVE_TARGET[j784s4-main-r5f0_0-fw]     = "${INSTALL_ETH_FW_DIR}/${ETH_FW}
 ALTERNATIVE_TARGET[j784s4-main-r5f0_0-fw-sec] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}.signed"
 
 ALTERNATIVE_PRIORITY = "5"
-
-# This is used to prevent the build system to_strip the executables
-INHIBIT_PACKAGE_STRIP = "1"
-INHIBIT_SYSROOT_STRIP = "1"
-# This is used to prevent the build system to split the debug info in a separate file
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-# As it likely to be a different arch from the Yocto build, disable checking by adding "arch" to INSANE_SKIP
-INSANE_SKIP:${PN} += "arch"
-
-# we don't want to configure and build the source code
-do_compile[noexec] = "1"
-do_configure[noexec] = "1"
