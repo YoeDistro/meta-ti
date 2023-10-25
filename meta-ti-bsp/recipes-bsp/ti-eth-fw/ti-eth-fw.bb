@@ -9,7 +9,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 INHIBIT_DEFAULT_DEPS = "1"
 
-inherit deploy
 inherit update-alternatives
 
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc

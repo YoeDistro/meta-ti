@@ -2,7 +2,6 @@ SUMMARY = "Chips&Media codec firmware files"
 
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
-inherit deploy
 inherit update-alternatives
 
 LICENSE = "BSD-3-Clause"
