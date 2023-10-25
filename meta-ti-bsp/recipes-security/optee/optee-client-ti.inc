@@ -1,5 +1,5 @@
-PV = "3.20.0+git${SRCPV}"
-SRCREV = "dd2d39b49975d2ada7870fe2b7f5a84d0d3860dc"
+PV = "4.0.0+git${SRCPV}"
+SRCREV = "acb0885c117e73cb6c5c9b1dd9054cb3f93507ee"
 
 inherit pkgconfig
 DEPENDS += "util-linux"

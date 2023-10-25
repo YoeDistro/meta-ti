@@ -1,3 +1,3 @@
-PV = "3.20.0+git${SRCPV}"
-SRCREV = "a98d01e1b9168eaed96bcd0bac0df67c44a81081"
+PV = "4.0.0+git${SRCPV}"
+SRCREV = "378dc0db2d5dd279f58a3b6cb3f78ffd6b165035"
 SRC_URI:remove = "file://0001-Makefile-Fix-non-portable-sh-check-for-plugins.patch"
