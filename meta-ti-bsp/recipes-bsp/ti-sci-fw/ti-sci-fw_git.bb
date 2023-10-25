@@ -6,11 +6,6 @@ require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-CFLAGS[unexport] = "1"
-LDFLAGS[unexport] = "1"
-AS[unexport] = "1"
-LD[unexport] = "1"
-
 PV = "${TI_SYSFW_VERSION}"
 PR = "${INC_PR}.0"
 
