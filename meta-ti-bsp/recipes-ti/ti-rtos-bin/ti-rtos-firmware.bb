@@ -29,8 +29,6 @@ require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 PV = "${CORESDK_RTOS_VERSION}"
 PR = "${INC_PR}.1"
 
-CLEANBROKEN = "1"
-
 # Secure Build
 inherit ti-secdev
 
@@ -368,9 +366,6 @@ ALTERNATIVE_TARGET[j784s4-c71_3-fw]     = "${INSTALL_IPC_FW_DIR}/${C7X_4_FW}"
 ALTERNATIVE_TARGET[j784s4-c71_3-fw-sec] = "${INSTALL_IPC_FW_DIR}/${C7X_4_FW}.signed"
 
 ALTERNATIVE_PRIORITY = "10"
-
-# make sure that lib/firmware, and all its contents are part of the package
-FILES:${PN} += "${nonarch_base_libdir}/firmware"
 
 # This is used to prevent the build system to_strip the executables
 INHIBIT_PACKAGE_STRIP = "1"

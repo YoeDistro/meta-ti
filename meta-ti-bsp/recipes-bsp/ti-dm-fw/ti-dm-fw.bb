@@ -17,8 +17,6 @@ require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 PV = "${TI_DM_FW_VERSION}"
 PR = "${INC_PR}.0"
 
-CLEANBROKEN = "1"
-
 # Secure Build
 inherit ti-secdev
 
@@ -105,9 +103,6 @@ ALTERNATIVE_TARGET[j721s2-mcu-r5f0_0-fw] = "${INSTALL_DM_FW_DIR}/${DM_FIRMWARE}"
 ALTERNATIVE_TARGET[j784s4-mcu-r5f0_0-fw] = "${INSTALL_DM_FW_DIR}/${DM_FIRMWARE}"
 
 ALTERNATIVE_PRIORITY = "10"
-
-# make sure that lib/firmware, and all its contents are part of the package
-FILES:${PN} += "${nonarch_base_libdir}/firmware"
 
 # This is used to prevent the build system to_strip the executables
 INHIBIT_PACKAGE_STRIP = "1"

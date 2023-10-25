@@ -8,8 +8,6 @@ LIC_FILES_CHKSUM = "file://LICENCE.Spectrum-GT9271;md5=2a6de6be7af1fe46370c684da
 PV = "${GOODIX_FW_VERSION}"
 PR = "${INC_PR}.0"
 
-CLEANBROKEN = "1"
-
 COMPATIBLE_MACHINE = "dra7xx"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -22,5 +20,3 @@ do_install() {
 	install -d ${D}${nonarch_base_libdir}/firmware
 	install -m 0644 ${S}/ti-evm/${ORIGIN} ${D}${nonarch_base_libdir}/firmware/${TARGET}
 }
-
-FILES:${PN} = "${nonarch_base_libdir}/firmware"

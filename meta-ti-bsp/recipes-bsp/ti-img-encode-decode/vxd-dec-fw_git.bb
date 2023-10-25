@@ -7,8 +7,6 @@ require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 PV = "${IMG_DEC_FW_VERSION}"
 PR = "${INC_PR}.0"
 
-CLEANBROKEN = "1"
-
 COMPATIBLE_MACHINE = "j721e"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -20,5 +18,3 @@ do_install() {
         install -d ${D}${nonarch_base_libdir}/firmware
         install -m 0644 ${S}/ti-img/${TARGET} ${D}${nonarch_base_libdir}/firmware/${TARGET}
 }
-
-FILES:${PN} = "${nonarch_base_libdir}/firmware"
