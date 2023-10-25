@@ -25,3 +25,8 @@ BRANCH ?= "ti-linux-firmware"
 SRC_URI = "git://git.ti.com/git/processor-firmware/ti-linux-firmware.git;protocol=https;branch=${BRANCH}"
 
 S = "${WORKDIR}/git"
+
+CLEANBROKEN = "1"
+
+# Make sure that lib/firmware, and all its contents are part of the package
+FILES:${PN} = "${nonarch_base_libdir}/firmware"

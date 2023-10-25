@@ -11,8 +11,6 @@ LIC_FILES_CHKSUM = "file://LICENCE.cnm;md5=93b67e6bac7f8fec22b96b8ad0a1a9d0"
 PV = "${CNM_WAVE521_FW_VERSION}"
 PR = "${INC_PR}.1"
 
-CLEANBROKEN = "1"
-
 COMPATIBLE_MACHINE = "j721s2|j784s4|am62axx|am62pxx"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -33,9 +31,6 @@ do_install() {
 	install -d ${D}${nonarch_base_libdir}/firmware/cnm
 	install -m 0644 ${S}/cnm/${SOURCE_WAVE521C} ${D}${nonarch_base_libdir}/firmware/cnm/${TARGET_WAVE521C}
 }
-
-# make sure that lib/firmware, and all its contents are part of the package
-FILES:${PN} = "${nonarch_base_libdir}/firmware"
 
 # we don't want to configure and build the source code
 do_compile[noexec] = "1"

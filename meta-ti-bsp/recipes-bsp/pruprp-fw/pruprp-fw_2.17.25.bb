@@ -5,8 +5,6 @@ require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 PE = "1"
 PR = "${INC_PR}.0"
 
-CLEANBROKEN = "1"
-
 COMPATIBLE_MACHINE = "ti33x|ti43x|am57xx"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -24,7 +22,5 @@ do_install() {
 		install -m 0644 ${S}/ti-pruss/$f ${D}${nonarch_base_libdir}/firmware/ti-pruss/$f
 	done
 }
-
-FILES:${PN} = "${nonarch_base_libdir}/firmware"
 
 INSANE_SKIP:${PN} = "arch"

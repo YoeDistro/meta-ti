@@ -17,8 +17,6 @@ require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 PV = "${CORESDK_RTOS_VERSION}"
 PR = "${INC_PR}.0"
 
-CLEANBROKEN = "1"
-
 # Secure Build
 inherit ti-secdev
 
@@ -103,9 +101,6 @@ ALTERNATIVE_TARGET[j784s4-main-r5f0_0-fw]     = "${INSTALL_ETH_FW_DIR}/${ETH_FW}
 ALTERNATIVE_TARGET[j784s4-main-r5f0_0-fw-sec] = "${INSTALL_ETH_FW_DIR}/${ETH_FW}.signed"
 
 ALTERNATIVE_PRIORITY = "5"
-
-# make sure that lib/firmware, and all its contents are part of the package
-FILES:${PN} += "${nonarch_base_libdir}/firmware"
 
 # This is used to prevent the build system to_strip the executables
 INHIBIT_PACKAGE_STRIP = "1"

@@ -8,8 +8,6 @@ LIC_FILES_CHKSUM = "file://LICENCE.cadence;md5=009f46816f6956cfb75ede13d3e1cee0"
 PV = "${CADENCE_MHDP_FW_VERSION}"
 PR = "${INC_PR}.0"
 
-CLEANBROKEN = "1"
-
 COMPATIBLE_MACHINE = "j721e|j721s2|j784s4"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -21,5 +19,3 @@ do_install() {
 	install -d ${D}${nonarch_base_libdir}/firmware/cadence
 	install -m 0644 ${S}/cadence/${TARGET} ${D}${nonarch_base_libdir}/firmware/cadence/${TARGET}
 }
-
-FILES:${PN} = "${nonarch_base_libdir}/firmware"
