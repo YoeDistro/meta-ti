@@ -4,7 +4,7 @@ SOC_FAMILY:append = ":am62pxx"
 MACHINE_FEATURES += "screen gpu"
 
 require conf/machine/include/mesa-pvr.inc
-PREFERRED_PROVIDER_virtual/gpudriver ?= ""
+PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 
 # Default tiboot3.bin on AM62Px is for HS-FS
 IMAGE_BOOT_FILES += "tiboot3-am62px-hs-fs-evm.bin"
