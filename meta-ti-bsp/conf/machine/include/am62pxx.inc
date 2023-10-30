@@ -12,7 +12,7 @@ IMAGE_BOOT_FILES += "tiboot3-am62px-hs-fs-evm.bin"
 TFA_BOARD = "lite"
 TFA_K3_SYSTEM_SUSPEND = "1"
 
-OPTEEMACHINE = "k3-am62px"
+OPTEEMACHINE = "k3-am62x"
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "cnm-wave-fw"
 
