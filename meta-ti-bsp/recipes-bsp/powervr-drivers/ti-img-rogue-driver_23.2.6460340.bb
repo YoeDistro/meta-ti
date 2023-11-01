@@ -20,6 +20,8 @@ BRANCH = "linuxws/kirkstone/k6.1/${PV}"
 
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-driver.git;protocol=https;branch=${BRANCH}"
 
+SRC_URI:append = " file://0001-build-kbuild-Makefile.template-use-SECONDARY.patch"
+
 S = "${WORKDIR}/git"
 
 SRCREV = "778aa5d1e104f36c7f7c1f50e99f8499cbbdadbb"
