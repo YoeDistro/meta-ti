@@ -1,4 +1,4 @@
-OPTEE_TI = ""
-OPTEE_TI:ti-soc = "${BPN}-ti.inc"
+OPTEE_TI_VERSION = ""
+OPTEE_TI_VERSION:ti-soc = "${BPN}-ti-version.inc"
 
-require ${OPTEE_TI}
+require ${OPTEE_TI_VERSION}
