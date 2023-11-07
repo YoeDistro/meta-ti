@@ -1,6 +1,2 @@
-PV = "4.0.0+git${SRCPV}"
-SRCREV = "1c3d6be5eaa6174e3dbabf60928d15628e39b994"
-
 EXTRA_OEMAKE:append = " OPTEE_OPENSSL_EXPORT=${STAGING_INCDIR}"
 DEPENDS:append = " openssl"
-
