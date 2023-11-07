@@ -14,9 +14,9 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} \
 
 S = "${WORKDIR}/git"
 
-# 6.2 Mainline version
-SRCREV = "c9c3395d5e3dcc6daee66c6908354d47bf98cb0c"
-PV = "6.2+git${SRCPV}"
+# 6.6 Mainline version
+SRCREV = "ffc253263a1375a65fa6c9f62a893e9767fbebfa"
+PV = "6.6+git${SRCPV}"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
 MACHINE_KERNEL_PR:append = "b"
