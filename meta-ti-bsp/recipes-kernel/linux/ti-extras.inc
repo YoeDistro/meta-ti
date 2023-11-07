@@ -7,7 +7,8 @@ COMPATIBLE_MACHINE = "am62xx"
 BRANCH = "ti-linux-6.1.y"
 BRANCH:tie-jailhouse = "ti-linux-6.1.y-jailhouse"
 
-SRCREV = "30bcc25e7cb1b25667db88d61828728f0f0b5f4b"
-SRCREV:tie-jailhouse = "0ed0dec2462b805b0188fe080895adc437871549"
+SRCREV = "ec058c3ddc5377c629e988a95ef84826b14a3307"
+SRCREV:tie-jailhouse = "d035e0cc72399f1c087a63c4210d29e79a7a66e4"
 
 KERNEL_GIT_URI = "git://git.ti.com/git/processor-sdk/linux.git"
+
