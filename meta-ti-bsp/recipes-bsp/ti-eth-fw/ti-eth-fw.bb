@@ -1,7 +1,7 @@
 SUMMARY = "TI Ethernet prebuilt binary firmware images"
 
 LICENSE = "TI-TFL"
-LIC_FILES_CHKSUM = "file://${COREBASE}/../meta-ti/licenses/TI-TFL;md5=a1b59cb7ba626b9dbbcbf00f3fbc438a"
+LIC_FILES_CHKSUM = "file://${THISDIR}/../../licenses/TI-TFL;md5=a1b59cb7ba626b9dbbcbf00f3fbc438a"
 
 COMPATIBLE_MACHINE = "k3"
 
