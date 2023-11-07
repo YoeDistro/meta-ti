@@ -65,4 +65,3 @@ do_image_wic[depends] += "virtual/bootloader:do_deploy"
 do_image[mcdepends] += "mc::k3r5:virtual/bootloader:do_deploy"
 
 SERIAL_CONSOLES = "115200;ttyS0 115200;ttyS2"
-SERIAL_CONSOLES_CHECK = "${SERIAL_CONSOLES}"
