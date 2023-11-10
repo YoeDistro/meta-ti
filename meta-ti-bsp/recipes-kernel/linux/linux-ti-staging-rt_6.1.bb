@@ -6,7 +6,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-6.1:"
 
 BRANCH = "ti-rt-linux-6.1.y"
 
-SRCREV = "eda9974e8513cdd2c5cc20c3c6b851f9977acd4d"
+SRCREV = "a98195cd9fc9813d8a2c9959484e5d3f9eb2502e"
 
 include ${@ 'recipes-kernel/linux/ti-extras-rt.inc' if d.getVar('TI_EXTRAS') else ''}
 
