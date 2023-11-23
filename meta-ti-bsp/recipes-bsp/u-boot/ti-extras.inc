@@ -1,7 +1,7 @@
 
 # This will have priority over generic uboot path
 
-COMPATIBLE_MACHINE = "am62xx"
+COMPATIBLE_MACHINE = "am62xx|am62pxx"
 
 BRANCH = "ti-u-boot-2023.04"
 BRANCH:tie-jailhouse = "ti-u-boot-2023.04-jailhouse"

@@ -2,7 +2,7 @@
 # Use different commit, repo and branch for TI extras build
 # This will have priority over generic rt path
 
-COMPATIBLE_MACHINE = "am62xx"
+COMPATIBLE_MACHINE = "am62xx|am62pxx"
 
 BRANCH = "ti-linux-6.1.y"
 BRANCH:tie-jailhouse = "ti-linux-6.1.y-jailhouse"
