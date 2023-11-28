@@ -15,16 +15,11 @@ COMPATIBLE_MACHINE = "am62xx|am62pxx"
 TARGET_CC_ARCH += "${LDFLAGS}"
 
 PV = "0.12+git${SRCPV}"
-SRCREV = "e57d1eff6d55aeed5f977fe4e2acfb6ccbdd7560"
+SRCREV = "0b29ad90f6f54105b98d6bbf35cc47fb244f7799"
 BRANCH = "master"
 
 SRC_URI = " \
     git://git.ti.com/git/jailhouse/ti-jailhouse.git;protocol=https;branch=${BRANCH} \
-    file://0001-configs-arm64-k3-am625-sk-Add-crypto-memory-region.patch \
-    file://0002-configs-arm64-k3-am625-sk-Switch-inmate-boot-console.patch \
-    file://0003-configs-arm64-k3-am625-sk-Add-VTM-memory-region.patch \
-    file://0001-configs-k3-use-intx-for-bar_mask.patch \
-    file://0004-configs-arm64-k3-am625-sk-Add-GPMC-memory-region.patch \
 "
 
 DEPENDS = "virtual/kernel dtc-native python3-mako-native python3-mako make-native"
