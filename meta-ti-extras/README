@@ -8,14 +8,14 @@ This layer depends on:
 
 URI: git://git.openembedded.org/openembedded-core
 layers: meta
-branch: master
+branch: kirkstone
 
 URI: git://git.yoctoproject.org/meta-arm
 layers: meta-arm
-branch: master
+branch: kirkstone
 
 URI: git://git.yoctoproject.org/meta-ti
-branch: master
+branch: kirkstone
 revision: HEAD
 layers: meta-ti-bsp
 
