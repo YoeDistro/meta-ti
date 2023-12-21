@@ -46,6 +46,8 @@ INMATES_DIR ?= "${JH_DATADIR}/inmates"
 
 JH_CELL_FILES ?= "*.cell"
 JH_CELL_FILES:k3 ?= "k3-*.cell"
+JH_CELL_FILES:am62xx ?= "k3-am625-*.cell"
+JH_CELL_FILES:am62pxx ?= "k3-am62p5-*.cell"
 
 JH_INMATE_DTB ?= ""
 JH_INMATE_DTB:am62xx ?= "inmate-k3-am625-sk.dtb"
@@ -147,6 +149,8 @@ do_install() {
 		chmod +x ${D}${JH_DATADIR}/linux-demo.sh
 	fi
 
+	rm ${D}${JH_DATADIR}/root-cell-config.c.tmpl
+	rm ${D}${JH_DATADIR}/jailhouse-config-collect.tmpl
 }
 
 PACKAGE_BEFORE_PN = "kernel-module-jailhouse pyjailhouse ${PN}-tools"
@@ -181,30 +185,10 @@ python __anonymous () {
 
 
 FILES:${PN} = " \
-    /boot \
+    /boot/* \
     /usr/libexec \
-    /usr/sbin/ivshmem-demo \
-    /usr/sbin/jailhouse \
-    /usr/libexec/jailhouse \
-    /usr/libexec/jailhouse/jailhouse-config-check \
-    /usr/libexec/jailhouse/jailhouse-config-collect \
-    /usr/libexec/jailhouse/jailhouse-hardware-check \
-    /usr/libexec/jailhouse/jailhouse-cell-stats \
-    /usr/libexec/jailhouse/linux-loader.bin \
-    /usr/libexec/jailhouse/jailhouse-cell-linux \
-    /usr/libexec/jailhouse/jailhouse-config-create \
-    /usr/share/jailhouse \
-    /usr/share/jailhouse/linux-demo.sh \
-    /usr/share/jailhouse/inmate-k3-am625-sk.dtb \
-    /usr/share/jailhouse/inmates \
-    /usr/share/jailhouse/cells \
-    /usr/share/jailhouse/inmates/gic-demo.bin \
-    /usr/share/jailhouse/inmates/ivshmem-demo.bin \
-    /usr/share/jailhouse/inmates/uart-demo.bin \
-    /usr/share/jailhouse/cells/k3-am625-sk.cell \
-    /usr/share/jailhouse/cells/k3-am625-sk-inmate-demo.cell \
-    /usr/share/jailhouse/cells/k3-am625-sk-linux-demo.cell \
-    /lib/firmware \
-    /lib/firmware/jailhouse.bin \
-    /boot/tisdk-tiny-image-am62xx-evm.cpio \
+    /usr/sbin/* \
+    /usr/libexec/* \
+    /usr/share/* \
+    /lib/firmware/* \
 "
