@@ -16,6 +16,7 @@ PLAT_SFX:j721e = "j721e"
 PLAT_SFX:j7200 = "j7200"
 PLAT_SFX:j721s2 = "j721s2"
 PLAT_SFX:j784s4 = "j784s4"
+PLAT_SFX:j722s = "j722s"
 PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
@@ -54,12 +55,13 @@ IPC_FW_LIST = ""
 IPC_FW_LIST:am65xx =  "${MCU_1_0_FW} ${MCU_1_1_FW}"
 IPC_FW_LIST:am64xx =  "${MCU_1_0_FW} ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW}"
 IPC_FW_LIST:am62xx =  "                            ${MCU_2_0_FW}"
-IPC_FW_LIST:am62pxx =  "                            ${MCU_2_0_FW}"
+IPC_FW_LIST:am62pxx = "                            ${MCU_2_0_FW}"
 IPC_FW_LIST:am62axx = "                            ${MCU_2_0_FW}                                                                                               ${C7X_1_FW}"
 IPC_FW_LIST:j721e =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                             ${C66_1_FW} ${C66_2_FW} ${C7X_1_FW}"
 IPC_FW_LIST:j7200 =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW}"
 IPC_FW_LIST:j721s2 =  "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                                                     ${C7X_1_FW} ${C7X_2_FW}"
 IPC_FW_LIST:j784s4 =  "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW} ${MCU_4_0_FW} ${MCU_4_1_FW}                         ${C7X_1_FW} ${C7X_2_FW} ${C7X_3_FW} ${C7X_4_FW}"
+IPC_FW_LIST:j722s =   "                            ${MCU_2_0_FW}               ${MCU_3_0_FW}                                                                   ${C7X_1_FW} ${C7X_2_FW}"
 
 # Update the am64xx ipc binaries to be consistent with other platforms
 do_install:prepend:am64xx() {
@@ -178,6 +180,13 @@ ALTERNATIVE:${PN}:j784s4 = "\
                     j784s4-c71_3-fw         j784s4-c71_3-fw-sec \
                     "
 
+ALTERNATIVE:${PN}:j722s = "\
+                    j722s-mcu-r5f0_0-fw   j722s-mcu-r5f0_0-fw-sec \
+                    j722s-main-r5f0_0-fw  j722s-main-r5f0_0-fw-sec \
+                    j722s-c71_0-fw        j722s-c71_0-fw-sec \
+                    j722s-c71_1-fw        j722s-c71_1-fw-sec \
+                    "
+
 # Set up link names for the firmwares
 
 ALTERNATIVE_LINK_NAME[am65x-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/am65x-mcu-r5f0_0-fw"
@@ -271,6 +280,15 @@ ALTERNATIVE_LINK_NAME[j784s4-c71_2-fw-sec] = "${nonarch_base_libdir}/firmware/j7
 ALTERNATIVE_LINK_NAME[j784s4-c71_3-fw]     = "${nonarch_base_libdir}/firmware/j784s4-c71_3-fw"
 ALTERNATIVE_LINK_NAME[j784s4-c71_3-fw-sec] = "${nonarch_base_libdir}/firmware/j784s4-c71_3-fw-sec"
 
+ALTERNATIVE_LINK_NAME[j722s-mcu-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j722s-mcu-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[j722s-mcu-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j722s-mcu-r5f0_0-fw-sec"
+ALTERNATIVE_LINK_NAME[j722s-main-r5f0_0-fw]     = "${nonarch_base_libdir}/firmware/j722s-main-r5f0_0-fw"
+ALTERNATIVE_LINK_NAME[j722s-main-r5f0_0-fw-sec] = "${nonarch_base_libdir}/firmware/j722s-main-r5f0_0-fw-sec"
+ALTERNATIVE_LINK_NAME[j722s-c71_0-fw]     = "${nonarch_base_libdir}/firmware/j722s-c71_0-fw"
+ALTERNATIVE_LINK_NAME[j722s-c71_0-fw-sec] = "${nonarch_base_libdir}/firmware/j722s-c71_0-fw-sec"
+ALTERNATIVE_LINK_NAME[j722s-c71_1-fw]     = "${nonarch_base_libdir}/firmware/j722s-c71_1-fw"
+ALTERNATIVE_LINK_NAME[j722s-c71_1-fw-sec] = "${nonarch_base_libdir}/firmware/j722s-c71_1-fw-sec"
+
 # Create the firmware alternatives
 
 ALTERNATIVE_TARGET[am65x-mcu-r5f0_0-fw]     = "${INSTALL_IPC_FW_DIR}/${MCU_1_0_FW}"
@@ -363,5 +381,14 @@ ALTERNATIVE_TARGET[j784s4-c71_2-fw]     = "${INSTALL_IPC_FW_DIR}/${C7X_3_FW}"
 ALTERNATIVE_TARGET[j784s4-c71_2-fw-sec] = "${INSTALL_IPC_FW_DIR}/${C7X_3_FW}.signed"
 ALTERNATIVE_TARGET[j784s4-c71_3-fw]     = "${INSTALL_IPC_FW_DIR}/${C7X_4_FW}"
 ALTERNATIVE_TARGET[j784s4-c71_3-fw-sec] = "${INSTALL_IPC_FW_DIR}/${C7X_4_FW}.signed"
+
+ALTERNATIVE_TARGET[j722s-mcu-r5f0_0-fw]     = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}"
+ALTERNATIVE_TARGET[j722s-mcu-r5f0_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_2_0_FW}.signed"
+ALTERNATIVE_TARGET[j722s-main-r5f0_0-fw]     = "${INSTALL_IPC_FW_DIR}/${MCU_3_0_FW}"
+ALTERNATIVE_TARGET[j722s-main-r5f0_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${MCU_3_0_FW}.signed"
+ALTERNATIVE_TARGET[j722s-c71_0-fw]     = "${INSTALL_IPC_FW_DIR}/${C7X_1_FW}"
+ALTERNATIVE_TARGET[j722s-c71_0-fw-sec] = "${INSTALL_IPC_FW_DIR}/${C7X_1_FW}.signed"
+ALTERNATIVE_TARGET[j722s-c71_1-fw]     = "${INSTALL_IPC_FW_DIR}/${C7X_2_FW}"
+ALTERNATIVE_TARGET[j722s-c71_1-fw-sec] = "${INSTALL_IPC_FW_DIR}/${C7X_2_FW}.signed"
 
 ALTERNATIVE_PRIORITY = "10"
