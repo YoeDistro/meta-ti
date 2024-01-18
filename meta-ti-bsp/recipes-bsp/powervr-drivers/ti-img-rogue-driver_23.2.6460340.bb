@@ -24,7 +24,7 @@ SRC_URI:append = " file://0001-build-kbuild-Makefile.template-use-SECONDARY.patc
 
 S = "${WORKDIR}/git"
 
-SRCREV = "64d1cac11363888b7a071b62d71b563568d483f1"
+SRCREV = "2595524729c5acbabcbdee2185de64e7fcd6b36a"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
 TARGET_PRODUCT:j721s2 = "j721s2_linux"
