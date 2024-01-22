@@ -1,6 +1,10 @@
+FILESEXTRAPATHS_prepend_ti-soc := "${THISDIR}/${PN}:"
+
 PV_ti-soc = "3.20.0+git${SRCPV}"
 SRCREV_ti-soc = "8e74d47616a20eaa23ca692f4bbbf917a236ed94"
-SRC_URI_ti-soc = "git://github.com/OP-TEE/optee_os.git;protocol=https"
+SRC_URI_ti-soc = "git://github.com/OP-TEE/optee_os.git;protocol=https \
+file://0006-allow-setting-sysroot-for-libgcc-lookup.patch \
+"
 
 DEPENDS_append_ti-soc = " python3-cryptography-native"
 
