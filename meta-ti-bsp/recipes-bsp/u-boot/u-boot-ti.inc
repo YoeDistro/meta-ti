@@ -27,7 +27,7 @@ PV:append = "+git${SRCPV}"
 DEPENDS += "dtc-native bc-native flex-native bison-native python3-setuptools-native"
 
 # u-boot needs these for binman
-DEPENDS += "python3-pyelftools-native python3-pyyaml-native python3-jsonschema-native"
+DEPENDS += "python3-pyelftools-native python3-pyyaml-native python3-jsonschema-native python3-yamllint-native"
 
 # SYSFW/TIFS Firmware
 DEPENDS:append:k3 = " ti-sci-fw"
