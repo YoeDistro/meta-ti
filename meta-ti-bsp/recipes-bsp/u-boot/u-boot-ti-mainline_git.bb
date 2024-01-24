@@ -2,7 +2,7 @@ require u-boot-ti.inc
 
 PR = "r0"
 
-PV = "2023.07"
+PV = "2024.01"
 
 # For the un-initiated:
 # The actual URL you'd use with a git clone for example would be:
@@ -13,4 +13,4 @@ PV = "2023.07"
 # b) and we want git fetcher to use https protocol, hence GIT_PROTOCOL as https
 UBOOT_GIT_URI = "git://source.denx.de/u-boot/u-boot.git"
 UBOOT_GIT_PROTOCOL = "https"
-SRCREV = "83cdab8b2c6ea0fc0860f8444d083353b47f1d5c"
+SRCREV = "866ca972d6c3cabeaf6dbac431e8e08bb30b3c8e"
