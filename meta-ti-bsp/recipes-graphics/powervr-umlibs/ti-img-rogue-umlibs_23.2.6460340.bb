@@ -10,7 +10,7 @@ INHIBIT_DEFAULT_DEPS = ""
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j721e|j721s2|j784s4|am62xx|am62pxx|j722s"
 
-PR = "r2"
+PR = "r3"
 
 BRANCH = "linuxws/kirkstone/k6.1/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
@@ -89,7 +89,6 @@ PACKAGES = " \
     ${@bb.utils.contains('PACKAGECONFIG', 'opencl', d.getVar('OPENCL_PACKAGES'), '', d)} \
     ${PN}-tools \
     ${PN}-firmware \
-    ${PN}-dev \
     ${PN} \
 "
 
