@@ -28,11 +28,7 @@ PACKAGECONFIG:append = " \
     ${@bb.utils.contains('PREFERRED_PROVIDER_virtual/gpudriver', 'ti-sgx-ddk-km', 'sgx', '', d)} \
 "
 
-# Temporary work around to use a different SRCREV for SGX Mesa, vs Rogue Mesa
-# Idea is these two should be the same, but currently a segfault is happening
-# on certain platforms if the sgx commit is used.
-SRCREV = "${@bb.utils.contains('PACKAGECONFIG', 'sgx', '7c9522a4147836064f582278e4f7115735c16868', '54fd9d7dea098b6f11c2a244b0c6763dc8c5690c', d)}"
-PR = "sgxrgx${SRCPV}"
+SRCREV = "1be98ba80452ebe38546a7fca26b5a70f2629083"
 
 PVR_DISPLAY_CONTROLLER_ALIAS ??= "tidss"
 PACKAGECONFIG[pvr] = "-Dgallium-pvr-alias=${PVR_DISPLAY_CONTROLLER_ALIAS},"
