@@ -12,7 +12,7 @@ PR = "r2"
 
 BRANCH = "linuxws/kirkstone/k6.1/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "c2671c6eaf85ec6a1183c023bbb4d6e9e288fc10"
+SRCREV = "0b9e64254269be2fa95c4f3e1dd925d6e4d58199"
 S = "${WORKDIR}/git/targetfs/${TARGET_PRODUCT}/${PVR_WS}/${PVR_BUILD}"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
@@ -31,7 +31,7 @@ RDEPENDS:${PN} = " \
 "
 
 PACKAGECONFIG ?= " \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'vulkan x11 wayland', 'vulkan', '', d)} \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'vulkan wayland', 'vulkan', '', d)} \
     ${@bb.utils.filter('DISTRO_FEATURES', 'opengl opencl', d)} \
 "
 
@@ -119,7 +119,7 @@ RDEPENDS:libgles2-rogue += "mesa-megadriver"
 
 # vulkan specific shared objects and configs
 FILES:libvk-rogue = "${libdir}/libVK_IMG.so* ${datadir}/vulkan"
-RDEPENDS:libvk-rogue += "vulkan-loader libx11-xcb wayland libdrm"
+RDEPENDS:libvk-rogue += "vulkan-loader wayland libdrm"
 
 # opencl specific shared objects and configs
 FILES:libopencl-rogue = "${libdir}/libPVROCL.so* ${sysconfdir}/OpenCL"
