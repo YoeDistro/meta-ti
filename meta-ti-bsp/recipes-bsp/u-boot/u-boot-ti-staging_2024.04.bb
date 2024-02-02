@@ -6,6 +6,6 @@ include ${@ 'recipes-bsp/u-boot/ti-extras.inc' if d.getVar('TI_EXTRAS') else ''}
 
 PR = "r0"
 
-BRANCH = "ti-u-boot-2024.01"
+BRANCH = "ti-u-boot-2024.04"
 
-SRCREV = "2f0282922b2c458eea7f85c500a948a587437b63"
+SRCREV = "6faba41927bdc8973b59678649ef83c564cc421e"
