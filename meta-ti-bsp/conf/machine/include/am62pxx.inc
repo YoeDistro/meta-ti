@@ -17,3 +17,6 @@ OPTEEMACHINE = "k3-am62x"
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "cnm-wave-fw"
 
 SERIAL_CONSOLES = "115200;ttyS2"
+
+# Bitmap image tarball for early splashscreen
+IMAGE_BOOT_FILES += "ti_logo_414x97_32bpp.bmp.gz"
