@@ -8,7 +8,7 @@ put_tty_driver was removed and write_room return type has changed.
 Function tty_driver_kref_put has been around a while, so no need
 to do a kernel version check.
 
-Upstream-Status: Pending
+Upstream-Status: Inactive-Upstream
 Signed-off-by: Andrew Davis <afd@ti.com>
 ---
  kernel_module/gdbproxy-mod/gdbserverproxy.c | 6 +++++-
