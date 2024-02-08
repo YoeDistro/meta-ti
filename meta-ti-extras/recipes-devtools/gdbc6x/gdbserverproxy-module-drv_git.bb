@@ -7,7 +7,10 @@ MACHINE_KERNEL_PR:append = "b"
 PR = "${MACHINE_KERNEL_PR}"
 PV:append = "+git${SRCPV}"
 
-SRC_URI:append = " file://0001-Support-Linux-kernels-v5.15.patch;patchdir=../.."
+SRC_URI:append = "\
+    file://0001-Support-Linux-kernels-v5.15.patch;patchdir=../.. \
+    file://0002-Support-Linux-kernels-v6.6.patch;patchdir=../.. \
+"
 
 S = "${WORKDIR}/git/kernel_module/gdbproxy-mod"
 

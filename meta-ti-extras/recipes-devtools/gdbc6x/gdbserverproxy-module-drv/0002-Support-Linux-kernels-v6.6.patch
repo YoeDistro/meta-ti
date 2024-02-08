@@ -1,0 +1,31 @@
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Wed, 08 Feb 2024 10:43:00 -0500
+Subject: [PATCH] Support Linux kernels v6.6+
+
+gdb_write arg changed from int to unsigned int
+
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ kernel_module/gdbproxy-mod/gdbserverproxy.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/kernel_module/gdbproxy-mod/gdbserverproxy.c b/kernel_module/gdbproxy-mod/gdbserverproxy.c
+index 418b6db..4b1c676 100644
+--- a/kernel_module/gdbproxy-mod/gdbserverproxy.c
++++ b/kernel_module/gdbproxy-mod/gdbserverproxy.c
+@@ -496,8 +496,13 @@ static void gdb_close(struct tty_struct *tty, struct file *filp)
+  * 
+  *
+  */
++#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6,6,0))
++static int gdb_write(struct tty_struct *tty,
++        const unsigned char *buf, unsigned int count)
++#else
+ static int gdb_write(struct tty_struct *tty,
+         const unsigned char *buf, int count)
++#endif
+ {
+      struct dsp_session *dsp = tty->driver_data;
+      int ret = 0;
