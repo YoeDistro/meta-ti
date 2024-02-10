@@ -6,8 +6,7 @@ DEFAULT_PREFERENCE = "-1"
 # This will have priority over generic non-rt path
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-6.6:"
 
-#BRANCH = "ti-rt-linux-6.6.y"
-BRANCH = "ti-linux-6.6.y"
+BRANCH = "ti-rt-linux-6.6.y"
 
 SRCREV = "ffc253263a1375a65fa6c9f62a893e9767fbebfa"
 
