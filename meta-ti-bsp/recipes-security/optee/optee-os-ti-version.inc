@@ -1,5 +1,5 @@
-PV = "4.0.0+git${SRCPV}"
-SRCREV = "2a5b1d1232f582056184367fb58a425ac7478ec6"
+PV = "4.1.0+git${SRCPV}"
+SRCREV = "012cdca49db398693903e05c42a254a3a0c0d8f2"
 
 # Fixes for pointing to 4.0.0 before upstream meta-arm
 FILESEXTRAPATHS:prepend := "${THISDIR}/optee-os-4.0.0:"
