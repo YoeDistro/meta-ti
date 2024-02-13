@@ -29,11 +29,7 @@ SRCREV:aarch64 = "f47f74d11b19d8ae2f146de92c258f40e0930d86"
 PV:aarch64 = "6.1.46+git${SRCPV}"
 BRANCH:aarch64 = "v6.1.46-ti-arm64-r13"
 
-SRC_URI = "git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
-           file://defconfig \
-"
-
-FILES:${KERNEL_PACKAGE_NAME}-devicetree += " \
-    /${KERNEL_DTBDEST}/*/overlays/*.dtb \
-    /${KERNEL_DTBDEST}/*/overlays/*.dtbo \
+SRC_URI = " \
+    git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
+    file://defconfig \
 "
