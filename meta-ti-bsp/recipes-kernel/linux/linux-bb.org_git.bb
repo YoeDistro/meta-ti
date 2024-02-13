@@ -19,15 +19,15 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} ${EXTRA_DTC_ARGS}"
 
 S = "${WORKDIR}/git"
 
-# 6.1.46 version for 32-bit
-SRCREV:armv7a = "0df74a0c083222077e8def3ec7e52c75f7eff2f0"
-PV:armv7a = "6.1.46+git${SRCPV}"
-BRANCH:armv7a = "v6.1.46-ti-r13"
+# 6.1.69 version for 32-bit
+SRCREV:armv7a = "a1f26a19581970f76220c68c438981796ce5b767"
+PV:armv7a = "6.1.69+git${SRCPV}"
+BRANCH:armv7a = "v6.1.69-ti-r22"
 
-# 6.1.46 version for 64-bit
-SRCREV:aarch64 = "f47f74d11b19d8ae2f146de92c258f40e0930d86"
-PV:aarch64 = "6.1.46+git${SRCPV}"
-BRANCH:aarch64 = "v6.1.46-ti-arm64-r13"
+# 6.1.69 version for 64-bit
+SRCREV:aarch64 = "bc76b5d278271f66a6faeb2d09cb09fc6c57dd3c"
+PV:aarch64 = "6.1.69+git${SRCPV}"
+BRANCH:aarch64 = "v6.1.69-ti-arm64-r24"
 
 SRC_URI = " \
     git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
