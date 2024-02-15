@@ -22,7 +22,7 @@ SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-driver.git;protocol=https;
 
 S = "${WORKDIR}/git"
 
-SRCREV = "41a494accb30aa2f247e6a4e123a4954982f2a88"
+SRCREV = "c89c1efa4a1ee5da64fd525f45e9e33728cf6181"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
 TARGET_PRODUCT:j721s2 = "j721s2_linux"
