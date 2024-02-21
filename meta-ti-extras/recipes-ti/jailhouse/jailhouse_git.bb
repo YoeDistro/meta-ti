@@ -1,48 +1,10 @@
-SUMMARY = "Linux-based partitioning hypervisor"
-DESCRIPTION = "Jailhouse is a partitioning Hypervisor based on Linux. It is able to run bare-metal applications or (adapted) \
-operating systems besides Linux. For this purpose, it configures CPU and device virtualization features of the hardware \
-platform in a way that none of these domains, called 'cells' here, can interfere with each other in an unacceptable way."
-HOMEPAGE = "https://github.com/siemens/jailhouse"
-SECTION = "jailhouse"
-LICENSE = "GPL-2.0-only & BSD-2-Clause"
+require ti-jailhouse.inc
 
-LIC_FILES_CHKSUM = " \
-    file://COPYING;md5=9fa7f895f96bde2d47fd5b7d95b6ba4d \
-"
-
-COMPATIBLE_MACHINE = "am62xx|am62pxx"
-
-TARGET_CC_ARCH += "${LDFLAGS}"
-
-PV = "0.12+git${SRCPV}"
-SRCREV = "0b29ad90f6f54105b98d6bbf35cc47fb244f7799"
-BRANCH = "master"
-
-SRC_URI = " \
-    git://git.ti.com/git/jailhouse/ti-jailhouse.git;protocol=https;branch=${BRANCH} \
-"
-
-DEPENDS = "virtual/kernel dtc-native python3-mako-native python3-mako make-native"
 RDEPENDS:${PN} += "\
-	python3-curses\
-	python3-datetime\
-	python3-mmap\
+        python3-curses\
+        python3-datetime\
+        python3-mmap\
 "
-
-require jailhouse-arch.inc
-inherit module python3native bash-completion deploy setuptools3
-
-S = "${WORKDIR}/git"
-B = "${S}"
-
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-COMPATIBLE_MACHINE = "(ti-soc)"
-
-JH_DATADIR ?= "${datadir}/jailhouse"
-JH_EXEC_DIR ?= "${libexecdir}/jailhouse"
-CELL_DIR ?= "${JH_DATADIR}/cells"
-CELLCONF_DIR ?= "${JH_DATADIR}/configs"
-INMATES_DIR ?= "${JH_DATADIR}/inmates"
 
 JH_CELL_FILES ?= "*.cell"
 JH_CELL_FILES:k3 ?= "k3-*.cell"
@@ -63,13 +25,6 @@ JH_LINUX_DEMO_CELL:am62pxx ?= "k3-am62p5-sk-linux-demo.cell"
 JH_LINUX_DEMO_CELL:j7 ?= "k3-j721e-evm-linux-demo.cell"
 JH_LINUX_DEMO_CELL:j7200-evm ?= "k3-j7200-evm-linux-demo.cell"
 
-JH_SYSCONFIG_CELL ?= ""
-JH_SYSCONFIG_CELL:am62xx ?= "k3-am625-sk.cell"
-JH_SYSCONFIG_CELL:am65xx ?= "k3-am654-idk.cell"
-JH_SYSCONFIG_CELL:am62pxx ?= "k3-am62p5-sk.cell"
-JH_SYSCONFIG_CELL:j7 ?= "k3-j721e-evm.cell"
-JH_SYSCONFIG_CELL:j7200-evm ?= "k3-j7200-evm.cell"
-
 INITRAMFS_IMAGE ?= ""
 JH_RAMFS_IMAGE ?= "${INITRAMFS_IMAGE}"
 
@@ -80,29 +35,7 @@ JH_CMDLINE:am65xx ?= "console=ttyS1,115200n8"
 JH_CMDLINE:j7 ?= "console=ttyS3,115200n8"
 JH_CMDLINE:j7200-evm ?= "console=ttyS3,115200n8"
 
-do_configure() {
-	if [ -d ${STAGING_DIR_HOST}/${CELLCONF_DIR} ];
-	then
-		cp ${STAGING_DIR_HOST}/${CELLCONF_DIR}/*.c ${S}/configs/
-	fi
-}
-
-USER_SPACE_CFLAGS = '${CFLAGS} -DLIBEXECDIR=\\\"${libexecdir}\\\" \
-                    -DJAILHOUSE_VERSION=\\\"$JAILHOUSE_VERSION\\\" \
-                    -Wall -Wextra -Wmissing-declarations -Wmissing-prototypes -Werror \
-                    -I../driver'
-
-TOOLS_SRC_DIR = "${S}/tools"
-
-EXTRA_OEMAKE = "ARCH=${JH_ARCH} CROSS_COMPILE=${TARGET_PREFIX} CC="${CC}" KDIR=${STAGING_KERNEL_BUILDDIR}"
-
-do_compile() {
-	oe_runmake V=1
-}
-
 do_install() {
-	# Install pyjailhouse python modules needed by the tools
-	# distutils3_do_install
 
 	# We want to install the python tools, but we do not want to use pip...
 	# At least with v0.10, we can work around this with
@@ -154,7 +87,7 @@ do_install() {
 }
 
 PACKAGE_BEFORE_PN = "kernel-module-jailhouse pyjailhouse ${PN}-tools"
-FILES:${PN} = "${base_libdir}/firmware ${libexecdir} ${sbindir} ${JH_DATADIR} /boot"
+
 FILES:pyjailhouse = "${PYTHON_SITEPACKAGES_DIR}"
 FILES:${PN}-tools = "${libexecdir}/${BPN}/${BPN}-*"
 
@@ -182,7 +115,6 @@ python __anonymous () {
         d.appendVar('DEPENDS', ' ' + cell)
         d.appendVar('RDEPENDS_${PN}', ' ' + cell)
 }
-
 
 FILES:${PN} = " \
     /boot/* \
