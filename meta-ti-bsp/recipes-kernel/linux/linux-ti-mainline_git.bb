@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 
 # 6.6 Mainline version
 SRCREV = "ffc253263a1375a65fa6c9f62a893e9767fbebfa"
-PV = "6.6+git${SRCPV}"
+PV = "6.6+git"
 
 # Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
 MACHINE_KERNEL_PR:append = "b"

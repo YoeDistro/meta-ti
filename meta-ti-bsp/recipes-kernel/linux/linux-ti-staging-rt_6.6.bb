@@ -12,4 +12,4 @@ SRCREV = "357d8fe8189aa5c61b4e311ef810f7e0a2c49be9"
 
 include ${@ 'recipes-kernel/linux/ti-extras-rt.inc' if d.getVar('TI_EXTRAS') else ''}
 
-PV = "6.6.14+git${SRCPV}"
+PV = "6.6.14+git"

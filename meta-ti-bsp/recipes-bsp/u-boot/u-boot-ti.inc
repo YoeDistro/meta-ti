@@ -21,7 +21,7 @@ UBOOT_GIT_URI ?= "git://git.ti.com/git/ti-u-boot/ti-u-boot.git"
 UBOOT_GIT_PROTOCOL = "https"
 SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};branch=${BRANCH}"
 
-PV:append = "+git${SRCPV}"
+PV:append = "+git"
 
 # u-boot needs devtree compiler to parse dts files
 DEPENDS += "dtc-native bc-native flex-native bison-native python3-setuptools-native"

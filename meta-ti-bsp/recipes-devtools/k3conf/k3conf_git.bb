@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a56bddef00b39fb0f45488fdc4ce108f"
 
 inherit cmake
 
-PV = "0.3+git${SRCPV}"
+PV = "0.3+git"
 
 COMPATIBLE_MACHINE = "k3"
 

@@ -1,4 +1,4 @@
-PV:k3 = "2.10+git${SRCPV}"
+PV:k3 = "2.10+git"
 SRCREV_tfa:k3 = "00f1ec6b8740ccd403e641131e294aabacf2a48b"
 SRC_URI:k3 = "git://git.trustedfirmware.org/TF-A/trusted-firmware-a.git;protocol=https;name=tfa;branch=master"
 COMPATIBLE_MACHINE:k3 = "k3"

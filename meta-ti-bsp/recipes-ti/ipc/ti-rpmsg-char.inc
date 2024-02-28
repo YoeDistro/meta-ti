@@ -10,7 +10,7 @@ SRC_URI = "git://git.ti.com/git/rpmsg/ti-rpmsg-char.git;protocol=${PROTOCOL};bra
 # 0.6.4 release
 SRCREV = "439a13cf24662224d5dfa672c6a50d7c43899886"
 
-PV = "0.6.4+git${SRCPV}"
+PV = "0.6.4+git"
 
 S = "${WORKDIR}/git"
 

@@ -24,7 +24,7 @@ TI_RTOS_METADATA_DIR ?= "${PLAT_SFX}"
 TI_RTOS_METADATA_FILE ?= "${S}${TI_RTOS_METADATA_DIR}/metadata.inc"
 TI_RTOS_METADATA_FILE:am64xx ?= "${S}${TI_RTOS_METADATA_DIR}/mcusdk_metadata.inc"
 
-PV = "1.0.0+git${SRCPV}"
+PV = "1.0.0+git"
 
 S = "${WORKDIR}/git"
 

@@ -21,12 +21,12 @@ S = "${WORKDIR}/git"
 
 # 6.1.69 version for 32-bit
 SRCREV:armv7a = "a1f26a19581970f76220c68c438981796ce5b767"
-PV:armv7a = "6.1.69+git${SRCPV}"
+PV:armv7a = "6.1.69+git"
 BRANCH:armv7a = "v6.1.69-ti-r22"
 
 # 6.1.69 version for 64-bit
 SRCREV:aarch64 = "bc76b5d278271f66a6faeb2d09cb09fc6c57dd3c"
-PV:aarch64 = "6.1.69+git${SRCPV}"
+PV:aarch64 = "6.1.69+git"
 BRANCH:aarch64 = "v6.1.69-ti-arm64-r24"
 
 SRC_URI = " \
