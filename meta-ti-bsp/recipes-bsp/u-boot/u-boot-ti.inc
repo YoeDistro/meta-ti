@@ -1,6 +1,9 @@
-# UBOOT_LOCALVERSION can be set to add a tag to the end of the
-# U-boot version string.  such as the commit id
-UBOOT_LOCALVERSION = "-g${@d.getVar('SRCPV', True).replace('AUTOINC+','')[:10]}"
+do_compile:prepend () {
+    scm_version=$(printf '%s%s' -ti-g $(git -C ${S} rev-parse --verify HEAD 2>/dev/null | cut -c1-12))
+
+    echo ${scm_version} > ${B}/.scmversion
+    echo ${scm_version} > ${S}/.scmversion
+}
 
 UBOOT_SUFFIX ?= "img"
 SPL_BINARY ?= "MLO"
