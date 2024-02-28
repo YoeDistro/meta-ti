@@ -1,6 +1,4 @@
-# KERNEL_LOCALVERSION can be set to add a tag to the end of the
-# kernel version string.  such as the commit id
-KERNEL_LOCALVERSION = "-g${@d.getVar('SRCPV', True).replace('AUTOINC+','')[:10]}"
+KERNEL_LOCALVERSION = "-ti"
 
 # Check the defconfig file and see if it points to an in kernel
 # defconfig that should be used, or if it is a complete config file
@@ -13,8 +11,10 @@ do_configure() {
     # tree config
     cp ${WORKDIR}/defconfig ${B}/.config
 
-    echo ${KERNEL_LOCALVERSION} > ${B}/.scmversion
-    echo ${KERNEL_LOCALVERSION} > ${S}/.scmversion
+    scm_version=$(printf '%s%s' -g $(git -C ${S} rev-parse --verify HEAD 2>/dev/null | cut -c1-12))
+
+    echo ${scm_version} > ${B}/.scmversion
+    echo ${scm_version} > ${S}/.scmversion
 
     # Zero, when using "tisdk" configs, pass control to defconfig_builder
     config=`cat ${B}/.config | grep use-tisdk-config | cut -d= -f2`
