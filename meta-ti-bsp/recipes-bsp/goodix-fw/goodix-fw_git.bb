@@ -10,8 +10,6 @@ PR = "${INC_PR}.0"
 
 COMPATIBLE_MACHINE = "dra7xx"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 ORIGIN = "DRA71x-RevA-GT9271_SpecDig_Config.bin"
 TARGET = "goodix_9271_cfg.bin"
 

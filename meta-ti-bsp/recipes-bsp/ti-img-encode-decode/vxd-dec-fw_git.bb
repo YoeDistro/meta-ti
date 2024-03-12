@@ -9,8 +9,6 @@ PR = "${INC_PR}.0"
 
 COMPATIBLE_MACHINE = "j721e"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 TARGET = "pvdec_full_bin.fw"
 
 do_install() {

@@ -12,8 +12,6 @@ PR = "${INC_PR}.1"
 
 COMPATIBLE_MACHINE = "j721s2|j784s4|j722s|am62axx|am62pxx"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 TARGET_WAVE521C = "wave521c_codec_fw.bin"
 
 SOURCE_WAVE521C = "wave521c_k3_codec_fw.bin"

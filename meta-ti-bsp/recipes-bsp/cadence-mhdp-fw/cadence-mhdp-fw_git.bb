@@ -10,8 +10,6 @@ PR = "${INC_PR}.0"
 
 COMPATIBLE_MACHINE = "j721e|j721s2|j784s4"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 TARGET = "mhdp8546.bin"
 
 do_install() {

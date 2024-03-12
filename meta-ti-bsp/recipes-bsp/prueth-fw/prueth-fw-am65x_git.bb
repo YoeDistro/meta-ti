@@ -7,8 +7,6 @@ PR = "${INC_PR}.0"
 
 COMPATIBLE_MACHINE = "am65xx"
 
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
 TARGET = " \
     am65x-pru0-prueth-fw.elf \
     am65x-pru1-prueth-fw.elf \
