@@ -12,6 +12,9 @@ IMAGE_BOOT_FILES += "tiboot3-j784s4-gp-evm.bin"
 # Since default tiboot3.bin on J784S4 is for GP, add a version for SR1.0 HS-FS
 IMAGE_BOOT_FILES += "tiboot3-j784s4-hs-fs-evm.bin"
 
+# Since default tiboot3.bin on J784S4 is for GP, add a version for SR1.0 HS-SE
+IMAGE_BOOT_FILES += "tiboot3-j784s4-hs-evm.bin"
+
 TFA_BOARD = "j784s4"
 
 OPTEEMACHINE = "k3-j784s4"
