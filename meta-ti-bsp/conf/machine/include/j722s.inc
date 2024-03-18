@@ -9,6 +9,9 @@ PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
 # Default tiboot3.bin on J722S is for HS-FS
 IMAGE_BOOT_FILES += "tiboot3-j722s-hs-fs-evm.bin"
 
+# Since default tiboot3.bin on J722S is for HS-FS, add a version for HS-SE
+IMAGE_BOOT_FILES += "tiboot3-j722s-hs-evm.bin"
+
 TFA_BOARD = "lite"
 TFA_K3_SYSTEM_SUSPEND = "1"
 
