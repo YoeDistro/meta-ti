@@ -8,7 +8,7 @@ This layer depends on:
 
 URI: git://git.openembedded.org/openembedded-core
 layers: meta
-branch: master
+branch: scarthgap
 
 URI: git://git.yoctoproject.org/meta-arm
 layers: meta-arm
