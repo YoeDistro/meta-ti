@@ -221,6 +221,13 @@ do_deploy:append:k3r5 () {
 			install -m 644 $f ${DEPLOYDIR}/
 		fi
 	done
+
+	rm ${DEPLOYDIR}/u-boot-initial-env || true
+	rm ${DEPLOYDIR}/${PN}-initial-env || true
+	rm ${DEPLOYDIR}/u-boot-initial-env-${MACHINE} || true
+	rm ${DEPLOYDIR}/${PN}-initial-env-${MACHINE} || true
+	rm ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${PV}-${PR} || true
+	rm ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${PV}-${PR} || true
 }
 
 do_deploy:append () {
@@ -325,13 +332,6 @@ do_deploy:append () {
 			ln -sf ${UBOOT_HS_2ND_IMAGE} ${UBOOT_HS_2ND_BINARY}
 		fi
 	fi
-
-	rm ${DEPLOYDIR}/u-boot-initial-env || true
-	rm ${DEPLOYDIR}/${PN}-initial-env || true
-	rm ${DEPLOYDIR}/u-boot-initial-env-${MACHINE} || true
-	rm ${DEPLOYDIR}/${PN}-initial-env-${MACHINE} || true
-	rm ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${PV}-${PR} || true
-	rm ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${PV}-${PR} || true
 }
 
 do_install:append:am62xx() {
