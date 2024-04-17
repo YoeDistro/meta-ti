@@ -13,7 +13,7 @@ LIC_FILES_CHKSUM = " \
 
 COMPATIBLE_MACHINE = "am62xx|am62pxx"
 TARGET_CC_ARCH += "${LDFLAGS}"
-PV = "0.12+git${SRCPV}"
+PV = "0.12+git"
 SRCREV = "603819ef9a771a3c253a141220daab8e61751a43"
 BRANCH = "master"
 SRC_URI = " \
