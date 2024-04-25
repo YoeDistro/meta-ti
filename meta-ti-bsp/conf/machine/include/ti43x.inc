@@ -27,10 +27,10 @@ KERNEL_DEVICETREE_PREFIX = " \
 "
 
 KERNEL_DEVICETREE = " \
-    am437x-gp-evm.dtb \
-    am437x-sk-evm.dtb \
-    am437x-idk-evm.dtb \
-    am43x-epos-evm.dtb \
+    ti/omap/am437x-gp-evm.dtb \
+    ti/omap/am437x-sk-evm.dtb \
+    ti/omap/am437x-idk-evm.dtb \
+    ti/omap/am43x-epos-evm.dtb \
 "
 
 KERNEL_DEVICETREE += "${@oe.utils.conditional('ENABLE_TI_UIO_DEVICES', '1', 'am437x-idk-pru-excl-uio.dtb', '', d)}"
