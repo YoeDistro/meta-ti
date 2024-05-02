@@ -12,7 +12,7 @@ branch: scarthgap
 
 URI: git://git.yoctoproject.org/meta-arm
 layers: meta-arm
-branch: master
+branch: scarthgap
 
 URI: git://git.yoctoproject.org/meta-ti
 branch: scarthgap
