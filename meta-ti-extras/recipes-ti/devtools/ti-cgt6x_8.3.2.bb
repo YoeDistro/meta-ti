@@ -92,7 +92,7 @@ do_install() {
 }
 
 do_install:class-target() {
-    ${WORKDIR}/${BINFILE} --prefix ${D}
+    ${UNPACKDIR}/${BINFILE} --prefix ${D}
 }
 
 FILES:${PN} += "${datadir}/ti/*"

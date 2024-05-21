@@ -14,13 +14,13 @@ SRC_URI = "file://cape.service \
 
 do_install() {
 	install -d ${D}${base_libdir}/systemd/system/
-	install -m 0644 ${WORKDIR}/cape.service ${D}${base_libdir}/systemd/system
+	install -m 0644 ${UNPACKDIR}/cape.service ${D}${base_libdir}/systemd/system
 
 	install -d ${D}${base_libdir}/systemd/system/basic.target.wants
 	ln -sf ../cape.service ${D}${base_libdir}/systemd/system/basic.target.wants/
 
 	install -d ${D}${bindir}
-	install -m 0755 ${WORKDIR}/cape*.sh ${D}${bindir}
+	install -m 0755 ${UNPACKDIR}/cape*.sh ${D}${bindir}
 }
 
 FILES:${PN} += "${base_libdir}/systemd/system"

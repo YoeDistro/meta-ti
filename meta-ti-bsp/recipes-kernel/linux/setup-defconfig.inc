@@ -9,7 +9,7 @@ do_configure() {
     # Always copy the defconfig file to .config to keep consistency
     # between the case where there is a real config and the in kernel
     # tree config
-    cp ${WORKDIR}/defconfig ${B}/.config
+    cp ${UNPACKDIR}/defconfig ${B}/.config
 
     scm_version=$(printf '%s%s' -g $(git -C ${S} rev-parse --verify HEAD 2>/dev/null | cut -c1-12))
 

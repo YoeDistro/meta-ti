@@ -18,7 +18,7 @@ SRC_URI += "file://tiipclad-daemon.sh \
             file://0001-MmRpc-Stop-looking-for-rpmsg_rpc.h-in-the-kernel.patch \
            "
 
-CFLAGS += "-I${WORKDIR}"
+CFLAGS += "-I${UNPACKDIR}"
 
 DAEMON = "UNKNOWN"
 DAEMON:dra7xx = "lad_dra7xx"
@@ -45,18 +45,18 @@ do_install:append() {
 
     # Modify the startup scripts to point to the right
     # lad daemon executable.
-    sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${WORKDIR}/tiipclad-daemon.sh
-    sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${WORKDIR}/tiipclad-daemon.service
+    sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${UNPACKDIR}/tiipclad-daemon.sh
+    sed -i -e "s/__LAD_DAEMON__/${DAEMON}/" ${UNPACKDIR}/tiipclad-daemon.service
 
     install -d ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/tiipclad-daemon.service ${D}${systemd_system_unitdir}
+    install -m 0644 ${UNPACKDIR}/tiipclad-daemon.service ${D}${systemd_system_unitdir}
     install -d ${D}${sysconfdir}/init.d/
-    install -c -m 755 ${WORKDIR}/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
+    install -c -m 755 ${UNPACKDIR}/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
 }
 
 do_install:append:dra7xx() {
     install -d ${D}${sysconfdir}/modprobe.d/
-    install -c -m 644 ${WORKDIR}/omap_remoteproc.conf ${D}${sysconfdir}/modprobe.d/
+    install -c -m 644 ${UNPACKDIR}/omap_remoteproc.conf ${D}${sysconfdir}/modprobe.d/
 }
 
 PACKAGES =+ "${PN}-test"

@@ -5,7 +5,7 @@
 #  TI_BIN_UNPK_ARGS   - contains the arguments to be passed to the bin file.
 #  TI_BIN_UNPK_CMDS   - contains list of commands separated with colon to be 
 #                       passed while unpacking the bin file. The keyword 
-#                       workdir expands to WORKDIR and commands are appendded
+#                       workdir expands to UNPACKDIR and commands are appendded
 #                       with '\n'. Eg. TI_BIN_UNPK_CMDS="Y:Y: qY:workdir"
 #  TI_BIN_UNPK_WDEXT  - This variable extends workdir path, if user wants to put
 #                       the output in some internal directory
@@ -30,7 +30,7 @@ python ti_bin_do_unpack() {
 
     # Change to the working directory
     save_cwd = os.getcwd()
-    workdir  = localdata.getVar('WORKDIR')
+    workdir  = localdata.getVar('UNPACKDIR')
     workdir  = bb.data.expand(workdir, localdata)
     os.chdir(workdir)
 
