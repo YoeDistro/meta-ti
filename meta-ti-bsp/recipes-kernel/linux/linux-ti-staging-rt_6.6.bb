@@ -1,7 +1,5 @@
 require linux-ti-staging_6.6.bb
 
-DEFAULT_PREFERENCE = "-1"
-
 KERNEL_LOCALVERSION:append = "-rt"
 
 # Look in the generic major.minor directory for files

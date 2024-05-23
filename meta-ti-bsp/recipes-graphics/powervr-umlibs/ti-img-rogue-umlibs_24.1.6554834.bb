@@ -3,8 +3,6 @@ HOMEPAGE = "http://git.ti.com/graphics/ti-img-rogue-umlibs"
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit bin_package
 
 INHIBIT_DEFAULT_DEPS = ""

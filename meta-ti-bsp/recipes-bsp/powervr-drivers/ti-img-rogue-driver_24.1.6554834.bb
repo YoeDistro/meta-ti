@@ -3,8 +3,6 @@ HOMEPAGE = "http://git.ti.com/graphics/ti-img-rogue-driver"
 LICENSE = "MIT | GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://README;beginline=14;endline=19;md5=0403c7dea01a2b8232261e805325fac2"
 
-DEFAULT_PREFERENCE = "-1"
-
 inherit module
 
 PROVIDES = "virtual/gpudriver"
