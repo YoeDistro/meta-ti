@@ -2,8 +2,6 @@
 # upstream yet. This allows us to build the shims we need without completely
 # clobbering mesa.
 
-DEFAULT_PREFERENCE = "-1"
-
 require recipes-graphics/mesa/mesa.inc
 
 SUMMARY += " (with PowerVR support for TI platforms)"
