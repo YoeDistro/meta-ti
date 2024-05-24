@@ -14,7 +14,7 @@ PR = "r3"
 
 BRANCH = "linuxws/scarthgap/k6.6/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "e473234158c736248cf71a60080b7faf76fca561"
+SRCREV = "aeaf6d007abdc0f782d5f5c4b374efdad2d87943"
 S = "${WORKDIR}/git/targetfs/${TARGET_PRODUCT}/${PVR_WS}/${PVR_BUILD}"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
