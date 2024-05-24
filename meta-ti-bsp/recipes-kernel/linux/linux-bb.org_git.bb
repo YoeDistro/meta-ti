@@ -10,24 +10,21 @@ inherit kernel
 require recipes-kernel/linux/setup-defconfig.inc
 require recipes-kernel/linux/ti-kernel.inc
 
-# BB.org hasn't switched to "vendored" DTB layout by default yet
-KERNEL_DTBVENDORED = "0"
-
 DEPENDS += "gmp-native libmpc-native"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} ${EXTRA_DTC_ARGS}"
 
 S = "${WORKDIR}/git"
 
-# 6.1.69 version for 32-bit
-SRCREV:armv7a = "a1f26a19581970f76220c68c438981796ce5b767"
-PV:armv7a = "6.1.69+git"
-BRANCH:armv7a = "v6.1.69-ti-r22"
+# 6.1.80 version for 32-bit
+SRCREV:armv7a = "4ca9ea30768d58c8d4d56d03dd1eaf8c8feb7ef9"
+PV:armv7a = "6.1.80+git"
+BRANCH:armv7a = "v6.1.80-ti-r34"
 
-# 6.1.69 version for 64-bit
-SRCREV:aarch64 = "bc76b5d278271f66a6faeb2d09cb09fc6c57dd3c"
-PV:aarch64 = "6.1.69+git"
-BRANCH:aarch64 = "v6.1.69-ti-arm64-r24"
+# 6.1.80 version for 64-bit
+SRCREV:aarch64 = "977c75e082620f15c06c72bcced30f787c14b390"
+PV:aarch64 = "6.1.80+git"
+BRANCH:aarch64 = "v6.1.80-ti-arm64-r49"
 
 SRC_URI = " \
     git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
