@@ -5,9 +5,7 @@ require conf/machine/include/arm/armv5/tune-arm926ejs.inc
 
 KERNEL_IMAGETYPE = "zImage"
 
-PREFERRED_PROVIDER_virtual/kernel ?= "linux-ti-staging"
-PREFERRED_PROVIDER_virtual/bootloader = "u-boot-ti-staging"
-PREFERRED_PROVIDER_u-boot = "u-boot-ti-staging"
+require conf/machine/include/ti-bsp.inc
 
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 

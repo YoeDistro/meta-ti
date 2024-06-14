@@ -4,7 +4,7 @@ SOC_FAMILY:append = ":j721e"
 MACHINE_FEATURES += "screen gpu"
 
 require conf/machine/include/mesa-pvr.inc
-PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
+PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 
 IMAGE_BOOT_FILES += "sysfw.itb"
 

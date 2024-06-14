@@ -4,7 +4,7 @@ SOC_FAMILY:append = ":j721s2"
 MACHINE_FEATURES += "screen gpu"
 
 require conf/machine/include/mesa-pvr.inc
-PREFERRED_PROVIDER_virtual/gpudriver ?= "ti-img-rogue-driver"
+PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 
 # Default tiboot3.bin on AM68 is for SR1.0 HS-FS
 IMAGE_BOOT_FILES += "tiboot3-j721s2-hs-fs-evm.bin"
