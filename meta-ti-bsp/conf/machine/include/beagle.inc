@@ -1,3 +1,1 @@
-
-PREFERRED_PROVIDER_virtual/kernel ?= "linux-bb.org"
-
+TI_PREFERRED_BSP ?= "bb_org"

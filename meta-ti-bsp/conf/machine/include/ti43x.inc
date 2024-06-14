@@ -7,14 +7,11 @@ require conf/machine/include/arm/armv7a/tune-cortexa9.inc
 # Increase this everytime you change something in the kernel
 MACHINE_KERNEL_PR = "r3"
 
-# Default providers, may need to override for specific machines
-PREFERRED_PROVIDER_virtual/kernel ?= "linux-ti-staging"
-PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot-ti-staging"
-PREFERRED_PROVIDER_u-boot ?= "u-boot-ti-staging"
+require conf/machine/include/ti-bsp.inc
 
 # Graphics providers and variables
 require conf/machine/include/mesa-pvr.inc
-PREFERRED_PROVIDER_virtual/gpudriver ?= ""
+PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_SGX_DRIVER_PROVIDER}"
 PVR_DISPLAY_CONTROLLER_ALIAS ?= "omapdrm"
 
 KERNEL_IMAGETYPE = "zImage"

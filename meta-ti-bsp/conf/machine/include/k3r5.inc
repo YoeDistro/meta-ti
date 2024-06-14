@@ -11,9 +11,9 @@ require conf/machine/include/arm/armv7a/tune-cortexa8.inc
 # https://git.ti.com/cgit/ti-u-boot/ti-u-boot/tree/doc/board/ti/j721e_evm.rst
 # https://git.ti.com/cgit/ti-u-boot/ti-u-boot/tree/doc/board/ti/am62x_sk.rst
 # https://git.ti.com/cgit/ti-u-boot/ti-u-boot/tree/doc/board/ti/k3.rst
+
+require conf/machine/include/ti-bsp.inc
 PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
-PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot-ti-staging"
-PREFERRED_PROVIDER_u-boot ?= "u-boot-ti-staging"
 
 SPL_SUFFIX = "bin"
 SPL_BINARY = "tiboot3-${SYSFW_SOC}-${SYSFW_SUFFIX}-${SYSFW_CONFIG}.${SPL_SUFFIX}"
