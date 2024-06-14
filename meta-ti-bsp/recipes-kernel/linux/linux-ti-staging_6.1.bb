@@ -26,10 +26,6 @@ BRANCH ?= "ti-linux-6.1.y"
 SRCREV ?= "c1c2f1971fbf6ddad93a8c94314fe8221e7aa6be"
 PV = "6.1.83+git"
 
-# Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR:append = "b"
-PR = "${MACHINE_KERNEL_PR}"
-
 KERNEL_GIT_URI ?= "git://git.ti.com/git/ti-linux-kernel/ti-linux-kernel.git"
 KERNEL_GIT_PROTOCOL = "https"
 SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \

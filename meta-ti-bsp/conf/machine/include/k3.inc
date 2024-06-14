@@ -7,9 +7,6 @@ require conf/machine/include/arm/arch-arm64.inc
 
 BBMULTICONFIG += "k3r5"
 
-# Increase this everytime you change something in the kernel
-MACHINE_KERNEL_PR = "r0"
-
 require conf/machine/include/ti-bsp.inc
 
 KERNEL_IMAGETYPE = "Image"

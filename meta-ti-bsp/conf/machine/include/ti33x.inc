@@ -4,9 +4,6 @@ SOC_FAMILY:append = ":ti33x"
 DEFAULTTUNE ?= "armv7athf-neon"
 require conf/machine/include/arm/armv7a/tune-cortexa8.inc
 
-# Increase this everytime you change something in the kernel
-MACHINE_KERNEL_PR = "r22"
-
 require conf/machine/include/ti-bsp.inc
 
 # Graphics providers and variables

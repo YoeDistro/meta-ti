@@ -9,9 +9,6 @@ PROVIDES = "virtual/gpudriver"
 
 COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|am65xx"
 
-MACHINE_KERNEL_PR:append = "x"
-PR = "${MACHINE_KERNEL_PR}"
-
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "virtual/kernel"

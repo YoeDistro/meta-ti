@@ -18,10 +18,6 @@ S = "${WORKDIR}/git"
 SRCREV = "ffc253263a1375a65fa6c9f62a893e9767fbebfa"
 PV = "6.6+git"
 
-# Append to the MACHINE_KERNEL_PR so that a new SRCREV will cause a rebuild
-MACHINE_KERNEL_PR:append = "b"
-PR = "${MACHINE_KERNEL_PR}"
-
 KERNEL_GIT_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
 KERNEL_GIT_PROTOCOL = "https"
 KERNEL_GIT_BRANCH = "master"

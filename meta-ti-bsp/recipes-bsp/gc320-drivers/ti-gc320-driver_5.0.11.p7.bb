@@ -7,9 +7,6 @@ inherit module features_check
 
 REQUIRED_MACHINE_FEATURES = "gc320"
 
-MACHINE_KERNEL_PR:append = "i"
-PR = "${MACHINE_KERNEL_PR}"
-
 # Need to branch out with ${PV} var
 BRANCH = "ti-${PV}-k5.10"
 
