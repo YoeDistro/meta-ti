@@ -3,7 +3,7 @@
 # preferences for kernel, bootloader and graphics components, as
 # well as a dedicated machine override.
 
-# Supported options are: mainline, ti-6_6, ti-6_1, bb_org
+# Supported options are: mainline, next, ti-6_6, ti-6_1, bb_org
 TI_PREFERRED_BSP ??= "ti-6_6"
 
 # Use bsp-* namespace for overrides
@@ -21,6 +21,19 @@ BSP_BOOTLOADER_VERSION:bsp-mainline = "%"
 # GPU support requires out-of-tree SGX and Rogue drivers not available
 # in mainline, usually present in TI staging or derivative like BB.org
 MACHINE_FEATURES:remove:bsp-mainline = "gpu"
+
+# ==========
+# next
+# upcoming upstream/mainline kernel, u-boot
+# ==========
+BSP_KERNEL_PROVIDER:bsp-next = "linux-ti-next"
+BSP_KERNEL_VERSION:bsp-next = "%"
+BSP_BOOTLOADER_PROVIDER:bsp-next = "u-boot-ti-mainline"
+BSP_BOOTLOADER_VERSION:bsp-next = "%"
+
+# GPU support requires out-of-tree SGX and Rogue drivers not available
+# in next, usually present in TI staging or derivative like BB.org
+MACHINE_FEATURES:remove:bsp-next = "gpu"
 
 # ==========
 # ti-6_6
