@@ -23,7 +23,7 @@ S = "${WORKDIR}/git"
 
 BRANCH ?= "ti-linux-6.6.y"
 
-SRCREV ?= "4bd0d44f69cbda913ca7fcb809ae0fa682416b14"
+SRCREV ?= "617ff9770276964869d70593a0eab2145b087d12"
 PV = "6.6.32+git"
 
 KERNEL_GIT_URI ?= "git://git.ti.com/git/ti-linux-kernel/ti-linux-kernel.git"
