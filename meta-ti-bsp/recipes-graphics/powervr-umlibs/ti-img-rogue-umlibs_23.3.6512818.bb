@@ -109,7 +109,7 @@ python __anonymous() {
         mlprefix = d.getVar("MLPREFIX")
         pkgs = " " + " ".join(mlprefix + x + suffix for x in p[1:])
         d.setVar("DEBIAN_NOAUTONAME:" + fullp, "1")
-        d.setVar("INSANE_SKIP:" + fullp, "dev-so")
+        d.setVar("INSANE_SKIP:" + fullp, "dev-so ldflags")
         d.appendVar("RRECOMMENDS:" + fullp, " ${MLPREFIX}ti-img-rogue-umlibs" + suffix)
 }
 
@@ -129,10 +129,12 @@ RDEPENDS:libopencl-rogue += "opencl-icd-loader"
 RRECOMMENDS:libopencl-rogue += "libopencl-rogue-tools"
 FILES:libopencl-rogue-tools += "${bindir}/ocl*"
 DEBIAN_NOAUTONAME:libopencl-rogue-tools = "1"
+INSANE_SKIP:libopencl-rogue-tools = "ldflags"
 
 # optional tools and tests
 FILES:${PN}-tools = "${bindir}/"
 RDEPENDS:${PN}-tools = "python3-core ${PN}"
+INSANE_SKIP:${PN}-tools = "ldflags"
 
 # required firmware
 FILES:${PN}-firmware = "${base_libdir}/firmware/*"
@@ -142,4 +144,4 @@ RRECOMMENDS:${PN} += " \
     ${PN}-tools \
 "
 
-INSANE_SKIP:${PN} += "already-stripped dev-so"
+INSANE_SKIP:${PN} += "already-stripped dev-so ldflags"
