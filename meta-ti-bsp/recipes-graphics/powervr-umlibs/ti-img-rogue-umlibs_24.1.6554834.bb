@@ -129,6 +129,7 @@ RDEPENDS:libopencl-rogue += "opencl-icd-loader"
 RRECOMMENDS:libopencl-rogue += "libopencl-rogue-tools"
 FILES:libopencl-rogue-tools += "${bindir}/ocl*"
 DEBIAN_NOAUTONAME:libopencl-rogue-tools = "1"
+INSANE_SKIP:libopencl-rogue-tools = "ldflags"
 
 # optional tools and tests
 FILES:${PN}-tools = "${bindir}/"
