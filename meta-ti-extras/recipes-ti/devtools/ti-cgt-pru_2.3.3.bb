@@ -28,6 +28,7 @@ do_install() {
     install -d ${D}${TI_CGT_PRU_INSTALL_DIR_RECIPE}
     cp -r ${S}/ti-cgt-pru_${PV}/. \
           ${D}${TI_CGT_PRU_INSTALL_DIR_RECIPE}/
+    rm ${D}${TI_CGT_PRU_INSTALL_DIR_RECIPE}/*installer_install.log
 }
 
 do_install:class-target() {
