@@ -13,7 +13,7 @@ EXTRA_DTC_ARGS += "${@get_extra_dtc_args(d)}"
 KERNEL_DTBDEST = "${KERNEL_IMAGEDEST}/dtb"
 KERNEL_DTBVENDORED = "1"
 
-SRC_URI += " \
+SRC_URI:append = " \
 file://0001-lib-build_OID_registry-fix-reproducibility-issues.patch \
 file://0001-vt-conmakehash-improve-reproducibility.patch \
 file://0001-pnmtologo-use-relocatable-file-name.patch \
