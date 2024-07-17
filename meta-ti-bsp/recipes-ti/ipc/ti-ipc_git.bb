@@ -18,7 +18,7 @@ SRC_URI += "file://tiipclad-daemon.sh \
             file://0001-MmRpc-Stop-looking-for-rpmsg_rpc.h-in-the-kernel.patch \
            "
 
-CFLAGS += "-I${UNPACKDIR}"
+CFLAGS += "-I${UNPACKDIR} -fdebug-prefix-map=${UNPACKDIR}=${TARGET_DBGSRC_DIR}"
 
 DAEMON = "UNKNOWN"
 DAEMON:dra7xx = "lad_dra7xx"
