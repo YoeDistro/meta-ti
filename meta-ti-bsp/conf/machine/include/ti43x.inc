@@ -21,9 +21,11 @@ KERNEL_DEVICETREE_PREFIX = " \
 "
 
 KERNEL_DEVICETREE = " \
+    ti/omap/am437x-cm-t43.dtb \
     ti/omap/am437x-gp-evm.dtb \
-    ti/omap/am437x-sk-evm.dtb \
     ti/omap/am437x-idk-evm.dtb \
+    ti/omap/am437x-sbc-t43.dtb \
+    ti/omap/am437x-sk-evm.dtb \
     ti/omap/am43x-epos-evm.dtb \
 "
 
