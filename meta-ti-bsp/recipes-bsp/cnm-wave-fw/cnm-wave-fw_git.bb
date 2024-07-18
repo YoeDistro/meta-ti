@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://LICENCE.cnm;md5=93b67e6bac7f8fec22b96b8ad0a1a9d0"
 PV = "${CNM_WAVE521_FW_VERSION}"
 PR = "${INC_PR}.1"
 
-COMPATIBLE_MACHINE = "j721s2|j784s4|j722s|am62axx|am62pxx"
+COMPATIBLE_MACHINE = "j721s2|j784s4|j722s|j742s2|am62axx|am62pxx"
 
 TARGET_WAVE521C = "wave521c_k3_codec_fw.bin"
 
