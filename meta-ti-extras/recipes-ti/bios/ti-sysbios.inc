@@ -17,6 +17,8 @@ do_install() {
     CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
     install -d ${D}${SYSBIOS_INSTALL_DIR_RECIPE}
     cp ${CP_ARGS} ${S}/* ${D}${SYSBIOS_INSTALL_DIR_RECIPE}
+
+    rm ${D}${SYSBIOS_INSTALL_DIR_RECIPE}/bios_${PV}*.log
 }
 
 ALLOW_EMPTY:${PN} = "1"
