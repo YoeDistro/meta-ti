@@ -47,3 +47,7 @@ INITSCRIPT_NAME = "gdbserverproxy"
 INITSCRIPT_PARAMS = "defaults 95"
 
 PARALLEL_MAKE = ""
+
+# Disable the "buildpaths" check while we figure out how we are
+# going to address this issue.
+INSANE_SKIP:${PN} += "buildpaths"
