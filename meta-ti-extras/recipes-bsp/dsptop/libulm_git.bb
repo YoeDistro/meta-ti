@@ -43,3 +43,13 @@ include dsptop.inc
 ALLOW_EMPTY:${PN} = "1"
 
 PARALLEL_MAKE= ""
+
+# Disable the "buildpaths" check while we figure out how we are
+# going to address this issue.
+#
+# The ti-cgt6x compiler is a custom TI compiler for the TI C6000
+# Digital Signal Processor(DSP) platform.  It does not currently
+# support reproducible builds and is provided via a binary blob
+# download that we cannot patch in the recipe to address the
+# issue.
+INSANE_SKIP:${PN}-dev += "buildpaths"
