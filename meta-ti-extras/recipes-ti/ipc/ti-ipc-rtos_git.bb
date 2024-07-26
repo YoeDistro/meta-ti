@@ -99,3 +99,14 @@ pkg_postinst:${PN}-fw:omapl138 () {
 pkg_postrm:${PN}-fw:omapl138 () {
   update-alternatives --remove rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674
 }
+
+# Disable the "buildpaths" check while we figure out how we are
+# going to address this issue.
+#
+# The ti-cgt6x compiler is a custom TI compiler for the TI C6000
+# Digital Signal Processor(DSP) platform.  It does not currently
+# support reproducible builds and is provided via a binary blob
+# download that we cannot patch in the recipe to address the
+# issue.
+INSANE_SKIP:${PN}-dev += "buildpaths"
+INSANE_SKIP:${PN}-fw += "buildpaths"
