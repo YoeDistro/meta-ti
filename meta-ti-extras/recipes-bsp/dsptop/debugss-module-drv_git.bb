@@ -17,3 +17,5 @@ COMPATIBLE_MACHINE = "dra7xx"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 include dsptop.inc
+
+SRC_URI += "file://0001-debugss_kmodule-Add-include-for-mod_devicetable.h.patch"

@@ -1,0 +1,32 @@
+From 5a514f6a6bb1c49bdbaf8eabc1776f54851227af Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Sun, 4 Aug 2024 11:17:28 -0500
+Subject: [PATCH] debugss_kmodule: Add include for mod_devicetable.h
+
+Add include for <linux/mod_devicetable.h> to fix compile error:
+
+git/debugss_module/debugss-mod/debugss_kmodule.c:1149:34: error:
+array type has incomplete element type 'struct of_device_id'
+
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ debugss_kmodule.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/debugss_kmodule.c b/debugss_kmodule.c
+index 6fac61d..9e084eb 100644
+--- a/debugss_kmodule.c
++++ b/debugss_kmodule.c
+@@ -26,6 +26,8 @@
+ #include <linux/of_device.h>
+ #include "debugss_kmodule.h"
+
++#include <linux/mod_devicetable.h>
++
+ /* un-comment the line below to enable printing for kernel debug messages */
+ //#define DEBUGSS_DRV_DEBUG
+
+--
+2.17.1
