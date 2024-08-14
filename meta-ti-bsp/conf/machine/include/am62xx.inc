@@ -7,13 +7,16 @@ require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 
 # Default tiboot3.bin on AM62x is for HS-FS
-IMAGE_BOOT_FILES += "tiboot3-am62x-hs-fs-evm.bin"
+TI_BOOTLOADERS += "tiboot3-am62x-hs-fs-evm.bin"
+TI_MULTICONFIGS += "am62x-hs-fs-evm"
 
 # Since default tiboot3.bin on AM62x is for HS-FS, add a version for GP
-IMAGE_BOOT_FILES += "tiboot3-am62x-gp-evm.bin"
+TI_BOOTLOADERS += "tiboot3-am62x-gp-evm.bin"
+TI_MULTICONFIGS += "am62x-gp-evm"
 
 # Since default tiboot3.bin on AM62x is for HS-FS, add a version for HS-SE
-IMAGE_BOOT_FILES += "tiboot3-am62x-hs-evm.bin"
+TI_BOOTLOADERS += "tiboot3-am62x-hs-evm.bin"
+TI_MULTICONFIGS += "am62x-hs-evm"
 
 # Bitmap image tarball for early splashscreen
 IMAGE_BOOT_FILES += "ti_logo_414x97_32bpp.bmp.gz"

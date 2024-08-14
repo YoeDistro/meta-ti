@@ -7,13 +7,18 @@ require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 
 # Default tiboot3.bin on J722S is for HS-FS
-IMAGE_BOOT_FILES += "tiboot3-j722s-hs-fs-evm.bin"
+TI_BOOTLOADERS += "tiboot3-j722s-hs-fs-evm.bin"
+TI_MULTICONFIGS += "j722s-hs-fs-evm"
 
 # Since default tiboot3.bin on J722S is for HS-FS, add a version for HS-SE
 IMAGE_SR1_HS_SE_FILES = "tiboot3-j722s-hs-evm.bin"
 IMAGE_SR1_HS_SE_FILES:bsp-mainline = ""
 IMAGE_SR1_HS_SE_FILES:bsp-next = ""
-IMAGE_BOOT_FILES += "${IMAGE_SR1_HS_SE_FILES}"
+MULTICONFIG_SR1_HS_SE = "j722s-hs-evm"
+MULTICONFIG_SR1_HS_SE:bsp-mainline = ""
+MULTICONFIG_SR1_HS_SE:bsp-next = ""
+TI_BOOTLOADERS += "${IMAGE_SR1_HS_SE_FILES}"
+TI_MULTICONFIGS += "${MULTICONFIG_SR1_HS_SE}"
 
 TFA_BOARD = "lite"
 TFA_K3_SYSTEM_SUSPEND = "1"

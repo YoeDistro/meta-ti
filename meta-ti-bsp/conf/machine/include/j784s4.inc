@@ -7,13 +7,16 @@ require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 
 # Default tiboot3.bin on J784S4 is for GP
-IMAGE_BOOT_FILES += "tiboot3-j784s4-gp-evm.bin"
+TI_BOOTLOADERS += "tiboot3-j784s4-gp-evm.bin"
+TI_MULTICONFIGS += "j784s4-gp-evm"
 
 # Since default tiboot3.bin on J784S4 is for GP, add a version for SR1.0 HS-FS
-IMAGE_BOOT_FILES += "tiboot3-j784s4-hs-fs-evm.bin"
+TI_BOOTLOADERS += "tiboot3-j784s4-hs-fs-evm.bin"
+TI_MULTICONFIGS += "j784s4-hs-fs-evm"
 
 # Since default tiboot3.bin on J784S4 is for GP, add a version for SR1.0 HS-SE
-IMAGE_BOOT_FILES += "tiboot3-j784s4-hs-evm.bin"
+TI_BOOTLOADERS += "tiboot3-j784s4-hs-evm.bin"
+TI_MULTICONFIGS += "j784s4-hs-evm"
 
 TFA_BOARD = "j784s4"
 
