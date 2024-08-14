@@ -1,3 +1,4 @@
+
 do_compile:prepend () {
     scm_version=$(printf '%s%s' -ti-g $(git -C ${S} rev-parse --verify HEAD 2>/dev/null | cut -c1-12))
 
@@ -10,7 +11,8 @@ SPL_BINARY ?= "MLO"
 
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot-common.inc
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
-require u-boot-mergeconfig.inc
+
+inherit uboot-fragments
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/u-boot:"
 
