@@ -7,16 +7,13 @@ require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 
 # Default tiboot3.bin on J721S2 is for GP
-TI_BOOTLOADERS += "tiboot3-j721s2-gp-evm.bin"
-TI_MULTICONFIGS += "j721s2-gp-evm"
+IMAGE_BOOT_FILES += "tiboot3-j721s2-gp-evm.bin"
 
 # Since default tiboot3.bin on J721S2 is for GP, add a version for SR1.0 HS-FS
-TI_BOOTLOADERS += "tiboot3-j721s2-hs-fs-evm.bin"
-TI_MULTICONFIGS += "j721s2-hs-fs-evm"
+IMAGE_BOOT_FILES += "tiboot3-j721s2-hs-fs-evm.bin"
 
 # Since default tiboot3.bin on J721S2 is for GP, add a version for SR1.0 HS-SE
-TI_BOOTLOADERS += "tiboot3-j721s2-hs-evm.bin"
-TI_MULTICONFIGS += "j721s2-hs-evm"
+IMAGE_BOOT_FILES += "tiboot3-j721s2-hs-evm.bin"
 
 TFA_BOARD = "generic"
 

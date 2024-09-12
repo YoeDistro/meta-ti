@@ -48,10 +48,7 @@ MACHINE_FEATURES = "apm usbgadget usbhost vfat ext2 alsa pci"
 
 IMAGE_FSTYPES += "tar.xz wic.xz wic.bmap"
 
-TI_BOOTLOADERS ?= "${SPL_BINARYNAME} u-boot.${UBOOT_SUFFIX} tiboot3.bin"
-TI_MULTICONFIGS = ""
-
-IMAGE_BOOT_FILES ?= "${TI_BOOTLOADERS}"
+IMAGE_BOOT_FILES ?= "${SPL_BINARYNAME} u-boot.${UBOOT_SUFFIX} tiboot3.bin"
 IMAGE_EFI_BOOT_FILES ?= "${IMAGE_BOOT_FILES}"
 
 EFI_PROVIDER ?= "grub-efi"

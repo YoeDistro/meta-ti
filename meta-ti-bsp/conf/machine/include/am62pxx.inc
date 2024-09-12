@@ -7,8 +7,7 @@ require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 
 # Default tiboot3.bin on AM62Px is for HS-FS
-TI_BOOTLOADERS += "tiboot3-am62px-hs-fs-evm.bin"
-TI_MULTICONFIGS += "am62px-hs-fs-evm"
+IMAGE_BOOT_FILES += "tiboot3-am62px-hs-fs-evm.bin"
 
 TFA_BOARD = "lite"
 TFA_K3_SYSTEM_SUSPEND = "1"

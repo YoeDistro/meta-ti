@@ -7,12 +7,10 @@ require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 
 # Default tiboot3.bin on AM68 is for SR1.0 HS-FS
-TI_BOOTLOADERS += "tiboot3-j721s2-hs-fs-evm.bin"
-TI_MULTICONFIGS += "j721s2-hs-fs-evm"
+IMAGE_BOOT_FILES += "tiboot3-j721s2-hs-fs-evm.bin"
 
 # Since default tiboot3.bin on AM68 is for HS-FS, add a version for SR1.0 HS-SE
-TI_BOOTLOADERS += "tiboot3-j721s2-hs-evm.bin"
-TI_MULTICONFIGS += "j721s2-hs-evm"
+IMAGE_BOOT_FILES += "tiboot3-j721s2-hs-evm.bin"
 
 TFA_BOARD = "generic"
 

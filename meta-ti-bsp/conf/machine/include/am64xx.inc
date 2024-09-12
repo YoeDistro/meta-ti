@@ -16,16 +16,13 @@ KERNEL_DEVICETREE = " \
 "
 
 # Default tiboot3.bin on AM64x is for SR2.0 HS-FS
-TI_BOOTLOADERS += "tiboot3-am64x_sr2-hs-fs-evm.bin"
-TI_MULTICONFIGS += "am64x_sr2-hs-fs-evm"
+IMAGE_BOOT_FILES += "tiboot3-am64x_sr2-hs-fs-evm.bin"
 
 # Since default tiboot3.bin on AM64x is for SR2.0 HS-FS, add a version for GP
-TI_BOOTLOADERS += "tiboot3-am64x-gp-evm.bin"
-TI_MULTICONFIGS += "am64x-gp-evm"
+IMAGE_BOOT_FILES += "tiboot3-am64x-gp-evm.bin"
 
 # Since default tiboot3.bin on AM64x is for SR2.0 HS-FS, add a version for SR2.0 HS-SE
-TI_BOOTLOADERS += "tiboot3-am64x_sr2-hs-evm.bin"
-TI_MULTICONFIGS += "am64x_sr2-hs-evm"
+IMAGE_BOOT_FILES += "tiboot3-am64x_sr2-hs-evm.bin"
 
 TFA_BOARD = "lite"
 
