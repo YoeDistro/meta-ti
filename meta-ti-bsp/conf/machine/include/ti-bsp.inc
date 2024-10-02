@@ -36,13 +36,26 @@ BSP_BOOTLOADER_VERSION:bsp-next = "%"
 MACHINE_FEATURES:remove:bsp-next = "gpu"
 
 # ==========
+# ti-6_12
+# TI staging kernel 6.12, u-boot 2024.10
+# ==========
+BSP_KERNEL_PROVIDER:bsp-ti-6_12 = "linux-ti-staging"
+BSP_KERNEL_VERSION:bsp-ti-6_12 = "6.12%"
+BSP_BOOTLOADER_PROVIDER:bsp-ti-6_12 = "u-boot-ti-staging"
+BSP_BOOTLOADER_VERSION:bsp-ti-6_12 = "2024.10%"
+
+# GPU support requires out-of-tree SGX and Rogue drivers not available
+# in 6.12 yet
+MACHINE_FEATURES:remove:bsp-ti-6_12 = "gpu"
+
+# ==========
 # ti-6_6
 # TI staging kernel 6.6, u-boot 2024.04
 # ==========
 BSP_KERNEL_PROVIDER:bsp-ti-6_6 = "linux-ti-staging"
 BSP_KERNEL_VERSION:bsp-ti-6_6 = "6.6%"
 BSP_BOOTLOADER_PROVIDER:bsp-ti-6_6 = "u-boot-ti-staging"
-BSP_BOOTLOADER_VERSION:bsp-ti-6_6 = "2024%"
+BSP_BOOTLOADER_VERSION:bsp-ti-6_6 = "2024.04%"
 
 # Only Rogue is enabled so far, SGX falls back to SW rendering
 BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_6 = "ti-img-rogue-driver"
