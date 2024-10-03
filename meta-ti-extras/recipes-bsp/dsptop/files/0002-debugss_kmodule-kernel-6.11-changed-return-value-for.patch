@@ -1,0 +1,58 @@
+From aaddf1fa8b92db23ae2ebc83826c2bb5f5c87c35 Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Thu, 3 Oct 2024 14:25:18 -0500
+Subject: [PATCH] debugss_kmodule: kernel 6.11 changed return value for remove
+ slot
+
+In kernel version 6.11 the function footprint changed for the remove
+slot to return a void instead of an int. [1]
+
+Add ifdef checking code to look for kernel version and pick the correct
+return code.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/include/linux/platform_device.h?id=0edb555a65d1ef047a9805051c36922b52a38a9d
+
+Upstream-Status: Inactive-Upstream [lastcommit: 2021-04-20]
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ debugss_kmodule.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/debugss_kmodule.c b/debugss_kmodule.c
+index 9e084eb..4191be8 100644
+--- a/debugss_kmodule.c
++++ b/debugss_kmodule.c
+@@ -27,6 +27,7 @@
+ #include "debugss_kmodule.h"
+ 
+ #include <linux/mod_devicetable.h>
++#include <linux/version.h>
+ 
+ /* un-comment the line below to enable printing for kernel debug messages */
+ //#define DEBUGSS_DRV_DEBUG
+@@ -1132,7 +1133,11 @@ static int dra7xx_debugss_probe(struct platform_device *pdev)
+ 	return retval;
+ }
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(6, 11, 0))
+ static int dra7xx_debugss_remove(struct platform_device *pdev)
++#else
++static void dra7xx_debugss_remove(struct platform_device *pdev)
++#endif
+ {
+ 	__D("%s:\n",__FUNCTION__);
+ 
+@@ -1145,7 +1150,9 @@ static int dra7xx_debugss_remove(struct platform_device *pdev)
+ 	/* Un-prepare debugSS clock */
+ 	clk_disable_unprepare(sys_clk_in1);
+ 
++#if (LINUX_VERSION_CODE < KERNEL_VERSION(6, 11, 0))
+ 	return 0;
++#endif
+ }
+ 
+ static const struct of_device_id dra7xx_debugss_of_match[] = {
+-- 
+2.17.1
+
