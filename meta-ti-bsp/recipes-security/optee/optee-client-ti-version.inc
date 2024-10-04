@@ -1,2 +1,2 @@
-PV = "4.2.0+git"
-SRCREV = "3eac340a781c00ccd61b151b0e9c22a8c6e9f9f0"
+PV = "4.3.0+git"
+SRCREV = "a5b1ffcd26e328af0bbf18ab448a38ecd558e05c"
