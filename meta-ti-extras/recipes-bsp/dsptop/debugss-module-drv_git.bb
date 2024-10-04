@@ -18,4 +18,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 include dsptop.inc
 
-SRC_URI += "file://0001-debugss_kmodule-Add-include-for-mod_devicetable.h.patch"
+SRC_URI += "\
+    file://0001-debugss_kmodule-Add-include-for-mod_devicetable.h.patch \
+    file://0002-debugss_kmodule-kernel-6.11-changed-return-value-for.patch \
+"
