@@ -26,6 +26,9 @@ SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};branch=${BRANCH}"
 
 PV:append = "+git"
 
+# u-boot builds a tool mkeficapsule and it needs this
+DEPENDS += "gnutls-native"
+
 # u-boot needs devtree compiler to parse dts files
 DEPENDS += "dtc-native bc-native flex-native bison-native python3-setuptools-native"
 
