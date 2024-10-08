@@ -46,7 +46,7 @@ BSP_BOOTLOADER_VERSION:bsp-ti-6_12 = "2024.10%"
 
 # GPU support requires out-of-tree SGX and Rogue drivers not available
 # in 6.12 yet
-MACHINE_FEATURES:remove:bsp-next = "gpu"
+MACHINE_FEATURES:remove:bsp-ti-6_12 = "gpu"
 
 # ==========
 # ti-6_6
