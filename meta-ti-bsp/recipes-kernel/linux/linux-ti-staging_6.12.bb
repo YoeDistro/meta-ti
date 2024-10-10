@@ -25,8 +25,8 @@ S = "${WORKDIR}/git"
 
 BRANCH ?= "ti-linux-6.12.y"
 
-SRCREV ?= "9852d85ec9d492ebef56dc5f229416c925758edc"
-PV = "6.12-rc1+git"
+SRCREV ?= "8cf0b93919e13d1e8d4466eb4080a4c4d9d66d7b"
+PV = "6.12.0+git"
 
 KERNEL_GIT_URI ?= "git://git.ti.com/git/ti-linux-kernel/ti-linux-kernel.git"
 KERNEL_GIT_PROTOCOL = "https"
