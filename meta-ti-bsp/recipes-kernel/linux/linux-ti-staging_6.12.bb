@@ -28,10 +28,9 @@ BRANCH ?= "ti-linux-6.12.y"
 SRCREV ?= "9852d85ec9d492ebef56dc5f229416c925758edc"
 PV = "6.12-rc1+git"
 
-KERNEL_GIT_URI ?= "git://git.ti.com/git/ti-linux-kernel/ti-linux-kernel.git"
-KERNEL_GIT_PROTOCOL = "https"
-SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
-            file://defconfig"
+KERNEL_REPRODUCIBILITY_PATCHES = " \
+    file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
+"
 
 # Special configuration for remoteproc/rpmsg IPC modules
 module_conf_rpmsg_client_sample = "blacklist rpmsg_client_sample"
