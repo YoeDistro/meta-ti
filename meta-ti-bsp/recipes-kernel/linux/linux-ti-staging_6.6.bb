@@ -26,10 +26,9 @@ BRANCH ?= "ti-linux-6.6.y"
 SRCREV ?= "617526782e268112606ca6c5d501e5540b22a56c"
 PV = "6.6.44+git"
 
-KERNEL_GIT_URI ?= "git://git.ti.com/git/ti-linux-kernel/ti-linux-kernel.git"
-KERNEL_GIT_PROTOCOL = "https"
-SRC_URI += "${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};branch=${BRANCH} \
-            file://defconfig"
+KERNEL_REPRODUCIBILITY_PATCHES = " \
+    file://0001-vt-conmakehash-improve-reproducibility.patch \
+"
 
 # Special configuration for remoteproc/rpmsg IPC modules
 module_conf_rpmsg_client_sample = "blacklist rpmsg_client_sample"
