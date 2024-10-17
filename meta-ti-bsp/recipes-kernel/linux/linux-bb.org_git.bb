@@ -62,7 +62,4 @@ SRCREV:aarch64 = "977c75e082620f15c06c72bcced30f787c14b390"
 PV:aarch64 = "6.1.80+git"
 BRANCH:aarch64 = "v6.1.80-ti-arm64-r49"
 
-SRC_URI = " \
-    git://github.com/beagleboard/linux.git;protocol=https;branch=${BRANCH} \
-    file://defconfig \
-"
+KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"

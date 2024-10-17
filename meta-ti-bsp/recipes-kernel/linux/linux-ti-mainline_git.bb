@@ -17,7 +17,14 @@ S = "${WORKDIR}/git"
 SRCREV = "fa7818b3a6dd56c7956f515d287ed9f80c7bf59a"
 PV = "6.11"
 
-SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=master"
+KERNEL_GIT_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
+BRANCH = "master"
+
+KERNEL_DEFCONFIG = ""
+
+KERNEL_REPRODUCIBILITY_PATCHES = " \
+    file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
+"
 
 DEFCONFIG_NAME = "multi_v7_defconfig"
 DEFCONFIG_NAME:omapl138 = "davinci_all_defconfig"

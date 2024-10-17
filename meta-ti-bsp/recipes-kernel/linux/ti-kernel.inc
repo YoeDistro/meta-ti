@@ -13,19 +13,16 @@ EXTRA_DTC_ARGS += "${@get_extra_dtc_args(d)}"
 KERNEL_DTBDEST = "${KERNEL_IMAGEDEST}/dtb"
 KERNEL_DTBVENDORED = "1"
 
-KERNEL_PATCHES = ""
+KERNEL_GIT_URI ?= "git://git.ti.com/git/ti-linux-kernel/ti-linux-kernel.git"
+KERNEL_GIT_PROTOCOL ?= "https"
+KERNEL_GIT_BRANCH ?= "branch=${BRANCH}"
 
-KERNEL_PATCHES:bsp-mainline = " \
-    file://0001-vt-conmakehash-improve-reproducibility-for-v6.10.patch \
-    file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
+KERNEL_DEFCONFIG ?= "file://defconfig"
+
+KERNEL_REPRODUCIBILITY_PATCHES ?= ""
+
+SRC_URI = " \
+    ${KERNEL_GIT_URI};protocol=${KERNEL_GIT_PROTOCOL};${KERNEL_GIT_BRANCH} \
+    ${KERNEL_DEFCONFIG} \
+    ${KERNEL_REPRODUCIBILITY_PATCHES} \
 "
-
-KERNEL_PATCHES:bsp-ti-6_12 = " \
-    file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
-"
-
-KERNEL_PATCHES:bsp-ti-6_6 = " \
-    file://0001-vt-conmakehash-improve-reproducibility.patch \
-"
-
-SRC_URI:append = " ${KERNEL_PATCHES} "
