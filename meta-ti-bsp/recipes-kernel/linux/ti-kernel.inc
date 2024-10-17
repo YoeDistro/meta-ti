@@ -13,19 +13,5 @@ EXTRA_DTC_ARGS += "${@get_extra_dtc_args(d)}"
 KERNEL_DTBDEST = "${KERNEL_IMAGEDEST}/dtb"
 KERNEL_DTBVENDORED = "1"
 
-KERNEL_PATCHES = ""
-
-KERNEL_PATCHES:bsp-mainline = " \
-    file://0001-vt-conmakehash-improve-reproducibility-for-v6.10.patch \
-    file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
-"
-
-KERNEL_PATCHES:bsp-ti-6_12 = " \
-    file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
-"
-
-KERNEL_PATCHES:bsp-ti-6_6 = " \
-    file://0001-vt-conmakehash-improve-reproducibility.patch \
-"
-
-SRC_URI:append = " ${KERNEL_PATCHES} "
+REPRODUCIBILITY_PATCHES = ""
+SRC_URI:append = " ${REPRODUCIBILITY_PATCHES}"
