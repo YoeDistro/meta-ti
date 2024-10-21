@@ -21,8 +21,9 @@ LIC_FILES_CHKSUM = "file://Licenses/README;md5=2ca5f2c35c8cc335f0a19756634782f1"
 
 BRANCH ?= "master"
 UBOOT_GIT_URI ?= "git://git.ti.com/git/ti-u-boot/ti-u-boot.git"
-UBOOT_GIT_PROTOCOL = "https"
-SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};branch=${BRANCH}"
+UBOOT_GIT_PROTOCOL ?= "https"
+UBOOT_GIT_BRANCH ?= "branch=${BRANCH}"
+SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};${UBOOT_GIT_BRANCH}"
 
 PV:append = "+git"
 
