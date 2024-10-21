@@ -1,16 +1,9 @@
 require u-boot-ti.inc
 
-PR = "r0"
+SUMMARY = "Mainline U-Boot for TI devices"
 
-PV = "2024.07"
+PV = "2024.10"
 
-# For the un-initiated:
-# The actual URL you'd use with a git clone for example would be:
-# https://source.denx.de/u-boot/u-boot.git/
-# However, in the context of OE, we have to explicitly split things up:
-# a) we want it to use git fetcher - hence git:// prefix in GIT_URI (if we
-#  used https here, we'd endup attempting wget instead of git)
-# b) and we want git fetcher to use https protocol, hence GIT_PROTOCOL as https
 UBOOT_GIT_URI = "git://source.denx.de/u-boot/u-boot.git"
-UBOOT_GIT_PROTOCOL = "https"
-SRCREV = "3f772959501c99fbe5aa0b22a36efe3478d1ae1c"
+
+SRCREV = "f919c3a889f0ec7d63a48b5d0ed064386b0980bd"
