@@ -28,7 +28,7 @@ MACHINE_FEATURES:remove:bsp-mainline = "gpu"
 # ==========
 BSP_KERNEL_PROVIDER:bsp-next = "linux-ti-next"
 BSP_KERNEL_VERSION:bsp-next = "%"
-BSP_BOOTLOADER_PROVIDER:bsp-next = "u-boot-ti-mainline"
+BSP_BOOTLOADER_PROVIDER:bsp-next = "u-boot-ti-next"
 BSP_BOOTLOADER_VERSION:bsp-next = "%"
 
 # GPU support requires out-of-tree SGX and Rogue drivers not available
