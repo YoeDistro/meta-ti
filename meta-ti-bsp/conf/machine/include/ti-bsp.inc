@@ -53,7 +53,7 @@ MACHINE_FEATURES:remove:bsp-ti-6_12 = "gpu"
 # TI staging kernel 6.6, u-boot 2024.04
 # ==========
 BSP_KERNEL_PROVIDER:bsp-ti-6_6 = "linux-ti-staging"
-BSP_KERNEL_VERSION:bsp-ti-6_6 = "6.6%"
+BSP_KERNEL_VERSION:bsp-ti-6_6 = "6.6.%"
 BSP_BOOTLOADER_PROVIDER:bsp-ti-6_6 = "u-boot-ti-staging"
 BSP_BOOTLOADER_VERSION:bsp-ti-6_6 = "2024.04%"
 
@@ -68,9 +68,9 @@ BSP_MESA_PVR_VERSION:bsp-ti-6_6 = "23%"
 # TI staging kernel 6.1, u-boot 2023.04
 # ==========
 BSP_KERNEL_PROVIDER:bsp-ti-6_1 = "linux-ti-staging"
-BSP_KERNEL_VERSION:bsp-ti-6_1 = "6.1%"
+BSP_KERNEL_VERSION:bsp-ti-6_1 = "6.1.%"
 BSP_BOOTLOADER_PROVIDER:bsp-ti-6_1 = "u-boot-ti-staging"
-BSP_BOOTLOADER_VERSION:bsp-ti-6_1 = "2023%"
+BSP_BOOTLOADER_VERSION:bsp-ti-6_1 = "2023.04%"
 
 BSP_SGX_DRIVER_PROVIDER:bsp-ti-6_1 = "ti-sgx-ddk-km"
 BSP_SGX_DRIVER_VERSION:bsp-ti-6_1 = "1.17%"
