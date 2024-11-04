@@ -16,6 +16,7 @@ SRC_URI = " \
     file://0001-meson-misdetects-64bit-atomics-on-mips-clang.patch \
     file://0001-gallium-Fix-build-with-llvm-17.patch \
     file://0001-meson-Disable-cmake-dependency-detector-for-llvm.patch \
+    file://0001-gallium-Fix-build-with-llvm-18-and-19.patch \
 "
 
 S = "${WORKDIR}/git"
