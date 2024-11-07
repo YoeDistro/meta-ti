@@ -19,7 +19,7 @@ SRC_URI = "git://git.ti.com/git/graphics/omap5-sgx-ddk-linux.git;protocol=https;
 
 S = "${WORKDIR}/git"
 
-SRCREV = "652ae16657cc4acda664e669d0c9b4891252f37f"
+SRCREV = "3005cf8145a6720daa47e4e273f9e421ff77cb58"
 
 TARGET_PRODUCT:omap-a15 = "ti572x_linux"
 TARGET_PRODUCT:ti33x = "ti335x_linux"
@@ -30,6 +30,14 @@ PVR_WS = "lws-generic"
 
 EXTRA_OEMAKE += 'KERNELDIR="${STAGING_KERNEL_DIR}" BUILD=${PVR_BUILD} \
 WINDOW_SYSTEM=${PVR_WS} PVR_BUILD_DIR=${TARGET_PRODUCT}'
+
+# There are useful flags here that are interpreted by the final kbuild pass
+# These variables are not necessary when compiling outside of Yocto
+export KERNEL_CC
+export KERNEL_LD
+export KERNEL_AR
+export KERNEL_OBJCOPY
+export KERNEL_STRIP
 
 do_install() {
     make -C ${STAGING_KERNEL_DIR} M=${B}/eurasiacon/binary_${TARGET_PRODUCT}_${PVR_WS}_${PVR_BUILD}/target_armhf/kbuild INSTALL_MOD_PATH=${D}${root_prefix} PREFIX=${STAGING_DIR_HOST} modules_install

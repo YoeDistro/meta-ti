@@ -57,7 +57,9 @@ BSP_KERNEL_VERSION:bsp-ti-6_6 = "6.6.%"
 BSP_BOOTLOADER_PROVIDER:bsp-ti-6_6 = "u-boot-ti-staging"
 BSP_BOOTLOADER_VERSION:bsp-ti-6_6 = "2024.04%"
 
-# Only Rogue is enabled so far, SGX falls back to SW rendering
+BSP_SGX_DRIVER_PROVIDER:bsp-ti-6_6 = "ti-sgx-ddk-km"
+BSP_SGX_DRIVER_VERSION:bsp-ti-6_6 = "1.17%"
+BSP_SGX_UMLIBS_VERSION:bsp-ti-6_6 = "1.17%"
 BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_6 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_6 = "24%"
 BSP_ROGUE_UMLIBS_VERSION:bsp-ti-6_6 = "24%"
