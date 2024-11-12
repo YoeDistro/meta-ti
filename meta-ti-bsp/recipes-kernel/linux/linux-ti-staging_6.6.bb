@@ -23,7 +23,7 @@ S = "${WORKDIR}/git"
 
 BRANCH ?= "ti-linux-6.6.y"
 
-SRCREV ?= "399452cd6d8ff30967ddc4baa444afd32cbbedeb"
+SRCREV ?= "118cf0c8b392bed94437f1519de10b63705dbacd"
 PV = "6.6.44+git"
 
 KERNEL_REPRODUCIBILITY_PATCHES = " \
