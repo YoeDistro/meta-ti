@@ -3,7 +3,7 @@ INC_PR = "r0"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST:ti-soc = "(.*)"
+COMPATIBLE_HOST:ti-soc = ".*-linux"
 
 PLATFORM = "UNKNOWN"
 PLATFORM:dra7xx = "DRA7XX"
