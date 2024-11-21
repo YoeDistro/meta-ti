@@ -23,8 +23,8 @@ S = "${WORKDIR}/git"
 
 BRANCH ?= "ti-linux-6.6.y"
 
-SRCREV ?= "541c20281af79a7df96bb94b4e3a923092d7ceff"
-PV = "6.6.44+git"
+SRCREV ?= "d32074b73785eb57c675cef603517247f5f4f33b"
+PV = "6.6.58+git"
 
 KERNEL_REPRODUCIBILITY_PATCHES = " \
     file://0001-vt-conmakehash-improve-reproducibility.patch \
