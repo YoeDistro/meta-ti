@@ -8,8 +8,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-6.1:"
 
 BRANCH = "ti-rt-linux-6.1.y"
 
-SRCREV = "194ebd939bee3ffff36de9cf8dff28a77c671f5b"
+SRCREV = "b0f9de804a162329bc81857ad50947311228dfb2"
 
 include ${@ 'recipes-kernel/linux/ti-extras-rt.inc' if d.getVar('TI_EXTRAS') else ''}
 
-PV = "6.1.112+git${SRCPV}"
+PV = "6.1.119+git${SRCPV}"
