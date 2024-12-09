@@ -8,4 +8,4 @@ BRANCH = "ti-u-boot-2023.04"
 
 SRC_URI += "file://0001-scripts-dtc-pylibfdt-libfdt.i_shipped-Use-SWIG_Appen.patch"
 
-SRCREV = "0853d7725220d59130d8bcc59d01151cba64ffa0"
+SRCREV = "2a13324ec63cc488f5f578886d0cf6ece348dfda"
