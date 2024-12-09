@@ -2,6 +2,8 @@ require recipes-ti/ipc/ti-ipc.inc
 require recipes-ti/ipc/ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
+inherit deploy
+
 DEPENDS = "ti-xdctools-native ti-sysbios doxygen-native zip-native"
 
 PACKAGES =+ "${PN}-fw"
@@ -99,6 +101,17 @@ pkg_postinst:${PN}-fw:omapl138 () {
 pkg_postrm:${PN}-fw:omapl138 () {
   update-alternatives --remove rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674
 }
+
+do_deploy() {
+  install -d ${DEPLOYDIR}
+}
+
+do_deploy:append:omap-a15() {
+  install -d ${DEPLOYDIR}/ipc
+  install -m 0644 ${S}/packages/ti/ipc/tests/bin/ti_platforms_evmDRA7XX_ipu1/test_omx_ipu1_vayu.xem4 ${DEPLOYDIR}/ipc/dra7-ipu1-fw.xem4
+}
+
+addtask deploy after do_install
 
 # Disable the "buildpaths" check while we figure out how we are
 # going to address this issue.
