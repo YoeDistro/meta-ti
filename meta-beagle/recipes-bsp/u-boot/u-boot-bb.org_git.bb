@@ -17,3 +17,8 @@ BRANCH:beagleplay = "v2023.04-ti-09.01.00.008-BeaglePlay"
 BRANCH:beagleplay-k3r5 = "v2023.04-ti-09.01.00.008-BeaglePlay"
 SRCREV:beagleplay = "43791d945f4e5c25bcc19b9c778e8f9d194dc16e"
 SRCREV:beagleplay-k3r5 = "43791d945f4e5c25bcc19b9c778e8f9d194dc16e"
+
+BRANCH:beagley-ai = "v2023.04-ti-09.02.00.009-BeagleY-AI-Production"
+BRANCH:beagley-ai-k3r5 = "v2023.04-ti-09.02.00.009-BeagleY-AI-Production"
+SRCREV:beagley-ai = "93735daa6fe024304934d5a5e93ab05a06abf1a8"
+SRCREV:beagley-ai-k3r5 = "93735daa6fe024304934d5a5e93ab05a06abf1a8"
