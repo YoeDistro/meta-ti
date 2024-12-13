@@ -1,3 +1,6 @@
+# Look in the generic major.minor directory for files
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-6.1:"
+
 SECTION = "kernel"
 SUMMARY = "BeagleBoard.org Linux kernel"
 LICENSE = "GPL-2.0-only"
