@@ -52,14 +52,14 @@ PB-MIKROBUS-1.dtbo \
 
 S = "${WORKDIR}/git"
 
-# 6.1.80 version for 32-bit
-SRCREV:armv7a = "4ca9ea30768d58c8d4d56d03dd1eaf8c8feb7ef9"
-PV:armv7a = "6.1.80+git"
-BRANCH:armv7a = "v6.1.80-ti-r34"
+# 6.1.83 version for 32-bit
+SRCREV:armv7a = "be9b910b08dfd674e47a2643f35080b005ac3792"
+PV:armv7a = "6.1.83+git"
+BRANCH:armv7a = "v6.1.83-ti-r35"
 
-# 6.1.80 version for 64-bit
-SRCREV:aarch64 = "977c75e082620f15c06c72bcced30f787c14b390"
-PV:aarch64 = "6.1.80+git"
-BRANCH:aarch64 = "v6.1.80-ti-arm64-r49"
+# 6.1.83 version for 64-bit
+SRCREV:aarch64 = "135558243d5a98ed39812b797d2ba6295ef3b86a"
+PV:aarch64 = "6.1.83+git"
+BRANCH:aarch64 = "v6.1.83-ti-arm64-r64"
 
 KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
