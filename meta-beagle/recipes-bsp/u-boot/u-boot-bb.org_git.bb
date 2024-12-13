@@ -1,4 +1,4 @@
-require u-boot-ti.inc
+require recipes-bsp/u-boot/u-boot-ti.inc
 
 SUMMARY = "BeagleBoard.org U-Boot"
 
