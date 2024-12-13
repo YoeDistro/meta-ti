@@ -3,7 +3,7 @@
 # preferences for kernel, bootloader and graphics components, as
 # well as a dedicated machine override.
 
-# Supported options are: mainline, next, ti-6_6, ti-6_1, bb_org
+# Supported options are: mainline, next, ti-6_12, ti-6_6, ti-6_1
 TI_PREFERRED_BSP ??= "ti-6_6"
 
 # Use bsp-* namespace for overrides
@@ -81,25 +81,6 @@ BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_1 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_1 = "23%"
 BSP_ROGUE_UMLIBS_VERSION:bsp-ti-6_1 = "23%"
 BSP_MESA_PVR_VERSION:bsp-ti-6_1 = "22%"
-
-# ==========
-# bb_org
-# BeagleBoard.org kernel 6.1, u-boot 2023.04
-# based on TI staging trees with extra Beagle-specific features
-# but may not be up-to-date with TI version
-# ==========
-BSP_KERNEL_PROVIDER:bsp-bb_org = "linux-bb.org"
-BSP_KERNEL_VERSION:bsp-bb_org = "%"
-BSP_BOOTLOADER_PROVIDER:bsp-bb_org = "u-boot-bb.org"
-BSP_BOOTLOADER_VERSION:bsp-bb_org = "%"
-
-BSP_SGX_DRIVER_PROVIDER:bsp-bb_org = "ti-sgx-ddk-km"
-BSP_SGX_DRIVER_VERSION:bsp-bb_org = "1.17%"
-BSP_SGX_UMLIBS_VERSION:bsp-bb_org = "1.17%"
-BSP_ROGUE_DRIVER_PROVIDER:bsp-bb_org = "ti-img-rogue-driver"
-BSP_ROGUE_DRIVER_VERSION:bsp-bb_org = "23%"
-BSP_ROGUE_UMLIBS_VERSION:bsp-bb_org = "23%"
-BSP_MESA_PVR_VERSION:bsp-bb_org = "22%"
 
 # ==========
 # sane fallback defaults
