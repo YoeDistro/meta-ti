@@ -1,0 +1,31 @@
+OpenEmbedded/Yocto layer that extends meta-ti-bsp with BeagleBoard.org platforms.
+
+It is hosted on http://git.yoctoproject.org/cgit/cgit.cgi/meta-ti/ with the
+source repository at git://git.yoctoproject.org/meta-ti
+
+
+This layer depends on:
+
+URI: git://git.openembedded.org/openembedded-core
+layers: meta
+branch: master
+
+URI: git://git.yoctoproject.org/meta-arm
+layers: meta-arm
+branch: master
+
+URI: git://git.yoctoproject.org/meta-ti
+branch: master
+revision: HEAD
+layers: meta-ti-bsp
+
+
+Send pull requests, patches, comments or questions to:
+meta-ti@lists.yoctoproject.org
+
+Please note - meta-ti mailing list requires subscription for posting:
+https://lists.yoctoproject.org/g/meta-ti
+
+Maintainers:
+Denys Dmytriyenko <denys@konsulko.com>
+Ryan Eatmon <reatmon@ti.com>
