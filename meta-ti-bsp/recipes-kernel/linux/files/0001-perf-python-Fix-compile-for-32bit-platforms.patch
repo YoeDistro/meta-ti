@@ -1,0 +1,31 @@
+From a51ebf08cec81d84ac258da1c0ead139d6ddc94f Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Tue, 2 Jul 2024 11:07:14 -0500
+Subject: [master][PATCH] perf python: Fix compile for 32bit platforms
+
+The definition for perf_sample is missing on 32bit compiles:
+
+tools/perf/util/python.c:75:28: error: field 'sample' has incomplete type
+   75 |         struct perf_sample sample;
+
+Adding #include "sample.h" fixes it.
+
+Upstream-Status: Inappropriate
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ tools/perf/util/python.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
+index 3be882b2e845..de64ca3cf2d1 100644
+--- a/tools/perf/util/python.c
++++ b/tools/perf/util/python.c
+@@ -1,3 +1,5 @@
++#include "sample.h"
++
+ // SPDX-License-Identifier: GPL-2.0
+ #include <Python.h>
+ #include <structmember.h>
+--
+2.17.1

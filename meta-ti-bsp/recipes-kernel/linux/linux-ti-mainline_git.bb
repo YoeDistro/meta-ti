@@ -24,6 +24,7 @@ KERNEL_DEFCONFIG = ""
 
 KERNEL_REPRODUCIBILITY_PATCHES = " \
     file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
+    file://0001-perf-python-Fix-compile-for-32bit-platforms.patch \
 "
 
 DEFCONFIG_NAME = "multi_v7_defconfig"
