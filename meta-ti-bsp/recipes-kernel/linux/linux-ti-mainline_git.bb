@@ -13,9 +13,9 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} ${EXTRA_DTC_ARGS}"
 
 S = "${WORKDIR}/git"
 
-# 6.11 Mainline version
-SRCREV = "fa7818b3a6dd56c7956f515d287ed9f80c7bf59a"
-PV = "6.11"
+# 6.12 Mainline version
+SRCREV = "adc218676eef25575469234709c2d87185ca223a"
+PV = "6.12"
 
 KERNEL_GIT_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
 BRANCH = "master"
