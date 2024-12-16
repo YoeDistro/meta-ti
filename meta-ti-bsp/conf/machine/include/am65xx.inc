@@ -17,6 +17,8 @@ KERNEL_DEVICETREE = " \
     ti/k3-am654-idk.dtbo \
     ti/k3-am654-pcie-usb2.dtbo \
     ti/k3-am654-pcie-usb3.dtbo \
+    ti/k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie.dtbo \
+    ti/k3-am6548-iot2050-advanced-m2-bkey-usb3.dtbo \
     ti/k3-am6548-iot2050-advanced-m2.dtb \
     ti/k3-am6548-iot2050-advanced-pg2.dtb \
     ti/k3-am6548-iot2050-advanced-sm.dtb \
