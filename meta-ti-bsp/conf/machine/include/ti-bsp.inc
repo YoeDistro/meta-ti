@@ -37,12 +37,12 @@ MACHINE_FEATURES:remove:bsp-next = "gpu"
 
 # ==========
 # ti-6_12
-# TI staging kernel 6.12, u-boot 2024.10
+# TI staging kernel 6.12, u-boot 2025.01
 # ==========
 BSP_KERNEL_PROVIDER:bsp-ti-6_12 = "linux-ti-staging"
 BSP_KERNEL_VERSION:bsp-ti-6_12 = "6.12%"
 BSP_BOOTLOADER_PROVIDER:bsp-ti-6_12 = "u-boot-ti-staging"
-BSP_BOOTLOADER_VERSION:bsp-ti-6_12 = "2024.10%"
+BSP_BOOTLOADER_VERSION:bsp-ti-6_12 = "2025.01%"
 
 # GPU support requires out-of-tree SGX and Rogue drivers not available
 # in 6.12 yet
