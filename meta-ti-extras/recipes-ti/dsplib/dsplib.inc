@@ -11,7 +11,6 @@ DEPENDS = "ti-cgt6x-native \
            ti-xdctools-native \
            ti-sysbios \
            doxygen-native \
-           zip-native \
            swtools"
 
 S = "${WORKDIR}/git"
@@ -55,19 +54,6 @@ do_install() {
 	find -name "${DSPLIB_PACKAGE_NAME}.zip" -exec unzip -o {} -d ${D}${DSPLIB_INSTALL_DIR_RECIPE} \;
 	cp -r ${D}${DSPLIB_INSTALL_DIR_RECIPE}/dsplib/. ${D}${DSPLIB_INSTALL_DIR_RECIPE}
 	rm -r ${D}${DSPLIB_INSTALL_DIR_RECIPE}/dsplib
-}
-
-inherit deploy
-addtask deploy before do_build after do_install
-
-do_deploy() {
-	install -d ${DEPLOYDIR}
-	# zip up files in ${D}${DSPLIB_INSTALL_DIR_RECIPE}
-	# and place the zip file in ${DEPLOYDIR}
-	mkdir ./${DSPLIB_PACKAGE_NAME}
-	cp -r ${D}${DSPLIB_INSTALL_DIR_RECIPE}/. ./${DSPLIB_PACKAGE_NAME}
-	zip -9 -y -r -q ${DEPLOYDIR}/${DSPLIB_PACKAGE_NAME}.zip ./${DSPLIB_PACKAGE_NAME}
-	rm -r ./${DSPLIB_PACKAGE_NAME}
 }
 
 ALLOW_EMPTY:${PN} = "1"
