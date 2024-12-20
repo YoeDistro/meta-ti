@@ -11,7 +11,6 @@ DEPENDS = "ti-cgt6x-native \
            ti-xdctools-native \
            ti-sysbios \
            doxygen-native \
-           zip-native \
            swtools"
 
 S = "${WORKDIR}/git"
@@ -54,19 +53,6 @@ do_install() {
 	find -name "${MATHLIB_PACKAGE_NAME}.zip" -exec unzip -o {} -d ${D}${MATHLIB_INSTALL_DIR_RECIPE} \;
 	cp -r ${D}${MATHLIB_INSTALL_DIR_RECIPE}/mathlib/. ${D}${MATHLIB_INSTALL_DIR_RECIPE}
 	rm -r ${D}${MATHLIB_INSTALL_DIR_RECIPE}/mathlib
-}
-
-inherit deploy
-addtask deploy before do_build after do_install
-
-do_deploy() {
-	install -d ${DEPLOYDIR}
-	# zip up files in ${D}${MATHLIB_INSTALL_DIR_RECIPE}
-	# and place the zip file in ${DEPLOYDIR}
-	mkdir ./${MATHLIB_PACKAGE_NAME}
-	cp -r ${D}${MATHLIB_INSTALL_DIR_RECIPE}/. ./${MATHLIB_PACKAGE_NAME}
-	zip -9 -y -r -q ${DEPLOYDIR}/${MATHLIB_PACKAGE_NAME}.zip ./${MATHLIB_PACKAGE_NAME}
-	rm -r ./${MATHLIB_PACKAGE_NAME}
 }
 
 ALLOW_EMPTY:${PN} = "1"
