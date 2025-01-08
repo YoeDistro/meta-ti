@@ -4,7 +4,7 @@
 # well as a dedicated machine override.
 
 # Supported options are: mainline, next, ti-6_12, ti-6_6, ti-6_1
-TI_PREFERRED_BSP ??= "ti-6_6"
+TI_PREFERRED_BSP ??= "ti-6_12"
 
 # Use bsp-* namespace for overrides
 MACHINEOVERRIDES =. "bsp-${TI_PREFERRED_BSP}:"
