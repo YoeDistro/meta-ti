@@ -22,6 +22,9 @@ BSP_BOOTLOADER_VERSION:bsp-mainline = "%"
 # in mainline, usually present in TI staging or derivative like BB.org
 MACHINE_FEATURES:remove:bsp-mainline = "gpu"
 
+# GC320 support requires out-of-tree drivers not available in mainline
+MACHINE_FEATURES:remove:bsp-mainline = "gc320"
+
 # ==========
 # next
 # upcoming upstream/mainline kernel, u-boot
@@ -35,6 +38,9 @@ BSP_BOOTLOADER_VERSION:bsp-next = "%"
 # in next, usually present in TI staging or derivative like BB.org
 MACHINE_FEATURES:remove:bsp-next = "gpu"
 
+# GC320 support requires out-of-tree drivers not yet available in next
+MACHINE_FEATURES:remove:bsp-next = "gc320"
+
 # ==========
 # ti-6_12
 # TI staging kernel 6.12, u-boot 2025.01
@@ -47,6 +53,9 @@ BSP_BOOTLOADER_VERSION:bsp-ti-6_12 = "2025.01%"
 # GPU support requires out-of-tree SGX and Rogue drivers not available
 # in 6.12 yet
 MACHINE_FEATURES:remove:bsp-ti-6_12 = "gpu"
+
+# GC320 support requires out-of-tree drivers not yet available in 6.12
+MACHINE_FEATURES:remove:bsp-ti-6_12 = "gc320"
 
 # ==========
 # ti-6_6
@@ -65,6 +74,9 @@ BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_6 = "24%"
 BSP_ROGUE_UMLIBS_VERSION:bsp-ti-6_6 = "24%"
 BSP_MESA_PVR_VERSION:bsp-ti-6_6 = "23%"
 
+# GC320 support requires out-of-tree drivers not yet available in 6.6
+MACHINE_FEATURES:remove:bsp-ti-6_6 = "gc320"
+
 # ==========
 # ti-6_1
 # TI staging kernel 6.1, u-boot 2023.04
@@ -81,6 +93,9 @@ BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_1 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_1 = "23%"
 BSP_ROGUE_UMLIBS_VERSION:bsp-ti-6_1 = "23%"
 BSP_MESA_PVR_VERSION:bsp-ti-6_1 = "22%"
+
+# GC320 support requires out-of-tree drivers not yet available in 6.1
+MACHINE_FEATURES:remove:bsp-ti-6_1 = "gc320"
 
 # ==========
 # sane fallback defaults

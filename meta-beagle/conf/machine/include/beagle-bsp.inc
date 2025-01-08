@@ -23,6 +23,9 @@ BSP_ROGUE_DRIVER_VERSION:bsp-bb_org-6_1 = "23%"
 BSP_ROGUE_UMLIBS_VERSION:bsp-bb_org-6_1 = "23%"
 BSP_MESA_PVR_VERSION:bsp-bb_org-6_1 = "22%"
 
+# GC320 support requires out-of-tree drivers not yet available in bb.org 6.1
+MACHINE_FEATURES:remove:bsp-bb_org-6_1 = "gc320"
+
 # ==========
 # bb_org-6_6
 # BeagleBoard.org kernel 6.6, Upstream u-boot 2024.07
@@ -41,3 +44,6 @@ BSP_ROGUE_DRIVER_PROVIDER:bsp-bb_org-6_6 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-bb_org-6_6 = "24%"
 BSP_ROGUE_UMLIBS_VERSION:bsp-bb_org-6_6 = "24%"
 BSP_MESA_PVR_VERSION:bsp-bb_org-6_6 = "23%"
+
+# GC320 support requires out-of-tree drivers not yet available in bb.org 6.6
+MACHINE_FEATURES:remove:bsp-bb_org-6_6 = "gc320"
