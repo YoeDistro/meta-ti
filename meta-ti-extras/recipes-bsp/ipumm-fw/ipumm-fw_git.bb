@@ -65,3 +65,12 @@ ALTERNATIVE_TARGET[dra7-ipu2-fw.xem4] = "${nonarch_base_libdir}/firmware/${TARGE
 ALTERNATIVE_PRIORITY = "20"
 
 FILES:${PN} += "${nonarch_base_libdir}/firmware/*"
+
+# Disable the "buildpaths" check while we figure out how we are
+# going to address this issue.
+#
+# The ti-cgt-arm compiler is a custom TI compiler.  It does not
+# currently support reproducible builds and is provided via a
+# binary blob download that we cannot patch in the recipe to address
+# the issue.
+INSANE_SKIP:${PN} += "buildpaths"
