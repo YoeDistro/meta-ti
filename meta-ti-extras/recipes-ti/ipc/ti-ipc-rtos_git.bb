@@ -3,6 +3,7 @@ require recipes-ti/ipc/ti-ipc-common.inc
 require ti-ipc-rtos.inc
 
 inherit deploy
+inherit update-alternatives
 
 DEPENDS = "ti-xdctools-native ti-sysbios doxygen-native zip-native"
 
@@ -80,27 +81,24 @@ KFPLAT = ""
 
 ALTERNATIVE_PRIORITY = "5"
 
-pkg_postinst:${PN}-fw:omap-a15 () {
-  update-alternatives --install /lib/firmware/dra7-dsp1-fw.xe66 dra7-dsp1-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp1/test_omx_dsp1_vayu.xe66 ${ALTERNATIVE_PRIORITY}
-  update-alternatives --install /lib/firmware/dra7-dsp2-fw.xe66 dra7-dsp2-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp2/test_omx_dsp2_vayu.xe66 ${ALTERNATIVE_PRIORITY}
-  update-alternatives --install /lib/firmware/dra7-ipu1-fw.xem4 dra7-ipu1-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu1/test_omx_ipu1_vayu.xem4 ${ALTERNATIVE_PRIORITY}
-  update-alternatives --install /lib/firmware/dra7-ipu2-fw.xem4 dra7-ipu2-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu2/test_omx_ipu2_vayu.xem4 ${ALTERNATIVE_PRIORITY}
-}
+ALTERNATIVE:${PN}-fw:omapl138 = "rproc-dsp-fw"
+ALTERNATIVE:${PN}-fw:omap-a15 = "dra7-dsp1-fw.xe66 \
+                                 dra7-dsp2-fw.xe66 \
+                                 dra7-ipu1-fw.xem4 \
+                                 dra7-ipu2-fw.xem4 \
+                                "
 
-pkg_postrm:${PN}-fw:omap-a15 () {
-  update-alternatives --remove dra7-dsp1-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp1/test_omx_dsp1_vayu.xe66
-  update-alternatives --remove dra7-dsp2-fw.xe66 ipc/ti_platforms_evmDRA7XX_dsp2/test_omx_dsp2_vayu.xe66
-  update-alternatives --remove dra7-ipu1-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu1/test_omx_ipu1_vayu.xem4
-  update-alternatives --remove dra7-ipu2-fw.xem4 ipc/ti_platforms_evmDRA7XX_ipu2/test_omx_ipu2_vayu.xem4
-}
+ALTERNATIVE_LINK_NAME[rproc-dsp-fw] = "${nonarch_base_libdir}/firmware/rproc-dsp-fw"
+ALTERNATIVE_LINK_NAME[dra7-dsp1-fw.xe66] = "${nonarch_base_libdir}/firmware/dra7-dsp1-fw.xe66"
+ALTERNATIVE_LINK_NAME[dra7-dsp2-fw.xe66] = "${nonarch_base_libdir}/firmware/dra7-dsp2-fw.xe66"
+ALTERNATIVE_LINK_NAME[dra7-ipu1-fw.xem4] = "${nonarch_base_libdir}/firmware/dra7-ipu1-fw.xem4"
+ALTERNATIVE_LINK_NAME[dra7-ipu2-fw.xem4] = "${nonarch_base_libdir}/firmware/dra7-ipu2-fw.xem4"
 
-pkg_postinst:${PN}-fw:omapl138 () {
-  update-alternatives --install /lib/firmware/rproc-dsp-fw rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674 ${ALTERNATIVE_PRIORITY}
-}
-
-pkg_postrm:${PN}-fw:omapl138 () {
-  update-alternatives --remove rproc-dsp-fw ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674
-}
+ALTERNATIVE_TARGET[rproc-dsp-fw] = "${nonarch_base_libdir}/firmware/ipc/ti_platforms_evmOMAPL138_DSP/messageq_single.xe674"
+ALTERNATIVE_TARGET[dra7-dsp1-fw.xe66] = "${nonarch_base_libdir}/firmware/ipc/ti_platforms_evmDRA7XX_dsp1/test_omx_dsp1_vayu.xe66"
+ALTERNATIVE_TARGET[dra7-dsp2-fw.xe66] = "${nonarch_base_libdir}/firmware/ipc/ti_platforms_evmDRA7XX_dsp2/test_omx_dsp2_vayu.xe66"
+ALTERNATIVE_TARGET[dra7-ipu1-fw.xem4] = "${nonarch_base_libdir}/firmware/ipc/ti_platforms_evmDRA7XX_ipu1/test_omx_ipu1_vayu.xem4"
+ALTERNATIVE_TARGET[dra7-ipu2-fw.xem4] = "${nonarch_base_libdir}/firmware/ipc/ti_platforms_evmDRA7XX_ipu2/test_omx_ipu2_vayu.xem4"
 
 do_deploy() {
   install -d ${DEPLOYDIR}
