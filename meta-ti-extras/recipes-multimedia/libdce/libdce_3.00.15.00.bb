@@ -8,7 +8,7 @@ DEPENDS = "libdrm ti-ipc"
 
 SRC_URI = "git://git.ti.com/git/omapzoom/libdce.git;protocol=https;branch=master"
 
-SRCREV = "ec14e1d5cea1ed3c3ea0e2b9cf1fd581acff93e3"
+SRCREV = "182aea18596eb2b3a82cffc536a6404f5000fb30"
 
 S = "${WORKDIR}/git"
 EXTRA_OECONF += "IPC_HEADERS=${STAGING_INCDIR}/ti/ipc/mm"
