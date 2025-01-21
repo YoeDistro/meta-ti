@@ -3,7 +3,8 @@
 require conf/machine/include/ti-soc.inc
 SOC_FAMILY:append = ":k3"
 
-require conf/machine/include/arm/arch-arm64.inc
+DEFAULTTUNE ?= "aarch64"
+require conf/machine/include/arm/armv8a/tune-cortexa72-cortexa53.inc
 
 require conf/machine/include/ti-bsp.inc
 
