@@ -1,0 +1,31 @@
+From d17338d403980e1932a42f5d11c2a1fb7b25127b Mon Sep 17 00:00:00 2001
+From: MastaG <mastag@gmail.com>
+Date: Wed, 3 Jul 2024 21:00:42 +0200
+Subject: [PATCH] gallivm: Call StringMapIterator from llvm:: scope
+
+Closes: https://gitlab.freedesktop.org/mesa/mesa/-/issues/11392
+Fixes: b035d9cab5a4 ("gallivm: use getHostCPUFeatures on x86/llvm-4.0+.")
+Reviewed-by: David Heidelberg <david@ixit.cz>
+Signed-off-by: David Heidelberg <david@ixit.cz>
+Part-of: <https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/30009>
+Upstream-Status: Backport [https://gitlab.freedesktop.org/mesa/mesa/-/commit/d17338d403980e1932a42f5d11c2a1fb7b25127b]
+Signed-off-by: Randolph Sapp <rs@ti.com>
+---
+ src/gallium/auxiliary/gallivm/lp_bld_misc.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp b/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp
+index 95a8a6c6a08..f3c10652ed6 100644
+--- a/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp
++++ b/src/gallium/auxiliary/gallivm/lp_bld_misc.cpp
+@@ -332,7 +332,7 @@ lp_build_fill_mattrs(std::vector<std::string> &MAttrs)
+    llvm::StringMap<bool> features;
+    llvm::sys::getHostCPUFeatures(features);
+
+-   for (StringMapIterator<bool> f = features.begin();
++   for (llvm::StringMapIterator<bool> f = features.begin();
+         f != features.end();
+         ++f) {
+       MAttrs.push_back(((*f).second ? "+" : "-") + (*f).first().str());
+--
+2.47.1

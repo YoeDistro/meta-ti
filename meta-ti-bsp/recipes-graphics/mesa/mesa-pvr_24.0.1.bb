@@ -15,8 +15,10 @@ SRC_URI = " \
     file://0001-meson.build-check-for-all-linux-host_os-combinations.patch \
     file://0001-meson-misdetects-64bit-atomics-on-mips-clang.patch \
     file://0001-gallium-Fix-build-with-llvm-17.patch \
-    file://0001-meson-Disable-cmake-dependency-detector-for-llvm.patch \
-    file://0001-gallium-Fix-build-with-llvm-18-and-19.patch \
+    file://0001-drisw-fix-build-without-dri3.patch \
+    file://0002-glxext-don-t-try-zink-if-not-enabled-in-mesa.patch \
+    file://0001-gallivm-Call-StringMapIterator-from-llvm-scope.patch \
+    file://0001-Update-lp_bld_misc.cpp-to-support-llvm-19.patch \
 "
 
 S = "${WORKDIR}/git"
@@ -26,19 +28,13 @@ PACKAGECONFIG:append = " \
     ${@bb.utils.contains('PREFERRED_PROVIDER_virtual/gpudriver', 'ti-sgx-ddk-km', 'sgx', '', d)} \
 "
 
-SRCREV = "0e75e7ded360ea6aee4140393b30960e152f3994"
-PV = "23.2.1"
+SRCREV = "82e6a9293c476267417c5b6b906b01fb73a34e38"
+PV = "24.0.1"
 
 PVR_DISPLAY_CONTROLLER_ALIAS ??= "tidss"
 PACKAGECONFIG[pvr] = "-Dgallium-pvr-alias=${PVR_DISPLAY_CONTROLLER_ALIAS},"
 PACKAGECONFIG[sgx] = "-Dgallium-sgx-alias=${PVR_DISPLAY_CONTROLLER_ALIAS},"
 
-PACKAGECONFIG:remove = "video-codecs"
-PACKAGECONFIG[video-codecs] = ""
-PACKAGECONFIG:remove = "elf-tls"
-PACKAGECONFIG[elf-tls] = ""
-PACKAGECONFIG:remove = "xvmc"
-PACKAGECONFIG[xvmc] = ""
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
