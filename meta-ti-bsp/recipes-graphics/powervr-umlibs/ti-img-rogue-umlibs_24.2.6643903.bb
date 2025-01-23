@@ -12,9 +12,9 @@ COMPATIBLE_MACHINE = "j721e|j721s2|j784s4|j742s2|am62xx|am62pxx|j722s"
 
 PR = "r3"
 
-BRANCH = "linuxws/scarthgap/k6.6/${PV}"
+BRANCH = "linuxws/scarthgap/k6.12/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "ba93a3e38c683ccb03a7cf8f2e7dffe2f9cbcf1c"
+SRCREV = "d578666fc6ecd09f7d6c3431747f1d93d128fe28"
 S = "${WORKDIR}/git/targetfs/${TARGET_PRODUCT}/${PVR_WS}/${PVR_BUILD}"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
