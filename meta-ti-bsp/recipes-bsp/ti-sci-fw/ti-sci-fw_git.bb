@@ -26,4 +26,10 @@ do_deploy:k3r5() {
 	install -m 644 ${S}/ti-sysfw/ti-fs-stub-firmware-* ${DEPLOYDIR}/ti-sysfw
 }
 
+do_deploy:am62lxx(){
+        install -d ${DEPLOYDIR}/ti-sysfw
+        install -m 644 ${S}/ti-sysfw/ti-sci-firmware-* ${DEPLOYDIR}/ti-sysfw
+        install -m 644 ${S}/ti-sysfw/ti-fs-firmware-* ${DEPLOYDIR}/ti-sysfw
+}
+
 addtask deploy before do_build after do_compile
