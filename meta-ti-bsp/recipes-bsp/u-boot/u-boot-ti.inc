@@ -53,8 +53,10 @@ PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
 PLAT_SFX:am62axx = "am62axx"
+PLAT_SFX:am62lxx = "am62lxx"
 PLAT_SFX:am62pxx = "am62pxx"
 
+PACKAGECONFIG[ap-trusted-rom] = "BL1=${STAGING_DIR_HOST}/firmware/bl1.bin,,trusted-firmware-a"
 PACKAGECONFIG[atf] = "BL31=${STAGING_DIR_HOST}/firmware/bl31.bin,,trusted-firmware-a"
 PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/bl32.bin,,optee-os"
 PACKAGECONFIG[dm] = "DM=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/ti-dm/${PLAT_SFX}/${DM_FIRMWARE},,ti-dm-fw"
@@ -68,6 +70,7 @@ PACKAGECONFIG:append:j722s = " dm"
 PACKAGECONFIG:append:j742s2 = " dm"
 PACKAGECONFIG:append:am62xx = " dm"
 PACKAGECONFIG:append:am62axx = " dm"
+PACKAGECONFIG:append:am62lxx = " ap-trusted-rom"
 PACKAGECONFIG:append:am62pxx = " dm"
 
 COMPATIBLE_MACHINE = "(ti-soc)"
@@ -226,6 +229,16 @@ uboot_deploy_config:append:k3r5 () {
 	done
 }
 
+uboot_deploy_config:append:am62lxx () {
+	for f in ${B}/${config}/tiboot3-*.bin; do
+		if [ -f "$f" ]; then
+			f_base=$(basename $f)
+			install -m 644 $f ${DEPLOYDIR}/${f_base}-${type}
+			ln -sf ${f_base}-${type} ${DEPLOYDIR}/${f_base}
+		fi
+	done
+}
+
 uboot_deploy:append:k3r5 () {
     for f in ${B}/tiboot3-*.bin; do
 		if [ -f "$f" ]; then
@@ -234,6 +247,14 @@ uboot_deploy:append:k3r5 () {
 	done
 
 	for f in ${B}/sysfw*.itb; do
+		if [ -f "$f" ]; then
+			install -m 644 $f ${DEPLOYDIR}/
+		fi
+	done
+}
+
+uboot_deploy:append:am62lxx () {
+	for f in ${B}/tiboot3*.bin; do
 		if [ -f "$f" ]; then
 			install -m 644 $f ${DEPLOYDIR}/
 		fi
