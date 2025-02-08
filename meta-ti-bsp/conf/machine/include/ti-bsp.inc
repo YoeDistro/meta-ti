@@ -50,14 +50,13 @@ BSP_KERNEL_VERSION:bsp-ti-6_12 = "6.12%"
 BSP_BOOTLOADER_PROVIDER:bsp-ti-6_12 = "u-boot-ti-staging"
 BSP_BOOTLOADER_VERSION:bsp-ti-6_12 = "2025.01%"
 
+BSP_SGX_DRIVER_PROVIDER:bsp-ti-6_12 = "ti-sgx-ddk-km"
+BSP_SGX_DRIVER_VERSION:bsp-ti-6_12 = "1.17%"
+BSP_SGX_UMLIBS_VERSION:bsp-ti-6_12 = "1.17%"
 BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_12 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_12 = "24%"
 BSP_ROGUE_UMLIBS_VERSION:bsp-ti-6_12 = "24%"
 BSP_MESA_PVR_VERSION:bsp-ti-6_12 = "24%"
-
-# GPU support requires out-of-tree SGX and Rogue drivers not available
-# in 6.12 yet
-MACHINE_FEATURES:remove:bsp-ti-6_12 = "gpu"
 
 # GC320 support requires out-of-tree drivers not yet available in 6.12
 MACHINE_FEATURES:remove:bsp-ti-6_12 = "gc320"
