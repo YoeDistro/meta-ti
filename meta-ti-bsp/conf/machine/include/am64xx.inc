@@ -34,3 +34,5 @@ TFA_BOARD = "lite"
 OPTEEMACHINE = "k3-am64x"
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "prueth-fw pruhsr-fw prusw-fw"
+
+TI_WKS_BOOTLOADER_APPEND="console=ttyS2,115200n8"
