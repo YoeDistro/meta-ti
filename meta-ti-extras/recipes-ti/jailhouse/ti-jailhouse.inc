@@ -11,10 +11,10 @@ LIC_FILES_CHKSUM = " \
     file://COPYING;md5=9fa7f895f96bde2d47fd5b7d95b6ba4d \
 "
 
-COMPATIBLE_MACHINE = "am62xx|am62pxx"
+COMPATIBLE_MACHINE = "am62xx|am62pxx|am62lxx"
 TARGET_CC_ARCH += "${LDFLAGS}"
 PV = "0.12+git"
-SRCREV = "9b494ddf4bd8845a2c1063352d08a274ef61777b"
+SRCREV = "dc77c05460bc3df8f2ddc9cc3a9990ca31cb9f9d"
 BRANCH = "master"
 SRC_URI = " \
     git://git.ti.com/git/jailhouse/ti-jailhouse.git;protocol=https;branch=${BRANCH} \
@@ -63,6 +63,7 @@ JH_SYSCONFIG_CELL ?= ""
 JH_SYSCONFIG_CELL:am62xx ?= "k3-am625-sk.cell"
 JH_SYSCONFIG_CELL:am65xx ?= "k3-am654-idk.cell"
 JH_SYSCONFIG_CELL:am62pxx ?= "k3-am62p5-sk.cell"
+JH_SYSCONFIG_CELL:am62lxx ?= "k3-am62l3-evm.cell"
 JH_SYSCONFIG_CELL:j7 ?= "k3-j721e-evm.cell"
 JH_SYSCONFIG_CELL:j7200-evm ?= "k3-j7200-evm.cell"
 
