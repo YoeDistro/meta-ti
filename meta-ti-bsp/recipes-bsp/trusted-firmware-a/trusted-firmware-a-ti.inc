@@ -15,6 +15,7 @@ TFA_SPD = "opteed"
 
 # For am62lxx, install bl1 & bl31 using TFA_INSTALL_TARGET
 TFA_INSTALL_TARGET:am62lxx = "bl31 bl1"
+TFA_SPD:am62lxx = ""
 
 EXTRA_OEMAKE += "${@ 'K3_USART=' + d.getVar('TFA_K3_USART') if d.getVar('TFA_K3_USART') else ''}"
 EXTRA_OEMAKE += "${@ 'K3_PM_SYSTEM_SUSPEND=' + d.getVar('TFA_K3_SYSTEM_SUSPEND') if d.getVar('TFA_K3_SYSTEM_SUSPEND') else ''}"
