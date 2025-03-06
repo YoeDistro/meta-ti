@@ -36,4 +36,4 @@ TFA_BOARD = "generic"
 
 OPTEEMACHINE = "k3-j721e"
 
-MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "cadence-mhdp-fw vxd-dec-fw ti-eth-fw"
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "cadence-mhdp-fw vxd-dec-fw ti-eth-fw ti-vxe-vxd-driver"
