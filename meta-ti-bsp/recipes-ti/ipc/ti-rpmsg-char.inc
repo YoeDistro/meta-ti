@@ -14,5 +14,4 @@ PV = "0.6.7+git"
 
 S = "${WORKDIR}/git"
 
-COMPATIBLE_HOST ?= "null"
-COMPATIBLE_HOST:ti-soc = "(.*)"
+COMPATIBLE_MACHINE = "^(k3)$"
