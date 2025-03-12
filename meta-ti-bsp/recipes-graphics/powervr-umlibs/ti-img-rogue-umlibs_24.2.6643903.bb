@@ -3,19 +3,15 @@ HOMEPAGE = "http://git.ti.com/graphics/ti-img-rogue-umlibs"
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 
-inherit bin_package
-
-INHIBIT_DEFAULT_DEPS = ""
-
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j721e|j721s2|j784s4|j742s2|am62xx|am62pxx|j722s"
 
-PR = "r3"
+PR = "r4"
 
 BRANCH = "linuxws/scarthgap/k6.12/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "d578666fc6ecd09f7d6c3431747f1d93d128fe28"
-S = "${WORKDIR}/git/targetfs/${TARGET_PRODUCT}/${PVR_WS}/${PVR_BUILD}"
+SRCREV = "1ed9ee185cd876200e6747192854015b8e94a7b0"
+S = "${WORKDIR}/git"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
 TARGET_PRODUCT:j721s2 = "j721s2_linux"
@@ -54,7 +50,12 @@ def get_file_list(package_list_var, d):
                     file_list.append(f"{prefix}{package_file}")
     return " ".join(file_list)
 
-do_install:append() {
+EXTRA_OEMAKE += 'BUILD=${PVR_BUILD} TARGET_PRODUCT=${TARGET_PRODUCT} WINDOW_SYSTEM=${PVR_WS}'
+
+do_configure[noexec] = "1"
+do_compile[noexec] = "1"
+do_install() {
+    oe_runmake 'DESTDIR=${D}' install
     if ${@bb.utils.contains('PACKAGECONFIG', 'opengl', 'false', 'true', d)}; then
         for file in ${@get_file_list('GLES_PACKAGES',  d)}; do
             rm -rf ${file}
@@ -78,6 +79,9 @@ do_install:append() {
 
     # clean up any empty directories
     find "${D}" -empty -type d -delete
+
+    # fix permissions
+    chown -R root:root "${D}"
 }
 
 GLES_PACKAGES = "libgles1-rogue libgles2-rogue libgles3-rogue"
@@ -140,6 +144,9 @@ INSANE_SKIP:${PN}-tools = "ldflags"
 # required firmware
 FILES:${PN}-firmware = "${base_libdir}/firmware/*"
 INSANE_SKIP:${PN}-firmware += "arch"
+
+# common libraries
+FILES:${PN} = "${libdir}"
 
 RRECOMMENDS:${PN} += " \
     ${PN}-tools \
