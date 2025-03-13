@@ -6,6 +6,7 @@ FW_NAME = "zephyr_openamp_rsc_table.elf"
 # List of cores for which this demo has a build
 FW_CORES        = ""
 FW_CORES:am62xx = "mcu-m4f0_0"
+FW_CORES:am64xx = "mcu-m4f0_0"
 
 # Note: Everything below is common to all our Zephyr firmwares and can be
 #       factored out to a common include file once we have more than one demo
@@ -18,7 +19,7 @@ COMPATIBLE_MACHINE = "k3"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SRC_URI = "git://github.com/glneo/zephyr-firmware.git;protocol=https;branch=main"
-SRCREV = "146d4f9b3930722d73685d600958f0b10ea97de2"
+SRCREV = "ef5aec48e589902839ebae7ad753c68cf498c15f"
 PV = "3.6.0"
 #PR = "r1"
 
@@ -26,6 +27,7 @@ S = "${WORKDIR}/git"
 
 FW_PLAT = ""
 FW_PLAT:am62xx = "am62"
+FW_PLAT:am64xx = "am64"
 
 FW_INSTALL_DIR = "${nonarch_base_libdir}/firmware/zephyr/${FW_PLAT}"
 
