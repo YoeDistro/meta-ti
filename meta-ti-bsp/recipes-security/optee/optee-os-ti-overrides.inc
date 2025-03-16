@@ -47,10 +47,6 @@ do_install:append() {
     install -m 644 ${B}/*.optee ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.bin ${D}${nonarch_base_libdir}/firmware/ || true
     install -m 644 ${B}/bl32.elf ${D}${nonarch_base_libdir}/firmware/ || true
-
-    # Install embedded TAs
-    mkdir -p ${D}${nonarch_base_libdir}/optee_armtz/
-    install -D -p -m0444 ${B}/ta/*/*.ta ${D}${nonarch_base_libdir}/optee_armtz/
 }
 
 optee_deploy_legacyhs() {
@@ -73,7 +69,8 @@ do_deploy:append:k3() {
     ln -sf optee/bl32.elf ${DEPLOYDIR}/
 }
 
-FILES:${PN} += "${nonarch_base_libdir}/optee_armtz/"
+# Make the OS depend on embedded TAs
+RDEPENDS:${PN} += "${PN}-ta"
 
 # This is needed for bl32.elf
 INSANE_SKIP:${PN}:append:k3 = " textrel"
