@@ -14,7 +14,7 @@ LIC_FILES_CHKSUM = " \
 COMPATIBLE_MACHINE = "am62xx|am62pxx|am62lxx"
 TARGET_CC_ARCH += "${LDFLAGS}"
 PV = "0.12+git"
-SRCREV = "dc77c05460bc3df8f2ddc9cc3a9990ca31cb9f9d"
+SRCREV = "ef512f9591febed854d8f07ad8c1fa731c2d3c69"
 BRANCH = "master"
 SRC_URI = " \
     git://git.ti.com/git/jailhouse/ti-jailhouse.git;protocol=https;branch=${BRANCH} \
