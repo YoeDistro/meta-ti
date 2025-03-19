@@ -14,7 +14,7 @@ CLEANBROKEN = "1"
 BRANCH = "ti-${PV}"
 
 SRC_URI = "git://git.ti.com/git/graphics/ti-gc320-libs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "c0afab259de59909cfe74c01f3f7fbaa147f94b5"
+SRCREV = "85c175e8425c33dda6e272aeb45afe0f69a79096"
 
 RRECOMMENDS:${PN} = "ti-gc320-driver"
 
@@ -43,4 +43,8 @@ do_install() {
     chown -R root:root ${D}
 }
 
-INSANE_SKIP:${PN} += "ldflags"
+PACKAGES = "${PN} ${PN}-dev"
+FILES:${PN} += "${libdir}/libGAL.so"
+FILES:${PN}-dev = "/usr/include"
+
+INSANE_SKIP:${PN} += "ldflags already-stripped dev-so"
