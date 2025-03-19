@@ -19,7 +19,7 @@ SRC_URI = "git://git.ti.com/git/graphics/omap5-sgx-ddk-linux.git;protocol=https;
 
 S = "${WORKDIR}/git"
 
-SRCREV = "f555b9e1ae4b2baf68ac778ca41dc0c17e96f89a"
+SRCREV = "9ae0fa4998b1c624408945e062bf8fb0ea7efb9d"
 
 TARGET_PRODUCT:omap-a15 = "ti572x_linux"
 TARGET_PRODUCT:ti33x = "ti335x_linux"
