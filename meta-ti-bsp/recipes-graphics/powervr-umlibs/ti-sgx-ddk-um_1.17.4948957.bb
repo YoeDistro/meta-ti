@@ -17,14 +17,23 @@ SRCREV = "84a396a4fb379f10931421e489ac8a199d6a9f2c"
 
 INITSCRIPT_NAME = "rc.pvr"
 INITSCRIPT_PARAMS = "defaults 8"
+SYSTEMD_SERVICE:${PN} = "pvrsrvctl.service"
 
+# Prefer udev rules over everything, but we do have init services if necessary
 PACKAGECONFIG ??= "udev"
-PACKAGECONFIG[udev] = "UDEV=true,,,udev"
+PACKAGECONFIG[udev] = "UDEV=true,UDEV=false,,udev,,sysvinit systemd"
+PACKAGECONFIG[systemd] = "SYSTEMD=true,SYSTEMD=false,,,,udev sysvinit"
+PACKAGECONFIG[sysvinit] = ",,,,,udev systemd"
 
-def use_sysvinit(d):
-    return d.getVar('VIRTUAL-RUNTIME_init_manager') == 'sysvinit'
+def pick_init(d):
+    packageconfig = d.getVar('PACKAGECONFIG').split()
+    if 'udev' not in packageconfig:
+        if d.getVar('VIRTUAL-RUNTIME_init_manager') == 'sysvinit':
+            return "update-rc.d"
+        return "systemd"
+    return ""
 
-inherit ${@oe.utils.ifelse(use_sysvinit(d), 'update-rc.d', '')}
+inherit ${@pick_init(d)}
 
 TARGET_PRODUCT:ti33x = "ti335x_linux"
 TARGET_PRODUCT:ti43x = "ti437x_linux"
@@ -39,6 +48,8 @@ S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += "DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT} ${PACKAGECONFIG_CONFARGS}"
 
+do_configure[noexec] = "1"
+do_compile[noexec] = "1"
 do_install() {
     oe_runmake install
 }
