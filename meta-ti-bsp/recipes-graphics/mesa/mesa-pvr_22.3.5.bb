@@ -2,7 +2,7 @@
 # upstream yet. This allows us to build the shims we need without completely
 # clobbering mesa.
 
-require recipes-graphics/mesa/mesa.inc
+require recipes-graphics/mesa/mesa-pvr.inc
 
 SUMMARY += " (with PowerVR support for TI platforms)"
 
