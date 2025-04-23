@@ -10,9 +10,6 @@ TFA_K3_SYSTEM_SUSPEND = "1"
 # Default tiboot3.bin on AM62A is for HS-FS
 IMAGE_BOOT_FILES += "tiboot3-am62ax-hs-fs-evm.bin"
 
-# Since default tiboot3.bin on AM62A is for HS-FS, add a version for GP
-IMAGE_BOOT_FILES += "tiboot3-am62ax-gp-evm.bin"
-
 # Since default tiboot3.bin on AM62A is for HS-FS, add a version for HS-SE
 IMAGE_BOOT_FILES += "tiboot3-am62ax-hs-evm.bin"
 
