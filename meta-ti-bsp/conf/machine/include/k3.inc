@@ -54,3 +54,8 @@ WKS_FILE ?= "${@bb.utils.contains("MACHINE_FEATURES", "efi", "sdimage-2part-efi.
 do_image_wic[depends] += "virtual/bootloader:do_deploy"
 
 SERIAL_CONSOLES = "115200;ttyS0 115200;ttyS2"
+
+FALCON_INCLUDE = ""
+FALCON_INCLUDE:ti-falcon = "conf/machine/include/ti-falcon.inc"
+
+require ${FALCON_INCLUDE}
