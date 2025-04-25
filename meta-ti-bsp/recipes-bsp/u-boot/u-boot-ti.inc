@@ -14,6 +14,8 @@ require u-boot-mergeconfig.inc
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/u-boot:"
 
+FILES:${PN}-falcon = "boot/tispl_falcon.bin"
+
 SUMMARY = "u-boot bootloader for TI devices"
 
 LICENSE = "GPL-2.0-or-later"
