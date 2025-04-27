@@ -26,18 +26,18 @@ inherit update-alternatives
 
 DEPENDS = "ti-xdctools-native ti-sysbios ti-codec-engine ti-framework-components ti-xdais ti-cgt-arm-native ti-ipc-rtos"
 
-export HWVERSION="ES10"
-export BIOSTOOLSROOT="${STAGING_DIR_TARGET}/usr/share/ti"
+export HWVERSION = "ES10"
+export BIOSTOOLSROOT = "${STAGING_DIR_TARGET}/usr/share/ti"
 
-export XDCVERSION="ti-xdctools-tree"
-export BIOSVERSION="ti-sysbios-tree"
-export IPCVERSION="ti-ipc-tree"
-export CEVERSION="ti-codec-engine-tree"
-export FCVERSION="ti-framework-components-tree"
-export XDAISVERSION="ti-xdais-tree"
+export XDCVERSION = "ti-xdctools-tree"
+export BIOSVERSION = "ti-sysbios-tree"
+export IPCVERSION = "ti-ipc-tree"
+export CEVERSION = "ti-codec-engine-tree"
+export FCVERSION = "ti-framework-components-tree"
+export XDAISVERSION = "ti-xdais-tree"
 
-export TMS470CGTOOLPATH="${M4_TOOLCHAIN_INSTALL_DIR}"
-export IPCSRC="${STAGING_DIR_TARGET}/usr/share/ti/ti-ipc-tree"
+export TMS470CGTOOLPATH = "${M4_TOOLCHAIN_INSTALL_DIR}"
+export IPCSRC = "${STAGING_DIR_TARGET}/usr/share/ti/ti-ipc-tree"
 
 EXTRA_OEMAKE += "XDCDIST_TREE=${STAGING_DIR_NATIVE}/usr/share/ti/${XDCVERSION}"
 

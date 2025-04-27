@@ -11,7 +11,7 @@ PR = "${INC_PR}.0"
 
 S = "${WORKDIR}/git/dsptop/ulm"
 
-DEVICE=""
+DEVICE = ""
 DEVICE:dra7xx = "DRA7xx"
 
 EXTRA_OEMAKE = "release DEVICE=${DEVICE} CROSS_COMPILE=${TARGET_PREFIX}"
@@ -42,7 +42,7 @@ include dsptop.inc
 
 ALLOW_EMPTY:${PN} = "1"
 
-PARALLEL_MAKE= ""
+PARALLEL_MAKE = ""
 
 # Disable the "buildpaths" check while we figure out how we are
 # going to address this issue.

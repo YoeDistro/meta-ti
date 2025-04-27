@@ -19,7 +19,7 @@ require recipes-ti/includes/ti-unpack.inc
 BINFILE = "ti_cgt_c6000_7.4.16_linux_installer_x86.bin"
 BINFILE_NAME = "cgt6x_7.4.16_x86_installer"
 TI_BIN_UNPK_ARGS = "--prefix ${WORKDIR} --mode unattended"
-TI_BIN_UNPK_CMDS=""
+TI_BIN_UNPK_CMDS = ""
 
 SRC_URI = "http://install.source.dir.local/${BINFILE};name=${BINFILE_NAME}"
 

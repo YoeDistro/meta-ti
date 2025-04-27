@@ -13,9 +13,9 @@ SRC_URI = "http://software-dl.ti.com/libs/vlib/${PV}//exports/vlib_c66x_obj_${PV
 
 S = "${WORKDIR}/vlib_c66x_${PV}"
 
-BINFILE="vlib_c66x_obj_${PV}_Linux.bin"
+BINFILE = "vlib_c66x_obj_${PV}_Linux.bin"
 TI_BIN_UNPK_ARGS = "--mode silent --prefix ${S}"
-TI_BIN_UNPK_CMDS=""
+TI_BIN_UNPK_CMDS = ""
 
 do_install() {
     CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"

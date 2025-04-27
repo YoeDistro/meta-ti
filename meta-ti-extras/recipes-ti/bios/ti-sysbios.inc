@@ -10,8 +10,8 @@ require ../includes/ti-eula-unpack.inc
 S = "${WORKDIR}/bios_${PV}"
 
 SRC_URI = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/bios/sysbios/${PV}/exports/bios_setuplinux_${PV}.bin;name=sysbiosbin"
-BINFILE="bios_${PV}.bin"
-TI_BIN_UNPK_CMDS="Y: q:workdir:Y"
+BINFILE = "bios_${PV}.bin"
+TI_BIN_UNPK_CMDS = "Y: q:workdir:Y"
 
 do_install() {
     CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
