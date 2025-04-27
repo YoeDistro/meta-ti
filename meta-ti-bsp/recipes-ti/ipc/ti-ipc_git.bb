@@ -1,5 +1,5 @@
 DESCRIPTION = "TI Inter Process Communication (IPC) Mechanisms (for Uni- and Multi- Processor Configurations)"
-HOMEPAGE="http://processors.wiki.ti.com/index.php/Category:IPC"
+HOMEPAGE = "http://processors.wiki.ti.com/index.php/Category:IPC"
 
 require ti-ipc.inc
 require ti-ipc-common.inc
