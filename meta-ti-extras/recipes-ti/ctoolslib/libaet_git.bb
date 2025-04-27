@@ -15,7 +15,7 @@ PR = "r0"
 
 S = "${WORKDIR}/git/aet"
 
-DEVICE=""
+DEVICE = ""
 DEVICE:dra7xx = "DRA7xx"
 
 EXTRA_OEMAKE = "C6X_C_DIR=${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x/include"

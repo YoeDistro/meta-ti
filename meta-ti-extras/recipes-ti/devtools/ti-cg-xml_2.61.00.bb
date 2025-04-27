@@ -19,9 +19,9 @@ LIC_FILES_CHKSUM = "file://cg_xml_${PV}_Manifest.pdf;md5=fc02a39748ba50373f32b2f
 SRC_URI[cgxmlbin_linux.md5sum] = "6ce60caa97bbf15158d806fb062fadff"
 SRC_URI[cgxmlbin_linux.sha256sum] = "da77cb10bd3d5de89e27e4ce8f4408a2e50775c8980225f9a828ddc242bb81f9"
 
-BINFILE="cgxml-${PV}-linux-installer.run"
-TI_BIN_UNPK_CMDS=""
-TI_BIN_UNPK_ARGS="--prefix ${S} --mode unattended"
+BINFILE = "cgxml-${PV}-linux-installer.run"
+TI_BIN_UNPK_CMDS = ""
+TI_BIN_UNPK_ARGS = "--prefix ${S} --mode unattended"
 
 do_install() {
     CP_ARGS="-Prf --preserve=mode,timestamps --no-preserve=ownership"
