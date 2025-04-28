@@ -39,6 +39,7 @@ DM_FW_DIR = "ti-dm/${PLAT_SFX}"
 INSTALL_DM_FW_DIR  = "${nonarch_base_libdir}/firmware/${DM_FW_DIR}"
 
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
+DM_FIRMWARE:am62axx = "dm_edgeai_mcu1_0_release_strip.out"
 
 DM_FW_LIST = ""
 DM_FW_LIST:j721e =   "${DM_FIRMWARE}"

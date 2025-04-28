@@ -45,6 +45,7 @@ DEPENDS:append:j721s2 = " ti-hsm-demo-fw"
 DEPENDS:append:j784s4 = " ti-hsm-demo-fw"
 
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
+DM_FIRMWARE:am62axx = "dm_edgeai_mcu1_0_release_strip.out"
 
 PLAT_SFX = ""
 PLAT_SFX:j721e = "j721e"
