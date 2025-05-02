@@ -43,6 +43,9 @@ INHIBIT_SYSROOT_STRIP = "1"
 # This is used to prevent the build system from splitting out the firmware debug info into a separate file
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
+# Firmware here are prebuilt with no external dependencies
+INHIBIT_DEFAULT_DEPS = "1"
+
 # Disable arch checking as firmware is likely to be a different arch from the Yocto build
 INSANE_SKIP:${PN} += "arch"
 
