@@ -3,7 +3,7 @@ SUMMARY = "TI Ethernet prebuilt binary firmware images"
 LICENSE = "TI-TFL"
 LIC_FILES_CHKSUM = "file://${THISDIR}/../../licenses/TI-TFL;md5=a1b59cb7ba626b9dbbcbf00f3fbc438a"
 
-COMPATIBLE_MACHINE = "k3"
+COMPATIBLE_MACHINE = "j721e|j7200|j784s4"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -22,15 +22,7 @@ inherit ti-secdev
 PLAT_SFX = ""
 PLAT_SFX:j721e = "j721e"
 PLAT_SFX:j7200 = "j7200"
-PLAT_SFX:j721s2 = "j721s2"
 PLAT_SFX:j784s4 = "j784s4"
-PLAT_SFX:j722s = "j722s"
-PLAT_SFX:j742s2 = "j742s2"
-PLAT_SFX:am65xx = "am65xx"
-PLAT_SFX:am64xx = "am64xx"
-PLAT_SFX:am62xx = "am62xx"
-PLAT_SFX:am62pxx = "am62pxx"
-PLAT_SFX:am62axx = "am62axx"
 
 ETH_FW_DIR = "ti-eth/${PLAT_SFX}"
 
@@ -41,15 +33,7 @@ ETH_FW = "app_remoteswitchcfg_server_strip.xer5f"
 ETH_FW_LIST = ""
 ETH_FW_LIST:j721e =   "${ETH_FW}"
 ETH_FW_LIST:j7200 =   "${ETH_FW}"
-ETH_FW_LIST:j721s2 =  ""
 ETH_FW_LIST:j784s4 =  "${ETH_FW}"
-ETH_FW_LIST:j722s =   ""
-ETH_FW_LIST:j742s2 =  ""
-ETH_FW_LIST:am65xx =  ""
-ETH_FW_LIST:am64xx =  ""
-ETH_FW_LIST:am62xx =  ""
-ETH_FW_LIST:am62pxx = ""
-ETH_FW_LIST:am62axx = ""
 
 do_install() {
     # ETH firmware
