@@ -7,8 +7,6 @@ COMPATIBLE_MACHINE = "k3"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-INHIBIT_DEFAULT_DEPS = "1"
-
 inherit update-alternatives
 
 PLAT_SFX = ""
