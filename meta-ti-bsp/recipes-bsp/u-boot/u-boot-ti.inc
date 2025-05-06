@@ -48,6 +48,7 @@ DEPENDS:append:j784s4 = " ti-hsm-demo-fw"
 
 DM_FIRMWARE = "ipc_echo_testb_mcu1_0_release_strip.xer5f"
 DM_FIRMWARE:am62axx = "dm_edgeai_mcu1_0_release_strip.out"
+DM_FIRMWARE:am62pxx = "${@oe.utils.conditional('DISPLAY_CLUSTER_ENABLE', '1', 'dss_display_share.wkup-r5f0_0.release.strip.out', 'ipc_echo_testb_mcu1_0_release_strip.xer5f', d)}"
 
 PLAT_SFX = ""
 PLAT_SFX:j721e = "j721e"
