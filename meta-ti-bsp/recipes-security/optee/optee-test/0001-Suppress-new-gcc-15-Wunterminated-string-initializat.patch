@@ -1,0 +1,68 @@
+From a8e58203dcb4c13ee340259cd2692202ac8414d1 Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@konsulko.com>
+Date: Tue, 6 May 2025 21:35:55 -0400
+Subject: [PATCH] Suppress new gcc-15 -Wunterminated-string-initialization
+
+GCC 15 now warns when character arrays are being initialized by strings
+and terminating NUL character doesn't fit. GCC 15.1 also allows marking
+such arrays with nonstring attribute to suppress the warning. W/o such
+attribute, the warning becomes error due to the global -Werror. Add the
+attribute accordingly.
+
+Fixes these errors:
+
+| ./regression_4000_data.h:7919:9: error: initializer-string for array of 'unsigned char' truncates NUL terminator but destination lacks 'nonstring' attribute (20 chars into 19 available) [-Werror=unterminated-string-initialization]
+|  7919 |         "encryption standard";
+|       |         ^~~~~~~~~~~~~~~~~~~~~
+| ./regression_4000_data.h:8387:9: error: initializer-string for array of 'unsigned char' truncates NUL terminator but destination lacks 'nonstring' attribute (113 chars into 112 available) [-Werror=unterminated-string-initialization]
+|  8387 |         "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomn"
+|       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+| ./regression_4000.c:1295:47: error: initializer-string for array of 'unsigned char' truncates NUL terminator but destination lacks 'nonstring' attribute (4 chars into 3 available) [-Werror=unterminated-string-initialization]
+|  1295 | static const uint8_t hash_data_sm3_a1_in[3] = "abc";
+|       |                                               ^~~~~
+
+Upstream-Status: Pending
+
+Signed-off-by: Denys Dmytriyenko <denys@konsulko.com>
+---
+ host/xtest/regression_4000.c      | 2 +-
+ host/xtest/regression_4000_data.h | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/host/xtest/regression_4000.c b/host/xtest/regression_4000.c
+index 3aa15be..46e6f8e 100644
+--- a/host/xtest/regression_4000.c
++++ b/host/xtest/regression_4000.c
+@@ -1292,7 +1292,7 @@ static const uint8_t hash_data_shake256_out2[] = {
+  * https://tools.ietf.org/html/draft-sca-cfrg-sm3-02
+  * Appendix A.1
+  */
+-static const uint8_t hash_data_sm3_a1_in[3] = "abc";
++static const uint8_t hash_data_sm3_a1_in[3] __attribute__((nonstring)) = "abc";
+
+ static const uint8_t hash_data_sm3_a1_out[] = {
+	0x66, 0xc7, 0xf0, 0xf4, 0x62, 0xee, 0xed, 0xd9,
+diff --git a/host/xtest/regression_4000_data.h b/host/xtest/regression_4000_data.h
+index 0881ac3..eb101b2 100644
+--- a/host/xtest/regression_4000_data.h
++++ b/host/xtest/regression_4000_data.h
+@@ -7914,7 +7914,7 @@ static struct derive_key_ecdh_t {
+ };
+
+ /* G/MT 0003 (SM2) Part 5 Annex C.2 - encryption/decryption */
+-static const uint8_t gmt_0003_part5_c2_sm2_testvector_ptx[19] =
++static const uint8_t gmt_0003_part5_c2_sm2_testvector_ptx[19] __attribute__((nonstring)) =
+ /* M */
+	"encryption standard";
+ static const uint8_t gmt_0003_part5_c2_sm2_testvector_private[] = {
+@@ -8383,7 +8383,7 @@ static const uint8_t mac_data_sha3_512_out1[] = {
+  * GM/T 0042-2015
+  * Section D.3 Test vector 1
+  */
+-static const uint8_t mac_data_sm3_d31_in[112] =
++static const uint8_t mac_data_sm3_d31_in[112] __attribute__((nonstring)) =
+	"abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomn"
+	"opnopqabcdbcdecdefdefgefghfghighijhijkijkljklmklmn"
+	"lmnomnopnopq";
+--
+2.25.1
