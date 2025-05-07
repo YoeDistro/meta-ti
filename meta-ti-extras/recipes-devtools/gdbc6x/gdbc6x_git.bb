@@ -19,7 +19,7 @@ S = "${WORKDIR}/git/gdbc6x"
 inherit update-rc.d
 inherit gettext
 
-CFLAGS += "-fcommon"
+CFLAGS += "-fcommon -std=gnu11"
 
 do_configure () {
     cd ${S}
