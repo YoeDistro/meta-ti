@@ -20,6 +20,7 @@ PLAT_SFX:am65xx = "am65xx"
 PLAT_SFX:am64xx = "am64xx"
 PLAT_SFX:am62xx = "am62xx"
 PLAT_SFX:am62axx = "am62axx"
+PLAT_SFX:am62dxx = "am62axx"
 PLAT_SFX:am62pxx = "am62pxx"
 
 FILESEXTRAPATHS:prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
@@ -57,6 +58,7 @@ IPC_FW_LIST:am64xx =  "${MCU_1_0_FW} ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} $
 IPC_FW_LIST:am62xx =  "                            ${MCU_2_0_FW}"
 IPC_FW_LIST:am62pxx = "                            ${MCU_2_0_FW}"
 IPC_FW_LIST:am62axx = "                            ${MCU_2_0_FW}                                                                                               ${C7X_1_FW}"
+IPC_FW_LIST:am62dxx = "                            ${MCU_2_0_FW}                                                                                               ${C7X_1_FW}"
 IPC_FW_LIST:j721e =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                             ${C66_1_FW} ${C66_2_FW} ${C7X_1_FW}"
 IPC_FW_LIST:j7200 =   "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW}"
 IPC_FW_LIST:j721s2 =  "              ${MCU_1_1_FW} ${MCU_2_0_FW} ${MCU_2_1_FW} ${MCU_3_0_FW} ${MCU_3_1_FW}                                                     ${C7X_1_FW} ${C7X_2_FW}"
@@ -91,6 +93,13 @@ do_install:prepend:am62pxx() {
 
 # Update the am62axx ipc binaries to be consistent with other platforms
 do_install:prepend:am62axx() {
+        ( cd ${S}/${IPC_FW_DIR}; \
+                ln -sf am62a-mcu-r5f0_0-fw ${MCU_2_0_FW}; \
+        )
+}
+
+# Update the am62dxx ipc binaries to be consistent with other platforms
+do_install:prepend:am62dxx() {
         ( cd ${S}/${IPC_FW_DIR}; \
                 ln -sf am62a-mcu-r5f0_0-fw ${MCU_2_0_FW}; \
         )
@@ -135,6 +144,11 @@ ALTERNATIVE:${PN}:am62pxx = "\
                     "
 
 ALTERNATIVE:${PN}:am62axx = "\
+                    am62a-mcu-r5f0_0-fw   am62a-mcu-r5f0_0-fw-sec \
+                    am62a-c71_0-fw        am62a-c71_0-fw-sec \
+                    "
+
+ALTERNATIVE:${PN}:am62dxx = "\
                     am62a-mcu-r5f0_0-fw   am62a-mcu-r5f0_0-fw-sec \
                     am62a-c71_0-fw        am62a-c71_0-fw-sec \
                     "
