@@ -1,4 +1,4 @@
-DESCRIPTION = "Baremetal GCC for ARM"
+SUMMARY = "Baremetal GCC for ARM"
 LICENSE = "GPL-3.0-with-GCC-exception & GPL-3.0-only"
 
 LIC_FILES_CHKSUM = "file://share/doc/gcc-arm-none-eabi/license.txt;md5=f77466c63f5787f4bd669c402aabe061"

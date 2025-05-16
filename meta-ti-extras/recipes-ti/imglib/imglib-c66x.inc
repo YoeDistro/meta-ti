@@ -1,3 +1,4 @@
+SUMMARY = "IMGLIB for TI DSPs"
 DESCRIPTION = "IMGLIB contains optimized general-purpose image/video processing routines for TI DSPs"
 HOMEPAGE = "http://www.ti.com/tool/sprc264"
 SECTION = "devel"

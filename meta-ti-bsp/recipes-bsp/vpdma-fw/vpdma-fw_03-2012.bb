@@ -1,4 +1,4 @@
-DESCRIPTION = "VPDMA firmware for Video Input Port and Video Processing Engine"
+SUMMARY = "VPDMA firmware for Video Input Port and Video Processing Engine"
 
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://COPYING;md5=fd463c9500441ed91d07a0331baa635c"

@@ -1,4 +1,4 @@
-DESCRIPTION = "Goodix GT9271 config firmware"
+SUMMARY = "Goodix GT9271 config firmware"
 
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 

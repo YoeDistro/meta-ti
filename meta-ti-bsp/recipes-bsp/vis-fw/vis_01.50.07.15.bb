@@ -1,4 +1,4 @@
-DESCRIPTION = "Radio Application Firmware"
+SUMMARY = "Radio Application Firmware"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://${S}/J6_VIS_DEMO_LINUX_BINARY_01.50.07.15-Manifest.html;md5=a59aa54b9470f555cf086b91dca0afa3"
 

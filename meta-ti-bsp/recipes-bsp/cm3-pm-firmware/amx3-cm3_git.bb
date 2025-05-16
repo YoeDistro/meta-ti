@@ -1,4 +1,4 @@
-DESCRIPTION = "Cortex-M3 binary blob for suspend-resume"
+SUMMARY = "Cortex-M3 binary blob for suspend-resume"
 
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://License.txt;md5=7bdc54a749ab7a7dea999d25d99a41b8"

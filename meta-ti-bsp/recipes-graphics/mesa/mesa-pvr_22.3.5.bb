@@ -4,7 +4,7 @@
 
 require recipes-graphics/mesa/mesa.inc
 
-SUMMARY += " (with PowerVR support for TI platforms)"
+SUMMARY += " (with PowerVR for TI parts)"
 
 LIC_FILES_CHKSUM = "file://docs/license.rst;md5=63779ec98d78d823a9dc533a0735ef10"
 
