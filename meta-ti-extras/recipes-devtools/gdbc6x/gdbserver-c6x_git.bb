@@ -1,4 +1,4 @@
-DESCRIPTION = "TI gdb-server to be used with c6xgdb."
+SUMMARY = "TI gdb-server to be used with c6xgdb."
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://../debian/copyright;md5=82c616b6c8f9c11c46feaaf8f9a11495"
 

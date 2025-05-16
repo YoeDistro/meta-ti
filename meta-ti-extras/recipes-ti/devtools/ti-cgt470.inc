@@ -1,4 +1,4 @@
-DESCRIPTION = "TI ARM Code Generation Tools"
+SUMMARY = "TI ARM Code Generation Tools"
 HOMEPAGE = "https://www-a.ti.com/downloads/sds_support/CodeGenerationTools.htm"
 SECTION = "devel"
 LICENSE = "TI"

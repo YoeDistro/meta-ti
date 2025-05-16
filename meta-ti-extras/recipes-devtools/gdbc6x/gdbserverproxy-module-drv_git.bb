@@ -1,4 +1,4 @@
-DESCRIPTION = "Interface for GDB to commincate witha TI C66X DSP"
+SUMMARY = "Interface for GDB to commincate witha TI C66X DSP"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING.txt;md5=75859989545e37968a99b631ef42722e"
 
