@@ -1,4 +1,4 @@
-DESCRIPTION = "Security development tools for High-Security(HS) TI K3 processors."
+SUMMARY = "Security development tools for High-Security(HS) TI K3 processors."
 HOMEPAGE = "https://git.ti.com/cgit/security-development-tools/core-secdev-k3"
 SECTION = "devel"
 LICENSE = "BSD-3-Clause"

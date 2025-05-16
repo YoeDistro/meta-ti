@@ -1,4 +1,4 @@
-DESCRIPTION = "VPE test program"
+SUMMARY = "VPE test program"
 
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING;md5=74d2f71d8898c54e3d1c9d0058c484aa"

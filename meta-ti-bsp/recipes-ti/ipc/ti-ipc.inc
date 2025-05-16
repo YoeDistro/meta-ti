@@ -1,3 +1,4 @@
+SUMMARY = "TI Inter Process Communication (IPC) Mechanisms"
 DESCRIPTION = "TI Inter Process Communication (IPC) Mechanisms (for Uni- and Multi- Processor Configurations)"
 HOMEPAGE = "http://processors.wiki.ti.com/index.php/Category:IPC"
 

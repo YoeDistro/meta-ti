@@ -1,4 +1,4 @@
-DESCRIPTION = "Firmware files for Bluetooth"
+SUMMARY = "Firmware files for Bluetooth"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=f39eac9f4573be5b012e8313831e72a9"
 

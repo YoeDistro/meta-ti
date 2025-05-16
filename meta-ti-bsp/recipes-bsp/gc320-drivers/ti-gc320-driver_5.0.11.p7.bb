@@ -1,4 +1,4 @@
-DESCRIPTION = "Kernel drivers for the Vivante GC320 chipset found in TI SoCs"
+SUMMARY = "Kernel drivers for the Vivante GC320 chipset found in TI SoCs"
 HOMEPAGE = "https://git.ti.com/graphics/ti-gc320-driver"
 LICENSE = "MIT | GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://../LICENSE;md5=78d9818a51b9a8e9bb89dea418bac297"

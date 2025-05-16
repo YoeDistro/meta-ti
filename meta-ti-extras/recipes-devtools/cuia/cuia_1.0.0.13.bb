@@ -1,4 +1,4 @@
-DESCRIPTION = "TI Unified Instrumentation Architecture in C (cUIA)"
+SUMMARY = "TI Unified Instrumentation Architecture in C (cUIA)"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://cuia_${CUIA_PV}_manifest.html;md5=0eea94e3bb94de4ddee77653eba1c7c5"
 

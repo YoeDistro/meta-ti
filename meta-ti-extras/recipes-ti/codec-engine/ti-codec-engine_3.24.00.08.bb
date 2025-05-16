@@ -1,4 +1,4 @@
-DESCRIPTION = "Codec Engine for TI ARM/DSP processors"
+SUMMARY = "Codec Engine for TI ARM/DSP processors"
 HOMEPAGE = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/ce"
 SECTION = "devel"
 LICENSE = "BSD-3-Clause"

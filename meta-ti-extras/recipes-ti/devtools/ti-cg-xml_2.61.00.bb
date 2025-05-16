@@ -1,4 +1,4 @@
-DESCRIPTION = "TI CG_XML"
+SUMMARY = "TI CG_XML"
 HOMEPAGE = "http://software-dl.ti.com/ccs/non-esd/releases/other/applications_packages/cg_xml/index.htm"
 SECTION = "devel"
 LICENSE = "BSD-3-Clause"

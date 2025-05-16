@@ -1,4 +1,4 @@
-DESCRIPTION = "TI dsptop utility."
+SUMMARY = "TI dsptop utility."
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://debian/copyright;md5=309825aa8f5edfcf2c44912ac094b979"
 

@@ -1,4 +1,4 @@
-DESCRIPTION = "Shared Transport Line Discipline User Mode initialisation Manager Daemon"
+SUMMARY = "Shared Transport Line Discipline User Mode initialisation Manager Daemon"
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://uim.c;beginline=1;endline=18;md5=9f0bbfbc10c67689e81a523e2976c31e"
 

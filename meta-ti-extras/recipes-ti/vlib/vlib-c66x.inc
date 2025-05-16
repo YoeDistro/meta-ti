@@ -1,4 +1,4 @@
-DESCRIPTION = "TI Vision Library (VLIB) for C66x"
+SUMMARY = "TI Vision Library (VLIB) for C66x"
 HOMEPAGE = "http://software-dl.ti.com/libs/vlib/latest/index_FDS.html"
 SECTION = "devel"
 LICENSE = "TI-TSPA & BSD-3-Clause"

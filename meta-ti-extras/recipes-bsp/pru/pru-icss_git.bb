@@ -1,4 +1,4 @@
-DESCRIPTION = "Programmable Real-time Unit Software Package"
+SUMMARY = "Programmable Real-time Unit Software Package"
 HOMEPAGE = "http://processors.wiki.ti.com/index.php/PRU-ICSS"
 LICENSE = "BSD-3-Clause & PD"
 

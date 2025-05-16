@@ -1,4 +1,4 @@
-DESCRIPTION = "Scripts and configuration files for TI wireless drivers"
+SUMMARY = "Scripts and configuration files for TI wireless drivers"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://README;beginline=1;endline=21;md5=b8d6a0865f50159bf5c0d175d1f4a705"
 
