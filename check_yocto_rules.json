@@ -1,0 +1,31 @@
+{
+    "APPEND-1" : {
+        "skip_vars" : [ "ALTERNATIVE", "FILES", "INSANE_SKIP", "RDEPENDS", "RRECOMMENDS" ]
+    },
+    "APPEND-2" : {
+        "skip_vars" : [ "KERNEL_LOCALVERSION", "PR", "PV" ],
+        "file_regex" : {
+            "meta-ti-bsp\\/recipes-graphics\\/mesa\\/mesa-pvr_\\S+\\.bb" : {
+                "skip_vars": [ "GALLIUMDRIVERS", "VULKAN_DRIVERS" ]
+            },
+            "meta-ti-bsp\\/recipes-graphics\\/mesa\\/mesa-pvr\\.inc" : {
+                "skip_vars": [ "TOOLS", "TOOLS_DEPS", "GALLIUMDRIVERS", "VULKAN_DRIVERS" ]
+            }
+        }
+    },
+    "GUARD-1" : {
+        "skip_files" : [
+            "meta-ti-bsp/recipes-core/udev/eudev_%.bbappend",
+            "meta-ti-bsp/recipes-devtools/binutils/binutils-cross-canadian_%.bbappend",
+            "meta-ti-bsp/recipes-security/optee/optee-%.bbappend"
+        ]
+    },
+    "GUARD-2" : {
+        "skip_vars" : [ "k3" , "ti-soc" ]
+    },
+    "SUMMARY-1" : {
+        "skip_files" : [
+            "meta-ti-extras/recipes-ti/ipc/ti-ipc-rtos_git.bb"
+        ]
+    }
+}
