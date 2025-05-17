@@ -55,15 +55,15 @@ ${DT_VENDOR_PREFIX}PB-MIKROBUS-1.dtbo \
 
 S = "${WORKDIR}/git"
 
-# 6.6.32 version for 32-bit
-SRCREV:armv7a = "525684d28fadc2bdae5424f28b219377bd5d4639"
-PV:armv7a = "6.6.32+git"
-BRANCH:armv7a = "v6.6.32-ti-arm32-r7"
+# 6.6.58 version for 32-bit
+SRCREV:armv7a = "0d043a88f69f48789e43526d7a807ab744708071"
+PV:armv7a = "6.6.58+git"
+BRANCH:armv7a = "v6.6.58-ti-arm32-r10"
 
 # 6.6.58 version for 64-bit
-SRCREV:aarch64 = "9beffa9162f6a0f5de7e25bbb66026a579376428"
+SRCREV:aarch64 = "0987ef737c9812374607475972f0868b8fecbbf7"
 PV:aarch64 = "6.6.58+git"
-BRANCH:aarch64 = "v6.6.58-ti-arm64-r16"
+BRANCH:aarch64 = "v6.6.58-ti-arm64-r23"
 
 KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
 
