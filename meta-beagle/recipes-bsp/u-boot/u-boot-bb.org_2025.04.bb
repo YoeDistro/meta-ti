@@ -10,3 +10,10 @@ UBOOT_GIT_URI = "git://github.com/beagleboard/u-boot.git"
 UBOOT_GIT_PROTOCOL = "https"
 BRANCH = "v2025.04-Beagle"
 SRCREV = "ea2aeefcb2de36f8ca1b51d0580826d13c01f143"
+
+BRANCH:beagley-ai = "v2025.04-rc3-BeagleY-AI"
+BRANCH:beagley-ai-k3r5 = "v2025.04-rc3-BeagleY-AI"
+SRCREV:beagley-ai = "cc376f9faef201670c7bb1734f42f5475c73f85d"
+SRCREV:beagley-ai-k3r5 = "cc376f9faef201670c7bb1734f42f5475c73f85d"
+
+SRC_URI:append:beagley-ai = " file://bootcmd-ti-mmc.cfg"
