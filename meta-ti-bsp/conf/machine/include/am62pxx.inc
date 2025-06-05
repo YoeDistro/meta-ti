@@ -11,6 +11,9 @@ PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 # Default tiboot3.bin on AM62Px is for HS-FS
 IMAGE_BOOT_FILES += "tiboot3-am62px-hs-fs-evm.bin"
 
+# Since default tiboot3.bin on AM62Px is for HS-FS, add a version for HS-SE
+IMAGE_BOOT_FILES += "tiboot3-am62px-hs-evm.bin"
+
 TFA_BOARD = "lite"
 TFA_K3_SYSTEM_SUSPEND = "1"
 
