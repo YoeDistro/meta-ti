@@ -1,5 +1,5 @@
 IMAGE_INSTALL:append = " u-boot-ti-staging-falcon"
-KERNEL_CLASSES:remove = "kernel-fitimage"
+KERNEL_CLASSES:remove = "kernel-fitimage-deprecated"
 KERNEL_CLASSES += "kernel-fitimage-legacyhs"
 UBOOT_DTB_LOADADDRESS = "0x88000000"
 UBOOT_LOADADDRESS = "0x82000000"
