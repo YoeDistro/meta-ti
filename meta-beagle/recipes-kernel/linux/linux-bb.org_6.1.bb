@@ -66,3 +66,5 @@ PV:aarch64 = "6.1.83+git"
 BRANCH:aarch64 = "v6.1.83-ti-arm64-r64"
 
 KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
+
+INSANE_SKIP:kernel-modules += "debug-deps"
