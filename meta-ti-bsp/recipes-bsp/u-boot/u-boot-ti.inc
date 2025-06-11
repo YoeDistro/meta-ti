@@ -5,6 +5,10 @@ do_compile:prepend () {
     echo ${scm_version} > ${S}/.scmversion
 }
 
+inherit gitpkgv
+PKGV = "${PV}${GITPKGV}"
+UBOOT_VERSION = "${PKGV}-${PKGR}"
+
 UBOOT_SUFFIX ?= "img"
 SPL_BINARY ?= "MLO"
 
@@ -105,31 +109,31 @@ SYSROOT_DIRS += "/boot"
 SPL_UART_BINARY = "u-boot-spl.bin"
 SPL_UART_BINARY:k3r5 = ""
 
-SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${PV}-${PR}"
+SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${UBOOT_VERSION}"
 SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
 
 SPL_HS_MLO_BINARY = "u-boot-spl_HS_MLO"
-SPL_HS_MLO_IMAGE = "u-boot-spl_HS_MLO-${MACHINE}-${PV}-${PR}"
+SPL_HS_MLO_IMAGE = "u-boot-spl_HS_MLO-${MACHINE}-${UBOOT_VERSION}"
 SPL_HS_MLO_SYMLINK = "u-boot-spl_HS_MLO-${MACHINE}"
 
 # HS XLD
 UBOOT_HS_XLD_BINARY = "u-boot-spl_HS_X-LOADER"
-UBOOT_HS_XLD_IMAGE = "u-boot-spl_HS_X-LOADER-${MACHINE}-${PV}-${PR}"
+UBOOT_HS_XLD_IMAGE = "u-boot-spl_HS_X-LOADER-${MACHINE}-${UBOOT_VERSION}"
 UBOOT_HS_XLD_SYMLINK = "u-boot-spl_HS_X-LOADER-${MACHINE}"
 
 # HS MLO
 UBOOT_HS_MLO_BINARY = "u-boot_HS_MLO"
-UBOOT_HS_MLO_IMAGE = "u-boot_HS_MLO-${MACHINE}-${PV}-${PR}"
+UBOOT_HS_MLO_IMAGE = "u-boot_HS_MLO-${MACHINE}-${UBOOT_VERSION}"
 UBOOT_HS_MLO_SYMLINK = "u-boot_HS_MLO-${MACHINE}"
 
 # HS ISSW
 UBOOT_HS_ISSW_BINARY = "u-boot-spl_HS_ISSW"
-UBOOT_HS_ISSW_IMAGE = "u-boot-spl_HS_ISSW-${MACHINE}-${PV}-${PR}"
+UBOOT_HS_ISSW_IMAGE = "u-boot-spl_HS_ISSW-${MACHINE}-${UBOOT_VERSION}"
 UBOOT_HS_ISSW_SYMLINK = "u-boot-spl_HS_ISSW-${MACHINE}"
 
 # HS 2ND
 UBOOT_HS_2ND_BINARY = "u-boot-spl_HS_2ND"
-UBOOT_HS_2ND_IMAGE = "u-boot-spl_HS_2ND-${MACHINE}-${PV}-${PR}"
+UBOOT_HS_2ND_IMAGE = "u-boot-spl_HS_2ND-${MACHINE}-${UBOOT_VERSION}"
 UBOOT_HS_2ND_SYMLINK = "u-boot-spl_HS_2ND-${MACHINE}"
 
 uboot_compile:append () {
@@ -217,8 +221,8 @@ do_deploy:append:k3r5 () {
 	rm -f ${DEPLOYDIR}/${PN}-initial-env*
 	rm -f ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}*
 	rm -f ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}*
-	rm -f ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${PV}-${PR}*
-	rm -f ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${PV}-${PR}*
+	rm -f ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${UBOOT_VERSION}*
+	rm -f ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${UBOOT_VERSION}*
 }
 
 uboot_deploy_config:append:k3r5 () {
