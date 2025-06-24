@@ -53,7 +53,7 @@ PB-MIKROBUS-0.dtbo \
 PB-MIKROBUS-1.dtbo \
 "
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 # 6.1.83 version for 32-bit
 SRCREV:armv7a = "be9b910b08dfd674e47a2643f35080b005ac3792"
