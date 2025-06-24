@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://COPYING.txt;md5=9d4316fe434ba450dca4da25348ca5a3"
 
 PV:append = "+git"
 
-S = "${WORKDIR}/git/debugss_module/debugss-mod"
+S:append = "/debugss_module/debugss-mod"
 
 inherit module
 

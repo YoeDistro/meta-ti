@@ -13,7 +13,7 @@ SRCREV = "de7954abab0f0caa8a2c7b53095c30226d901a31"
 DEPENDS = "ti-cgt6x-native"
 PR = "r0"
 
-S = "${WORKDIR}/git/aet"
+S:append = "/aet"
 
 DEVICE = ""
 DEVICE:dra7xx = "DRA7xx"

@@ -9,7 +9,7 @@ REQUIRED_MACHINE_FEATURES = "dsp"
 DEPENDS = "ti-cgt6x-native"
 PR = "${INC_PR}.0"
 
-S = "${WORKDIR}/git/dsptop/ulm"
+S:append = "/dsptop/ulm"
 
 DEVICE = ""
 DEVICE:dra7xx = "DRA7xx"

@@ -6,7 +6,7 @@ DEPENDS = "libulm ncurses"
 
 PR = "${INC_PR}.2"
 
-S = "${WORKDIR}/git/dsptop"
+S:append = "/dsptop"
 
 DEVICE = ""
 DEVICE:dra7xx = "DRA7xx"

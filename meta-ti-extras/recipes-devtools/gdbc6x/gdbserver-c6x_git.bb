@@ -6,7 +6,7 @@ DEPENDS = "ti-xdais ti-framework-components ti-cgt6x-native ti-sysbios ti-xdctoo
 
 PR = "${INC_PR}.0"
 
-S = "${WORKDIR}/git/gdbserver-c6x/src"
+S:append = "/gdbserver-c6x/src"
 
 PLATFORM = ""
 PLATFORM:dra7xx = "DRA7xx_PLATFORM"

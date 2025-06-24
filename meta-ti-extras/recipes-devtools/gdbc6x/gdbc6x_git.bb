@@ -14,7 +14,7 @@ SRC_URI:append = " \
     file://0001-libbfd.h-suppress-GCC9-Wstringop-truncation.patch;striplevel=2 \
 "
 
-S = "${WORKDIR}/git/gdbc6x"
+S:append = "/gdbc6x"
 
 inherit update-rc.d
 inherit gettext

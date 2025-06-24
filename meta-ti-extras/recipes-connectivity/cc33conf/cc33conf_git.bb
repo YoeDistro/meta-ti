@@ -7,7 +7,7 @@ SRC_URI = "git://git.ti.com/git/cc33xx-wlan/cc33xx-utils.git;branch=master;proto
 
 PV = "1.7.0.120"
 
-S = "${WORKDIR}/git/cc33conf"
+S:append = "/cc33conf"
 
 EXTRA_OEMAKE = "CC="${CC}""
 

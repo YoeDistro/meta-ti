@@ -1,7 +1,7 @@
 SUMMARY = "Userspace libraries for PowerVR Rogue GPU on TI SoCs"
 HOMEPAGE = "http://git.ti.com/graphics/ti-img-rogue-umlibs"
 LICENSE = "TI-TFL"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
+LIC_FILES_CHKSUM = "file://git/LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 
 inherit bin_package
 
@@ -15,7 +15,7 @@ PR = "r3"
 BRANCH = "linuxws/kirkstone/k6.1/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
 SRCREV = "0b9e64254269be2fa95c4f3e1dd925d6e4d58199"
-S = "${WORKDIR}/git/targetfs/${TARGET_PRODUCT}/${PVR_WS}/${PVR_BUILD}"
+S:append = "/targetfs/${TARGET_PRODUCT}/${PVR_WS}/${PVR_BUILD}"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
 TARGET_PRODUCT:j721s2 = "j721s2_linux"

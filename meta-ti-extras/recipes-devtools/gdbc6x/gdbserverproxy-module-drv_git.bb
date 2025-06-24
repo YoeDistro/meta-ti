@@ -9,7 +9,7 @@ SRC_URI:append = "\
     file://0002-Support-Linux-kernels-v6.6.patch;patchdir=../.. \
 "
 
-S = "${WORKDIR}/git/kernel_module/gdbproxy-mod"
+S:append = "/kernel_module/gdbproxy-mod"
 
 inherit module
 

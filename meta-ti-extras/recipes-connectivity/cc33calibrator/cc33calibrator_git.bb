@@ -9,7 +9,7 @@ PV = "1.0.0.50"
 
 DEPENDS = "libnl"
 
-S = "${WORKDIR}/git/cc33calibrator"
+S:append = "/cc33calibrator"
 
 export CROSS_COMPILE = "${TARGET_PREFIX}"
 
