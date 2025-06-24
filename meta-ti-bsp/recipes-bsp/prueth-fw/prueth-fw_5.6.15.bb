@@ -23,6 +23,12 @@ TARGET = " \
     am65x-sr2-rtu1-prueth-fw.elf \
     am65x-sr2-txpru0-prueth-fw.elf \
     am65x-sr2-txpru1-prueth-fw.elf \
+    am64x-sr2-pru0-prueth-fw.elf \
+    am64x-sr2-pru1-prueth-fw.elf \
+    am64x-sr2-rtu0-prueth-fw.elf \
+    am64x-sr2-rtu1-prueth-fw.elf \
+    am64x-sr2-txpru0-prueth-fw.elf \
+    am64x-sr2-txpru1-prueth-fw.elf \
 "
 
 do_install() {
