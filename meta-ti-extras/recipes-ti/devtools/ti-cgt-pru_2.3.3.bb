@@ -24,8 +24,7 @@ SRC_URI[cgt-pru-x86.sha256sum] = "1f1405167214f2c0ef848591b17a7799fdcd9f55f11bc9
 SRC_URI[cgt-pru-arm.md5sum] = "648a6d7d8162fd6a89f381c7b974e6b0"
 SRC_URI[cgt-pru-arm.sha256sum] = "8390cb77b46b728ce2940595b81406f76d86dfed58c21258e3206a7c1232ccf2"
 
-S = "${WORKDIR}/sources"
-UNPACKDIR = "${S}"
+S = "${UNPACKDIR}"
 
 do_install() {
     install -d ${D}${TI_CGT_PRU_INSTALL_DIR_RECIPE}
