@@ -43,7 +43,6 @@ export JH_ARCH = "${@map_jh_arch(d.getVar('TARGET_ARCH', True), d)}"
 
 COMPATIBLE_HOST = "(i.86|x86_64|arm|aarch64).*-linux"
 
-S = "${WORKDIR}/git"
 B = "${S}"
 
 DEPENDS = "virtual/kernel dtc-native python3-mako-native python3-mako make-native"

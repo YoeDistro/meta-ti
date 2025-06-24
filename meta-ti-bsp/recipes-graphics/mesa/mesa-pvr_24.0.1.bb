@@ -21,8 +21,6 @@ SRC_URI = " \
     file://0001-Update-lp_bld_misc.cpp-to-support-llvm-19.patch \
 "
 
-S = "${WORKDIR}/git"
-
 PACKAGECONFIG:append = " \
     ${@bb.utils.contains('PREFERRED_PROVIDER_virtual/gpudriver', 'ti-img-rogue-driver', 'pvr', '', d)} \
     ${@bb.utils.contains('PREFERRED_PROVIDER_virtual/gpudriver', 'ti-sgx-ddk-km', 'sgx', '', d)} \

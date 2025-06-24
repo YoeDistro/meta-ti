@@ -34,8 +34,6 @@ TARGET_PRODUCT = "jacinto6evm"
 
 PR = "r3"
 
-S = "${WORKDIR}/git"
-
 EXTRA_OEMAKE += "DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT} LIBDIR=${libdir}"
 
 do_install() {

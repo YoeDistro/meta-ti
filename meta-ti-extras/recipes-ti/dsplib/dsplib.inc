@@ -13,8 +13,6 @@ DEPENDS = "ti-cgt6x-native \
            doxygen-native \
            swtools"
 
-S = "${WORKDIR}/git"
-
 DSPLIB_GIT_BRANCH = "master"
 DSPLIB_GIT_PROTOCOL = "https"
 DSPLIB_GIT_URI = "git://git.ti.com/git/ep-processor-libraries/dsplib.git"

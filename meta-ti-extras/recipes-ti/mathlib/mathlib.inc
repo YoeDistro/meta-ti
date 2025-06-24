@@ -13,8 +13,6 @@ DEPENDS = "ti-cgt6x-native \
            doxygen-native \
            swtools"
 
-S = "${WORKDIR}/git"
-
 MATHLIB_GIT_BRANCH = "master"
 MATHLIB_GIT_PROTOCOL = "https"
 MATHLIB_GIT_URI = "git://git.ti.com/git/ep-processor-libraries/mathlib.git"

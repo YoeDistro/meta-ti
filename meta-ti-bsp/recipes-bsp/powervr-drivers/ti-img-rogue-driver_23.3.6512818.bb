@@ -17,8 +17,6 @@ BRANCH = "linuxws/kirkstone/k6.1/${PV}"
 
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-driver.git;protocol=https;branch=${BRANCH}"
 
-S = "${WORKDIR}/git"
-
 SRCREV = "c838bc06a163abad46dcc193c8fb9a4fb9e2e356"
 
 TARGET_PRODUCT:j721e = "j721e_linux"

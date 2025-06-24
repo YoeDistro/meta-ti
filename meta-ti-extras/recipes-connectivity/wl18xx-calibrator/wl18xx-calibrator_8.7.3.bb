@@ -11,8 +11,6 @@ SRC_URI = "git://git.ti.com/git/wilink8-wlan/18xx-ti-utils.git;branch=master;pro
            file://0001-plt.h-Do-not-define-EFUSE_PARAMETER_TYPE_ENMT-type-e.patch \
           "
 
-S = "${WORKDIR}/git"
-
 export CROSS_COMPILE = "${TARGET_PREFIX}"
 
 EXTRA_OEMAKE = "CFLAGS="${CFLAGS} -I${STAGING_INCDIR}/libnl3/ -DCONFIG_LIBNL32 " \

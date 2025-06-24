@@ -23,8 +23,6 @@ SRCREV = "ef5aec48e589902839ebae7ad753c68cf498c15f"
 PV = "3.6.0"
 #PR = "r1"
 
-S = "${WORKDIR}/git"
-
 FW_PLAT = ""
 FW_PLAT:am62xx = "am62"
 FW_PLAT:am64xx = "am64"

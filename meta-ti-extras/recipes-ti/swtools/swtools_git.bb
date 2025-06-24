@@ -12,7 +12,6 @@ DEPENDS = "ti-cgt6x-native \
 
 PV = "5_0_8"
 PR = "r3"
-S = "${WORKDIR}/git"
 
 SWTOOLS_GIT_BRANCH = "master"
 SWTOOLS_GIT_PROTOCOL = "https"

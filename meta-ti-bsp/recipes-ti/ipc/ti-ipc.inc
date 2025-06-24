@@ -17,5 +17,3 @@ SRC_URI = "${TI_IPC_GIT_URI};protocol=${TI_IPC_GIT_PROTOCOL};branch=${BRANCH};na
 SRCREV = "${TI_IPC_SRCREV}"
 
 CFLAGS += "-fcommon"
-
-S = "${WORKDIR}/git"

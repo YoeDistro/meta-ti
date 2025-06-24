@@ -29,8 +29,6 @@ RDEPENDS:${PN}:append = " \
 
 DEPENDS = "ti-cgt-pru-native"
 
-S = "${WORKDIR}/git"
-
 export PRU_CGT = "${TI_CGT_PRU_INSTALL_DIR}"
 export PRU_SSP = "${S}"
 

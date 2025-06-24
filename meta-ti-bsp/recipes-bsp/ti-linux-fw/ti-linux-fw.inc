@@ -29,8 +29,6 @@ TI_LINUX_FW_GIT_BRANCH ?= "branch=${BRANCH}"
 
 SRC_URI = "${TI_LINUX_FW_GIT_URI};protocol=${TI_LINUX_FW_GIT_PROTOCOL};${TI_LINUX_FW_GIT_BRANCH}"
 
-S = "${WORKDIR}/git"
-
 CLEANBROKEN = "1"
 
 # Make sure that lib/firmware, and all its contents are part of the package

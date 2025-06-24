@@ -12,6 +12,4 @@ SRCREV = "09b064c6663ed46e4a402291dd87c8fe96135bd7"
 
 PV = "0.6.9+git"
 
-S = "${WORKDIR}/git"
-
 COMPATIBLE_MACHINE = "^(k3)$"

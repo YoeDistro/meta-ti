@@ -16,8 +16,6 @@ BRANCH ?= "master"
 
 SRC_URI = "git://git.ti.com/git/vpe_tests/vpe_tests.git;protocol=https;branch=${BRANCH}"
 
-S = "${WORKDIR}/git"
-
 FLOATABI = "${@bb.utils.contains("TUNE_FEATURES", "vfp", bb.utils.contains("TUNE_FEATURES", "callconvention-hard", " -mfloat-abi=hard", " -mfloat-abi=softfp", d), "" ,d)}"
 
 # The test application needs additional include headers from the kernel

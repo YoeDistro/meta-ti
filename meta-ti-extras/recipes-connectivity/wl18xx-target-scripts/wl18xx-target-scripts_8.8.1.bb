@@ -11,8 +11,6 @@ file://0001-print_stat.sh-replace-system-bin-sh-with-bin-sh.patch \
 
 PR = "r1"
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} += "${datadir}/wl18xx/"
 
 do_install() {

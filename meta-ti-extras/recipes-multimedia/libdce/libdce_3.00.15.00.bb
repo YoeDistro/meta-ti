@@ -10,7 +10,6 @@ SRC_URI = "git://git.ti.com/git/omapzoom/libdce.git;protocol=https;branch=master
 
 SRCREV = "182aea18596eb2b3a82cffc536a6404f5000fb30"
 
-S = "${WORKDIR}/git"
 EXTRA_OECONF += "IPC_HEADERS=${STAGING_INCDIR}/ti/ipc/mm"
 
 COMPATIBLE_HOST ?= "null"

@@ -10,8 +10,6 @@ inherit update-rc.d
 SRCREV = "a75f45be2d5c74fc1dd913d08afc30f09a230aa9"
 SRC_URI = "git://git.ti.com/git/ti-bt/uim.git;branch=master;protocol=https"
 
-S = "${WORKDIR}/git"
-
 do_install() {
 	install -d ${D}${bindir}
 	install -m 0755 uim ${D}${bindir}

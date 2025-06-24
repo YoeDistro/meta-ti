@@ -20,8 +20,6 @@ GIT_SRCREV = "ed6951fd3877c6cac7f1237311f7278ac21634f3"
 SRC_URI = "${GIT_URI};protocol=${GIT_PROTOCOL};branch=${GIT_BRANCH}"
 SRCREV = "${GIT_SRCREV}"
 
-S = "${WORKDIR}/git"
-
 do_install() {
     CP_ARGS="-Prf --preserve=mode,links,timestamps --no-preserve=ownership"
     install -d ${D}${TI_K3_SECDEV_INSTALL_DIR_RECIPE}

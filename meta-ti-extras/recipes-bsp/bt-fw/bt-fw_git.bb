@@ -10,8 +10,6 @@ SRCREV = "0ee619b598d023fffc77679f099bc2a4815510e4"
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/git/ti-bt/service-packs.git;protocol=https;branch=${BRANCH}"
 
-S = "${WORKDIR}/git"
-
 do_compile() {
     :
 }

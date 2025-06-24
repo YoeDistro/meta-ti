@@ -23,8 +23,6 @@ SRC_URI = " \
     file://0001-gallium-Fix-build-with-llvm-18-and-19.patch \
 "
 
-S = "${WORKDIR}/git"
-
 PACKAGECONFIG:append = " \
     ${@bb.utils.contains('PREFERRED_PROVIDER_virtual/gpudriver', 'ti-img-rogue-driver', 'pvr', '', d)} \
     ${@bb.utils.contains('PREFERRED_PROVIDER_virtual/gpudriver', 'ti-sgx-ddk-km', 'sgx', '', d)} \

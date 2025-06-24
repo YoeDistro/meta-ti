@@ -5,8 +5,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=904443cf7fae5c09c3d5f83f8557c265"
 SRCREV = "4371c93ea01b339f6f73f77d6d6bfcc185def8c0"
 SRC_URI = "git://git.ti.com/git/cc33xx-wlan/cc33xx-target-scripts.git;protocol=https;branch=master"
 
-S = "${WORKDIR}/git"
-
 FILES:${PN} += "${datadir}/cc33xx/"
 
 do_install() {

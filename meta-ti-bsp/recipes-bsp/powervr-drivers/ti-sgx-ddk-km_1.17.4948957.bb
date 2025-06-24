@@ -17,8 +17,6 @@ BRANCH = "${PV}/mesa/k6.1"
 
 SRC_URI = "git://git.ti.com/git/graphics/omap5-sgx-ddk-linux.git;protocol=https;branch=${BRANCH}"
 
-S = "${WORKDIR}/git"
-
 SRCREV = "9ae0fa4998b1c624408945e062bf8fb0ea7efb9d"
 
 TARGET_PRODUCT:omap-a15 = "ti572x_linux"

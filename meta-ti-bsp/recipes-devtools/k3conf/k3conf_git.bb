@@ -13,5 +13,3 @@ BRANCH ?= "master"
 SRCREV = "ea9938bf9cafd9c0cb05ef060a713ab4ac72270f"
 
 SRC_URI = "git://git.ti.com/git/k3conf/k3conf.git;protocol=https;branch=${BRANCH}"
-
-S = "${WORKDIR}/git"

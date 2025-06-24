@@ -11,8 +11,6 @@ BRANCH ?= "ti-v4.1.y"
 
 SRC_URI = "git://git.ti.com/git/processor-firmware/ti-amx3-cm3-pm-firmware.git;protocol=https;branch=${BRANCH}"
 
-S = "${WORKDIR}/git"
-
 do_compile() {
 	make CROSS_COMPILE="${TARGET_PREFIX}" CC="${TARGET_PREFIX}gcc -std=gnu11 ${TOOLCHAIN_OPTIONS} ${SECURITY_NOPIE_CFLAGS} ${DEBUG_PREFIX_MAP}"
 }
