@@ -9,7 +9,7 @@ require recipes-ti/includes/ti-unpack.inc
 
 PV = "2.61.00"
 PE = "1"
-S = "${WORKDIR}/cg_xml_${PV}"
+S = "${UNPACKDIR}/cg_xml_${PV}"
 
 SRC_URI = "\
     http://software-dl.ti.com/ccs/non-esd/releases/other/applications_packages/cg_xml/cg_xml_v${@'${PV}'.replace('.','_')}/cgxml-${PV}-linux-installer.run;name=cgxmlbin_linux \

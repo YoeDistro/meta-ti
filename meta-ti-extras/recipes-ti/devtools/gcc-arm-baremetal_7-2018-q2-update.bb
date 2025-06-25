@@ -10,7 +10,7 @@ SRC_URI = "https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2018q2/gcc
 SRC_URI[gcc-arm-none.md5sum] = "299ebd3f1c2c90930d28ab82e5d8d6c0"
 SRC_URI[gcc-arm-none.sha256sum] = "bb17109f0ee697254a5d4ae6e5e01440e3ea8f0277f2e8169bf95d07c7d5fe69"
 
-S = "${WORKDIR}/gcc-arm-none-eabi-7-2018-q2-update"
+S = "${UNPACKDIR}/gcc-arm-none-eabi-7-2018-q2-update"
 
 # only x86_64 is supported
 COMPATIBLE_HOST = "x86_64.*-linux"

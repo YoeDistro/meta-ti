@@ -9,7 +9,7 @@ require ../includes/ti-paths.inc
 require ../includes/ti-staging.inc
 require ../includes/ti-eula-unpack.inc
 
-S = "${WORKDIR}/cgt470_${PV}"
+S = "${UNPACKDIR}/cgt470_${PV}"
 
 SRC_URI = "http://install.source.dir.local/ti_cgt_tms470_${PVwithdots}_setup_linux_x86.bin;name=cgt470bin"
 

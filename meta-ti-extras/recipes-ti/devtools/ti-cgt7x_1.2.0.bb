@@ -30,11 +30,11 @@ TI_BIN_UNPK_CMDS = ""
 SRC_URI[cgt7x_x86_installer.md5sum]    = "813840908f333dd2a31f92edec71c1fb"
 SRC_URI[cgt7x_x86_installer.sha256sum] = "21379811a8857489f72ca8ec45a46eb086ced0bdbb58e78f73a86e63984ab2f5"
 
-S = "${WORKDIR}/c7000_${PV}"
+S = "${UNPACKDIR}/c7000_${PV}"
 
 do_install() {
     install -d ${D}/${TI_CGT7X_INSTALL_DIR_RECIPE}
-    cp -rP --preserve=mode,links,timestamps --no-preserve=ownership ${WORKDIR}/c7000_${PV}/ti-cgt-c7000_${PV}.STS/. ${D}/${TI_CGT7X_INSTALL_DIR_RECIPE}
+    cp -rP --preserve=mode,links,timestamps --no-preserve=ownership ${UNPACKDIR}/c7000_${PV}/ti-cgt-c7000_${PV}.STS/. ${D}/${TI_CGT7X_INSTALL_DIR_RECIPE}
 }
 
 

@@ -12,7 +12,7 @@ COMPATIBLE_MACHINE = "omap-a15"
 
 SRC_URI = "http://software-dl.ti.com/sdoemb/sdoemb_public_sw/imglib/${PV}/exports/${BINFILE};name=imglib"
 
-S = "${WORKDIR}/imglib-c66x-${PV}"
+S = "${UNPACKDIR}/imglib-c66x-${PV}"
 
 BINFILE = "imglib_c66x_${PV}_Linux.bin"
 TI_BIN_UNPK_ARGS = "--mode silent --prefix ${S}"

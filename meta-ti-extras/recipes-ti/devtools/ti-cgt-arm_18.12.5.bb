@@ -8,7 +8,7 @@ require recipes-ti/includes/ti-unpack.inc
 require recipes-ti/includes/ti-staging.inc
 require recipes-ti/includes/ti-paths.inc
 
-S = "${WORKDIR}/ti-cgt-arm-${PV}"
+S = "${UNPACKDIR}/ti-cgt-arm-${PV}"
 
 PE = "1"
 PR = "r0"

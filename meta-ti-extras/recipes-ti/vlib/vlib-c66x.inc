@@ -11,7 +11,7 @@ COMPATIBLE_MACHINE = "omap-a15"
 
 SRC_URI = "http://software-dl.ti.com/libs/vlib/${PV}//exports/vlib_c66x_obj_${PV}_Linux.bin;name=vlibbin"
 
-S = "${WORKDIR}/vlib_c66x_${PV}"
+S = "${UNPACKDIR}/vlib_c66x_${PV}"
 
 BINFILE = "vlib_c66x_obj_${PV}_Linux.bin"
 TI_BIN_UNPK_ARGS = "--mode silent --prefix ${S}"

@@ -9,7 +9,7 @@ SRC_URI = "http://software-dl.ti.com/dsps/dsps_public_sw/sdo_ccstudio/UIA/SCMCSD
 SRC_URI[cuia.md5sum] = "ef53989ac70c191841cd656cdc8770be"
 SRC_URI[cuia.sha256sum] = "f16d138a9146fdc7d52cba77bd30596da65835f6ffe4092baf2b33d1c1a4fb0d"
 
-S = "${WORKDIR}/cuia_${CUIA_PV}${CUIA_PVExtra}"
+S = "${UNPACKDIR}/cuia_${CUIA_PV}${CUIA_PVExtra}"
 
 CLEANBROKEN = "1"
 
