@@ -1,7 +1,7 @@
 require recipes-ti/includes/ti-paths.inc
 
 TI_IPC_EXAMPLES_GIT_URI = "git://git.ti.com/git/ipc/ipc-examples.git"
-TI_IPC_EXAMPLES_DEST_SUFFIX = "git/ipc-examples"
+TI_IPC_EXAMPLES_DEST_SUFFIX = "${BB_GIT_DEFAULT_DESTSUFFIX}/ipc-examples"
 TI_IPC_EXAMPLES_GIT_PROTOCOL = "https"
 TI_IPC_EXAMPLES_GIT_BRANCH = "master"
 TI_IPC_EXAMPLES_NAME = "ipc-examples"
@@ -13,7 +13,7 @@ branch=${TI_IPC_EXAMPLES_GIT_BRANCH};\
 name=${TI_IPC_EXAMPLES_NAME}"
 
 TI_IPC_METADATA_GIT_URI = "git://git.ti.com/git/ipc/ipc-metadata.git"
-TI_IPC_METADATA_DEST_SUFFIX = "git/ipc-metadata"
+TI_IPC_METADATA_DEST_SUFFIX = "${BB_GIT_DEFAULT_DESTSUFFIX}/ipc-metadata"
 TI_IPC_METADATA_GIT_PROTOCOL = "https"
 TI_IPC_METADATA_GIT_BRANCH = "master"
 TI_IPC_METADATA_NAME = "ipc-metadata"
@@ -33,8 +33,8 @@ SRCREV_FORMAT = "default"
 SRCREV_ipc-metadata = "${TI_IPC_METADATA_SRCREV}"
 SRCREV_ipc-examples = "${TI_IPC_EXAMPLES_SRCREV}"
 
-S_ipc-examples = "${WORKDIR}/git/ipc-examples"
-S_ipc-metadata = "${WORKDIR}/git/ipc-metadata"
+S_ipc-examples = "${S}/ipc-examples"
+S_ipc-metadata = "${S}/ipc-metadata"
 
 RELEASE_TYPE = "GA"
 RELEASE_SUFFIX = ""
