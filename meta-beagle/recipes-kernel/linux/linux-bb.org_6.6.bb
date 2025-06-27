@@ -69,5 +69,3 @@ KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
 
 SRC_URI += "file://no-fortify.cfg"
 KERNEL_CONFIG_FRAGMENTS += "${UNPACKDIR}/no-fortify.cfg"
-
-INSANE_SKIP:kernel-modules += "debug-deps"
