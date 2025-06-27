@@ -3,7 +3,7 @@
 # preferences for kernel, bootloader and graphics components, as
 # well as a dedicated machine override.
 
-# Supported options are: mainline, next, ti-6_12, ti-6_6, ti-6_1
+# Supported options are: mainline, next, ti-6_12, ti-6_6
 TI_PREFERRED_BSP ??= "ti-6_12"
 
 # Use bsp-* namespace for overrides
@@ -77,26 +77,6 @@ BSP_MESA_PVR_VERSION:bsp-ti-6_6 = "24%"
 
 # GC320 support requires out-of-tree drivers not yet available in 6.6
 MACHINE_FEATURES:remove:bsp-ti-6_6 = "gc320"
-
-# ==========
-# ti-6_1
-# TI staging kernel 6.1, u-boot 2023.04
-# ==========
-BSP_KERNEL_PROVIDER:bsp-ti-6_1 = "linux-ti-staging"
-BSP_KERNEL_VERSION:bsp-ti-6_1 = "6.1.%"
-BSP_BOOTLOADER_PROVIDER:bsp-ti-6_1 = "u-boot-ti-staging"
-BSP_BOOTLOADER_VERSION:bsp-ti-6_1 = "2023.04%"
-
-BSP_SGX_DRIVER_PROVIDER:bsp-ti-6_1 = "ti-sgx-ddk-km"
-BSP_SGX_DRIVER_VERSION:bsp-ti-6_1 = "1.17%"
-BSP_SGX_UMLIBS_VERSION:bsp-ti-6_1 = "1.17%"
-BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_1 = "ti-img-rogue-driver"
-BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_1 = "23%"
-BSP_ROGUE_UMLIBS_VERSION:bsp-ti-6_1 = "23%"
-BSP_MESA_PVR_VERSION:bsp-ti-6_1 = "22%"
-
-# GC320 support requires out-of-tree drivers not yet available in 6.1
-MACHINE_FEATURES:remove:bsp-ti-6_1 = "gc320"
 
 # ==========
 # sane fallback defaults
