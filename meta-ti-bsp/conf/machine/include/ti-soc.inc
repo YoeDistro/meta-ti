@@ -11,4 +11,3 @@ UBOOT_RD_ENTRYPOINT = "0x84000000"
 
 # TI platforms all use devicetrees with overlays
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-devicetree"
-KERNEL_DTB_OVERLAY_SUPPORT ?= "1"
