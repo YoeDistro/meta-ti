@@ -23,7 +23,6 @@ PLAT_SFX:am62axx = "am62axx"
 PLAT_SFX:am62dxx = "am62dxx"
 PLAT_SFX:am62pxx = "am62pxx"
 
-FILESEXTRAPATHS:prepend := "${METATIBASE}/recipes-bsp/ti-sci-fw/files/:"
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
 PV = "${CORESDK_RTOS_VERSION}"
@@ -107,13 +106,13 @@ do_install:prepend:am62dxx() {
 }
 
 do_install() {
-    # IPC Firmware
+    # Sign Firmware
     for FW_NAME in ${IPC_FW_LIST}
     do
         ${TI_SECURE_DEV_PKG}/scripts/secure-binary-image.sh ${S}/${IPC_FW_DIR}/${FW_NAME} ${S}/${IPC_FW_DIR}/${FW_NAME}.signed
     done
 
-    # IPC Firmware
+    # Install Firmware
     install -d ${D}${INSTALL_IPC_FW_DIR}
     for FW_NAME in ${IPC_FW_LIST}
     do
