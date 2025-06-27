@@ -1,9 +1,15 @@
 # NOTE: This .inc file with customizations only gets included for K3 platforms
 
-PV = "2.12+git"
-SRCREV_tfa = "2ab59f45ad0a5d95b5cb339c0f64686954377050"
-SRC_URI_TRUSTED_FIRMWARE_A = "git://github.com/TexasInstruments/arm-trusted-firmware.git;protocol=https"
-SRCBRANCH = "ti-master"
+PV = "2.13+git"
+
+SRCREV_tfa = "d90bb650fe4cb3784f62214ab5829f4051c38d0a"
+SRC_URI_TRUSTED_FIRMWARE_A = "git://git.trustedfirmware.org/TF-A/trusted-firmware-a.git;protocol=https"
+SRCBRANCH = "master"
+
+SRCREV_tfa:am62lxx = "2ab59f45ad0a5d95b5cb339c0f64686954377050"
+SRC_URI_TRUSTED_FIRMWARE_A:am62lxx = "git://github.com/TexasInstruments/arm-trusted-firmware.git;protocol=https"
+SRCBRANCH:am62lxx = "ti-master"
+
 SRC_URI = "${SRC_URI_TRUSTED_FIRMWARE_A};name=tfa;branch=${SRCBRANCH}"
 
 LIC_FILES_CHKSUM = "file://docs/license.rst;md5=1118e32884721c0be33267bd7ae11130"
