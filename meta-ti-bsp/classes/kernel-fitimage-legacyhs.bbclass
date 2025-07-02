@@ -1,4 +1,4 @@
-inherit ti-secdev kernel-uboot-deprecated uboot-sign-legacyhs
+inherit ti-secdev kernel-uboot-legacyhs uboot-sign-legacyhs
 
 FITIMAGE_HASH_ALGO ?= "sha1"
 FITIMAGE_PACK_TEE ?= "0"
