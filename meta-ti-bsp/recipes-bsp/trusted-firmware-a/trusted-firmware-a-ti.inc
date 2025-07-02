@@ -3,7 +3,7 @@
 PV = "2.13+git"
 
 LIC_FILES_CHKSUM = "file://docs/license.rst;md5=6ed7bace7b0bc63021c6eba7b524039e"
-SRCREV_tfa = "d90bb650fe4cb3784f62214ab5829f4051c38d0a"
+SRCREV_tfa = "e0c4d3903b382bf34f552af53e6d955fae5283ab"
 SRC_URI_TRUSTED_FIRMWARE_A = "git://git.trustedfirmware.org/TF-A/trusted-firmware-a.git;protocol=https"
 SRCBRANCH = "master"
 
