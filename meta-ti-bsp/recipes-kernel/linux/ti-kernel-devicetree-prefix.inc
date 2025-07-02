@@ -1,4 +1,3 @@
-
 def get_dtbs_from_kernel(dts_dir, dts_prefix):
     import os
     import glob
@@ -36,7 +35,6 @@ def get_merge_dtbs_from_kernel(dts_dir, dts_pattern):
 KERNEL_DEVICETREE_DTBMERGE ?= ""
 
 KERNEL_DEVICETREE = " \
-    ${@get_dtbs_from_kernel('${S}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_PREFIX}')} \
-    ${@get_merge_dtbs_from_kernel('${S}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_DTBMERGE}')} \
+    ${@get_dtbs_from_kernel('${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_PREFIX}')} \
+    ${@get_merge_dtbs_from_kernel('${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_DTBMERGE}')} \
 "
-
