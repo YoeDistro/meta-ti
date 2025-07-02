@@ -9,8 +9,7 @@ require conf/machine/include/arm/armv8a/tune-cortexa72-cortexa53.inc
 require conf/machine/include/ti-bsp.inc
 
 KERNEL_IMAGETYPE = "Image"
-KERNEL_IMAGETYPES = "Image fitImage"
-KERNEL_CLASSES += "kernel-fitimage-deprecated"
+KERNEL_CLASSES += "kernel-fit-extra-artifacts"
 
 UBOOT_ARCH = "arm"
 UBOOT_DTB_LOADADDRESS = "0x88000000"
@@ -26,7 +25,7 @@ FIT_SIGN_ALG ?= "rsa4096"
 
 EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
-MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image-image"
+MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image-image ti-kernel-fitimage"
 
 TFA_PLATFORM = "k3"
 
