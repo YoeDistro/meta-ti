@@ -14,7 +14,7 @@ require u-boot-mergeconfig.inc
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/u-boot:"
 
-FILES:${PN}-falcon = "boot/tispl_falcon.bin"
+FILES:${PN}-falcon = "boot/tifalcon.bin"
 
 SUMMARY = "u-boot bootloader for TI devices"
 
@@ -374,7 +374,7 @@ do_deploy:append:am62pxx() {
 }
 
 do_install:append:ti-falcon() {
-	install -m 0644 ${B}/tispl_falcon.bin ${D}/boot
+	install -m 0644 ${B}/tifalcon.bin ${D}/boot
 }
 
 FALCON_PKG = ""
