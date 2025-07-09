@@ -5,10 +5,6 @@ do_compile:prepend () {
     echo ${scm_version} > ${S}/.scmversion
 }
 
-inherit gitpkgv
-PKGV = "${PV}${GITPKGV}"
-UBOOT_VERSION = "${PKGV}-${PKGR}"
-
 UBOOT_SUFFIX ?= "img"
 SPL_BINARY ?= "MLO"
 
