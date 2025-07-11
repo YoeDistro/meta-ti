@@ -12,3 +12,5 @@ inherit cmake
 DEPENDS = "ti-rpmsg-char"
 
 EXTRA_OECMAKE += "-DBUILD_LIB=ON -DBUILD_EXAMPLE=OFF"
+
+COMPATIBLE_MACHINE = "^(k3)$"
