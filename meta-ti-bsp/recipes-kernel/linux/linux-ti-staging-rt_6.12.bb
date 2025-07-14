@@ -6,6 +6,9 @@ KERNEL_LOCALVERSION:append = "-rt"
 # This will have priority over generic non-rt path
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-6.12:"
 
+BRANCH_ARM64 = "ti-linux-6.12.y"
+BRANCH = "${BRANCH_ARM64}"
+
 BRANCH_ARM32 = "ti-rt-linux-6.12.y-arm32"
 SRCREV_ARM32 = "f0e4f5ca0905956c70779b31663f594c08c6a3bc"
 PV_ARM32 = "6.12.35+git"
