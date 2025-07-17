@@ -1,3 +1,5 @@
+SUMMARY = "Generate and sign the fitImage file for TI Machines"
+
 FIT_DESC ?= "Kernel fitImage for ${DISTRO_NAME}/${PKGV}/${MACHINE}"
 FIT_CONF_PREFIX ?= "conf-ti_"
 
