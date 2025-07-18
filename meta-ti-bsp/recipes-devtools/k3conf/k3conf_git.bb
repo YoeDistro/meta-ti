@@ -10,7 +10,7 @@ PV = "0.3+git"
 COMPATIBLE_MACHINE = "k3"
 
 BRANCH ?= "master"
-SRCREV = "b537524cde12bf24a799f6b087b1bc6263bad87d"
+SRCREV = "6034420195cf763c9470fb2113810695e5e37a23"
 
 SRC_URI = "git://git.ti.com/git/k3conf/k3conf.git;protocol=https;branch=${BRANCH}"
 
