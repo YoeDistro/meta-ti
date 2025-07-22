@@ -1,2 +1,0 @@
-use-kernel-config=davinci_all_defconfig
-config-fragment=kernel/configs/ti_rt.config
