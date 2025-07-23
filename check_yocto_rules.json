@@ -17,7 +17,8 @@
         "skip_files" : [
             "meta-ti-bsp/recipes-core/udev/eudev_%.bbappend",
             "meta-ti-bsp/recipes-devtools/binutils/binutils-cross-canadian_%.bbappend",
-            "meta-ti-bsp/recipes-security/optee/optee-%.bbappend"
+            "meta-ti-bsp/recipes-security/optee/optee-%.bbappend",
+            "meta-ti-bsp/dynamic-layers/openembedded-layer/recipes-bsp/u-boot/u-boot-ti-%.bbappend"
         ]
     },
     "GUARD-2" : {
