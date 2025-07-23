@@ -1,4 +1,4 @@
-DESCRIPTION = "Units to initialize usb gadgets"
+SUMMARY = "Units to initialize usb gadgets"
 
 PR = "r19"
 
