@@ -1,8 +1,3 @@
-# Tell the kernel class to install the DTBs in the same directory structure as
-# the kernel.
-KERNEL_DTBDEST = "${KERNEL_IMAGEDEST}/dtb"
-KERNEL_DTBVENDORED = "1"
-
 KERNEL_GIT_URI ?= "git://git.ti.com/git/ti-linux-kernel/ti-linux-kernel.git"
 KERNEL_GIT_PROTOCOL ?= "https"
 KERNEL_GIT_BRANCH ?= "branch=${BRANCH}"
