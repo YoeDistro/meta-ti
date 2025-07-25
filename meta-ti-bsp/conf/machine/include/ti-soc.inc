@@ -16,3 +16,6 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-devicetree"
 # the kernel
 KERNEL_DTBDEST = "${KERNEL_IMAGEDEST}/dtb"
 KERNEL_DTBVENDORED = "1"
+
+# Also build a non-vendored list w/o dir structure
+DEVICETREE_FILES = "${@' '.join([os.path.basename(f) for f in d.getVar("KERNEL_DEVICETREE").split()])}"
