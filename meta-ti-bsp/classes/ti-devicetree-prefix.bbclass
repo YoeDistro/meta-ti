@@ -1,3 +1,4 @@
+# Generate list of DTBs from the kernel source
 def get_dtbs_from_kernel(dts_dir, dts_prefix):
     import os
     import glob
@@ -17,6 +18,8 @@ def get_dtbs_from_kernel(dts_dir, dts_prefix):
             matches.append(filename)
     return ' '.join(matches)
 
+# Generate list of "merged" DTBs from the kernel source
+# It is TI custom feature to merge DTB overlays into a single DTB
 def get_merge_dtbs_from_kernel(dts_dir, dts_pattern):
     import os
     matches = []
@@ -32,9 +35,9 @@ def get_merge_dtbs_from_kernel(dts_dir, dts_pattern):
                     matches.append(pattern)
     return ' '.join(matches)
 
-KERNEL_DEVICETREE_DTBMERGE ?= ""
-
 KERNEL_DEVICETREE = " \
     ${@get_dtbs_from_kernel('${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_PREFIX}')} \
     ${@get_merge_dtbs_from_kernel('${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_DTBMERGE}')} \
 "
+
+do_image_wic[depends] += "virtual/kernel:do_shared_workdir"

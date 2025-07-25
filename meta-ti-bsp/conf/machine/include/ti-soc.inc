@@ -19,3 +19,11 @@ KERNEL_DTBVENDORED = "1"
 
 # Also build a non-vendored list w/o dir structure
 DEVICETREE_FILES = "${@' '.join([os.path.basename(f) for f in d.getVar("KERNEL_DEVICETREE").split()])}"
+
+KERNEL_DEVICETREE_DTBMERGE ?= ""
+
+# Dynamically build DTBs list based on prefix matching
+CLASS_DEVICETREE_PREFIX = "${@ 'ti-devicetree-prefix' if d.getVar('KERNEL_DEVICETREE_PREFIX') else ''}"
+
+KERNEL_CLASSES += "${CLASS_DEVICETREE_PREFIX}"
+IMAGE_CLASSES += "${CLASS_DEVICETREE_PREFIX}"
