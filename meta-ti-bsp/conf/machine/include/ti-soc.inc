@@ -12,9 +12,6 @@ UBOOT_RD_ENTRYPOINT = "0x84000000"
 # TI platforms all use devicetrees with overlays
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-devicetree"
 
-# All machines should start off pointing at the default base kernel class
-KERNEL_BASE_CLASS = "kernel"
-
 # Tell the kernel class to install the DTBs in the same directory structure as
 # the kernel
 KERNEL_DTBDEST = "${KERNEL_IMAGEDEST}/dtb"

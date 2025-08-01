@@ -4,6 +4,8 @@ KERNEL_GIT_BRANCH ?= "branch=${BRANCH}"
 
 KERNEL_DEFCONFIG ?= "file://defconfig"
 
+KERNEL_BASE_CLASS ?= "kernel"
+
 KERNEL_REPRODUCIBILITY_PATCHES ?= ""
 
 SRC_URI = " \

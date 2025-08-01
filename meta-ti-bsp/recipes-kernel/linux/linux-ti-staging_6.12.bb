@@ -3,10 +3,11 @@ SUMMARY = "Linux kernel for TI devices"
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
+require recipes-kernel/linux/ti-kernel.inc
+
 inherit ${KERNEL_BASE_CLASS}
 
 require recipes-kernel/linux/setup-defconfig.inc
-require recipes-kernel/linux/ti-kernel.inc
 include ${@ 'recipes-kernel/linux/ti-extras.inc' if d.getVar('TI_EXTRAS') else ''}
 
 DEPENDS += "gmp-native libmpc-native"
