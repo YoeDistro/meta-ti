@@ -10,7 +10,7 @@ BRANCH_ARM64 = "ti-linux-6.12.y"
 BRANCH = "${BRANCH_ARM64}"
 
 BRANCH_ARM32 = "ti-rt-linux-6.12.y-arm32"
-SRCREV_ARM32 = "60431d6c0e260d0b9404bcf325368a88daeef9ca"
+SRCREV_ARM32 = "2bcb6e9caabf65ef182dde7dc0332a7fe53622a2"
 PV_ARM32 = "6.12.35+git"
 
 BRANCH:ti33x = "${BRANCH_ARM32}"
