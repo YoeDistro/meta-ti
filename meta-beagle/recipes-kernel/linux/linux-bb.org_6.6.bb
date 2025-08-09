@@ -56,14 +56,14 @@ KERNEL_DEVICETREE:append:armv7a = " \
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 # 6.6.58 version for 32-bit
-SRCREV:armv7a = "0d043a88f69f48789e43526d7a807ab744708071"
+SRCREV:armv7a = "3d519995234675748a38b1e3bc087baa03e3ac25"
 PV:armv7a = "6.6.58+git"
-BRANCH:armv7a = "v6.6.58-ti-arm32-r10"
+BRANCH:armv7a = "v6.6.58-ti-arm32-r12"
 
 # 6.6.58 version for 64-bit
-SRCREV:aarch64 = "0987ef737c9812374607475972f0868b8fecbbf7"
+SRCREV:aarch64 = "1de9481cd5749807550148086aea959295bd11db"
 PV:aarch64 = "6.6.58+git"
-BRANCH:aarch64 = "v6.6.58-ti-arm64-r23"
+BRANCH:aarch64 = "v6.6.58-ti-arm64-r30"
 
 KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
 
