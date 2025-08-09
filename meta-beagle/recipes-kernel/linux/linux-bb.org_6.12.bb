@@ -19,7 +19,6 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} ${EXTRA_DTC_ARGS}"
 
 # Extra DT overlays/capes
 KERNEL_DEVICETREE:append:armv7a = " \
-    ti/omap/AM335X-PRU-UIO-00A0.dtbo \
     ti/omap/BB-ADC-00A0.dtbo \
     ti/omap/BB-BBBW-WL1835-00A0.dtbo \
     ti/omap/BB-BBGG-WL1835-00A0.dtbo \
@@ -53,16 +52,22 @@ KERNEL_DEVICETREE:append:armv7a = " \
     ti/omap/PB-MIKROBUS-1.dtbo \
 "
 
+KERNEL_DEVICETREE:append:aarch64 = " \
+    ti/BONE-I2C1.dtbo \
+    ti/BONE-I2C2.dtbo \
+    ti/BONE-I2C3.dtbo \
+"
+
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
-# 6.12.22 version for 32-bit
-SRCREV:armv7a = "d7f560ef48a867b94959f040b4c3c57053f4e32d"
-PV:armv7a = "6.12.22+git"
-BRANCH:armv7a = "v6.12.22-ti-arm32-r10"
+# 6.12.34 version for 32-bit
+SRCREV:armv7a = "9e419b26243bd7efcd103ae0f6456f828592b34b"
+PV:armv7a = "6.12.34+git"
+BRANCH:armv7a = "v6.12.34-ti-arm32-r12"
 
-# 6.12.22 version for 64-bit
-SRCREV:aarch64 = "9e43fd19ece3affb9406e87ec3df733b91b77a4f"
-PV:aarch64 = "6.12.22+git"
-BRANCH:aarch64 = "v6.12.22-ti-arm64-r35"
+# 6.12.34 version for 64-bit
+SRCREV:aarch64 = "9ca36b8c54806a037f357efcd40eaa8399798b05"
+PV:aarch64 = "6.12.34+git"
+BRANCH:aarch64 = "v6.12.34-ti-arm64-r46"
 
 KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
