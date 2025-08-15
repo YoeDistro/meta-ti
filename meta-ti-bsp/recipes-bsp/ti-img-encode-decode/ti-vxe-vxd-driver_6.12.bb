@@ -14,7 +14,7 @@ BRANCH = "scarthgap/k${PV}"
 
 SRC_URI = "git://git.ti.com/git/multimedia/img-vxe-vxd.git;protocol=https;branch=${BRANCH}"
 
-SRCREV = "038d9263c67900ea4eff631820b088a3dc3a6ad5"
+SRCREV = "0bcbb20af32ea13275b452f0e84f5a49966d0bf6"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
 
