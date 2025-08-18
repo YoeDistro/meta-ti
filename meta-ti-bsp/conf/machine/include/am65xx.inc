@@ -25,15 +25,8 @@ KERNEL_DEVICETREE = " \
     ti/k3-am6548-iot2050-advanced.dtb \
 "
 
-IMAGE_BOOT_FILES += "sysfw.itb"
-
-# Default on AM65x is for GP
-IMAGE_BOOT_FILES += "tiboot3-am65x_sr2-gp-evm.bin"
-IMAGE_BOOT_FILES += "sysfw-am65x_sr2-gp-evm.itb"
-
-# Since default on AM65x is for GP, add a version for HS-SE
-IMAGE_BOOT_FILES += "tiboot3-am65x_sr2-hs-evm.bin"
-IMAGE_BOOT_FILES += "sysfw-am65x_sr2-hs-evm.itb"
+# Deploy SYSFW and any variants
+IMAGE_BOOT_FILES += "sysfw.itb sysfw-*-evm.itb"
 
 TFA_BOARD = "generic"
 
