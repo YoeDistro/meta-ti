@@ -21,3 +21,5 @@ TARGET_PRODUCT:j721e = "j721e_linux"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += 'KERNEL_DIR="${STAGING_KERNEL_DIR}" PREFIX="${D}"'
+
+RDEPENDS:${PN} += "ti-multimedia-udev"
