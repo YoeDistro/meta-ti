@@ -1,4 +1,5 @@
 DESCRIPTION = "TI Inter Processor Communication (IPC) MessageQ Application for Linux Host"
+SUMMARY = "TI IPC MessageQ Application for Linux Host"
 
 require recipes-ti/ipc/ti-ipc-common.inc
 require ti-ipc-rtos.inc
