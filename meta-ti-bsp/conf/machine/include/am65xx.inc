@@ -10,6 +10,14 @@ PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_SGX_DRIVER_PROVIDER}"
 
 KERNEL_DEVICETREE_PREFIX = "ti/k3-am654"
 
+KERNEL_DEVICETREE_DTBMERGE = " \
+    ti/k3-am654-gp-evm.dtb \
+    ti/k3-am654-evm.dtb \
+    ti/k3-am654-idk.dtb \
+    ti/k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie.dtb \
+    ti/k3-am6548-iot2050-advanced-m2-bkey-usb3.dtb \
+"
+
 KERNEL_DEVICETREE = " \
     ti/k3-am654-base-board-rocktech-rk101-panel.dtbo \
     ti/k3-am654-base-board.dtb \
