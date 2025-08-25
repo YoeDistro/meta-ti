@@ -5,6 +5,10 @@ SOC_FAMILY:append = ":am64xx"
 
 KERNEL_DEVICETREE_PREFIX = "ti/k3-am642"
 
+KERNEL_DEVICETREE_DTBMERGE = " \
+    ti/k3-am642-evm-nand.dtb \
+"
+
 KERNEL_DEVICETREE = " \
     ti/k3-am642-evm-icssg1-dualemac-mii.dtbo \
     ti/k3-am642-evm-icssg1-dualemac.dtbo \
