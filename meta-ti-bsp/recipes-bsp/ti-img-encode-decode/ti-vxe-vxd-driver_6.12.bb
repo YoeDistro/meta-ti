@@ -19,3 +19,5 @@ SRCREV = "0bcbb20af32ea13275b452f0e84f5a49966d0bf6"
 TARGET_PRODUCT:j721e = "j721e_linux"
 
 EXTRA_OEMAKE += 'KERNEL_DIR="${STAGING_KERNEL_DIR}" PREFIX="${D}"'
+
+RDEPENDS:${PN} += "ti-multimedia-udev"
