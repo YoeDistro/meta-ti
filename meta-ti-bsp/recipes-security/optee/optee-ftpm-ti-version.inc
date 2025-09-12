@@ -1,2 +1,2 @@
-PV = "4.6.0+git"
-SRCREV_optee-ta = "6f99e783eb9bb57c314a881433d4ec970de87959"
+PV = "4.7.0+git"
+SRCREV_optee-ta = "ce33372ab772e879826361a1ca91126260bd9be1"

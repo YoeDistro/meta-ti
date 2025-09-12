@@ -1,5 +1,5 @@
-PV = "4.6.0+git"
-SRCREV = "71785645fa6ce42db40dbf5a54e0eaedc4f61591"
+PV = "4.7.0+git"
+SRCREV = "a9690ae39995af36a31b7a4f446f27ea0787e3a4"
 
 SRC_URI:remove = " \
     file://0001-mk-compile.mk-remove-absolute-build-time-paths.patch \

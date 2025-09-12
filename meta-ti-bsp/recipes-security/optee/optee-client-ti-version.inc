@@ -1,5 +1,5 @@
-PV = "4.6.0+git"
-SRCREV = "02e7f9213b0d7db9c35ebf1e41e733fc9c5a3f75"
+PV = "4.7.0+git"
+SRCREV = "23c112a6f05cc5e39bd4aaf52ad515cad532237d"
 
 SRC_URI:remove = " \
     file://0001-tee-supplicant-add-udev-rule-and-systemd-service-fil.patch \
