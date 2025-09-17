@@ -3,7 +3,7 @@ require conf/machine/include/mc_k3r5.inc
 
 SOC_FAMILY:append = ":j721s2"
 
-MACHINE_FEATURES += "screen gpu"
+MACHINE_FEATURES += "screen"
 
 require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"

@@ -18,10 +18,6 @@ BSP_KERNEL_VERSION:bsp-mainline = "%"
 BSP_BOOTLOADER_PROVIDER:bsp-mainline = "u-boot-ti-mainline"
 BSP_BOOTLOADER_VERSION:bsp-mainline = "%"
 
-# GPU support requires out-of-tree SGX and Rogue drivers not available
-# in mainline, usually present in TI staging or derivative like BB.org
-MACHINE_FEATURES:remove:bsp-mainline = "gpu"
-
 # GC320 support requires out-of-tree drivers not available in mainline
 MACHINE_FEATURES:remove:bsp-mainline = "gc320"
 
@@ -33,10 +29,6 @@ BSP_KERNEL_PROVIDER:bsp-next = "linux-ti-next"
 BSP_KERNEL_VERSION:bsp-next = "%"
 BSP_BOOTLOADER_PROVIDER:bsp-next = "u-boot-ti-next"
 BSP_BOOTLOADER_VERSION:bsp-next = "%"
-
-# GPU support requires out-of-tree SGX and Rogue drivers not available
-# in next, usually present in TI staging or derivative like BB.org
-MACHINE_FEATURES:remove:bsp-next = "gpu"
 
 # GC320 support requires out-of-tree drivers not available in next
 MACHINE_FEATURES:remove:bsp-next = "gc320"
