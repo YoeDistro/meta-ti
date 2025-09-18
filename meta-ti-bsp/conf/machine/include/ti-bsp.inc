@@ -44,10 +44,8 @@ BSP_BOOTLOADER_VERSION:bsp-ti-6_12 = "2025.01%"
 
 BSP_SGX_DRIVER_PROVIDER:bsp-ti-6_12 = "ti-sgx-ddk-km"
 BSP_SGX_DRIVER_VERSION:bsp-ti-6_12 = "1.17%"
-BSP_SGX_UMLIBS_VERSION:bsp-ti-6_12 = "1.17%"
 BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_12 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_12 = "24%"
-BSP_ROGUE_UMLIBS_VERSION:bsp-ti-6_12 = "24%"
 BSP_MESA_PVR_VERSION:bsp-ti-6_12 = "24%"
 
 # ==========
@@ -61,10 +59,8 @@ BSP_BOOTLOADER_VERSION:bsp-ti-6_6 = "2024.04%"
 
 BSP_SGX_DRIVER_PROVIDER:bsp-ti-6_6 = "ti-sgx-ddk-km"
 BSP_SGX_DRIVER_VERSION:bsp-ti-6_6 = "1.17%"
-BSP_SGX_UMLIBS_VERSION:bsp-ti-6_6 = "1.17%"
 BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_6 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_6 = "24%"
-BSP_ROGUE_UMLIBS_VERSION:bsp-ti-6_6 = "24%"
 BSP_MESA_PVR_VERSION:bsp-ti-6_6 = "24%"
 
 # GC320 support requires out-of-tree drivers not yet available in 6.6
@@ -84,8 +80,6 @@ BSP_SGX_DRIVER_PROVIDER ?= ""
 BSP_SGX_DRIVER_VERSION ?= ""
 BSP_ROGUE_DRIVER_PROVIDER ?= ""
 BSP_ROGUE_DRIVER_VERSION ?= ""
-BSP_SGX_UMLIBS_VERSION ?= ""
-BSP_ROGUE_UMLIBS_VERSION ?= ""
 BSP_MESA_PVR_VERSION ?= ""
 
 # ==========
@@ -101,7 +95,7 @@ PREFERRED_VERSION_${BSP_BOOTLOADER_PROVIDER} ?= "${BSP_BOOTLOADER_VERSION}"
 # GPU provider gets set in machine configs, as some machines are headless
 # Select default preferred versions here
 PREFERRED_VERSION_ti-sgx-ddk-km ?= "${BSP_SGX_DRIVER_VERSION}"
-PREFERRED_VERSION_ti-sgx-ddk-um ?= "${BSP_SGX_UMLIBS_VERSION}"
+PREFERRED_VERSION_ti-sgx-ddk-um ?= "${BSP_SGX_DRIVER_VERSION}"
 PREFERRED_VERSION_ti-img-rogue-driver ?= "${BSP_ROGUE_DRIVER_VERSION}"
-PREFERRED_VERSION_ti-img-rogue-umlibs ?= "${BSP_ROGUE_UMLIBS_VERSION}"
+PREFERRED_VERSION_ti-img-rogue-umlibs ?= "${BSP_ROGUE_DRIVER_VERSION}"
 PREFERRED_VERSION_mesa-pvr ?= "${BSP_MESA_PVR_VERSION}"
