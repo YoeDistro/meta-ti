@@ -40,9 +40,7 @@ TARGET_PRODUCT:ti43x = "ti437x_linux"
 TARGET_PRODUCT:omap-a15 = "ti572x_linux"
 TARGET_PRODUCT:am65xx = "ti654x_linux"
 
-RDEPENDS:${PN} += "libdrm"
-
-RRECOMMENDS:${PN} += "ti-sgx-ddk-km"
+RDEPENDS:${PN} += "libdrm ti-sgx-ddk-km"
 
 EXTRA_OEMAKE += "DESTDIR=${D} TARGET_PRODUCT=${TARGET_PRODUCT} ${PACKAGECONFIG_CONFARGS}"
 
