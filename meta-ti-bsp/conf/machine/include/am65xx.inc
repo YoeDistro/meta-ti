@@ -3,7 +3,7 @@ require conf/machine/include/mc_k3r5.inc
 
 SOC_FAMILY:append = ":am65xx"
 
-MACHINE_FEATURES += "screen touchscreen gpu"
+MACHINE_FEATURES += "screen touchscreen"
 
 require conf/machine/include/mesa-pvr.inc
 PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_SGX_DRIVER_PROVIDER}"
