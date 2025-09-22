@@ -1,12 +1,10 @@
+#
+# Jailhouse settings
+#
+COMPATIBLE_MACHINE:tie-jailhouse = "am62xx|am62pxx|am62lxx"
 
-# This will have priority over generic uboot path
+BRANCH:tie-jailhouse:bsp-ti-6_12 = "ti-u-boot-2025.01-jailhouse"
 
-COMPATIBLE_MACHINE = "am62xx|am62pxx|am62lxx"
+SRCREV:tie-jailhouse:bsp-ti-6_12 = "e718bbcec3ebf663c021839753034a224be4cc53"
 
-BRANCH = "ti-u-boot-2025.01"
-BRANCH:tie-jailhouse = "ti-u-boot-2025.01-jailhouse"
-
-SRCREV = "e718bbcec3ebf663c021839753034a224be4cc53"
-SRCREV:tie-jailhouse = "e718bbcec3ebf663c021839753034a224be4cc53"
-
-UBOOT_GIT_URI = "git://git.ti.com/git/processor-sdk/u-boot.git"
+UBOOT_GIT_URI:tie-jailhouse = "git://git.ti.com/git/processor-sdk/u-boot.git"

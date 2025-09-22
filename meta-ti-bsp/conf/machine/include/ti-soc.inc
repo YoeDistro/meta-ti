@@ -2,6 +2,7 @@
 # and platforms defined in meta-ti to allow BSP-level overrides.
 SOC_FAMILY = "ti-soc"
 require conf/machine/include/soc-family.inc
+require conf/machine/include/ti-extras.inc
 
 # kernel, initrd load addresses for the fitImage in all TI platforms
 UBOOT_ENTRYPOINT = "0x82000000"
