@@ -13,10 +13,9 @@ S = "${WORKDIR}/git/kernel_module/gdbproxy-mod"
 
 inherit module
 
-PLATFORM = ""
-PLATFORM:dra7xx = "DRA7xx_PLATFORM"
+COMPATIBLE_MACHINE = "dra7xx"
 
-EXTRA_OEMAKE = "PLATFORM=${PLATFORM} KVERSION=${KERNEL_VERSION} KERNEL_SRC=${STAGING_KERNEL_DIR}"
+EXTRA_OEMAKE = "PLATFORM=DRA7xx_PLATFORM KVERSION=${KERNEL_VERSION} KERNEL_SRC=${STAGING_KERNEL_DIR}"
 
 # The following is to prevent an unused configure.ac from erroneously
 # triggering the QA check for gettext.
@@ -24,9 +23,6 @@ EXTRA_OECONF = "--disable-nls"
 do_configure() {
     :
 }
-
-COMPATIBLE_MACHINE = "dra7xx"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 include gdbc6x.inc
 
