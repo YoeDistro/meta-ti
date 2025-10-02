@@ -8,18 +8,14 @@ PR = "${INC_PR}.2"
 
 S:append = "/dsptop"
 
-DEVICE = ""
-DEVICE:dra7xx = "DRA7xx"
+COMPATIBLE_MACHINE = "dra7xx"
 
-EXTRA_OEMAKE = "release DEVICE=${DEVICE} CROSS_COMPILE=${TARGET_PREFIX} CC="${CC}""
+EXTRA_OEMAKE = "release DEVICE=DRA7xx CROSS_COMPILE=${TARGET_PREFIX} CC="${CC}""
 
 do_install() {
     oe_runmake install DESTDIR=${D}
     chown -R root:root ${D}
 }
-
-COMPATIBLE_MACHINE = "dra7xx"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 RDEPENDS:${PN} = "debugss-module-drv bash"
 

@@ -11,10 +11,9 @@ PR = "${INC_PR}.0"
 
 S:append = "/dsptop/ulm"
 
-DEVICE = ""
-DEVICE:dra7xx = "DRA7xx"
+COMPATIBLE_MACHINE = "dra7xx"
 
-EXTRA_OEMAKE = "release DEVICE=${DEVICE} CROSS_COMPILE=${TARGET_PREFIX}"
+EXTRA_OEMAKE = "release DEVICE=DRA7xx CROSS_COMPILE=${TARGET_PREFIX}"
 
 do_compile() {
     oe_runmake arm XPORT_ONLY CC="${CC}"
@@ -30,9 +29,6 @@ do_install() {
     cp -f tiulm.h ${D}${datadir}/ti/ulm
     cp -f release/libtiulm.ae66 ${D}${datadir}/ti/ulm
 }
-
-COMPATIBLE_MACHINE = "dra7xx"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FILES:${PN}-dev += "\
     ${datadir}/ti/ulm \
