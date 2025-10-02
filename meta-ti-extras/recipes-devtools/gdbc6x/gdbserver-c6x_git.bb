@@ -8,10 +8,9 @@ PR = "${INC_PR}.0"
 
 S:append = "/gdbserver-c6x/src"
 
-PLATFORM = ""
-PLATFORM:dra7xx = "DRA7xx_PLATFORM"
+COMPATIBLE_MACHINE = "dra7xx"
 
-EXTRA_OEMAKE = "PLATFORM=${PLATFORM}"
+EXTRA_OEMAKE = "PLATFORM=DRA7xx_PLATFORM"
 
 export XDAIS_DIR = "${XDAIS_INSTALL_DIR}"
 export FC_DIR = "${FC_INSTALL_DIR}"
@@ -32,9 +31,6 @@ do_install() {
     cp -f ../include/* ${D}${datadir}/ti/gdbc6x/include
     cp -f ../lib/* ${D}${datadir}/ti/gdbc6x/lib
 }
-
-COMPATIBLE_MACHINE = "dra7xx"
-PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 FILES:${PN}-dev += "\
     ${datadir}/ti/gdbc6x \
