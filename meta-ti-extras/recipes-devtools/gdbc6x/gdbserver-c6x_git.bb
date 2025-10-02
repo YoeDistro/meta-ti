@@ -8,7 +8,7 @@ PR = "${INC_PR}.0"
 
 S:append = "/gdbserver-c6x/src"
 
-COMPATIBLE_MACHINE = "dra7xx"
+COMPATIBLE_MACHINE = "omap-a15"
 
 EXTRA_OEMAKE = "PLATFORM=DRA7xx_PLATFORM"
 
