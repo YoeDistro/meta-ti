@@ -388,3 +388,7 @@ PACKAGES:prepend:am62pxx-evm = "${FALCON_PKG} "
 PACKAGES:prepend:am62xx-lp-evm = "${FALCON_PKG} "
 
 TOOLCHAIN = "gcc"
+
+include ${@ 'recipes-bsp/u-boot/ti-extras.inc' if d.getVar('TI_EXTRAS') else ''}
+
+TI_SIGN_WITH_ECDSA_KEY ?= "KEY_PATH=${THISDIR}/files/custMpk_ecdsa.key"
