@@ -52,12 +52,6 @@ KERNEL_DEVICETREE:append:armv7a = " \
     ti/omap/PB-MIKROBUS-1.dtbo \
 "
 
-KERNEL_DEVICETREE:append:aarch64 = " \
-    ti/BONE-I2C1.dtbo \
-    ti/BONE-I2C2.dtbo \
-    ti/BONE-I2C3.dtbo \
-"
-
 S = "${WORKDIR}/git"
 
 # 6.12.34 version for 32-bit
@@ -65,9 +59,9 @@ SRCREV:armv7a = "9e419b26243bd7efcd103ae0f6456f828592b34b"
 PV:armv7a = "6.12.34+git"
 BRANCH:armv7a = "v6.12.34-ti-arm32-r12"
 
-# 6.12.34 version for 64-bit
-SRCREV:aarch64 = "9ca36b8c54806a037f357efcd40eaa8399798b05"
-PV:aarch64 = "6.12.34+git"
-BRANCH:aarch64 = "v6.12.34-ti-arm64-r46"
+# 6.12.43 version for 64-bit
+SRCREV:aarch64 = "84c4b4613a852db269620a3fdfed65de90569fa1"
+PV:aarch64 = "6.12.43+git"
+BRANCH:aarch64 = "v6.12.43-ti-arm64-r54"
 
 KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
