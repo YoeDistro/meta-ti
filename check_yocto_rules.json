@@ -24,6 +24,11 @@
     "GUARD-2" : {
         "skip_vars" : [ "k3" , "ti-soc" ]
     },
+    "GUARD-3" : {
+        "skip_files" : [
+            "meta-ti-bsp/recipes-security/optee/optee-os-tadevkit_%.bbappend"
+        ]
+    },
     "SUMMARY-1" : {
         "skip_files" : [
             "meta-ti-extras/recipes-ti/ipc/ti-ipc-rtos_git.bb"
