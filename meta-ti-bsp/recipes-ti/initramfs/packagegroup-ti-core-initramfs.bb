@@ -2,6 +2,8 @@ SUMMARY = "Minimal initramfs for boot requirements"
 
 require recipes-core/packagegroups/packagegroup-core-boot.bb
 
+TI_INITRAMFS_KERNEL_MODULES ?= ""
+
 RDEPENDS:${PN} += "\
     ${TI_INITRAMFS_KERNEL_MODULES} \
     initramfs-framework-base \
