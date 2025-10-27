@@ -2,10 +2,10 @@ SUMMARY = "Firmware files for use with TI cc33xx"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=df68504cbd0a4da1643ebcfd5783dbc9"
 
-SRCREV = "988ded3a7d4d0e46de62e9ebfcb685c502bd9edf"
+SRCREV = "0b4f850d6c0fd8e0fe0ae1d3e80ac6733aced29b"
 SRC_URI = "git://git.ti.com/git/cc33xx-wlan/cc33xx-fw.git;protocol=https;branch=master"
 
-PV = "1.7.0.120"
+PV = "1.7.0.323"
 
 CLEANBROKEN = "1"
 
