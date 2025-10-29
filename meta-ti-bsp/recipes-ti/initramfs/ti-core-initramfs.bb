@@ -23,6 +23,8 @@ PACKAGE_INSTALL = "packagegroup-ti-core-initramfs"
 
 export IMAGE_BASENAME = "${IMAGE_NAME}"
 
+IMAGE_OVERHEAD_FACTOR = "1.1"
+
 # To further reduce the size of the rootfs, remove the /boot directory from
 # the final image this is usually done by adding RDEPENDS_kernel-base = ""
 # in the configuration file. In our case we can't use this method. Instead we
