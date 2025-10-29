@@ -1,14 +1,14 @@
 SUMMARY = "RPMsg DMA shared library"
-LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=744e63d2bb8c6151dcdd97f49aa02c53"
+LICENSE = "TI-TFL"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=91dc4ee6d125d0aaba4e5bd2fcc50ed3"
 
-SRC_URI = "git://github.com/TexasInstruments/rpmsg-dma.git;protocol=https;branch=main"
-SRCREV = "609fd72f458ba56f80d06810509ef88d010d2c03"
+SRC_URI = "git://github.com/TexasInstruments/rpmsg-dma.git;protocol=https;branch=scarthgap"
+SRCREV = "153951932925a72346b76d98b2774952c48a82fc"
 
 inherit cmake
 
 DEPENDS = "ti-rpmsg-char"
 
-EXTRA_OECMAKE += "-DBUILD_LIB=ON -DBUILD_EXAMPLE=OFF"
+EXTRA_OECMAKE += "-DBUILD_LIB=ON -DBUILD_AUDIO_OFFLOAD_EXAMPLE=OFF -DBUILD_2DFFT_OFFLOAD_EXAMPLE=OFF"
 
 COMPATIBLE_MACHINE = "^(k3)$"
