@@ -1,0 +1,3 @@
+RDEPENDS:${PN} += "\
+    cifs-utils \
+"

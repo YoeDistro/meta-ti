@@ -9,7 +9,6 @@ RDEPENDS:${PN} += "\
     initramfs-framework-base \
     initramfs-module-udev \
     initramfs-module-nfsrootfs \
-    cifs-utils \
     nfs-utils \
     nfs-utils-client \
 "
