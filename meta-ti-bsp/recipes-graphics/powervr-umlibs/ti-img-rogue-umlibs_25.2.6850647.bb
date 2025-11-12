@@ -6,11 +6,9 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=7232b98c1c58f99e3baa03de52
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j721e|j721s2|j784s4|j742s2|am62xx|am62pxx|j722s"
 
-PR = "r4"
-
 BRANCH = "linuxws/scarthgap/k6.12/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "1ed9ee185cd876200e6747192854015b8e94a7b0"
+SRCREV = "adcbb5c620ff172da4152c02a2fee8f42dc4c472"
 S = "${WORKDIR}/git"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
