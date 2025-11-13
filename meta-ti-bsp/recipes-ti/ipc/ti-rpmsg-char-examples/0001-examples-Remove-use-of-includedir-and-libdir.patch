@@ -13,11 +13,11 @@ paths to linker/compiler commandline
 Upstream-Status: Pending
 Signed-off-by: Khem Raj <raj.khem@gmail.com>
 ---
- examples/Makefile.am | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+ examples/Makefile.am | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/examples/Makefile.am b/examples/Makefile.am
-index 5a9bedb..d547e41 100644
+index da34204..34ac7a8 100644
 --- a/examples/Makefile.am
 +++ b/examples/Makefile.am
 @@ -1,6 +1,4 @@
@@ -26,13 +26,19 @@ index 5a9bedb..d547e41 100644
 -AM_CFLAGS = -Wall -g -O2 $(INCLUDE)
 +AM_CFLAGS = -Wall -g -O2
  
- bin_PROGRAMS = rpmsg_char_simple
+ bin_PROGRAMS = rpmsg_char_simple rpmsg_char_benchmark
  
-@@ -8,4 +6,3 @@ bin_PROGRAMS = rpmsg_char_simple
+@@ -8,10 +6,8 @@ bin_PROGRAMS = rpmsg_char_simple rpmsg_char_benchmark
  rpmsg_char_simple_SOURCES = rpmsg_char_simple.c
  rpmsg_char_simple_CPPFLAGS = $(AM_CFLAGS)
  rpmsg_char_simple_LDADD = -lpthread -lti_rpmsg_char
 -rpmsg_char_simple_LDFLAGS = -L${libdir}
+
+ # rpmsg_char_benchmark program
+ rpmsg_char_benchmark_SOURCES = rpmsg_char_benchmark.c
+ rpmsg_char_benchmark_CPPFLAGS = $(AM_CFLAGS)
+ rpmsg_char_benchmark_LDADD = -lpthread -lti_rpmsg_char
+-rpmsg_char_benchmark_LDFLAGS = -L${libdir}
 -- 
 2.29.1
 
