@@ -7,10 +7,10 @@ PROTOCOL = "https"
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/git/rpmsg/ti-rpmsg-char.git;protocol=${PROTOCOL};branch=${BRANCH};"
 
-# 0.6.9 release
-SRCREV = "09b064c6663ed46e4a402291dd87c8fe96135bd7"
+# 0.6.10 release
+SRCREV = "057b1a249261e26d00c501b59646957160ec815b"
 
-PV = "0.6.9+git"
+PV = "0.6.10+git"
 
 S = "${WORKDIR}/git"
 
