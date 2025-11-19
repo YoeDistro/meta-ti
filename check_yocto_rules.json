@@ -29,6 +29,18 @@
             "meta-ti-bsp/recipes-security/optee/optee-os-tadevkit_%.bbappend"
         ]
     },
+    "PV-1" : {
+        "skip_files": [
+            "meta-ti-bsp/recipes-multimedia/ti-multimedia-udev/ti-multimedia-udev.bb",
+            "meta-ti-bsp/recipes-ti/secdev/ti-k3-secdev_git.bb",
+            "meta-ti-extras/recipes-connectivity/cc33xx-target-scripts/cc33xx-target-scripts_git.bb",
+            "meta-ti-extras/recipes-ti/beagleboard/beaglebone-capes.bb",
+            "meta-ti-extras/recipes-ti/beagleboard/beaglebone-getting-started.bb",
+            "meta-ti-extras/recipes-ti/beagleboard/gadget-init.bb",
+            "meta-ti-extras/recipes-ti/ipc/ti-ipc-examples-linux_git.bb",
+            "meta-ti-extras/recipes-ti/ipc/ti-ipc-rtos_git.bb"
+        ]
+    },
     "SUMMARY-1" : {
         "skip_files" : [
             "meta-ti-extras/recipes-ti/ipc/ti-ipc-rtos_git.bb"
