@@ -22,8 +22,8 @@ S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 BRANCH ?= "ti-linux-6.12.y"
 
-SRCREV ?= "1a86d36433eac7cef246d41fbd4d2bdd9612253f"
-PV = "6.12.49+git"
+SRCREV ?= "defc55f21c4741958d594cf0687cadee92b0c7d8"
+PV = "6.12.57+git"
 
 KERNEL_REPRODUCIBILITY_PATCHES = " \
     file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
