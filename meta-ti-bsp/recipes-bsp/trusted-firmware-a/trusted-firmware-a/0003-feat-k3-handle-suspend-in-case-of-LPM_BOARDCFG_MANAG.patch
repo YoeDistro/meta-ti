@@ -1,0 +1,68 @@
+From 470cf022d03e350beab36605d4250944d2c92ffe Mon Sep 17 00:00:00 2001
+From: Abhash Kumar Jha <a-kumar2@ti.com>
+Date: Tue, 28 Oct 2025 23:24:22 +0530
+Subject: [PATCH 3/3] feat(k3): handle suspend in case of LPM_BOARDCFG_MANAGED
+
+The J7 platforms support LPM_BOARDCFG_MANAGED capability where the
+low power mode configuration is done statically for the DM via the
+pm-boardcfg.
+
+This is entirely opposite to the case of DM_MANAGED, where the DM fw
+decides the low power mode to enter into.
+
+Introduce LPM_BOARDCFG_MANAGED cap to handle suspend for those
+platforms as well.
+
+Upstream-Status: Pending
+
+Change-Id: Iaa0ab478cbe0db6652f61e9d733c0fddb4bab234
+Signed-off-by: Abhash Kumar Jha <a-kumar2@ti.com>
+---
+ drivers/ti/ti_sci/ti_sci_protocol.h |  1 +
+ plat/ti/k3/common/k3_psci.c         | 13 ++++++++-----
+ 2 files changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/ti/ti_sci/ti_sci_protocol.h b/drivers/ti/ti_sci/ti_sci_protocol.h
+index a165cda99..b83174b0d 100644
+--- a/drivers/ti/ti_sci/ti_sci_protocol.h
++++ b/drivers/ti/ti_sci/ti_sci_protocol.h
+@@ -164,6 +164,7 @@ struct ti_sci_msg_resp_query_fw_caps {
+ #define MSG_FLAG_CAPS_LPM_PARTIAL_IO	TI_SCI_MSG_FLAG(4)
+ #define MSG_FLAG_CAPS_LPM_DM_MANAGED	TI_SCI_MSG_FLAG(5)
+ #define MSG_FLAG_CAPS_LPM_ENCRYPT_IMAGE	TI_SCI_MSG_FLAG(11)
++#define MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED	TI_SCI_MSG_FLAG(12)
+	uint64_t fw_caps;
+ } __packed;
+
+diff --git a/plat/ti/k3/common/k3_psci.c b/plat/ti/k3/common/k3_psci.c
+index c2017666b..9cf41b4cb 100644
+--- a/plat/ti/k3/common/k3_psci.c
++++ b/plat/ti/k3/common/k3_psci.c
+@@ -357,17 +357,20 @@ int plat_setup_psci_ops(uintptr_t sec_entrypoint,
+		encrypt_image = true;
+	}
+
+-	/* If firmware does not support any known suspend mode */
+-	if (!(fw_caps & (MSG_FLAG_CAPS_LPM_DEEP_SLEEP |
++	/* If firmware is capabale of low power modes */
++	if (fw_caps & (MSG_FLAG_CAPS_LPM_DM_MANAGED |
++			MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED)) {
++		k3_plat_psci_ops.pwr_domain_suspend = k3_pwr_domain_suspend_dm_managed;
++	} else if (!(fw_caps & (MSG_FLAG_CAPS_LPM_DEEP_SLEEP |
+			 MSG_FLAG_CAPS_LPM_MCU_ONLY |
+			 MSG_FLAG_CAPS_LPM_STANDBY |
+			 MSG_FLAG_CAPS_LPM_PARTIAL_IO))) {
+-		/* Disable PSCI suspend support */
++		/* If firmware does not support any known suspend mode
++		 * disable PSCI suspend support
++		 */
+		k3_plat_psci_ops.pwr_domain_suspend = NULL;
+		k3_plat_psci_ops.pwr_domain_suspend_finish = NULL;
+		k3_plat_psci_ops.get_sys_suspend_power_state = NULL;
+-	} else if (fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED) {
+-		k3_plat_psci_ops.pwr_domain_suspend = k3_pwr_domain_suspend_dm_managed;
+	}
+
+	*psci_ops = &k3_plat_psci_ops;
+--
+2.34.1
