@@ -16,8 +16,7 @@ require conf/machine/include/ti-bsp.inc
 PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
 
 UBOOT_SUFFIX = "bin"
-UBOOT_BINARY = "tiboot3-${SYSFW_SOC}-${SYSFW_SUFFIX}-${SYSFW_CONFIG}.${UBOOT_SUFFIX}"
-UBOOT_SYMLINK = "tiboot3.${UBOOT_SUFFIX}"
+UBOOT_BINARY = "tiboot3.${UBOOT_SUFFIX}"
 
 PACKAGECONFIG:pn-u-boot-ti-staging = ""
 PACKAGECONFIG:pn-u-boot-ti-mainline = ""
