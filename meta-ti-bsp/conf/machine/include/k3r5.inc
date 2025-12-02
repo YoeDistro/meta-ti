@@ -15,13 +15,9 @@ require conf/machine/include/arm/armv7a/tune-cortexa8.inc
 require conf/machine/include/ti-bsp.inc
 PREFERRED_PROVIDER_virtual/kernel = "linux-dummy"
 
-SPL_SUFFIX = "bin"
-SPL_BINARY = "tiboot3-${SYSFW_SOC}-${SYSFW_SUFFIX}-${SYSFW_CONFIG}.${SPL_SUFFIX}"
-SPL_SYMLINK = "tiboot3.${SPL_SUFFIX}"
 UBOOT_SUFFIX = "bin"
-UBOOT_BINARY = "u-boot-r5spl.${UBOOT_SUFFIX}"
-UBOOT_IMAGE = "u-boot-r5spl-${MAINMACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
-UBOOT_SYMLINK = "u-boot-r5spl-${MAINMACHINE}.${UBOOT_SUFFIX}"
+UBOOT_BINARY = "tiboot3-${SYSFW_SOC}-${SYSFW_SUFFIX}-${SYSFW_CONFIG}.${UBOOT_SUFFIX}"
+UBOOT_SYMLINK = "tiboot3.${UBOOT_SUFFIX}"
 
 PACKAGECONFIG:pn-u-boot-ti-staging = ""
 PACKAGECONFIG:pn-u-boot-ti-mainline = ""
