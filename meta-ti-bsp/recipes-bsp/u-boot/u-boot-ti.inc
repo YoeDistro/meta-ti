@@ -5,9 +5,6 @@ do_compile:prepend () {
     echo ${scm_version} > ${S}/.scmversion
 }
 
-UBOOT_SUFFIX ?= "img"
-SPL_BINARY ?= "MLO"
-
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot-common.inc
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
 require u-boot-mergeconfig.inc
