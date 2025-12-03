@@ -3,7 +3,7 @@ SUMMARY = "VPDMA firmware for Video Input Port and Video Processing Engine"
 LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://COPYING;md5=fd463c9500441ed91d07a0331baa635c"
 
-COMPATIBLE_MACHINE = "dra7xx"
+COMPATIBLE_MACHINE = "am57xx"
 
 SRC_URI = "http://downloads.ti.com/dsps/dsps_public_sw/glsdk/vpdma-fw/03-2012/exports/vpdma-fw_03-2012.tar.gz;protocol=http;name=dra7xx-evm"
 SRC_URI[dra7xx-evm.md5sum] = "80176df1350c21d9efa90171789c546e"

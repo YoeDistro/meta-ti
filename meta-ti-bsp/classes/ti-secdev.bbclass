@@ -15,7 +15,6 @@ TI_SECURE_DEV_PKG:k3r5 = "${@ d.getVar('TI_SECURE_DEV_PKG_K3') or d.getVar('TI_K
 TI_SECURE_DEV_PKG:ti33x = "${TI_SECURE_DEV_PKG_CAT}/am3x"
 TI_SECURE_DEV_PKG:ti43x = "${TI_SECURE_DEV_PKG_CAT}/am4x"
 TI_SECURE_DEV_PKG:am57xx = "${TI_SECURE_DEV_PKG_AUTO}/am5x"
-TI_SECURE_DEV_PKG:dra7xx = "${TI_SECURE_DEV_PKG_AUTO}/dra7"
 
 # The SECDEV scripts may need their own location provided through the environment
 export TI_SECURE_DEV_PKG

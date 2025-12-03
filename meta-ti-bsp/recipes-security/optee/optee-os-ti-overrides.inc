@@ -43,7 +43,7 @@ do_compile:append:ti43x() {
     optee_sign_legacyhs
 }
 
-do_compile:append:dra7xx() {
+do_compile:append:am57xx() {
     optee_sign_legacyhs
 }
 
@@ -64,7 +64,7 @@ do_deploy:append:ti43x() {
     optee_deploy_legacyhs
 }
 
-do_deploy:append:dra7xx() {
+do_deploy:append:am57xx() {
     optee_deploy_legacyhs
 }
 

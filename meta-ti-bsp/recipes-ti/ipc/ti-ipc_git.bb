@@ -22,7 +22,7 @@ SRC_URI += "file://tiipclad-daemon.sh \
 CFLAGS += "-I${UNPACKDIR} -fdebug-prefix-map=${UNPACKDIR}=${TARGET_DBGSRC_DIR}"
 
 DAEMON = "UNKNOWN"
-DAEMON:dra7xx = "lad_dra7xx"
+DAEMON:am57xx = "lad_dra7xx"
 DAEMON:omapl138 = "lad_omapl138"
 
 inherit autotools-brokensep pkgconfig update-rc.d systemd
@@ -55,7 +55,7 @@ do_install:append() {
     install -c -m 755 ${UNPACKDIR}/tiipclad-daemon.sh ${D}${sysconfdir}/init.d/${INITSCRIPT_NAME}
 }
 
-do_install:append:dra7xx() {
+do_install:append:am57xx() {
     install -d ${D}${sysconfdir}/modprobe.d/
     install -c -m 644 ${UNPACKDIR}/omap_remoteproc.conf ${D}${sysconfdir}/modprobe.d/
 }

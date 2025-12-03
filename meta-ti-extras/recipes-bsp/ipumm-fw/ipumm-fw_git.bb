@@ -3,7 +3,7 @@ LICENSE = "TI-TSPA"
 
 LIC_FILES_CHKSUM = "file://Texas_Instruments_ipumm_Manifest.pdf;md5=5cc572579f07af266ab57fc17d762c7f"
 
-COMPATIBLE_MACHINE = "dra7xx"
+COMPATIBLE_MACHINE = "am57xx"
 
 inherit features_check
 

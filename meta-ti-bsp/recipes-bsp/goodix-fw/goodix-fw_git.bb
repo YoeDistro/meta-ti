@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENCE.Spectrum-GT9271;md5=2a6de6be7af1fe46370c684da
 PV = "${GOODIX_FW_VERSION}"
 PR = "${INC_PR}.0"
 
-COMPATIBLE_MACHINE = "dra7xx"
+COMPATIBLE_MACHINE = "am57xx"
 
 ORIGIN = "DRA71x-RevA-GT9271_SpecDig_Config.bin"
 TARGET = "goodix_9271_cfg.bin"
