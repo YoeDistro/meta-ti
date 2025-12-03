@@ -15,7 +15,7 @@ require recipes-kernel/linux/ti-kernel.inc
 
 DEPENDS += "gmp-native libmpc-native"
 
-KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} ${EXTRA_DTC_ARGS}"
+KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 # Extra DT overlays/capes
 KERNEL_DEVICETREE:append:armv7a = " \
