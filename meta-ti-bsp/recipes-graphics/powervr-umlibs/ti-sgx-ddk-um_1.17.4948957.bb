@@ -4,7 +4,7 @@ LICENSE = "TI-TSPA"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
-COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|am65xx"
+COMPATIBLE_MACHINE = "ti33x|ti43x|am57xx|am65xx"
 
 PR = "r38"
 
@@ -37,7 +37,7 @@ inherit ${@pick_init(d)}
 
 TARGET_PRODUCT:ti33x = "ti335x_linux"
 TARGET_PRODUCT:ti43x = "ti437x_linux"
-TARGET_PRODUCT:omap-a15 = "ti572x_linux"
+TARGET_PRODUCT:am57xx = "ti572x_linux"
 TARGET_PRODUCT:am65xx = "ti654x_linux"
 
 RDEPENDS:${PN} += "libdrm ti-sgx-ddk-km"

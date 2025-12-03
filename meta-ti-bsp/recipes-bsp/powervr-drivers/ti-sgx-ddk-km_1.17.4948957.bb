@@ -7,7 +7,7 @@ inherit module
 
 PROVIDES = "virtual/gpudriver"
 
-COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|am65xx"
+COMPATIBLE_MACHINE = "ti33x|ti43x|am57xx|am65xx"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -19,9 +19,9 @@ SRC_URI = "git://git.ti.com/git/graphics/omap5-sgx-ddk-linux.git;protocol=https;
 
 SRCREV = "9ae0fa4998b1c624408945e062bf8fb0ea7efb9d"
 
-TARGET_PRODUCT:omap-a15 = "ti572x_linux"
 TARGET_PRODUCT:ti33x = "ti335x_linux"
 TARGET_PRODUCT:ti43x = "ti437x_linux"
+TARGET_PRODUCT:am57xx = "ti572x_linux"
 TARGET_PRODUCT:am65xx = "ti654x_linux"
 PVR_BUILD = "release"
 PVR_WS = "lws-generic"

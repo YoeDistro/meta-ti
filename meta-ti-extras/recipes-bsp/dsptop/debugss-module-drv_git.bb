@@ -8,7 +8,7 @@ S:append = "/debugss_module/debugss-mod"
 
 inherit module
 
-COMPATIBLE_MACHINE = "omap-a15"
+COMPATIBLE_MACHINE = "am57xx"
 
 EXTRA_OEMAKE = "PLATFORM=DRA7xx_PLATFORM KVERSION=${KERNEL_VERSION} KERNEL_SRC=${STAGING_KERNEL_DIR}"
 

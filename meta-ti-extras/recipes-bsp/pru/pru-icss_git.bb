@@ -14,7 +14,7 @@ PV = "6.5.0"
 
 require recipes-ti/includes/ti-paths.inc
 
-COMPATIBLE_MACHINE = "ti33x|ti43x|omap-a15|am62xx|am64xx|am65xx|j721e"
+COMPATIBLE_MACHINE = "ti33x|ti43x|am57xx|am62xx|am64xx|am65xx|j721e"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PACKAGES:prepend = " \
@@ -36,7 +36,7 @@ SUBDIRS = "examples pru_cape/pru_fw lib/src labs"
 
 PLATFORM:ti33x = "am335x"
 PLATFORM:ti43x = "am437x"
-PLATFORM:omap-a15 = "am572x"
+PLATFORM:am57xx = "am572x"
 PLATFORM:am62xx = "am62x"
 PLATFORM:am64xx = "am64x"
 PLATFORM:am65xx = "am65x"
@@ -84,7 +84,7 @@ do_install:append:ti43x() {
     done
 }
 
-do_install:append:omap-a15() {
+do_install:append:am57xx() {
     install -m 644 ${S}/examples/${PLATFORM}/PRU_Halt/gen/PRU_Halt.out \
                    ${D}${nonarch_base_libdir}/firmware/pru
     for i in 1 2
@@ -182,7 +182,7 @@ FILES:${PN}-rpmsg-echo = "${nonarch_base_libdir}/firmware/pru/PRU_RPMsg_Echo_Int
 # Set up names for the firmwares
 PRU_ICSS_ALTERNATIVES:ti33x    = "am335x-pru0-fw am335x-pru1-fw"
 PRU_ICSS_ALTERNATIVES:ti43x    = "am437x-pru0_0-fw am437x-pru0_1-fw am437x-pru1_0-fw am437x-pru1_1-fw"
-PRU_ICSS_ALTERNATIVES:omap-a15 = "am57xx-pru1_0-fw am57xx-pru1_1-fw am57xx-pru2_0-fw am57xx-pru2_1-fw"
+PRU_ICSS_ALTERNATIVES:am57xx   = "am57xx-pru1_0-fw am57xx-pru1_1-fw am57xx-pru2_0-fw am57xx-pru2_1-fw"
 PRU_ICSS_ALTERNATIVES:am62xx   = "am62x-pru0-fw am62x-pru1-fw"
 PRU_ICSS_ALTERNATIVES:am64xx   = "am64x-pru0_0-fw am64x-pru0_1-fw am64x-pru1_0-fw am64x-pru1_1-fw am64x-rtu0_0-fw am64x-rtu0_1-fw am64x-rtu1_0-fw am64x-rtu1_1-fw"
 PRU_ICSS_ALTERNATIVES:am65xx   = "am65x-pru0_0-fw am65x-pru0_1-fw am65x-pru1_0-fw am65x-pru1_1-fw am65x-pru2_0-fw am65x-pru2_1-fw am65x-rtu0_0-fw am65x-rtu0_1-fw am65x-rtu1_0-fw am65x-rtu1_1-fw am65x-rtu2_0-fw am65x-rtu2_1-fw"

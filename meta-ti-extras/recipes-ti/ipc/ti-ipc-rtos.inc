@@ -41,16 +41,16 @@ RELEASE_SUFFIX = ""
 
 PR = "${INC_PR}.r0"
 
-DEPENDS:append:omap-a15 = " ti-cgt6x-native \
-                            ti-cgt-arm-native \
-                            gcc-arm-baremetal-native \
+DEPENDS:append:am57xx = " ti-cgt6x-native \
+                          ti-cgt-arm-native \
+                          gcc-arm-baremetal-native \
 "
 DEPENDS:append:omapl138 = " ti-cgt6x-native \
 "
 
 IPC_TARGETS = ""
 
-IPC_TARGETS:omap-a15 = "\
+IPC_TARGETS:am57xx = "\
     gnu.targets.arm.A15F="${GCC_ARM_NONE_TOOLCHAIN}" \
     ti.targets.elf.C66="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \
     ti.targets.elf.C66_big_endian="${STAGING_DIR_NATIVE}/usr/share/ti/cgt-c6x" \

@@ -7,7 +7,7 @@ inherit features_check
 
 REQUIRED_MACHINE_FEATURES = "gc320"
 
-COMPATIBLE_MACHINE = "omap-a15"
+COMPATIBLE_MACHINE = "am57xx"
 
 CLEANBROKEN = "1"
 

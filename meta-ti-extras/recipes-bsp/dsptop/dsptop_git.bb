@@ -8,7 +8,7 @@ PR = "${INC_PR}.2"
 
 S:append = "/dsptop"
 
-COMPATIBLE_MACHINE = "omap-a15"
+COMPATIBLE_MACHINE = "am57xx"
 
 EXTRA_OEMAKE = "release DEVICE=DRA7xx CROSS_COMPILE=${TARGET_PREFIX} CC="${CC}""
 

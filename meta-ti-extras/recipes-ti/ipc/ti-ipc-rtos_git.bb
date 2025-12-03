@@ -81,11 +81,11 @@ KFPLAT = ""
 ALTERNATIVE_PRIORITY = "5"
 
 ALTERNATIVE:${PN}-fw:omapl138 = "rproc-dsp-fw"
-ALTERNATIVE:${PN}-fw:omap-a15 = "dra7-dsp1-fw.xe66 \
-                                 dra7-dsp2-fw.xe66 \
-                                 dra7-ipu1-fw.xem4 \
-                                 dra7-ipu2-fw.xem4 \
-                                "
+ALTERNATIVE:${PN}-fw:am57xx = "dra7-dsp1-fw.xe66 \
+                               dra7-dsp2-fw.xe66 \
+                               dra7-ipu1-fw.xem4 \
+                               dra7-ipu2-fw.xem4 \
+                              "
 
 ALTERNATIVE_LINK_NAME[rproc-dsp-fw] = "${nonarch_base_libdir}/firmware/rproc-dsp-fw"
 ALTERNATIVE_LINK_NAME[dra7-dsp1-fw.xe66] = "${nonarch_base_libdir}/firmware/dra7-dsp1-fw.xe66"
