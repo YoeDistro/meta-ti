@@ -15,8 +15,7 @@ DEPENDS += "gmp-native libmpc-native"
 # Look in the generic major.minor directory for files
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}-6.6:"
 
-KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT} \
-		      ${EXTRA_DTC_ARGS}"
+KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
