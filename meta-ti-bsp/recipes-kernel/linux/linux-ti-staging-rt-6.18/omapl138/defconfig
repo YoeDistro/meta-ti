@@ -1,0 +1,2 @@
+use-kernel-config=davinci_all_defconfig
+config-fragment=
