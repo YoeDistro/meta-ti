@@ -3,7 +3,7 @@
 # preferences for kernel, bootloader and graphics components, as
 # well as a dedicated machine override.
 
-# Supported options are: mainline, next, ti-6_12, ti-6_6
+# Supported options are: mainline, next, ti-6_18, ti-6_12, ti-6_6
 TI_PREFERRED_BSP ??= "ti-6_12"
 
 # Use bsp-* namespace for overrides
@@ -32,6 +32,15 @@ BSP_BOOTLOADER_VERSION:bsp-next = "%"
 
 # GC320 support requires out-of-tree drivers not yet available in next
 MACHINE_FEATURES:remove:bsp-next = "gc320"
+
+# ==========
+# ti-6_18
+# TI staging kernel 6.18, u-boot 2026.01
+# ==========
+BSP_KERNEL_PROVIDER:bsp-ti-6_18 = "linux-ti-staging"
+BSP_KERNEL_VERSION:bsp-ti-6_18 = "6.18%"
+BSP_BOOTLOADER_PROVIDER:bsp-ti-6_18 = "u-boot-ti-staging"
+BSP_BOOTLOADER_VERSION:bsp-ti-6_18 = "2026.01%"
 
 # ==========
 # ti-6_12
