@@ -1,0 +1,34 @@
+From cc151e69fe77b7e590bac9e5cf1eb00af9b92d83 Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Thu, 11 Dec 2025 11:14:50 -0600
+Subject: [PATCH] Support Linux kernels v6.15+
+
+del_timer was removed, switch to timer_delete.
+
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ kernel_module/gdbproxy-mod/gdbserverproxy.c | 15 ++++++++++++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/kernel_module/gdbproxy-mod/gdbserverproxy.c b/kernel_module/gdbproxy-mod/gdbserverproxy.c
+index 418b6db..8c5110b 100644
+--- a/kernel_module/gdbproxy-mod/gdbserverproxy.c
++++ b/kernel_module/gdbproxy-mod/gdbserverproxy.c
+@@ -462,7 +462,11 @@ static void gdb_close(struct tty_struct *tty, struct file *filp)
+                // this signifies the last device closing
+                if (gdb_port.openDevices == 0) {
+                     // release the timer
++#if (LINUX_VERSION_CODE >= KERNEL_VERSION(6,15,0))
++                    timer_delete(&timer);
++#else
+                     del_timer(&timer);
++#endif
+ 
+                     // unmap the interrupt and set the address to NULL
+                     if(gdb_port.handleInt != NULL) {
+
+-- 
+2.43.0
+
