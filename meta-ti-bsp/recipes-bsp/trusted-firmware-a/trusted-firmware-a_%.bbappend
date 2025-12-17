@@ -1,4 +1,4 @@
-TFA_TI = ""
-TFA_TI:k3 = "trusted-firmware-a-ti.inc"
+TRUSTED_FIRMWARE_A_TI = ""
+TRUSTED_FIRMWARE_A_TI:ti-soc = "trusted-firmware-a-ti.inc"
 
-require ${TFA_TI}
+require ${TRUSTED_FIRMWARE_A_TI}
