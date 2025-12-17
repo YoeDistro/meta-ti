@@ -69,8 +69,16 @@ do_deploy:append:am57xx() {
 }
 
 do_deploy:append:k3() {
-    ln -sf optee/bl32.bin ${DEPLOYDIR}/
-    ln -sf optee/bl32.elf ${DEPLOYDIR}/
+    if [ -f ${DEPLOYDIR}/optee/bl32.bin ]; then
+        ln -sf optee/bl32.bin ${DEPLOYDIR}/
+    fi
+    if [ -f ${DEPLOYDIR}/optee/bl32.elf ]; then
+        ln -sf optee/bl32.elf ${DEPLOYDIR}/
+    fi
+}
+
+do_deploy:k3-falcon() {
+    echo "Deploy nothing for k3-falcon"
 }
 
 # Make the OS depend on embedded TAs
