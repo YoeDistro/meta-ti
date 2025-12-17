@@ -83,6 +83,10 @@ do_deploy() {
     done
 }
 
+do_deploy:k3-falcon() {
+    echo "Deploy nothing for k3-falcon"
+}
+
 # Set up names for the firmwares
 ALTERNATIVE:${PN}:am62xx  = "am62-main-r5f0_0-fw"
 ALTERNATIVE:${PN}:am62pxx  = "am62p-main-r5f0_0-fw"
