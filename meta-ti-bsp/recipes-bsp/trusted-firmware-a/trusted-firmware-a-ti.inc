@@ -20,6 +20,7 @@ COMPATIBLE_MACHINE = "k3"
 
 TFA_BUILD_TARGET = "all"
 TFA_INSTALL_TARGET = "bl31"
+TFA_INSTALL_SUFFIX:k3-falcon = "-falcon"
 TFA_SPD = "opteed"
 
 # For am62lxx, install bl1 & bl31 using TFA_INSTALL_TARGET
@@ -29,6 +30,7 @@ EXTRA_OEMAKE += "${@ 'K3_USART=' + d.getVar('TFA_K3_USART') if d.getVar('TFA_K3_
 EXTRA_OEMAKE += "${@ 'BL32_BASE=' + d.getVar('TFA_K3_BL32_BASE') if d.getVar('TFA_K3_BL32_BASE') else ''}"
 EXTRA_OEMAKE += "${@ 'PRELOADED_BL33_BASE=' + d.getVar('TFA_K3_PRELOADED_BL33') if d.getVar('TFA_K3_PRELOADED_BL33') else ''}"
 EXTRA_OEMAKE += "${@ 'K3_PM_SYSTEM_SUSPEND=' + d.getVar('TFA_K3_SYSTEM_SUSPEND') if d.getVar('TFA_K3_SYSTEM_SUSPEND') else ''}"
+EXTRA_OEMAKE:append:k3-falcon = " PRELOADED_BL33_BASE=0x82000000 K3_HW_CONFIG_BASE=0x88000000"
 EXTRA_OEMAKE:append:ti-falcon = " PRELOADED_BL33_BASE=0x82000000 K3_HW_CONFIG_BASE=0x88000000"
 
 # LPM support patches for Jacinto platforms (J7200, J742S2, J784S4)
