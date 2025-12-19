@@ -64,10 +64,18 @@ PLAT_SFX:am62dxx = "am62dxx"
 PLAT_SFX:am62lxx = "am62lxx"
 PLAT_SFX:am62pxx = "am62pxx"
 
-PACKAGECONFIG[ap-trusted-rom] = "BL1=${STAGING_DIR_HOST}/firmware/bl1.bin,,trusted-firmware-a"
-PACKAGECONFIG[atf] = "BL31=${STAGING_DIR_HOST}/firmware/bl31.bin,,trusted-firmware-a"
-PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/bl32.bin,,optee-os"
-PACKAGECONFIG[dm] = "TI_DM=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/ti-dm/${PLAT_SFX}/${DM_FIRMWARE},,ti-dm-fw"
+ATF_BL1_PATH = "${STAGING_DIR_HOST}/firmware/trusted-firmware-a/bl1.bin"
+
+ATF_BL31_PATH = "${STAGING_DIR_HOST}/firmware/trusted-firmware-a/bl31.bin"
+
+OPTEE_BL32_PATH = "${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/bl32.bin"
+
+TI_DM_PATH = "${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/ti-dm/${PLAT_SFX}/${DM_FIRMWARE}"
+
+PACKAGECONFIG[ap-trusted-rom] = "BL1=${ATF_BL1_PATH},,trusted-firmware-a"
+PACKAGECONFIG[atf] = "BL31=${ATF_BL31_PATH},,trusted-firmware-a"
+PACKAGECONFIG[optee] = "TEE=${OPTEE_BL32_PATH},,optee-os"
+PACKAGECONFIG[dm] = "TI_DM=${TI_DM_PATH},,ti-dm-fw"
 
 PACKAGECONFIG:append:aarch64 = " atf optee"
 PACKAGECONFIG:append:j721e = " dm"
