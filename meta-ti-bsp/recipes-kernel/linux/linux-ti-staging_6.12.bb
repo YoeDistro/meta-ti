@@ -22,7 +22,7 @@ S = "${WORKDIR}/git"
 
 BRANCH ?= "ti-linux-6.12.y"
 
-SRCREV ?= "bb34876646c9e16fa18d60b76f0dd1c6736fad3e"
+SRCREV ?= "ee0a0f44964f12d6668a14b4b0b3594ce2ab8871"
 PV = "6.12.57+git"
 
 # Special configuration for remoteproc/rpmsg IPC modules
