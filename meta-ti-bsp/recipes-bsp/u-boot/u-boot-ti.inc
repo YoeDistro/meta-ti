@@ -11,8 +11,6 @@ require u-boot-mergeconfig.inc
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/u-boot:"
 
-FILES:${PN}-falcon = "boot/tifalcon.bin"
-
 SUMMARY = "u-boot bootloader for TI devices"
 
 LICENSE = "GPL-2.0-or-later"
@@ -40,6 +38,7 @@ DEPENDS += "python3-pyelftools-native python3-pyyaml-native python3-jsonschema-n
 # SYSFW/TIFS Firmware
 DEPENDS:append:k3 = " ti-sci-fw"
 DEPENDS:append:k3r5 = " ti-sci-fw"
+DEPENDS:append:k3r5-falcon = " ti-sci-fw"
 
 # HSM Demo Firmware is only applicable for J721S2 & J784S4 devices
 DEPENDS:append:j721s2 = " ti-hsm-demo-fw"
@@ -67,6 +66,7 @@ PLAT_SFX:am62pxx = "am62pxx"
 ATF_BL1_PATH = "${STAGING_DIR_HOST}/firmware/trusted-firmware-a/bl1.bin"
 
 ATF_BL31_PATH = "${STAGING_DIR_HOST}/firmware/trusted-firmware-a/bl31.bin"
+ATF_BL31_PATH:k3-falcon = "${STAGING_DIR_HOST}/firmware/trusted-firmware-a/bl31-falcon.bin"
 
 OPTEE_BL32_PATH = "${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/bl32.bin"
 
@@ -109,6 +109,7 @@ SYSROOT_DIRS += "/boot"
 # SPL (Second Program Loader) to be loaded over UART
 SPL_UART_BINARY = "u-boot-spl.bin"
 SPL_UART_BINARY:k3r5 = ""
+SPL_UART_BINARY:k3r5-falcon = ""
 
 SPL_UART_IMAGE ?= "${SPL_UART_BINARY}-${MACHINE}-${UBOOT_VERSION}"
 SPL_UART_SYMLINK ?= "${SPL_UART_BINARY}-${MACHINE}"
@@ -144,6 +145,26 @@ uboot_compile:append () {
 }
 
 uboot_compile_config_copy_binary:k3r5 () {
+    config=$1
+    type=$2
+    binary=$3
+
+    builddir="${builddir}"
+
+    if ! [ -L ${B}/${builddir}/${binary} ] && ! [ -f ${B}/${builddir}/${binary} ]; then
+        ln -s ${B}/${builddir}/spl/u-boot-spl.${UBOOT_SUFFIX} ${B}/${builddir}/${binary}
+    fi
+
+    if ! [ -L ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX} ] && ! [ -f ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX} ]; then
+        tgt="${B}/${builddir}/${binary}"
+        if [ -L ${B}/${builddir}/${binary} ]; then
+            tgt=$(realpath ${B}/${builddir}/${binary})
+        fi
+        ln -s ${tgt} ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX}
+    fi
+}
+
+uboot_compile_config_copy_binary:k3r5-falcon () {
     config=$1
     type=$2
     binary=$3
@@ -232,6 +253,15 @@ do_deploy:append:k3r5 () {
 	rm -f ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${UBOOT_VERSION}*
 }
 
+do_deploy:append:k3r5-falcon () {
+	rm -f ${DEPLOYDIR}/u-boot-initial-env*
+	rm -f ${DEPLOYDIR}/${PN}-initial-env*
+	rm -f ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}*
+	rm -f ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}*
+	rm -f ${DEPLOYDIR}/u-boot-initial-env-${MACHINE}-${UBOOT_VERSION}*
+	rm -f ${DEPLOYDIR}/${PN}-initial-env-${MACHINE}-${UBOOT_VERSION}*
+}
+
 uboot_deploy_config:append:k3r5 () {
 	for f in ${B}/${builddir}/tiboot3-*.bin; do
 		if [ -L "$f" ]; then
@@ -266,6 +296,65 @@ uboot_deploy_config:append:k3r5 () {
 	done
 }
 
+uboot_deploy_config:append:k3r5-falcon () {
+    #---------------------------------------------------------------------
+    # Clean up the existing deployed files to have the -falcon suffix.
+    #---------------------------------------------------------------------
+    cd ${DEPLOYDIR}
+    mv ${UBOOT_BINARYNAME}-${type}-${UBOOT_VERSION}.${UBOOT_SUFFIX} ${UBOOT_BINARYNAME}-${type}-${UBOOT_VERSION}.${UBOOT_SUFFIX}-falcon
+    rm ${UBOOT_SYMLINK}-${type}
+    rm ${UBOOT_SYMLINK}
+    rm ${UBOOT_BINARY}-${type}
+    rm ${UBOOT_BINARY}
+    ln -sf ${UBOOT_BINARYNAME}-${type}-${UBOOT_VERSION}.${UBOOT_SUFFIX}-falcon ${UBOOT_SYMLINK}-${type}-falcon
+    ln -sf ${UBOOT_BINARYNAME}-${type}-${UBOOT_VERSION}.${UBOOT_SUFFIX}-falcon ${UBOOT_SYMLINK}-falcon
+    ln -sf ${UBOOT_BINARYNAME}-${type}-${UBOOT_VERSION}.${UBOOT_SUFFIX}-falcon ${UBOOT_BINARY}-${type}-falcon
+    ln -sf ${UBOOT_BINARYNAME}-${type}-${UBOOT_VERSION}.${UBOOT_SUFFIX}-falcon ${UBOOT_BINARY}-falcon
+
+    # Deploy the uboot-initial-env
+    if [ -n "${UBOOT_INITIAL_ENV}" ]; then
+        cd ${DEPLOYDIR}
+        mv ${UBOOT_INITIAL_ENV}-${MACHINE}-${type}-${UBOOT_VERSION} ${UBOOT_INITIAL_ENV}-${MACHINE}-${type}-${UBOOT_VERSION}-falcon
+        rm ${UBOOT_INITIAL_ENV}-${MACHINE}-${type}
+        rm ${UBOOT_INITIAL_ENV}-${type}
+        ln -sf ${UBOOT_INITIAL_ENV}-${MACHINE}-${type}-${UBOOT_VERSION}-falcon ${UBOOT_INITIAL_ENV}-${MACHINE}-${type}-falcon
+        ln -sf ${UBOOT_INITIAL_ENV}-${MACHINE}-${type}-${UBOOT_VERSION}-falcon ${UBOOT_INITIAL_ENV}-${type}-falcon
+    fi
+    #---------------------------------------------------------------------
+    # Done cleaning up
+    #---------------------------------------------------------------------
+
+	for f in ${B}/${builddir}/tiboot3-*.bin; do
+		if [ -L "$f" ]; then
+			f_base=$(basename $f)
+			tgt=$(realpath $f)
+			tgt_base=$(basename $tgt)
+			ln -sf ${tgt_base}-${type}-falcon ${DEPLOYDIR}/${f_base}-${type}-falcon
+		else
+			if [ -f "$f" ]; then
+				f_base=$(basename $f)
+				install -m 644 $f ${DEPLOYDIR}/${f_base}-${type}-falcon
+				ln -sf ${f_base}-${type}-falcon ${DEPLOYDIR}/${f_base}-falcon
+			fi
+		fi
+	done
+
+	for f in ${B}/${builddir}/sysfw*.itb; do
+		if [ -L "$f" ]; then
+			f_base=$(basename $f)
+			tgt=$(realpath $f)
+			tgt_base=$(basename $tgt)
+			ln -sf ${tgt_base}-${type}-falcon ${DEPLOYDIR}/${f_base}-${type}-falcon
+		else
+			if [ -f "$f" ]; then
+				f_base=$(basename $f)
+				install -m 644 $f ${DEPLOYDIR}/${f_base}-${type}-falcon
+				ln -sf ${f_base}-${type}-falcon ${DEPLOYDIR}/${f_base}-falcon
+			fi
+		fi
+	done
+}
+
 uboot_deploy_config:append:am62lxx () {
 	for f in ${B}/${builddir}/tiboot3-*.bin; do
 		if [ -f "$f" ]; then
@@ -288,6 +377,45 @@ uboot_deploy:append:k3r5 () {
 		if [ -f "$f" ]; then
 			f_base=$(basename $f)
 			install -m 644 $f ${DEPLOYDIR}/${f_base}
+		fi
+	done
+}
+
+uboot_deploy:append:k3r5-falcon () {
+    #---------------------------------------------------------------------
+    # Clean up the existing deployed files to have the -falcon suffix.
+    #---------------------------------------------------------------------
+    cd ${DEPLOYDIR}
+    mv ${UBOOT_IMAGE} ${UBOOT_IMAGE}-falcon
+    rm ${UBOOT_SYMLINK}
+    rm ${UBOOT_BINARY}
+    ln -sf ${UBOOT_IMAGE}-falcon ${UBOOT_SYMLINK}-falcon
+    ln -sf ${UBOOT_IMAGE}-falcon ${UBOOT_BINARY}-falcon
+
+    # Deploy the uboot-initial-env
+    if [ -n "${UBOOT_INITIAL_ENV}" ]; then
+        cd ${DEPLOYDIR}
+        mv ${UBOOT_INITIAL_ENV}-${MACHINE}-${UBOOT_VERSION} ${UBOOT_INITIAL_ENV}-${MACHINE}-${UBOOT_VERSION}-falcon
+        rm ${UBOOT_INITIAL_ENV}-${MACHINE}
+        rm ${UBOOT_INITIAL_ENV}
+        ln -sf ${UBOOT_INITIAL_ENV}-${MACHINE}-${UBOOT_VERSION}-falcon ${UBOOT_INITIAL_ENV}-${MACHINE}-falcon
+        ln -sf ${UBOOT_INITIAL_ENV}-${MACHINE}-${UBOOT_VERSION}-falcon ${UBOOT_INITIAL_ENV}-falcon
+    fi
+    #---------------------------------------------------------------------
+    # Done cleaning up
+    #---------------------------------------------------------------------
+
+    for f in ${B}/tiboot3-*.bin; do
+		if [ -f "$f" ]; then
+			f_base=$(basename $f)
+			install -m 644 $f ${DEPLOYDIR}/${f_base}-falcon
+		fi
+	done
+
+	for f in ${B}/sysfw*.itb; do
+		if [ -f "$f" ]; then
+			f_base=$(basename $f)
+			install -m 644 $f ${DEPLOYDIR}/${f_base}-falcon
 		fi
 	done
 }
@@ -402,6 +530,23 @@ do_deploy:append:am62pxx() {
 	install -m 0644 ${S}/tools/logos/ti_logo_414x97_32bpp.bmp.gz ${DEPLOYDIR}
 }
 
+do_install:k3-falcon() {
+	install -d ${D}/boot
+	install -m 0644 ${B}/tifalcon.bin ${D}/boot
+}
+
+do_deploy:k3-falcon() {
+	install -d ${DEPLOYDIR}
+	install -m 0644 ${B}/tifalcon.bin ${DEPLOYDIR}
+}
+
+do_deploy:append:k3-falcon() {
+    if [ -f ${DEPLOYDIR}/ti_logo_414x97_32bpp.bmp.gz ]; then
+        rm ${DEPLOYDIR}/ti_logo_414x97_32bpp.bmp.gz
+    fi
+}
+
+# Remove once we get the mc:k3r5-falcon flow working...
 do_install:append:ti-falcon() {
 	install -m 0644 ${B}/tifalcon.bin ${D}/boot
 }
@@ -413,6 +558,8 @@ PACKAGES:prepend:am62xx-evm = "${FALCON_PKG} "
 PACKAGES:prepend:am62axx-evm = "${FALCON_PKG} "
 PACKAGES:prepend:am62pxx-evm = "${FALCON_PKG} "
 PACKAGES:prepend:am62xx-lp-evm = "${FALCON_PKG} "
+
+FILES:${PN}-falcon = " boot/tifalcon.bin"
 
 TOOLCHAIN = "gcc"
 
