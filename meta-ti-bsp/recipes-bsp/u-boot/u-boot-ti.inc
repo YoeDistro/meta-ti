@@ -150,12 +150,16 @@ uboot_compile_config_copy_binary:k3r5 () {
 
     builddir="${builddir}"
 
-    if ! [ -L ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX} ] && ! [ -f ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX} ]; then
-        ln -s ${B}/${builddir}/spl/u-boot-spl.${UBOOT_SUFFIX} ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX}
-    fi
-
     if ! [ -L ${B}/${builddir}/${binary} ] && ! [ -f ${B}/${builddir}/${binary} ]; then
         ln -s ${B}/${builddir}/spl/u-boot-spl.${UBOOT_SUFFIX} ${B}/${builddir}/${binary}
+    fi
+
+    if ! [ -L ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX} ] && ! [ -f ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX} ]; then
+        tgt="${B}/${builddir}/${binary}"
+        if [ -L ${B}/${builddir}/${binary} ]; then
+            tgt=$(realpath ${B}/${builddir}/${binary})
+        fi
+        ln -s ${tgt} ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX}
     fi
 }
 
@@ -230,18 +234,34 @@ do_deploy:append:k3r5 () {
 
 uboot_deploy_config:append:k3r5 () {
 	for f in ${B}/${builddir}/tiboot3-*.bin; do
-		if [ -f "$f" ]; then
+		if [ -L "$f" ]; then
 			f_base=$(basename $f)
-			install -m 644 $f ${DEPLOYDIR}/${f_base}-${type}
-			ln -sf ${f_base}-${type} ${DEPLOYDIR}/${f_base}
+			tgt=$(realpath $f)
+			tgt_base=$(basename $tgt)
+			ln -sf ${tgt_base}-${type} ${DEPLOYDIR}/${f_base}-${type}
+			ln -sf ${tgt_base}-${type} ${DEPLOYDIR}/${f_base}
+		else
+			if [ -f "$f" ]; then
+				f_base=$(basename $f)
+				install -m 644 $f ${DEPLOYDIR}/${f_base}-${type}
+				ln -sf ${f_base}-${type} ${DEPLOYDIR}/${f_base}
+			fi
 		fi
 	done
 
 	for f in ${B}/${builddir}/sysfw*.itb; do
-		if [ -f "$f" ]; then
+		if [ -L "$f" ]; then
 			f_base=$(basename $f)
-			install -m 644 $f ${DEPLOYDIR}/${f_base}-${type}
-			ln -sf ${f_base}-${type} ${DEPLOYDIR}/${f_base}
+			tgt=$(realpath $f)
+			tgt_base=$(basename $tgt)
+			ln -sf ${tgt_base}-${type} ${DEPLOYDIR}/${f_base}-${type}
+			ln -sf ${tgt_base}-${type} ${DEPLOYDIR}/${f_base}
+		else
+			if [ -f "$f" ]; then
+				f_base=$(basename $f)
+				install -m 644 $f ${DEPLOYDIR}/${f_base}-${type}
+				ln -sf ${f_base}-${type} ${DEPLOYDIR}/${f_base}
+			fi
 		fi
 	done
 }
@@ -259,13 +279,15 @@ uboot_deploy_config:append:am62lxx () {
 uboot_deploy:append:k3r5 () {
     for f in ${B}/tiboot3-*.bin; do
 		if [ -f "$f" ]; then
-			install -m 644 $f ${DEPLOYDIR}/
+			f_base=$(basename $f)
+			install -m 644 $f ${DEPLOYDIR}/${f_base}
 		fi
 	done
 
 	for f in ${B}/sysfw*.itb; do
 		if [ -f "$f" ]; then
-			install -m 644 $f ${DEPLOYDIR}/
+			f_base=$(basename $f)
+			install -m 644 $f ${DEPLOYDIR}/${f_base}
 		fi
 	done
 }
