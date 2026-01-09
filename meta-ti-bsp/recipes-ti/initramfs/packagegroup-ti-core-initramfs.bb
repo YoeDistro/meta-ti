@@ -1,16 +1,18 @@
 SUMMARY = "Minimal initramfs for boot requirements"
 
-require recipes-core/packagegroups/packagegroup-core-boot.bb
+LICENSE = "MIT"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+inherit packagegroup
 
 TI_INITRAMFS_KERNEL_MODULES ?= ""
 
 RDEPENDS:${PN} += "\
     ${TI_INITRAMFS_KERNEL_MODULES} \
+    ${VIRTUAL-RUNTIME_base-utils} \
+    base-passwd \
     initramfs-framework-base \
     initramfs-module-udev \
     initramfs-module-nfsrootfs \
-    nfs-utils \
-    nfs-utils-client \
 "
-
-RDEPENDS:${PN}:remove = "grub-efi kernel"

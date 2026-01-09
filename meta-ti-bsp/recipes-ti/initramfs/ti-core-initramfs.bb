@@ -7,29 +7,26 @@ DESCRIPTION = "Image meant to probe boot essential modules\
 
 LICENSE = "MIT"
 
-inherit core-image
+INITRAMFS_FSTYPES = "cpio cpio.xz"
+
+INITRAMFS_MAXSIZE = "65536"
 
 IMAGE_NAME = "ti-core-initramfs"
 
-IMAGE_NAME_SUFFIX = ""
-
-IMAGE_FEATURES:remove = "package-management"
-
-INITRAMFS_FSTYPES = "cpio cpio.xz"
-
-IMAGE_FSTYPES = "${INITRAMFS_FSTYPES}"
+export IMAGE_BASENAME = "${IMAGE_NAME}"
 
 PACKAGE_INSTALL = "packagegroup-ti-core-initramfs"
 
-export IMAGE_BASENAME = "${IMAGE_NAME}"
+# Ensure the initramfs only contains the bare minimum
+IMAGE_FEATURES = ""
+IMAGE_LINGUAS = ""
 
-IMAGE_OVERHEAD_FACTOR = "1.1"
+# on the kernel image.
+PACKAGE_EXCLUDE = "kernel-image-*"
 
-# To further reduce the size of the rootfs, remove the /boot directory from
-# the final image this is usually done by adding RDEPENDS_kernel-base = ""
-# in the configuration file. In our case we can't use this method. Instead we
-# just wipe out the content of "/boot" before creating the image.
-ROOTFS_POSTPROCESS_COMMAND += "empty_boot_dir; "
-empty_boot_dir () {
-	rm -rf ${IMAGE_ROOTFS}/boot/*
-}
+IMAGE_FSTYPES = "${INITRAMFS_FSTYPES}"
+IMAGE_NAME_SUFFIX ?= ""
+IMAGE_ROOTFS_SIZE = "8192"
+IMAGE_ROOTFS_EXTRA_SPACE = "0"
+
+inherit image
