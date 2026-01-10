@@ -24,6 +24,10 @@ UBOOT_GIT_PROTOCOL ?= "https"
 UBOOT_GIT_BRANCH ?= "branch=${BRANCH}"
 SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};${UBOOT_GIT_BRANCH};name=uboot"
 
+# Match the meta-ti trusted-firmware-a specific changes to memory locations
+# for bl33 and k3 hardware.
+SRC_URI:append:k3r5 = " file://k3_tfa.cfg"
+
 SRCREV_FORMAT = "uboot"
 
 PV:append = "+git"
