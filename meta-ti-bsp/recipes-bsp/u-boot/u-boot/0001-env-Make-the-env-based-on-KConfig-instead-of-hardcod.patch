@@ -1,0 +1,32 @@
+From 1cee5b419589234d575b5b513ff2030d08bda46c Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Wed, 4 Feb 2026 14:07:39 -0600
+Subject: [PATCH] env: Make the env based on KConfig instead of hardcoded
+
+testing...
+
+Upstream-Status: Pending
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ include/env/ti/k3_dfu.env | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/env/ti/k3_dfu.env b/include/env/ti/k3_dfu.env
+index d89f88631e3..e64a3427f6d 100644
+--- a/include/env/ti/k3_dfu.env
++++ b/include/env/ti/k3_dfu.env
+@@ -25,8 +25,8 @@ dfu_alt_info_ospi=
+ 	rootfs raw 0x800000 0x3800000
+ 
+ dfu_alt_info_ram=
+-	tispl.bin ram 0x80080000 0x200000;
+-	u-boot.img ram 0x81000000 0x400000
++	tispl.bin ram CONFIG_SPL_TEXT_BASE 0x200000;
++	u-boot.img ram CONFIG_TEXT_BASE 0x400000
+ 
+ dfu_alt_info_ospi_nand=
+ 	ospi_nand.tiboot3 part 1;
+-- 
+2.43.0
+
