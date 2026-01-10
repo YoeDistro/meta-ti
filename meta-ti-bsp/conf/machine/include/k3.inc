@@ -33,6 +33,11 @@ MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image-image ti-kernel-fitimage"
 
 TFA_PLATFORM = "k3"
 
+# Change the default memory location for all k3 devices.  This requires an
+# in layer config fragment for u-boot.
+TFA_K3_PRELOADED_BL33 ?= "${@ '0x82000000' if d.getVar('BSP_TI_K3_TFA_MOVE') else ''}"
+TFA_K3_HW_CONFIG_BASE ?= "${@ '0x88000000' if d.getVar('BSP_TI_K3_TFA_MOVE') else ''}"
+
 # Use the expected value of the ubifs filesystem's volume name in the kernel
 # and u-boot.
 UBI_VOLNAME = "rootfs"

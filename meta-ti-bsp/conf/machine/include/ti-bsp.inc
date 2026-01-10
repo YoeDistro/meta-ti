@@ -46,6 +46,8 @@ BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_18 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_18 = "25%"
 BSP_MESA_PVR_VERSION:bsp-ti-6_18 = "24%"
 
+BSP_TI_K3_TFA_MOVE:bsp-ti-6_18 = "1"
+
 # ==========
 # ti-6_12
 # TI staging kernel 6.12, u-boot 2025.01
@@ -94,6 +96,8 @@ BSP_SGX_DRIVER_VERSION ?= ""
 BSP_ROGUE_DRIVER_PROVIDER ?= ""
 BSP_ROGUE_DRIVER_VERSION ?= ""
 BSP_MESA_PVR_VERSION ?= ""
+
+BSP_TI_K3_TFA_MOVE ?= ""
 
 # ==========
 # global preferences
