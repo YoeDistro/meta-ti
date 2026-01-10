@@ -25,6 +25,21 @@ UBOOT_GIT_PROTOCOL ?= "https"
 UBOOT_GIT_BRANCH ?= "branch=${BRANCH}"
 SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};${UBOOT_GIT_BRANCH};name=uboot"
 
+# Match the meta-ti trusted-firmware-a specific changes to memory locations
+# for bl33 and k3 hardware.
+TI_K3_TFA_CFG_FILES = "\
+    file://k3_tfa.cfg \
+    file://0001-env-Make-the-env-based-on-KConfig-instead-of-hardcod.patch \
+"
+TI_K3_TFA_CFG_FILES:remove:bsp-ti-6_12 = "file://0001-env-Make-the-env-based-on-KConfig-instead-of-hardcod.patch"
+TI_K3_TFA_CFG_FILES:append:bsp-ti-6_12 = "\
+    file://0001-env-Make-the-env-based-on-KConfig-instead-of-hardcod-2025-01.patch \
+    file://0001-2025-01-env-Update-splashimage-for-am62-am62p.patch \
+"
+TI_K3_TFA_CFG_FILES:bsp-ti-6_6 = ""
+
+SRC_URI:append:k3 = " ${TI_K3_TFA_CFG_FILES}"
+
 SRCREV_FORMAT = "uboot"
 
 PV:append = "+git"
