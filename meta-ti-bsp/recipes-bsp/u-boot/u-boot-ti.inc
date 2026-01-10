@@ -28,6 +28,15 @@ SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};${UBOOT_GIT_BRANCH};n
 SRC_URI:append:bsp-ti-6_12 = " file://0001-pylibfdt-Replace-removed-SWIG-Python-2-compatibility.patch"
 SRC_URI:append:bsp-ti-6_18 = " file://0001-pylibfdt-Replace-removed-SWIG-Python-2-compatibility.patch"
 
+# Match the meta-ti trusted-firmware-a specific changes to memory locations
+# for bl33 and k3 hardware.
+TI_K3_TFA_CFG_FILES = "\
+    file://k3_tfa.cfg \
+    file://0001-env-Make-the-env-based-on-KConfig-instead-of-hardcod.patch \
+"
+
+SRC_URI:append:k3 = " ${@ '${TI_K3_TFA_CFG_FILES}' if d.getVar('BSP_TI_K3_TFA_MOVE') else ''}"
+
 SRCREV_FORMAT = "uboot"
 
 PV:append = "+git"
