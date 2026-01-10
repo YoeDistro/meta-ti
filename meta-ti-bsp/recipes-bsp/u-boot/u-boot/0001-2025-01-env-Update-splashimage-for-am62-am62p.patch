@@ -1,0 +1,45 @@
+From 9f2d23951de3b8d80249e4ad82bcd49eb880d69d Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Tue, 3 Feb 2026 17:55:39 -0600
+Subject: [PATCH] env: Update splashimage for am62/am62p
+
+To support moving the TFA location for Yocto we need to also move the
+splashimage to a new location.
+
+Upstream-Status: Pending
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ board/ti/am62px/am62px.env | 2 +-
+ board/ti/am62x/am62x.env   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/board/ti/am62px/am62px.env b/board/ti/am62px/am62px.env
+index 60674b21a9c..13e3c08294f 100644
+--- a/board/ti/am62px/am62px.env
++++ b/board/ti/am62px/am62px.env
+@@ -22,7 +22,7 @@ bootdir=/boot
+ rd_spec=-
+ 
+ splashfile=ti_logo_414x97_32bpp.bmp.gz
+-splashimage=0x80200000
++splashimage=0x82180000
+ splashpos=m,m
+ splashsource=mmc
+ 
+diff --git a/board/ti/am62x/am62x.env b/board/ti/am62x/am62x.env
+index 8e27a7a3e0a..5e657599669 100644
+--- a/board/ti/am62x/am62x.env
++++ b/board/ti/am62x/am62x.env
+@@ -23,7 +23,7 @@ bootdir=/boot
+ rd_spec=-
+ 
+ splashfile=ti_logo_414x97_32bpp.bmp.gz
+-splashimage=0x80200000
++splashimage=0x82180000
+ splashpos=m,m
+ splashsource=mmc
+ 
+-- 
+2.43.0
+
