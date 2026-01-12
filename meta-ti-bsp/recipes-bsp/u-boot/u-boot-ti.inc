@@ -8,6 +8,8 @@ do_compile:prepend () {
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot-common.inc
 require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
 
+include ${@ 'recipes-bsp/u-boot/ti-extras.inc' if d.getVar('TI_EXTRAS') else ''}
+
 FILESEXTRAPATHS:prepend := "${THISDIR}/u-boot:"
 
 FILES:${PN}-falcon = "boot/tifalcon.bin"
