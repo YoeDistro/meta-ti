@@ -416,3 +416,5 @@ PACKAGES:prepend:am62pxx-evm = "${FALCON_PKG} "
 PACKAGES:prepend:am62xx-lp-evm = "${FALCON_PKG} "
 
 TOOLCHAIN = "gcc"
+
+TI_SIGN_WITH_ECDSA_KEY ?= "KEY_PATH=${THISDIR}/files/custMpk_ecdsa.key"
