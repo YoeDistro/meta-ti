@@ -418,17 +418,11 @@ do_deploy:append:am62pxx() {
 	install -m 0644 ${S}/tools/logos/ti_logo_414x97_32bpp.bmp.gz ${DEPLOYDIR}
 }
 
-do_install:append:ti-falcon() {
+do_install:append() {
+    if [ -f ${B}/tifalcon.bin ]; then
 	install -m 0644 ${B}/tifalcon.bin ${D}/boot
+    fi
 }
-
-FALCON_PKG = ""
-FALCON_PKG:ti-falcon = "${PN}-falcon "
-
-PACKAGES:prepend:am62xx-evm = "${FALCON_PKG} "
-PACKAGES:prepend:am62axx-evm = "${FALCON_PKG} "
-PACKAGES:prepend:am62pxx-evm = "${FALCON_PKG} "
-PACKAGES:prepend:am62xx-lp-evm = "${FALCON_PKG} "
 
 TOOLCHAIN = "gcc"
 
