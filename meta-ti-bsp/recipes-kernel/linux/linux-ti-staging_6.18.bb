@@ -36,4 +36,7 @@ module_conf_ti_k3_r5_remoteproc = "softdep ti_k3_r5_remoteproc pre: virtio_rpmsg
 module_conf_ti_k3_dsp_remoteproc = "softdep ti_k3_dsp_remoteproc pre: virtio_rpmsg_bus"
 KERNEL_MODULE_PROBECONF += "rpmsg_client_sample ti_k3_r5_remoteproc ti_k3_dsp_remoteproc"
 
+SRC_URI:append:j721e = " file://j721e_vb2_dma_sg.cfg"
+KERNEL_CONFIG_FRAGMENTS:append:j721e = " ${UNPACKDIR}/j721e_vb2_dma_sg.cfg"
+
 DEFAULT_PREFERENCE = "-1"
