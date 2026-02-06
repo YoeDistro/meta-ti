@@ -417,4 +417,5 @@ PACKAGES:prepend:am62xx-lp-evm = "${FALCON_PKG} "
 
 TOOLCHAIN = "gcc"
 
-TI_SIGN_WITH_ECDSA_KEY ?= "KEY_PATH=${THISDIR}/files/custMpk_ecdsa.key"
+TI_SIGN_WITH_ECDSA_KEY ?= "SIGNING_KEY=${THISDIR}/files/custMpk_ecdsa.key"
+TI_SIGN_WITH_ECDSA_KEY:bsp-ti-6_12 = "KEY_PATH=${THISDIR}/files/custMpk_ecdsa.key"
