@@ -9,7 +9,7 @@ LICENSE = "MIT"
 
 INITRAMFS_FSTYPES = "cpio cpio.xz"
 
-INITRAMFS_MAXSIZE = "65536"
+INITRAMFS_MAXSIZE = "131072"
 
 IMAGE_NAME = "ti-core-initramfs"
 
