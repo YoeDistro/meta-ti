@@ -3,6 +3,7 @@
 SOC_FAMILY = "ti-soc"
 require conf/machine/include/soc-family.inc
 require conf/machine/include/ti-extras.inc
+require conf/machine/include/ti-core-initramfs.inc
 
 # kernel, initrd load addresses for the fitImage in all TI platforms
 UBOOT_ENTRYPOINT = "0x82000000"
@@ -28,22 +29,3 @@ CLASS_DEVICETREE_PREFIX = "${@ 'ti-devicetree-prefix' if d.getVar('KERNEL_DEVICE
 
 KERNEL_CLASSES += "${CLASS_DEVICETREE_PREFIX}"
 IMAGE_CLASSES += "${CLASS_DEVICETREE_PREFIX}"
-
-BUILD_CORE_INITRAMFS_IMAGE = "ti-core-initramfs"
-BUILD_CORE_INITRAMFS_IMAGE_FILE = "${BUILD_CORE_INITRAMFS_IMAGE}.cpio.xz"
-
-BUILD_CORE_INITRAMFS_IMAGE_STEP ?= ""
-BUILD_CORE_INITRAMFS_IMAGE_STEP:bsp-ti-6_18 = "${BUILD_CORE_INITRAMFS_IMAGE}:do_image_complete"
-BUILD_CORE_INITRAMFS_IMAGE_STEP:bsp-mainline = "${BUILD_CORE_INITRAMFS_IMAGE}:do_image_complete"
-BUILD_CORE_INITRAMFS_IMAGE_STEP:bsp-next = "${BUILD_CORE_INITRAMFS_IMAGE}:do_image_complete"
-
-do_image_wic[depends] += "${BUILD_CORE_INITRAMFS_IMAGE_STEP}"
-
-TI_WKS_INITRAMFS ?= ""
-TI_WKS_INITRAMFS:bsp-ti-6_18 = ",initrd=${BUILD_CORE_INITRAMFS_IMAGE_FILE}"
-TI_WKS_INITRAMFS:bsp-mainline = ",initrd=${BUILD_CORE_INITRAMFS_IMAGE_FILE}"
-TI_WKS_INITRAMFS:bsp-next = ",initrd=${BUILD_CORE_INITRAMFS_IMAGE_FILE}"
-
-IMAGE_BOOT_FILES:append:bsp-ti-6_18 = " ${BUILD_CORE_INITRAMFS_IMAGE_FILE}"
-IMAGE_BOOT_FILES:append:bsp-mainline = " ${BUILD_CORE_INITRAMFS_IMAGE_FILE}"
-IMAGE_BOOT_FILES:append:bsp-next = " ${BUILD_CORE_INITRAMFS_IMAGE_FILE}"
