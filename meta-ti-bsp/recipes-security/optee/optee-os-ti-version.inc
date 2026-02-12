@@ -1,5 +1,5 @@
-PV = "4.7.0+git"
-SRCREV = "a9690ae39995af36a31b7a4f446f27ea0787e3a4"
+PV = "4.9.0+git"
+SRCREV = "c2b0684fcd89929976a8726e6e3af922b48dd2c7"
 SRC_URI:remove = " \
     file://0001-checkconf.mk-do-not-use-full-path-to-generate-guard-.patch \
     file://0001-arm64.h-fix-compile-error-with-Clang.patch \

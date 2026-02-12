@@ -78,12 +78,3 @@ RDEPENDS:${PN} += "${PN}-ta"
 
 # This is needed for bl32.elf
 INSANE_SKIP:${PN}:append:k3 = " textrel"
-
-# LPM support patch for Jacinto platforms (J7200, J742S2, J784S4)
-OPTEE_JACINTO_LPM_PATCHES = " \
-    file://0001-plat-k3-drivers-Open-TRNG-firewall-for-TIFS-on-all-k.patch \
-"
-
-SRC_URI:append:j7200 = " ${OPTEE_JACINTO_LPM_PATCHES}"
-SRC_URI:append:j742s2 = " ${OPTEE_JACINTO_LPM_PATCHES}"
-SRC_URI:append:j784s4 = " ${OPTEE_JACINTO_LPM_PATCHES}"

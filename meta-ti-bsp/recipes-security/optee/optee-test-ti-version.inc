@@ -1,7 +1,7 @@
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=a8fa504109e4cd7ea575bc49ea4be560"
 
-PV = "4.7.0+git"
-SRCREV = "a15be9eca1b7e935917d834284726027dffc8cfb"
+PV = "4.9.0+git"
+SRCREV = "b27648ea8472cceceb8dda368a965c709066f7aa"
 
 SRC_URI:remove = " \
     file://0001-xtest-stats-remove-unneeded-stat.h-include.patch \
