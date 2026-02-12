@@ -15,7 +15,12 @@ IMAGE_NAME = "ti-core-initramfs"
 
 export IMAGE_BASENAME = "${IMAGE_NAME}"
 
-PACKAGE_INSTALL = "packagegroup-ti-core-initramfs"
+TI_CORE_INITRAMFS_EXTRA_INSTALL ?= ""
+
+PACKAGE_INSTALL = "\
+    packagegroup-ti-core-initramfs \
+    ${TI_CORE_INITRAMFS_EXTRA_INSTALL} \
+"
 
 # Ensure the initramfs only contains the bare minimum
 IMAGE_FEATURES = ""
