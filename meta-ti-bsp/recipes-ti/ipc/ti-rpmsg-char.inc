@@ -7,9 +7,9 @@ PROTOCOL = "https"
 BRANCH = "master"
 SRC_URI = "git://git.ti.com/git/rpmsg/ti-rpmsg-char.git;protocol=${PROTOCOL};branch=${BRANCH};"
 
-# 0.6.10 release
-SRCREV = "057b1a249261e26d00c501b59646957160ec815b"
+# 0.6.11 release
+SRCREV = "dd4783422bf4fbed1015bfaa51054e40057b4f04"
 
-PV = "0.6.10+git"
+PV = "0.6.11+git"
 
 COMPATIBLE_MACHINE = "^(k3)$"
