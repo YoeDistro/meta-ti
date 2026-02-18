@@ -6,9 +6,9 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=7232b98c1c58f99e3baa03de5207e76f"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "j721e|j721s2|j784s4|j742s2|am62xx|am62pxx|j722s"
 
-BRANCH = "linuxws/scarthgap/k6.12/${PV}"
+BRANCH = "linuxws/scarthgap/k6.18/${PV}"
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-umlibs.git;protocol=https;branch=${BRANCH}"
-SRCREV = "adcbb5c620ff172da4152c02a2fee8f42dc4c472"
+SRCREV = "2ecc98c61aedd931d8acf6fb4a1150ebf57fb178"
 
 TARGET_PRODUCT:j721e = "j721e_linux"
 TARGET_PRODUCT:j721s2 = "j721s2_linux"

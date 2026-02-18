@@ -42,6 +42,10 @@ BSP_KERNEL_VERSION:bsp-ti-6_18 = "6.18%"
 BSP_BOOTLOADER_PROVIDER:bsp-ti-6_18 = "u-boot-ti-staging"
 BSP_BOOTLOADER_VERSION:bsp-ti-6_18 = "2026.01%"
 
+BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_18 = "ti-img-rogue-driver"
+BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_18 = "25%"
+BSP_MESA_PVR_VERSION:bsp-ti-6_18 = "24%"
+
 # ==========
 # ti-6_12
 # TI staging kernel 6.12, u-boot 2025.01

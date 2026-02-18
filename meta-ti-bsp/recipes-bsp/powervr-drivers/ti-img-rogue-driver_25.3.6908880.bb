@@ -13,11 +13,11 @@ COMPATIBLE_MACHINE = "j721e|j721s2|j784s4|j742s2|am62xx|am62pxx|j722s"
 
 DEPENDS = "virtual/kernel"
 
-BRANCH = "linuxws/scarthgap/k6.12/${PV}"
+BRANCH = "linuxws/scarthgap/k6.18/${PV}"
 
 SRC_URI = "git://git.ti.com/git/graphics/ti-img-rogue-driver.git;protocol=https;branch=${BRANCH}"
 
-SRCREV = "72723eea0cab47c20e5734c1c7b9a441ed2d74c2"
+SRCREV = "4fa6d8f63363e4926a0a7e7ef4a317c3d9c0f5b7"
 
 
 TARGET_PRODUCT:j721e = "j721e_linux"
