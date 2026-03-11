@@ -47,7 +47,7 @@ B = "${S}"
 
 DEPENDS = "virtual/kernel dtc-native python3-mako-native python3-mako make-native"
 
-inherit module python3native bash-completion deploy setuptools3
+inherit module-base kernel-module-split python3native bash-completion deploy
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 COMPATIBLE_MACHINE = "(ti-soc)"
@@ -66,22 +66,28 @@ JH_SYSCONFIG_CELL:am62lxx ?= "k3-am62l3-evm.cell"
 JH_SYSCONFIG_CELL:j7 ?= "k3-j721e-evm.cell"
 JH_SYSCONFIG_CELL:j7200-evm ?= "k3-j7200-evm.cell"
 
-do_configure() {
-        if [ -d ${STAGING_DIR_HOST}/${CELLCONF_DIR} ];
-        then
-            cp ${STAGING_DIR_HOST}/${CELLCONF_DIR}/*.c ${S}/configs/
-        fi
-}
+EXTRA_OEMAKE = "\
+    V=1 \
+    ARCH=${JH_ARCH} \
+    CROSS_COMPILE=${TARGET_PREFIX} \
+    CC="${CC}" \
+    KDIR=${STAGING_KERNEL_BUILDDIR} \
+    KCFLAGS='-ffile-prefix-map=${STAGING_KERNEL_BUILDDIR}/= \
+             -ffile-prefix-map=${STAGING_KERNEL_DIR}/=' \
+"
 
-USER_SPACE_CFLAGS = '${CFLAGS} -DLIBEXECDIR=\\\"${libexecdir}\\\" \
-                    -DJAILHOUSE_VERSION=\\\"$JAILHOUSE_VERSION\\\" \
-                    -Wall -Wextra -Wmissing-declarations -Wmissing-prototypes -Werror \
-                    -I../driver'
+USER_SPACE_CFLAGS = "\
+    ${CFLAGS} \
+    -DLIBEXECDIR=\\\"${libexecdir}\\\" \
+    -DJAILHOUSE_VERSION=\\\"$JAILHOUSE_VERSION\\\" \
+    -Wall -Wextra -Wmissing-declarations -Wmissing-prototypes -Werror \
+    -I../driver \
+"
 
 TOOLS_SRC_DIR = "${S}/tools"
 
-EXTRA_OEMAKE = "ARCH=${JH_ARCH} CROSS_COMPILE=${TARGET_PREFIX} CC="${CC}" KDIR=${STAGING_KERNEL_BUILDDIR}"
-
-do_compile() {
-        oe_runmake V=1
+do_configure() {
+    if [ -d ${STAGING_DIR_HOST}/${CELLCONF_DIR} ]; then
+        cp ${STAGING_DIR_HOST}/${CELLCONF_DIR}/*.c ${S}/configs/
+    fi
 }
