@@ -21,8 +21,9 @@ SRC_URI = " \
     file://0001-Update-lp_bld_misc.cpp-to-support-llvm-19.patch \
 "
 
-SRCREV = "68af6a102c2298569e77d1aa8bccc1ff61438b3e"
+SRCREV = "7c82c1eebc67f5a62a347a84d42fe795cf7f523b"
 PV = "24.0.1"
+PR = "r1"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
