@@ -25,7 +25,7 @@ PCM6240_FW_VERSION = "1.0.0.0"
 TI_LINUX_FW_SRCREV ?= "8ec0c42b8ccf2c9e8bebfd7c4e03d93fed555442"
 SRCREV = "${TI_LINUX_FW_SRCREV}"
 
-BRANCH ?= "ti-linux-firmware"
+BRANCH ?= "ti-linux-firmware-6.12.y"
 
 TI_LINUX_FW_GIT_URI ?= "git://git.ti.com/git/processor-firmware/ti-linux-firmware.git"
 TI_LINUX_FW_GIT_PROTOCOL ?= "https"
