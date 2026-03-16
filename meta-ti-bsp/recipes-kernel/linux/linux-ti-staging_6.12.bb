@@ -24,6 +24,8 @@ BRANCH ?= "ti-linux-6.12.y"
 SRCREV ?= "da3c0f0a33ac00f7138c695a16d90301cf7ec02b"
 PV = "6.12.57+git"
 
+SRC_URI += "file://0001-libbpf-Fix-Wdiscarded-qualifiers-under-C23.patch"
+
 KERNEL_REPRODUCIBILITY_PATCHES = " \
     file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
 "
