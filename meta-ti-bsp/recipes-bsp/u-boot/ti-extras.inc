@@ -7,6 +7,6 @@ BRANCH:tie-jailhouse:bsp-ti-6_12 = "ti-u-boot-2025.01-jailhouse"
 BRANCH:tie-jailhouse:bsp-ti-6_18 = "ti-u-boot-2026.01-jailhouse"
 
 SRCREV_uboot:tie-jailhouse:bsp-ti-6_12 = "e718bbcec3ebf663c021839753034a224be4cc53"
-SRCREV_uboot:tie-jailhouse:bsp-ti-6_18 = "257704a4a690f221064e0210028e8986a4b4ccae"
+SRCREV_uboot:tie-jailhouse:bsp-ti-6_18 = "cfac87057b6fed15c4be4f1d35bf0c4001807484"
 
 UBOOT_GIT_URI:tie-jailhouse = "git://git.ti.com/git/processor-sdk/u-boot.git"
