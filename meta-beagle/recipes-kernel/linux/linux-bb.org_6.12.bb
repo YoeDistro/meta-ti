@@ -65,3 +65,5 @@ PV:aarch64 = "6.12.43+git"
 BRANCH:aarch64 = "v6.12.43-ti-arm64-r54"
 
 KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
+
+SRC_URI += "file://0001-libbpf-Fix-Wdiscarded-qualifiers-under-C23.patch"
