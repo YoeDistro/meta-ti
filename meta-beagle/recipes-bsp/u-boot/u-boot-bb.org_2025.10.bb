@@ -17,3 +17,4 @@ SRCREV:pocketbeagle2 = "4e0b6294a1185029d34eff6ed91f3ad1734b643f"
 SRCREV:pocketbeagle2-k3r5 = "4e0b6294a1185029d34eff6ed91f3ad1734b643f"
 
 SRC_URI:append:pocketbeagle2 = " file://bootcmd-ti-mmc.cfg"
+SRC_URI:append:beaglebone = " file://0001-arm-dts-am335x-pocketbeagle-Add-tick-timer.patch"

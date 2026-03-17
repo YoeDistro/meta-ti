@@ -1,0 +1,28 @@
+From 55ee5fecd68d0858ba6743137162252adedf2f72 Mon Sep 17 00:00:00 2001
+From: Leon Anavi <leon.anavi@konsulko.com>
+Date: Mon, 16 Mar 2026 18:34:58 +0000
+Subject: [PATCH] arm: dts: am335x-pocketbeagle: Add tick-timer
+
+Add a binding for the tick-timer for PocketBeagle.
+
+Upstream-Status: Pending [https://lists.denx.de/pipermail/u-boot/2026-January/608684.html]
+
+Signed-off-by: Leon Anavi <leon.anavi@konsulko.com>
+---
+ arch/arm/dts/am335x-pocketbeagle.dts | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/dts/am335x-pocketbeagle.dts b/arch/arm/dts/am335x-pocketbeagle.dts
+index b379e3a5570..02e3aac5606 100644
+--- a/arch/arm/dts/am335x-pocketbeagle.dts
++++ b/arch/arm/dts/am335x-pocketbeagle.dts
+@@ -15,6 +15,7 @@
+
+	chosen {
+		stdout-path = &uart0;
++		tick-timer = &timer2;
+	};
+
+	leds {
+--
+2.53.0
