@@ -30,4 +30,4 @@ OPTEEMACHINE = "k3-am64x"
 
 MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "prueth-fw pruhsr-fw prusw-fw pruprp-fw"
 
-TI_WKS_BOOTLOADER_APPEND = "console=ttyS2,115200n8"
+SERIAL_CONSOLES = "115200;ttyS2"

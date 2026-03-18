@@ -51,7 +51,7 @@ MACHINE_FEATURES += "efi"
 
 WKS_FILE ?= "${@bb.utils.contains("MACHINE_FEATURES", "efi", "sdimage-2part-efi.wks.in", "sdimage-2part.wks", d)}"
 
-TI_WKS_BOOTLOADER_APPEND ?= ""
+TI_WKS_BOOTLOADER_APPEND ?= "console=${KERNEL_CONSOLE}"
 
 do_image_wic[depends] += "virtual/bootloader:do_deploy"
 
