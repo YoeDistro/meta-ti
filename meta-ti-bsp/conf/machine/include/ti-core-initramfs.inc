@@ -5,7 +5,7 @@
 #   TI_CORE_INITRAMFS_ENABLED = "0"
 #
 #------------------------------------------------------------------------------
-TI_CORE_INITRAMFS_ENABLED ?= "${@ '1' if d.getVar('TI_CORE_INITRAMFS_KERNEL_MODULES') or d.getVar('TI_CORE_INITRAMFS_EXTRA_INSTALL') else '0'}"
+TI_CORE_INITRAMFS_ENABLED ?= "${@ '1' if d.getVar('TI_CORE_INITRAMFS_KERNEL_MODULES') or d.getVar('TI_CORE_INITRAMFS_EXTRA_INSTALL') or bb.utils.contains('DISTRO_FEATURES', 'luks', True, False, d) else '0'}"
 
 TI_CORE_INITRAMFS_KERNEL_MODULES ?= ""
 TI_CORE_INITRAMFS_EXTRA_INSTALL ?= ""
