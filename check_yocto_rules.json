@@ -20,7 +20,8 @@
             "meta-ti-bsp/recipes-security/optee/optee-%.bbappend",
             "meta-ti-bsp/dynamic-layers/openembedded-layer/recipes-bsp/u-boot/u-boot-ti-%.bbappend",
             "meta-ti-bsp/dynamic-layers/openembedded-layer/recipes-ti/initramfs/packagegroup-ti-core-initramfs.bbappend",
-            "meta-ti-bsp/dynamic-layers/tpm-layer/recipes-ti/initramfs/packagegroup-ti-core-initramfs.bbappend"
+            "meta-ti-bsp/dynamic-layers/tpm-layer/recipes-ti/initramfs/packagegroup-ti-core-initramfs.bbappend",
+            "meta-ti-bsp/dynamic-layers/tpm-layer/recipes-ti/initramfs/ti-core-initramfs.bbappend"
         ]
     },
     "GUARD-2" : {
