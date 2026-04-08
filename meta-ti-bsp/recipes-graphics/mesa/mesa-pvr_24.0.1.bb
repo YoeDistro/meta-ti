@@ -19,6 +19,7 @@ SRC_URI = " \
     file://0002-glxext-don-t-try-zink-if-not-enabled-in-mesa.patch \
     file://0001-gallivm-Call-StringMapIterator-from-llvm-scope.patch \
     file://0001-Update-lp_bld_misc.cpp-to-support-llvm-19.patch \
+    file://0001-gallivm-Fix-armhf-build-against-LLVM-22.patch \
 "
 
 SRCREV = "7c82c1eebc67f5a62a347a84d42fe795cf7f523b"
