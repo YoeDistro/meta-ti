@@ -55,7 +55,7 @@ TI_WKS_BOOTLOADER_APPEND ?= "console=${KERNEL_CONSOLE}"
 
 do_image_wic[depends] += "virtual/bootloader:do_deploy"
 
-SERIAL_CONSOLES = "115200;ttyS0 115200;ttyS2"
+SERIAL_CONSOLES = "115200;ttyS2 115200;ttyS0"
 
 FALCON_INCLUDE = ""
 FALCON_INCLUDE:ti-falcon = "conf/machine/include/ti-falcon.inc"
