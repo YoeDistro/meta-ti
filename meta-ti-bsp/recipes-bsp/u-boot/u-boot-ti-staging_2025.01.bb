@@ -4,6 +4,6 @@ PR = "r0"
 
 BRANCH = "ti-u-boot-2025.01"
 
-SRCREV_uboot = "7b9dedb046eb6a720997f61582c7b13da1b5b9f0"
+SRCREV_uboot = "19795f63be7ee27e38b6e800ff6c88a2feaae13f"
 
 SRC_URI += "file://0001-binman-migrate-form-pkg_resources-to-importlib.patch"

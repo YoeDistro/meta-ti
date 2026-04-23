@@ -21,7 +21,7 @@ S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 BRANCH ?= "ti-linux-6.12.y"
 
-SRCREV ?= "da3c0f0a33ac00f7138c695a16d90301cf7ec02b"
+SRCREV ?= "c52c5589aab8c376f975b1feb7b8746b7b6624bd"
 PV = "6.12.57+git"
 
 SRC_URI += "file://0001-libbpf-Fix-Wdiscarded-qualifiers-under-C23.patch"
