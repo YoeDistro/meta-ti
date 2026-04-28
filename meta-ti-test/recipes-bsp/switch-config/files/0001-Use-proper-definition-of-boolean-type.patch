@@ -1,0 +1,33 @@
+From 5190913c7a86cd36b91dc3a6ff4c1eb22ea6375e Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@konsulko.com>
+Date: Tue, 6 May 2025 12:52:14 -0400
+Subject: [PATCH] Use proper definition of boolean type
+
+Newer versions of GCC and C standard have bool as a built-in
+keyword - use a standard stdbool.h header to properly handle it.
+
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Denys Dmytriyenko <denys@konsulko.com>
+---
+ switch-config.c | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/switch-config.c b/switch-config.c
+index d31a237..5b5db3a 100644
+--- a/switch-config.c
++++ b/switch-config.c
+@@ -13,10 +13,7 @@
+  * GNU General Public License for more details.
+  */
+
+-#define true 1
+-#define false 0
+-typedef int bool;
+-
++#include <stdbool.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <unistd.h>
+--
+2.25.1
