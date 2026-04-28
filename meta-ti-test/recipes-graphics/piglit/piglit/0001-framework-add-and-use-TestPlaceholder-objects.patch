@@ -1,0 +1,128 @@
+From 2803263ccf460ced705fd4da589e2f09e3ec89d7 Mon Sep 17 00:00:00 2001
+From: Randolph Sapp <rs@ti.com>
+Date: Wed, 13 Aug 2025 17:52:42 -0500
+Subject: [PATCH] framework: add and use TestPlaceholder objects
+
+The actual Test classes are not that big, but with deqp-vk creating
+around 2800 instances currently, we quickly consume around 3GB of ram
+before beginning any tests. Given that a lot of these objects may not
+even be used, we can reduce memory overhead by using a placeholder
+namedtuple that is expanded to a full Test instance when requested from
+the TestDict class. This cuts the initial memory usage back to 1.6 GB.
+
+This does add a small lookup penalty, but given the lookup penalty is
+still smaller that the time it takes to create an instance of a Test, it
+results in a net improvement for most subsets of deqp tests. Not to
+mention this penalty can be split between threads, unlike previously
+when it was occurring in the single-threadded profile creation step.
+
+The following data was collected using a subset of 3151 deqp-vk tests:
+
+Threads   Test Execution Time (s)   TestPlaceholder Execution Time (s)
+-------   -----------------------   ----------------------------------
+1         2613.93                   2599.95
+8          413.31                    400.01
+32         299.75                    286.73
+
+Upstream-Status: Submitted [https://gitlab.freedesktop.org/mesa/piglit/-/merge_requests/1032]
+Signed-off-by: Randolph Sapp <rs@ti.com>
+---
+ framework/profile.py   | 23 ++++++++++++++++++-----
+ framework/test/base.py |  3 +++
+ framework/test/deqp.py |  4 ++--
+ 3 files changed, 23 insertions(+), 7 deletions(-)
+
+diff --git a/framework/profile.py b/framework/profile.py
+index 678e9d87c..969e0032e 100644
+--- a/framework/profile.py
++++ b/framework/profile.py
+@@ -45,7 +45,7 @@ from framework import grouptools, exceptions, status
+ from framework.dmesg import get_dmesg
+ from framework.log import LogManager
+ from framework.monitoring import Monitoring
+-from framework.test.base import Test, DummyTest
++from framework.test.base import Test, DummyTest, TestPlaceholder
+ from framework.test.piglit_test import (
+     PiglitCLTest, PiglitGLTest, ASMParserTest, BuiltInConstantsTest,
+     CLProgramTester, VkRunnerTest, ROOT_DIR,
+@@ -135,9 +135,9 @@ class TestDict(collections.abc.MutableMapping):
+                 "TestDict keys must be strings, but was {}".format(type(key)))
+
+         # Values should either be more Tests
+-        if not isinstance(value, Test):
++        if not (isinstance(value, Test) or isinstance(value, TestPlaceholder)):
+             raise exceptions.PiglitFatalError(
+-                "TestDict values must be a Test, but was a {}".format(
++                "TestDict values must be a Test or TestPlaceholder, but was a {}".format(
+                     type(value)))
+
+         # This must be lowered before the following test, or the test can pass
+@@ -164,8 +164,21 @@ class TestDict(collections.abc.MutableMapping):
+         self.__container[key] = value
+
+     def __getitem__(self, key):
+-        """Lower the value before returning."""
+-        return self.__container[key.lower()]
++        """Lower the value before returning. Remove placeholders as needed."""
++        item = self.__container[key.lower()]
++        if isinstance(item, TestPlaceholder):
++            try:
++                real_item = item.test_class(item.test_name)
++            except TypeError:
++                raise exceptions.PiglitFatalError(
++                    "Unable to expand the TestPlaceholder for the class: {}\n"
++                    "This was associated with the following key: {}".format(
++                        type(item), key
++                    )
++                )
++            self.__container[key.lower()] = real_item
++            return real_item
++        return item
+
+     def __delitem__(self, key):
+         """Lower the value before returning."""
+diff --git a/framework/test/base.py b/framework/test/base.py
+index 430064b9b..0efa38336 100644
+--- a/framework/test/base.py
++++ b/framework/test/base.py
+@@ -24,6 +24,7 @@
+ """ Module provides a base class for Tests """
+
+ import abc
++import collections
+ import copy
+ import errno
+ import itertools
+@@ -97,6 +98,8 @@ def is_crash_returncode(returncode):
+         return returncode < 0
+
+
++TestPlaceholder = collections.namedtuple('TestPlaceholder', ['test_class', 'test_name'])
++
+ class Test(metaclass=abc.ABCMeta):
+     """ Abstract base class for Test classes
+
+diff --git a/framework/test/deqp.py b/framework/test/deqp.py
+index 849ffbd96..ccfeaeff2 100644
+--- a/framework/test/deqp.py
++++ b/framework/test/deqp.py
+@@ -26,7 +26,7 @@ import subprocess
+ from framework import core, grouptools, exceptions
+ from framework import options
+ from framework.profile import TestProfile
+-from framework.test.base import Test, is_crash_returncode, TestRunError
++from framework.test.base import Test, is_crash_returncode, TestRunError, TestPlaceholder
+
+ __all__ = [
+     'DEQPBaseTest',
+@@ -56,7 +56,7 @@ def make_profile(test_list, test_class):
+     for testname in test_list:
+         # deqp uses '.' as the testgroup separator.
+         piglit_name = testname.replace('.', grouptools.SEPARATOR)
+-        profile.test_list[piglit_name] = test_class(testname)
++        profile.test_list[piglit_name] = TestPlaceholder(test_class, testname)
+
+     return profile
+
+--
+2.50.1
