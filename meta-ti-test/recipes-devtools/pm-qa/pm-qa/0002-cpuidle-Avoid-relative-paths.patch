@@ -1,0 +1,58 @@
+From: Carlos Hernandez <ceh@ti.com>
+Subject: [meta-arago][linaro pm-qa PATCH 2/2] cpuidle: Avoid relative paths
+Date: Thu, 13 Aug 2015 15:03:01 -0400
+
+Instead of assuming location of files in the filesystem by using
+relative paths, call binary and let $PATH find binary location.
+
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Carlos Hernandez <ceh@ti.com>
+---
+ cpuidle/cpuidle_02.sh | 2 +-
+ cpuidle/cpuidle_03.sh | 2 +-
+ include/functions.sh  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/cpuidle/cpuidle_02.sh b/cpuidle/cpuidle_02.sh
+index 4242e241926e..111fa67ff110 100755
+--- a/cpuidle/cpuidle_02.sh
++++ b/cpuidle/cpuidle_02.sh
+@@ -27,7 +27,7 @@
+ 
+ . ../include/functions.sh
+ 
+-CPUIDLE_KILLER=./cpuidle_killer
++CPUIDLE_KILLER=cpuidle_killer
+ 
+ check "cpuidle program runs successfully (120 secs)" "$CPUIDLE_KILLER"
+ test_status_show
+diff --git a/cpuidle/cpuidle_03.sh b/cpuidle/cpuidle_03.sh
+index d82e5e348c90..f79cf894eade 100755
+--- a/cpuidle/cpuidle_03.sh
++++ b/cpuidle/cpuidle_03.sh
+@@ -27,7 +27,7 @@
+ 
+ . ../include/functions.sh
+ 
+-CPUIDLE_KILLER=./cpuidle_killer
++CPUIDLE_KILLER=cpuidle_killer
+ 
+ is_root
+ if [ $? -ne 0 ]; then
+diff --git a/include/functions.sh b/include/functions.sh
+index 0b054776b763..62747481fe5c 100644
+--- a/include/functions.sh
++++ b/include/functions.sh
+@@ -23,7 +23,7 @@
+ #       - initial API and implementation
+ #
+ 
+-. ../Switches/Switches.sh
++#. ../Switches/Switches.sh
+ 
+ CPU_PATH="/sys/devices/system/cpu"
+ TEST_NAME=$(basename ${0%.sh})
+-- 
+2.4.4
+

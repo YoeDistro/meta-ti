@@ -1,0 +1,49 @@
+From 5907227ad86a93b084a52a7ff8dd8cb791c228a5 Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Mon, 27 Apr 2026 11:02:32 -0500
+Subject: [PATCH] include/mk: Fix installing subdirs
+
+When installing sub directories, the INSTALL_MODE was being used for the
+dirs as well.  But in runtest/Makefile the INSTALL_MODE is being set to
+00644.  This causes the ddt dir to lose the execute bits and stop acting
+like a directory.
+
+Simple fix is create INSTALL_MODE_DIR and use it when installing
+directories.
+
+Upstream-Status: Pending
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ include/mk/env_post.mk  | 1 +
+ include/mk/functions.mk | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/include/mk/env_post.mk b/include/mk/env_post.mk
+index ab31da73a..c2e85439a 100644
+--- a/include/mk/env_post.mk
++++ b/include/mk/env_post.mk
+@@ -58,6 +58,7 @@ INSTALL_TARGETS			:= $(patsubst $(abs_srcdir)/%,%,$(INSTALL_TARGETS))
+ # The large majority of the files that we install are going to be apps and
+ # scripts, so let's chmod them like that.
+ INSTALL_MODE			?= 00775
++INSTALL_MODE_DIR		?= 00775
+ 
+ $(abspath $(addprefix $(DESTDIR)/$(INSTALL_DIR)/,$(sort $(dir $(INSTALL_TARGETS) $(MAKE_TARGETS))))):
+ 	mkdir -p "$@"
+diff --git a/include/mk/functions.mk b/include/mk/functions.mk
+index 60dbed395..8e4bc973c 100644
+--- a/include/mk/functions.mk
++++ b/include/mk/functions.mk
+@@ -18,7 +18,7 @@ INSTALL_FILES		+= $$(abspath $$(DESTDIR)/$(3)/$(1))
+ 
+ $$(abspath $$(DESTDIR)/$(3)/$(1)): \
+     $$(abspath $$(dir $$(DESTDIR)/$(3)/$(1)))
+-	install -m $$(INSTALL_MODE) $(shell test -d "$(2)/$(1)" && echo "-d") $(PARAM) "$(2)/$(1)" $$@
++	install $(shell test -d "$(2)/$(1)" || echo "-m $(INSTALL_MODE)") $(shell test -d "$(2)/$(1)" && echo "-m $(INSTALL_MODE_DIR) -d") $(PARAM) "$(2)/$(1)" $$@
+ 	$(shell test -d "$(2)/$(1)" && echo "install -m "'$$(INSTALL_MODE) $(PARAM)' "$(2)/$(1)/*" -t '$$@')
+ endef
+ 
+-- 
+2.43.0
+

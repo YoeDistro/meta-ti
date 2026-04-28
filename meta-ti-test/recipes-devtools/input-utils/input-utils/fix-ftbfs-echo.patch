@@ -1,0 +1,21 @@
+Description: Fix FTBFS due to -e leaking into Make.config
+ If /bin/sh is configured to point to dash, echo does not support -e switch
+ which is used by mk/Autoconf.mk file to generate Make.config. Use 'env echo'
+ instead.
+Author: Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
+Bug-Debian: http://bugs.debian.org/750265
+Forwarded: no
+Last-Update: 2014-07-09
+Upstream-Status: Inactive-Upstream [lastrelease: 2008-2012]
+
+--- input-utils-1.0.orig/mk/Autoconf.mk
++++ input-utils-1.0/mk/Autoconf.mk
+@@ -162,7 +162,7 @@ config: Make.config
+	@true
+
+ Make.config: $(srcdir)/GNUmakefile
+-	@echo -e "$(make-config-q)" > $@
++	@env echo -e "$(make-config-q)" > $@
+	@echo
+	@echo "Make.config written, edit if needed"
+	@echo

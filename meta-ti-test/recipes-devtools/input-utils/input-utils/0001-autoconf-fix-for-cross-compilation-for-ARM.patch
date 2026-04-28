@@ -1,0 +1,69 @@
+From fb1bbf8342c4a87380964465443bbb4b61dc0259 Mon Sep 17 00:00:00 2001
+From: Chase Maupin <Chase.Maupin@ti.com>
+Date: Tue, 5 Nov 2013 05:22:10 -0600
+Subject: [PATCH] autoconf: fix for cross compilation for ARM
+
+* Based on changes from Yebio Mesfin fixup the input-utils to
+  cross compile for ARM.
+
+Upstream-Status: Inappropriate [oe specific]
+
+Signed-off-by: Chase Maupin <Chase.Maupin@ti.com>
+---
+ mk/Autoconf.mk  |    8 ++++++--
+ mk/Variables.mk |    4 ++--
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/mk/Autoconf.mk b/mk/Autoconf.mk
+index 7608ea5..95999cc 100644
+--- a/mk/Autoconf.mk
++++ b/mk/Autoconf.mk
+@@ -47,11 +47,13 @@ ac_uname = $(shell \
+ 	$(call ac_s_cmd,uname -s | tr 'A-Z' 'a-z');\
+ 	$(call ac_fini))
+ 
+-ac_uname_arch = $(shell \
++#ac_uname_arch = $(shell \
+ 	$(call ac_init,for arch);\
+ 	$(call ac_s_cmd,uname -m | tr 'A-Z' 'a-z');\
+ 	$(call ac_fini))
+ 
++ac_uname_arch = arm
++
+ # check for some header file
+ # args: header file
+ ac_header = $(shell \
+@@ -108,12 +110,14 @@ ac_binary = $(shell \
+ #	$(call ac_s_cmd,$(CC) -print-search-dirs | grep -q lib64 &&\
+ #		echo "lib64" || echo "lib");\
+ #	$(call ac_fini))
+-ac_lib64 = $(shell \
++#ac_lib64 = $(shell \
+ 	$(call ac_init,for libdir name);\
+ 	$(call ac_s_cmd,/sbin/ldconfig -p | grep -q lib64 &&\
+ 		echo "lib64" || echo "lib");\
+ 	$(call ac_fini))
+ 
++ac_lib64 = gcc
++
+ # check for x11 ressource dir prefix
+ ac_resdir = $(shell \
+ 	$(call ac_init,for X11 app-defaults prefix);\
+diff --git a/mk/Variables.mk b/mk/Variables.mk
+index 99f787c..fd47f73 100644
+--- a/mk/Variables.mk
++++ b/mk/Variables.mk
+@@ -24,8 +24,8 @@ endif
+ RELTAG	:= v$(subst .,_,$(VERSION))
+ 
+ # programs
+-CC		?= gcc
+-CXX		?= g++
++CC		?= $(CROSS_COMPILE)gcc
++CXX		?= $(CROSS_COMPILE)g++
+ MOC             ?= $(if $(QTDIR),$(QTDIR)/bin/moc,moc)
+ 
+ STRIP		?= -s
+-- 
+1.7.0.4
+

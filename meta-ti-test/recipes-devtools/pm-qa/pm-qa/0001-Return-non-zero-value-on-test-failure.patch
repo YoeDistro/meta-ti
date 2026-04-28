@@ -1,0 +1,28 @@
+From: Carlos Hernandez <ceh@ti.com>
+Subject: [meta-arago][linaro pm-qa PATCH 1/2] Return non-zero value on test failure
+Date: Thu, 13 Aug 2015 15:03:00 -0400
+
+By convention Linux tools return non-zero value on error/failure.
+
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Carlos Hernandez <ceh@ti.com>
+---
+ include/functions.sh | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/functions.sh b/include/functions.sh
+index 518f555bbe3d..0b054776b763 100644
+--- a/include/functions.sh
++++ b/include/functions.sh
+@@ -54,6 +54,7 @@ test_status_show() {
+     echo " "
+     if [ "$test_script_status" = "fail" ]; then
+         echo "$TEST_NAME: fail"
++        exit 1
+     elif [ "$test_script_status" = "skip" ]; then
+         echo "$TEST_NAME: skip"
+     else
+-- 
+2.4.4
+

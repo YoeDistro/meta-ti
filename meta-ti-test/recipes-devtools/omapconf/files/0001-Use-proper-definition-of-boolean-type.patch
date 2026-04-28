@@ -1,0 +1,40 @@
+From c52280d923c167032a84f1c67574eb340e38572c Mon Sep 17 00:00:00 2001
+From: Denys Dmytriyenko <denys@konsulko.com>
+Date: Wed, 7 May 2025 17:03:20 -0400
+Subject: [PATCH] Use proper definition of boolean type
+
+Newer versions of GCC and C standard have bool as a built-in
+keyword - use a standard stdbool.h header to properly handle it.
+
+Upstream-Status: Inactive-Upstream
+
+Signed-off-by: Denys Dmytriyenko <denys@konsulko.com>
+---
+ arch/arm/mach-omap/common/statcoll/sci.h | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/arch/arm/mach-omap/common/statcoll/sci.h b/arch/arm/mach-omap/common/statcoll/sci.h
+index 4134c00..1a393b4 100644
+--- a/arch/arm/mach-omap/common/statcoll/sci.h
++++ b/arch/arm/mach-omap/common/statcoll/sci.h
+@@ -48,17 +48,11 @@
+ #ifndef SCI_H
+ #define SCI_H
+
++#include <stdbool.h>
+ #include <stdlib.h>
+ #include <stdint.h>		// The library uses C99 exact-width integer types
+ #include "sci_dev.h"
+
+-#if !defined(__bool_true_false_are_defined) && !defined(_STM_Logging)
+-typedef enum {
+-	false = 0,
+-	true = 1
+-} bool;
+-#endif
+-
+ #ifdef _STM_Logging
+ #include "StmLibrary.h"
+ #endif
+--
+2.25.1
