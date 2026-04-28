@@ -1,0 +1,42 @@
+From 9b649be4876a3e42c44e57013840904006530e52 Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Tue, 17 Feb 2026 15:11:18 -0600
+Subject: [PATCH] xdpsock: Fix 32bit compile error
+
+Using UINT64_MAX on a 32bit machine results in a compile error where
+unsigned long cannot be cast to an unsigned long long.  Since this is
+trying to handle an error case and return a big number, switch to
+ULONG_MAX to match the type being returned regardless of the compiler
+bits (32/64).
+
+Upstream-Status: Submitted [https://github.com/xdp-project/xdp-tools/pull/553]
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ lib/util/xdpsock.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/lib/util/xdpsock.c b/lib/util/xdpsock.c
+index 5d71e6a..899c3a3 100644
+--- a/lib/util/xdpsock.c
++++ b/lib/util/xdpsock.c
+@@ -35,6 +35,7 @@
+ #include <time.h>
+ #include <unistd.h>
+ #include <sched.h>
++#include <limits.h>
+ 
+ #include <xdp/xsk.h>
+ #include <xdp/libxdp.h>
+@@ -171,7 +172,7 @@ static unsigned long get_nsecs(clockid_t clock)
+ 	res = clock_gettime(clock, &ts);
+ 	if (res < 0) {
+ 		pr_warn("Error with gettimeofday! (%i)\n", res);
+-		return UINT64_MAX;
++		return ULONG_MAX;
+ 	}
+ 	return ts.tv_sec * 1000000000UL + ts.tv_nsec;
+ }
+-- 
+2.43.0
+
