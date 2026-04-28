@@ -21,7 +21,12 @@
             "meta-ti-bsp/dynamic-layers/openembedded-layer/recipes-bsp/u-boot/u-boot-ti-%.bbappend",
             "meta-ti-bsp/dynamic-layers/openembedded-layer/recipes-ti/initramfs/packagegroup-ti-core-initramfs.bbappend",
             "meta-ti-bsp/dynamic-layers/tpm-layer/recipes-ti/initramfs/packagegroup-ti-core-initramfs.bbappend",
-            "meta-ti-bsp/dynamic-layers/tpm-layer/recipes-ti/initramfs/ti-core-initramfs.bbappend"
+            "meta-ti-bsp/dynamic-layers/tpm-layer/recipes-ti/initramfs/ti-core-initramfs.bbappend",
+            "meta-ti-test/dynamic-layers/qt6-layer/recipes-core/packagegroups/ti-test.bbappend",
+            "meta-ti-test/dynamic-layers/flutter-layer/recipes-graphics/flutter/flutter-wayland-client_%.bbappend",
+            "meta-ti-test/dynamic-layers/flutter-layer/recipes-graphics/flutter/flutter-samples-material-3-demo_%.bbappend",
+            "meta-ti-test/recipes-benchmark/stream/stream_%.bbappend",
+            "meta-ti-test/recipes-extended/bc/bc_%.bbappend"
         ]
     },
     "GUARD-2" : {
