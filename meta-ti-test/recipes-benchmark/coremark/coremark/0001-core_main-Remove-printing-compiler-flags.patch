@@ -1,0 +1,41 @@
+From 0af4e2298ccacc8afc0294b7a731f0e866155427 Mon Sep 17 00:00:00 2001
+From: Ryan Eatmon <reatmon@ti.com>
+Date: Mon, 1 Dec 2025 12:21:23 -0600
+Subject: [PATCH] core_main: Remove printing compiler flags
+
+Reproducible builds do not like including anything that references the
+build environment on the host machine.  This would include printing out
+the COMPILER_FLAGS macro.  Substitute it with "".
+
+Upstream-Status: Inappropriate [OE-Specific]
+
+Signed-off-by: Ryan Eatmon <reatmon@ti.com>
+---
+ core_main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/core_main.c b/core_main.c
+index a4beeb6..f0ab87f 100644
+--- a/core_main.c
++++ b/core_main.c
+@@ -380,7 +380,7 @@ for (i = 0; i < MULTITHREAD; i++)
+     ee_printf("Iterations       : %lu\n",
+               (long unsigned)default_num_contexts * results[0].iterations);
+     ee_printf("Compiler version : %s\n", COMPILER_VERSION);
+-    ee_printf("Compiler flags   : %s\n", COMPILER_FLAGS);
++    ee_printf("Compiler flags   : %s\n", ""); //Reproducible build fix: COMPILER_FLAGS);
+ #if (MULTITHREAD > 1)
+     ee_printf("Parallel %s : %d\n", PARALLEL_METHOD, default_num_contexts);
+ #endif
+@@ -410,7 +410,7 @@ for (i = 0; i < MULTITHREAD; i++)
+                       default_num_contexts * results[0].iterations
+                           / time_in_secs(total_time),
+                       COMPILER_VERSION,
+-                      COMPILER_FLAGS);
++                      ""); //Reproducible build fix: COMPILER_FLAGS);
+ #if defined(MEM_LOCATION) && !defined(MEM_LOCATION_UNSPEC)
+             ee_printf(" / %s", MEM_LOCATION);
+ #else
+-- 
+2.43.0
+
