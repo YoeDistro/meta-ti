@@ -12,7 +12,6 @@ PREFERRED_PROVIDER_virtual/gpudriver ?= "${BSP_ROGUE_DRIVER_PROVIDER}"
 IMAGE_BOOT_FILES += "ti_logo_414x97_32bpp.bmp.gz"
 
 TFA_BOARD = "lite"
-TFA_K3_SYSTEM_SUSPEND = "1"
 
 OPTEEMACHINE = "k3-am62x"
 

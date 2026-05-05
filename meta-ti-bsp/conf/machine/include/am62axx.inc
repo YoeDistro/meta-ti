@@ -5,8 +5,6 @@ SOC_FAMILY:append = ":am62axx"
 
 MACHINE_FEATURES += "screen touchscreen"
 
-TFA_K3_SYSTEM_SUSPEND = "1"
-
 TFA_BOARD = "lite"
 OPTEEMACHINE = "k3-am62x"
 
