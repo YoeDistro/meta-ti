@@ -1,0 +1,47 @@
+From 12ecd8d4b5095c120efef76493546ead3f41ab5b Mon Sep 17 00:00:00 2001
+From: Derek Foreman <derek.foreman@collabora.com>
+Date: Wed, 27 May 2026 14:12:36 -0500
+Subject: [PATCH] surface-state: Fix assert firing when subsurfaces have no
+ views
+
+Upstream-Status: Submitted [https://gitlab.freedesktop.org/wayland/weston/-/merge_requests/2085]
+
+I've not been able to reproduce this, but have a report that this fires
+when running Chromium on aarch64.
+
+It seems plausible that we can get here when none of the subsurfaces have
+views, and thus the flag won't be set.
+
+Let's just remove the assert.
+
+Fixes 6a280a8f
+Fixes #1117
+
+Signed-off-by: Derek Foreman <derek.foreman@collabora.com>
+Signed-off-by: Thorsten Lannynd <t-lannynd@ti.com>
+---
+ libweston/surface-state.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/libweston/surface-state.c b/libweston/surface-state.c
+index 3c31a0aa..65dc70bb 100644
+--- a/libweston/surface-state.c
++++ b/libweston/surface-state.c
+@@ -268,7 +268,6 @@ weston_surface_attach(struct weston_surface *surface,
+ static void
+ weston_surface_apply_subsurface_order(struct weston_surface *surface)
+ {
+-	struct weston_compositor *comp = surface->compositor;
+	struct weston_subsurface *sub;
+	struct weston_view *view;
+
+@@ -279,7 +278,6 @@ weston_surface_apply_subsurface_order(struct weston_surface *surface)
+		wl_list_for_each(view, &sub->surface->views, surface_link)
+			weston_view_geometry_dirty(view);
+	}
+-	weston_assert_true(comp, comp->view_list_needs_rebuild);
+ }
+
+ /* Translate pending damage in buffer co-ordinates to surface
+--
+2.34.1
