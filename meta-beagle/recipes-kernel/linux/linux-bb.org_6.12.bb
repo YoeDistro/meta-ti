@@ -59,9 +59,10 @@ SRCREV:armv7a = "9e419b26243bd7efcd103ae0f6456f828592b34b"
 PV:armv7a = "6.12.34+git"
 BRANCH:armv7a = "v6.12.34-ti-arm32-r12"
 
-# 6.12.43 version for 64-bit
-SRCREV:aarch64 = "84c4b4613a852db269620a3fdfed65de90569fa1"
-PV:aarch64 = "6.12.43+git"
-BRANCH:aarch64 = "v6.12.43-ti-arm64-r54"
+# 6.12.57 version for 64-bit
+SRCREV:aarch64 = "2eea568f445af33f3280261904bf1027b02512d8"
+PV:aarch64 = "6.12.57+git"
+BRANCH:aarch64 = "v6.12.57-ti-arm64-r64"
 
 KERNEL_GIT_URI = "git://github.com/beagleboard/linux.git"
+
