@@ -1,27 +1,27 @@
 meta-ti-test provides an additional packagegroup ti-test and some of the recipes that go into that group
 
-This layer works with the latest Yocto Project release (currently 2.2+) and tracks
-the stable/maintenance branches (currently "master") of the corresponding layers:
+This layer works with the latest Yocto Project Wrynose 6.0 release and tracks
+the stable/maintenance "wrynose" branches of the corresponding layers:
 
-URI: git://git.openembedded.org/openembedded-core
-branch: master
+URI: https://git.openembedded.org/openembedded-core
+branch: wrynose
 revision: HEAD
 layers: meta
 
-URI: git://git.yoctoproject.org/meta-ti
-branch: master
+URI: https://git.yoctoproject.org/meta-ti
+branch: wrynose
 revision: HEAD
-layers: meta-ti-bsp, meta-ti-extras
+layers: meta-ti-bsp
 
-URI: git://git.yoctoproject.org/meta-arm
-branch: master
+URI: https://git.yoctoproject.org/meta-arm
+branch: wrynose
 revision: HEAD
-layers: meta-arm, meta-arm-toolchain
+layers: meta-arm
 
-URI: git://git.openembedded.org/meta-openembedded
-branch: master
+URI: https://git.openembedded.org/meta-openembedded
+branch: wrynose
 revision: HEAD
-layers: meta-oe, meta-networking, meta-python
+layers: meta-oe, meta-networking, meta-filesystems, meta-python
 
 Send pull requests, patches, comments or questions to:
 meta-ti@lists.yoctoproject.org
