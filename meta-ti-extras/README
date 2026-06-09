@@ -1,20 +1,21 @@
 OpenEmbedded/Yocto layer that extends and supplements Texas Instruments BSP layer.
 
-It is hosted on http://git.yoctoproject.org/cgit/cgit.cgi/meta-ti/ with the
-source repository at git://git.yoctoproject.org/meta-ti
+The source repository is hosted at https://git.yoctoproject.org/meta-ti
 
 
 This layer depends on:
 
-URI: git://git.openembedded.org/openembedded-core
+URI: https://git.openembedded.org/openembedded-core
+branch: master
+revision: HEAD
 layers: meta
-branch: master
 
-URI: git://git.yoctoproject.org/meta-arm
+URI: https://git.yoctoproject.org/meta-arm
+branch: master
+revision: HEAD
 layers: meta-arm
-branch: master
 
-URI: git://git.yoctoproject.org/meta-ti
+URI: https://git.yoctoproject.org/meta-ti
 branch: master
 revision: HEAD
 layers: meta-ti-bsp
