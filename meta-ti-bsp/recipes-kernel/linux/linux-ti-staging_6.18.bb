@@ -46,3 +46,9 @@ SRC_URI:append:k3 = " \
 KERNEL_CONFIG_FRAGMENTS:append:k3 = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'luks', '${UNPACKDIR}/luks-ftpm.cfg', '', d)} \
 "
+
+SRC_URI:append:tie-test-builds = " file://0001-dtbo-test.patch"
+
+do_compile:prepend:tie-test-builds () {
+    echo "dtb-\$(CONFIG_ARCH_K3) += k3-am62x-sk-lpm-wkup-sources-test.dtbo" >> ${S}/arch/arm64/boot/dts/ti/Makefile
+}

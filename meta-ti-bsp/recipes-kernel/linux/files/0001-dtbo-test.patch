@@ -1,0 +1,179 @@
+Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Mailbox
+ Transport; Mon, 1 Jun 2026 05:43:07 -0500
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE208.ent.ti.com
+ (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 1 Jun
+ 2026 05:43:07 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Mon, 1 Jun 2026 05:43:07 -0500
+Received: from a0497641-HP-Z2-Tower-G9-Workstation-Desktop-PC.dhcp.ti.com (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.50.71])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 651Ah6pI855587;
+	Mon, 1 Jun 2026 05:43:06 -0500
+From: Neha Malcom Francis <n-francis@ti.com>
+To: <reatmon@ti.com>, <n-francis@ti.com>
+Subject: [systest POC PATCH] arm64: boot: dts: ti: Create a test DTSO for AM63x LPM WKUP
+Date: Mon, 1 Jun 2026 16:13:05 +0530
+Message-ID: <20260601104305.97481-1-n-francis@ti.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Return-Path: n-francis@ti.com
+X-MS-Exchange-Organization-Network-Message-Id: 09f62d87-9de8-4dfe-a25f-08debfca9168
+X-MS-Exchange-Organization-AuthSource: DFLE211.ent.ti.com
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 10
+Content-Type: text/plain
+X-MS-Exchange-Organization-AVStamp-Enterprise: 1.0
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:00.2678787
+X-MS-Exchange-Processed-By-BccFoldering: 15.02.2562.037
+MIME-Version: 1.0
+
+Creating a test DTSO that can be used in LCPD-T11257 to verify the flow
+for moving out all test DTSOs from lcpd-test-builds to kernel.
+
+Upstream-Status: Pending
+
+Signed-off-by: Neha Malcom Francis <n-francis@ti.com>
+---
+ .../ti/k3-am62x-sk-lpm-wkup-sources-test.dtso | 125 ++++++++++++++++++
+ 1 file changed, 125 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am62x-sk-lpm-wkup-sources-test.dtso
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-lpm-wkup-sources-test.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-lpm-wkup-sources-test.dtso
+new file mode 100644
+index 000000000000..aae7c3017715
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-lpm-wkup-sources-test.dtso
+@@ -0,0 +1,125 @@
++// SPDX-License-Identifier: GPL-2.0
++/**
++ * AM62 family of devices can wakeup from Low Power Modes via
++ * multiple wakeup sources. This overlay enables MAIN GPIO, MCU GPIO,
++ * and MCU MCAN pins.
++ *
++ * Copyright (C) 2023 Texas Instruments Incorporated - http://www.ti.com/
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++
++#include "k3-pinctrl.h"
++
++&{/} {
++	gpio_key {
++		compatible = "gpio-keys";
++		autorepeat;
++		pinctrl-names = "default";
++		pinctrl-0 = <&main_gpio1_pins_default>;
++		switch {
++			label = "WKGPIO";
++			linux,code = <KEY_WAKEUP>;
++			interrupts-extended = <&main_gpio1 13 IRQ_TYPE_EDGE_RISING>,
++				<&main_pmx0 0x1ac>;
++			interrupt-names = "irq", "wakeup";
++		};
++	};
++
++	mcu_gpio_key {
++		compatible = "gpio-keys";
++			autorepeat;
++		pinctrl-names = "default";
++		pinctrl-0 = <&wake_mcugpio1_pins_default>;
++		interrupt-parent = <&mcu_gpio0>;
++		interrupts = <5 IRQ_TYPE_EDGE_RISING>;
++		switch {
++			label = "MCUGPIO";
++			linux,code = <143>;
++			gpios = <&mcu_gpio0 5 GPIO_ACTIVE_LOW>;
++			wakeup-source;
++		};
++	};
++};
++
++&main_pmx0 {
++	main_gpio1_pins_default: main-gpio1-pins-default {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x1ac, PIN_INPUT_PULLUP, 7) /* (D15) MCASP0_AFSR.GPIO1_13 */
++		>;
++	};
++};
++
++&mcu_pmx0 {
++	wake_mcugpio1_pins_default: wake-mcugpio1-pins-default {
++		pinctrl-single,pins = <
++			AM62X_MCU_IOPAD(0x0014, PIN_INPUT, 7) /* (A8) MCU_UART0_RXD.MCU_GPIO0_5 */
++		>;
++	};
++
++	mcu_mcan0_tx_pins_default: mcu-mcan0-tx-pins-default {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x034, PIN_OUTPUT, 0) /* (D6) MCU_MCAN0_TX */
++		>;
++	};
++
++	mcu_mcan0_rx_pins_default: mcu-mcan0-rx-pins-default {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x038, PIN_INPUT, 0) /* (B3) MCU_MCAN0_RX */
++		>;
++	};
++
++	mcu_mcan0_rx_pins_wakeup: mcu-mcan0-rx-pins-wakeup {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x038, PIN_INPUT | PIN_WKUP_EN, 0) /* (B3) MCU_MCAN0_RX */
++		>;
++	};
++
++	mcu_mcan1_tx_pins_default: mcu-mcan1-tx-pins-default {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x03c, PIN_OUTPUT, 0) /* (E5) MCU_MCAN1_TX */
++		>;
++	};
++
++	mcu_mcan1_rx_pins_default: mcu-mcan1-rx-pins-default {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x040, PIN_INPUT, 0) /* (D4) MCU_MCAN1_RX */
++		>;
++	};
++
++	mcu_mcan1_rx_pins_wakeup: mcu-mcan1-rx-pins-wakeup {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x040, PIN_INPUT | PIN_WKUP_EN, 0) /* (D4) MCU_MCAN1_RX */
++		>;
++	};
++};
++
++&mcu_gpio0 {
++	status = "okay";
++};
++
++&mcu_gpio_intr {
++	status = "okay";
++};
++
++&mcu_mcan0 {
++	pinctrl-names = "default", "wakeup";
++	pinctrl-0 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_default>;
++	pinctrl-1 = <&mcu_mcan0_tx_pins_default>, <&mcu_mcan0_rx_pins_wakeup>;
++	wakeup-source = "suspend", "poweroff";
++	status = "okay";
++};
++
++&mcu_mcan1 {
++	pinctrl-names = "default", "wakeup";
++	pinctrl-0 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_default>;
++	pinctrl-1 = <&mcu_mcan1_tx_pins_default>, <&mcu_mcan1_rx_pins_wakeup>;
++	wakeup-source = "suspend", "poweroff";
++	status = "okay";
++};
+-- 
+2.34.1
+
