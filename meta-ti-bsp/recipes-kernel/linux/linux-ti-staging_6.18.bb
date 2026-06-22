@@ -5,6 +5,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
 require recipes-kernel/linux/ti-kernel.inc
 
+# CVE exclusions
+include recipes-kernel/linux/cve-exclusion.inc
+
 inherit ${KERNEL_BASE_CLASS}
 
 require recipes-kernel/linux/setup-defconfig.inc
