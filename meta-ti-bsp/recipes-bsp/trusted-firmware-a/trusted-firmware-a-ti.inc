@@ -2,10 +2,10 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/trusted-firmware-a:"
 
-PV = "2.14+git"
+PV = "2.15+git"
 
 LIC_FILES_CHKSUM = "file://docs/license.rst;md5=6ed7bace7b0bc63021c6eba7b524039e"
-SRCREV_tfa = "76500ceaeefcda967d8a1f4e30bb04f9fe0425a2"
+SRCREV_tfa = "da738d5eae93af342fdc4995dd3c05acb4c9d757"
 SRC_URI_TRUSTED_FIRMWARE_A = "git://git.trustedfirmware.org/TF-A/trusted-firmware-a.git;protocol=https"
 SRCBRANCH = "master"
 
