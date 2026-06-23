@@ -8,7 +8,7 @@
             "meta-ti-bsp\\/recipes-graphics\\/mesa\\/mesa-pvr_\\S+\\.bb" : {
                 "skip_vars": [ "GALLIUMDRIVERS", "VULKAN_DRIVERS" ]
             },
-            "meta-ti-bsp\\/recipes-graphics\\/mesa\\/mesa-pvr\\.inc" : {
+            "meta-ti-bsp\\/recipes-graphics\\/mesa\\/mesa-pvr-\\S+\\.inc" : {
                 "skip_vars": [ "TOOLS", "TOOLS_DEPS", "GALLIUMDRIVERS", "VULKAN_DRIVERS" ]
             }
         }
