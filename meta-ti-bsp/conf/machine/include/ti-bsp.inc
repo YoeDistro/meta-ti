@@ -44,7 +44,7 @@ BSP_BOOTLOADER_VERSION:bsp-ti-6_18 = "2026.01%"
 
 BSP_ROGUE_DRIVER_PROVIDER:bsp-ti-6_18 = "ti-img-rogue-driver"
 BSP_ROGUE_DRIVER_VERSION:bsp-ti-6_18 = "26%"
-BSP_MESA_PVR_VERSION:bsp-ti-6_18 = "24%"
+BSP_MESA_PVR_VERSION:bsp-ti-6_18 = "25%"
 
 BSP_TI_K3_TFA_MOVE:bsp-ti-6_18 = "1"
 
