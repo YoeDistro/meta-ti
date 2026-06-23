@@ -14,18 +14,9 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://docs/license.rst;md5=ffe678546d4337b732cfd12262e6af11"
 
 PE = "2"
-
-SRC_URI = "https://archive.mesa3d.org/mesa-${PV}.tar.xz \
-           file://0001-meson-misdetects-64bit-atomics-on-mips-clang.patch \
-           file://0001-freedreno-don-t-encode-build-path-into-binaries.patch \
-"
-
-SRC_URI[sha256sum] = "097842f3e49d996868b38688db87b006f7d4541e93ce86d2f341d8b3e7be7c93"
 PV = "25.2.8"
 
 UPSTREAM_CHECK_GITTAGREGEX = "mesa-(?P<pver>\d+(\.\d+)+)"
-
-S = "${UNPACKDIR}/mesa-${PV}"
 
 #because we cannot rely on the fact that all apps will use pkgconfig,
 #make eglplatform.h independent of MESA_EGL_NO_X11_HEADER
