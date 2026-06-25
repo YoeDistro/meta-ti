@@ -5,6 +5,7 @@ LIC_FILES_CHKSUM = "file://libdce.h;beginline=1;endline=31;md5=0a398cf815b8b5f31
 inherit autotools pkgconfig
 
 DEPENDS = "libdrm ti-ipc"
+RDEPENDS:${PN} += "ipumm-fw"
 
 SRC_URI = "git://git.ti.com/git/omapzoom/libdce.git;protocol=https;branch=master"
 
