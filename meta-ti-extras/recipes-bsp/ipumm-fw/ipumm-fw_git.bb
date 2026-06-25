@@ -9,8 +9,6 @@ inherit features_check
 
 REQUIRED_MACHINE_FEATURES = "mmip"
 
-RDEPENDS:${PN} = "libdce"
-
 SRC_URI = "git://git.ti.com/git/ivimm/ipumm.git;protocol=https;branch=master"
 
 SRCREV = "df4c50aecc9aad7ab3eb1ca9ebacfe473fcad7c5"
