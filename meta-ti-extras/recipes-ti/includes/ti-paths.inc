@@ -3,7 +3,6 @@ installdir = "${datadir}/ti"
 export TOOLCHAIN_PATH ?= "${STAGING_DIR_NATIVE}${prefix_native}/bin/${TARGET_SYS}"
 
 # This is where do_install will put it
-export CE_INSTALL_DIR_RECIPE           = "${installdir}/ti-codec-engine-tree"
 export CODEC_INSTALL_DIR_RECIPE        = "${installdir}/ti-codecs-tree"
 export CODEGEN_ARM_INSTALL_DIR_RECIPE  = "${installdir}/ti-cgt470-tree"
 export CG_XML_INSTALL_DIR_RECIPE       = "${installdir}/ti-cg-xml-tree"
@@ -31,7 +30,6 @@ export XDAIS_INSTALL_DIR_RECIPE        = "${installdir}/ti-xdais-tree"
 export XDC_INSTALL_DIR_RECIPE          = "${installdir}/ti-xdctools-tree"
 
 # This is where the tools will end up in sysroot
-export CE_INSTALL_DIR           = "${STAGING_DIR_TARGET}${CE_INSTALL_DIR_RECIPE}"
 export CODEGEN_ARM_INSTALL_DIR  = "${STAGING_DIR_TARGET}${CODEGEN_ARM_INSTALL_DIR_RECIPE}"
 export CG_XML_INSTALL_DIR       = "${STAGING_DIR_NATIVE}${CG_XML_INSTALL_DIR_RECIPE}"
 export DSPLIB_C66_INSTALL_DIR   = "${STAGING_DIR_TARGET}${DSPLIB_C66_INSTALL_DIR_RECIPE}"
