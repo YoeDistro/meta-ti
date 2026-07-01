@@ -1,0 +1,55 @@
+From 96512412805f34ac6328290221c7ad83cde342b3 Mon Sep 17 00:00:00 2001
+From: Antonios Christidis <a-christidis@ti.com>
+Date: Fri, 26 Jun 2026 13:28:24 -0500
+Subject: [PATCH] test: New SDL_TESTS_SHARED_LIB option for dynamically linked
+ tests
+
+Introduce SDL_TESTS_SHARED_LIB to allow tests that expect dynamic linking
+to be built.
+
+Upstream-Status: Submitted [https://github.com/libsdl-org/SDL/pull/15907]
+
+Signed-off-by: Antonios Christidis <a-christidis@ti.com>
+---
+ test/CMakeLists.txt | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
+
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index 288645d73..8e5bd68d3 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -87,8 +87,17 @@ macro(add_sdl_test_executable TARGET)
+     endif()
+ endmacro()
+
+-if(NOT TARGET SDL2::SDL2-static)
+-    find_package(SDL2 2.0.23 REQUIRED COMPONENTS SDL2-static SDL2test)
++option(SDL_TESTS_SHARED_LIB "Link test executables against the shared SDL2 library" OFF)
++
++if(SDL_TESTS_SHARED_LIB)
++    set(SDL_SHARED ON)
++    if(NOT TARGET SDL2::SDL2)
++        find_package(SDL2 ${SDL_VERSION} REQUIRED COMPONENTS SDL2 SDL2test)
++    endif()
++else()
++    if(NOT TARGET SDL2::SDL2-static)
++        find_package(SDL2 ${SDL_VERSION} REQUIRED COMPONENTS SDL2-static SDL2test)
++    endif()
+ endif()
+
+ enable_testing()
+@@ -247,7 +256,11 @@ elseif(PS2)
+ elseif(IOS OR TVOS)
+     sdltest_link_librararies(SDL2::SDL2main SDL2::SDL2test SDL2::SDL2-static)
+ else()
+-    sdltest_link_librararies(SDL2::SDL2test SDL2::SDL2-static)
++    if(SDL_TESTS_SHARED_LIB)
++        sdltest_link_librararies(SDL2::SDL2test SDL2::SDL2)
++    else()
++        sdltest_link_librararies(SDL2::SDL2test SDL2::SDL2-static)
++    endif()
+ endif()
+
+ if(WINDOWS)
+--
+2.34.1
