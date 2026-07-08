@@ -5,7 +5,7 @@ require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 inherit update-alternatives
 
 LICENSE = "BSD-3-Clause"
-LIC_FILES_CHKSUM = "file://LICENCE.cnm;md5=df3992006621b797e36de43f36336e36"
+LIC_FILES_CHKSUM = "file://LICENSES/LICENCE.cnm;md5=df3992006621b797e36de43f36336e36"
 
 PV = "${CNM_WAVE521_FW_VERSION}"
 PR = "${INC_PR}.1"
