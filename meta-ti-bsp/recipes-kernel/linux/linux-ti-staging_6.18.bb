@@ -22,8 +22,8 @@ S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
 BRANCH ?= "ti-linux-6.18.y"
 
-SRCREV ?= "4615c56b34aafb8425404aaf864a925899783815"
-PV = "6.18.32+git"
+SRCREV ?= "8933766be737ed2cabb9466fce497b8bc8c1ce21"
+PV = "6.18.38+git"
 
 KERNEL_REPRODUCIBILITY_PATCHES = " \
     file://0001-perf-python-Fix-compile-for-32bit-platforms.patch \
