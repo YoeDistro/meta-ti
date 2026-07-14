@@ -3,8 +3,6 @@
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/piglit:"
 
-SRC_URI += "file://0001-framework-add-and-use-TestPlaceholder-objects.patch"
-
 PACKAGECONFIG[deqp-gles] = ",,,opengl-es-cts"
 PACKAGECONFIG[deqp-vk] = ",,,vulkan-cts"
 
