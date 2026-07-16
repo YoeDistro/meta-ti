@@ -11,6 +11,8 @@ INITRAMFS_FSTYPES = "cpio cpio.xz"
 
 INITRAMFS_MAXSIZE = "131072"
 
+IMAGE_OVERHEAD_FACTOR = "1.25"
+
 IMAGE_NAME = "ti-core-initramfs"
 
 export IMAGE_BASENAME = "${IMAGE_NAME}"
