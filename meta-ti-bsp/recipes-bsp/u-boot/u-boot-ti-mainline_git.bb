@@ -2,8 +2,8 @@ require u-boot-ti.inc
 
 SUMMARY = "Mainline U-Boot for TI devices"
 
-PV = "2026.04"
+PV = "2026.07"
 
 UBOOT_GIT_URI = "git://git.u-boot-project.org/u-boot/u-boot.git"
 
-SRCREV_uboot = "88dc2788777babfd6322fa655df549a019aa1e69"
+SRCREV_uboot = "ece349ade2973e220f524ce59e59711cc919263f"
