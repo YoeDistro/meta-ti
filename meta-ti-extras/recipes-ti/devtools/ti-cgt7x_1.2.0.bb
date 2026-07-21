@@ -6,7 +6,7 @@ applications for the C7000 DSP family. This includes tools such as: \
 compiler, linker, assembler, etc. This also includes C runtime \
 libraries and standard header files needed to produce a working DSP application."
 HOMEPAGE = "https://www-a.ti.com/downloads/sds_support/TICodegenerationTools/download.htm"
-LICENSE = "(TI-TSPA & Thai-Open-Source-Software-Center) & BSD-3-Clause & BSL-1.0 & Patrick-Powell & AFL-3.0 & MIT & BSD-2-Clause & PD"
+LICENSE = "AFL-3.0 AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT AND LicenseRef-PD AND LicenseRef-Patrick-Powell AND LicenseRef-TI-TSPA AND LicenseRef-Thai-Open-Source-Software-Center"
 
 LIC_FILES_CHKSUM = "file://ti-cgt-c7000_${PV}.STS/C7000_Code_Generation_Tools_1.x_manifest.html;md5=f1156d241d104c281bc64a6ec8eadc64"
 

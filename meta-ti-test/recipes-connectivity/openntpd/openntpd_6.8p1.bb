@@ -2,7 +2,7 @@ SUMMARY = "OpenNTPD is an implementation of the Network Time Protocol."
 DESCRIPTION = "OpenNTPD is a FREE, easy to use implementation of the Network Time Protocol."
 HOMEPAGE = "http://www.openntpd.org/"
 SECTION = "console/network"
-LICENSE = "BSD-3-Clause & ISC"
+LICENSE = "BSD-3-Clause AND ISC"
 LIC_FILES_CHKSUM = "file://COPYING;md5=fe922aad2b6ad1c359cf2adfdaaab1b6"
 
 PR = "r0"

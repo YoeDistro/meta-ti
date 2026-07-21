@@ -1,6 +1,6 @@
 SUMMARY = "Utilities and example programs for use with XDP"
 HOMEPAGE = "https://github.com/xdp-project/xdp-tools"
-LICENSE = "GPL-2.0-or-later & LGPL-2.1-or-later & BSD-2-Clause"
+LICENSE = "BSD-2-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=9ee53f8d06bbdb4c11b1557ecc4f8cd5 \
                     file://LICENSES/GPL-2.0;md5=994331978b428511800bfbd17eea3001 \
                     file://LICENSES/LGPL-2.1;md5=b370887980db5dd40659b50909238dbd \

@@ -1,6 +1,6 @@
 SUMMARY = "Stream Benchmark"
 HOMEPAGE = "http://www.cs.virginia.edu/stream/"
-LICENSE = "Stream_Benchmark_License"
+LICENSE = "LicenseRef-Stream-Benchmark-License"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=bca8cbe07976fe64c8946378d08314b0"
 SECTION = "system"
 

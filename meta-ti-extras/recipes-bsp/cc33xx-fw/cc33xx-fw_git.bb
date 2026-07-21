@@ -1,5 +1,5 @@
 SUMMARY = "Firmware files for use with TI cc33xx"
-LICENSE = "TI-TSPA"
+LICENSE = "LicenseRef-TI-TSPA"
 LIC_FILES_CHKSUM = "file://LICENCE;md5=df68504cbd0a4da1643ebcfd5783dbc9"
 
 SRCREV = "0b4f850d6c0fd8e0fe0ae1d3e80ac6733aced29b"

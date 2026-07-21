@@ -1,6 +1,6 @@
 SUMMARY = "Firmware for IPU to support Accelerated MM decode and encode"
 
-LICENSE = "TI-TSPA"
+LICENSE = "LicenseRef-TI-TSPA"
 LIC_FILES_CHKSUM = "file://LICENCE.ti-tspa;md5=a1b59cb7ba626b9dbbcbf00f3fbc438a"
 
 COMPATIBLE_MACHINE = "am57xx"

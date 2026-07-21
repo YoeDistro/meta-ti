@@ -2,7 +2,7 @@ SUMMARY = "Cadence MHDP DP bridge firmware"
 
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc
 
-LICENSE = "BSD-3-Clause | Apache-2.0"
+LICENSE = "Apache-2.0 OR BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSES/LICENCE.cadence;md5=009f46816f6956cfb75ede13d3e1cee0"
 
 PV = "${CADENCE_MHDP_FW_VERSION}"

@@ -1,6 +1,6 @@
 SUMMARY =  "Kernel drivers for the PowerVR Rogue GPU found in the TI SoCs"
 HOMEPAGE = "http://git.ti.com/graphics/ti-img-rogue-driver"
-LICENSE = "MIT | GPL-2.0-only"
+LICENSE = "GPL-2.0-only OR MIT"
 LIC_FILES_CHKSUM = "file://README;beginline=14;endline=19;md5=0403c7dea01a2b8232261e805325fac2"
 
 inherit module

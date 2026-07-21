@@ -1,6 +1,6 @@
 SUMMARY = "PKA prebuilt binary firmware image"
 
-LICENSE = "TI-TFL & INSIDE-Secure"
+LICENSE = "LicenseRef-INSIDE-Secure AND LicenseRef-TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENCE.pka_fw;md5=dc20391b287874f0dce069cf87917206"
 
 COMPATIBLE_MACHINE = "k3"

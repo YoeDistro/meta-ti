@@ -1,6 +1,6 @@
 SUMMARY = "Common include for TI Linux firmware"
 
-LICENSE = "TI-TFL"
+LICENSE = "LicenseRef-TI-TFL"
 LIC_FILES_CHKSUM = "file://LICENSE.ti;md5=b5aebf0668bdf95621259288c4a46d76"
 
 PV = "2022.01"

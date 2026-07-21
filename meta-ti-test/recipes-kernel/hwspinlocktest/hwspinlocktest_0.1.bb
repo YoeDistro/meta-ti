@@ -1,6 +1,6 @@
 SUMMARY = "Build hwspinlock test as an external Linux kernel module"
 DESCRIPTION = "${SUMMARY}"
-LICENSE = "GPL-2.0-only | BSD-3-Clause"
+LICENSE = "BSD-3-Clause OR GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bfa02c83df161e37647ee23a2c7eacd4"
 
 inherit module

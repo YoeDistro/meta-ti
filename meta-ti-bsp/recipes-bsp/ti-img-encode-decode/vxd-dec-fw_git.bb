@@ -1,5 +1,5 @@
 SUMMARY = "Video Decoding Firmware"
-LICENSE = "TI-IMG"
+LICENSE = "LicenseRef-TI-IMG"
 LIC_FILES_CHKSUM = "file://LICENSE.ti-img;md5=84ca7278930db001870686ad997d6bb1"
 
 require recipes-bsp/ti-linux-fw/ti-linux-fw.inc

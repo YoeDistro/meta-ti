@@ -1,6 +1,6 @@
 SUMMARY = "Programmable Real-time Unit Software Package"
 HOMEPAGE = "http://processors.wiki.ti.com/index.php/PRU-ICSS"
-LICENSE = "BSD-3-Clause & PD"
+LICENSE = "BSD-3-Clause AND LicenseRef-PD"
 
 LIC_FILES_CHKSUM = "file://PRU-Package-v6.1-Manifest.html;md5=1e37797ebe9254922f4278bb6047211c"
 
