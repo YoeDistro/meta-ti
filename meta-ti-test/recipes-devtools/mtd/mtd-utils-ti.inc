@@ -1,9 +1,9 @@
 PR:append = ".ti2"
 
-SRC_URI:remove = "git://git.infradead.org/mtd-utils.git;branch=master \
+SRC_URI:remove = "git://git.infradead.org/mtd-utils.git;branch=master;tag=v${PV} \
 "
 
-SRC_URI:prepend = "git://git.infraroot.at/mtd-utils.git;branch=master;protocol=https \
+SRC_URI:prepend = "git://git.infraroot.at/mtd-utils.git;branch=master;tag=v${PV};protocol=https \
 "
 
 EXTRA_OEMAKE = "'CC=${CC} ${CFLAGS} ${@bb.utils.contains('PACKAGECONFIG', 'xattr', '', '-DWITHOUT_XATTR', d)} -I${S}/include' 'RANLIB=${RANLIB}' 'AR=${AR}' 'BUILDDIR=${S}'"
