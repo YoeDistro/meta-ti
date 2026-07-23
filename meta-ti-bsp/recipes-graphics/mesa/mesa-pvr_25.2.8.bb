@@ -13,7 +13,7 @@ BRANCH = "powervr/${PV}"
 SRC_URI = "git://github.com/TexasInstruments/mesa.git;protocol=https;branch=${BRANCH} \
            file://0001-meson-misdetects-64bit-atomics-on-mips-clang.patch"
 
-SRCREV = "0cb5bad52580f156b02125f4c7121ca7198e1489"
+SRCREV = "7b6e8de7b0acdaff684f1109c6acb575644a93ea"
 PV = "25.2.8"
 PR = "r1"
 
