@@ -23,5 +23,3 @@ RDEPENDS:${PN} += "\
     initramfs-module-nfsrootfs \
     nfs-utils-mount \
 "
-
-RDEPENDS:${PN}:append:bsp-next = " initramfs-module-netsetup"

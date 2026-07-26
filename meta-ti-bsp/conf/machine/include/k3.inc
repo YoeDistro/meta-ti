@@ -31,6 +31,9 @@ EXTRA_IMAGEDEPENDS += "virtual/bootloader"
 
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS += "kernel-image-image ti-kernel-fitimage"
 
+TI_CORE_INITRAMFS_EXTRA_INSTALL:append:bsp-mainline = " initramfs-module-netsetup"
+TI_CORE_INITRAMFS_EXTRA_INSTALL:append:bsp-next = " initramfs-module-netsetup"
+
 TFA_PLATFORM = "k3"
 
 # Use the expected value of the ubifs filesystem's volume name in the kernel
