@@ -13,9 +13,9 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${UNPACKDIR}/${BB_GIT_DEFAULT_DESTSUFFIX}"
 
-# 6.12 Mainline version
-SRCREV = "adc218676eef25575469234709c2d87185ca223a"
-PV = "6.12"
+# 7.1 Mainline version
+SRCREV = "8cd9520d35a6c38db6567e97dd93b1f11f185dc6"
+PV = "7.1"
 
 KERNEL_GIT_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
 BRANCH = "master"
@@ -23,7 +23,7 @@ BRANCH = "master"
 KERNEL_DEFCONFIG = ""
 
 KERNEL_REPRODUCIBILITY_PATCHES = " \
-    file://0001-drivers-gpu-drm-msm-registers-improve-reproducibilit.patch \
+    file://0001-arm-Remove-build-path-from-generated-mach-types.h.patch \
     file://0001-perf-python-Fix-compile-for-32bit-platforms.patch \
 "
 
