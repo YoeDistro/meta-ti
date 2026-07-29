@@ -21,3 +21,5 @@ do_image_wic[depends] += "${@ '${TI_CORE_INITRAMFS_IMAGE}:do_image_complete' if 
 TI_WKS_INITRAMFS ?= "${@ ',initrd=${TI_CORE_INITRAMFS_IMAGE_FILE}' if d.getVar('TI_CORE_INITRAMFS_ENABLED') == "1" else ''}"
 
 IMAGE_BOOT_FILES += "${@ '${TI_CORE_INITRAMFS_IMAGE_FILE}' if d.getVar('TI_CORE_INITRAMFS_ENABLED') == "1" else ''}"
+
+INITRAMFS_IMAGE ?= "${@ '${TI_CORE_INITRAMFS_IMAGE}' if d.getVar('TI_CORE_INITRAMFS_ENABLED') == "1" else ''}"
