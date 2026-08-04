@@ -4,7 +4,9 @@
 # SPDX-License-Identifier: MIT
 #
 
-inherit linux-kernel-base kernel-module-split
+inherit kernel-arch kernel-module-split
+
+export ARCH = "${@oe.kernel.map_kernel_arch(d)}"
 
 COMPATIBLE_HOST = ".*-linux"
 
@@ -227,7 +229,7 @@ KERNEL_DTBVENDORED ?= "0"
 #
 # configuration
 #
-KERNEL_VERSION = "${@get_kernelversion_headers('${B}')}"
+KERNEL_VERSION = "${@oe.kernel.get_version_headers('${B}')}"
 
 # kernels are generally machine specific
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -660,7 +662,7 @@ KERNEL_LOCALVERSION ??= ""
 #
 # Note: This class saves the value of localversion to a file
 # so other recipes like make-mod-scripts can restore it via the
-# helper function get_kernellocalversion_file
+# helper function oe.kernel.get_localversion_file
 export LOCALVERSION = "${KERNEL_LOCALVERSION}"
 
 kernel_legacyhs_do_configure() {
