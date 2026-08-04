@@ -35,6 +35,8 @@ def get_merge_dtbs_from_kernel(dts_dir, dts_pattern):
                     matches.append(pattern)
     return ' '.join(matches)
 
+ARCH = "${@oe.kernel.map_kernel_arch(d)}"
+
 KERNEL_DEVICETREE = " \
     ${@get_dtbs_from_kernel('${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_PREFIX}')} \
     ${@get_merge_dtbs_from_kernel('${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/', '${KERNEL_DEVICETREE_DTBMERGE}')} \
