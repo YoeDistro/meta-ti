@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: MIT
 #
 
+ARCH = "${@oe.kernel.map_kernel_arch(d)}"
+UBOOT_ARCH = "${@oe.kernel.map_uboot_arch(d)}"
+
 # fitImage kernel compression algorithm
 FIT_KERNEL_COMP_ALG ?= "gzip"
 FIT_KERNEL_COMP_ALG_EXTENSION ?= ".gz"
