@@ -1,4 +1,4 @@
-From 3cddacaa9ea3cfd75732ea9a84312fa68e0bfda7 Mon Sep 17 00:00:00 2001
+From a64f81b25e678026fa2d6a6715a9c63823235dd5 Mon Sep 17 00:00:00 2001
 From: Ryan Eatmon <reatmon@ti.com>
 Date: Tue, 24 Mar 2026 10:52:59 -0500
 Subject: [PATCH] Revert require GL_EXT_unpack_subimage commit
@@ -20,10 +20,10 @@ Signed-off-by: Ryan Eatmon <reatmon@ti.com>
  2 files changed, 23 insertions(+), 5 deletions(-)
 
 diff --git a/libweston/renderer-gl/gl-renderer-internal.h b/libweston/renderer-gl/gl-renderer-internal.h
-index 1afffbda..dbf7b1c3 100644
+index 1752db2..6a27019 100644
 --- a/libweston/renderer-gl/gl-renderer-internal.h
 +++ b/libweston/renderer-gl/gl-renderer-internal.h
-@@ -526,6 +526,8 @@ struct gl_renderer {
+@@ -558,6 +558,8 @@ struct gl_renderer {
  	struct weston_log_scope *shader_scope;
  
  	struct dmabuf_allocator *allocator;
@@ -33,10 +33,10 @@ index 1afffbda..dbf7b1c3 100644
  
  static inline uint32_t
 diff --git a/libweston/renderer-gl/gl-renderer.c b/libweston/renderer-gl/gl-renderer.c
-index 45a2a148..8b238208 100644
+index 81bb5e5..0e04073 100644
 --- a/libweston/renderer-gl/gl-renderer.c
 +++ b/libweston/renderer-gl/gl-renderer.c
-@@ -3021,6 +3021,22 @@ gl_renderer_flush_damage(struct weston_paint_node *pnode)
+@@ -3404,6 +3404,22 @@ gl_renderer_flush_damage(struct weston_paint_node *pnode)
  
  	data = wl_shm_buffer_get_data(buffer->shm_buffer);
  
@@ -59,7 +59,7 @@ index 45a2a148..8b238208 100644
  	if (gb->needs_full_upload || quirks->force_full_upload) {
  		wl_shm_buffer_begin_access(buffer->shm_buffer);
  
-@@ -5171,11 +5187,9 @@ gl_renderer_setup(struct weston_compositor *ec)
+@@ -5652,11 +5668,9 @@ gl_renderer_setup(struct weston_compositor *ec)
  	else
  		ec->read_format = pixel_format_get_info(DRM_FORMAT_ABGR8888);
  
@@ -74,7 +74,7 @@ index 45a2a148..8b238208 100644
  
  	if (gl_extensions_has(gr, EXTENSION_OES_MAPBUFFER))
  		GET_PROC_ADDRESS(gr->unmap_buffer, "glUnmapBufferOES");
-@@ -5303,6 +5317,8 @@ gl_renderer_setup(struct weston_compositor *ec)
+@@ -5792,6 +5806,8 @@ gl_renderer_setup(struct weston_compositor *ec)
  		   gl_version_minor(gr->gl_version));
  	weston_log_continue(STAMP_SPACE "read-back format: %s\n",
  			    ec->read_format->drm_format_name);
@@ -83,6 +83,3 @@ index 45a2a148..8b238208 100644
  	weston_log_continue(STAMP_SPACE "glReadPixels supports y-flip: %s\n",
  			    yesno(gl_extensions_has(gr, EXTENSION_ANGLE_PACK_REVERSE_ROW_ORDER)));
  	weston_log_continue(STAMP_SPACE "glReadPixels supports PBO: %s\n",
--- 
-2.43.0
-
