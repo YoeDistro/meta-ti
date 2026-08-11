@@ -354,6 +354,10 @@ addtask bundle_initramfs after do_install before do_deploy
 
 KERNEL_DEBUG_TIMESTAMPS ??= "0"
 
+kernel_do_compile() {
+	:
+}
+
 kernel_legacyhs_do_compile() {
 	unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS MACHINE
 
@@ -398,6 +402,8 @@ kernel_legacyhs_do_compile() {
 	for typeformake in ${KERNEL_IMAGETYPE_FOR_MAKE} ; do
 		oe_runmake ${PARALLEL_MAKE} ${typeformake} ${KERNEL_EXTRA_ARGS} $use_alternate_initrd
 	done
+
+	kernel_do_compile
 }
 
 kernel_legacyhs_do_transform_kernel() {
@@ -458,6 +464,10 @@ do_compile_kernelmodules() {
 }
 addtask compile_kernelmodules after do_compile before do_strip
 
+kernel_do_install() {
+	:
+}
+
 kernel_legacyhs_do_install() {
 	#
 	# First install the modules
@@ -498,6 +508,8 @@ kernel_legacyhs_do_install() {
 	install -m 0644 .config ${D}/${KERNEL_IMAGEDEST}/config-${KERNEL_VERSION}
 	install -m 0644 vmlinux ${D}/${KERNEL_IMAGEDEST}/vmlinux-${KERNEL_VERSION}
 	! [ -e Module.symvers ] || install -m 0644 Module.symvers ${D}/${KERNEL_IMAGEDEST}/Module.symvers-${KERNEL_VERSION}
+
+	kernel_do_install
 }
 
 # Must be ran no earlier than after do_kernel_checkout or else Makefile won't be in ${S}/Makefile
@@ -665,6 +677,10 @@ KERNEL_LOCALVERSION ??= ""
 # helper function oe.kernel.get_localversion_file
 export LOCALVERSION = "${KERNEL_LOCALVERSION}"
 
+kernel_do_configure() {
+	:
+}
+
 kernel_legacyhs_do_configure() {
 	# fixes extra + in /lib/modules/2.6.37+
 	# $ scripts/setlocalversion . => +
@@ -689,6 +705,8 @@ kernel_legacyhs_do_configure() {
 	fi
 
 	${KERNEL_CONFIG_COMMAND}
+
+	kernel_do_configure
 }
 
 inherit cml1 pkgconfig
@@ -807,6 +825,10 @@ addtask sizecheck before do_install after do_strip
 
 inherit kernel-artifact-names
 
+kernel_do_deploy() {
+	:
+}
+
 kernel_legacyhs_do_deploy() {
 	deployDir="${DEPLOYDIR}"
 	if [ -n "${KERNEL_DEPLOYSUBDIR}" ]; then
@@ -857,6 +879,8 @@ kernel_legacyhs_do_deploy() {
 			fi
 		done
 	fi
+
+	kernel_do_deploy
 }
 
 # We deploy to filenames that include PKGV and PKGR, read the saved data to
