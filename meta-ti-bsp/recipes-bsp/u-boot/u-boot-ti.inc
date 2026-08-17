@@ -10,7 +10,7 @@ require ${COREBASE}/meta/recipes-bsp/u-boot/u-boot.inc
 
 include ${@ 'recipes-bsp/u-boot/ti-extras.inc' if d.getVar('TI_EXTRAS') else ''}
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/u-boot:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/u-boot:${THISDIR}/files:"
 
 FILES:${PN}-falcon = "boot/tifalcon.bin"
 
@@ -24,6 +24,9 @@ UBOOT_GIT_URI ?= "git://git.ti.com/git/ti-u-boot/ti-u-boot.git"
 UBOOT_GIT_PROTOCOL ?= "https"
 UBOOT_GIT_BRANCH ?= "branch=${BRANCH}"
 SRC_URI = "${UBOOT_GIT_URI};protocol=${UBOOT_GIT_PROTOCOL};${UBOOT_GIT_BRANCH};name=uboot"
+
+SRC_URI:append:bsp-ti-6_12 = " file://0001-pylibfdt-Replace-removed-SWIG-Python-2-compatibility.patch"
+SRC_URI:append:bsp-ti-6_18 = " file://0001-pylibfdt-Replace-removed-SWIG-Python-2-compatibility.patch"
 
 SRCREV_FORMAT = "uboot"
 
