@@ -8,7 +8,7 @@ BRANCH = "master"
 SRC_URI = "git://git.ti.com/git/rpmsg/ti-rpmsg-char.git;protocol=${PROTOCOL};branch=${BRANCH};"
 
 # 0.6.11 release
-SRCREV = "e36103aac7d9f6d64125eb917d3c69022cb86e0b"
+SRCREV = "b1e4d172f39081db81305fa50ccaafd3ef8ae3a6"
 
 PV = "0.6.11+git"
 PR = "r0"
