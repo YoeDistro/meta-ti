@@ -116,7 +116,7 @@ TI_TEST_NETWORKING = "\
     netperf \
     strongswan \
     tcpdump \
-    xdp-tools-ti \
+    xdp-tools \
 "
 
 TI_TEST_STORAGE = "\
