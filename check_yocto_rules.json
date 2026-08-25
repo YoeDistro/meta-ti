@@ -40,6 +40,7 @@
     },
     "PV-1" :{
         "skip_files" : [
+            "meta-ti-bsp/recipes-graphics/mesa/libclc_git.bb",
             "meta-ti-bsp/recipes-kernel/linux/ti-kernel-fitimage.bb",
             "meta-ti-bsp/recipes-multimedia/ti-multimedia-udev/ti-multimedia-udev.bb",
             "meta-ti-bsp/recipes-ti/initramfs/packagegroup-ti-core-initramfs.bb",
@@ -55,6 +56,11 @@
     "SUMMARY-1" : {
         "skip_files" : [
             "meta-ti-extras/recipes-ti/ipc/ti-ipc-rtos_git.bb"
+        ]
+    },
+    "SUMMARY-2" : {
+        "skip_files" : [
+            "meta-ti-bsp/recipes-graphics/mesa/libclc_git.bb"
         ]
     }
 }
