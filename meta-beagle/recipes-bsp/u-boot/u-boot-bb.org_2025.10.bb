@@ -20,3 +20,8 @@ SRC_URI:append:pocketbeagle2 = " file://bootcmd-ti-mmc.cfg"
 SRC_URI:append:beaglebone = " file://0001-arm-dts-am335x-pocketbeagle-Add-tick-timer.patch"
 
 SRC_URI += "file://0001-pylibfdt-Replace-removed-SWIG-Python-2-compatibility.patch"
+
+# u-boot/lib/rsa/rsa-sign.c uses the OpenSSL engine API, but this has been
+# removed from OpenSSL 4.  Upstream u-boot has been fixed but we can enable
+# the stub engine API in OpenSSL until this recipe is removed.
+BUILD_CFLAGS += "-DOPENSSL_ENGINE_STUBS"

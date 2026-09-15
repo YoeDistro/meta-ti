@@ -13,3 +13,8 @@ UBOOT_GIT_URI = "git://github.com/beagleboard/u-boot.git"
 UBOOT_GIT_PROTOCOL = "https"
 BRANCH = "v2024.10-Beagle"
 SRCREV = "bf0e9d0b7274d2b561bd24c858affec2038250f9"
+
+# u-boot/lib/rsa/rsa-sign.c uses the OpenSSL engine API, but this has been
+# removed from OpenSSL 4.  Upstream u-boot has been fixed but we can enable
+# the stub engine API in OpenSSL until this recipe is removed.
+BUILD_CFLAGS += "-DOPENSSL_ENGINE_STUBS"
