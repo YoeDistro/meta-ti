@@ -60,7 +60,7 @@
     },
     "SUMMARY-2" : {
         "skip_files" : [
-            "meta-ti-bsp/recipes-graphics/mesa/libclc_git.bb"
+            "meta-ti-bsp/recipes-graphics/mesa/libclc_22.1.8.bb"
         ]
     }
 }
