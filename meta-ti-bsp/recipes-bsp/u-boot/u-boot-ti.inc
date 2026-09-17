@@ -167,6 +167,26 @@ uboot_compile_config_copy_binary:k3r5 () {
     fi
 }
 
+uboot_compile_config_copy_binary:am62lxx () {
+    config=$1
+    type=$2
+    binary=$3
+
+    builddir="${builddir}"
+
+    if ! [ -L ${B}/${builddir}/${binary} ] && ! [ -f ${B}/${builddir}/${binary} ]; then
+        ln -s ${B}/${builddir}/spl/u-boot-spl.${UBOOT_SUFFIX} ${B}/${builddir}/${binary}
+    fi
+
+    if ! [ -L ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX} ] && ! [ -f ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX} ]; then
+        tgt="${B}/${builddir}/${binary}"
+        if [ -L ${B}/${builddir}/${binary} ]; then
+            tgt=$(realpath ${B}/${builddir}/${binary})
+        fi
+        ln -s ${tgt} ${B}/${builddir}/${UBOOT_BINARYNAME}-${type}.${UBOOT_SUFFIX}
+    fi
+}
+
 uboot_install_config:append () {
     if [ "x${SPL_UART_BINARY}" != "x" ]; then
         install ${B}/${builddir}/spl/${SPL_UART_BINARY} ${D}/boot/${SPL_UART_IMAGE}-${type}
@@ -271,7 +291,7 @@ uboot_deploy_config:append:k3r5 () {
 }
 
 uboot_deploy_config:append:am62lxx () {
-	for f in ${B}/${builddir}/tiboot3-*.bin; do
+	for f in ${B}/${builddir}/tiboot3*.bin; do
 		if [ -f "$f" ]; then
 			f_base=$(basename $f)
 			install -m 644 $f ${DEPLOYDIR}/${f_base}-${type}
