@@ -51,3 +51,29 @@ TEST_LIST:append:bsp-ti-6_18 = " \
 "
 
 INSANE_SKIP:${PN} += "staticdev textrel"
+
+SRC_URI:remove:bsp-ti-6_6 = "\
+    file://0001-selftests-filelock-fix-the-test-plan-count-in-ofdloc.patch \
+    file://0001-selftests-cgroup-memcontrol-keep-anon-page-touches-f.patch \
+    file://0001-selftests-filesystems-idmapped_tmpfile-chown-the-lay.patch \
+"
+SRC_URI:remove:bsp-ti-6_12 = "\
+    file://0001-selftests-filelock-fix-the-test-plan-count-in-ofdloc.patch \
+    file://0001-selftests-cgroup-memcontrol-keep-anon-page-touches-f.patch \
+    file://0001-selftests-filesystems-idmapped_tmpfile-chown-the-lay.patch \
+"
+SRC_URI:remove:bsp-ti-6_18 = "\
+    file://0001-selftests-filelock-fix-the-test-plan-count-in-ofdloc.patch \
+    file://0001-selftests-cgroup-memcontrol-keep-anon-page-touches-f.patch \
+    file://0001-selftests-filesystems-idmapped_tmpfile-chown-the-lay.patch \
+"
+SRC_URI:remove:bsp-bb_org-6_6 = "\
+    file://0001-selftests-filelock-fix-the-test-plan-count-in-ofdloc.patch \
+    file://0001-selftests-cgroup-memcontrol-keep-anon-page-touches-f.patch \
+    file://0001-selftests-filesystems-idmapped_tmpfile-chown-the-lay.patch \
+"
+SRC_URI:remove:bsp-bb_org-6_12 = "\
+    file://0001-selftests-filelock-fix-the-test-plan-count-in-ofdloc.patch \
+    file://0001-selftests-cgroup-memcontrol-keep-anon-page-touches-f.patch \
+    file://0001-selftests-filesystems-idmapped_tmpfile-chown-the-lay.patch \
+"
