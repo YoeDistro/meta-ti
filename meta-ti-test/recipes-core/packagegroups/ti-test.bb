@@ -94,6 +94,10 @@ TI_TEST_GRAPHICS = " \
 "
 
 TI_TEST_MULTIMEDIA = "\
+    gstreamer1.0 \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-base \
+    gstreamer1.0-plugins-bad \
     gst-devtools \
     v4l-utils \
     yavta \
