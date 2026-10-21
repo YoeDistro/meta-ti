@@ -1,4 +1,4 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/optee-test:"
 
-PV = "4.10.0+git"
-SRCREV = "88c93e87a5c172363ee986ded036a25cafcc9d2c"
+PV = "4.11.0+git"
+SRCREV = "179740b43809069ee567d58ebd8e0f85ef8168e2"
