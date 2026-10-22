@@ -10,6 +10,9 @@
             },
             "meta-ti-bsp\\/recipes-graphics\\/mesa\\/mesa-pvr-\\S+\\.inc" : {
                 "skip_vars": [ "TOOLS", "TOOLS_DEPS", "GALLIUMDRIVERS", "VULKAN_DRIVERS" ]
+            },
+            "meta-ti-bsp\\/dynamic-layers\\/security-layer\\/recipes-ti\\/initramfs\\/ti-core-initramfs\\.bbappend" : {
+                "skip_vars": [ "TI_CORE_INITRAMFS_EXTRA_INSTALL" ]
             }
         }
     },
@@ -23,6 +26,10 @@
             "meta-ti-bsp/dynamic-layers/openembedded-layer/recipes-ti/initramfs/packagegroup-ti-core-initramfs.bbappend",
             "meta-ti-bsp/dynamic-layers/tpm-layer/recipes-ti/initramfs/packagegroup-ti-core-initramfs.bbappend",
             "meta-ti-bsp/dynamic-layers/tpm-layer/recipes-ti/initramfs/ti-core-initramfs.bbappend",
+            "meta-ti-bsp/dynamic-layers/security-layer/recipes-core/udev/udev-aragoconf_%.bbappend",
+            "meta-ti-bsp/dynamic-layers/security-layer/recipes-core/udev/udev-extraconf_%.bbappend",
+            "meta-ti-bsp/dynamic-layers/security-layer/recipes-kernel/linux/linux-ti-staging_%.bbappend",
+            "meta-ti-bsp/dynamic-layers/security-layer/recipes-ti/initramfs/ti-core-initramfs.bbappend",
             "meta-ti-test/dynamic-layers/qt6-layer/recipes-core/packagegroups/ti-test.bbappend",
             "meta-ti-test/dynamic-layers/flutter-layer/recipes-graphics/flutter/flutter-wayland-client_%.bbappend",
             "meta-ti-test/dynamic-layers/flutter-layer/recipes-graphics/flutter/flutter-samples-material-3-demo_%.bbappend",
