@@ -115,13 +115,16 @@ TI_TEST_NETWORKING = "\
     iproute2-bridge \
     iproute2-devlink \
     iproute2-tc \
-    linux-firmware-iwlwifi-misc \
     lldpd \
     mstpd \
     netperf \
     strongswan \
     tcpdump \
     xdp-tools-ti \
+"
+
+TI_TEST_NETWORKING:append:ti-soc = " \
+    linux-firmware-iwlwifi-ty \
 "
 
 TI_TEST_STORAGE = "\
