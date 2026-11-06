@@ -4,7 +4,7 @@ PR = "r0"
 
 BRANCH = "ti-u-boot-2026.01"
 
-SRCREV_uboot = "a0c21f799732ae350ebc31da24297d12f3e945f4"
+SRCREV_uboot = "d5ed5d0765992529e310d6cd2d29aa367c2fab36"
 
 # u-boot/lib/rsa/rsa-sign.c uses the OpenSSL engine API, but this has been
 # removed from OpenSSL 4.  Upstream u-boot has been fixed but we can enable
