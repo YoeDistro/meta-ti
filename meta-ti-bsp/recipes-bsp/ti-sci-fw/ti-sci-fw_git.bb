@@ -9,6 +9,8 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PV = "${TI_SYSFW_VERSION}"
 PR = "${INC_PR}.0"
 
+SPDX_DEPLOY_ALLOW_EMPTY:task-deploy = "1"
+
 do_install() {
 	install -d ${D}${nonarch_base_libdir}/firmware/ti-sysfw
 	install -m 644 ${S}/ti-sysfw/ti-sci-firmware-* ${D}${nonarch_base_libdir}/firmware/ti-sysfw
